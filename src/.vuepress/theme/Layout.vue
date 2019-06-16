@@ -40,6 +40,9 @@ import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import {
   resolveSidebarItems
 } from './util'
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload)
 
 export default {
   components: {

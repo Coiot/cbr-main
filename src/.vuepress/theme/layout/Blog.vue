@@ -33,7 +33,7 @@
   <section class="scenes">
     <p>Testing the Scenes</p>
     <p>{{ $page.frontmatter.abstract }}</p>
-    <div v-for="scene in $page.frontmatter.scenes">
+    <div class="medium" v-for="scene in $page.frontmatter.scenes">
       <h3>{{ scene.scene_number }}</h3>
       <h2>{{ scene.scene_title }}</h2>
       <img :src="scene.slide_url">
