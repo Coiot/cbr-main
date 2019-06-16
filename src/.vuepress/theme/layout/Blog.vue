@@ -33,7 +33,7 @@
   <section class="scenes">
     <p>Testing the Scenes</p>
     <p>{{ $page.frontmatter.abstract }}</p>
-    <div class="medium" v-for="scene in $page.frontmatter.scenes">
+    <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
       <h3>{{ scene.scene_number }}</h3>
       <h2>{{ scene.scene_title }}</h2>
       <img v-lazy="scene.slide_url">
@@ -45,17 +45,6 @@
   <p>Testing</p>
 
   <Content class="custom" />
-
-  <div class="page-edit">
-    <div class="edit-link" v-if="editLink">
-      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
-      <OutboundLink />
-    </div>
-    <div class="last-updated" v-if="lastUpdated">
-      <span class="prefix">{{ lastUpdatedText }}: </span>
-      <time class="time" :datetime="$page.lastUpdated">{{ lastUpdated }}</time>
-    </div>
-  </div>
 
   <div class="page-nav" v-if="prev || next">
     <p class="inner">
@@ -93,29 +82,6 @@ export default {
   props: ['sidebarItems'],
 
   computed: {
-    lastUpdated() {
-      if (this.$page.lastUpdated) {
-        const dateFormat = new Date(this.$page.lastUpdated)
-
-        const options = {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }
-
-        return `${dateFormat.toLocaleDateString(this.$lang, options)}, ${dateFormat.toLocaleTimeString(this.$lang)}`
-      }
-    },
-
-    lastUpdatedText() {
-      if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
-        return this.$themeLocaleConfig.lastUpdated
-      }
-      if (typeof this.$site.themeConfig.lastUpdated === 'string') {
-        return this.$site.themeConfig.lastUpdated
-      }
-      return 'Last Updated'
-    },
 
     prev() {
       const prev = this.$page.frontmatter.prev

@@ -34,8 +34,6 @@ import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import AlbumHeader from './components/AlbumHeader.vue'
-import AlbumScenes from './components/AlbumScenes.vue'
 import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import {
   resolveSidebarItems
@@ -45,7 +43,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   observer: true,
   observerOptions: {
-    rootMargin: '1400px',
+    rootMargin: '1600px',
     threshold: 0.0
   }
 })
@@ -56,8 +54,6 @@ export default {
     Home,
     Page,
     Sidebar,
-    AlbumHeader,
-    AlbumScenes,
     Navbar,
     SWUpdatePopup
   },

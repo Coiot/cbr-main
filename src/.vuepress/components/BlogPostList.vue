@@ -4,12 +4,12 @@
   <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }">
 
     <div class="title-info">
-      <h2>{{ post.frontmatter.title }}</h2>
+      <p>{{ post.frontmatter.title }}</p>
       <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
     </div>
 
     <div class="album-info">
-      <h2>{{ post.frontmatter.narrator }}</h2>
+      <p>{{ post.frontmatter.narrator }}</p>
       <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
     </div>
 
@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.album-list {
+  margin: 7rem 3rem 0;
+}
+
 .post {
   position: relative;
   width: 100%;
@@ -58,7 +62,7 @@ img {
   max-width: 420px;
 }
 
-.title-info h2 {
+.title-info p {
   display: inline-block;
   width: auto;
   font-size: 1rem;
@@ -83,7 +87,7 @@ img {
   max-width: 800px;
 }
 
-.album-info h2 {
+.album-info p {
   display: inline-block;
   width: auto;
   font-size: 0.9rem;
