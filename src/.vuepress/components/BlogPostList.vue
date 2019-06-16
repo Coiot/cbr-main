@@ -24,7 +24,7 @@ export default {
     albums() {
       return this.$site.pages
         .filter(x => x.path.startsWith('/blog') && !x.frontmatter.exclude)
-        .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+        .sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title))
     }
   }
 }

@@ -8,7 +8,7 @@ const autometa_options = {
 };
 
 module.exports = {
-	title: 'My New VuePress Blog',
+	title: 'CBR.tv',
 	dest: './public',
 	themeConfig: {
 		editLinks: true,
@@ -22,7 +22,7 @@ module.exports = {
 		],
 		logo: '/cbr_logo.svg',
 		docsDir: 'src',
-		pageSize: 5,
+		pageSize: 10,
 		startPage: 0
 	},
 	plugins: [

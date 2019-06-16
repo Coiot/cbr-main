@@ -36,7 +36,7 @@
     <div class="medium" v-for="scene in $page.frontmatter.scenes">
       <h3>{{ scene.scene_number }}</h3>
       <h2>{{ scene.scene_title }}</h2>
-      <img :src="scene.slide_url">
+      <img v-lazy="scene.slide_url">
       <div v-html="scene.narration"></div>
       </li>
     </div>

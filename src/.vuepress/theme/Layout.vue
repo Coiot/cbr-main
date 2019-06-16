@@ -42,7 +42,13 @@ import {
 } from './util'
 import VueLazyload from 'vue-lazyload'
 
-Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  observer: true,
+  observerOptions: {
+    rootMargin: '1400px',
+    threshold: 0.0
+  }
+})
 
 export default {
   components: {
