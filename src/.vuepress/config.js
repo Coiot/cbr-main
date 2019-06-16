@@ -9,23 +9,17 @@ module.exports = {
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
-			{ text: 'Home', link: '/' }, 
+			{ text: 'Home', link: '/' },
 			{ text: 'Blog', link: '/blog/' },
 			{ text: 'Archive', link: '/archive/' },
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		],
-		logo: '/vuepress-blog-logo.png',
+		logo: '/cbr_logo.svg',
 		docsDir: 'src',
 		pageSize: 5,
 		startPage: 0
 	},
 	plugins: [
-		[
-			'@vuepress/google-analytics',
-			{
-				ga: '' // UA-00000000-0
-			}
-		],
 		[
 			'vuepress-plugin-rss',
 			{

@@ -1,71 +1,95 @@
 <template>
-  <div class="blog">
-    <div class="blog__header">
-      <p class="publish-date"><time :datetime="$frontmatter.date">{{ publishDate }}</time></p>
-      <p v-if="$page.readingTime">Time to read: {{ $page.readingTime.text }}</p>
-      <h1 class="blog__title">{{ $page.title }}</h1>
-    </div>
+<div class="blog">
+  <div class="blog__header">
+    <div class="header">
 
-    <Content class="custom" />
-
-    <div class="page-edit">
-      <div
-        class="edit-link"
-        v-if="editLink"
-      >
-        <a
-          :href="editLink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >{{ editLinkText }}</a>
-        <OutboundLink/>
+      <div class="column">
+        <Label class="label">Title:</Label>
+        <span class="value">{{ $page.frontmatter.title }}</span>
       </div>
-      <div
-        class="last-updated"
-        v-if="lastUpdated"
-      >
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <time class="time" :datetime="$page.lastUpdated">{{ lastUpdated }}</time>
+
+      <div class="column">
+        <Label class="label">Release Date:</Label>
+        <span class="value">{{ $page.frontmatter.release_date }}</span>
       </div>
+
+      <div class="column">
+        <Label class="label">Narrated by:</Label>
+        <span class="value">{{ $page.frontmatter.narrator }}</span>
+      </div>
+
+      <div class="column">
+        <Label class="label">Starting Turn:</Label>
+        <span class="value">{{ $page.frontmatter.starting_turn }}</span>
+      </div>
+
+      <div class="column">
+        <Label class="label">Audio Narration:</Label>
+        <span class="value">{{ $page.frontmatter.audio_narration }}</span>
+      </div>
+
+
+
     </div>
-
-    <div class="page-nav" v-if="prev || next">
-      <p class="inner">
-        <span
-          v-if="prev"
-          class="prev"
-        >
-          ←
-          <router-link
-            v-if="prev"
-            class="prev"
-            :to="prev.path"
-          >
-            {{ prev.title || prev.path }}
-          </router-link>
-        </span>
-
-        <span
-          v-if="next"
-          class="next"
-        >
-          <router-link
-            v-if="next"
-            :to="next.path"
-          >
-            {{ next.title || next.path }}
-          </router-link>
-          →
-        </span>
-      </p>
-    </div>
-
-    <slot name="bottom"/>
   </div>
+
+  <section class="scenes">
+    <p>Testing the Scenes</p>
+    <p>{{ $page.frontmatter.abstract }}</p>
+    <div v-for="scene in $page.frontmatter.scenes">
+      <h3>{{ scene.scene_number }}</h3>
+      <h2>{{ scene.scene_title }}</h2>
+      <img :src="scene.slide_url">
+      <div v-html="scene.narration"></div>
+      <p>Testing inside the various scenes</p>
+      </li>
+    </div>
+  </section>
+
+  <p>Testing</p>
+
+  <Content class="custom" />
+
+  <div class="page-edit">
+    <div class="edit-link" v-if="editLink">
+      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
+      <OutboundLink />
+    </div>
+    <div class="last-updated" v-if="lastUpdated">
+      <span class="prefix">{{ lastUpdatedText }}: </span>
+      <time class="time" :datetime="$page.lastUpdated">{{ lastUpdated }}</time>
+    </div>
+  </div>
+
+  <div class="page-nav" v-if="prev || next">
+    <p class="inner">
+      <span v-if="prev" class="prev">
+        ←
+        <router-link v-if="prev" class="prev" :to="prev.path">
+          {{ prev.title || prev.path }}
+        </router-link>
+      </span>
+
+      <span v-if="next" class="next">
+        <router-link v-if="next" :to="next.path">
+          {{ next.title || next.path }}
+        </router-link>
+        →
+      </span>
+    </p>
+  </div>
+
+  <slot name="bottom" />
+</div>
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util'
+import {
+  resolvePage,
+  normalize,
+  outboundRE,
+  endingSlashRE
+} from '../util'
 
 export default {
   name: 'Blog',
@@ -73,21 +97,21 @@ export default {
   props: ['sidebarItems'],
 
   computed: {
-    lastUpdated () {
+    lastUpdated() {
       if (this.$page.lastUpdated) {
         const dateFormat = new Date(this.$page.lastUpdated)
 
         const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        } 
-        
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }
+
         return `${dateFormat.toLocaleDateString(this.$lang, options)}, ${dateFormat.toLocaleTimeString(this.$lang)}`
       }
     },
 
-    lastUpdatedText () {
+    lastUpdatedText() {
       if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
         return this.$themeLocaleConfig.lastUpdated
       }
@@ -97,7 +121,7 @@ export default {
       return 'Last Updated'
     },
 
-    prev () {
+    prev() {
       const prev = this.$page.frontmatter.prev
       if (prev === false) {
         return
@@ -108,7 +132,7 @@ export default {
       }
     },
 
-    next () {
+    next() {
       const next = this.$page.frontmatter.next
       if (next === false) {
         return
@@ -119,7 +143,7 @@ export default {
       }
     },
 
-    editLink () {
+    editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return
       }
@@ -142,7 +166,7 @@ export default {
       }
     },
 
-    editLinkText () {
+    editLinkText() {
       return (
         this.$themeLocaleConfig.editLinkText ||
         this.$site.themeConfig.editLinkText ||
@@ -151,36 +175,36 @@ export default {
     },
 
     publishDate() {
-        const dateFormat = new Date(this.$frontmatter.date)
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        } 
-        
-        return dateFormat.toLocaleDateString(this.$lang, options)
+      const dateFormat = new Date(this.$frontmatter.date)
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }
+
+      return dateFormat.toLocaleDateString(this.$lang, options)
     }
   },
 
   methods: {
-    createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
+    createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/
       if (bitbucket.test(repo)) {
-        const base = outboundRE.test(docsRepo)
-          ? docsRepo
-          : repo
+        const base = outboundRE.test(docsRepo) ?
+          docsRepo :
+          repo
         return (
           base.replace(endingSlashRE, '') +
-           `/${docsBranch}` +
-           (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
-           path +
-           `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+          `/${docsBranch}` +
+          (docsDir ? '/' + docsDir.replace(endingSlashRE, '') : '') +
+          path +
+          `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
         )
       }
 
-      const base = outboundRE.test(docsRepo)
-        ? docsRepo
-        : `https://github.com/${docsRepo}`
+      const base = outboundRE.test(docsRepo) ?
+        docsRepo :
+        `https://github.com/${docsRepo}`
 
       return (
         base.replace(endingSlashRE, '') +
@@ -192,15 +216,15 @@ export default {
   }
 }
 
-function resolvePrev (page, items) {
+function resolvePrev(page, items) {
   return find(page, items, -1)
 }
 
-function resolveNext (page, items) {
+function resolveNext(page, items) {
   return find(page, items, 1)
 }
 
-function find (page, items, offset) {
+function find(page, items, offset) {
   const res = []
   items.forEach(item => {
     if (item.type === 'group') {
@@ -221,6 +245,21 @@ function find (page, items, offset) {
 <style lang="stylus" scoped>
 @import '../styles/config.styl'
 @require '../styles/wrapper.styl'
+
+.scenes {
+  display: block;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto 3rem auto;
+}
+
+img {
+  width: 100%;
+  line-height: 0;
+  margin: 2rem 0;
+}
 
 .blog {
   @extend $wrapper
