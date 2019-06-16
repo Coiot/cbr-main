@@ -1,12 +1,12 @@
 ---
 title: 'Part 10: Let Slip the Frogs of War!'
-narrator:
+narrated_by:
 abstract:
 starting_turn:
-release_date: 2019-06-15T22:13:07.255971+00:00
+release_date:
 audio_narration:
 edition: Mk2
-date:
+date: 2019-06-16T06:07:58.860499+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part10-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

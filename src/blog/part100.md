@@ -1,12 +1,12 @@
 ---
 title: 'Part 100: Sentimental Centennial'
-narrator:
+narrated_by:
 abstract: ''
 starting_turn: ''
-release_date: 2019-06-15T22:13:06.875647+00:00
+release_date: ''
 audio_narration: ''
 edition: Mk2
-date: 2019-06-14 06:22:57 +0000
+date: 2019-06-16T06:07:58.823840+00:00 2019-06-14 06:22:57 +0000
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: "1"
@@ -975,6 +975,4 @@ scenes:
     Everyone:
     You know, we were originally going to all narrate every slide at the same time, and as a joke in every slide my narration would be “Lunar is typing” and that’s it, but we scrapped the idea, mainly because it was a joke. However, looking up at the near 4000 words I dumped, I think I need to stay away from the keyboard not only for my sake, but yours. Oh yeah, and Dawkinzz… Jyvaskyla.
     For real though, thanks for keeping around with us and thanks dearly for being who you are. You’ve been exactly what has fueled us to work through sleepless nights and what has fueled us to pull money out of our pocket to keep this show running. The future of the CBR will nevertheless be exciting and we hope everyone enjoys the ride! Till next album and next Tuesday, keep sane sub-goers. /u/Limerickarcher, /r/ReonMonterus and /u/LunarNeedle out!
-narrated_by: ''
-
 ---

@@ -1,12 +1,12 @@
 ---
 title: 'Part 86: Requiem for a Leg Day'
-narrator: 
+narrated_by: 
 abstract: 
 starting_turn: 
-release_date: 2019-06-15T22:13:07.199013+00:00
+release_date: 
 audio_narration: 
 edition: Mk2
-date: 
+date: 2019-06-16T06:07:58.855864+00:00 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part86-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

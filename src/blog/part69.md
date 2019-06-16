@@ -1,12 +1,12 @@
 ---
 title: 'Part 69: Lord of the Ryk'
-narrator:
+narrated_by:
 abstract:
 starting_turn:
-release_date: 2019-06-15T22:13:06.535815+00:00
+release_date:
 audio_narration:
 edition: Mk2
-date:
+date: 2019-06-16T06:07:58.802960+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part69-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

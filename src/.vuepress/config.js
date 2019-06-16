@@ -4,15 +4,13 @@ module.exports = {
 	title: 'My New VuePress Blog',
 	dest: './public',
 	themeConfig: {
-		repo: 'https://wwww.github.com',
-		repoLabel: 'Repo',
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'Blog', link: '/blog/' },
-			{ text: 'Archive', link: '/archive/' },
-			{ text: 'RSS Feed', link: '/rss.xml' }
+			{ text: 'Reddit', link: '/' },
+			{ text: 'Discord', link: '/' }
 		],
 		logo: '/cbr_logo.svg',
 		docsDir: 'src',

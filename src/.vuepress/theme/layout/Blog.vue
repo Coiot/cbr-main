@@ -15,7 +15,7 @@
 
       <div class="column">
         <Label class="label">Narrated by:</Label>
-        <span class="value">{{ $page.frontmatter.narrator }}</span>
+        <span class="value">{{ $page.frontmatter.narrated_by }}</span>
       </div>
 
       <div class="column">
@@ -27,9 +27,6 @@
         <Label class="label">Audio Narration:</Label>
         <span class="value">{{ $page.frontmatter.audio_narration }}</span>
       </div>
-
-
-
     </div>
   </div>
 
@@ -41,7 +38,6 @@
       <h2>{{ scene.scene_title }}</h2>
       <img :src="scene.slide_url">
       <div v-html="scene.narration"></div>
-      <p>Testing inside the various scenes</p>
       </li>
     </div>
   </section>

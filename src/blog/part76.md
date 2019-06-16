@@ -1,12 +1,12 @@
 ---
 title: 'Part 76: Hail Kruger'
-narrator: 
+narrated_by: 
 abstract: 
 starting_turn: 
-release_date: 2019-06-15T22:13:05.757222+00:00
+release_date: 
 audio_narration: 
 edition: Mk2
-date: 
+date: 2019-06-16T06:07:58.753942+00:00 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part76-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

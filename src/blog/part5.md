@@ -1,12 +1,12 @@
 ---
 title: 'Part 5: How to Fight Wars Good'
-narrator:
+narrated_by:
 abstract: ''
 starting_turn: ''
-release_date: 2019-06-15T22:13:06.860497+00:00
+release_date: ''
 audio_narration: ''
 edition: Mk2
-date:
+date: 2019-06-16T06:07:58.821954+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: "1"
@@ -597,6 +597,4 @@ scenes:
     are late to the game, spiritually speaking. \nThat wraps up Part 5. Thank you,
     dear reader for your attention. I truly hope you enjoyed it! And thank you very
     much TPangolin for this opportunity to contribute to the fun."
-narrated_by: ''
-
 ---

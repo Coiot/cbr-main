@@ -1,12 +1,12 @@
 ---
 title: 'Part 106: Oni wa Soto, Fuku wa Uchi'
-narrator: 
+narrated_by: 
 abstract: 
 starting_turn: 
-release_date: 2019-06-15T22:13:05.636858+00:00
+release_date: 
 audio_narration: 
 edition: Mk2
-date: 
+date: 2019-06-16T06:07:58.748136+00:00 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part106-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

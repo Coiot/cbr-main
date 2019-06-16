@@ -1,12 +1,12 @@
 ---
 title: 'Part 104: Imperialism Invictus'
-narrator: 1
-abstract: 2
-starting_turn: 3
-release_date: 2019-06-15T22:13:06.995879+00:00
-audio_narration: 4
+narrated_by:
+abstract: 
+starting_turn:
+release_date:
+audio_narration:
 edition: Mk2
-date:
+date: 2019-06-16T06:07:58.836729+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01
@@ -262,4 +262,3 @@ scenes:
   slide_url: 'https://cdn.civbattleroyale.tv/mark2-part104-scene63.jpg'
   narration: "The Kimberley mechs land and F keys are primed as Batticaloa’s Finnish and Afghan defenders struggle against the Giant Death Robots and their marine escort. Meanwhile a Vietnamese worker and carrier are on a lonely mission to continue the OCP-II’s work. And here we conclude our journey. Will Finland survive? Will Hawaii be extinguished? Can Brazil be stopped? Find out next time on CBR."
 ---
-Something please.

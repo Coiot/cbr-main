@@ -1,12 +1,12 @@
 ---
 title: 'Part 23: "On My Command, You Shall Become Irrelevant!"'
-narrator:
+narrated_by:
 abstract:
 starting_turn:
-release_date: 2019-06-15T22:13:05.952999+00:00
+release_date:
 audio_narration:
 edition: Mk2
-date:
+date: 2019-06-16T06:07:58.763320+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part23-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01
