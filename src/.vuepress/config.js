@@ -1,5 +1,10 @@
 const currentDateUTC = new Date().toUTCString()
 const autometa_options = {
+  enable : true,
+  image  : true,
+  twitter: true,
+  og     : true,
+  schema : true,
   site: {
     name   : 'CivBattleRoyale.tv',
     twitter: 'lacoiot',
@@ -11,11 +16,10 @@ module.exports = {
 	title: 'CBR.tv',
 	dest: './public',
 	themeConfig: {
-		editLinks: true,
-		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'Albums', link: '/blog/' },
+			{ text: 'Patreon', link: 'https://www.patreon.com/civbr' },
 			{ text: 'Reddit', link: 'https://old.reddit.com/r/civbattleroyale/' },
 			{ text: 'Discord', link: 'https://discord.gg/vAvSFdu' },
 			{ text: 'Twitch', link: 'https://www.twitch.tv/civbattleroyale' },
@@ -30,7 +34,7 @@ module.exports = {
 			'vuepress-plugin-rss',
 			{
 				base_url: '/',
-				site_url: 'https://vuepressblog.org',
+				site_url: 'https://civbattleroyale.tv',
 				filter: frontmatter => frontmatter.date <= new Date(currentDateUTC),
 				count: 20
 			}
@@ -44,11 +48,12 @@ module.exports = {
 	 			delay: 1000,
 	 			options: {
 		 		background: 'rgba(27, 27, 27, 0.9)',
-		 		scrollOffset: 100,
+		 		scrollOffset: 150,
 	 			}
  			}
 		],
-		[ 'autometa', autometa_options ],
+		[ 'vuepress-plugin-autometa', autometa_options ],
+    ['@vuepress/pwa'],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],

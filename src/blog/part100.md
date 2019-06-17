@@ -6,7 +6,7 @@ starting_turn: ''
 release_date: ''
 audio_narration: ''
 edition: Mk2
-date: 2019-06-16T06:07:58.823840+00:00 2019-06-14 06:22:57 +0000
+date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.823840+00:00 2019-06-14 06:22:57 +0000
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: "1"

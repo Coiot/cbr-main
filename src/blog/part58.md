@@ -6,7 +6,7 @@ starting_turn:
 release_date: 
 audio_narration: 
 edition: Mk2
-date: 2019-06-16T06:07:58.792648+00:00 
+date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.792648+00:00 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part58-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01
@@ -184,7 +184,7 @@ scenes:
 - scene_number: 44
   scene_title: Image 44
   slide_url: 'https://cdn.civbattleroyale.tv/mark2-part58-scene44.jpg'
-  narration: "Holy bombers batman. The Finns it seems are preparing for round two and have brought backup, the Paratruupers this time around will fall from the sky from the wings of devastating and hard to see aircraft, rather than slings like traditionally. \nEDIT: UPDATE: URGENT: BREAKING NEWS: I have gained news from our lord and saviour Nebby the all powerful and all seeing that these are what are attacking the Arabians. The Finns are the ones attacking. This makes so much sense. Now for a ground invasion?"
+  narration: "Holy bombers batman. The Finns it seems are preparing for round two and have brought backup, the Paratruupers this time around will fall from the sky from the wings of devastating and hard to see aircraft, rather than slings like traditionally. \nEDIT: UPdate: 2015-03-04T00:00:00.000Z URGENT: BREAKING NEWS: I have gained news from our lord and saviour Nebby the all powerful and all seeing that these are what are attacking the Arabians. The Finns are the ones attacking. This makes so much sense. Now for a ground invasion?"
 - scene_number: 45
   scene_title: Image 45
   slide_url: 'https://cdn.civbattleroyale.tv/mark2-part58-scene45.jpg'

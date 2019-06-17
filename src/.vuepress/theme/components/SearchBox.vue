@@ -1,52 +1,30 @@
 <template>
-  <div class="search-box">
-    <input
-      @input="query = $event.target.value"
-      aria-label="Search"
-      :value="query"
-      :class="{ 'focused': focused }"
-      autocomplete="off"
-      spellcheck="false"
-      @focus="focused = true"
-      @blur="focused = false"
-      @keyup.enter="go(focusIndex)"
-      @keyup.up="onUp"
-      @keyup.down="onDown"
-    >
-    <ul
-      class="suggestions"
-      v-if="showSuggestions"
-      :class="{ 'align-right': alignRight }"
-      @mouseleave="unfocus"
-    >
-      <li
-        class="suggestion"
-        v-for="(s, i) in suggestions"
-        :class="{ focused: i === focusIndex }"
-        @mousedown="go(i)"
-        @mouseenter="focus(i)"
-      >
-        <a :href="s.path" @click.prevent>
-          <span class="page-title">{{ s.title || s.path }}</span>
-          <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<div class="search-box">
+  <input @input="query = $event.target.value" aria-label="Search" :value="query" :class="{ 'focused': focused }" autocomplete="off" spellcheck="false" @focus="focused = true" @blur="focused = false" @keyup.enter="go(focusIndex)" @keyup.up="onUp"
+    @keyup.down="onDown">
+  <ul class="suggestions" v-if="showSuggestions" :class="{ 'align-right': alignRight }" @mouseleave="unfocus">
+    <li class="suggestion" v-for="(s, i) in suggestions" :class="{ focused: i === focusIndex }" @mousedown="go(i)" @mouseenter="focus(i)">
+      <a :href="s.path" @click.prevent>
+        <span class="page-title">{{ s.title || s.path }}</span>
+        <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
+      </a>
+    </li>
+  </ul>
+</div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       query: '',
-      focused: false,
+      focused: true,
       focusIndex: 0
     }
   },
 
   computed: {
-    showSuggestions () {
+    showSuggestions() {
       return (
         this.focused &&
         this.suggestions &&
@@ -54,18 +32,23 @@ export default {
       )
     },
 
-    suggestions () {
-      const query = this.query.trim().toLowerCase()
+    suggestions() {
+      const query = this.query.trim()
+        .toLowerCase()
       if (!query) {
         return
       }
 
-      const { pages, themeConfig } = this.$site
-      const max = themeConfig.searchMaxSuggestions || 5
+      const {
+        pages,
+        themeConfig
+      } = this.$site
+      const max = themeConfig.searchMaxSuggestions || 15
       const localePath = this.$localePath
       const matches = item => (
         item.title &&
-        item.title.toLowerCase().indexOf(query) > -1
+        item.title.toLowerCase()
+        .indexOf(query) > -1
       )
       const res = []
       for (let i = 0; i < pages.length; i++) {
@@ -94,15 +77,16 @@ export default {
     },
 
     // make suggestions align right when there are not enough items
-    alignRight () {
-      const navCount = (this.$site.themeConfig.nav || []).length
+    alignRight() {
+      const navCount = (this.$site.themeConfig.nav || [])
+        .length
       const repo = this.$site.repo ? 1 : 0
       return navCount + repo <= 2
     }
   },
 
   methods: {
-    getPageLocalePath (page) {
+    getPageLocalePath(page) {
       for (const localePath in this.$site.locales || {}) {
         if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
           return localePath
@@ -111,7 +95,7 @@ export default {
       return '/'
     },
 
-    onUp () {
+    onUp() {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
           this.focusIndex--
@@ -121,7 +105,7 @@ export default {
       }
     },
 
-    onDown () {
+    onDown() {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
           this.focusIndex++
@@ -131,7 +115,7 @@ export default {
       }
     },
 
-    go (i) {
+    go(i) {
       if (!this.showSuggestions) {
         return
       }
@@ -140,11 +124,11 @@ export default {
       this.focusIndex = 0
     },
 
-    focus (i) {
+    focus(i) {
       this.focusIndex = i
     },
 
-    unfocus () {
+    unfocus() {
       this.focusIndex = -1
     }
   }

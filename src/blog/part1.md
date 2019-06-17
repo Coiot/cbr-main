@@ -1,12 +1,12 @@
 ---
-title: 'Part 1:  In the Beginning....'
-narrated_by: 
-abstract: 
-starting_turn: 
-release_date: 
-audio_narration: 
+title: 'Part 01:  In the Beginning....'
+narrated_by:
+abstract:
+starting_turn:
+release_date:
+audio_narration:
 edition: Mk2
-date: 2019-06-16T06:07:58.819212+00:00 
+date: 2019-06-16T06:07:58.819212+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

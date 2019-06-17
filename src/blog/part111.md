@@ -6,7 +6,7 @@ starting_turn: 1000+
 release_date: 2018
 audio_narration: Soon
 edition: Mk2
-date: 2019-06-16T06:07:58.873923+00:00
+date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.873923+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part111-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

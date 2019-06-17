@@ -1,12 +1,12 @@
 ---
 title: 'Part 2: Towards Greener Pastures'
-narrated_by: 
-abstract: 
-starting_turn: 
-release_date: 
-audio_narration: 
+narrated_by:
+abstract:
+starting_turn:
+release_date:
+audio_narration:
 edition: Mk2
-date: 2019-06-16T06:07:58.793749+00:00 
+date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.793749+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part2-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

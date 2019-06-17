@@ -59,7 +59,7 @@ img {
   padding: 0.5rem 1rem;
   color: rgb(255, 255, 255);
   background: rgba(0, 0, 0, 1);
-  max-width: 420px;
+  max-width: 550px;
 }
 
 .title-info p {

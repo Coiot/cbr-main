@@ -6,7 +6,7 @@ starting_turn:
 release_date:
 audio_narration:
 edition: Mk2
-date: 2019-06-16T06:07:58.778052+00:00
+date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.778052+00:00
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01
@@ -52,7 +52,7 @@ scenes:
 - scene_number: 11
   scene_title: Image 11
   slide_url: 'https://cdn.civbattleroyale.tv/mark2-part9-scene11.jpg'
-  narration: "Sparta inches ever so closer to Cumae, but while weakened, the Romans have both of their UUs at their disposal defending the hotly contested gates.  Leonidas seems to be the first ruler to have a veritable army of pikeman rather than spearmen. For those that missed it last update: Arretium (Sicily) and Funchal (Corsica) were firmly established as Portuguese colonies as they were taken from the clutches of Augustus, in a dynamite wave of power from Maria’s strong navy. Who cannot wait for a Morocco- Portugal naval war? Should be epic, in the real, non-meme sense of the word."
+  narration: "Sparta inches ever so closer to Cumae, but while weakened, the Romans have both of their UUs at their disposal defending the hotly contested gates.  Leonidas seems to be the first ruler to have a veritable army of pikeman rather than spearmen. For those that missed it last update: 2015-03-04T00:00:00.000Z Arretium (Sicily) and Funchal (Corsica) were firmly established as Portuguese colonies as they were taken from the clutches of Augustus, in a dynamite wave of power from Maria’s strong navy. Who cannot wait for a Morocco- Portugal naval war? Should be epic, in the real, non-meme sense of the word."
 - scene_number: 12
   scene_title: Image 12
   slide_url: 'https://cdn.civbattleroyale.tv/mark2-part9-scene12.jpg'

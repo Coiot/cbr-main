@@ -31,12 +31,11 @@
   </div>
 
   <section class="scenes">
-    <p>Testing the Scenes</p>
-    <p>{{ $page.frontmatter.abstract }}</p>
+    <p class="abstract">{{ $page.frontmatter.abstract }}</p>
     <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-      <h3>{{ scene.scene_number }}</h3>
-      <h2>{{ scene.scene_title }}</h2>
+      <h2>{{ scene.scene_number }}</h2>
       <img v-lazy="scene.slide_url">
+      <h3>{{ scene.scene_title }}</h3>
       <div v-html="scene.narration"></div>
       </li>
     </div>
@@ -208,13 +207,41 @@ function find(page, items, offset) {
 @import '../styles/config.styl'
 @require '../styles/wrapper.styl'
 
+.label {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $accentColor;
+}
+
+.value {
+  font-size: 1.4rem;
+}
+
+.abstract {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
 .scenes {
   display: block;
   padding: 0;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   height: auto;
-  margin: 0 auto 3rem auto;
+  padding: 0 auto 3rem;
+}
+
+.scenes h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: $accentColor;
+  margin: 5rem 0 0;
+}
+
+.scenes div {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: .5rem 0 0;
 }
 
 img {
@@ -235,33 +262,6 @@ img {
   margin-top: 0;
 }
 
-.publish-date {
-  margin-bottom: 0.5rem;
-  font-family: 'Poppins';
-}
-
-.page-edit
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 1rem
-  padding-left 0
-  padding-right 0
-  overflow auto
-  .edit-link
-    display inline-block
-    a
-      color lighten($textColor, 25%)
-      margin-right 0.25rem
-  .last-updated
-    float right
-    font-size 0.9em
-    .prefix
-      font-weight 500
-      color lighten($textColor, 25%)
-    .time
-      font-weight 400
-      color #aaa
-
 .page-nav
   padding-top 1rem
   padding-bottom 0
@@ -274,18 +274,9 @@ img {
   .next
     float right
 
-@media (max-width: $MQMobile)
-  .page-edit
-    .edit-link
-      margin-bottom .5rem
-    .last-updated
-      font-size .8em
-      float none
-      text-align left
-
 @media (max-width: $MQMobileNarrow) {
   .blog__title {
-    font-size: 2.441rem;
+    font-size: 2.5rem;
   }
 }
 </style>
