@@ -74,8 +74,8 @@ function css(el, property) {
 <style lang="stylus">
 @import '../styles/config.styl'
 
-$navbar-vertical-padding = 0.7rem
-$navbar-horizontal-padding = 1.5rem
+$navbar-vertical-padding = 0.6rem
+$navbar-horizontal-padding = 1.4rem
 
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
@@ -84,21 +84,21 @@ $navbar-horizontal-padding = 1.5rem
   a, span, img
     display inline-block
   .logo
-    height $navbarHeight - 1.4rem
-    min-width $navbarHeight - 1.4rem
+    height $navbarHeight - 1.2rem
+    min-width $navbarHeight - 1.1rem
     margin-right 0.8rem
     vertical-align top
   .site-name
-    font-size 1.3rem
-    font-weight 600
-    color $textColor
+    font-size 1.6rem
+    font-weight 700
+    color $backColor
     position relative
   .links
     padding-left 1.5rem
     box-sizing border-box
-    background-color white
+    background-color $navColor
     white-space nowrap
-    font-size 0.9rem
+    font-size 1rem
     position absolute
     right $navbar-horizontal-padding
     top $navbar-vertical-padding

@@ -6,7 +6,7 @@ starting_turn: '143'
 release_date: 'September 13, 2015'
 audio_narration: https://youtu.be/Fmwl_BhkCdk
 edition: Mk2
-date: 2015-08-13T00:00:00.000Z
+date: 2015-09-13T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg
 scenes:
 - scene_number: "1"

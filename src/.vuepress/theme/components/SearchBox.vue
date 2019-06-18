@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       query: '',
-      focused: true,
+      focused: false,
       focusIndex: 0
     }
   },
@@ -141,15 +141,15 @@ export default {
 .search-box
   display inline-block
   position relative
-  margin-right 1rem
+  margin-right 1.5rem
   input
     cursor text
-    width 10rem
-    color lighten($textColor, 25%)
+    width 15rem
+    color lighten($backColor, 15%)
     display inline-block
-    border 1px solid darken($borderColor, 10%)
-    border-radius 2rem
-    font-size 0.9rem
+    border 1px solid darken($borderColor, 20%)
+    border-radius .6rem
+    font-size 1rem
     line-height 2rem
     padding 0 0.5rem 0 2rem
     outline none
@@ -159,13 +159,14 @@ export default {
     &:focus
       cursor auto
       border-color $accentColor
+
   .suggestions
     background #fff
     width 20rem
     position absolute
     top 1.5rem
     border 1px solid darken($borderColor, 10%)
-    border-radius 6px
+    border-radius 4px
     padding 0.4rem
     list-style-type none
     &.align-right
@@ -177,16 +178,16 @@ export default {
     cursor pointer
     a
       white-space normal
-      color lighten($textColor, 35%)
+      color lighten($backColor, 30%)
       .page-title
-        font-weight 600
+        font-weight 700
       .header
         font-size 0.9em
         margin-left 0.25em
     &.focused
-      background-color #f3f4f5
+      background-color #f9f9f9
       a
-        color $accentColor
+        color $backColor
 
 @media (max-width: $MQNarrow)
   .search-box

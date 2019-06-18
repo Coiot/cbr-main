@@ -1,7 +1,7 @@
 <template>
 <div class="album-list">
 
-  <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }">
+  <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
 
     <div class="title-info">
       <p>{{ post.frontmatter.title }}</p>
@@ -42,6 +42,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 1px double #141414;
   margin-bottom: 5vw;
   cursor: pointer;
 }
@@ -57,8 +58,11 @@ img {
   left: 0;
   top: 2rem;
   padding: 0.5rem 1rem;
-  color: rgb(255, 255, 255);
-  background: rgba(0, 0, 0, 1);
+  color: $textColor;
+  text-shadow: 1px 2px #083832;
+  background: #202020;
+  border: 1px double #fff;
+  border-left: 0;
   max-width: 550px;
 }
 
@@ -75,7 +79,7 @@ img {
   width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: .84rem;
+  font-size: .9rem;
 }
 
 .album-info {
@@ -83,14 +87,17 @@ img {
   right: 0;
   bottom: 1rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 1);
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px double #1a1a1a;
+  border-right: 0;
   max-width: 800px;
 }
 
 .album-info p {
   display: inline-block;
   width: auto;
-  font-size: 0.9rem;
+  font-size: .95rem;
   font-weight: 700;
   margin: 0;
 }
@@ -100,7 +107,7 @@ img {
   width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: .84rem;
+  font-size: .86rem;
 }
 
 @media (max-width: $MQMobile) {

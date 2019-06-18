@@ -3,40 +3,40 @@
   <div class="blog__header">
     <div class="header">
 
-      <div class="column">
+      <div class="column" tabindex="0">
         <Label class="label">Title:</Label>
         <span class="value">{{ $page.frontmatter.title }}</span>
       </div>
 
-      <div class="column">
+      <div class="column" tabindex="0">
         <Label class="label">Release Date:</Label>
         <span class="value">{{ $page.frontmatter.release_date }}</span>
       </div>
 
-      <div class="column">
+      <div class="column" tabindex="0">
         <Label class="label">Narrated by:</Label>
         <span class="value">{{ $page.frontmatter.narrated_by }}</span>
       </div>
 
-      <div class="column">
+      <div class="column" tabindex="0">
         <Label class="label">Starting Turn:</Label>
         <span class="value">{{ $page.frontmatter.starting_turn }}</span>
       </div>
 
-      <div class="column">
+      <div class="column" tabindex="0">
         <Label class="label">Audio Narration:</Label>
-        <span class="value">{{ $page.frontmatter.audio_narration }}</span>
+        <span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Click to Play</a></span>
       </div>
     </div>
   </div>
 
   <section class="scenes">
-    <p class="abstract">{{ $page.frontmatter.abstract }}</p>
+    <p class="abstract" tabindex="0">{{ $page.frontmatter.abstract }}</p>
     <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-      <h2>{{ scene.scene_number }}</h2>
-      <img v-lazy="scene.slide_url">
+      <h2 tabindex="0">{{ scene.scene_number }}</h2>
+      <img v-lazy="scene.slide_url" tabindex="0">
       <h3>{{ scene.scene_title }}</h3>
-      <div v-html="scene.narration"></div>
+      <div v-html="scene.narration" tabindex="0"></div>
       </li>
     </div>
   </section>
@@ -210,11 +210,13 @@ function find(page, items, offset) {
 .label {
   font-size: 1.6rem;
   font-weight: 700;
-  color: $accentColor;
+  color: $navColor;
 }
 
 .value {
   font-size: 1.4rem;
+  font-weight: 500;
+  color: $accentColor;
 }
 
 .abstract {
@@ -239,7 +241,7 @@ function find(page, items, offset) {
 }
 
 .scenes div {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.5;
   margin: .5rem 0 0;
 }
