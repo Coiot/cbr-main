@@ -1,31 +1,29 @@
 <template>
 <div class="blog">
   <div class="blog__header">
-    <div class="header">
 
-      <div class="column" tabindex="0">
-        <Label class="label">Title:</Label>
-        <span class="value">{{ $page.frontmatter.title }}</span>
-      </div>
+    <h1 class="">{{ $page.frontmatter.title }}</h1>
+
+    <div class="albumInfo">
 
       <div class="column" tabindex="0">
         <Label class="label">Release Date:</Label>
-        <span class="value">{{ $page.frontmatter.release_date }}</span>
+        <p><span class="value">{{ $page.frontmatter.release_date }}</span></p>
       </div>
 
       <div class="column" tabindex="0">
         <Label class="label">Narrated by:</Label>
-        <span class="value">{{ $page.frontmatter.narrated_by }}</span>
+        <p><span class="value">{{ $page.frontmatter.narrated_by }}</span></p>
       </div>
 
       <div class="column" tabindex="0">
         <Label class="label">Starting Turn:</Label>
-        <span class="value">{{ $page.frontmatter.starting_turn }}</span>
+        <p><span class="value">{{ $page.frontmatter.starting_turn }}</span></p>
       </div>
 
       <div class="column" tabindex="0">
         <Label class="label">Audio Narration:</Label>
-        <span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Click to Play</a></span>
+        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Click to Play</a></span></p>
       </div>
     </div>
   </div>
@@ -207,6 +205,28 @@ function find(page, items, offset) {
 @import '../styles/config.styl'
 @require '../styles/wrapper.styl'
 
+.blog {
+  text-shadow: 2px 2px #083832;
+}
+
+.blog h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.albumInfo {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 2rem 0 0;
+  width: 100%;
+  margin: 0 auto 3rem auto;
+}
+
+.column {
+  flex: 0 0 25%;
+}
+
 .label {
   font-size: 1.6rem;
   font-weight: 700;
@@ -216,11 +236,12 @@ function find(page, items, offset) {
 .value {
   font-size: 1.4rem;
   font-weight: 500;
+  line-height: 1.4;
   color: $accentColor;
 }
 
 .abstract {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.4;
 }
 
@@ -236,7 +257,7 @@ function find(page, items, offset) {
 .scenes h2 {
   font-size: 3rem;
   font-weight: 600;
-  color: $accentColor;
+  color: white;
   margin: 5rem 0 1rem;
 }
 
@@ -274,6 +295,15 @@ img {
     overflow auto // clear float
   .next
     float right
+
+@media (max-width: $MQMobile) {
+  .albumInfo {
+    flex-flow: column nowrap;
+  }
+  .column {
+    lex: 0 1 auto;
+  }
+}
 
 @media (max-width: $MQMobileNarrow) {
   .blog__title {

@@ -78,19 +78,18 @@ $navbar-vertical-padding = 0.6rem
 $navbar-horizontal-padding = 1.4rem
 
 .navbar
-  padding $navbar-vertical-padding $navbar-horizontal-padding
-  line-height $navbarHeight - 1.4rem
+  padding 0 4rem 0 0
   position relative
   a, span, img
     display inline-block
   .logo
-    height $navbarHeight - 1.2rem
-    min-width $navbarHeight - 1.1rem
-    margin-right 0.8rem
+    height 7rem
+    margin-right 0.9rem
     vertical-align top
   .site-name
     font-size 1.6rem
     font-weight 700
+    margin-top 0.7rem
     color $backColor
     position relative
   .links
@@ -111,9 +110,12 @@ $navbar-horizontal-padding = 1.4rem
 
 @media (max-width: $MQMobile)
   .navbar
-    padding-left 4rem
+    padding-left 4.7rem
     .can-hide
       display none
     .links
-      padding-left 1.5rem
+      padding-left 2rem
+    .logo
+      height 3.2rem
+      min-width 3rem
 </style>

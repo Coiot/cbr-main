@@ -9,7 +9,7 @@
     <slot name="sidebar-bottom" slot="bottom" />
   </Sidebar>
 
-  <Blog v-if="$page.frontmatter.edition" :sidebar-items="sidebarItems" />
+  <Albums v-if="$page.frontmatter.edition" :sidebar-items="sidebarItems" />
 
   <div class="custom-layout" v-else-if="$page.frontmatter.layout">
     <component :is="$page.frontmatter.layout" />
@@ -29,7 +29,7 @@
 <script>
 import Vue from 'vue'
 import nprogress from 'nprogress'
-import Blog from './layout/Blog.vue'
+import Albums from './layout/Albums.vue'
 import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
@@ -50,7 +50,7 @@ Vue.use(VueLazyload, {
 
 export default {
   components: {
-    Blog,
+    Albums,
     Home,
     Page,
     Sidebar,

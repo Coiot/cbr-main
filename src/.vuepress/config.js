@@ -13,7 +13,7 @@ const autometa_options = {
 };
 
 module.exports = {
-	title: 'CivBattleRoyale.tv',
+	title: 'CIVBATTLEROYALE.tv',
 	dest: './public',
 	themeConfig: {
 		nav: [
@@ -23,8 +23,9 @@ module.exports = {
 			{ text: 'Reddit', link: 'https://old.reddit.com/r/civbattleroyale/' },
 			{ text: 'Discord', link: 'https://discord.gg/vAvSFdu' },
 			{ text: 'Twitch', link: 'https://www.twitch.tv/civbattleroyale' },
+			{ text: 'Youtube', link: 'https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ' },
 		],
-		logo: '/cbr_logo.svg',
+		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
 		pageSize: 10,
 		startPage: 0

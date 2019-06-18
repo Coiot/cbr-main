@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 7rem 3rem 0;
+  margin: 9.5rem 3rem 0;
 }
 
 .post {
@@ -43,6 +43,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   border: 1px double #141414;
+  box-shadow: 0 5px 2px 0 rgba(19, 0, 0, 0.4);
   margin-bottom: 5vw;
   cursor: pointer;
 }
@@ -63,6 +64,7 @@ img {
   background: #202020;
   border: 1px double #fff;
   border-left: 0;
+  box-shadow: 1px 3px 7px 0 rgba(19, 0, 0, 0.6);
   max-width: 550px;
 }
 
@@ -91,6 +93,7 @@ img {
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
+  box-shadow: 0 3px 8px 0 rgba(19, 0, 0, 0.7);
   max-width: 800px;
 }
 
