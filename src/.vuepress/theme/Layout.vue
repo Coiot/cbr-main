@@ -45,7 +45,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   observer: true,
   observerOptions: {
-    rootMargin: '1800px',
+    rootMargin: '2000px',
     threshold: 0.0
   }
 })

@@ -257,7 +257,7 @@ img {
   text-shadow: 2px 2px rgba(8, 56, 50, 0.7);
   padding:2rem 2.5rem;
     margin: 2rem 0 0;
-  background-color: #282828;
+  background-color: #292929;
     border-top: 3px solid #1a1a1a;
   border-bottom: 2px solid #FFBF46;
   box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.5);
