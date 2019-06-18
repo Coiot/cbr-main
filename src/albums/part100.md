@@ -1,13 +1,13 @@
 ---
 title: 'Part 100: Sentimental Centennial'
-narrated_by:
-abstract: ''
-starting_turn: ''
-release_date: ''
-audio_narration: ''
+narrated_by: Lunar, Lime, Reon
+abstract: The Big Celebration
+starting_turn: "123"
+release_date: January 9, 2018
+audio_narration: https://youtu.be/sw-97P1lDV0
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 2019-06-16T06:07:58.823840+00:00 2019-06-14 06:22:57 +0000
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?format=webp&nearlossless=1
+date: 2015-03-04T00:00:00.000Z 2019-06-14T06:22:57.000+00:00
+thumbnail: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?crop=smart&width=1137&height=559&format=webp&nearlossless=1
 scenes:
 - scene_number: "1"
   scene_title: Image 01
@@ -660,9 +660,17 @@ scenes:
     Oh noooooo...
 - scene_number: "93"
   scene_title: Image 93
-  slide_url: 'https://cdn.civbattleroyale.tv/mark2-part100-scene93.jpg'
-  narration: 'This might look like a clever act of war, but judging from the types and health of the units, it’s actually an act of friendship. This disgusting act of friendship also coincides with… The Buccaneer sponsored Big Carrier World Tour™ crossing the nation, making it’s stop in all the famous locations such as the inaugural Port Royal, our lovely voice narrators favorite Jyvaskyla and now another classic such as Goolarabooloo Millibinyari. To attend just navigate through the local totally friendly Brazilian carpet. Attend now and you won’t miss the lecture from Ghandi on the New Type of Warfare™ being introduced in his latest variant of How to Fight Wars Good! Attend now!'
-- scene_number: 94
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene93.jpg
+  narration: This might look like a clever act of war, but judging from the types
+    and health of the units, it’s actually an act of friendship. This disgusting act
+    of friendship also coincides with… The Buccaneer sponsored Big Carrier World Tour™
+    crossing the nation, making it’s stop in all the famous locations such as the
+    inaugural Port Royal, our lovely voice narrators favorite Jyvaskyla and now another
+    classic such as Goolarabooloo Millibinyari. To attend just navigate through the
+    local totally friendly Brazilian carpet. Attend now and you won’t miss the lecture
+    from Ghandi on the New Type of Warfare™ being introduced in his latest variant
+    of How to Fight Wars Good! Attend now!
+- scene_number: "94"
   slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene93.jpg
   narration: "<p>This might look like a clever act of war, but judging from the types
     and health of the units, it’s actually an act of friendship. This disgusting act
@@ -673,6 +681,7 @@ scenes:
     the local totally friendly Brazilian carpet. Attend now and you won’t miss the
     lecture from Ghandi on the New Type of Warfare™ being introduced in his latest
     variant of How to Fight Wars Good! Attend now!</p>"
+  scene_title: ''
 - scene_number: "94"
   scene_title: Image 94
   slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene94.jpg
@@ -957,11 +966,26 @@ scenes:
     doesn’t stop me from building it every single game, that’s for sure.
 - scene_number: "127"
   scene_title: Image 127
-  slide_url: 'https://cdn.civbattleroyale.tv/mark2-part100-scene127.jpg'
-  narration: 'Nothing much to note here other than the Swedish and Brazil containing a pathetically low amount of wonders. People are thinking Brazil could crush this game and they have the least amount of wonders at all. They don’t even have a religion. This is just proof that those who just wonder rush all day long don’t often come out on top. Especially when someone else can take it from you with absolute ease like the Boer Ryk can manage. Also, Babylon doesn’t have a single wonder? Nonsense, we have 10000+ wonders! Our audience. Damn that sounded cheesy, I do apologize.'
-- scene_number: 128
   slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene127.jpg
-  narration: 'Nothing much to note here other than the Swedish and Brazil containing a pathetically low amount of wonders. People are thinking Brazil could crush this game and they have the least amount of wonders at all. They don’t even have a religion. This is just proof that those who just wonder rush all day long don’t often come out on top. Especially when someone else can take it from you with absolute ease like the Boer Ryk can manage. Also, Babylon doesn’t have a single wonder? Nonsense, we have 10000+ wonders! Our audience. Damn that sounded cheesy, I do apologize.'
+  narration: Nothing much to note here other than the Swedish and Brazil containing
+    a pathetically low amount of wonders. People are thinking Brazil could crush this
+    game and they have the least amount of wonders at all. They don’t even have a
+    religion. This is just proof that those who just wonder rush all day long don’t
+    often come out on top. Especially when someone else can take it from you with
+    absolute ease like the Boer Ryk can manage. Also, Babylon doesn’t have a single
+    wonder? Nonsense, we have 10000+ wonders! Our audience. Damn that sounded cheesy,
+    I do apologize.
+- scene_number: "128"
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene127.jpg
+  narration: Nothing much to note here other than the Swedish and Brazil containing
+    a pathetically low amount of wonders. People are thinking Brazil could crush this
+    game and they have the least amount of wonders at all. They don’t even have a
+    religion. This is just proof that those who just wonder rush all day long don’t
+    often come out on top. Especially when someone else can take it from you with
+    absolute ease like the Boer Ryk can manage. Also, Babylon doesn’t have a single
+    wonder? Nonsense, we have 10000+ wonders! Our audience. Damn that sounded cheesy,
+    I do apologize.
+  scene_title: ''
 - scene_number: "128"
   scene_title: Image 128
   slide_url: https://cdn.civbattleroyale.tv/mark2-part100-scene128.jpg
@@ -975,4 +999,6 @@ scenes:
     Everyone:
     You know, we were originally going to all narrate every slide at the same time, and as a joke in every slide my narration would be “Lunar is typing” and that’s it, but we scrapped the idea, mainly because it was a joke. However, looking up at the near 4000 words I dumped, I think I need to stay away from the keyboard not only for my sake, but yours. Oh yeah, and Dawkinzz… Jyvaskyla.
     For real though, thanks for keeping around with us and thanks dearly for being who you are. You’ve been exactly what has fueled us to work through sleepless nights and what has fueled us to pull money out of our pocket to keep this show running. The future of the CBR will nevertheless be exciting and we hope everyone enjoys the ride! Till next album and next Tuesday, keep sane sub-goers. /u/Limerickarcher, /r/ReonMonterus and /u/LunarNeedle out!
+
+
 ---

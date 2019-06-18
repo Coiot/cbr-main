@@ -9,7 +9,7 @@
     </div>
 
     <div class="album-info">
-      <p>{{ post.frontmatter.narrator }}</p>
+      <p>{{ post.frontmatter.narrated_by }}</p>
       <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
     </div>
 
@@ -105,7 +105,7 @@ img {
 
 @media (max-width: $MQMobile) {
   .album-list {
-    margin: 6rem 1rem 0;
+    margin: 8rem 1rem 0;
   }
 }
 </style>

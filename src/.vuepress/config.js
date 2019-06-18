@@ -13,7 +13,7 @@ const autometa_options = {
 };
 
 module.exports = {
-	title: 'CBR.tv',
+	title: 'CivBattleRoyale.tv',
 	dest: './public',
 	themeConfig: {
 		nav: [
