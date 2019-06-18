@@ -1,7 +1,7 @@
 ---
 edition: X1
 audio_narration: https://youtu.be/9k12RnkdadI
-date: 2019-06-18T22:00:00.000+00:00
+date: 2019-06-18T00:00:00.000+00:00
 title: 'Episode 1: The Phantom Menace '
 narrated_by: Coiot
 abstract: 'A communications disruption could mean only one thing: invasion.'
