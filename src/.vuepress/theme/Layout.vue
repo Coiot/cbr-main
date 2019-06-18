@@ -9,7 +9,9 @@
     <slot name="sidebar-bottom" slot="bottom" />
   </Sidebar>
 
+
   <Albums v-if="$page.frontmatter.edition" :sidebar-items="sidebarItems" />
+
 
   <div class="custom-layout" v-else-if="$page.frontmatter.layout">
     <component :is="$page.frontmatter.layout" />
@@ -43,7 +45,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   observer: true,
   observerOptions: {
-    rootMargin: '1600px',
+    rootMargin: '1800px',
     threshold: 0.0
   }
 })

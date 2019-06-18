@@ -1,11 +1,8 @@
 <template>
+<transition name="fade">
   <div class="home">
     <div class="hero">
-      <img
-        v-if="data.heroImage"
-        :src="$withBase(data.heroImage)"
-        alt="hero"
-      >
+      <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero">
 
       <h1>{{ data.heroText || $title || 'Hello' }}</h1>
 
@@ -13,54 +10,41 @@
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
 
-      <p
-        class="action"
-        v-if="data.actionText && data.actionLink"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
+      <p class="action" v-if="data.actionText && data.actionLink">
+        <NavLink class="action-button" :item="actionLink" />
       </p>
     </div>
 
-    <div
-      class="features"
-      v-if="data.features && data.features.length"
-    >
-      <div
-        class="feature"
-        v-for="(feature, index) in data.features"
-        :key="index"
-      >
+    <div class="features" v-if="data.features && data.features.length">
+      <div class="feature" v-for="(feature, index) in data.features" :key="index">
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </div>
     </div>
 
-    <Content custom/>
+    <Content custom />
 
-    <div
-      class="footer"
-      v-if="data.footer"
-    >
+    <div class="footer" v-if="data.footer">
       {{ data.footer }}
     </div>
   </div>
+</transition>
 </template>
 
 <script>
 import NavLink from '../components/NavLink.vue'
 
 export default {
-  components: { NavLink },
+  components: {
+    NavLink
+  },
 
   computed: {
-    data () {
+    data() {
       return this.$page.frontmatter
     },
 
-    actionLink () {
+    actionLink() {
       return {
         link: this.data.actionLink,
         text: this.data.actionText

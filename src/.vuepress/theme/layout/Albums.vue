@@ -1,6 +1,6 @@
 <template>
-<div class="blog">
-  <div class="blog__header">
+<transition name="fade">
+  <div class="blog">
 
     <h1 class="">{{ $page.frontmatter.title }}</h1>
 
@@ -26,43 +26,22 @@
         <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Click to Play</a></span></p>
       </div>
     </div>
+
+    <section class="scenes">
+      <p class="abstract" tabindex="0">{{ $page.frontmatter.abstract }}</p>
+      <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
+        <h2 tabindex="0">{{ scene.scene_number }}</h2>
+        <img v-lazy="scene.slide_url" tabindex="0">
+        <h3>{{ scene.scene_title }}</h3>
+        <div class="narrations" v-html="scene.narration" tabindex="0"></div>
+        </li>
+      </div>
+    </section>
+
+    <Content class="custom" />
+
   </div>
-
-  <section class="scenes">
-    <p class="abstract" tabindex="0">{{ $page.frontmatter.abstract }}</p>
-    <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-      <h2 tabindex="0">{{ scene.scene_number }}</h2>
-      <img v-lazy="scene.slide_url" tabindex="0">
-      <h3>{{ scene.scene_title }}</h3>
-      <div v-html="scene.narration" tabindex="0"></div>
-      </li>
-    </div>
-  </section>
-
-  <p>Testing</p>
-
-  <Content class="custom" />
-
-  <div class="page-nav" v-if="prev || next">
-    <p class="inner">
-      <span v-if="prev" class="prev">
-        ←
-        <router-link v-if="prev" class="prev" :to="prev.path">
-          {{ prev.title || prev.path }}
-        </router-link>
-      </span>
-
-      <span v-if="next" class="next">
-        <router-link v-if="next" :to="next.path">
-          {{ next.title || next.path }}
-        </router-link>
-        →
-      </span>
-    </p>
-  </div>
-
-  <slot name="bottom" />
-</div>
+</transition>
 </template>
 
 <script>
@@ -213,6 +192,7 @@ function find(page, items, offset) {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.4;
+  margin-top: 2.4em;
 }
 
 .albumInfo {
@@ -261,27 +241,35 @@ function find(page, items, offset) {
   margin: 5rem 0 1rem;
 }
 
-.scenes div {
-  font-size: 1.3rem;
-  line-height: 1.5;
-  margin: .5rem 0 0;
+.scenes h3 {
+  margin: 2rem 0 .2rem;
 }
 
 img {
   width: 100%;
   line-height: 0;
+  box-shadow: 0 4px 1px 0 rgba(8, 56, 50, 0.3);
+}
+
+.narrations {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  text-shadow: 2px 2px rgba(8, 56, 50, 0.5);
+  padding:2em;
+    margin: 2rem 0 0;
+  background-color: #2a2a2a;
+    border-top: 3px solid #1a1a1a;
+  border-bottom: 2px solid #FFBF46;
+  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.5);
+}
+
+blockquote {
+    border-left: 2px solid #FFBF46;
+    margin-bottom: 1rem
 }
 
 .blog {
   @extend $wrapper
-}
-
-.blog__header {
-  padding-top: 4.6rem;
-}
-
-.blog__title {
-  margin-top: 0;
 }
 
 .page-nav

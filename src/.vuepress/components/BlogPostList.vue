@@ -1,21 +1,23 @@
 <template>
-<div class="album-list">
+<transition name="fade">
+  <div class="album-list">
 
-  <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
+    <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
 
-    <div class="title-info">
-      <p>{{ post.frontmatter.title }}</p>
-      <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
-    </div>
+      <div class="title-info">
+        <p>{{ post.frontmatter.title }}</p>
+        <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
+      </div>
 
-    <div class="album-info">
-      <p>{{ post.frontmatter.narrated_by }}</p>
-      <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
-    </div>
+      <div class="album-info">
+        <p>{{ post.frontmatter.narrated_by }}</p>
+        <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+      </div>
 
-  </router-link>
+    </router-link>
 
-</div>
+  </div>
+</transition>
 </template>
 
 <script>
@@ -32,7 +34,7 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 9.5rem 3rem 0;
+  margin: 10rem 5.5rem 0;
 }
 
 .post {
@@ -42,8 +44,8 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px double #141414;
-  box-shadow: 0 5px 2px 0 rgba(19, 0, 0, 0.4);
+  border: 1px solid #1a1a1a;
+  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.4);
   margin-bottom: 5vw;
   cursor: pointer;
 }
@@ -64,7 +66,7 @@ img {
   background: #202020;
   border: 1px double #fff;
   border-left: 0;
-  box-shadow: 1px 3px 7px 0 rgba(19, 0, 0, 0.6);
+  box-shadow: 1px 4px 3px 0 rgba(19, 0, 0, 0.4);
   max-width: 550px;
 }
 
@@ -93,7 +95,7 @@ img {
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
-  box-shadow: 0 3px 8px 0 rgba(19, 0, 0, 0.7);
+  box-shadow: -4px 5px 0 0 #FFBF46;
   max-width: 800px;
 }
 
