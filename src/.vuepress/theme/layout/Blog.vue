@@ -235,7 +235,7 @@ function find(page, items, offset) {
   font-size: 3rem;
   font-weight: 600;
   color: $accentColor;
-  margin: 5rem 0 0;
+  margin: 5rem 0 1rem;
 }
 
 .scenes div {
@@ -247,7 +247,6 @@ function find(page, items, offset) {
 img {
   width: 100%;
   line-height: 0;
-  margin: 2rem 0;
 }
 
 .blog {

@@ -23,8 +23,8 @@ export default {
   computed: {
     albums() {
       return this.$site.pages
-        .filter(x => x.path.startsWith('/blog') && !x.frontmatter.exclude)
-        .sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title))
+        .filter(x => x.path.startsWith('/albums') && !x.frontmatter.exclude)
+        .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
     }
   }
 }
@@ -101,5 +101,11 @@ img {
   margin: 0;
   margin-left: 0.5rem;
   font-size: .84rem;
+}
+
+@media (max-width: $MQMobile) {
+  .album-list {
+    margin: 6rem 1rem 0;
+  }
 }
 </style>

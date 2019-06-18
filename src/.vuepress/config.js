@@ -18,7 +18,7 @@ module.exports = {
 	themeConfig: {
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'Albums', link: '/blog/' },
+			{ text: 'Albums', link: '/albums/' },
 			{ text: 'Patreon', link: 'https://www.patreon.com/civbr' },
 			{ text: 'Reddit', link: 'https://old.reddit.com/r/civbattleroyale/' },
 			{ text: 'Discord', link: 'https://discord.gg/vAvSFdu' },
