@@ -71,7 +71,7 @@ scenes:
     the screenshots.</p>'
 - scene_number: '06'
   scene_title: From the Depths, Brazil comes Forth
-  slide_url: ''
+  slide_url: 'https://m2p120-93ae.kxcdn.com/season1-episode1-scene06.jpg'
   narration: '<p>Here we go. On to the first screenshot. All the screenshots from
     this episode, and some of the next up to T50, are all actually recorded from my
     own CBR-capable machine that I acquired earlier this year. I ran dozens of CBRX
