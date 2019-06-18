@@ -253,14 +253,14 @@ img {
 
 .narrations {
   font-size: 1.4rem;
-  line-height: 1.7;
-  text-shadow: 2px 2px rgba(8, 56, 50, 0.6);
-  padding:2em;
+  line-height: 1.8;
+  text-shadow: 2px 2px rgba(8, 56, 50, 0.7);
+  padding:2rem 2.5rem;
     margin: 2rem 0 0;
-  background-color: #2a2a2a;
+  background-color: #282828;
     border-top: 3px solid #1a1a1a;
   border-bottom: 2px solid #FFBF46;
-  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.5);
+  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.5);
 }
 
 blockquote {

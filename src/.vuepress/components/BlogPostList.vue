@@ -45,7 +45,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid #1a1a1a;
-  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.4);
+  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.3);
   margin-bottom: 5vw;
   cursor: pointer;
 }
