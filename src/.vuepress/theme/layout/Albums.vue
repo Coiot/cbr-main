@@ -254,7 +254,7 @@ img {
 .narrations {
   font-size: 1.4rem;
   line-height: 1.7;
-  text-shadow: 2px 2px rgba(8, 56, 50, 0.5);
+  text-shadow: 2px 2px rgba(8, 56, 50, 0.6);
   padding:2em;
     margin: 2rem 0 0;
   background-color: #2a2a2a;

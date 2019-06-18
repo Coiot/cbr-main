@@ -63,7 +63,7 @@ module.exports = {
 		['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' }],
 		['meta', { name: 'msapplication-TileColor', content: '#da532c' }],
 		['meta', { name: 'theme-color', content: '#ffffff' }]
-		['meta', { name: 'og:image', content: 'this.frontmatter.thumbnail' }]
-		['meta', { name: 'og:description', content: 'this.frontmatter.abstract' }]
+		['meta', { name: 'og:image', content: 'frontmatter.thumbnail' }]
+		['meta', { name: 'og:description', content: 'frontmatter.abstract' }]
 	]
 }
