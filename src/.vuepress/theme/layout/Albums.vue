@@ -258,9 +258,9 @@ img {
   padding:2rem 2.5rem;
     margin: 2rem 0 0;
   background-color: #292929;
-    border-top: 3px solid #1a1a1a;
+    border-top: 4px solid #1a1a1a;
   border-bottom: 2px solid #FFBF46;
-  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.5);
+  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.4);
 }
 
 blockquote {
@@ -290,6 +290,13 @@ blockquote {
   }
   .column {
     lex: 0 1 auto;
+  }
+  .narrations {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 1rem .5rem;
+    margin: 1rem 0 0;
+    background-color: #292929;
   }
 }
 
