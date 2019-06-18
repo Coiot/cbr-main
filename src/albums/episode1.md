@@ -12,13 +12,7 @@ scenes:
 - scene_number: '01'
   scene_title: Opening Crawl
   slide_url: https://latest.civbattleroyale.tv/season1-episode1-scene01.jpg
-  narration: "<blockquote><p>Turmoil has engulfed the Subreddit. The endless shitposts,
-    instead of real content, have caused a massive dispute.</p><p>Hoping to resolve
-    the matter with a barrage of new Battle Royale content, the overworked Blue Cassette
-    has now deployed a new website and image latest.</p><p>While the Discord endlessly
-    debates which civs are amongst the top ten, Coiot has secretly dispatched Dawkinzz
-    and Lime, the guardians of peace and justice in our community, to deliver the
-    narrations....</p></blockquote><p>A surprise to be sure, but a welcome one. This
+  narration: "A surprise to be sure, but a welcome one. This
     is Coiot, your host for the first Episode of Season 1 of CBRX. On behalf of all
     Blue Cassette, we welcome you to the new Battle Royale. It has been some time
     since Mk2.1 ended in December 2018, and the team has been recording X1 since early
