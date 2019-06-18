@@ -1,13 +1,10 @@
 <template>
-  <transition name="sw-update-popup">
-    <div
-      v-if="enabled"
-      class="sw-update-popup"
-    >
-      {{message}}<br>
-      <button @click="reload">{{buttonText}}</button>
-    </div>
-  </transition>
+<transition name="sw-update-popup">
+  <div v-if="enabled" class="sw-update-popup">
+    {{message}}<br>
+    <button @click="reload">{{buttonText}}</button>
+  </div>
+</transition>
 </template>
 
 <script>
@@ -20,7 +17,7 @@ export default {
   },
 
   computed: {
-    popupConfig () {
+    popupConfig() {
       for (const config of [this.$themeLocaleConfig, this.$site.themeConfig]) {
         const sw = config.serviceWorker
         if (sw && sw.updatePopup) {
@@ -30,27 +27,28 @@ export default {
       return null
     },
 
-    enabled () {
+    enabled() {
       return Boolean(this.popupConfig && this.updateEvent)
     },
 
-    message () {
+    message() {
       const c = this.popupConfig
       return (c && c.message) || 'New content is available.'
     },
 
-    buttonText () {
+    buttonText() {
       const c = this.popupConfig
       return (c && c.buttonText) || 'Refresh'
     }
   },
 
   methods: {
-    reload () {
+    reload() {
       if (this.updateEvent) {
-        this.updateEvent.skipWaiting().then(() => {
-          location.reload(true)
-        })
+        this.updateEvent.skipWaiting()
+          .then(() => {
+            location.reload(true)
+          })
         this.updateEvent = null
       }
     }
@@ -71,6 +69,7 @@ export default {
   background #fff
   box-shadow 0 4px 16px rgba(0, 0, 0, 0.5)
   text-align center
+  z-index 10000
 
   button
     margin-top 0.5em
