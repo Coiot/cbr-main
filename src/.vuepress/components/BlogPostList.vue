@@ -117,7 +117,7 @@ img {
 
 @media (max-width: $MQMobile) {
   .album-list {
-    margin: 3rem .2rem 0;
+    margin: 0;
   }
 }
 </style>

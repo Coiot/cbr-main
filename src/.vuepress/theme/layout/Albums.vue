@@ -296,7 +296,10 @@ blockquote {
     line-height: 1.5;
     padding: 1rem .5rem;
     margin: 1rem 0 0;
-    background-color: #292929;
+    background-color: none;
+    border-top: 0;
+    border-bottom: 1px solid #FFBF46;
+    box-shadow: 0;
   }
 }
 
