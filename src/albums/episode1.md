@@ -1,7 +1,7 @@
 ---
 edition: X1
 audio_narration: https://youtu.be/9k12RnkdadI
-date: 2019-06-18T00:00:00.000+00:00
+date: 2019-06-19T00:00:00.000+00:00
 title: 'Episode 1: The Phantom Menace '
 narrated_by: Coiot
 abstract: 'A communications disruption could mean only one thing: invasion.'
@@ -12,7 +12,7 @@ scenes:
 - scene_number: '01'
   scene_title: Opening Crawl
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene01.jpg
-  narration: "A surprise to be sure, but a welcome one. This
+  narration: "<p>A surprise to be sure, but a welcome one. This
     is Coiot, your host for the first Episode of Season 1 of CBRX. On behalf of all
     Blue Cassette, we welcome you to the new Battle Royale. It has been some time
     since Mk2.1 ended in December 2018, and the team has been recording X1 since early
@@ -78,7 +78,7 @@ scenes:
     test runs, some of which were streamed live in my <a href="https://www.twitch.tv/volpe_/videos"
     title="Twitch Channel">Twitch Channel</a>, and the ''final'' Season 1 run started
     off first in my machine before being handed over to Reon for the 24/7 video recording.</p><p>I''ll
-    take a little time here to note some of the format changes. We''ve introduced
+    take a little time here to note some of the format changes. We‘ve introduced
     a more consistent and thematically relevant naming convention for the albums.
     Each edition of CBRX will be a <strong>Season</strong>, with each album an <strong>Episode</strong>,
     and every image within a <strong>Scene.</strong> The Scene change in particular
@@ -121,10 +121,10 @@ scenes:
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene09.jpg
   narration: "<p>Yup‘ik are commonly compared with past Mk2 contestants the Inuit.
     However, Apaanugpak is not Ekeuhnick, even though both are legendary figures.
-    For one, the Yupi‘ik do not have as many tile bonuses as the Inuit in similar
+    For one, the Yup‘ik do not have as many tile bonuses as the Inuit in similar
     terrain, and they have more immediate neighbors in the Haida and the Métis. They
-    do have their unique settler here already, the Alutiiq Hunter, which can embark
-    right away and provide a unique arctic luxury if they do so. </p>"
+    do have their unique warrior here already, the Alutiiq Hunter, which can embark
+    right away, settle cities, and provide a unique arctic luxury if they do so. </p>"
 - scene_number: "10"
   scene_title: Remainers
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene10.jpg
@@ -185,7 +185,7 @@ scenes:
   scene_title: Europa League
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene16.jpg
   narration: "<p>Look at all this rightful HRE clay. Well it would be, but SabyZ's
-    Czech Republic lead by Vaclac Havel stands in the way. Czechia is a fan favorite
+    Czech Republic lead by Vaclav Havel stands in the way. Czechia is a fan favorite
     that is consistent in conquering vast swaths of Europe, and their unique paratrooper,
     the Vysakdar, can edge them on to have a big advantage later in the game. A potential
     Finland in the making. Lowly Prussia lead by Fredrick in the corner tends to settle
@@ -637,9 +637,7 @@ scenes:
 - scene_number: "58"
   scene_title: Oof!
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene58.jpg
-  narration: "<pCanada doing as it pleases, and settles Montréal all the way over
-    in southern Lake Michigan. Not the most advisable starts, but at least the Iroquois
-    will not be too bothered about it.</p>"
+  narration: "<p>Canada doing as it pleases, and settles Montréal all the way over in southern Lake Michigan. Not the most advisable of starts, but at least the Iroquois will not be too bothered about it.</p>"
 - scene_number: "59"
   scene_title: Look at the Clock
   slide_url: https://m2p120-93ae.kxcdn.com/season1-episode1-scene59.jpg
