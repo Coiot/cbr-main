@@ -53,7 +53,7 @@ import {
 } from '../util'
 
 export default {
-  name: 'Blog',
+  name: 'Albums',
 
   props: ['sidebarItems'],
 
@@ -188,7 +188,7 @@ function find(page, items, offset) {
   text-shadow: 2px 2px #083832;
 }
 
-.blog h1 {
+h1 {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.4;

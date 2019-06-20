@@ -7,3 +7,6 @@ actionText: You should really be looking at the albums instead!
 actionLink: /
 footer: © Blue Cassette
 ---
+<HomeAlbums
+  :pages="$site.pages"
+/>

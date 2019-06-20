@@ -2,7 +2,9 @@
 <transition name="fade">
   <div class="album-list">
 
-    <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
+    <h1>Latest Albums</h1>
+
+    <router-link :to="post.path" tag="div" v-for="(post,index) in albums" v-if="index < 5" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
 
       <div class="title-info">
         <p>{{ post.frontmatter.title }}</p>
@@ -33,8 +35,15 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-top: 2.4em;
+}
+
 .album-list {
-  margin: 10rem 4rem 0;
+  margin: 10rem 0 0;
 }
 
 .post {
