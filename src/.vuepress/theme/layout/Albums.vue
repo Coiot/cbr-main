@@ -2,7 +2,7 @@
 <transition name="fade">
   <div class="blog">
 
-    <h1 class="">{{ $page.frontmatter.title }}</h1>
+    <h1 class="">{{ $page.frontmatter.title || $title }}</h1>
 
     <div class="albumInfo">
 
@@ -13,7 +13,7 @@
 
       <div class="column" tabindex="0">
         <Label class="label">Narrated by:</Label>
-        <p><span class="value">{{ $page.frontmatter.narrated_by }}</span></p>
+        <p><span class="value">{{ $page.frontmatter.narrated_by || $description }}</span></p>
       </div>
 
       <div class="column" tabindex="0">
@@ -188,7 +188,7 @@ function find(page, items, offset) {
   text-shadow: 2px 2px #083832;
 }
 
-h1 {
+.blog h1 {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.4;

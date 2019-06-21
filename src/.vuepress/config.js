@@ -13,7 +13,7 @@ const autometa_options = {
 };
 
 module.exports = {
-	title: 'CIVBATTLEROYALE.tv',
+	title: 'CBR.tv',
 	dest: './public',
 	themeConfig: {
 		nav: [
@@ -27,8 +27,6 @@ module.exports = {
 		],
 		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
-		pageSize: 10,
-		startPage: 0
 	},
 	plugins: [
 		[
