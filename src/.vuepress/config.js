@@ -30,7 +30,7 @@ const autometa_options = {
 
 module.exports = {
 	title: 'CBR.tv',
-  description: ''
+  description: 'frontmatter.abstract',
 	dest: './public',
 	themeConfig: {
 		nav: [
