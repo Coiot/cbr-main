@@ -2,7 +2,7 @@
 <transition name="fade">
   <div class="blog">
 
-    <h1 class="">{{ $page.frontmatter.title || $title }}</h1>
+    <h1 class="">{{ $page.frontmatter.title }}</h1>
 
     <div class="albumInfo">
 
@@ -13,7 +13,7 @@
 
       <div class="column" tabindex="0">
         <Label class="label">Narrated by:</Label>
-        <p><span class="value">{{ $page.frontmatter.narrated_by || $description }}</span></p>
+        <p><span class="value">{{ $page.frontmatter.narrated_by }}</span></p>
       </div>
 
       <div class="column" tabindex="0">
