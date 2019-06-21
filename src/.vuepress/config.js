@@ -67,7 +67,7 @@ module.exports = {
 	 			}
  			}
 		],
-		[ 'autometa', autometa_options ],
+		[ 'vuepress-plugin-autometa', autometa_options ],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
@@ -77,5 +77,7 @@ module.exports = {
 		['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' }],
 		['meta', { name: 'msapplication-TileColor', content: '#da532c' }],
 		['meta', { name: 'theme-color', content: '#ffffff' }],
+		['meta', { name: 'og:image', content: 'https://cdn.discordapp.com/attachments/367369543376568322/590607288377802782/CBR_Logo.png' }],
+		['meta', { name: 'og:description', content: '$page.frontmatter.abstract' }]
 	]
 }
