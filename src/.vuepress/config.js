@@ -11,9 +11,7 @@ const autometa_options = {
   },
   canonical_base: 'https://civbattleroyale.tv',
   description_sources: [
-
     'frontmatter',
-
   ],
   image_sources: [
     'frontmatter',
@@ -22,7 +20,6 @@ const autometa_options = {
 
 module.exports = {
 	title: 'CBR.tv',
-  description: '{{ $page.frontmatter.abstract }}',
 	dest: './public',
 	themeConfig: {
 		nav: [
