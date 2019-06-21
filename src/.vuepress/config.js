@@ -14,23 +14,15 @@ const autometa_options = {
 
     'frontmatter',
 
-    /^((?:(?!^#)(?!^\-|\+)(?!^[0-9]+\.)(?!^!\[.*?\]\((.*?)\))(?!^\[\[.*?\]\])(?!^\{\{.*?\}\})[^\n]|\n(?! *\n))+)(?:\n *)+\n/img,
-    /<p(?:.*?)>(.*?)<\/p>/i,
-
   ],
   image_sources: [
-
     'frontmatter',
-
-    /!\[.*?\]\((.*?)\)/i,        // markdown image regex
-    /<img.*?src=['"](.*?)['"]/i, // html image regex
-
   ],
 };
 
 module.exports = {
 	title: 'CBR.tv',
-  description: '',
+  description: '{{ $page.frontmatter.abstract }}',
 	dest: './public',
 	themeConfig: {
 		nav: [
