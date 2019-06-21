@@ -2,10 +2,11 @@
 title: 'Episode 01: The Phantom Menace'
 edition: X1
 narrated_by: Coiot
-abstract: 'A communications disruption could mean only one thing: invasion.'
+abstract: 'A communications disruption could mean only one thing: carnival.'
 starting_turn: "2"
 release_date: June 19, 2019
 audio_narration: https://youtu.be/9k12RnkdadI
+fullvideo: https://www.youtube.com/watch?v=g3ioO5J8Mts
 date: 2019-06-19 05:00:00 +0000
 thumbnail: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
 scenes:

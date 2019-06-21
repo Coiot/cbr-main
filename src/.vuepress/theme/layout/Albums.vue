@@ -2,7 +2,7 @@
 <transition name="fade">
   <div class="blog">
 
-    <h1 class="">{{ $page.frontmatter.title }}</h1>
+    <h1 class="">{{ $page.frontmatter.title }} <span>– {{ $page.frontmatter.edition }}</span></h1>
 
     <div class="albumInfo">
 
@@ -22,8 +22,9 @@
       </div>
 
       <div class="column" tabindex="0">
-        <Label class="label">Audio Narration:</Label>
-        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Click to Play</a></span></p>
+        <Label class="label">Video:</Label>
+        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Audio Narrations</a></span></p>
+        <p v-if="$page.frontmatter.fullvideo"><span class="value"><a :href="$page.frontmatter.fullvideo" target="_blank">Full In-Game Turns</a></span></p>
       </div>
     </div>
 
@@ -78,6 +79,11 @@ export default {
   margin-top: 2.4em;
 }
 
+.blog h1 span{
+  font-size: 65%;
+  margin-left: .2rem;
+}
+
 .albumInfo {
   display: flex;
   flex-flow: row nowrap;
@@ -118,32 +124,31 @@ export default {
 }
 
 .scenes h2 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 600;
   color: white;
-  margin: 5rem 0 1rem;
+  margin: 4rem 0 .5rem;
 }
 
 .scenes h3 {
-  margin: 2rem 0 .2rem;
+  font-size: 1.7rem;
+  margin: 2.5rem 0 0;
 }
 
 img {
   width: 100%;
   line-height: 0;
-  box-shadow: 0 4px 1px 0 rgba(8, 56, 50, 0.3);
+  box-shadow: 0 5px 1px 0 rgba(8, 56, 50, 0.2);
 }
 
 .narrations {
   font-size: 1.4rem;
   line-height: 1.8;
-  text-shadow: 2px 2px rgba(8, 56, 50, 0.7);
-  padding:2rem 2.5rem;
-    margin: 2rem 0 0;
-  background-color: #292929;
+  text-shadow: 2px 2px rgba(8, 56, 50, 0.9);
+  padding: 0 0 .5rem;
+    margin: .5rem 0 0;
     border-top: 4px solid #1a1a1a;
   border-bottom: 2px solid #FFBF46;
-  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.4);
 }
 
 blockquote {
@@ -172,17 +177,24 @@ blockquote {
     flex-flow: column nowrap;
   }
   .column {
-    lex: 0 1 auto;
+    flex: 0 1 auto;
+  }
+  img {
+    box-shadow: none;
+  }
+  .scenes h2 {
+    margin: 1.5rem 0 .5rem;
+  }
+  .scenes h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0;
   }
   .narrations {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    padding: 1rem .5rem;
-    margin: 1rem 0 0;
-    background-color: none;
+    font-size: 1rem;
+    padding: .3rem .2rem;
+    margin: 0;
     border-top: 0;
     border-bottom: 1px solid #FFBF46;
-    box-shadow: 0;
   }
 }
 
