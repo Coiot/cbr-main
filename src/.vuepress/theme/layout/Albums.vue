@@ -59,8 +59,12 @@ export default {
 
   computed: {},
 
-  methods: {}
-}
+  methods: {},
+},
+
+module.exports = {
+  description: $page.frontmatter.abstract
+},
 </script>
 
 <style lang="stylus" scoped>
