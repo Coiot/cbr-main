@@ -12,7 +12,7 @@ const autometa_options = {
   canonical_base: 'https://civbattleroyale.tv',
   description_sources: [
 
-    'frontmatter.abstract',
+    'frontmatter',
 
     /^((?:(?!^#)(?!^\-|\+)(?!^[0-9]+\.)(?!^!\[.*?\]\((.*?)\))(?!^\[\[.*?\]\])(?!^\{\{.*?\}\})[^\n]|\n(?! *\n))+)(?:\n *)+\n/img,
     /<p(?:.*?)>(.*?)<\/p>/i,
@@ -20,7 +20,7 @@ const autometa_options = {
   ],
   image_sources: [
 
-    'frontmatter.thumbnail',
+    'frontmatter',
 
     /!\[.*?\]\((.*?)\)/i,        // markdown image regex
     /<img.*?src=['"](.*?)['"]/i, // html image regex
