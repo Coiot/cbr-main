@@ -78,6 +78,6 @@ module.exports = {
 		['meta', { name: 'msapplication-TileColor', content: '#da532c' }],
 		['meta', { name: 'theme-color', content: '#ffffff' }],
 		['meta', { name: 'og:image', content: 'https://cdn.discordapp.com/attachments/367369543376568322/590607288377802782/CBR_Logo.png' }],
-		['meta', { name: 'og:description', content: '$description' }]
+		['meta', { name: 'og:description', content: $description }]
 	]
 }
