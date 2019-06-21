@@ -10,6 +10,22 @@ const autometa_options = {
     twitter: 'lacoiot',
   },
   canonical_base: 'https://civbattleroyale.tv',
+  description_sources: [
+
+    'frontmatter',
+
+    /^((?:(?!^#)(?!^\-|\+)(?!^[0-9]+\.)(?!^!\[.*?\]\((.*?)\))(?!^\[\[.*?\]\])(?!^\{\{.*?\}\})[^\n]|\n(?! *\n))+)(?:\n *)+\n/img,
+    /<p(?:.*?)>(.*?)<\/p>/i,
+
+  ],
+  image_sources: [
+
+    'frontmatter',
+
+    /!\[.*?\]\((.*?)\)/i,        // markdown image regex
+    /<img.*?src=['"](.*?)['"]/i, // html image regex
+
+  ],
 };
 
 module.exports = {
@@ -51,7 +67,7 @@ module.exports = {
 	 			}
  			}
 		],
-		[ 'vuepress-plugin-autometa', autometa_options ],
+		[ 'autometa', autometa_options ],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
@@ -62,6 +78,6 @@ module.exports = {
 		['meta', { name: 'msapplication-TileColor', content: '#da532c' }],
 		['meta', { name: 'theme-color', content: '#ffffff' }],
 		['meta', { name: 'og:image', content: 'https://cdn.discordapp.com/attachments/367369543376568322/590607288377802782/CBR_Logo.png' }],
-		['meta', { name: 'og:description', content: '' }]
+		['meta', { name: 'og:description', content: '$description' }]
 	]
 }
