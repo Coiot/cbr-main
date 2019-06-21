@@ -12,7 +12,7 @@ const autometa_options = {
   canonical_base: 'https://civbattleroyale.tv',
   description_sources: [
 
-    'frontmatter',
+    'frontmatter.abstract',
 
     /^((?:(?!^#)(?!^\-|\+)(?!^[0-9]+\.)(?!^!\[.*?\]\((.*?)\))(?!^\[\[.*?\]\])(?!^\{\{.*?\}\})[^\n]|\n(?! *\n))+)(?:\n *)+\n/img,
     /<p(?:.*?)>(.*?)<\/p>/i,
@@ -20,7 +20,7 @@ const autometa_options = {
   ],
   image_sources: [
 
-    'frontmatter',
+    'frontmatter.thumbnail',
 
     /!\[.*?\]\((.*?)\)/i,        // markdown image regex
     /<img.*?src=['"](.*?)['"]/i, // html image regex
@@ -30,6 +30,7 @@ const autometa_options = {
 
 module.exports = {
 	title: 'CBR.tv',
+  description: frontmatter.abstract
 	dest: './public',
 	themeConfig: {
 		nav: [
@@ -45,15 +46,6 @@ module.exports = {
 		docsDir: 'src',
 	},
 	plugins: [
-		[
-			'vuepress-plugin-rss',
-			{
-				base_url: '/',
-				site_url: 'https://civbattleroyale.tv',
-				filter: frontmatter => frontmatter.date <= new Date(currentDateUTC),
-				count: 20
-			}
-		],
 		'vuepress-plugin-reading-time',
 		'vuepress-plugin-janitor',
 		[
@@ -78,6 +70,5 @@ module.exports = {
 		['meta', { name: 'msapplication-TileColor', content: '#da532c' }],
 		['meta', { name: 'theme-color', content: '#ffffff' }],
 		['meta', { name: 'og:image', content: 'https://cdn.discordapp.com/attachments/367369543376568322/590607288377802782/CBR_Logo.png' }],
-		['meta', { name: 'og:description', content: this.$page.frontmatter.abstract }]
 	]
 }
