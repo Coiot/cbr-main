@@ -48,11 +48,7 @@ module.exports = {
  			}
 		],
 		[ 'vuepress-plugin-autometa', autometa_options ],
-    [ 'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '
-        }
-    ],
+    [ 'vuepress-plugin-clean-urls',],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
