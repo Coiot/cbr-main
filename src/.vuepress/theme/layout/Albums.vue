@@ -31,7 +31,7 @@
     <section class="scenes">
       <p class="abstract" tabindex="0">{{ $page.frontmatter.abstract }}</p>
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-        <h2 tabindex="0">{{ scene.scene_number }}</h2>
+        <h2 class="scenenumber">{{ scene.scene_number }}</h2>
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot">
         <h3>{{ scene.scene_title }}</h3>
         <div class="narrations" v-html="scene.narration" tabindex="0"></div>
@@ -46,21 +46,10 @@
 </template>
 
 <script>
-import {
-  resolvePage,
-  normalize,
-  outboundRE,
-  endingSlashRE
-} from '../util'
-
 export default {
   name: 'Albums',
 
   props: ['sidebarItems'],
-
-  computed: {},
-
-  methods: {},
 }
 </script>
 

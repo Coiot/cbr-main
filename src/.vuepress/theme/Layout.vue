@@ -63,7 +63,6 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      swUpdateEvent: null
     }
   },
 
