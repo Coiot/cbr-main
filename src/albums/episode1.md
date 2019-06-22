@@ -9,6 +9,7 @@ audio_narration: https://youtu.be/9k12RnkdadI
 fullvideo: https://www.youtube.com/watch?v=g3ioO5J8Mts
 date: 2019-06-19 05:00:00 +0000
 thumbnail: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
+description: June 19, 2019
 scenes:
 - scene_number: '01'
   scene_title: Opening Crawl

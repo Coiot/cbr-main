@@ -5,8 +5,8 @@
   <ul class="suggestions" v-if="showSuggestions" :class="{ 'align-right': alignRight }" @mouseleave="unfocus">
     <li class="suggestion" v-for="(s, i) in suggestions" :class="{ focused: i === focusIndex }" @mousedown="go(i)" @mouseenter="focus(i)">
       <a :href="s.path" @click.prevent>
-        <span class="page-title">{{ s.title || s.path }}</span>
-        <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
+        <span class="page-title">{{ s.title || s.path }} <span v-if="s.frontmatter.edition" class="page-edition">– {{ s.frontmatter.edition }}</span></span>
+        <span v-if="s.header" class="header">&gt; {{ s.header.title }} </span>
       </a>
     </li>
   </ul>
@@ -75,14 +75,6 @@ export default {
       }
       return res
     },
-
-    // make suggestions align right when there are not enough items
-    alignRight() {
-      const navCount = (this.$site.themeConfig.nav || [])
-        .length
-      const repo = this.$site.repo ? 1 : 0
-      return navCount + repo <= 2
-    }
   },
 
   methods: {
@@ -180,11 +172,15 @@ export default {
       white-space normal
       color lighten($backColor, 30%)
       .page-title
-        font-weight 700
+        font-weight 600
+        .page-edition
+          font-size .85em
+          font-weight 300
       .header
-        font-size 0.9em
+        font-size 0.8em
         margin-left 0.25em
     &.focused
+      font-weight 700
       background-color #f9f9f9
       a
         color $backColor

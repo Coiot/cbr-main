@@ -20,10 +20,10 @@ const autometa_options = {
 
 module.exports = {
 	title: 'CBR.tv',
+  description: '',
 	dest: './public',
 	themeConfig: {
 		nav: [
-			{ text: 'Home', link: '/' },
 			{ text: 'Albums', link: '/albums/' },
 			{ text: 'Patreon', link: 'https://www.patreon.com/civbr' },
 			{ text: 'Reddit', link: 'https://old.reddit.com/r/civbattleroyale/' },
@@ -35,7 +35,6 @@ module.exports = {
 		docsDir: 'src',
 	},
 	plugins: [
-		'vuepress-plugin-reading-time',
 		'vuepress-plugin-janitor',
 		[
 			'vuepress-plugin-medium-zoom',

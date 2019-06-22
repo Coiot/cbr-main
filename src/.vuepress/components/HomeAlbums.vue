@@ -57,6 +57,12 @@ h1 {
   box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.2);
   margin-bottom: 5vw;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.post:hover {
+  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.3);
+  transform: scale(1.01);
 }
 
 img {

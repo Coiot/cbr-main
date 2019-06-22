@@ -80,6 +80,14 @@ a
   color $accentColor
   text-decoration none
 
+.blog a
+  font-weight 600
+  border-bottom 2px solid darken($borderColor, 30%)
+  transition all .2s ease-in
+
+.blog a:hover
+  border-bottom 2px solid #fffaf1
+
 p a code
   font-weight 400
   color $accentColor
@@ -102,8 +110,10 @@ blockquote
 ul, ol
   padding-left 1.2em
 
-strong
+strong, b, em
+  font-size 105%
   font-weight 600
+  color $accentColor
 
 h1, h2, h3, h4, h5, h6
   font-weight 600

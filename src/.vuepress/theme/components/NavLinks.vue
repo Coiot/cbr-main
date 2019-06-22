@@ -145,7 +145,8 @@ export default {
     &:hover, &.router-link-active
       color $backColor
   .nav-item
+    transition all .2s ease-in
     &:hover, &.router-link-active
       margin-bottom 0px
-      border-bottom 3px solid lighten($accentColor, 15%)
+      border-bottom 3px solid lighten($accentColor, 20%)
 </style>

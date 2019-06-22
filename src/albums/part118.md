@@ -29,7 +29,7 @@ scenes:
     will join to Bad Life Club pretty soon.
 - scene_number: "3"
   scene_title: Image 03
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part118-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part118-scene03.mp4
   narration: |-
     Here we see life from the beginning. Rather than show off a second map, I thought it would be
     nice to remind us all of where we started and where we are now. So many have left us and joined
@@ -37,7 +37,6 @@ scenes:
     for supremacy, where the Yakuts were a regional power, The Kongo was one of the mightiest
     empires, Canada was battling back the frozen hordes, and little Dom Pedro was holding hands
     with Eva Peron, Bernardo O’Higgins, and Pachacuti… Where has the time gone?
-    Coiot‘s Note: To view the timelapse preoperly, go to this slide‘s individual page: http://civbattleroyale.tv/albums/d72f39bc4f0a8630721bda05106a894d/content/8f1cf9925ebe021bd3360bc434db9539/
 - scene_number: "4"
   scene_title: Image 04
   slide_url: https://cdn.civbattleroyale.tv/mark2-part118-scene04.jpg

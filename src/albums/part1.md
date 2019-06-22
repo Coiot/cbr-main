@@ -1,5 +1,5 @@
 ---
-title: "Part 01:  In the Beginning...."
+title: "Part 01: In the Beginning"
 narrated_by: TPangolin and the official Power Rankers
 abstract: "The stage is set for a new clash of historical titans."
 starting_turn: "01"

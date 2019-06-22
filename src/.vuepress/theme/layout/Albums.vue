@@ -80,7 +80,7 @@ export default {
 }
 
 .blog h1 span{
-  font-size: 65%;
+  font-size: 61%;
   margin-left: .2rem;
 }
 
@@ -127,7 +127,7 @@ export default {
   font-size: 3.5rem;
   font-weight: 600;
   color: white;
-  margin: 4rem 0 .5rem;
+  margin: 4rem 0 1rem;
 }
 
 .scenes h3 {
@@ -139,21 +139,21 @@ img {
   width: 100%;
   line-height: 0;
   box-shadow: 0 5px 1px 0 rgba(8, 56, 50, 0.2);
+  transition: all .2s ease-in-out;
+}
+
+img:hover {
+  box-shadow: 0 5px 1px 0 rgba(8, 56, 50, 0.3);
+  transform: scale(1.01);
 }
 
 .narrations {
   font-size: 1.4rem;
   line-height: 1.8;
-  text-shadow: 2px 2px rgba(8, 56, 50, 0.9);
+  text-shadow: 2px 2px #083832;
   padding: 0 0 .5rem;
-    margin: .5rem 0 0;
-    border-top: 4px solid #1a1a1a;
+  margin: .5rem 0 0;
   border-bottom: 2px solid #FFBF46;
-}
-
-blockquote {
-    border-left: 2px solid #FFBF46;
-    margin-bottom: 1rem
 }
 
 .blog {
