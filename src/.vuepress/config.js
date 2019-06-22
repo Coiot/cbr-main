@@ -50,7 +50,7 @@ module.exports = {
 		[ 'vuepress-plugin-autometa', autometa_options ],
     [ 'vuepress-plugin-clean-urls',
       {
-        normalSuffix: ''
+        normalSuffix: '
         }
     ],
 	],
