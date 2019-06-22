@@ -1,6 +1,6 @@
 ---
 title: 'Episode 01: The Phantom Menace'
-description: "<p>Narrated by Coiot. June 19, 2019.</p><p>Audio:<a href="https://youtu.be/9k12RnkdadI">Dawkinzz</a> Full Turns:<a href="https://www.youtube.com/watch?v=g3ioO5J8Mts">Reon</a></p>"
+description: '<p>Narrated by Coiot. June 19, 2019.</p><p>Audio:<a href="https://youtu.be/9k12RnkdadI">Dawkinzz</a> Full Turns:<a href="https://www.youtube.com/watch?v=g3ioO5J8Mts">Reon</a></p>'
 edition: X1
 narrated_by: Coiot
 abstract: 'A communications disruption could mean only one thing: carnival.'
