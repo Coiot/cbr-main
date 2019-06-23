@@ -56,12 +56,6 @@ module.exports = {
         normalSuffix: '/'
       }
     ],
-    [ 'vuepress-plugin-seo',
-      {
-        description: $page => $page.frontmatter.description,
-        image: $page => $page.frontmatter.thumbnail,
-      }
-    ],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
