@@ -33,6 +33,9 @@ module.exports = {
 		],
 		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
+    serviceWorker: {
+      updatePopup: true
+    },
 	},
 	plugins: [
 		'vuepress-plugin-janitor',
@@ -51,7 +54,13 @@ module.exports = {
     [ 'vuepress-plugin-clean-urls',
       {
         normalSuffix: '/'
-        }
+      }
+    ],
+    [ 'seo',
+      {
+        description: $page => $page.frontmatter.description,
+        image: $page) => $page.frontmatter.thumbnail,
+      }
     ],
 	],
 	head: [
