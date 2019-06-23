@@ -56,7 +56,7 @@ module.exports = {
         normalSuffix: '/'
       }
     ],
-    [ 'seo',
+    [ 'vuepress-plugin-seo',
       {
         description: $page => $page.frontmatter.description,
         image: $page => $page.frontmatter.thumbnail,
