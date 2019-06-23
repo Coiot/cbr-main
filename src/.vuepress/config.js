@@ -59,7 +59,7 @@ module.exports = {
     [ 'seo',
       {
         description: $page => $page.frontmatter.description,
-        image: $page) => $page.frontmatter.thumbnail,
+        image: $page => $page.frontmatter.thumbnail,
       }
     ],
 	],
