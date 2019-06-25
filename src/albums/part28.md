@@ -1,13 +1,13 @@
 ---
 title: 'Part 28: MULTIKILL'
 narrated_by:
-abstract: 'When one dead civ isn’t enough!'
+description: 'When one dead civ isn’t enough!'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/hAt1SBRX5BA
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part28-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part28-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

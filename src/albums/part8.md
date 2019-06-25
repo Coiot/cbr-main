@@ -1,13 +1,13 @@
 ---
 title: 'Part 08: The Magic Eight Ball of History'
 narrated_by: Sigmapolis
-abstract: 'Another Civ Battle Royale Part? *shakes ball* My sources say Yes!'
+description: 'Another Civ Battle Royale Part? *shakes ball* My sources say Yes!'
 starting_turn: '131'
 release_date: 'September 08, 2015'
 audio_narration: https://youtu.be/tEl1NzZ2N0E
 edition: Mk2
 date: 2015-09-08T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part8-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part8-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

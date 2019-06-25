@@ -1,13 +1,13 @@
 ---
 title: "Part 01: In the Beginning"
 narrated_by: TPangolin and the official Power Rankers
-abstract: "The stage is set for a new clash of historical titans."
+description: "The stage is set for a new clash of historical titans."
 starting_turn: "01"
 release_date: "August 11, 2015"
 audio_narration: https://youtu.be/ZBA_U5aV65E
 edition: Mk2
 date: 2015-08-11T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

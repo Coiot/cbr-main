@@ -1,13 +1,13 @@
 ---
 title: 'Part 44: Crawl Out Through the Fallout'
 narrated_by: 
-abstract: ''
+description: ''
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/GfiZstA771o
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part44-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part44-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

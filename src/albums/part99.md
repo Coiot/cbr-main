@@ -1,13 +1,13 @@
 ---
 title: 'Part 99: Tonight We‘re Gonna Party Like It‘s CBR Part 99!'
 narrated_by: GoatontheMountain
-abstract: ''
+description: ''
 starting_turn: '913'
 release_date: 'Janurary 2, 2018'
 audio_narration: https://youtu.be/3FyLM96OCxQ
 edition: Mk2
 date: 2018-01-02T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part99-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part99-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

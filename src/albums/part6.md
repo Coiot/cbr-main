@@ -1,13 +1,13 @@
 ---
 title: "Part 06: Tonight, We Dine In Hell"
 narrated_by: DemosthenesKey
-abstract: "The war in Europe heats up as Leonidas leads his armies."
+description: "The war in Europe heats up as Leonidas leads his armies."
 starting_turn: "97"
 release_date: "August 30, 2015"
 audio_narration: https://youtu.be/o23KakENiWU
 edition: Mk2
 date: 2015-08-30T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

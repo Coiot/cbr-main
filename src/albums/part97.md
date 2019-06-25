@@ -1,13 +1,13 @@
 ---
 title: 'Part 97: The Deconstruction of Falling Stars'
 narrated_by: 1760s
-abstract: ''
+description: ''
 starting_turn: '888'
 release_date: 'December 19, 2017'
 audio_narration: https://youtu.be/eMMO8eHt6uM
 edition: Mk2
 date: 2017-12-19T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part97-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part97-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

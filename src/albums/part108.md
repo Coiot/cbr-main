@@ -1,13 +1,13 @@
 ---
 title: 'Part 108: De Ondergang'
 narrated_by: PonderousHajj
-abstract: ''
+description: ''
 starting_turn: '865'
 release_date: 'March 06, 2018'
 audio_narration: https://youtu.be/rggjbOlKeeI
 edition: Mk2
 date: 2018-03-06T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

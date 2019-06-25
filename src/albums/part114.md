@@ -1,13 +1,13 @@
 ---
 title: 'Part 114: Let‘s Get Silly'
 narrated_by: Volticore
-abstract: ''
+description: ''
 starting_turn: '925'
 release_date: 'April 16, 2018'
 audio_narration: https://youtu.be/h1fbXwp5MhU
 edition: Mk2
 date: 2018-04-16T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part114-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part114-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

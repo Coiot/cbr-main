@@ -1,13 +1,13 @@
 ---
 title: 'Part 117: Internal Dissent'
 narrated_by: Knight13117
-abstract: ''
+description: ''
 starting_turn: '938'
 release_date: 'May 08, 2018'
 audio_narration: https://youtu.be/7gLYE-KvRkk
 edition: Mk2
 date: 2018-05-08T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part117-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part117-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

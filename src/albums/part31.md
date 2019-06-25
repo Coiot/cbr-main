@@ -1,13 +1,13 @@
 ---
 title: 'Part 31: The Grand Culling'
 narrated_by:
-abstract: 'Ask not for whom the bell tolls...'
+description: 'Ask not for whom the bell tolls...'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/w0LXnV3VxLA
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part31-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part31-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

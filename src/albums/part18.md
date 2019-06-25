@@ -1,13 +1,13 @@
 ---
 title: 'Part 18: : Goodnight, Sweet Prince'
 narrated_by:
-abstract: 'As we close a great story with another Civ being put to rest, Africa sees rapid change.'
+description: 'As we close a great story with another Civ being put to rest, Africa sees rapid change.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/uArj0eKp5kM
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part18-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part18-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

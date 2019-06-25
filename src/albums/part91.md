@@ -1,13 +1,13 @@
 ---
 title: 'Part 91: Break Down the Walls'
 narrated_by: Jmangelo
-abstract: 'The trumpets circle around the fallen. The war between the Boers and Vietnam intensifies even further and a new escaltion is reached in the destruction.'
+description: 'The trumpets circle around the fallen. The war between the Boers and Vietnam intensifies even further and a new escaltion is reached in the destruction.'
 starting_turn: ''
 release_date: 'November 7, 2017'
 audio_narration: https://youtu.be/K5EqbCoS1qc
 edition: Mk2
 date: 2017-11-07T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part91-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part91-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

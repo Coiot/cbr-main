@@ -1,13 +1,13 @@
 ---
 title: 'Part 102: Emergency Activated'
 narrated_by:  Andy
-abstract: ''
+description: ''
 starting_turn: '974'
 release_date: 'January 23, 2018'
 audio_narration: https://youtu.be/byebofr0Irc
 edition: Mk2
 date: 2018-01-23T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part102-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part102-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

@@ -29,7 +29,8 @@
     </div>
 
     <section class="scenes">
-      <p class="abstract" tabindex="0">{{ $page.frontmatter.abstract }}</p>
+      <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
+      <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
         <h2 class="scenenumber">{{ scene.scene_number }}</h2>
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot">

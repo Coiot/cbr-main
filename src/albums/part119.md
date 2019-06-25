@@ -1,13 +1,13 @@
 ---
 title: 'Part 119: Number of the Beast'
 narrated_by: Borsthestylish
-abstract: ''
+description: ''
 starting_turn: '944'
 release_date: 'May 22, 2018'
 audio_narration: https://youtu.be/_yVQ3TDBIyA
 edition: Mk2
 date: 2018-05-22T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part119-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part119-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

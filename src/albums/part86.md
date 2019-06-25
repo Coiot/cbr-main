@@ -1,13 +1,13 @@
 ---
 title: 'Part 86: Requiem for a Leg Day'
 narrated_by: Msurdej
-abstract: 'All those interval training sessions have come down to this. Will muscle outperform steel? Elsewhere in Europe, the clash of lions also has everyone at attention.'
+description: 'All those interval training sessions have come down to this. Will muscle outperform steel? Elsewhere in Europe, the clash of lions also has everyone at attention.'
 starting_turn: ''
 release_date: 'October 3, 2017'
 audio_narration: https://youtu.be/eg82NL2xM_k
 edition: Mk2
 date: 2017-10-03T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part86-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part86-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

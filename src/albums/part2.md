@@ -1,13 +1,13 @@
 ---
 title: "Part 02: Towards Greener Pastures"
 narrated_by: Operafan0301
-abstract: "Early settlements grow and the first conflicts between the empires."
+description: "Early settlements grow and the first conflicts between the empires."
 starting_turn: "28"
 release_date: "August 15, 2015"
 audio_narration: https://youtu.be/1RzQqZXcmTk
 edition: Mk2
 date: 2015-08-15T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part2-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part2-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

@@ -1,13 +1,13 @@
 ---
 title: 'Part 118: The Race for 8th'
 narrated_by: Jmangelo
-abstract: ''
+description: ''
 starting_turn: '941'
 release_date: 'May 16, 2018'
 audio_narration: https://youtu.be/VLug2N9rIs0
 edition: Mk2
 date: 2018-05-16T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part118-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part118-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

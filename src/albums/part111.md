@@ -1,13 +1,13 @@
 ---
 title: 'Part 111: What Is It Good For?'
 narrated_by: GreatFan
-abstract: ''
+description: ''
 starting_turn: '909'
 release_date: 'March 27, 2018'
 audio_narration: https://youtu.be/ZDiUvGZjW2g
 edition: Mk2
 date: 2018-03-27T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part111-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part111-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

@@ -1,13 +1,13 @@
 ---
 title: 'Part 87: The Hundred Days'
 narrated_by: Lacsirax Ariscal
-abstract: 'Sweden’s bold march across Eastern Europe continues as the great powers around the world adapt to the Great Famine by focusing on biological enhancements for their troops.'
+description: 'Sweden’s bold march across Eastern Europe continues as the great powers around the world adapt to the Great Famine by focusing on biological enhancements for their troops.'
 starting_turn: ''
 release_date: 'October 10, 2017'
 audio_narration: https://youtu.be/gvRGfIERU6c
 edition: Mk2
 date: 2017-10-10T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

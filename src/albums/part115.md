@@ -1,13 +1,13 @@
 ---
 title: 'Part 115: Follow the Lime Green Brick Road'
 narrated_by: Cardboardmech
-abstract: ''
+description: ''
 starting_turn: '929'
 release_date: 'April 23, 2018'
 audio_narration: https://youtu.be/eQkSlLGTziU
 edition: Mk2
 date: 2018-04-23T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part115-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part115-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

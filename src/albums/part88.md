@@ -1,13 +1,13 @@
 ---
 title: 'Part 88: Exercises in Futility'
 narrated_by: Scissor
-abstract: 'Orange meets Green in the Middle East as two of the favorite contenders are eager to show of their fancy new troopers.'
+description: 'Orange meets Green in the Middle East as two of the favorite contenders are eager to show of their fancy new troopers.'
 starting_turn: ''
 release_date: 'October 17, 2017'
 audio_narration: https://youtu.be/FDg2nkc9UKs
 edition: Mk2
 date: 2017-10-17T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part88-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part88-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

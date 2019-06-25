@@ -1,13 +1,13 @@
 ---
 title: 'Part 20: They Grow Up So Fast...'
 narrated_by:
-abstract: 'A notable Civ truly shows its worth with great skill in war, tech and culture.'
+description: 'A notable Civ truly shows its worth with great skill in war, tech and culture.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/JU-lX-_TCdk
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part20-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part20-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

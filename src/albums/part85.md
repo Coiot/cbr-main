@@ -1,13 +1,13 @@
 ---
 title: 'Part 85: From Ashes to Embers'
 narrated_by: Lunar
-abstract: 'Violent wars stammer on endlessly while old tensions burn bright. How will these tensions shake the game as we know it with the Great Famine overcoming the cylinder?'
+description: 'Violent wars stammer on endlessly while old tensions burn bright. How will these tensions shake the game as we know it with the Great Famine overcoming the cylinder?'
 starting_turn: ''
 release_date: 'September 26, 2017'
 audio_narration: https://youtu.be/0Loj1ZWHAJg
 edition: Mk2
 date: 2017-09-26T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part85-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part85-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

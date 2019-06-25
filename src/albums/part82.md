@@ -1,13 +1,13 @@
 ---
 title: 'Part 82: DEUS VULT'
 narrated_by: volkanos
-abstract: 'The denizens of Babylon rejoice to the sound of Leg Day returning to the holy city.'
+description: 'The denizens of Babylon rejoice to the sound of Leg Day returning to the holy city.'
 starting_turn: ''
 release_date: 'Oct 23, 2016'
 audio_narration: https://youtu.be/4wzhcC-L7J8
 edition: Mk2
 date: 2016-10-23T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part82-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part82-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

@@ -1,13 +1,13 @@
 ---
 title: 'Part 101: Getting Schooled w/ Ed Beach'
 narrated_by: Ed Beach
-abstract: ''
+description: ''
 starting_turn: '954'
 release_date: 'January 16, 2018'
 audio_narration: https://youtu.be/6_VhddGmko0
 edition: Mk2
 date: 2018-01-16T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part101-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part101-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

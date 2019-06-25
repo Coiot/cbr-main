@@ -1,13 +1,13 @@
 ---
 title: 'Part 60: The Maple Sorrow'
 narrated_by: 
-abstract: ''
+description: ''
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/LMEH9S4F2Y4
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part60-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part60-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

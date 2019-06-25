@@ -2,7 +2,7 @@
 <transition name="fade">
   <div class="album-list">
 
-    <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.thumbnail})` }" :tabindex="0">
+    <router-link :to="post.path" tag="div" v-for="post in albums" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.image})` }" :tabindex="0">
 
       <div class="title-info">
         <p>{{ post.frontmatter.title }}</p>

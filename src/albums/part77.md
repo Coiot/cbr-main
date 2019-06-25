@@ -1,13 +1,13 @@
 ---
 title: 'Part 77: The Meiji Restoration'
 narrated_by: 
-abstract: ''
+description: ''
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/fcz1U-gr1QM
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part77-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part77-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

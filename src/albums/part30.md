@@ -1,13 +1,13 @@
 ---
 title: 'Part 30: Prelude to the Grand Culling'
 narrated_by:
-abstract: 'Death closes in on several civs throughout the cylinder.'
+description: 'Death closes in on several civs throughout the cylinder.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/fcntuKpMKxg
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part30-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part30-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

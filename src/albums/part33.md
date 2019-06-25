@@ -1,13 +1,13 @@
 ---
 title: 'Part 33: Farewell Sweet Princes'
 narrated_by:
-abstract: 'A flight of angels come to singe these leaders to thy rest.'
+description: 'A flight of angels come to singe these leaders to thy rest.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/O64vCUk5qec
 edition: Mk2
 date: 2015-03-04T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part33-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part33-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

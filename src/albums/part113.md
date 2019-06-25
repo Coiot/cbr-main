@@ -1,13 +1,13 @@
 ---
 title: 'Part 113: Poor Unfortunate Souls'
 narrated_by: Vihreaa
-abstract: ''
+description: ''
 starting_turn: '922'
 release_date: 'April 10, 2018'
 audio_narration: https://youtu.be/nw32OlTCuiw
 edition: Mk2
 date: 2018-04-10T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part113-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part113-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

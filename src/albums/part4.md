@@ -1,13 +1,13 @@
 ---
 title: "Part 04: Beyond the Horizon"
 narrated_by: IGetNoSlack
-abstract: "Forward settling in Asia leads to a multi-sided brawl for territory."
+description: "Forward settling in Asia leads to a multi-sided brawl for territory."
 starting_turn: "70"
 release_date: "August 22, 2015"
 audio_narration: https://youtu.be/DJcju0wS2zQ
 edition: Mk2
 date: 2015-08-22T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part4-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part4-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

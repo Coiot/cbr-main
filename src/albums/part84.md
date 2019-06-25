@@ -1,13 +1,13 @@
 ---
 title: 'Part 84: Sticking the Landing'
 narrated_by: Coiot
-abstract: 'After being up in the air for 11 months, the struggle resumes once more. Everything is just as familiar, but also not quite.'
+description: 'After being up in the air for 11 months, the struggle resumes once more. Everything is just as familiar, but also not quite.'
 starting_turn: ''
 release_date: 'September 20th, 2017'
 audio_narration: https://youtu.be/J3UOaZ-edkQ
 edition: Mk2
 date: 2017-09-20T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part84-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part84-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

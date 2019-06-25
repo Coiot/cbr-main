@@ -1,13 +1,13 @@
 ---
 title: "Part 07: The Royale Battle!"
 narrated_by: Eurogama
-abstract: "The Battle for Anatolia rages on! Who will hold Constantinople at the end of the day?"
+description: "The Battle for Anatolia rages on! Who will hold Constantinople at the end of the day?"
 starting_turn: "112"
 release_date: "September 03, 2015"
 audio_narration: https://youtu.be/O9vmXUPTklA
 edition: Mk2
 date: 2015-09-03T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part7-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part7-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

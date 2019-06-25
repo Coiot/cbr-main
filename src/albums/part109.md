@@ -1,13 +1,13 @@
 ---
 title: 'Part 109: Black Flags and Broomsticks'
 narrated_by: 'Paddywagon Man'
-abstract: ''
+description: ''
 starting_turn: '881'
 release_date: 'March 13, 2018'
 audio_narration: https://youtu.be/l1nP0SqScuQ
 edition: Mk2
 date: 2018-03-13T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part109-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part109-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

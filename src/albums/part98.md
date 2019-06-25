@@ -1,13 +1,13 @@
 ---
 title: 'Part 98: Pave the Ocean'
 narrated_by: AkraticCritic
-abstract: ''
+description: ''
 starting_turn: '904'
 release_date: 'December 26, 2017'
 audio_narration: https://youtu.be/7POgPRRuldA
 edition: Mk2
 date: 2017-12-26T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part98-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part98-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

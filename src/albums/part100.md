@@ -1,13 +1,13 @@
 ---
 title: 'Part 100: Sentimental Centennial'
 narrated_by: Lunar, Lime, Reon
-abstract: The Big Celebration
+description: The Big Celebration
 starting_turn: "923"
 release_date: January 9, 2018
 audio_narration: https://youtu.be/sw-97P1lDV0
 edition: Mk2
 date: 2018-01-09T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?crop=smart&width=1137&height=559&format=webp&nearlossless=1
+image: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?crop=smart&width=1137&height=559&format=webp&nearlossless=1
 scenes:
 - scene_number: "1"
   scene_title: Image 01

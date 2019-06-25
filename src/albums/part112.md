@@ -1,13 +1,13 @@
 ---
 title: 'Part 112: Cylinder: Total War'
 narrated_by: 'Daniel The Finn'
-abstract: ''
+description: ''
 starting_turn: '918'
 release_date: 'April 03, 2018'
 audio_narration: https://youtu.be/SCZ6ahR-BNA
 edition: Mk2
 date: 2018-04-03T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part112-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part112-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

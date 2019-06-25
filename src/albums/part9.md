@@ -1,13 +1,13 @@
 ---
 title: 'Part 09: Behold! The Rise of the Underdog!'
 narrated_by: KingEggbert
-abstract: 'They started from the bottom, now they own 2 capitals.'
+description: 'They started from the bottom, now they own 2 capitals.'
 starting_turn: '143'
 release_date: 'September 13, 2015'
 audio_narration: https://youtu.be/Fmwl_BhkCdk
 edition: Mk2
 date: 2015-09-13T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

@@ -1,13 +1,13 @@
 ---
 title: 'Part 95: Hell No, We Won’t Go!'
 narrated_by: DerErlenkonig
-abstract: ''
+description: ''
 starting_turn: ''
 release_date: 'December 5th, 2017'
 audio_narration: https://youtu.be/qTbDz45l1TQ
 edition: Mk2
 date: 2017-12-05T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part95-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part95-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

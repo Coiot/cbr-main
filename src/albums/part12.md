@@ -1,13 +1,13 @@
 ---
 title: 'Part 12: Bring Your Merchant To War Day'
 narrated_by: Senshidenshi
-abstract: 'More merchants join the war effort as attacks on Rome and the Philippines continue.'
+description: 'More merchants join the war effort as attacks on Rome and the Philippines continue.'
 starting_turn: '176'
 release_date: 'September 23, 2015'
 audio_narration: https://youtu.be/ExOEANKtkhE
 edition: Mk2
 date: 2015-09-23T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part12-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part12-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

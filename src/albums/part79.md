@@ -1,13 +1,13 @@
 ---
 title: 'Part 79: Continental Lords'
 narrated_by: 'JohnRegular, xSyracuse, The_EnigmaConundrum, and Mrmac23'
-abstract: 'The Boerg prove restless and the lords of the sea take to the waves to claim new shores.'
+description: 'The Boerg prove restless and the lords of the sea take to the waves to claim new shores.'
 starting_turn: ''
 release_date: 'Oct 09, 2016'
 audio_narration: https://youtu.be/ZMRcHCOgFKQ
 edition: Mk2
 date: 2016-10-09T00:00:00.000Z 
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part79-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part79-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01

@@ -1,13 +1,13 @@
 ---
 title: "Part 05: How to Fight Wars Good"
 narrated_by: Bencoccio
-abstract: "The pressure cooker in northern Europe explodes in all directions while North America finally reaches its boiling point."
+description: "The pressure cooker in northern Europe explodes in all directions while North America finally reaches its boiling point."
 starting_turn: "84"
 release_date: "August 25, 2015"
 audio_narration: https://youtu.be/mxNtZfQAJIM
 edition: Mk2
 date: 2015-08-25T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: Image 01

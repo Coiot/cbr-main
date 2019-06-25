@@ -1,13 +1,13 @@
 ---
 title: 'Part 10: Let Slip the Frogs of War!'
 narrated_by: Bluesox
-abstract: 'Cry havoc as the battle in Southeast Asia heats up!'
+description: 'Cry havoc as the battle in Southeast Asia heats up!'
 starting_turn: '154'
 release_date: 'September 16, 2015'
 audio_narration: https://youtu.be/RZUceDooBgE
 edition: Mk2
 date: 2015-09-16T00:00:00.000Z
-thumbnail: https://cdn.civbattleroyale.tv/mark2-part10-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part10-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: Image 01
