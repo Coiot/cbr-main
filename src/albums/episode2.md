@@ -11,7 +11,7 @@ release_date: 'June 26, 2019'
 audio_narration: ''
 fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
 edition: X1
-date: 2019-06-25 23:59:00 +0000
+date: '2019-06-25 23:59:00 +0000'
 image: https://latest.civbattleroyale.tv/season1-episode2-scene06.jpg
 scenes:
 - scene_number: "1"
