@@ -1,6 +1,6 @@
 ---
 title: 'Episode 02: Never Gonayiv You Up'
-narrated_by: Lascirax_Ariscal
+narrated_by: 'Lascirax_Ariscal'
 description: 'As the Cylinder completes its first rotations, the tensions between our
   combatants are stretched to breaking point and the first conflicts break out on
   every continent. With new settlements popping up constantly, and new religions for
@@ -9,7 +9,7 @@ description: 'As the Cylinder completes its first rotations, the tensions betwee
 starting_turn: "31"
 release_date: 'June 26, 2019'
 audio_narration: ''
-fullvideo: https://www.youtube.com/watch?v=B2Zx_EFvqww
+fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
 edition: X1
 date: 2019-06-25 23:59:00 +0000
 image: https://latest.civbattleroyale.tv/season1-episode2-scene06.jpg
@@ -22,7 +22,7 @@ scenes:
     while it certainly whetted the appetite, things are about to get spicy and substantial.
     We’ll be seeing wars, religions and soon-to-be infamous settles, I’m sure. This
     is Lacsirax Ariscal, power ranker, cartographer and fan since Mk. 1. Let’s get
-    stuck in.</p><p>Coiot‘note: This episode's cover comes to us by Jru, who makes a sudden reappearance on the sub. Warm Greetings.</p>"
+    stuck in.</p><p>Coiot‘s note: This episode's cover comes to us through the fine talents of Jru, who makes a sudden reappearance on the sub. Warm Greetings.</p>"
 - scene_number: "2"
   scene_title: OC of the Week
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene02.jpg
@@ -34,7 +34,7 @@ scenes:
 - scene_number: "3"
   scene_title: 'Tile-Accurate Map'
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene03.gif
-  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘note: Experimenting with presenting a gif animation through Erlen’s many variations. You can still click on the album above for a still of each.</p>'
+  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘s note: Experimenting with presenting a gif animation through Erlen’s many variations. You can still click on the album above for a still of each.</p>'
 - scene_number: "4"
   scene_title: DJjablonsky Map
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene04.jpg
@@ -84,7 +84,7 @@ scenes:
     of war. India has been neglecting their military, but might be able to stave off
     the Nepalese invaders for long enough to force a stalemate. It’ll be a close one,
     and either way Maratha will have cause to celebrate, already sending another settler
-    north underneath their arguing neighbours’ noses.</p><p></p><p>Now is probably
+    north underneath their arguing neighbours’ noses.</p><p>Now is probably
     a good time to mention that some of the shots this part will seem a little off-centre
     and strangely framed. This is due to the way in which the first few turns were
     played and filmed, but from next part onwards it gets fixed, so fret not!</p>"
@@ -223,7 +223,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene23.jpg
   narration: "<p>Speaking of Uruguay, that exclamation mark tells us they’ve just
     changed party, from Colorados to Blancos. That will give them healthy bonuses
-    to production and military, as well as a more aggressive AI. Approach with caution.</p><p></p><p>Back
+    to production and military, as well as a more aggressive AI. Approach with caution.</p><p>Back
     to the action in front of us, and we can see that the plucky Menn of Mann just
     bagged a wonder! It’s a brilliant one for them too, the Great Lighthouse, which
     grants better movement and sight for the armada they’ll soon construct. Of course,
@@ -357,7 +357,7 @@ scenes:
     a minor science bonus and a brand new dynastic capital - Yin, which you may remember
     was called Chu before. It’s a very cool mechanic, but we might not get a chance
     to see it used again! In any case the obvious focus for the Qin is now Qiongshi,
-    with Yin being marginally more protected.</p><p></p><p>Anyway, that seems to be
+    with Yin being marginally more protected.</p><p>Anyway, that seems to be
     everything in this scene, moving along… no, of course not, you’ve all seen it.
     The Khamugs settle Ba’arin down near Shanghai. And honestly, it looks pretty defensible
     from land, distant enough from its neighbours that I doubt anyone will bother
@@ -380,7 +380,7 @@ scenes:
     at the giant blue expanse that marks the edge of the known world. Are they imagining
     it, or do they see islands in the distance? One day, Haiti. One day you’ll be
     able to cross the ocean and find your true calling, reclaiming the Old World for
-    the New as the successor to the mythical Mr. Morgan.</p><p></p><p>Or you’ll be
+    the New as the successor to the mythical Mr. Morgan.</p><p>Or you’ll be
     eliminated by Part 10. One of the two.</p>"
 - scene_number: "38"
   scene_title: Heulugi-Hit Me!
@@ -392,7 +392,7 @@ scenes:
     when near a city celebrating We Love the King Day. We have no way of telling which
     cities are celebrating We Love the King Day. Also, is it only me or is that one
     of the weirdest names for a mechanic in the game? What if you’re playing as a
-    queen? Or hell, what if you’re running Communism?</p><p></p><p>Anyway, the Kuikuro’s
+    queen? Or hell, what if you’re running Communism?</p><p>Anyway, the Kuikuro’s
     main defence as always are trees. There’s no way Venezuela’s skirmish force can
     dent them just yet. Meanwhile, Gonayiv actually has a garrison now.</p>"
 - scene_number: "39"
@@ -647,7 +647,7 @@ scenes:
     just like that. No, I’m not crying, it’s just… humid. At least Prague is still
     unscathed, with the HRE completely unengaged in the Czech bonanza. Somewhere in
     the city, Kafka is churning out a short story that’s even more despondent than
-    usual.</p><p></p><p>We won’t get another look at the religion screen this part,
+    usual.</p><p>We won’t get another look at the religion screen this part,
     but BC have told me which religions have been founded where, albeit in an uncertain
     order. So let’s just introduce the new religions in an order of my choosing, and
     feel free to yell at me in the comments about how I got everything twisted and
@@ -835,7 +835,7 @@ scenes:
     of the Cylinder’s first ever spearmen (I would say THE first, but I did see some
     Goths carrying spears a few scenes back). I could see this being a stalemate,
     too. Meanwhile, the HRE have two whole settlers on the go - the race to six is
-    ON so long as you don’t look at the minimap too closely.</p><p></p><p>Another
+    ON so long as you don’t look at the minimap too closely.</p><p>Another
     religion has been founded! Let me pick another from the list… hm… oh, this one’s
     interesting. Sulu found a religion this part, and as you may already know, they’re
     another Sunni Sultanate in real life. So they’ve opted for the Bulgarian heresy
@@ -853,7 +853,7 @@ scenes:
     That city capture bonus is spicy, but you can’t capture cities without an army,
     and right now the Selk’nam aren’t boasting much. They do have their UU, the K’mal.
     It’s a cheaper, slightly stronger spearman that can move after attacking - I’m
-    not sure how useful those skirmish tactics will be in a full-on invasion, mind.</p><p></p><p>Elsewhere,
+    not sure how useful those skirmish tactics will be in a full-on invasion, mind.</p><p>Elsewhere,
     Parthia peace out with the Seljuqs, keeping Hamadan. That’s a wise call, as the
     next couple of cities were much better defended - but will they preserve their
     momentum and turn on a preoccupied Kazakhs next? On the other hand, I have no
@@ -923,7 +923,7 @@ scenes:
     seem happy to fulfil the same role Hawaii took last time around. They do manage
     a third city in Mu’a, and if you squint you’ll see a Sulu Proa (a faster trireme
     replacement) is paying them a visit. Tonga either go hard or stay home, and at
-    the moment we’re definitely getting the latter.</p><p></p><p>That’s all for this
+    the moment we’re definitely getting the latter.</p><p>That’s all for this
     rundown, but it sure ain’t all there is to see. A squint at the minimap shows
     us too many new cities to run down here, but out of the civs little-seen in this
     part, the Most Improved award has to go to Taungoo, who have settled a decent
@@ -933,5 +933,4 @@ scenes:
     footage that’s posted alongside every part. Other than that, stay tuned for even
     more excitement to come, keep making your batshit OCs, and please riot at every
     single mistake I made. Thanks for reading, see you in the comments!</p>"
-
 ---
