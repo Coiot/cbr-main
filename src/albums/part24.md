@@ -1,12 +1,12 @@
 ---
 title: 'Part 24: A Song of Ice and More Ice'
-narrated_by: 
-abstract: ''
+narrated_by:
+abstract: 'In this cold themed part we see the might of the Ice Sheet Fleet and other Northern Civs as the ice spreads and conquers.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/H75-G_Zh80s
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2015-03-04T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part24-scene06.jpg
 scenes:
 - scene_number: "1"

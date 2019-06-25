@@ -1,12 +1,12 @@
 ---
 title: 'Part 27: Swallow Thy Neighbour'
-narrated_by: 
-abstract: ''
+narrated_by:
+abstract: 'Remember the golden rule: kill all those who oppose your reign.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/5aMCmoq5Zn8
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2015-03-04T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part27-scene06.jpg
 scenes:
 - scene_number: "1"

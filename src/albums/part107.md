@@ -1,12 +1,12 @@
 ---
 title: 'Part 107: Trail of Tears'
-narrated_by: 
+narrated_by: Admiral Cloudberg
 abstract: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '1048'
+release_date: 'February 27, 2018'
 audio_narration: https://youtu.be/ulLEpCJSWfQ
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2018-02-27T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part107-scene06.jpg
 scenes:
 - scene_number: "1"

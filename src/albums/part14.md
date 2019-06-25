@@ -1,12 +1,12 @@
 ---
 title: 'Part 14: First Blood'
-narrated_by: 
-abstract: ''
-starting_turn: ''
-release_date: ''
+narrated_by: 3
+abstract: "We all knew it was coming: WHO WILL GO HOME FIRST?"
+starting_turn: '2'
+release_date: '1'
 audio_narration: https://youtu.be/sYNa_J8rub8
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2015-03-04T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part14-scene06.jpg
 scenes:
 - scene_number: "1"

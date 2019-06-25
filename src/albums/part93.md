@@ -1,12 +1,12 @@
 ---
 title: 'Part 93: Fortunate S‘on'
-narrated_by: 
+narrated_by: Sparrowhawk815
 abstract: ''
 starting_turn: ''
-release_date: ''
+release_date: 'November 21, 2017'
 audio_narration: https://youtu.be/81UPPGO0cpg
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2017-11-21T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part93-scene06.jpg
 scenes:
 - scene_number: "1"

@@ -23,8 +23,8 @@
 
       <div class="column" tabindex="0">
         <Label class="label">Video:</Label>
-        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank">Audio Narrations</a></span></p>
-        <p v-if="$page.frontmatter.fullvideo"><span class="value"><a :href="$page.frontmatter.fullvideo" target="_blank">Full In-Game Turns</a></span></p>
+        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank" rel="noopener noreferrer">Audio Narrations</a></span></p>
+        <p v-if="$page.frontmatter.fullvideo"><span class="value"><a :href="$page.frontmatter.fullvideo" target="_blank" rel="noopener noreferrer">Full In-Game Turns</a></span></p>
       </div>
     </div>
 

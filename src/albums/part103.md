@@ -1,12 +1,12 @@
 ---
 title: 'Part 103: Ordem Com Progresso'
-narrated_by: 
+narrated_by: Bluesox
 abstract: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '987'
+release_date: 'January 30, 2018'
 audio_narration: https://youtu.be/29mFjliMDbo
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2018-01-30T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part103-scene06.jpg
 scenes:
 - scene_number: "1"

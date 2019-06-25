@@ -1,12 +1,12 @@
 ---
 title: 'Part 94: Some Assembly Required'
-narrated_by: 
+narrated_by: LordFowl
 abstract: ''
 starting_turn: ''
-release_date: ''
+release_date: 'November 28, 2017'
 audio_narration: https://youtu.be/DES5Oi95sIA
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2017-11-28T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part94-scene06.jpg
 scenes:
 - scene_number: "1"

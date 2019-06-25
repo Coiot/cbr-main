@@ -1,12 +1,12 @@
 ---
 title: 'Part 105: Rump Steak, Rare'
-narrated_by: 
+narrated_by: Daxington
 abstract: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '1013'
+release_date: 'Feburary 13, 2018'
 audio_narration: https://youtu.be/JA-nhkeF0_A
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2018-02-13T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part105-scene06.jpg
 scenes:
 - scene_number: "1"

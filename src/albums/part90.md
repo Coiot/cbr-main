@@ -1,12 +1,12 @@
 ---
 title: 'Part 90: Heartaches by the Number'
-narrated_by: 
-abstract: ''
+narrated_by: TechnostarBTD5
+abstract: 'The sunset riders line up their shots as Mini-Pedro is summoned and deploys the tiny Brazilian fleet. Elsewhere, the Boers and Sibir continue to try to cut Vietnam off at the mountain pass.'
 starting_turn: ''
-release_date: ''
+release_date: 'October 31, 2017'
 audio_narration: https://youtu.be/80zuQxeesmg
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2017-10-31T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg
 scenes:
 - scene_number: "1"

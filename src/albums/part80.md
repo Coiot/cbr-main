@@ -1,12 +1,12 @@
 ---
 title: 'Part 80: There One Moment, Gone the Next'
-narrated_by: 
-abstract: ''
+narrated_by: Lunar
+abstract: 'The map wildly shifts in color as armies sweep through nuclear wastelands. A long, action-packed episode awaits.'
 starting_turn: ''
-release_date: ''
+release_date: 'Oct 12, 2016'
 audio_narration: https://youtu.be/t557AP2OGLw
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-10-12T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part80-scene06.jpg
 scenes:
 - scene_number: "1"

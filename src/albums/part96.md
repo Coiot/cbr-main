@@ -1,12 +1,12 @@
 ---
 title: 'Part 96: Stalin‘s Own™'
-narrated_by: 
+narrated_by: Bronnakus
 abstract: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '878'
+release_date: 'December 12, 2017'
 audio_narration: https://youtu.be/ldiB6CdBUvU
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2017-12-12T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part96-scene06.jpg
 scenes:
 - scene_number: "1"

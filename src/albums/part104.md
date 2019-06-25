@@ -1,12 +1,12 @@
 ---
 title: 'Part 104: Imperialism Invictus'
-narrated_by: 
+narrated_by: Spaceman9800
 abstract: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '1001'
+release_date: 'Feburary 06, 2018'
 audio_narration: https://youtu.be/x8I82X6WWDI
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2018-02-06T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg
 scenes:
 - scene_number: "1"

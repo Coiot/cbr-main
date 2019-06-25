@@ -1,12 +1,12 @@
 ---
 title: 'Part 81: The Valiants of Chapultepec'
-narrated_by: 
-abstract: ''
+narrated_by: 'Hakantula and Night_Man_'
+abstract: 'One final last stand before stampeding bisons as elsewhere the mighty black flag is also lowered.'
 starting_turn: ''
-release_date: ''
+release_date: 'Oct 16, 2016'
 audio_narration: https://youtu.be/IcOch_HKunU
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-10-16T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part81-scene06.jpg
 scenes:
 - scene_number: "1"

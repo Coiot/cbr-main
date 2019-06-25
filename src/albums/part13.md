@@ -1,12 +1,12 @@
 ---
 title: 'Part 13: Big Stick Syndrome'
-narrated_by: 
-abstract: ''
-starting_turn: ''
-release_date: ''
+narrated_by: A
+abstract: "Speak softly and watch the greatest BR political blunder to date."
+starting_turn: '1'
+release_date: '2'
 audio_narration: https://youtu.be/1eXNTW6ySxs
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-04T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part13-scene06.jpg
 scenes:
 - scene_number: "1"

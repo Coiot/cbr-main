@@ -1,12 +1,12 @@
 ---
 title: 'Part 83: The Great Leap Forward'
-narrated_by: 
-abstract: ''
+narrated_by: X-Rok
+abstract: 'The ceasefire between the Green Dragon and the Orange Menace gives way to a new conflict across attrition-weary Europe and the Pacific.'
 starting_turn: ''
-release_date: ''
+release_date: 'Oct 30, 2016'
 audio_narration: https://youtu.be/vYjDVjiw7iE
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-10-30T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part83-scene06.jpg
 scenes:
 - scene_number: "1"

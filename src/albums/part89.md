@@ -1,12 +1,12 @@
 ---
 title: 'Part 89: Eye of the Beholder'
-narrated_by: 
-abstract: ''
+narrated_by: Admiral Cloudberg
+abstract: 'The bell tolls for the great rump masterminds . The world looks on as the conflict escalates in Eurasia and spills over to North America.'
 starting_turn: ''
-release_date: ''
+release_date: 'October 24, 2017'
 audio_narration: https://youtu.be/j8ULr1HHMSY
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2017-10-24T00:00:00.000Z 
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part89-scene07.jpg
 scenes:
 - scene_number: "1"

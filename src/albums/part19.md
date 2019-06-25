@@ -1,12 +1,12 @@
 ---
 title: 'Part 19: Behold, the Renaissance!'
-narrated_by: 
-abstract: ''
+narrated_by:
+abstract: 'Several of the slowpokes reach the Renaissance, as the leaders continue increasing the gap.'
 starting_turn: ''
 release_date: ''
 audio_narration: https://youtu.be/RIwea7-JsOs
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2015-03-04T00:00:00.000Z
 thumbnail: https://cdn.civbattleroyale.tv/mark2-part19-scene06.jpg
 scenes:
 - scene_number: "1"
