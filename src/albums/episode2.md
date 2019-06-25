@@ -34,7 +34,7 @@ scenes:
 - scene_number: "3"
   scene_title: 'Tile-Accurate Map'
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene03.gif
-  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘note: Experimenting with presenting a gif animation through Erlen's many variations. You can still click on the album above for a still of each.</p>'
+  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘note: Experimenting with presenting a gif animation through Erlen’s many variations. You can still click on the album above for a still of each.</p>'
 - scene_number: "4"
   scene_title: DJjablonsky Map
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene04.jpg
