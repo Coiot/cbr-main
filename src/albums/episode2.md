@@ -1,6 +1,6 @@
 ---
 title: 'Episode 02: Never Gonayiv You Up'
-narrated_by: 'Lascirax_Ariscal'
+narrated_by: 'Lascirax Ariscal'
 description: 'As the Cylinder completes its first rotations, the tensions between our
   combatants are stretched to breaking point and the first conflicts break out on
   every continent. With new settlements popping up constantly, and new religions for
