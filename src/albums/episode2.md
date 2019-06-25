@@ -22,7 +22,7 @@ scenes:
     while it certainly whetted the appetite, things are about to get spicy and substantial.
     We’ll be seeing wars, religions and soon-to-be infamous settles, I’m sure. This
     is Lacsirax Ariscal, power ranker, cartographer and fan since Mk. 1. Let’s get
-    stuck in.</p>"
+    stuck in.</p><p>Coiot‘note: This episode's cover comes to us by Jru, who makes a sudden reappearance on the sub. Warm Greetings.</p>"
 - scene_number: "2"
   scene_title: OC of the Week
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene02.jpg
@@ -34,11 +34,11 @@ scenes:
 - scene_number: "3"
   scene_title: 'Tile-Accurate Map'
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene03.gif
-  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</p>'
+  narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘note: Experimenting with presenting a gif animation through Erlen's many variations. You can still click on the album above for a still of each.</p>'
 - scene_number: "4"
   scene_title: DJjablonsky Map
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene04.jpg
-  narration: '<p>For a more stylised look at the world, check out DJjablonsky’s map too, complete with civ names in case you’re still getting your Qins and Qings muddled. And a quick shout-out to the Google map that I’ve been updating too, which already features some fantastic city lore from the wonderful /u/wthrudoin: <a href="https://drive.google.com/open?id=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&usp=sharing">City Google Map</p>'
+  narration: '<p>For a more stylised look at the world, check out DJjablonsky’s map too, complete with civ names in case you’re still getting your Qins and Qings muddled. And a quick shout-out to the Google map that I’ve been updating too, which already features some fantastic city lore from the wonderful /u/wthrudoin: <a href="https://drive.google.com/open?id=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&usp=sharing">City Google Map</a></p>'
 - scene_number: "5"
   scene_title: Power Rankings Leader
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene05.jpg
