@@ -52,16 +52,16 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene06.jpg
   narration: "<p>We start in the Canadian prairies, where the Métis (pronounced Matey)
     have churned out three cities and have two more settlers on the go. They’re all
-    fairly conservative settles — no wild provocative expansions yet. But with the
+    fairly conservative settles—no wild provocative expansions yet. But with the
     land to the north becoming increasingly icy, Louis Riel will have to look south
     if he wants his people to thrive in the parts to come. Squint hard and you’ll
-    see a wonder being built in Batoche — is that the Statue of Zeus or the Temple
+    see a wonder being built in Batoche—is that the Statue of Zeus or the Temple
     of Artemis? Both are useful!</p>"
 - scene_number: "7"
   scene_title: Heroes of Legend
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene07.jpg
   narration: "<p>In Central Asia, Mithridates of Persia has enrolled one of the cylinder’s
-    first Great Generals, though we’re not sure of his name — it is the Ancient Era,
+    first Great Generals, though we’re not sure of his name—it is the Ancient Era,
     I guess no one’s writing history down yet. He’s already got a fine army behind
     him, though. More to the point, he has an army; whichever Great General’s sitting
     in the Seljuq capital of Isfahan seems to have forgotten that crucial part of
@@ -96,7 +96,7 @@ scenes:
     Venezuela’s doorstep! It’s actually a nice settle too, surrounded by rivers and
     placed on a hill for maximum defence. Of course, a better defence would be any
     sort of army, and Venezuela already look primed for a quick conquest. If I was
-    being generous, I’d say this city was bait — after all, Chavez hasn’t built any
+    being generous, I’d say this city was bait—after all, Chavez hasn’t built any
     naval units yet, so Haiti could sweep in and attack Caracas from the sea while
     he was distracted. That’s a pretty charitable reading, though.</p>"
 - scene_number: "11"
@@ -121,18 +121,18 @@ scenes:
 - scene_number: "13"
   scene_title: Target Practice
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene13.jpg
-  narration: "<p>We also see Delhi take damage — a troublesome sight for Indira and
+  narration: "<p>We also see Delhi take damage—a troublesome sight for Indira and
     her ministers, but they look more equipped to deal with the damage than Xia. It
     helps that Nepal’s archers are apparently engaged in training exercises in the
     forests south of the Ganges. Prithvi has instead sent a settler to the front line
-    — Nepal are still only sitting on two cities, and if they throw away their only
+   —Nepal are still only sitting on two cities, and if they throw away their only
     settler, they may stay this small for some time.</p>"
 - scene_number: "14"
   scene_title: The Peaceful Provinces
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene14.jpg
   narration: "<p>Our first shot this part of PR leaders Zimbabwe, and they’ve added
     a fifth city to their empire, the first contender to do so. The stats tell us
-    they do have an army, but it’s nowhere to be seen here — perhaps it’s marching
+    they do have an army, but it’s nowhere to be seen here—perhaps it’s marching
     on Ndongo already? Alas, we just don’t know. South Africa has some of the most
     productive land on the cylinder, with plenty of useful resources, so we may be
     seeing a more evenly fielded army from them in the future.</p>"
@@ -141,7 +141,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene15.jpg
   narration: "<p>From our current #1s to our previous champs, the Kazakhs, who had
     a timid Part 1. They seem to be overcompensating this part, with two new cities
-    already — one of these, Almaty, placed frighteningly close to Parthia’s Hecatompylos
+    already—one of these, Almaty, placed frighteningly close to Parthia’s Hecatompylos
     (the other one, Sauran, is hiding just north of this scene). The Kazakhs may have
     little-to-no army ready to defend it, but Parthia is hardly overflowing with soldiers
     either, so either side will probably want to wait a while before exchanging blows.
@@ -156,7 +156,7 @@ scenes:
     like that huge one running through the middle of Nubia. Unfortunately for Minoa,
     they did bring some warriors along for the ride, and Phaistos looks unilaterally
     doomed. Minoa do have another settler waiting to replace the city should the worst
-    come to pass — now hopefully they remember how to move it. Libya hover around
+    come to pass—now hopefully they remember how to move it. Libya hover around
     Cyrenaica, whistling awkwardly.</p>"
 - scene_number: "17"
   scene_title: Friday I’m At War
@@ -174,7 +174,7 @@ scenes:
   narration: "<p>The Kuikuro are notorious forest fortresses; they can build improvements
     without chopping down the surrounding woods, meaning they preserve those stellar
     defence bonuses for most of the game. Still, it looks like Venezuela are sending
-    a recon mission to assess the situation — Mr. Chavez, Gonayiv is right there and
+    a recon mission to assess the situation—Mr. Chavez, Gonayiv is right there and
     still unprotected, I’m not sure this is a priority right now! The Nazca settle
     on Estaquería for the name of their new Amazonian paradise.</p>"
 - scene_number: "19"
@@ -185,7 +185,7 @@ scenes:
     We Menn and Womenn are hardy people, possibly even foolhardy for thinking we can
     play ball with the big boys and girls. But we do have one thing going for us -
     Castletown is the first city we’ve seen to have a population in the double digits.
-    11 people — which is nearly as many as the population of the real life Isle of
+    11 people—which is nearly as many as the population of the real life Isle of
     Man. Scotland don’t exactly look threatening, as they seem less interested in
     soldiers and more invested in “trading”, whatever that means. In the corner, the
     Vikings look to populate their home-fjords a little more.</p>"
@@ -195,7 +195,7 @@ scenes:
   narration: "<p>Now we have two civs apparently allergic to third cities. It’s not
     surprising in the case of Poverty Point, who tend to like playing tall. Their
     army’s on the move north, though the destination is currently unclear. It’s more
-    alarming that the Iroquois still aren’t in city-spam mode — they’re infamous among
+    alarming that the Iroquois still aren’t in city-spam mode—they’re infamous among
     Civ V players for being unstoppably expansive, but there was always a worry they’d
     get bogged down by feuds with the Canadians upstairs, a war which has not yet
     progressed any further.</p>"
@@ -203,7 +203,7 @@ scenes:
   scene_title: Fights at Phaistos
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene21.jpg
   narration: "<p>One war that’s progressing just fine is Nubia’s attack on Phaistos
-    — indeed, we could be about to witness the first city capture of the game, in
+   —indeed, we could be about to witness the first city capture of the game, in
     Part 2 no less! Fortunately for Minoa, Nubia haven’t yet built a navy, on account
     of not yet having any coastal cities, so Minos might be able to flip it back.
     He also has his eyes on Greece, an area neglected by the European civs thus far.
@@ -229,16 +229,16 @@ scenes:
     grants better movement and sight for the armada they’ll soon construct. Of course,
     if they plan on keeping Douglas they could probably do with a boring land army
     too. The Holy Roman Empire are archer addicts, with just one warrior among their
-    ranks. Their current leader Bismarck should look to negate that imbalance — they’ll
+    ranks. Their current leader Bismarck should look to negate that imbalance—they’ll
     not be conquering anything as it stands.</p>"
 - scene_number: "24"
   scene_title: Yin and Yangcheng
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene24.jpg
   narration: "<p>Yangcheng is the first capital to fall to the red, but Xia might
-    have found a lifeline — they seem to have dispatched all the nearby warriors,
+    have found a lifeline—they seem to have dispatched all the nearby warriors,
     leaving Qin Shi Huang’s nearest melee unit a few turns away. On the other hand,
     there are enough archers nearby to make sure that Yangcheng’s population stays
-    in the red for some time — possibly even long enough for the Qin’s hit squad to
+    in the red for some time—possibly even long enough for the Qin’s hit squad to
     arrive. To the north, the Qing army appears on the move. Are they going to kick
     the Xia while they’re down, or do they have a juicier, greyer target?</p>"
 - scene_number: "25"
@@ -259,7 +259,7 @@ scenes:
     are otherwise looking pretty dismal, settling a conservative third city that seems
     designed to be as unthreatening as possible. It’s a wasted opportunity, as the
     Apache are also looking pretty quiet themselves, seemingly placing Tsokanende
-    in an attempt to block Poverty Point from settling any further west — not that
+    in an attempt to block Poverty Point from settling any further west—not that
     Poverty Point look like they want to settle anywhere.</p>"
 - scene_number: "27"
   scene_title: The First Fall of Many
@@ -289,7 +289,7 @@ scenes:
     Terraces, found in our world’s Philippines, gives +1 food to all hill tiles in
     the city it was constructed. It’s Australia who have built that one, and presuming
     they built it in their capital Canberra, that could really help them out with
-    early game growth — they evidently need it, looking at the measly 4 population
+    early game growth—they evidently need it, looking at the measly 4 population
     the city holds now. In the foreground, New Zealand appear to be stagnating after
     a quick and expansive start. They’d do well to get a decent navy off the ground
     (ha) as soon as possible.</p>"
@@ -299,7 +299,7 @@ scenes:
   narration: "<p>Another turn, another wonder, this one a lot more familiar; the Qing
     have built the Great Library in Beijing. They’re already cultural powerhouses
     thanks to their uniques, so a science bonus on top of that is very natty. It can’t
-    help them expand though — incredibly, for a civ that are usually one of the first
+    help them expand though—incredibly, for a civ that are usually one of the first
     to five cities, they’ve only just managed a third city and don’t have any other
     settlers on the go (that new city’s just out of shot, south of the Yellow Sea).
     Instead, Korea look to take advantage of the open Manchurian expanse. They’re
@@ -310,7 +310,7 @@ scenes:
   narration: "<p>Striking on a moment of weakness, both German-speaking civs declare
     war on Havel’s Czech Republic, with HRE even founding Augsburg a short distance
     from Prague to prepare. Granted, neither they nor Prussia look too committed to
-    this fight — they’re probably only doing this to get into the Ottomans’ good books.
+    this fight—they’re probably only doing this to get into the Ottomans’ good books.
     Czechia settle Plzen in a place that would be very difficult for them to defend
     but very easy for Prussia to defend in the future, if they actually engage in
     this war and take the city. In the sidebar we can see one civ has taken Havel’s
@@ -344,17 +344,17 @@ scenes:
     war on Canada, sending a decent force to Montréal. This is pretty disastrous for
     Canada, who have neglected defending that outpost in order to stem the pithy Iroquois
     assaults. But it’s also a fairly strange move for Poverty Point, who could surely
-    have pounced on the under-protected Apache instead — a more pressing threat, one
+    have pounced on the under-protected Apache instead—a more pressing threat, one
     would think. Here’s hoping Tahera can see the wood for the trees and doesn’t get
     caught off-guard.</p>"
 - scene_number: "35"
   scene_title: Yin and Shang?
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene35.jpg
   narration: "<p>Yangcheng has fallen! I repeat, Yangcheng has fallen! It’s only turn
-    39 but our first capital is already down — whatsmore, there’s no way Xia are taking
+    39 but our first capital is already down—whatsmore, there’s no way Xia are taking
     that back any time soon. Did I say Xia? Because I of course mean Shang, as the
     loss of their capital means they have now entered a new dynastic cycle, gaining
-    a minor science bonus and a brand new dynastic capital — Yin, which you may remember
+    a minor science bonus and a brand new dynastic capital—Yin, which you may remember
     was called Chu before. It’s a very cool mechanic, but we might not get a chance
     to see it used again! In any case the obvious focus for the Qin is now Qiongshi,
     with Yin being marginally more protected.</p><p>Anyway, that seems to be
@@ -418,7 +418,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene41.jpg
   narration: "<p>A Kiwi scout has also sailed to the edge of their known world and
     looked out over the endless blue. Any islands they see are but mirages. New Zealand
-    will have to expand in other directions — either land a commanding presence on
+    will have to expand in other directions—either land a commanding presence on
     the Australian continent, or pay Tonga a visit.</p>"
 - scene_number: "42"
   scene_title: Cold Cartography
@@ -428,7 +428,7 @@ scenes:
     the Cylinder has ever seen. I guess frozen oceans are all the rage at the moment.
     The Evenks already know this land well, and are instead settling it, founding
     Vanavara with another settler headed further west. We see plenty of new denouncements
-    or friendships announced in the sidebar — if you want to know the juicy details,
+    or friendships announced in the sidebar—if you want to know the juicy details,
     you’ll have to watch the video footage, which you should be able to find in the
     main Reddit post.</p>"
 - scene_number: "43"
@@ -446,7 +446,7 @@ scenes:
   narration: "<p>Even in this early stage of the game, there aren’t many regions of
     Eurasia that no civ has dared to settle yet, but the Tarim Basin is one of them.
     Only a few scouts have even approached the desolate desert, one of the least hospitable
-    places in the world — though, this being the CBR, I’m predicting we’ll see it
+    places in the world—though, this being the CBR, I’m predicting we’ll see it
     filled with megapolises soon enough.</p>"
 - scene_number: "45"
   scene_title: 'Just to Make It Very Clear: Qing are Yellow, Qin are Blue'
@@ -562,16 +562,16 @@ scenes:
 - scene_number: "57"
   scene_title: Quad-Cities
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene57.jpg
-  narration: "<p>One scene and four brand new cities — we’re being spoiled. From top
+  narration: "<p>One scene and four brand new cities—we’re being spoiled. From top
     to bottom: Alaric find a sunny shore on the Black Sea that feels Just Like Heaven,
-    and founds Oium. Whether the Goths can cling on to this city is unclear — the
+    and founds Oium. Whether the Goths can cling on to this city is unclear—the
     Golden Horde have a chariot archer hanging around nearby, but we can’t see enough
     to assess the situation properly. Said Golden Horde further justify their inclusion
     as the “Caucasus” civ by founding Atil in Azerbaijan. It’s a very defensible hilltop
     city that should prove a handy retreat if their war with the Goths turns south.
     And south of that is Merv, an even more protected city that makes up for the Seljuqs
     being beaten to the chase at the River Tigris. And it’s Palmyra who beat them,
-    with Circesium placed comfortably on the river’s western banks — a perfect forward
+    with Circesium placed comfortably on the river’s western banks—a perfect forward
     base for the wars to come.</p>"
 - scene_number: "58"
   scene_title: The Two Persias
@@ -587,7 +587,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene59.jpg
   narration: "<p>Canton slipped a lot in the rankings this week, but it’s still worth
     saying there’s a big old space between them and the other Chinas, and they've
-    yet time to fill in the gap — well, if the Khamugs don’t fill it first. Ching
+    yet time to fill in the gap—well, if the Khamugs don’t fill it first. Ching
     Shih has founded Macao opposite Taiwan; it’s wise for her to keep building coastal
     cities, as that’s where her uniques really come into play. That said, I can’t
     actually see a navy yet… don’t tell me you still haven’t researched Sailing, Ching
@@ -609,7 +609,7 @@ scenes:
   narration: "<p>The story is similar down south, with Songhai yet to produce an army
     worthy of taking on Constantine, or the newer settle of Tlemcen. Algeria might
     somehow get away with this one. God, and to think I insinuated they were boring
-    a few scenes ago — they’ve really come into their own these past few centuries.</p>"
+    a few scenes ago—they’ve really come into their own these past few centuries.</p>"
 - scene_number: "62"
   scene_title: I’ll Tell You Who’s Hanua-BAD
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene62.jpg
@@ -624,7 +624,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene63.jpg
   narration: "<p>Nyatsimba Mutota builds the Pyramids, further beautifying the bountiful,
     oh-so-peaceful lands of Zimbabwe. It’s not an especially useful wonder, but it’s
-    at least a sign their production is top-notch — and I’ll take those signs where
+    at least a sign their production is top-notch—and I’ll take those signs where
     I can, because their army is still non-existent. We’ve not got a clear look at
     Ndongo for a while, but I know I’ll be scouring the video to see how much of a
     threat Nzinga poses right now, as Zimbabwe is looking ever more glass than cannon.</p>"
@@ -693,7 +693,7 @@ scenes:
   scene_title: YOWCHeng!
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene69.jpg
   narration: "<p>Because I’m never allowed to be happy for more than a scene at a
-    time, we cut to China and — wow. The Xia/Shang are just being blown to pieces.
+    time, we cut to China and—wow. The Xia/Shang are just being blown to pieces.
     It’s almost embarrassing. Yin, their new dynastic capital, falls to the Qing effortlessly.
     The yellow army look ready to move onto the next city, but there is no next city.
     Indeed all the First Emperor has now is Qiongshi, the city being besieged by the
@@ -709,7 +709,7 @@ scenes:
     latter, and Mehmed II is pretty close to making headway on Ostrava, tearing down
     around half of the city’s fortifications. At this point, Havel would be better
     served cutting his losses and holding the line at Brno, where he has a somewhat
-    more in-shape army. Down in Greece, Malia looks very vulnerable — Minos is lucky
+    more in-shape army. Down in Greece, Malia looks very vulnerable—Minos is lucky
     Mehmed hasn’t noticed him yet.</p>"
 - scene_number: "71"
   scene_title: Boiling Point
@@ -737,11 +737,11 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene73.jpg
   narration: "<p>Hamadan continues to take damage, but the Seljuqs have conjured some
     archers out of nowhere, so hope is not yet lost. Elsewhere, we see another first
-    for the Cylinder — the first irrelevant wars. It wouldn’t be a huge AI game if
+    for the Cylinder—the first irrelevant wars. It wouldn’t be a huge AI game if
     we didn’t see civs declare war on other civs they clearly had no intention of
     attacking, and we see the Golden Horde and India lead the way, both sending angry
     letters to Oman. Still, worth making a note of, as these wars tend to precede
-    more exciting ones — could Oman’s forceful settles have overstepped certain civs’
+    more exciting ones—could Oman’s forceful settles have overstepped certain civs’
     boundaries? You may also notice Bombay is in resistance. No, it hasn’t been invaded
     without us noticing; Indira’s UA plunges her cities into resistance when a new
     building is constructed in her capital, offering double yields for a short time
@@ -754,10 +754,10 @@ scenes:
     will probably cycle between them and the Nenets on a part-by-part basis). I don’t
     see any guests from the Americas just yet, but it’s only a matter of time before
     they get invited too. The Evenks have been quite comfy in their isolated northern
-    taiga, with a special shoutout going to the citizens of Baykit — when making the
+    taiga, with a special shoutout going to the citizens of Baykit—when making the
     Google Map for Part 1, I realized Baykit is placed perfectly on its IRL counterpart,
     a very small village. And hey, I was right about them getting a religion too!
-    Two points to me so far. Anyway, the Evenks might not be lonely for long — looks
+    Two points to me so far. Anyway, the Evenks might not be lonely for long—looks
     like the Khamugs are headed north, and given how far south they ventured earlier
     this part, who knows where they could end up? The North Pole? The Moon?</p>"
 - scene_number: "75"
@@ -787,7 +787,7 @@ scenes:
   scene_title: And Then There Were Boats
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene77.jpg
   narration: "<p>Hang on, where did all that come from? No one on the Cylinder seems
-    to have built a convincing navy yet — no one except Sakamoto Ryoma, that is. Shikoku
+    to have built a convincing navy yet—no one except Sakamoto Ryoma, that is. Shikoku
     also boast a newish city in Nakamura (well, we actually spotted it last part)
     and a very high population in Kochi. Shikoku’s UA, which grants bonus science
     when they land on new landmasses for the first time, complements the early game,
@@ -796,7 +796,7 @@ scenes:
   scene_title: Only Parth of the Problem
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene78.jpg
   narration: "<p>The Parthians capture Hamadan! There’s no way Alp Arslan’s getting
-    that one back, either — not with two new declarations of war headed his way from
+    that one back, either—not with two new declarations of war headed his way from
     both Oman and Palmyra. Last time we checked in, Oman didn’t have much in the way
     of an army, but Palmyra could prove very provocative. Still, both Isfahan and
     Merv are in very fortified locations, so don’t assume we’ll see a total Seljuq
@@ -831,10 +831,10 @@ scenes:
     sooner than expected. But honestly, despite the fact Scotland declared it, there’s
     no immediate front-runner; with Mann now having two cities up and running in England,
     Scotland’s forces might well split and squander their chances. And while Mann’s
-    army is smaller than Scotland’s, it’s also more advanced — they’re fielding some
+    army is smaller than Scotland’s, it’s also more advanced—they’re fielding some
     of the Cylinder’s first ever spearmen (I would say THE first, but I did see some
     Goths carrying spears a few scenes back). I could see this being a stalemate,
-    too. Meanwhile, the HRE have two whole settlers on the go — the race to six is
+    too. Meanwhile, the HRE have two whole settlers on the go—the race to six is
     ON so long as you don’t look at the minimap too closely.</p><p>Another
     religion has been founded! Let me pick another from the list… hm… oh, this one’s
     interesting. Sulu found a religion this part, and as you may already know, they’re
@@ -852,10 +852,10 @@ scenes:
     do construct one of the greatest wonders of the world, the fierce Statue of Zeus.
     That city capture bonus is spicy, but you can’t capture cities without an army,
     and right now the Selk’nam aren’t boasting much. They do have their UU, the K’mal.
-    It’s a cheaper, slightly stronger spearman that can move after attacking — I’m
+    It’s a cheaper, slightly stronger spearman that can move after attacking—I’m
     not sure how useful those skirmish tactics will be in a full-on invasion, mind.</p><p>Elsewhere,
     Parthia peace out with the Seljuqs, keeping Hamadan. That’s a wise call, as the
-    next couple of cities were much better defended — but will they preserve their
+    next couple of cities were much better defended—but will they preserve their
     momentum and turn on a preoccupied Kazakhs next? On the other hand, I have no
     idea how many spare kidneys Havel offered to Mehmed to land his Czech Republic
     a peace treaty with the Ottomans, without even conceding Ostrava. A lucky break
@@ -888,7 +888,7 @@ scenes:
   slide_url: https://latest.civbattleroyale.tv/season1-episode2-scene85.jpg
   narration: "<p>Things have heated up in the Sahel, with a sudden and huge Songhai
     army descending on Constantine. Barring any sudden peace treaty, the city is history
-    — and Askia might drag Tlemcen down with it for good measure. We can see injured
+   —and Askia might drag Tlemcen down with it for good measure. We can see injured
     soldiers on the Libyan front, but neither side appears to have made much impact
     on the other up there.</p>"
 - scene_number: "86"
@@ -912,9 +912,9 @@ scenes:
     long enough to found a city right in the midst of Venezuela’s vast armies. Actually,
     said army seems to have retreated, but unless they signed Open Borders I think
     this must be a non-binding ceasefire rather than a fully fledged peace treaty.
-    One thing’s for sure — Venezuela blew their shot to take out Gonayiv while it
+    One thing’s for sure—Venezuela blew their shot to take out Gonayiv while it
     would have been a walk in the park. No doubt they could still do it, but Haiti
-    would only let it go kicking and screaming now — perhaps enough to scratch Venezuela
+    would only let it go kicking and screaming now—perhaps enough to scratch Venezuela
     hard enough for a naval assault.</p>"
 - scene_number: "88"
   scene_title: A Relaxing Wind-Down
