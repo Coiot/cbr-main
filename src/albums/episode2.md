@@ -8,7 +8,7 @@ description: 'As the Cylinder completes its first rotations, the tensions betwee
   as the game starts in earnest?'
 starting_turn: "31"
 release_date: 'June 26, 2019'
-audio_narration: ''
+audio_narration: 'https://youtu.be/CbiqeWjvEfI'
 fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
 edition: X1
 date: '2019-06-25 23:59:00 +0000'
