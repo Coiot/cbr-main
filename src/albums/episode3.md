@@ -8,7 +8,7 @@ audio_narration: https://youtu.be/OmNrg1vc4HU
 fullvideo:
 edition: X1
 date: 2019-07-02T00:00:00+00:00
-image: https://cdn.civbattleroyale.tv/season1-episode3-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-episode3-scene07.jpg
 prcast:
 scenes:
 - scene_number: 01
@@ -359,5 +359,5 @@ scenes:
 - scene_number: 87
   scene_title: "Remove Zimbab!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene87.jpg
-  narration: "<p>As I near the end of my paper supply, I write to you about my time in Zimbabwe. The people are so peaceful, they have the largest non-military force I have seen on this Earth. Apparently, they also like large pointed buildings, too. I had an artist draw me so it looked like I was holding it up, but it’s really hard to make it look like you’re holding up a triangle. Alas, I bid you adieu. If you ever find this in the future, know this.</p><p>1. Art is a piece of it’s time, and it is not to be judged based on the quirks of an era which could not predict future trends.</p><p>2. I totally slept with Alp Arslan. HAH! YOU THOUGHT I WAS STRAIGHT!</p>"
+  narration: "<p>As I near the end of my paper supply, I write to you about my time in Zimbabwe. The people are so peaceful, they have the largest non-military force I have seen on this Earth. Apparently, they also like large pointed buildings, too. I had an artist draw me so it looked like I was holding it up, but it’s really hard to make it look like you’re holding up a triangle. Alas, I bid you adieu. If you ever find this in the future, know this:</p><p>1. Art is a piece of it’s time, and it is not to be judged based on the quirks of an era which could not predict future trends.</p><p>2. I totally slept with Alp Arslan. HAH! YOU THOUGHT I WAS STRAIGHT!</p>"
 ---
