@@ -34,7 +34,7 @@ scenes:
 - scene_number: 06
   scene_title: "Ladgazine"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene06.jpg
-  narration: "<p>For Coiot</p>"
+  narration: '<p>Issue 8 of <strong>Civ Modders Monthly</strong> is now available. The CMM is modding community run periodical that details many of the aspects that are involved in creating mods for Civ games, and there are always unique insights into the decision making that went into the creation of many past and recently released mods. In this eighth issue, we reflect upon Homusubi’s extensive catalogue of Japanese civs across Civ V and Civ VI. Also, M1sf1r3 considers some of the key differences in designing the same civilizations across different games. And for this special month, several modders consider what the modding community means to them. Be sure to queue it up in your browser:<a href="https://drive.google.com/open?id=1vPlN4__PcJEsswjvNTw6yJ7leLNrReUi">Download Link</a></p>'
 - scene_number: 07
   scene_title: "GeroJo."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene07.jpg
