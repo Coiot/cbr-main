@@ -1,5 +1,5 @@
 ---
-title: "A Hero’s Journey"
+title: "Episode 03: A Hero’s Journey"
 narrated_by: "ExplosiveWatermelon"
 description: "I, /u/ExplosiveWatermelon, bring to you a tale of love, heartbreak, death, and disaster. Welcome, to the EWLC."
 starting_turn: "31"
@@ -14,7 +14,7 @@ scenes:
 - scene_number: 01
   scene_title: "Intro"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene01.jpg
-  narration: "<p>Welcome to the first, and probably only, session of the ExplosiveWatermelon Literature Club! (or EWLC) Today, we’re gonna be reading the Hero’s Journey, a historical piece written by famed Scottish poet Algernon Charles Swinburne. (Of note: Not the guy on the Sub) Anybody who has complaints with the authenticity of the book or that it’s contents are boring are immediately to be kicked out of the club and sent into the OC mines. Let’s get started.</p>"
+  narration: "<p>Welcome to the first, and probably only, session of the ExplosiveWatermelon Literature Club! (or EWLC) Today, we’re gonna be reading the Hero’s Journey, a historical piece written by famed Scottish poet Algernon Charles Swinburne. (Of note: Not the guy on the Sub) Anybody who has complaints with the authenticity of the book, or that of its contents are boring, are immediately to be kicked out of the literature club and sent into the OC mines. Let’s get started.</p>"
 - scene_number: 02
   scene_title: "OC"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene02.jpg
@@ -78,7 +78,7 @@ scenes:
 - scene_number: 17
   scene_title: "EXPAND NDONGO"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene17.jpg
-  narration: "<p>Ah, the African people. They are truly magnificent! I remember travelling to Zimbabwe, and apparently they had this new installation called the “Mausoleum of Halicarnassus” which was really interesting to me! I even paid a local artist to sketch me standing next to it while it looked like I was holding it up. (Sadly, I was 2 inches off and now it just looks like I’m using magical powers to hold it up instead) Ndongo, the people of the funny names, were also very welcoming as long as you didn’t mention that their name had the word “Dong” in it.</p>"
+  narration: "<p>Ah, the African people. They are truly magnificent! I remember traveling to Zimbabwe, and apparently they had this new installation called the “Mausoleum of Halicarnassus” which was really interesting to me! I even paid a local artist to sketch me standing next to it while it looked like I was holding it up. (Sadly, I was 2 inches off and now it just looks like I’m using magical powers to hold it up instead) Ndongo, the people of the funny names, were also very welcoming as long as you didn’t mention that their name had the word “Dong” in it.</p>"
 - scene_number: 18
   scene_title: "Cthulhu"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene18.jpg
@@ -130,7 +130,7 @@ scenes:
 - scene_number: 30
   scene_title: "Tell my wife I said “hello.”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene30.jpg
-  narration: "<p>The Iroquois remember their own existence, and realize how pitiful it is. Lord-Chief Hiawatha spoke to his people today. “We settle not because we can, but because we must!” He spoke. He then gave a riling speech. Meanwhile, Poverty Point leader Tahera gave a speech of their own- “The fact that we are doing nothing shows our resolve!”</p><p></p><p>(EW’s Note: The Iroquois somehow adopted an Ideology, if you were wondering what that Ideology notice was doing a while back, and we have no clue which one it is, so I’m just gonna say they’re Libertarians until someone figures out what happened.)</p><p>(Lime’s Note: Yes, we really don’t know how they founded an ideology. If anyone has any ideas, please help)</p>"
+  narration: "<p>The Iroquois remember their own existence, and realize how pitiful it is. Lord-Chief Hiawatha spoke to his people today. “We settle not because we can, but because we must!” He spoke. He then gave a riling speech. Meanwhile, Poverty Point leader Tahera gave a speech of their own- “The fact that we are doing nothing shows our resolve!”</p><p></p><p>EW’s Note: The Iroquois somehow adopted an Ideology, if you were wondering what that Ideology notice was doing a while back, and we have no clue which one it is, so I’m just gonna say they’re Libertarians until someone figures out what happened.</p><p>Lime’s Note: Yes, we really don’t know how they founded an ideology. If anyone has any ideas, please help.</p>"
 - scene_number: 31
   scene_title: "Song-bye!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene31.jpg
@@ -150,7 +150,7 @@ scenes:
 - scene_number: 35
   scene_title: "Now entering Busan."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene35.jpg
-  narration: "<p>After travelling with a band of Qing settlers, I discovered that, despite missing their capital, the Koreans still have plenty of territory. Busan was very lovely, and Daegu was very not. The Qing settlers pointed and laughed at Daegu and said they could do better. They probably could.</p>"
+  narration: "<p>After traveling with a band of Qing settlers, I discovered that, despite missing their capital, the Koreans still have plenty of territory. Busan was very lovely, and Daegu was very not. The Qing settlers pointed and laughed at Daegu and said they could do better. They probably could.</p>"
 - scene_number: 36
   scene_title: "Fake King."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene36.jpg
@@ -210,7 +210,7 @@ scenes:
 - scene_number: 50
   scene_title: "Fighting Gold!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene50.jpg
-  narration: "<p>The Golden Horde, who I was pretty sure was not put on this cylinder by any loving God, were very intriguing to me. They were completely full of non-military forces, preparing for non-military activities. It was very strange to me because I thought they’d be all into military stuff, but they clarified.</p><p>“No,” Toktamysh said, “It’s, uh… Non-Military activities!”</p>"
+  narration: "<p>The Golden Horde, who I was pretty sure was not put on this cylinder by any loving God, were very intriguing to me. They were completely full of non-military forces, preparing for non-military activities. It was very strange to me because I thought they’d be all into military stuff, but they clarified.</p><p>“No,” Toktamysh said, “It’s, uh… Non-Military activities!”</p><p>Coiot’s Note: The Goth general on screen is Cao Cao.</p>"
 - scene_number: 51
   scene_title: "Ndongo home."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene51.jpg
@@ -327,7 +327,7 @@ scenes:
 - scene_number: 79
   scene_title: "Sleigh bells are Qing-ling"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene79.jpg
-  narration: "<p>In the great empty Siberia, I met up with some old settler buddies of mine. Turns out, being loss had given them time to reflect on the self. They found out they don’t like themselves that much and that reflecting on yourself is a terrible idea. However, it seems that they might settle down soon. It might be hypothermia, but siberia seems pretty warm this time of year.</p>"
+  narration: "<p>In the great empty Siberia, I met up with some old settler buddies of mine. Turns out, being loss had given them time to reflect on the self. They found out they don’t like themselves that much and that reflecting on yourself is a terrible idea. However, it seems that they might settle down soon. It might be hypothermia, but Siberia seems pretty warm this time of year.</p>"
 - scene_number: 80
   scene_title: "More civs?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene80.jpg
@@ -359,5 +359,5 @@ scenes:
 - scene_number: 87
   scene_title: "Remove Zimbab!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene87.jpg
-  narration: "<p>As I near the end of my paper supply, I write to you about my time in Zimbabwe. The people are so peaceful, they have the largest non-military force I have seen on this Earth. Apparently, they also like large pointed buildings, too. I had an artist draw me so it looked like I was holding it up, but it’s really hard to make it look like you’re holding up a triangle. Alas, I bid you adieu. If you ever find this in the future, know this.</p><p></p>"
+  narration: "<p>As I near the end of my paper supply, I write to you about my time in Zimbabwe. The people are so peaceful, they have the largest non-military force I have seen on this Earth. Apparently, they also like large pointed buildings, too. I had an artist draw me so it looked like I was holding it up, but it’s really hard to make it look like you’re holding up a triangle. Alas, I bid you adieu. If you ever find this in the future, know this.</p><p>1. Art is a piece of it’s time, and it is not to be judged based on the quirks of an era which could not predict future trends.</p><p>2. I totally slept with Alp Arslan. HAH! YOU THOUGHT I WAS STRAIGHT!</p>"
 ---
