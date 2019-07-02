@@ -33,9 +33,13 @@ module.exports = {
 		],
 		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
-    serviceWorker: {
-      updatePopup: true
-    },
+    serviceWorker: true,
+    markdown: {
+    anchor: { permalink: true },
+    config: md => {
+      md.use(require("markdown-it-katex"));
+    }
+  }
 	},
 	plugins: [
 		'vuepress-plugin-janitor',
