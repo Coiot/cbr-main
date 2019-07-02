@@ -3,8 +3,8 @@ title: "A Hero’s Journey"
 narrated_by: "ExplosiveWatermelon"
 description: "I, /u/ExplosiveWatermelon, bring to you a tale of love, heartbreak, death, and disaster. Welcome, to the EWLC."
 starting_turn: "31"
-release_date:
-audio_narration:
+release_date: July 03, 2019
+audio_narration: https://youtu.be/OmNrg1vc4HU
 fullvideo:
 edition: X1
 date: 2019-07-02T00:00:00+00:00
@@ -126,7 +126,7 @@ scenes:
 - scene_number: 29
   scene_title: "Wheel, Wheel, spin spin spin!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene29.jpg
-  narration: "<p>The Germans, fresh off their war with the Czech, spin the wheel of enemies and point their sword to… The other Germans! Do I expect anything to happen? No. But the sight of bloodshed is always inspiring in art! In fact, I’ve already started a poem about the war, although my publisher told me it was “disturbingly sexual,” “not appropriate,” and to “please get out of (his) house!”</p>"
+  narration: "<p>The Germans, fresh off their war with the Czech, spin the wheel of enemies and point their sword to… The other Germans! Do I expect anything to happen? No. But the sight of bloodshed is always inspiring in art! In fact, I’ve already started a poem about the war, although my publisher told me it was “disturbingly sexual,” “not appropriate,” and to “please get out of (his) house!”</p><p>Reon‘s Note: The HRE Leader changes upon entering the Classical Era; they are now lead by Ashurbanipal.</p>"
 - scene_number: 30
   scene_title: "Tell my wife I said “hello.”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene30.jpg
@@ -244,9 +244,10 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene58.jpg
   narration: "<p>Seddon cries himself to sleep once more. I am confused as to why he does that. I simply ask him, “What’s wrong?”</p><p></p><p>“Oh, Algernon,” He says to me, “My heart aches as I think about the war. I sent half my naval units to the Murri, do I seem desperate?”</p><p></p><p>“Yes.” I told him.</p>"
 - scene_number: 59
+  death: 'yes'
   scene_title: "Quote the poet Vonnegut, “So it goes”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene59.jpg
-  narration: "<p>I have received an update from Thomas Jones.</p><p></p><p>“Milord Algernon Charles Swinburne,</p><p></p><p>It appears that Xiang was not safe at ALL. Meanwhile, Pyongyang has finally put out all the fires! What a tale! Anyways, my sisters and I finally found sanctuary, or rather it found us- a bunch of men in the strangest attire speaking the strangest language grabbed us. My sisters were visibly upset, but as the Canton Pirates marched into the city, we were cornered. Finally, Yu (the Xiang leader), took us by the hands. “My colleagues, the angels are here to take us away. In the next world, perhaps we’ll be friends?”</p><p></p><p>My sisters immediately responded, “You failed in this world, but in ours we were queens. Death on the battlefield meant much more than cowering in a city waiting to die. We hoped we could succeed in this world where we failed in the last, but it seems to be not. You would not even be considered among one of our many siblings.”</p><p></p><p>I realize now that it is an honor to follow these women as their brother. I don’t know how I intrigued them any more than the immortal leader of the Xiang, but I clearly did. Failing without a fight is not an honor. I would like to return to you soon, to journey the world like you do. Sadly, my sisters had to follow the Xiang leader. It seems no matter what you do in life, unless you achieve total victory, you end in the same place as everyone else.</p><p></p><p>Regards, Thomas Jones”</p><p></p><p>The Xiang are no more.</p><p></p><p>(EW’s Note: Xia have been eliminated in 61st place)</p>"
+  narration: "<p>I have received an update from Thomas Jones.</p><p></p><p>“Milord Algernon Charles Swinburne,</p><p></p><p>It appears that Xiang was not safe at ALL. Meanwhile, Pyongyang has finally put out all the fires! What a tale! Anyways, my sisters and I finally found sanctuary, or rather it found us- a bunch of men in the strangest attire speaking the strangest language grabbed us. My sisters were visibly upset, but as the Canton Pirates marched into the city, we were cornered. Finally, Yu (the Xiang leader), took us by the hands. “My colleagues, the angels are here to take us away. In the next world, perhaps we’ll be friends?”</p><p></p><p>My sisters immediately responded, “You failed in this world, but in ours we were queens. Death on the battlefield meant much more than cowering in a city waiting to die. We hoped we could succeed in this world where we failed in the last, but it seems to be not. You would not even be considered among one of our many siblings.”</p><p></p><p>I realize now that it is an honor to follow these women as their brother. I don’t know how I intrigued them any more than the immortal leader of the Xiang, but I clearly did. Failing without a fight is not an honor. I would like to return to you soon, to journey the world like you do. Sadly, my sisters had to follow the Xiang leader. It seems no matter what you do in life, unless you achieve total victory, you end in the same place as everyone else.</p><p></p><p>Regards, Thomas Jones”</p><p></p><p>The Xiang are no more.</p><p></p><p>EW’s Note: Xia have been eliminated in 61st place.</p>"
 - scene_number: 60
   scene_title: "Give me Libertarianism, or give me death!"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene60.jpg

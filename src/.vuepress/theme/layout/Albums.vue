@@ -32,10 +32,10 @@
       <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
       <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-        <h2 class="scenenumber">{{ scene.scene_number }}</h2>
-        <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot">
+        <h2 class="scenenumber" v-bind:class="{ civdeathBorder: scene.death }">{{ scene.scene_number }}</h2>
+        <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
         <h3>{{ scene.scene_title }}</h3>
-        <div class="narrations" v-html="scene.narration" tabindex="0"></div>
+        <div class="narrations" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
         </li>
       </div>
     </section>
@@ -49,8 +49,6 @@
 <script>
 export default {
   name: 'Albums',
-
-  props: ['sidebarItems'],
 }
 </script>
 
