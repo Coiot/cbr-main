@@ -2,7 +2,7 @@
 title: "Episode 03: A Hero’s Journey"
 narrated_by: "ExplosiveWatermelon"
 description: "I, /u/ExplosiveWatermelon, bring to you a tale of love, heartbreak, death, and disaster. Welcome, to the EWLC."
-starting_turn: "31"
+starting_turn: "50"
 release_date: July 03, 2019
 audio_narration: https://youtu.be/OmNrg1vc4HU
 fullvideo:
