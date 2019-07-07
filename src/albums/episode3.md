@@ -5,7 +5,7 @@ description: "I, /u/ExplosiveWatermelon, bring to you a tale of love, heartbreak
 starting_turn: "50"
 release_date: July 03, 2019
 audio_narration: https://youtu.be/OmNrg1vc4HU
-fullvideo:
+fullvideo: https://www.youtube.com/watch?v=mcQs0YJ9NKg
 edition: X1
 date: 2019-07-02T00:00:00+00:00
 image: https://cdn.civbattleroyale.tv/season1-episode3-scene07.jpg

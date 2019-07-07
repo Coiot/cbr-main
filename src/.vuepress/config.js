@@ -35,9 +35,9 @@ module.exports = {
 		docsDir: 'src',
     serviceWorker: true,
     markdown: {
-    anchor: { permalink: true },
-    config: md => {
-      md.use(require("markdown-it-katex"));
+      anchor: { permalink: true },
+      config: md => {
+        md.use(require("markdown-it-down"));
     }
   }
 	},
