@@ -147,6 +147,19 @@ export default {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
 
+    // side swipe
+    onTouchStart(e) {
+      this.touchStart = {
+        x: e.changedTouches[0].clientX,
+        y: e.changedTouches[0].clientY
+      }
+    },
+
+    onTouchEnd(e) {
+      const dx = e.changedTouches[0].clientX - this.touchStart.x
+      const dy = e.changedTouches[0].clientY - this.touchStart.y
+    },
+
     onSWUpdated(e) {
       this.swUpdateEvent = e
     }
