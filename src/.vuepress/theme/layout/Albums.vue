@@ -138,7 +138,6 @@ img:hover {
 .narrations {
   font-size: 1.4rem;
   line-height: 1.8;
-  word-break: break-all;
   text-shadow: 2px 2px #083832;
   padding: 0 0 .5rem;
   margin: .5rem 0 0;
@@ -181,6 +180,7 @@ img:hover {
   .narrations {
     font-size: 1rem;
     padding: .3rem .2rem;
+    overflow-wrap: break-word;
     margin: 0;
     border-top: 0;
     border-bottom: 1px solid #FFBF46;

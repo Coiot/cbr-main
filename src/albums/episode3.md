@@ -194,7 +194,7 @@ scenes:
 - scene_number: 46
   scene_title: "Loud Noises."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene46.jpg
-  narration: "<p>I received another letter from Thomas Jones</p><p></p><p>“Milord Algernon Charles Swinburne</p><p></p><p>AAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHH!</p><p></p><p>With Regards, Thomas Jones.”</p><p></p><p>Grow up, Thomas. Jianzhou had just been settled, and I hear it’s lovely. If you’re so upset with living in the city-state, move somewhere else! Besides, you’re not at war with Qing anymore!</p><p></p><p>Also he sent a postcard of his travel with his adoptive sisters to Pyongyang. Apparently, it was even worse there.</p>"
+  narration: "<p>I received another letter from Thomas Jones: </p><p></p><p>“Milord Algernon Charles Swinburne</p><p></p><p>AAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHH!</p><p></p><p>With Regards, Thomas Jones.”</p><p></p><p>Grow up, Thomas. Jianzhou had just been settled, and I hear it’s lovely. If you’re so upset with living in the city-state, move somewhere else! Besides, you’re not at war with Qing anymore!</p><p></p><p>Also he sent a postcard of his travel with his adoptive sisters to Pyongyang. Apparently, it was even worse there.</p>"
 - scene_number: 47
   scene_title: "Animal Crossing"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode3-scene47.jpg

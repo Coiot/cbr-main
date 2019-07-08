@@ -4,7 +4,7 @@
 
     <h1>Latest Albums</h1>
 
-    <router-link :to="post.path" tag="div" v-for="(post,index) in albums" v-if="index < 5" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.image})` }" :tabindex="0">
+    <router-link :to="post.path" tag="div" v-for="(post,index) in albums" v-if="index < 2" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.image})` }" :tabindex="0">
 
       <div class="title-info">
         <p>{{ post.frontmatter.title }}</p>
