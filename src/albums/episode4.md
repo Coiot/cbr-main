@@ -81,23 +81,23 @@ scenes:
   narration: "<p>The war between the Kazakhs and the Nenets remains stalemated amid the dense Siberian boreal forests. Seems to me that Ablai Khan would do best to cut his losses here and prepare for war with Parthia instead.</p><p></p><p>Side note: I believe the wonder that Prussia built is Templo Mayor, which increases the production of other wonders by 15%, and includes an engineer specialist slot.</p>"
 - scene_number: 18
   scene_title: "Tien Shan Tango"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene21.jpg
   narration: "<p>Parthia and the Kazakhs continue to settle in each other’s faces, as Ablai Khan plops down Otrar near the Amu Darya River and Mithridates settles something completely unreadable right in front of another Kazakh settler. War between these two seems inevitable, but neither side appears to be mustering their forces right now.</p>"
 - scene_number: 19
   scene_title: "No Rest For the Weary"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene22.jpg
   narration: "<p>We have a major new war in China on our hands! Ching Shih cannot tolerate Ying Zheng’s rapid expansion into what she doubtlessly considers to be her rightful territory, so she declares war on Qin. Canton has quite the army ready to besiege Yueyang, but Qiongshi is wide open. We could see both sides gaining cities in this war. There’s also the question of whether that Qin settler can plant itself before Canton wipes it out.</p>"
 - scene_number: 20
   scene_title: "Steppe Hordes"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene18.jpg
   narration: "<p>My goodness, the Khamug army is ferocious! They don’t even have enough room in their territory to keep all the units! That said, Cixi is making sure that Qing won’t look like an easy target. Her cities have walls and her army is nothing to shake a stick at either.</p>"
 - scene_number: 21
   scene_title: "The Coalition Fails"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene19.jpg
   narration: "<p>Nepal and India both make peace with Maratha after a fruitless war, during which their enemy spammed cities with impunity. Next thing we know, Nepal and India will probably be back at war with each other, while Maratha continues to eat up more and more of the Indian subcontinent. </p><p></p><p>Background note: Oman has made peace with the Seljuqs, without recapturing Rey. Shameful from Saif bin Sultan—he really could have taken that back.</p>"
 - scene_number: 22
   scene_title: "Not Exactly El Dorado"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene20.jpg
   narration: "<p>Bold move from the Nazca! Cahuachi must have concluded that if the Kuikuro can build unconquerable cities in the Amazon, so can he. Only problem is, he has to worry about the Kuikuro, who won’t be happy with this at all. Anetü doesn’t have a big amy, but it’s surely big enough to take Paredones.</p>"
 - scene_number: 23
   scene_title: "Sënd Førth thë Sëttlërs"
@@ -137,11 +137,11 @@ scenes:
   narration: "<p>Australia has settled Hobart up in the arid northwest and has another settler headed to the Cairns region. Settling there would finish the job of boxing in the Murri, all but preventing Gambu Ganuurru from ever expanding again. The Murri have a settler on its way, but it looks like Billy Hughes will get there first. And if he does... well, the Murri are FUCKED. Pardon my French.</p>"
 - scene_number: 32
   scene_title: "15 Years Gulag!"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene33.jpg
   narration: "<p>Cixi seems to be sending her settler way up toward the frozen wastes of the Chukotka Peninsula. What does she see up there? Does she have her eyes on the Yup’ik? Or is she sending them here as punishment? Are we witnessing the birth of the gulag? </p>"
 - scene_number: 33
   scene_title: "Vanc-over"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene32.jpg
   narration: "<p>Part way through the next turn, we see that the Iroquois have, as expected, captured Vancouver. They weren’t very efficient about it, but that matters little now that the deed is done. Canada continues to look utterly pathetic, and now that Hiawatha can focus entirely northward, Toronto might be in trouble. I also wonder—where are the Iroquois going with that settler?</p>"
 - scene_number: 34
   scene_title: "Wandering Armies"
@@ -245,22 +245,22 @@ scenes:
   narration: "<p>Palmyra storms the streets of Nakhal, sending Omani troops packing as Zenobia locks down the Fertile Crescent! Saif bin Sultan has a decent force ready to defend Nizwa, but the damage is done; the loss of Nakhal is definitely going to hurt Oman for a while. On top of this, Palmyra has two settlers heading down towards Arabia, ready to fill in the region with beautiful dark purple and gold cities. I doubted whether Palmyra could break out of this region, but so far they are putting themselves in a strong position to do so.</p>"
 - scene_number: 59
   scene_title: "Finish Him!"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene60.jpg
   narration: "<p>The Iroquois have Toronto down to very low HP, but their nearest melee units are fortified a couple turns away from the city, just sitting there. Cities don’t take themselves, dude! Hiawatha needs to get off his ass and take it while he can, because I would not really be shocked if King proposes a peace treaty and the Iroquois just end the war here.</p><p></p><p>In more bad news for Canada, the new Métis city of Saint-Louis-de-Languevin further restricts King’s potential room to settle.</p>"
 - scene_number: 60
   scene_title: "Opening Shots"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene61.jpg
   narration: "<p>A look at the Parthia-Kazakh war shows that Mithridates has a huge number of ranged units in position to fire on Otrar, but has so far done little damage. If he actually uses all the archers and Shivatirs to attack the city, he should be able to take it in just a couple of turns. As long as that warrior stays alive, and he doesn’t do anything stupid, the city will be purple and blue pretty soon. Although, asking an AI not to do stupid things is always a risky move.</p><p></p><p>Parthia also declared war on Oman this turn, but this seems to be a symbolic move since they don’t share a border. And India has used its settler in the Hindu Kush, ensuring that Indira Gandhi controls some of the world’s highest mountains.</p>"
 - scene_number: 61
   scene_title: "Las Piedras Grandes, If Ya Know What I Mean"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene62.jpg
   narration: "<p>Aha, this is the Uruguay we know and hate! Juan Antonio Lavalleja has no less than three settles headed north toward fertile lands left empty by the hapless Kuikuro. I have no doubt that Uruguay will make full use of this territory, which will justify me consistently keeping them in the top 5 in the power rankings.</p><p></p><p>Side note: although Ciudad de la Costa (City of the Coast) is not on the coast, uruguay has partially made up for this by settling Las Piedras (the stones) next to an actual source of stone.</p>"
 - scene_number: 62
   scene_title: "The Empty Quarter of the Kalahari"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene63.jpg
   narration: "<p>Zimbabwe’s core is almost completely devoid of units, since they’ve sent everything north—I’m convinced they’re headed for Nubia. That said, several of these cities are well shored up with newfangled walls, and they’ve got another settler heading out to the coast east of their capital to claim some land that otherwise might go to Madagascar. Now, if Nzinga had her army down here, this could be a great opportunity to take Zimbabwe by surprise, but sadly she is making the exact same mistake.</p>"
 - scene_number: 63
   scene_title: "Mellow Yellow"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene63.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene59.jpg
   narration: "<p>And last but not least, we get a look at the Yellow Sea, where Shikoku and Korea are still flipping Pyongyang back and forth, as evidenced by the fact that the city is currently in resistance. There’s no sign that Shikoku has the forces to launch an assault on Seoul, and in fact if Korea takes Pyongyang again, they might not be able to get it back right away. Shikoku does have allies—former enemies Canton and Qin have teamed up to declare war on Korea—but they will most likely be of little help.</p><p></p><p>Anyway, we will find out how exactly this goes next week! Thank you for following the civ battle royale, and don’t forget to tune in for power rankings, the power rankers’ podcast (announced on the Discord), and of course the next part! </p><p>—/u/Admiral_Cloudberg</p>"
 ---
