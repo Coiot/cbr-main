@@ -1,5 +1,5 @@
 ---
-title: "The Irony of Fate"
+title: "Episode 04: The Irony of Fate"
 narrated_by: "Admiral_Cloudberg"
 description: "Full of abrupt reversals of fortune and other surprises, this is a part that will most certainly shatter expectations."
 starting_turn: "61"
