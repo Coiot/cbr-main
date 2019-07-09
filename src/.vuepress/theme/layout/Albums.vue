@@ -28,24 +28,9 @@
       </div>
     </div>
 
-    <button class="horizontal" @click="horizontal = !horizontal">Toggle Horizontal Mode</button>
 
     <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
     <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
-
-    <section v-show="horizontal">
-      <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :adjustableHeight="true" :centerMode="true">
-        <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-          <div class="carGrid">
-            <img class="carImage" v-lazy="scene.slide_url" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
-            <h3 class="carHead">{{ scene.scene_number }} – {{ scene.scene_title }}</h3>
-            <div class="narrations carText" v-html="scene.narration" v-bind:class="{ civdeathBorder: scene.death }"></div>
-          </div>
-        </slide>
-      </carousel>
-      <a @click.prevent="prevSlide">Prev</a>
-      <a @click.prevent="nextSlide">Next</a>
-    </section>
 
     <section class="scenes">
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
