@@ -5,7 +5,7 @@ description: "Full of abrupt reversals of fortune and other surprises, this is a
 starting_turn: "61"
 release_date: July 09, 2019
 audio_narration: https://youtu.be/dfQ4m9zmZZw
-fullvideo:
+fullvideo: https://www.youtube.com/watch?v=ZNNiPBuQXE0
 edition: X1
 date: 2019-07-09T00:00:00:00
 image: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
@@ -32,13 +32,13 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene05.jpg
   narration: "<p>The civs seem to playing hot potato with the number one spot so far, as this part it bounces back to Zimbabwe, who held it after part 1. The Khamug Mongols, who were number one last time, slip back to second—but it won’t take much for them to reclaim the top spot.</p>"
 - scene_number: 06
-  scene_title: "Vancouver, Vancouver, This Is It!"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
-  narration: "<p>The Iroquois have had Vancouver down to 0 HP since last part, and no a melee unit is only two turns away from the city! Fortunately, Canada has founded Winnipeg to make up for the impending loss of Vancouver. Unfortunately, anyone familiar with either city would know that this is not a fair trade.</p>"
-- scene_number: 07
   scene_title: "Reyse Your Banners"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene07.jpg
   narration: "<p>Now, on to the action! As many predicted after part 3, the Seljuqs do indeed recapture Rey from Oman. Note that this screenshot was grabbed from during the turn, so we see the exact moment that the city flipped, before the borders had even updated. However, Oman has a trireme coming up the Persian Gulf which could help flip it back. Also noteworthy: Oman joins the Nubia dogpile, although they may just be doing this to get on the good side of the African civs. They’ll be more likely to let Oman have Zanzibar that way. And on top of that, Palmyra has made peace with the Seljuqs despite failing to capture any cities. PLUS, this stuff just keeps going folks, the Seljuqs have founded Nishapur in a very nice defensive location.</p>"
+- scene_number: 07
+  scene_title: "Vancouver, Vancouver, This Is It!"
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
+  narration: "<p>The Iroquois have had Vancouver down to 0 HP since last part, and no a melee unit is only two turns away from the city! Fortunately, Canada has founded Winnipeg to make up for the impending loss of Vancouver. Unfortunately, anyone familiar with either city would know that this is not a fair trade.</p>"
 - scene_number: 08
   scene_title: "Shang Diplomacy in Exile"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene08.jpg
