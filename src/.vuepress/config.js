@@ -17,7 +17,6 @@ const autometa_options = {
     'frontmatter',
   ],
 };
-
 module.exports = {
 	title: 'CBR.tv',
   description: '',
@@ -34,6 +33,12 @@ module.exports = {
 		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
     serviceWorker: true,
+    markdown: {
+      anchor: { permalink: true },
+      config: md => {
+        md.use(require("markdown-it-down"));
+    }
+  }
 	},
 	plugins: [
 		'vuepress-plugin-janitor',
