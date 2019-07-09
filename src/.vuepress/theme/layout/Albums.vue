@@ -28,15 +28,31 @@
       </div>
     </div>
 
+    <button class="horizontal" @click="horizontal = !horizontal">Toggle Horizontal Mode</button>
+
+    <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
+    <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
+
+    <section v-show="horizontal">
+      <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :adjustableHeight="true" :centerMode="true">
+        <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
+          <div class="carGrid">
+            <img class="carImage" v-lazy="scene.slide_url" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
+            <h3 class="carHead">{{ scene.scene_number }} – {{ scene.scene_title }}</h3>
+            <div class="narrations carText" v-html="scene.narration" v-bind:class="{ civdeathBorder: scene.death }"></div>
+          </div>
+        </slide>
+      </carousel>
+      <a @click.prevent="prevSlide">Prev</a>
+      <a @click.prevent="nextSlide">Next</a>
+    </section>
+
     <section class="scenes">
-      <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
-      <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
         <h2 class="scenenumber" v-bind:class="{ civdeathBorder: scene.death }">{{ scene.scene_number }}</h2>
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
         <h3>{{ scene.scene_title }}</h3>
         <div class="narrations" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
-        </li>
       </div>
     </section>
 
@@ -47,8 +63,44 @@
 </template>
 
 <script>
+import {
+  Carousel,
+  Slide
+} from 'vue-carousel';
+
 export default {
   name: 'Albums',
+  data: function() {
+    return {
+      horizontal: false
+    }
+  },
+  mounted() {
+    document.addEventListener("keyup", this.nextScene);
+  },
+  methods: {
+    nextSlide() {
+      this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
+    },
+    prevSlide() {
+      this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+    },
+    nextScene() {
+      if (event.keyCode == 39) {
+        this.nextSlide()
+      } else if (event.keyCode == 37) {
+        this.prevSlide()
+      } else if (event.keyCode == 68) {
+        this.nextSlide()
+      } else if (event.keyCode == 65) {
+        this.prevSlide()
+      }
+    }
+  },
+  components: {
+    Carousel,
+    Slide
+  },
 }
 </script>
 
@@ -102,6 +154,28 @@ export default {
   line-height: 1.4;
 }
 
+.horizontal {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+  background-color: #f09e02;
+  width: 100%;
+  padding: 2rem;
+}
+
+.VueCarousel {
+  margin-top: 5rem;
+}
+
+.VueCarousel-slide{
+  height:80vh;
+}
+
+.VueCarousel-slide img{
+  object-fit: contain
+}
+
 .scenes {
   display: block;
   padding: 0;
@@ -111,7 +185,7 @@ export default {
   padding: 0 auto 3rem;
 }
 
-.scenes h2 {
+h2 {
   font-size: 3.5rem;
   font-weight: 600;
   color: white;
