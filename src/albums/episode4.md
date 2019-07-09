@@ -7,7 +7,7 @@ release_date: July 09, 2019
 audio_narration: https://youtu.be/dfQ4m9zmZZw
 fullvideo:
 edition: X1
-date: 2019-07-09T01:00:00+00:00
+date: 2019-07-09T00:00:00:00
 image: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
 prcast:
 scenes:
