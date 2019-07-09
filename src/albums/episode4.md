@@ -33,43 +33,43 @@ scenes:
   narration: "<p>The civs seem to playing hot potato with the number one spot so far, as this part it bounces back to Zimbabwe, who held it after part 1. The Khamug Mongols, who were number one last time, slip back to second—but it won’t take much for them to reclaim the top spot.</p>"
 - scene_number: 06
   scene_title: "Vancouver, Vancouver, This Is It!"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
   narration: "<p>The Iroquois have had Vancouver down to 0 HP since last part, and no a melee unit is only two turns away from the city! Fortunately, Canada has founded Winnipeg to make up for the impending loss of Vancouver. Unfortunately, anyone familiar with either city would know that this is not a fair trade.</p>"
 - scene_number: 07
   scene_title: "Reyse Your Banners"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene07.jpg
   narration: "<p>Now, on to the action! As many predicted after part 3, the Seljuqs do indeed recapture Rey from Oman. Note that this screenshot was grabbed from during the turn, so we see the exact moment that the city flipped, before the borders had even updated. However, Oman has a trireme coming up the Persian Gulf which could help flip it back. Also noteworthy: Oman joins the Nubia dogpile, although they may just be doing this to get on the good side of the African civs. They’ll be more likely to let Oman have Zanzibar that way. And on top of that, Palmyra has made peace with the Seljuqs despite failing to capture any cities. PLUS, this stuff just keeps going folks, the Seljuqs have founded Nishapur in a very nice defensive location.</p>"
 - scene_number: 08
   scene_title: "Shang Diplomacy in Exile"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene08.jpg
   narration: "<p>The Shang, presumably living on in the form of a scout attending ScoutCon, have made peace with Canton. Fat lot of good it’ll do ‘em.</p><p></p><p>Meanwhile, Shikoku’s invasion of Korea seems to have reached a hesitant stalemate. Seonjo has one melee unit nearby, but can he move it next to Pyongyang to retake it? Many long years of watching the civ 5 AI says probably not.</p><p></p><p>By the way, I’ve been informed that the two religions founded this turn are the Iroquois and Beta Israel. No word on what religions they chose or what the beliefs are.</p><p></p><p>(Lime’s note: The Iroquois found Orenda while Beta Israel found Judaism. Beliefs will have to wait)</p>"
 - scene_number: 09
   scene_title: "Years of Rice and Salt"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene09.jpg
   narration: "<p>The Moors continue to expand up the west coast of France, founding Saraqustah (a.k.a. Zaragoza) near real life Nantes. A Holy Roman settler appears to have just barely lost the race to settle this area, and a Venetian settler is already turning around in resignation. Western France firmly belongs to the caliphate, at least for now. </p>"
 - scene_number: 10
   scene_title: "The Benghazi Affair"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene10.jpg
   narration: "<p>Here we have a classic case of Algeria being incompetent. The siege of Benghazi is going well, except for the fact that Abdelkader has no melee units anywhere nearby. Wasn’t this supposed to be Nubia’s problem? Anyway, if the war continues like this, both civs will be worse off.</p>"
 - scene_number: 11
   scene_title: "Je Ne Parle Pas le Français"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene11.jpg
   narration: "<p>Ah yes, this is the theatre everyone was waiting for. Haiti continues to hold Caracas in yellow HP, but Toussaint L’Ouverture seems to be splitting his navy to attack Maracaibo at the same time. This is not a great plan, if you ask me—his army and navy are only just big enough to take Caracas even if he ignores all other targets.</p>"
 - scene_number: 12
   scene_title: "Transcontinental Death March"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene12.jpg
   narration: "<p>A smattering of Ndongo units filters into Nubian territory in the vicinity of Meroe, where they will presumably be slaughtered at the hands of Piye’s special archers. Nzinga had better watch out, since the last scene in part 3 showed a large Zimbabwean army ready to invade her southern border while half her army is wandering in the Sudan.</p>"
 - scene_number: 13
   scene_title: "Not Exactly Paul Kruger"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene13.jpg
   narration: "<p>While Australia builds up its fourth and fifth cities, Papua has finally founded its third. It bears the rather menacing name of Boera—most likely a futile attempt to conjure a little bit of the strength of Mk. 2’s Boers. Of course, we all know what ultimately happened to them.</p>"
 - scene_number: 14
   scene_title: "Gathering Storm"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene14.jpg
   narration: "<p>Here’s a look at the current position of Zimbabwe’s vast army, as well as their new city of Nhunguza (possibly my favourite city name on the map right now, and I have no idea why). Terrain is on Nzinga’s sid in the event of a war, but would she be able to hold off the horde?</p>"
 - scene_number: 15
   scene_title: "Hamhmamhmamhmamhmamhmam"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene15.jpg
   narration: "<p>Down in South America, Uruguay is shifting its large army around while perhaps considering a strike against the Selk’nam. But would Lavalleja be able to breach the Andes? I certainly have my doubts. I think he jinxed himself the moment he decided not to settle Ciudad de la Costa on the coast.</p>"
 - scene_number: 16
   scene_title: "Down But Not Out"
