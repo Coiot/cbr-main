@@ -1,20 +1,20 @@
 ---
 title: "Episode 04: The Irony of Fate"
-narrated_by: "Admiral_Cloudberg"
+narrated_by: "Admiral Cloudberg"
 description: "Full of abrupt reversals of fortune and other surprises, this is a part that will most certainly shatter expectations."
 starting_turn: "61"
 release_date: July 09, 2019
 audio_narration: https://youtu.be/dfQ4m9zmZZw
 fullvideo: https://www.youtube.com/watch?v=ZNNiPBuQXE0
 edition: X1
-date: 2019-07-09T00:00:00:00
+date: 2019-07-09T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
 prcast:
 scenes:
 - scene_number: 01
   scene_title: "The Irony of Fate"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene01.jpg
-  narration: "<p>Welcome back to Groundhog Day—wait, you’re telling me this is the civ battle royale? </p><p></p><p>Hello everyone, it’s Admiral_Cloudberg here, creator of the Groundhog Day AI game (now on its 11th mark), power ranker, and analyzer of plane crashes. If you liked last part’s narration, you might not like this as much. But if you didn’t like it then you might like this more. It’s the eternal balancing act of every narrator—more narrative or more analysis? But worry not—no matter which one you prefer, this will surely be a part full of excitement for all manner of readers.*</p><p></p><p>*Disclaimer: I have not read the part yet.</p><p></p><p>P.S. I tried to make a pun with “Never gonna let you down” but I couldn’t think of any.</p>"
+  narration: "<p>Welcome back to Groundhog Day—wait, you’re telling me this is the civ battle royale? </p><p></p><p>Hello everyone, it’s Admiral_Cloudberg here, creator of the Groundhog Day AI game (now on its 11th mark), power ranker, and analyzer of plane crashes. If you liked last part’s narration, you might not like this as much. But if you didn’t like it then you might like this more. It’s the eternal balancing act of every narrator—more narrative or more analysis? But worry not—no matter which one you prefer, this will surely be a part full of excitement for all manner of readers.*</p><p></p><p>*Disclaimer: I have not read the part yet.</p><p></p><p>P.S. I tried to make a pun with “Never gonna let you down” but I couldn’t think of any.</p><p>Coiot: In Enigma-Conundrum's OC, Nathaniel the Silversmith breaks down the exit polls from the latest HRE election err usurping. Bismarck may have been ousted, but a man of the people will soon rise to power.</p>"
 - scene_number: 02
   scene_title: "#JustSelk’namThings"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene02.jpg

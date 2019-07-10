@@ -28,15 +28,31 @@
       </div>
     </div>
 
+    <button class="horizontal" @click="horizontal = !horizontal">Toggle Horizontal Mode</button>
+
+    <section v-show="horizontal">
+      <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :centerMode="true" :loop="true">
+        <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
+          <div class="carGrid">
+            <img class="carImg" v-lazy="scene.slide_url" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
+            <h3 class="carHead">{{ scene.scene_number }} – {{ scene.scene_title }}</h3>
+            <div class="narrations carText" v-html="scene.narration" v-bind:class="{ civdeathBorder: scene.death }"></div>
+          </div>
+        </slide>
+      </carousel>
+      <a @click.prevent="prevSlide">Prev</a>
+      <a @click.prevent="nextSlide">Next</a>
+    </section>
+
+    <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
+    <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
+
     <section class="scenes">
-      <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
-      <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
       <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
         <h2 class="scenenumber" v-bind:class="{ civdeathBorder: scene.death }">{{ scene.scene_number }}</h2>
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
         <h3>{{ scene.scene_title }}</h3>
         <div class="narrations" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
-        </li>
       </div>
     </section>
 
@@ -47,8 +63,43 @@
 </template>
 
 <script>
+import {
+  Carousel,
+  Slide
+} from 'vue-carousel';
 export default {
   name: 'Albums',
+  data: function() {
+    return {
+      horizontal: false
+    }
+  },
+  mounted() {
+    document.addEventListener("keyup", this.nextScene);
+  },
+  methods: {
+    nextSlide() {
+      this.$refs.carousel.goToPage(this.$refs.carousel.getNextPage());
+    },
+    prevSlide() {
+      this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
+    },
+    nextScene() {
+      if (event.keyCode == 39) {
+        this.nextSlide()
+      } else if (event.keyCode == 37) {
+        this.prevSlide()
+      } else if (event.keyCode == 68) {
+        this.nextSlide()
+      } else if (event.keyCode == 65) {
+        this.prevSlide()
+      }
+    }
+  },
+  components: {
+    Carousel,
+    Slide
+  },
 }
 </script>
 
@@ -102,6 +153,53 @@ export default {
   line-height: 1.4;
 }
 
+.horizontal {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 5px;
+  background-color: #261900;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.VueCarousel {
+  margin-top: 5rem;
+}
+
+.VueCarousel-slide{
+  height:80vh;
+}
+
+.VueCarousel-slide img{
+  object-fit: contain;
+}
+
+.carGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 2rem;
+  grid-template-rows: 1.5rem;
+  grid-template-areas: "img head" "img text" "img text";
+}
+
+.carImg {
+  grid-area: img;
+}
+
+.carHead {
+  grid-area: head;
+}
+
+h3.carHead {
+  margin: 0;
+}
+
+.carText {
+  grid-area: text;
+  font-size: .9rem !important;
+}
+
 .scenes {
   display: block;
   padding: 0;
@@ -111,7 +209,7 @@ export default {
   padding: 0 auto 3rem;
 }
 
-.scenes h2 {
+h2 {
   font-size: 3.5rem;
   font-weight: 600;
   color: white;
@@ -136,7 +234,7 @@ img:hover {
 }
 
 .narrations {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   text-shadow: 2px 2px #083832;
   padding: 0 0 .5rem;
