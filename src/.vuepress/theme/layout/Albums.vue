@@ -70,9 +70,9 @@ import {
 export default {
   name: 'Albums',
   data: function() {
-    return false {
+    return {
       horizontal: false
-    }
+    };
   },
   mounted() {
     document.addEventListener("keyup", this.nextScene);
