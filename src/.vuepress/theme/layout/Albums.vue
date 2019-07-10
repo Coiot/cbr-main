@@ -70,8 +70,8 @@ import {
 export default {
   name: 'Albums',
   data: function() {
-    return {
-      horizontal: 'false'
+    return false {
+      horizontal: false
     }
   },
   mounted() {
