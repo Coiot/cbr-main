@@ -71,7 +71,7 @@ export default {
   name: 'Albums',
   data: function() {
     return {
-      horizontal: false
+      horizontal: 'false'
     }
   },
   mounted() {
