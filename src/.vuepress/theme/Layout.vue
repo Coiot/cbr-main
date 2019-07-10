@@ -35,6 +35,10 @@ import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
 import {
+  Carousel,
+  Slide
+} from 'vue-carousel';
+import {
   resolveSidebarItems
 } from './util'
 import VueLazyload from 'vue-lazyload'
