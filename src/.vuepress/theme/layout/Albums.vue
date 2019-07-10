@@ -69,8 +69,10 @@ import {
 } from 'vue-carousel';
 export default {
   name: 'Albums',
-  data: function() {
-    horizontal: false
+  data() {
+    return {
+      horizontal: false,
+    }
   },
   mounted() {
     document.addEventListener("keyup", this.nextScene);
