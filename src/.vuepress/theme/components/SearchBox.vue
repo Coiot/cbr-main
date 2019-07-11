@@ -2,7 +2,7 @@
 <div class="search-box">
   <input @input="query = $event.target.value" aria-label="Search" :value="query" :class="{ 'focused': focused }" autocomplete="off" spellcheck="false" @focus="focused = true" @blur="focused = false" @keyup.enter="go(focusIndex)" @keyup.up="onUp"
     @keyup.down="onDown">
-  <ul class="suggestions" v-if="showSuggestions" :class="{ 'align-right': alignRight }" @mouseleave="unfocus">
+  <ul class="suggestions" v-if="showSuggestions" @mouseleave="unfocus">
     <li class="suggestion" v-for="(s, i) in suggestions" :class="{ focused: i === focusIndex }" @mousedown="go(i)" @mouseenter="focus(i)">
       <a :href="s.path" @click.prevent>
         <span class="page-title">{{ s.title || s.path }} <span v-if="s.frontmatter.edition" class="page-edition">– {{ s.frontmatter.edition }}</span></span>

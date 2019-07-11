@@ -22,7 +22,6 @@
     <slot name="page-bottom" slot="bottom" />
   </Page>
 
-  <SWUpdatePopup :updateEvent="swUpdateEvent" />
 </div>
 </template>
 
@@ -34,7 +33,6 @@ import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import VueCarousel from 'vue-carousel';
 import {
   resolveSidebarItems
 } from './util'
@@ -46,9 +44,7 @@ Vue.use(VueLazyload, {
     rootMargin: '2000px',
     threshold: 0.0
   }
-});
-
-Vue.use(VueCarousel);
+})
 
 export default {
   components: {
@@ -140,7 +136,6 @@ export default {
       this.isSidebarOpen = false
     })
 
-    this.$on('sw-updated', this.onSWUpdated)
   },
 
   methods: {
@@ -161,9 +156,6 @@ export default {
       const dy = e.changedTouches[0].clientY - this.touchStart.y
     },
 
-    onSWUpdated(e) {
-      this.swUpdateEvent = e
-    }
   }
 }
 </script>
