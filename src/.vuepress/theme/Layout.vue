@@ -56,8 +56,7 @@ export default {
     Page,
     Sidebar,
     Navbar,
-    SWUpdatePopup,
-    Car
+    SWUpdatePopup
   },
 
 
