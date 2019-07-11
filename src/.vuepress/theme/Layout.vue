@@ -59,8 +59,7 @@ export default {
     Sidebar,
     Navbar,
     SWUpdatePopup,
-    keyup,
-    carousel
+    VueCarousel
   },
 
 
