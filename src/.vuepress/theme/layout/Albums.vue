@@ -69,11 +69,6 @@ import {
 } from 'vue-carousel';
 export default {
   name: 'Albums',
-  data() {
-    return {
-      horizontal: false,
-    }
-  },
   mounted() {
     document.addEventListener("keyup", this.nextScene);
   },
@@ -85,13 +80,9 @@ export default {
       this.$refs.carousel.goToPage(this.$refs.carousel.getPreviousPage());
     },
     nextScene() {
-      if (event.keyCode == 39) {
+      if (event.keyCode == 39 || event.keyCode == 68) {
         this.nextSlide()
-      } else if (event.keyCode == 37) {
-        this.prevSlide()
-      } else if (event.keyCode == 68) {
-        this.nextSlide()
-      } else if (event.keyCode == 65) {
+      } else if (event.keyCode == 37 || event.keyCode == 65) {
         this.prevSlide()
       }
     }
@@ -99,6 +90,11 @@ export default {
   components: {
     Carousel,
     Slide
+  },
+  data() {
+    return {
+      horizontal: false,
+    }
   },
 }
 </script>
@@ -155,10 +151,12 @@ export default {
 
 .horizontal {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  color: #1a1a1a;
+  border: 3px solid $accentColor;
   border-radius: 5px;
-  background-color: #261900;
+  background-color: white;
   width: 100%;
   padding: 1rem 2rem;
 }
