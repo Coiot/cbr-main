@@ -46,12 +46,12 @@ Vue.use(VueLazyload, {
     rootMargin: '2000px',
     threshold: 0.0
   }
-})
+});
 
 import VueCarousel from 'vue-carousel'
-Vue.use(VueCarousel)
-Vue.component('carousel', Carousel)
-Vue.component('slide', Slide)
+Vue.use(VueCarousel);
+Vue.component('carousel', Carousel);
+Vue.component('slide', Slide);
 
 export default {
   components: {

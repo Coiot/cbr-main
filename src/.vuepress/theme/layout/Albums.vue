@@ -63,11 +63,6 @@
 </template>
 
 <script>
-import VueCarousel from 'vue-carousel'
-Vue.use(VueCarousel)
-Vue.component('carousel', Carousel)
-Vue.component('slide', Slide)
-
 export default {
   name: 'Albums',
   mounted() {
