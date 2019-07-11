@@ -91,11 +91,7 @@ export default {
     Carousel,
     Slide
   },
-  data() {
-    return {
-      horizontal: false
-    }
-  },
+
 }
 </script>
 
