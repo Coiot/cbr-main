@@ -31,7 +31,7 @@
     <button class="horizontal" @click="horizontal = !horizontal">Toggle Horizontal Mode</button>
 
     <section v-if="horizontal">
-      <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :centerMode="true" :loop="true">
+      <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :loop="true">
         <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
           <div class="carGrid">
             <img class="carImg" v-lazy="scene.slide_url" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">

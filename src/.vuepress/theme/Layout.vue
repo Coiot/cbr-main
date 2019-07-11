@@ -48,8 +48,8 @@ Vue.use(VueLazyload, {
   }
 })
 
-import VueCarousel from 'vue-carousel';
-Vue.use(VueCarousel);
+import VueCarousel from 'vue-carousel'
+Vue.use(VueCarousel)
 
 export default {
   components: {
