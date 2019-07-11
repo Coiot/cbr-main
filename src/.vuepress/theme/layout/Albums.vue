@@ -65,6 +65,16 @@
 <script>
 export default {
   name: 'Albums',
+  components: {
+    Carousel: () =>
+      import('vue-carousel')
+      .then(m => m.Carousel)
+      .catch(),
+    Slide: () =>
+      import('vue-carousel')
+      .then(m => m.Slide)
+      .catch()
+  },
   mounted() {
     document.addEventListener("keyup", this.nextScene);
   },
