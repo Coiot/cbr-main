@@ -63,10 +63,6 @@
 </template>
 
 <script>
-import {
-  Carousel,
-  Slide
-} from 'vue-carousel';
 export default {
   name: 'Albums',
   mounted() {
@@ -86,10 +82,6 @@ export default {
         this.prevSlide()
       }
     }
-  },
-  components: {
-    Carousel,
-    Slide
   },
   data: function() {
     return {
