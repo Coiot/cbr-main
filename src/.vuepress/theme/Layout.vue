@@ -34,6 +34,7 @@ import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
+import VueCarousel from 'vue-carousel';
 import {
   resolveSidebarItems
 } from './util'
@@ -45,7 +46,9 @@ Vue.use(VueLazyload, {
     rootMargin: '2000px',
     threshold: 0.0
   }
-})
+});
+
+Vue.use(VueCarousel);
 
 export default {
   components: {
@@ -59,7 +62,6 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-      horizontal: false,
     }
   },
 
