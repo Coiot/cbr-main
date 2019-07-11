@@ -51,6 +51,9 @@ Vue.use(VueLazyload, {
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
 
+import Carousel from 'vue-carousel/src/Carousel.vue'
+import Slide from 'vue-carousel/src/Slide.vue'
+
 export default {
   components: {
     Albums,
@@ -58,8 +61,11 @@ export default {
     Page,
     Sidebar,
     Navbar,
-    SWUpdatePopup
+    SWUpdatePopup,
+    Carousel,
+    Slide,
   },
+
 
   data() {
     return {
