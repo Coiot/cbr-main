@@ -76,7 +76,7 @@ export default {
       .catch()
   },
   mounted() {
-    document.addEventListener("keyup", this.nextScene);
+    this.addEventListener("keyup", this.nextScene);
   },
   methods: {
     nextSlide() {
