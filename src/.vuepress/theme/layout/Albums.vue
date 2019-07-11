@@ -67,7 +67,6 @@ export default {
   name: 'Albums',
   mounted() {
     document.addEventListener("keyup", this.nextScene);
-    this.horizontal = true;
   },
   methods: {
     nextSlide() {
