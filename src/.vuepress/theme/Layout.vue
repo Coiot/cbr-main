@@ -50,6 +50,8 @@ Vue.use(VueLazyload, {
 
 import VueCarousel from 'vue-carousel'
 Vue.use(VueCarousel)
+Vue.component('carousel', Carousel)
+Vue.component('slide', Slide)
 
 export default {
   components: {
@@ -59,7 +61,6 @@ export default {
     Sidebar,
     Navbar,
     SWUpdatePopup,
-    VueCarousel
   },
 
 
