@@ -64,9 +64,7 @@ export default {
     Page,
     Sidebar,
     Navbar,
-    SWUpdatePopup,
-    Slide,
-    Carousel
+    SWUpdatePopup
   },
 
 
