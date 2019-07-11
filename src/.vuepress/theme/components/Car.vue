@@ -1,6 +1,4 @@
 <template>
-<button class="horizontal" @click="horizontal = !horizontal">Toggle Horizontal Mode</button>
-
 <section v-if="horizontal">
   <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :loop="true">
     <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
