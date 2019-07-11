@@ -91,7 +91,11 @@ export default {
     Carousel,
     Slide
   },
-
+  data: function() {
+    return {
+      horizontal: false
+    }
+  },
 }
 </script>
 
