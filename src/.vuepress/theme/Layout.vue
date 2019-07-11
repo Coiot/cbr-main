@@ -48,15 +48,6 @@ Vue.use(VueLazyload, {
   }
 });
 
-import VueCarousel from 'vue-carousel'
-import {
-  Carousel,
-  Slide
-} from 'vue-carousel'
-Vue.use(VueCarousel);
-Vue.component('carousel', Carousel);
-Vue.component('slide', Slide);
-
 export default {
   components: {
     Albums,
