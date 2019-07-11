@@ -34,7 +34,6 @@ import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import Car from './components/Car.vue';
 import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import {
   resolveSidebarItems
