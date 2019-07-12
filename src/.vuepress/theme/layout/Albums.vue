@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <Lightbox />
+    <vue-picture-swipe :items="$page.frontmatter.scenes"></vue-picture-swipe>
 
     <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
     <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
@@ -49,12 +49,8 @@
 </template>
 
 <script>
-import Lightbox from './Lightbox.vue'
 export default {
   name: 'Albums',
-  components: {
-    Lightbox
-  },
 }
 </script>
 
@@ -106,55 +102,6 @@ export default {
 .abstract {
   font-size: 1.8rem;
   line-height: 1.4;
-}
-
-.horizontal {
-  font-size: 1.8rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  font-weight: 500;
-  color: #1a1a1a;
-  border: 3px solid $accentColor;
-  border-radius: 5px;
-  background-color: white;
-  width: 100%;
-  padding: 1rem 2rem;
-}
-
-.VueCarousel {
-  margin-top: 5rem;
-}
-
-.VueCarousel-slide{
-  height:80vh;
-}
-
-.VueCarousel-slide img{
-  object-fit: contain;
-}
-
-.carGrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: 2rem;
-  grid-template-rows: 1.5rem;
-  grid-template-areas: "img head" "img text" "img text";
-}
-
-.carImg {
-  grid-area: img;
-}
-
-.carHead {
-  grid-area: head;
-}
-
-h3.carHead {
-  margin: 0;
-}
-
-.carText {
-  grid-area: text;
-  font-size: .9rem !important;
 }
 
 .scenes {
@@ -239,6 +186,10 @@ img:hover {
     margin: 0;
     border-top: 0;
     border-bottom: 1px solid #FFBF46;
+  }
+  .pswp img {
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 
