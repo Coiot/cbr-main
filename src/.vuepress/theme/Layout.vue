@@ -22,7 +22,6 @@
     <slot name="page-bottom" slot="bottom" />
   </Page>
 
-  <SWUpdatePopup />
 </div>
 </template>
 
@@ -34,7 +33,6 @@ import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import {
   resolveSidebarItems
 } from './util'
@@ -54,8 +52,7 @@ export default {
     Home,
     Page,
     Sidebar,
-    Navbar,
-    SWUpdatePopup
+    Navbar
   },
 
 
@@ -140,7 +137,6 @@ export default {
       this.isSidebarOpen = false
     })
 
-    this.$on('sw-updated', this.onSWUpdated)
   },
 
   methods: {
@@ -160,10 +156,6 @@ export default {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y
     },
-
-    onSWUpdated(e) {
-      this.swUpdateEvent = e
-    }
   }
 }
 </script>

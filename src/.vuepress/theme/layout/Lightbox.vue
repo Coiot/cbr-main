@@ -1,5 +1,5 @@
 <template>
-<section v-if="horizontal">
+<section>
   <carousel @keyup="nextScene" ref="carousel" :perPage="1" :paginationEnabled="false" :loop="true">
     <slide class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
       <div class="carGrid">
@@ -26,7 +26,7 @@ export default {
     Slide
   },
   mounted() {
-    document.addEventListener("keyup", this.nextScene);
+    window.addEventListener("keyup", this.nextScene);
   },
   methods: {
     nextSlide() {

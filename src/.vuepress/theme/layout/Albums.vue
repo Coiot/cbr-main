@@ -28,6 +28,8 @@
       </div>
     </div>
 
+    <Lightbox />
+
     <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
     <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
 
@@ -47,8 +49,12 @@
 </template>
 
 <script>
+import Lightbox from './Lightbox.vue'
 export default {
   name: 'Albums',
+  components: {
+    Lightbox
+  },
 }
 </script>
 
