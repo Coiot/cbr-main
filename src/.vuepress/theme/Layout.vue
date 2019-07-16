@@ -40,9 +40,6 @@ import {
 } from './util'
 import VueLazyload from 'vue-lazyload'
 
-import VuePictureSwipe from 'vue-picture-swipe';
-Vue.component('vue-picture-swipe', VuePictureSwipe);
-
 Vue.use(VueLazyload, {
   observer: true,
   observerOptions: {
