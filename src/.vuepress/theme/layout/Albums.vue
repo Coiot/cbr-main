@@ -28,8 +28,6 @@
       </div>
     </div>
 
-    <vue-picture-swipe :items="$page.frontmatter.scenes"></vue-picture-swipe>
-
     <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
     <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
 
