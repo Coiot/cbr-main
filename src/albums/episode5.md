@@ -4,8 +4,8 @@ narrated_by: "Orange"
 description: "A lot of wars begin, a lot of wars end. It’s up to the AI to decide if they will do anything with that."
 starting_turn: "71"
 release_date: July 16, 2019
-audio_narration:
-fullvideo:
+audio_narration: https://youtu.be/ay9VVdIkhrA
+fullvideo: https://www.youtube.com/watch?v=T8Q2JeIdn5U
 edition: X1
 date: 2019-07-16T00:00:00.000Z
 image: https://latest.civbattleroyale.tv/season1-episode5-scene06.jpg
@@ -14,15 +14,15 @@ scenes:
 - scene_number: 01
   scene_title: "A Fancy Title Card"
   slide_url: https://latest.civbattleroyale.tv/season1-episode5-scene01.jpg
-  narration: "<p>Hello and welcome back to part 5 of CBRX, I’m your narrator for today on reddit as u/Orangechrisy, or Orange for short, which is what I go by on discord. I’m the resident useless piece of crap catgirl on the discord, which you should definitely join, where I regularly get yelled at for not taking care of myself and…Uh...Yeah...I...um...probably need help.</p><p></p><p>...Anyways, I’m here to escape my life by watching a bunch of AIs struggle to fight each other in a gigantic Earth map and you are too, so let’s get into this.</p><p>Coiot: Intro Slide comes courtesy of Lunar. As Civs get eliminated, their TV set will become faded (or worse).</p>"
+  narration: "<p>Hello and welcome back to part 5 of CBRX, I’m your narrator for today on reddit as u/Orangechrisy, or Orange for short, which is what I go by on discord. I’m the resident useless piece of crap catgirl on the discord, which you should definitely join, where I regularly get yelled at for not taking care of myself and…Uh...Yeah...I...um...probably need help.</p><p></p><p>...Anyways, I’m here to escape my life by watching a bunch of AIs struggle to fight each other in a gigantic Earth map and you are too, so let’s get into this.</p><p>Coiot: Our new Intro image comes courtesy of Lunar. As Civs get eliminated, their TV set will become faded (or worse).</p>"
 - scene_number: 02
   scene_title: "The Worst AI So Far?"
   slide_url: https://latest.civbattleroyale.tv/season1-episode5-scene02.jpg
   narration: "<p>u/FakeFakeDouble’s wonderful OC here showcases just the absurdity of Algeria’s moves. Honestly, I was rooting for Algeria and they’ve let me down so hard in only a few parts. I was really hoping for their nice cream color to sweep across north and west Africa but those dreams have been dashed.</p>"
 - scene_number: 03
-  scene_title: "Tile Accurate Map"
+  scene_title: "Hand-Drawn Map"
   slide_url: https://latest.civbattleroyale.tv/season1-episode5-scene03.jpg
-  narration: "<p>Over here is Vihreaa’s beautiful tile accurate map portraying the scene at the end of part 4.</p>"
+  narration: "<p>Over here is Vihreaa’s illustrated map portraying the scene at the end of part 4.</p>"
 - scene_number: 04
   scene_title: "Melon Map"
   slide_url: https://latest.civbattleroyale.tv/season1-episode5-scene04.jpg
