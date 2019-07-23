@@ -1,11 +1,11 @@
 ---
 title: "Episode 06: Papuan Romance"
-narrated_by: "Scissor_Fingers"
+narrated_by: "Scissor Fingers"
 description: "Hopes rise and hearts break as the order of civs is jumbled."
 starting_turn: "81"
 release_date: July 24, 2019
-audio_narration:
-fullvideo:
+audio_narration: https://youtu.be/oWmJfuQxchc
+fullvideo: https://youtu.be/xu1UcZ4r-6I
 edition: X1
 date: 2019-07-23T00:00:00.000Z
 image: https://latest.civbattleroyale.tv/season1-episode6-scene06.jpg
@@ -426,5 +426,5 @@ scenes:
 - scene_number: 104
   scene_title: "Zim-Boer-bwe"
   slide_url: https://latest.civbattleroyale.tv/season1-episode6-scene104.jpg
-  narration: "<p>As we finish this part, we close off with a view of Southern Africa, under the control of Zimbabwe. Looking at them, they look a lot like their orange predecessors in Mk. 2. These lands won’t be challenged for a long time, maybe not even at all. Africa is a ripe fruit for Mutota to eat, but the question is will he eat it.</p><p> </p><p>This has been /u/Scissor_Fingers narrating a very exciting part and I hope y’all enjoyed my commentary!</p>"
+  narration: "<p>As we finish this part, we close off with a view of Southern Africa, under the control of Zimbabwe. Looking at them, they look a lot like their orange predecessors in Mk. 2. These lands won’t be challenged for a long time, maybe not even at all. Africa is a ripe fruit for Mutota to eat, but the question is will he eat it.</p><p>This has been /u/Scissor_Fingers narrating a very exciting part and I hope y’all enjoyed my commentary!</p>"
 ---
