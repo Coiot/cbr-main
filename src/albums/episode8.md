@@ -5,7 +5,7 @@ description: "Love and hate are linked together in this episode, as old conflict
 release_date: August 07, 2019
 starting_turn: 111
 audio_narration: https://youtu.be/hCbvbnK2arY
-fullvideo:
+fullvideo: https://youtu.be/JXiqBDh8peg
 edition: X1
 date: 2019-08-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode8-scene06.jpg
@@ -14,23 +14,23 @@ scenes:
 - scene_number: 01
   scene_title: "Ready to rumble?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode7-scene01.jpg
-  narration: "<p>Hi folks, u/Framonti is here, but more importantly, Episode 8 is here. I’m honoured to narrate this part, and I hope you all will enjoy it as much as I did. Each turn will feature some small actions; small action after small action, the Cylinder will appear quite different at the end. Who will rise, and who will fall?</p>"
+  narration: "<p>Hi folks, u/Framonti is here, but more importantly, Episode 8 is here. I’m honoured to narrate this part, and I hope you all will enjoy it as much as I did. Each turn will feature some small actions; small action after small action, the Cylinder will appear quite different at the end. Who will rise, and who will fall?</p><p>Coiot: “Small actions.”"
 - scene_number: 02
-  scene_title: "https://i.imgur.com/LczJFm7.png"
+  scene_title: "OC of the Week"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene02.jpg
   narration: "<p>I don’t know why, but this dialogue cracked me when I read it the first time. And, for some reason, in my head Zenobia speaks with the voice of Hermione from HP. “Because it’s REALISTIC! It’s Leviosa, not Leviosar” </p><p>Thanks u/Doccit for the laugh.</p>"
 - scene_number: 03
-  scene_title: "https://i.redd.it/lf634blzekd31.jpg"
+  scene_title: "Hand-Drawn Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene03.jpg
   narration: "<p>Here we can see the map drawn by u/Vihreaa. Civs are starting to colonize even deserts and ice, but there still is some room for new cities in more fertile spots. Who will grab them?</p>"
 - scene_number: 04
-  scene_title: "https://i.imgur.com/crDgmwm.jpg"
+  scene_title: "Melon Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene04.jpg
-  narration: "<p>Here we can see this strange representation of the world by u/Spherical_Melon. Somebody should tell him the world is cylindric, smh. </p><p>Anyway, I liked a lot of the fantasy behind the name of regions in his maps for Mk2, I hope he’ll be able to add them back somehow. </p>"
+  narration: "<p>Here we can see this strange representation of the world by u/Spherical_Melon. Somebody should tell him the world is cylindric, smh. </p><p>Anyway, I liked a lot of the fantasy behind the name of regions in his maps for Mk2, I hope he’ll be able to add them back. </p>"
 - scene_number: 05
-  scene_title: "Zimbabwe"
+  scene_title: "PR #1 of the Week"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene05.jpg
-  narration: "<p>For the third time in a row, Zimbabwe takes the first position in the Power Ranking. It’s easy to understand why: biggest army in Africa, WAAAY above his neighbours,, biggest production in the whole Cylinder, first in techs (18), second in number of cities (12)... it basically has it all. Now the question is: will they be able to use their advantage?</p>"
+  narration: "<p>For the third time in a row, Zimbabwe takes the first position in the Power Ranking. It’s easy to understand why: biggest army in Africa, WAAAY above his neighbours, biggest production in the whole Cylinder, first in techs (18), second in number of cities (12)... it basically has it all. Now the question is: will they be able to use their advantage?</p>"
 - scene_number: 06
   scene_title: "A song of Ice and Copper"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene06.jpg
@@ -78,7 +78,7 @@ scenes:
 - scene_number: 17
   scene_title: "Sea traffic"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene17.jpg
-  narration: "<p>I was a bit wrong a few slides ago, Canton still has three naval units. They’re lucky the AI doesn’t really coordinate troops with different moving speeds, but nonetheless their situation is not the brightest. </p><p>Bold prediction: the single Tongo spearman we can see on top of an atoll will snipe Canton’s capital, thus achieving maximum TONGA TIME. Place your bets.</p><p></p><p>Quing is continuing its exclave mission: after colonizing the north, it sends a settler towards the Indian Ocean. </p>"
+  narration: "<p>I was a bit wrong a few slides ago, Canton still has three naval units. They’re lucky the AI doesn’t really coordinate troops with different moving speeds, but nonetheless their situation is not the brightest. </p><p>Bold prediction: the single Tongo spearman we can see on top of an atoll will snipe Canton’s capital, thus achieving maximum TONGA TIME. Place your bets.</p><p></p><p>Qing is continuing its exclave mission: after colonizing the north, it sends a settler towards the Indian Ocean. </p>"
 - scene_number: 18
   scene_title: "Yep, it’s big brain time"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene18.jpg
@@ -128,7 +128,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene29.jpg
   narration: "<p>Honestly impressed by the defensive skills shown by the Cantonese people, even though for each great defence there must be an equal opposite shitty attack from your enemy (We can call it Forgie’s Third Law). Anyway, the Japanese are bringing a ton of ships this time, so our favourite (and only in this iteration of CBR, but that’s beside the point) pirates still need to hold their breath, at least for now.</p>"
 - scene_number: 30
-  scene_title: "Nobody expect the spanish city name"
+  scene_title: "Nobody expects the Spanish city name"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene30.jpg
   narration: "<p>And that’s what happens when you neglect your own island. Venezuela found Barcelona, taking advantage of the absence of Haiti. Shame on you Haiti, that’s what you deserve for making peace instead of conquering Caracas.</p><p> </p><p>We can also see the Aztec pushing against Maracay, but the vegetation is helping the defenders.</p><p></p><p>The Iroquois settle Akwesasne and have unlocked their second UU; for sure he’ll be useful in their current conflict, if used properly.</p>"
 - scene_number: 31
@@ -212,11 +212,11 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene50.jpg
   narration: "<p>Ergun falls, but the Evenks can flip it back. Probably won’t be enough, the Kazakhs seems to push with increasing forces.</p><p>A bit more North, a stream of Nenets troops are bravely and stupidly throwing themselves against the walls of Aoluguya. </p>"
 - scene_number: 51
-  scene_title: "European clusterfuck"
+  scene_title: "European Clusterfuck"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene51.jpg
   narration: "<p>Liberec is now in red, and a bunch of swordmen are around Mainz. Will HRE be able to crack what is seems a very hard nut? </p><p>Also, can I start a petition? That poor Prussian trireme West of Roskilde has been blocked there for, like, thirty turns. Just let them go. </p>"
 - scene_number: 52
-  scene_title: "Insane determination"
+  scene_title: "Insane Determination"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene52.jpg
   narration: "<p>If we follow the well known definition of insanity, “doing the same thing over and over and expecting different results”, we can totally declare Mehmed II insane. </p><p>“But this time it will be different” swears the Turkish leader. Everybody is too afraid to tell him the truth. </p><p></p><p>It appears that the GH has changed its mind once again: “The Black Sea, is, indeed, too much black and too few sea”, a spokesperson declares. They decided to relocate the settler elsewhere. Or maybe it was killed.   </p><p></p><p>Goths and Turks are fighting in the Black Sea, and the two navies seems equally strong.</p>"
 - scene_number: 53
@@ -314,7 +314,7 @@ scenes:
 - scene_number: 76
   scene_title: "Blue water and blue science"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene76.jpg
-  narration: "<p>We can enjoy a better look of this part of the Cylinder. One of the few spots without war, killing and destruction. </p><p>Australia is sending a settler east of Brisbane, trying to reclaim full control of the island after their previous disastrous conflict.</p><p></p><p>Let’s also appreciate the first pikeman just a few tiles below Sandakan, courtesy of the Sami. Indeed, by looking at the notification bar, more and more Civs are reaching the Medieval Era during this episode.</p>"
+  narration: "<p>We can enjoy a better look at this part of the Cylinder. One of the few spots without war, killing and destruction. </p><p>Australia is sending a settler east of Brisbane, trying to reclaim full control of the island after their previous disastrous conflict.</p><p></p><p>Let’s also appreciate the first pikeman just a few tiles below Sandakan, courtesy of the Sami. Indeed, by looking at the notification bar, more and more Civs are reaching the Medieval Era during this episode.</p>"
 - scene_number: 77
   scene_title: "¯\_(ツ)_/¯"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene77.jpg
@@ -378,7 +378,7 @@ scenes:
 - scene_number: 92
   scene_title: "Survived another day"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene92.jpg
-  narration: "<p>The previous turn, Algeria and Songhai signed peace, just when Mascara were doomed to fall. Algeria didn’t face the crushing defeat we could have thought. At the end, they basically traded a city for a city. However Algeria seems exhausted, while Askia fields a healty army. So maybe, even without Mascara, it was the best decision to sign the peace deal.</p><p></p><p>I wonder if the Venetian settler will found a city in Spain.</p>"
+  narration: "<p>The previous turn, Algeria and Songhai signed peace, just when Mascara were doomed to fall. Algeria didn’t face the crushing defeat we could have thought. At the end, they basically traded a city for a city. However Algeria seems exhausted, while Askia fields a healthy army. So maybe, even without Mascara, it was the best decision to sign the peace deal.</p><p></p><p>I wonder if the Venetian settler will found a city in Spain.</p>"
 - scene_number: 93
   scene_title: "*random prequel meme*"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene93.jpg
@@ -386,11 +386,11 @@ scenes:
 - scene_number: 94
   scene_title: "The transpacific voyage"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene94.jpg
-  narration: "<p>Haida wins the Bering Award thanks to his new city, Skedans. </p><p>“I’m also here, and I arrived before you, dear Apanuugpak. Aren’t you happy?”</p><p>“... maybe I’m still in time to settle somewhere else”</p><p></p><p>Also, from the minimap we can see someone has founded a city in Greenland. It seems the HRE, but their colour are so similar to the Manx that I can’t be sure. The BC team would probably answer this question.</p><p></p><p>Coiot: It’s Manx! </p>"
+  narration: "<p>Haida wins the Bering Award thanks to his new city, Skedans. </p><p>“I’m also here, and I arrived before you, dear Apanuugpak. Aren’t you happy?”</p><p>“... maybe I’m still in time to settle somewhere else”</p><p></p><p>Also, from the minimap we can see someone has founded a city in Greenland. It seems the HRE, but their colour are so similar to the Manx that I can’t be sure. The BC team would probably answer this question.</p><p></p><p>Coiot: It’s Manx!</p>"
 - scene_number: 95
   scene_title: "He’s so good (4x)"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene95.jpg
-  narration: "<p>Overheard in Goths throne room after turn 124:</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. “That f***ing Khan boomed me.”</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distribute it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move.</p>"
+  narration: "<p>Overheard in Goths throne room after turn 124:</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. “That f***ing Khan boomed me.”</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p></p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distribute it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move.</p>"
 - scene_number: 96
   scene_title: "The forgotten war"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene96.jpg
@@ -424,7 +424,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene103.jpg
   narration: "<p>The tea invitation was accepted, and now the two armies are waiting for orders. No, seriously, did they even move from the last time we saw this region? </p>"
 - scene_number: 104
-  scene_title: "Scoutcon cancelled, Settlercon created."
+  scene_title: "Scoutcon cancelled, Settlercon announced."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene104.jpg
   narration: "<p>I count units of eleven different Civs, not bad. The Evenks have founded two more cities, Tulihe and the one on the left corner, only partially visible (at least, I suppose is new given the defence points). While the war against the Kazakhs is not a success at the moment, they’re still expanding.</p><p></p><p>The Khanate, imitates the deer mounters and adds Oronar to its empire, with another settler ready, and even Korea has another settler out. I wonder where the Yup'ik colonists went, instead. </p>"
 - scene_number: 105
