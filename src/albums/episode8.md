@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Ready to rumble?"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode7-scene01.jpg
   narration: "<p>Hi folks, u/Framonti is here, but more importantly, Episode 8 is here. I’m honoured to narrate this part, and I hope you all will enjoy it as much as I did. Each turn will feature some small actions; small action after small action, the Cylinder will appear quite different at the end. Who will rise, and who will fall?</p>"
 - scene_number: 02
   scene_title: "https://i.imgur.com/LczJFm7.png"
@@ -390,7 +390,7 @@ scenes:
 - scene_number: 95
   scene_title: "He’s so good (4x)"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene95.jpg
-  narration: "<p>Overheard in Goths throne room after turn 124;</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. "That f***ing Khan boomed me."</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distribute it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move.</p>"
+  narration: "<p>Overheard in Goths throne room after turn 124:</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. “That f***ing Khan boomed me.”</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distribute it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move.</p>"
 - scene_number: 96
   scene_title: "The forgotten war"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene96.jpg
