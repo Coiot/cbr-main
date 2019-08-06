@@ -390,7 +390,7 @@ scenes:
 - scene_number: 95
   scene_title: "He’s so good (4x)"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene95.jpg
-  narration: "<p>Overheard in Goths throne room after turn 124:</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. "That f***ing Khan boomed me."</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p></p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distributed it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move. </p>"
+  narration: "<p>Overheard in Goths throne room after turn 124;</p><p>“He got me,” Alaric said of Ablai Khan’s attack to Ravenna. "That f***ing Khan boomed me."</p><p>Alaric added, “He’s so good,” repeating it four times.</p><p>Alaric then said he wanted to add Khan to the list of leaders he’ll declare war with this era.</p><p>The Kazakhs aren’t messing around this part, honestly impressive. The Goths have founded a lot of cities, but although they have a massive army, they didn’t distribute it evenly. Ravenna will probably fall soon, let’s see what will be Alaric next move.</p>"
 - scene_number: 96
   scene_title: "The forgotten war"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene96.jpg
