@@ -64,7 +64,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene13.jpg
   narration: "<p>The Kazakhs finally show why they didn’t send any support unit in their previous wars against Parthia and Nenets: it was all according to keikaku*. They made everybody think that they’re bad and then strike, what a bunch of geniuses. Or maybe they were just AI-ing around. Anyway, they’re taking this opportunity, and I feel it’s the right call: they need all the clay they can get if they don’t want to fade into irrelevance.</p>"
 - scene_number: 14
-  scene_title: "Sakamoto t"
+  scene_title: "Sakamoto to do list: conquer north (happy, u/thehonestyfish ?)"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene14.jpg
   narration: "<p>The love story between Korea and Japan continues, as it seems they can’t stop trying to be the closest possible. Since Japan were so nice to visit Korea a few turns ago, Seonjo decides it would be pretty unpolite not returning the favour, thus founding Jinju on North Japan. </p>"
 - scene_number: 15
@@ -160,7 +160,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene37.jpg
   narration: "<p>Canton keeps Hong Kong. The fact that I felt the need to remark it speaks for itself. It’s really a shame, the pirates are fighting very well given their position, but only have three cities and no more room for expansion. It’s difficult they’ll be considered actual contender in the future. </p>"
 - scene_number: 38
-  scene_title: "Civs Against"
+  scene_title: "Civs Against Nubianity"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene38.jpg
   narration: "<p>The previous turn, Libya has declared war against Nubia. The latter continues its personal challenge against the Evenks and Canton of “Most hated civ for absolutely no reason”. I have a theory: everybody dislikes Nubia because they didn’t settle the Suez Canal. I would be pissed too, to be fair. Anyway, somehow Nubia has destroyed a citadel outside Derna; Libya replies by attacking Nuri. Composite bowmen rush to defend the city, which is dangerously isolated from the rest of Nubian core. </p><p></p><p>The city of Gurnia still stands, but is brought into red. I wonder how many arrows the composite bowmen sitting on Cyprus have thrown against the city.</p>"
 - scene_number: 39
@@ -352,7 +352,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene85.jpg
   narration: "<p>The Metis have been on a settling spree since the last few parts, with Prince Albert being their most recent acquisition. </p><p>Canada tries to emulate them, by settling Calgary, returning to three cities. Yay? </p>"
 - scene_number: 86
-  scene_title: "Chad Ch"
+  scene_title: "Chad Cháv"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene86.jpg
   narration: "<p>Fighting against three different enemies at once doesn’t help when building an army. The Venezuelan core is quite empty, but at least there are soldiers where needed, and that’s all that matter. Aztec, Nazca and Haiti aren’t able to threaten Hugo Chávez in any significant way and… wait, is that a settler on Cuba, without any supporting unit? What a Chad move, Cháv. </p>"
 - scene_number: 87
@@ -364,7 +364,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene88.jpg
   narration: "<p>Beta Israel leaves Africa for the first time, conquering Pedeme. Gudit now firmly controls both coasts of the Red Sea in this region, while Oman is left with nothing but dead soldiers. </p><p>“Impossible!”, shouts the Sultan whilst slamming its fist on a precious table. “Bring me the map, I need to make an important strategic decision. Now, put a bend on my eyes and give me a knife. Yes, keep the map there and let me think”, adds, while throwing his knife against a representation of the Cylinder.</p><p>“We’ll attack the Indian”, finally declares Oman’s Leader, after seeing where the knife have hit.</p>"
 - scene_number: 89
-  scene_title: "Barcelona: I sleep"
+  scene_title: "Barcelona: I sleep... Maturìn: real shit"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene89.jpg
   narration: "<p>Venezuela founds Maturìn on the doormat of the second Haitian city. This is too much for Toussaint, who immediately sends a delegation for retaking control of what he considers his legitimate property.  </p>"
 - scene_number: 90
