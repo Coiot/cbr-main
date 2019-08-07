@@ -314,7 +314,7 @@ scenes:
 - scene_number: 76
   scene_title: "Blue water and blue science"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene76.jpg
-  narration: "<p>We can enjoy a better look at this part of the Cylinder. One of the few spots without war, killing and destruction. </p><p>Australia is sending a settler east of Brisbane, trying to reclaim full control of the island after their previous disastrous conflict.</p><p></p><p>Let’s also appreciate the first pikeman just a few tiles below Sandakan, courtesy of the Sami. Indeed, by looking at the notification bar, more and more Civs are reaching the Medieval Era during this episode.</p>"
+  narration: "<p>We can enjoy a better look at this part of the Cylinder. One of the few spots without war, killing and destruction. </p><p>Australia is sending a settler east of Brisbane, trying to reclaim full control of the island after their previous disastrous conflict.</p><p></p><p>Let’s also appreciate the first pikeman just a few tiles below Sandakan, courtesy of the Sulu. Indeed, by looking at the notification bar, more and more Civs are reaching the Medieval Era during this episode.</p>"
 - scene_number: 77
   scene_title: "¯\_(ツ)_/¯"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode8-scene77.jpg
