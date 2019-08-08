@@ -1,5 +1,5 @@
 ---
-title: "Episode 09: Old Enemies, New Friends"
+title: "Episode 08: Old Enemies, New Friends"
 narrated_by: "Framonti"
 description: "Love and hate are linked together in this episode, as old conflicts between friends are resumed and new coalitions between strangers are made."
 release_date: August 07, 2019
