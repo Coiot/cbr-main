@@ -77,7 +77,7 @@ scenes:
 - scene_number: 17
   scene_title: "Raving madman"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode9-scene17.jpg
-  narration: "<p>A single look at Eastern Mediterranean reveals the grave reality of the Nubian-Minoan peace. In order to appease the Nubians, Malia has been given away in the peace deal, leaving Minoa with one last city. What could’ve possibly driven the Minoans to accept this? Personally, I believe that Minos finally escaped his labyrinth, but not with his sanity intact. </p><p></p><p>Away from the painful disappointments of the Mediterranean, the Libyan-Nubian war presses on. With Palmyra rendered to a non-threat due to terrain, Piye is able to reinforce the western side of his dwindling kingdom. Perhaps he can come out of this war without losing any more cities.</p>"
+  narration: "<p>A single look at Eastern Mediterranean reveals the grave reality of the Nubian-Minoan peace. In order to appease the Nubians, Malia has been given away in the peace deal, leaving Minoa with one last city. What could’ve possibly driven the Minoans to accept this? Personally, I believe that Minos finally escaped his labyrinth, but not with his sanity intact. </p><p></p><p>Away from the painful disappointments of the Mediterranean, the Libyan-Nubian war presses on. With Palmyra rendered to a non-threat due to terrain, Piye is able to reinforce the western side of his dwindling kingdom. Perhaps he can come out of this war without losing any more cities.</p><p>Coiot: Nubia is the biggest bully!</p>"
 - scene_number: 18
   scene_title: "Just sack it already"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode9-scene18.jpg
