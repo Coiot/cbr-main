@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "15 Turns of bloodshed"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode9-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode7-scene01.jpg
   narration: "<p>Hello lads, and welcome to Episode 9 of Season 1 of the world-famous Civ Battle Royale X! I am /u/ThyReformer, and I will be your host today, narrating you through what is turning out to be a very stormy episode indeed.</p>"
 - scene_number: 02
   scene_title: "OC of the week"
