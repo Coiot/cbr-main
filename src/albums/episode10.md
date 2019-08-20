@@ -21,7 +21,7 @@ scenes:
 - scene_number: 03
   scene_title: "Lore Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode10-scene03.jpg
-  narration: "<p>Here we have the amazing Lore Map created by LacsiraxAriscal and wthrudoin.  This map has been painstakingly compiled to form a historical narrative of what life on the cylinder is really like.</p><p>Coiot: Really recommend viewers to read through <a href="https://www.google.com/maps/d/viewer?mid=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&ll=31.07381400497466%2C100.22365376213997&z=4">the map</a>. wthrudoin is quite the lore-master. The map now includes citadels as well.</p>"
+  narration: '<p>Here we have the amazing Lore Map created by LacsiraxAriscal and wthrudoin. This map has been painstakingly compiled to form a historical narrative of what life on the cylinder is really like.</p><p>Coiot: Really recommend viewers to read through <a href="https://www.google.com/maps/d/viewer?mid=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&ll=31.07381400497466%2C100.22365376213997&z=4">the map</a>. wthrudoin is quite the lore-master. The map now includes citadels as well.</p>'
 - scene_number: 04
   scene_title: "Diplomatic Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode10-scene04.jpg
