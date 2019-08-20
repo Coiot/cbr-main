@@ -5,6 +5,7 @@ description: "Unexpected glory and defeat plague the cylinder in the tenth insta
 release_date: August 21, 2019
 audio_narration: https://youtu.be/Ex3PA24zjVE
 fullvideo:
+starting_turn: 141
 edition: X1
 date: 2019-08-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode10-scene06.jpg
@@ -12,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Intro"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode07-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode7-scene01.jpg
   narration: "<p>Hello and welcome back to Seabricks! This is your narrator for this week, power ranker and the Delete Brazil modding team’s community administrator, Timrtabor123 inviting you back into the crazy world of the cylinder! Scissor_Fingers, PR, modder, and part time dev, will be taking over later during the part!</p>"
 - scene_number: 02
   scene_title: "The More You Know!"
@@ -21,7 +22,7 @@ scenes:
 - scene_number: 03
   scene_title: "Lore Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode10-scene03.jpg
-  narration: '<p>Here we have the amazing Lore Map created by LacsiraxAriscal and wthrudoin. This map has been painstakingly compiled to form a historical narrative of what life on the cylinder is really like.</p><p>Coiot: Really recommend viewers to read through <a href="https://www.google.com/maps/d/viewer?mid=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&ll=31.07381400497466%2C100.22365376213997&z=4">the map</a>. wthrudoin is quite the lore-master. The map now includes citadels as well.</p>'
+  narration: '<p>Here we have the amazing Lore Map created by LacsiraxAriscal and wthrudoin. This map has been painstakingly compiled to form a historical narrative of what life on the cylinder is really like.</p><p>Coiot: Really recommend viewers to look <a href="https://www.google.com/maps/d/viewer?mid=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&ll=31.07381400497466%2C100.22365376213997&z=4">through it all in detail</a>. wthrudoin is quite the lore-master, and Lacs has now included citadels as well. Load it up on your browser for after this episode.</p>'
 - scene_number: 04
   scene_title: "Diplomatic Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode10-scene04.jpg
