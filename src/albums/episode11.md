@@ -1,5 +1,5 @@
 ---
-title: "Ping-Pong and Flip-Flops"
+title: "Episode 11: Ping-Pong and Flip-Flops"
 narrated_by: "TheIpleJonesion"
 description: "As Civs grow and develop, their wars with their near-equal neighbours settle into a brutal back and forth that leaves both sides not smiling and unsatisfied."
 release_date: August 28, 2019
