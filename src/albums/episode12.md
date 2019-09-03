@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Do I need to make up a title for this too? Fine, just use this one."
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode12-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode7-scene01.jpg
   narration: "<p>Welcome to Part 12 of the Civilization V Battle Royale, otherwise known as CBRX (or “sea bricks”). I’m /u/AutisticNotWeird, one of the mods on /r/civbattleroyale and occasional OC writer (largely stories, as well as the power rankings charts). Having followed the battle royales for over four years now, it’s awesome to have a chance to narrate a part- and I hope the events of Part 12 will be as enjoyable for you as they have been for me. </p>"
 - scene_number: 02
   scene_title: "Can’t... stop… looking..."
