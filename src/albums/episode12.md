@@ -8,7 +8,7 @@ audio_narration: https://youtu.be/muBrd_nRKAk
 fullvideo:
 edition: X1
 date: 2019-09-03T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode12-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-episode12-scene07.jpg
 prcast:
 scenes:
 - scene_number: 01
