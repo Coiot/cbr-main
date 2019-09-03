@@ -58,7 +58,7 @@ scenes:
 - scene_number: 12
   scene_title: "Ok, smartypants."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode12-scene12.jpg
-  narration: "<p>The Shikoku capital Kochi wins a previously-unknown contest to become THE WORLD’S GREATEST CITY.</p><p>For those wondering, this contest comes from a mod called “Greatest cities”. The rule means that "At the dawn of each new era, the highest ranked world city [based on a range of complex criteria] becomes a World's Greatest City, which allows that city to build a Triumphal Arch." The arch gives the civ +5 happiness.</p>"
+  narration: "<p>The Shikoku capital Kochi wins a previously-unknown contest to become THE WORLD’S GREATEST CITY.</p><p>For those wondering, this contest comes from a mod called “Greatest cities”. The rule means that “At the dawn of each new era, the highest ranked world city [based on a range of complex criteria] becomes a World's Greatest City, which allows that city to build a Triumphal Arch.” The arch gives the civ +5 happiness.</p>"
 - scene_number: 13
   scene_title: "“What about us?”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode12-scene13.jpg
