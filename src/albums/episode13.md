@@ -2,7 +2,7 @@
 title: "Episode 13: Of Luck and Misfortune"
 narrated_by: "/u/TechnostarBTD5"
 description: "1250AD. Some civs have good luck. Others… not so much. This is the unlucky 13th episode, after all."
-release_date:
+release_date: September 11, 2019
 audio_narration: https://youtu.be/o_MwxxW_4ok
 starting_turn: 186
 fullvideo:
