@@ -4,7 +4,7 @@ narrated_by: "Lordie"
 description: "Ashes to ashes, dust to dust. In 1400 AD, as strife engulfs all parts of the cylinder, cities will blaze under the light of the sun."
 release_date: September 18, 2019
 starting_turn: 201
-audio_narration:
+audio_narration: https://youtu.be/s-6RR8JCQGg
 fullvideo:
 edition: X1
 date: 2019-09-17T00:00:00.000Z
@@ -13,20 +13,20 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "After That Cliffhanger..."
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode13-scene01.jpg
   narration: "<p>Welcome back one and all to CBRX, brought to you by Blue Cassette, live on r/civbattleroyale. I am /u/Lordie_Staven, another Power Ranker, modder (albeit of a civ not eligible for CBRX) and a first time narrator, at least of CBRX. For the next 13 turns, I’ll be guiding you through the Cataclysm that is the cylinder, in a state of uproar. Last episode saw two civs brought to near-death, and the upheaval of several civs’ positions – so let’s get started.</p>"
 - scene_number: 02
   scene_title: "One Does Not Simply Walk Into 59th Place"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene02.jpg
-  narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/d2jdji/race_to_the_bottom/As you may recall, Algeria and Libya have been brought to their knees by the unholy off-yellow war machines of the Moors and Songhai respectively. Whilst their strife won’t necessarily see the One Ring destroyed and Uruguay collapse, dying alongside each other is certainly plausible.</p>"
+  narration: "<p>As you may recall, Algeria and Libya have been brought to their knees by the unholy off-yellow war machines of the Moors and Songhai respectively. Whilst their strife won’t necessarily see the One Ring destroyed and Uruguay collapse, dying alongside each other is certainly plausible.</p>"
 - scene_number: 03
   scene_title: "Vihreally Good"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene03.jpg
-  narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/d2izl7/vihreaan_handdrawn_map_part_13/All credit to /u/Vihreaa for this beautiful map–seeing the cylinder laid out like this really puts a lot of the action into perspective. We have reached the point where cities are being erased in some parts of the world – Canada and North Africa mainly – faster than they’re being settled, which I’m sure is causing some kind of horrendous refugee crisis.</p>"
+  narration: "<p>All credit to /u/Vihreaa for this beautiful map–seeing the cylinder laid out like this really puts a lot of the action into perspective. We have reached the point where cities are being erased in some parts of the world – Canada and North Africa mainly – faster than they’re being settled, which I’m sure is causing some kind of horrendous refugee crisis.</p>"
 - scene_number: 04
   scene_title: "Objectively Helpful Infographic Map-type Aide for Rumble Knowledge"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene04.jpg
-  narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/d39jo6/subjectively_pretty_diagram_of_objectively/</p><p>If /u/ThyReformer insists on a silly acronym for his war graphic, I’ll give him a better one. SPOR, or as it’s now called, OHIMARK, is very handy for isolating hotspots of blood, sweat and tears. It’s very handy for power ranking and arguing about which civs will gain the most from conflict.</p>"
+  narration: "<p>If /u/ThyReformer insists on a silly acronym for his war graphic, I’ll give him a better one. SPOR, or as it’s now called, OHIMARK, is very handy for isolating hotspots of blood, sweat and tears. It’s very handy for power ranking and arguing about which civs will gain the most from conflict.</p>"
 - scene_number: 05
   scene_title: "Winstreak"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene05.jpg
