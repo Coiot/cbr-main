@@ -4,7 +4,7 @@ narrated_by: "yago2003"
 description: "New and very interesting conflicts blaze across the cylinder as we get further into the renaissance"
 release_date: September 25, 2019
 starting_turn: 216
-audio_narration: 
+audio_narration: https://youtu.be/-PJN_eGUQKs
 fullvideo:
 edition: X1
 date: 2019-09-24T00:00:00.000Z
