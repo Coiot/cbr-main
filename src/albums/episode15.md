@@ -18,7 +18,7 @@ scenes:
 - scene_number: 02
   scene_title: "The True Master plan"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode15-scene02.jpg
-  narration: "<p>(the link to the OC, don’t put this in the narration https://www.reddit.com/r/civbattleroyale/comments/d6wmf5/khamugs_and_benin_right_now/)</p><p>Here we see some Simpsons OC made by u/Staunch_Boat_Mormon (nice username by the way) which showcases the high IQ Strategies both Benin and the Khamugs are using, and they seem to be working very well as neither of them have been eliminated yet.</p>"
+  narration: "<p>Here we see some Simpsons OC made by u/Staunch_Boat_Mormon (nice username by the way) which showcases the high IQ Strategies both Benin and the Khamugs are using, and they seem to be working very well as neither of them have been eliminated yet.</p>"
 - scene_number: 03
   scene_title: "u/Vihreea’s Extremely Fast Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode15-scene03.jpg
