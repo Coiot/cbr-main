@@ -302,7 +302,7 @@ scenes:
 - scene_number: 73
   scene_title: "Bunbury: Defiance"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode16-scene73.jpg
-  narration: "<p>In what can only be called a slap in the face to Papua,  Australia has rebuilt Bunbury in the exact same place the old one stood. But for the troops of Papua, this is only another challenge. Meanwhile, the Murri prepare to make their stand at Boobarran Ngummin, their only remaining city.</p>"
+  narration: "<p>In what can only be called a slap in the face to Papua, Australia has rebuilt Bunbury in the exact same place the old one stood. But for the troops of Papua, this is only another challenge. Meanwhile, the Murri prepare to make their stand at Boobarran Ngummin, their only remaining city.</p>"
 - scene_number: 74
   scene_title: "Scandinavia and Friends"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode16-scene74.jpg
