@@ -88,6 +88,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode16-scene19.jpg
   narration: "<p>Now that he's no longer at war with the Apache, Hiawatha can focus his efforts on building up his empire. New cities he makes get bonuses thanks to his UA; The Great Law of Peace. He also starts to invest in the new crossbows that have been sweeping the cylinder, though he has yet to see the value of those “muskratmen” he’s heard about from the Minoan sailor near his shores.</p>"
 - scene_number: 20
+  death: yes
   scene_title: "Going Home"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode16-scene20.jpg
   narration: "<p>And now we get to see why Ragnar has begun to focus the HRE: Edinburgh has fallen, leaving Scotland at 57th place.Oh Robert, much like Elizabeth and Malachy before you, you had the rough luck of starting on the British Isles. And while he didn’t do awfully at first, his main rivals in the Isle of Man always seemed to do better than him. But Scotland still persevered, building the Great Hadrian’s Wall.Then everything changed when the Scots signed a peace treaty, giving away Glasgow. The loss of that city was something Robert never recovered from, and their eventual death to the Vikings was a long, drawn out process. And while there is a remaining Scottish Army, it won’t be enough to retake the city. So long, Robet, may your return to the sub be swift and painless.F</p>"
