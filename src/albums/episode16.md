@@ -2,7 +2,7 @@
 title: "Episode 16: Burning Shores"
 narrated_by: "Msurdej"
 description: "The oceans run red with blood and smoke as burning cities fill the cylinder."
-release_date: October 2, 2019
+release_date: October 02, 2019
 audio_narration: https://youtu.be/MApdMnu4hj8
 starting_turn: 231
 fullvideo:
