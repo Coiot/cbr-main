@@ -142,7 +142,7 @@ scenes:
 - scene_number: 33
   scene_title: "I Feel Sval-bad For Them"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode17-scene33.jpg
-  narration: "<p>The Holy Roman Empire decided that Svalbard was the perfect place for a city. Hell, I can’t even deal with single digit celsius, let alone what those guys are dealing with, AND before central heating? Wittenberg has to be on one of those ‘most un liveable places in the cylinder’ lists</p>"
+  narration: "<p>The Holy Roman Empire decided that Svalbard was the perfect place for a city. Hell, I can’t even deal with single digit celsius, let alone what those guys are dealing with, AND before central heating? Wittenberg has to be on one of those ‘most un liveable places in the cylinder’ lists</p><p>Coiot‘s Note: Uruguay adopts Order!</p>"
 - scene_number: 34
   scene_title: "A Trick of the Eye"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode17-scene34.jpg
