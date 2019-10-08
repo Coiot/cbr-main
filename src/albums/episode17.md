@@ -242,7 +242,7 @@ scenes:
 - scene_number: 58
   scene_title: "A Freak Phenomenon"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode17-scene58.jpg
-  narration: "<p>I’m not up to date on what each civs unique ability is so can someone explain to me why every Sami city is just slightly damaged. My current headcanon is one man travelled to every Sami city and just burnt down one building in each.</p>"
+  narration: "<p>I’m not up to date on what each civs unique ability is so can someone explain to me why every Sami city is just slightly damaged. My current headcanon is one man travelled to every Sami city and just burnt down one building in each.</p><p>Coiot‘s Note: Every time a Muscovy city is taken, the conqueror has all of their cities take damage.</p>"
 - scene_number: 59
   scene_title: "Disaster Strikes"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode17-scene59.jpg
