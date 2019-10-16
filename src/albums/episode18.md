@@ -3,7 +3,7 @@ title: "A Dream of Zanzibar"
 narrated_by: "DerErlenkonig"
 description: "Coalitions form. Heroes fall."
 release_date: October 1, 2019
-audio_narration:
+audio_narration: https://youtu.be/B_TTyv-SW40
 fullvideo:
 starting_turn: 266
 edition: X1
@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Intro"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode18-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode15-scene01.jpg
   narration: "<p>As all the cool kids say… Aaaaaaaand welcome ladies and gentlemen to another Episode of Battle Rrrroyale!</p><p></p><p>DerErlenkonig here, DerlKonk on Discord. </p>"
 - scene_number: 02
   scene_title: "Wise Words"
@@ -136,6 +136,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode18-scene31.jpg
   narration: "<p>OWO what’s this?? Kongo declares on Benin but has a paltry army. What were they thinking?</p><p></p><p>Benin may be losing desert cities to the north, but this is a prime opportunity to fix some of this dreadful bordergore and establish a more fertile core.</p>"
 - scene_number: 32
+  death: yes
   scene_title: "Press ف to pay respects."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode18-scene32.jpg
   narration: "<p>Madagascar scores a crit on Oman and fails their remaining Death Saves. And with that, Oman is no more.</p><p></p><p>What can be said about Oman? They settled the coast of Arabia and that’s basically it. Their defense of their remaining cities was brave but ultimately futile in the face of stronger empires. </p><p></p><p>The Sultan of Oman now lives in the Zanzibar of the Heavens.</p><p></p><p>Press ف to pay respects.</p>"
