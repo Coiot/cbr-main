@@ -1,5 +1,5 @@
 ---
-title: "A Dream of Zanzibar"
+title: "Episode 18: A Dream of Zanzibar"
 narrated_by: "DerErlenkonig"
 description: "Coalitions form. Heroes fall."
 release_date: October 1, 2019
