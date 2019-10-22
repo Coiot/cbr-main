@@ -4,17 +4,17 @@ narrated_by: "X-Rok"
 description: "Irrelevant Coalitions, Sleeping Giants Wake, and Wars Fought Good."
 release_date:
 starting_turn: 281
-audio_narration:
+audio_narration: https://youtu.be/4HxeABEqeko
 fullvideo:
 edition: X1
 date: 2019-10-22T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode19-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-episode19-scene07.jpg
 prcast:
 scenes:
 - scene_number: 01
   scene_title: "Guess Who’s Back? Back Again."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode19-scene01.jpg
-  narration: "<p>Welcome one and all to another episode of the Civilization Battle Royale! After a hiatus, 37 rebooted parts, another long hiatus, and another 18 parts, for a total time of just shy of three years to the day, this is u/X-Rok once again stepping in for a narration. It’s good to be back, let’s get into it.</p>"
+  narration: "<p>Welcome one and all to another episode of the Civilization Battle Royale! After a hiatus, 37 rebooted parts, another long hiatus, and another 18 parts, for a total time of just shy of three years to the day, this is u/X-Rok once again stepping in for a narration. It’s good to be back, let’s get into it.</p><p>Coiot: It really is three years since the last Mk 2.0 release.</p>"
 - scene_number: 02
   scene_title: "For Real"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode19-scene02.jpg
