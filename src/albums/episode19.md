@@ -34,7 +34,7 @@ scenes:
 - scene_number: 06
   scene_title: "The Civ Modders Monthly: Issue 11"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode19-scene06.jpg
-  narration: '<p><a href="https://drive.google.com/open?id=1mxXSEdtRQg21r-E-ojnFcfQNUOEuX0px">In this eleventh issue</a>, we take an extended and self-reflective look at some of the recent civ mods to have been released. Deliverator also embarks on his first part in a series aiming to look at the way in which the natural world is depicted in the civ series. And we speak with the modders that made the 12 Days of Africa about their experiences.</p>'
+  narration: '<p>JFD: <a href="https://drive.google.com/open?id=1mxXSEdtRQg21r-E-ojnFcfQNUOEuX0px">In this eleventh issue</a>, we take an extended and self-reflective look at some of the recent civ mods to have been released. Deliverator also embarks on his first part in a series aiming to look at the way in which the natural world is depicted in the civ series. And we speak with the modders that made the 12 Days of Africa about their experiences.</p>'
 - scene_number: 07
   scene_title: "Endangered Amphibians"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode19-scene07.jpg
