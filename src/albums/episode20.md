@@ -1,5 +1,5 @@
 ---
-title: "The World Turns"
+title: "Episode 20: The World Turns"
 narrated_by: "Cadellinman"
 description: "Time rolls forward, and civilizations are forever changed. New feuds and old friends- it’s the Civilization Battle Royale X."
 release_date: October 30, 2019

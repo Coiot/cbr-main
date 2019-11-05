@@ -1,9 +1,9 @@
 ---
-title: "Heads will Tumble"
+title: "Episode 21: Heads will Tumble"
 narrated_by: "EmeraldRange"
 description: "The Cylinders two current warzones continue the fight while plans for world domination brew in other regions. A time of great change is upon the cylinder as the world’s population suffers from war."
-release_date:
-audio_narration:
+release_date: November 06, 2019
+audio_narration: https://youtu.be/4taahNIpCz4
 starting_turn: 316
 fullvideo:
 edition: X1
@@ -18,7 +18,7 @@ scenes:
 - scene_number: 02
   scene_title: "Elimination Game"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode21-scene02.jpg
-  narration: "<p>Last part was a round of many deaths, will this part follow suit? This shows an accurate depiction of the elimination of Poor Poverty Point, colorized 2019.  https://i.redd.it/49iy3o7ronv31.jpg</p>"
+  narration: "<p>Last part was a round of many deaths, will this part follow suit? This shows an accurate depiction of the elimination of Poor Poverty Point, colorized 2019.</p>"
 - scene_number: 03
   scene_title: "Tile-Accurate Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode21-scene03.jpg
@@ -26,7 +26,7 @@ scenes:
 - scene_number: 04
   scene_title: "SPOR Recap"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode21-scene04.jpg
-  narration: "<p>ThyRefomer’s amazing SPOR continues showing us a lack of relevant wars in Asia, Africa and North America. Will any of that change this part? </p><p>https://i.redd.it/ouhhszy8oyv31.png</p>"
+  narration: "<p>ThyRefomer’s amazing SPOR continues showing us a lack of relevant wars in Asia, Africa and North America. Will any of that change this part? </p>"
 - scene_number: 05
   scene_title: "Still No. 1"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode21-scene05.jpg
