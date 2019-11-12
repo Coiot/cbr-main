@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
 const currentDateUTC = new Date().toUTCString()
 const autometa_options = {
   enable : true,

@@ -8,7 +8,7 @@ fullvideo:
 edition: X1
 date: 2019-11-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode22-scene06.jpg
-prcast: 
+prcast:
 scenes:
 - scene_number: 01
   scene_title: "Obligatory introduction"
