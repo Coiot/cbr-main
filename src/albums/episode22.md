@@ -13,7 +13,7 @@ scenes:
 - scene_number: 01
   scene_title: "Obligatory introduction"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene01.jpg
-  narration: "<p>Greetings fellow gamer dudes and dudettes, and welcome back to another amazing episode of CBRX. My name is /u/Ludicologuy00, but there are some who call me Ludi. Most people know me as “that 🎈 guy from 3-4 years ago”, but nowadays I mostly lurk while sometimes submitting power rankings on time. But that’s enough about me, let’s move on to some OC.</p>"
+  narration: "<p>Greetings fellow gamer dudes and dudettes, and welcome back to another amazing episode of CBRX. My name is /u/Ludicologuy00, but there are some who call me Ludi. Most people know me as “that  guy from 3-4 years ago”, but nowadays I mostly lurk while sometimes submitting power rankings on time. But that’s enough about me, let’s move on to some OC.</p>"
 - scene_number: 02
   scene_title: "“Now I am become Death, the destroyer of worlds”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene02.jpg
@@ -353,5 +353,5 @@ scenes:
 - scene_number: 86
   scene_title: "Finale"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene86.jpg
-  narration: "<p>And now for the final scene of this episode; a slide showing Aachen surrounded by Venetian troops. Will the Doge mange to take it? Will Stronkhai continue to not be stronk? Will Riel survive his suicide attempt? Find out the answers to these questions and more in the next episode of CBRX!</p><p></p><p>Thanks for reading (or listening) to my narration of this part. It was my first time doing anything like this, so hopefully it wasn’t all bad. If you have some constructive criticism you can send it to me in a pm on discord or on reddit or just leave it as a comment somewhere where I’ll find it. Have a dope day and remember to party often, BYYYEEE 🎈🎈🎈🎈🎈🎈🎈🎈🎈</p>"
+  narration: "<p>And now for the final scene of this episode; a slide showing Aachen surrounded by Venetian troops. Will the Doge mange to take it? Will Stronkhai continue to not be stronk? Will Riel survive his suicide attempt? Find out the answers to these questions and more in the next episode of CBRX!</p><p></p><p>Thanks for reading (or listening) to my narration of this part. It was my first time doing anything like this, so hopefully it wasn’t all bad. If you have some constructive criticism you can send it to me in a pm on discord or on reddit or just leave it as a comment somewhere where I’ll find it. Have a dope day and remember to party often, BYYYEEE </p>"
 ---
