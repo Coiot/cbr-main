@@ -1,14 +1,15 @@
 ---
-title: "The Rivers Run Red"
+title: "Episode 22: The Rivers Run Red"
 narrated_by: "Ludicologuy"
 description: "Some will achieve greatness while others will shatter our dreams once more. It’s time for another episode of Seabricks with fun galore."
-release_date:
-audio_narration:
+release_date: November 13, 2019
+audio_narration: https://youtu.be/TDNoCDoaWZ8
+starting_turn: 336
 fullvideo:
 edition: X1
 date: 2019-11-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode22-scene06.jpg
-prcast: 
+prcast:
 scenes:
 - scene_number: 01
   scene_title: "Obligatory introduction"
@@ -17,19 +18,19 @@ scenes:
 - scene_number: 02
   scene_title: "“Now I am become Death, the destroyer of worlds”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene02.jpg
-  narration: "<p>https://i.redd.it/fer6digt0zw31.png</p><p></p><p>Some have noticed, by sifting through the “CBRX Info Sheet”, that Uruguay has begun researching Atomic Theory. The poor Amazon rainforest can’t seem to catch a break. Even in the digital world, it will end up being burned down by fire. Nuclear fire that is.</p><p></p><p>Credit to: /u/Chicago_Ball for the image.</p>"
+  narration: "<p>Some have noticed, by sifting through the “CBRX Info Sheet”, that Uruguay has begun researching Atomic Theory. The poor Amazon rainforest can’t seem to catch a break. Even in the digital world, it will end up being burned down by fire. Nuclear fire that is.</p><p></p><p>Credit to: /u/Chicago_Ball for the image.</p>"
 - scene_number: 03
   scene_title: "Hand-Drawn Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene03.jpg
-  narration: "<p>https://i.redd.it/zs8xmwhcryw31.jpg</p><p></p><p>This week’s map is provided by /u/Vihreea and includes some hand-drawn borders. You should definitely give it a closer look if you’ve got some time to spare since we’ll see some major border changes in some regions this part. </p>"
+  narration: "<p>This week’s map is provided by /u/Vihreea and includes some hand-drawn borders. You should definitely give it a closer look if you’ve got some time to spare since we’ll see some major border changes in some regions this part. </p>"
 - scene_number: 04
   scene_title: "SPOR"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene04.jpg
-  narration: "<p>https://i.redd.it/d539a0q0vjx31.png</p><p></p><p>And here’s another edition of SPOR, the diagram that shows us all relevant wars by /u/ThyReformer. By looking at this map we can see a few nations that might have a(nother) tough part ahead of them, namely Songhai, Métis, the HRE, Papua, and Nazca. Will they persevere or fall flat on their faces? Stay tuned and find out for yourself.</p>"
+  narration: "<p>And here’s another edition of SPOR, the diagram that shows us all relevant wars by /u/ThyReformer. By looking at this map we can see a few nations that might have a(nother) tough part ahead of them, namely Songhai, Métis, the HRE, Papua, and Nazca. Will they persevere or fall flat on their faces? Stay tuned and find out for yourself.</p>"
 - scene_number: 05
   scene_title: "Are you not entertained?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene05.jpg
-  narration: "<p>By taking a sneak peek at the power rankings chart, I’ve come to the conclusion that Uruguay will come out at the top once more for the 13th part in a row. But that’s not surprising considering that they are about to field planes and nuclear bombs against their green neighbour’s cannons and crossbows.</p>"
+  narration: "<p>By taking a sneak peek at the power rankings chart, I’ve come to the conclusion that Uruguay will come out at the top once more for the 13th part in a row. But that’s not surprising considering that they are about to field planes and nuclear bombs against their green neighbour’s cannons and crossbows.</p><p>Coiot: Can't escape :cursedguay: this week.</p>"
 - scene_number: 06
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode22-scene06.jpg
