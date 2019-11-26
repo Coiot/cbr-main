@@ -3,7 +3,7 @@ title: "Title:"
 narrated_by: "Lunar"
 description: "Broken by war; many nations begin to collapse under the weight as the true method of warfare begins to reveal itself, and a dastardly scheme begins to take root."
 release_date: November 27, 2019
-audio_narration:
+audio_narration: https://youtu.be/Knm0T3njqs4
 starting_turn: 366
 fullvideo:
 edition: X1
