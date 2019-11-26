@@ -1,5 +1,5 @@
 ---
-title: "A Song of Spice and Ire"
+title: "Episode 23: A Song of Spice and Ire"
 narrated_by: "Dawkinzz"
 description: "Wweeeelllllllllcome to another addition to the CIV BATTLE RRRRROYALE."
 release_date: November 20, 2019
@@ -254,7 +254,7 @@ scenes:
 - scene_number: 61
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode23-scene61.jpg
-  narration: "<p>if you listen carefully into the background of my audio recording you can hear an ambulance coming and that's very appropriate because the Murri are going to need one because they are getting brutally messed up by Australia. Boobarran Ngummin is on its last legs and I can’t predict those  crossbowmen and one musketmen and musician and pikemen are going to be able to stand against these legionnaires and rifle boys. We'll see you in hell Murri; you did nothing against the Australians like we wanted you. If you look in the top left corner, you will see Bunburry with lower than half health but those kiwi boys are definitely looking pretty slim. I don't know if they're going to be able to take it I hope they do but time will tell. </p>"
+  narration: "<p>If you listen carefully into the background of my audio recording you can hear an ambulance coming and that's very appropriate because the Murri are going to need one because they are getting brutally messed up by Australia. Boobarran Ngummin is on its last legs and I can’t predict those  crossbowmen and one musketmen and musician and pikemen are going to be able to stand against these legionnaires and rifle boys. We'll see you in hell Murri; you did nothing against the Australians like we wanted you. If you look in the top left corner, you will see Bunburry with lower than half health but those kiwi boys are definitely looking pretty slim. I don't know if they're going to be able to take it I hope they do but time will tell. </p>"
 - scene_number: 62
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode23-scene62.jpg
@@ -278,7 +278,7 @@ scenes:
 - scene_number: 67
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode23-scene67.jpg
-  narration: "<p>And here we have final confirmation that Bamako belongs to Benin. Oh Songhai, so long farewell, avidazen and goodbye! But now the Moors have all of those cannons aimed directly at that border. Will the Moors be able to take advantage of the weakened Benin to take the rest of Songhai lands. It’s a possibility but with Uruguay a growing force who knows what will happen.</p>"
+  narration: "<p>And here we have final confirmation that Bamako belongs to Benin. Oh Songhai, so long farewell, auf wiedersehen and goodbye! But now the Moors have all of those cannons aimed directly at that border. Will the Moors be able to take advantage of the weakened Benin to take the rest of Songhai lands. It’s a possibility but with Uruguay a growing force who knows what will happen.</p>"
 - scene_number: 68
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode23-scene68.jpg
