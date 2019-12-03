@@ -1,14 +1,14 @@
 ---
-title: "Nautical Nightmares"
+title: "Episode 25: Nautical Nightmares"
 narrated_by: "Lunar"
 description: "As the world slowly turns; wars push deeper and the limits of empires are pushed to the breaking point"
-release_date: 
-audio_narration: 
-fullvideo: 
+release_date: December 04, 2019
+audio_narration: https://youtu.be/y0bgJDGoOTc
+fullvideo:
 edition: X1
 date: 2019-12-03T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode25-scene06.jpg
-prcast: 
+image: https://cdn.civbattleroyale.tv/season1-episode25-scene07.jpg
+prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
