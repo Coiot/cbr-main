@@ -1,7 +1,7 @@
 ---
 title: "Episode 25: Nautical Nightmares"
 narrated_by: "Lunar"
-description: "As the world slowly turns; wars push deeper and the limits of empires are pushed to the breaking point"
+description: "As the world slowly turns; wars push deeper and the limits of empires are pushed to the breaking point."
 release_date: December 04, 2019
 audio_narration: https://youtu.be/y0bgJDGoOTc
 fullvideo:
