@@ -1,9 +1,9 @@
 ---
-title: "Title:"
+title: "Dancing on the Cliff’s Edge"
 narrated_by: "JCPoly"
 description: "War is a dance on the edge of a crumbling cliff, and somebody has to fall off."
 release_date: December 11th, 2019
-audio_narration:
+audio_narration: https://youtu.be/NGiNP5v3VaE
 fullvideo:
 edition: X1
 starting_turn: 401
@@ -12,19 +12,19 @@ image: https://cdn.civbattleroyale.tv/season1-episode26-scene06.jpg
 prcast:
 scenes:
 - scene_number: 01
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode26-scene01.jpg
+  scene_title: "Intro"
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode25-scene01.jpg
   narration: "<p>Hey! Good morning, good afternoon, good evening, or good night, wherever you are in the world. My name’s /u/JCPoly, and welcome back to the one and only Civilization Battle Royale. I’ve been around this sub since the very beginning but somehow haven’t narrated an episode yet, so a big thanks to Blue Cassette for that! With that out of the way, let’s get into the action. </p>"
 - scene_number: 02
-  scene_title: "https://i.redd.it/3arso0gjt9241.png"
+  scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode26-scene02.jpg
   narration: "<p>/u/AutisticNotWeird appeals to the stats nerd in everybody with his chart showing where the original bottom 10 civs are now. Shockingly, only 2 have been eliminated. </p>"
 - scene_number: 03
-  scene_title: "https://i.redd.it/qhuvjy0zii241.jpg"
+  scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode26-scene03.jpg
   narration: "<p>/u/Vihreaa, the resident cartographer of the sub, continues to blow us all away with the hand-drawn maps of the cylinder. Personally, I’m a fan of the diagonal lines used to distinguish a puppet city.</p>"
 - scene_number: 04
-  scene_title: "https://i.redd.it/g3f5qh3uvb241.jpg"
+  scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode26-scene04.jpg
   narration: "<p>Wow, look, it’s another /u/Vihreaa map! This one is a prediction of Part 40. Quite bold, I must say. I think my main issue with these predictions is the general lack of bordergore, but I do appreciate the idea that it won’t be there.</p>"
 - scene_number: 05
