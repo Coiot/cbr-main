@@ -1,5 +1,5 @@
 ---
-title: "Smoke on the Water"
+title: "Episode 27: Smoke on the Water"
 narrated_by: "Vivalahomestar"
 description: "As war rages across the cylinder’s coasts and riverlands, disparate civs struggle for peace, glory, and survival."
 release_date: December 18th, 2019

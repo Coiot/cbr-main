@@ -1,5 +1,5 @@
 ---
-title: "Dancing on the Cliff’s Edge"
+title: "Episode 26: Dancing on the Cliff’s Edge"
 narrated_by: "JCPoly"
 description: "War is a dance on the edge of a crumbling cliff, and somebody has to fall off."
 release_date: December 11th, 2019
