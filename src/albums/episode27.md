@@ -4,7 +4,7 @@ narrated_by: "Vivalahomestar"
 description: "As war rages across the cylinder’s coasts and riverlands, disparate civs struggle for peace, glory, and survival."
 release_date: December 18th, 2019
 starting_turn: 421
-audio_narration:
+audio_narration: https://youtu.be/oy9F2BzPDOA
 fullvideo:
 edition: X1
 date: 2019-12-17T00:00:00.000Z
