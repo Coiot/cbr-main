@@ -26,7 +26,7 @@ scenes:
 - scene_number: 04
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode27-scene04.jpg
-  narration: "<p>For our second map, I’d like to draw attention to the Lore Map, created by LacsiraxAriscal and wthrudoin. This map has everything from founding dates to peak population and irl location. But the coolest part is the fact that practically every single city was given a bit of lore (as the name suggests). My favorites include a justification for how a city on the coast of Greenland got named Green Lake and how the Palmyran city of Gerasa grew wealthy by selling weapons to both sides of the Gothic-Horde wars. Great stuff.</p>"
+  narration: "<p>For our second map, I’d like to <a href='https://www.google.com/maps/d/viewer?mid=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&ll=41.137913537649894%2C25.1196143214396&z=3'>draw attention to the Lore Map</a>, created by LacsiraxAriscal and wthrudoin. This map has everything from founding dates to peak population and irl location. But the coolest part is the fact that practically every single city was given a bit of lore (as the name suggests). My favorites include a justification for how a city on the coast of Greenland got named Green Lake and how the Palmyran city of Gerasa grew wealthy by selling weapons to both sides of the Gothic-Horde wars. Great stuff.</p>"
 - scene_number: 05
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode27-scene05.jpg
