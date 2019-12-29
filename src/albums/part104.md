@@ -1,7 +1,7 @@
 ---
 title: 'Part 104: Imperialism Invictus'
-narrated_by: Spaceman9800
-description:
+narrated_by: "Spaceman9800"
+description: "."
 starting_turn: 1001
 release_date: 'Feburary 06, 2018'
 audio_narration: https://youtu.be/x8I82X6WWDI
