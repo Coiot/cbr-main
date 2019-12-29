@@ -418,6 +418,4 @@ scenes:
     escort. Meanwhile a Vietnamese worker and carrier are on a lonely mission to continue
     the OCP-II’s work. And here we conclude our journey. Will Finland survive? Will
     Hawaii be extinguished? Can Brazil be stopped? Find out next time on CBR.
-
-
 ---
