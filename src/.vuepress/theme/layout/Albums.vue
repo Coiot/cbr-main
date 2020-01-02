@@ -37,6 +37,7 @@
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
         <h3>{{ scene.scene_title }}</h3>
         <div class="narrations" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
+        <div class="narrations" v-if="scene.reporter" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
       </div>
     </section>
 

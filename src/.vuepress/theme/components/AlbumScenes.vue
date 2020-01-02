@@ -6,7 +6,8 @@
     <h3>{{ scene.scene_number }}</h3>
     <h2>{{ scene.scene_title }}</h2>
     <img :src="scene.slide_url">
-    <div v-html="scene.narration"></div>
+    <div></div>
+    <div v-if="reporter" v-html="scene.narration">{{ scene.reporter }}</div>
     </li>
   </div>
 </section>
