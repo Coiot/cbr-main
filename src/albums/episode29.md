@@ -1,7 +1,7 @@
 ---
 title: "Episode 29: Roaring Forward"
 narrated_by: "Bluesox"
-description: "War rages across the globe, tensions boil over, and the narrator takes things a little too far"
+description: "War rages across the globe, tensions boil over, and the narrator takes things a little too far."
 release_date: January 08, 2020
 audio_narration: https://youtu.be/v8l5LpUFG5k
 fullvideo:
