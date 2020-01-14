@@ -3,7 +3,7 @@ title: "Episode 30: Of Bioengineered Monsters and Seamen."
 narrated_by: "Fiona Danger"
 description: "Part Thirty of the CBRX is an action packed look into fate-changing as navies and armies clash head to head, and nations are brought low and rise to greater extents. This part takes place globally, with action in every last location on the cylinder - and even outside of it."
 release_date: January 15, 2019
-audio_narration:
+audio_narration: https://youtu.be/8_Iaq6u0_mg
 fullvideo:
 edition: X1
 starting_turn: 500
