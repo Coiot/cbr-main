@@ -2,7 +2,7 @@
 title: "Episode 31: Cracks in the Shell"
 narrated_by: "Cardboardmech"
 description: "Units clog the cylinder, but war grinds on. Empires rise and fall, and unexpected things happen all around."
-release_date:
+release_date: January 22, 2020
 audio_narration: https://youtu.be/QUW8-BZrtkg
 fullvideo:
 starting_turn: 535
