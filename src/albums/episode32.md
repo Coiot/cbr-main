@@ -3,12 +3,12 @@ title: "Episode 32: Sniper no Sniping"
 narrated_by: "Shade of Borg"
 description: "In a world of stalemates, bloodshed and war: The Aztecs continue to shitpost."
 release_date: January 29, 2020
-audio_narration:
+audio_narration: https://youtu.be/GWVoMUv1O6Y
 fullvideo:
 starting_turn: 570
 edition: X1
 date: 2020-01-28T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode32-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-episode32-scene07.jpg
 prcast:
 scenes:
 - scene_number: 01
