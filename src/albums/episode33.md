@@ -2,7 +2,7 @@
 title: "Episode 33: All Aboard The Green Submarine"
 narrated_by: "Darkanine"
 description: "A world comprised of chaos and thunder finds ignitions from the most unlikely places, as blood get thin. Empires rise, empires fall as everyone awaits a new future. Where will the worlds greatest empires end up when the clock strikes 800?"
-release_date:
+release_date: February 05, 2020
 audio_narration: https://youtu.be/qtHDVrNs_SI
 starting_turn: 600
 fullvideo:
@@ -266,45 +266,45 @@ scenes:
 - scene_number: 64
   scene_title: "The Biggest Fool who ever reached Greenland"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene64.jpg
-  narration: "<p>Literally all of the Viking cities pictured have no Health, it’s just a matter of time for someone to swoop in...or for nothing to happen. Well, </p><p></p><p><Amelia’s note>I believe I may have accidently skipped slide 60 by mistake so here’s my write up for that here</Amelia’s note></p><p>Title: Plastic Beach</p><p>Text: Very few tiles in Europe are free of unit occupation, from the Taungoo and Malagasy to nearby civs like the Ottomans to local powers, it’s a bit of a clusterfuck.</p>"
+  narration: "<p>Literally all of the Viking cities pictured have no Health, it’s just a matter of time for someone to swoop in...or for nothing to happen. Well, </p>"
 - scene_number: 65
-  scene_title: "Khamung Days"
+  scene_title: "Plastic Beach"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene65.jpg
-  narration: "<p>Australia’s military force in East Asia, is large, but a bit stretched thin. </p>"
+  narration: "<p>Very few tiles in Europe are free of unit occupation, from the Taungoo and Malagasy to nearby civs like the Ottomans to local powers, it’s a bit of a clusterfuck.</p>"
 - scene_number: 66
-  scene_title: "Sea divided"
+  scene_title: "Khamung Days"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene66.jpg
-  narration: "<p>Despite the land being few and far between, Oceania is definitely not a stranger to border gore...yikes. Nuku’Alofa is still in red by the way.</p>"
+  narration: "<p>Australia’s military force in East Asia, is large, but a bit stretched thin. </p>"
 - scene_number: 67
-  scene_title: "Allllll the lonely nava and embarked units, where do they belong?"
+  scene_title: "Sea divided"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene67.jpg
-  narration: "<p>Although Cahuachi conquered a not insignificant amount of Oceania, their actual carpet is rather slim. Hope they fix that soonish.</p>"
+  narration: "<p>Despite the land being few and far between, Oceania is definitely not a stranger to border gore...yikes. Nuku’Alofa is still in red by the way.</p>"
 - scene_number: 68
-  scene_title: "Back in the S.E.L.K"
+  scene_title: "Allllll the lonely nava and embarked units, where do they belong?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene68.jpg
-  narration: "<p>For what it’s worth, it’s rather impressive Selk’nam managed to keep its original capital of Kauwes for this long.</p>"
+  narration: "<p>Although Cahuachi conquered a not insignificant amount of Oceania, their actual carpet is rather slim. Hope they fix that soonish.</p>"
 - scene_number: 69
-  scene_title: "Well, the Eldritch girls really knock me out"
+  scene_title: "Back in the S.E.L.K"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene69.jpg
-  narration: "<p>In the shot of the east, we see a not too shabby, but unfocused Selk’nam military force. Probably woefully unprepared to wage war with any of their neighbors, but possibly good enough to defend themselves for a bit longer.</p>"
+  narration: "<p>For what it’s worth, it’s rather impressive Selk’nam managed to keep its original capital of Kauwes for this long.</p>"
 - scene_number: 70
-  scene_title: "Citadel of civilization"
+  scene_title: "Well, the Eldritch girls really knock me out"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene70.jpg
-  narration: "<p>Important note that, even though Australia’s military is just...strewn across the map, they still got a strong core going on. Even the moderately mighty New Zealand seems to dwarf in comparison.</p>"
+  narration: "<p>In the shot of the east, we see a not too shabby, but unfocused Selk’nam military force. Probably woefully unprepared to wage war with any of their neighbors, but possibly good enough to defend themselves for a bit longer.</p>"
 - scene_number: 71
-  scene_title: "Gray, Grey and Purple morality"
+  scene_title: "Citadel of civilization"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene71.jpg
-  narration: "<p>Cities begin to heal, notably Baoding and Margadai over in Northeast Asia.</p>"
+  narration: "<p>Important note that, even though Australia’s military is just...strewn across the map, they still got a strong core going on. Even the moderately mighty New Zealand seems to dwarf in comparison.</p>"
 - scene_number: 72
-  scene_title: "Red and blue"
+  scene_title: "Gray, Grey and Purple morality"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene72.jpg
-  narration: "<p>West Europe, the place where hopes and dreams go to die. Well, from a quick scan, I do not detect any major changes at least.</p>"
+  narration: "<p>Cities begin to heal, notably Baoding and Margadai over in Northeast Asia.</p>"
 - scene_number: 73
   scene_title: "We Are Happy Landfill"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene73.jpg
-  narration: "<p>And, perhaps unsurprisingly, the Lumberjack Kings and Queens of the Iroqoius are the most happy people in all of the world with nearly double that of the second highest guy, Seddon. Maybe police states aren’t so bad after all.</p><p></p>"
+  narration: "<p>West Europe, the place where hopes and dreams go to die. Well, from a quick scan, I do not detect any major changes at least.</p>"
 - scene_number: 74
   scene_title: "We're Sergeant Ragnar’s Lonely City Club Band"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode33-scene74.jpg
-  narration: "<p>Well, that was my part. Kinda not expecting it to go down in the all-time greats but I hope it was at east entertaining. I apologize since I was kind of out of my element, I’m an anthropology nerd so I love going into history of the cities and such, but it’s well-past the point that would be insightful.</p><p></p><p>As for shameless plug hour. I’m also a Power Ranker, commentator and audio narrator for the Lefon Royale series, though due to time constraints, I haven’t been able to produce much parts yet. I’m also a super amateur Civ V modder currently working on splitting the Inca Civilization into five different Civs. Do seafaring, horse-riding, ultra-versatile Inca sound fun? If so, look out for that in a million years or so.</p>"
+  narration: "<p>And, perhaps unsurprisingly, the Lumberjack Kings and Queens of the Iroqoius are the most happy people in all of the world with nearly double that of the second highest guy, Seddon. Maybe police states aren’t so bad after all.</p><p></p><p>Well, that was my part. Kinda not expecting it to go down in the all-time greats but I hope it was at east entertaining. I apologize since I was kind of out of my element, I’m an anthropology nerd so I love going into history of the cities and such, but it’s well-past the point that would be insightful.</p><p></p><p>As for shameless plug hour. I’m also a Power Ranker, commentator and audio narrator for the Lefon Royale series, though due to time constraints, I haven’t been able to produce much parts yet. I’m also a super amateur Civ V modder currently working on splitting the Inca Civilization into five different Civs. Do seafaring, horse-riding, ultra-versatile Inca sound fun? If so, look out for that in a million years or so.</p>"
 ---
