@@ -32,7 +32,7 @@
     <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
 
     <section class="scenes">
-      <div id="lightgallery" class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
+      <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
         <h2 class="scenenumber" v-bind:class="{ civdeathBorder: scene.death }">{{ scene.scene_number }}</h2>
         <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
         <h3>{{ scene.scene_title }}</h3>
@@ -45,10 +45,6 @@
 
   </div>
 </transition>
-<script src="js/lightgallery.min.js"></script>
-<script type="text/javascript">
-  lightGallery(document.getElementById('lightgallery'));
-</script>
 </template>
 
 <script>
