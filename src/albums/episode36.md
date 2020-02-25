@@ -178,7 +178,7 @@ scenes:
 - scene_number: 42
   scene_title: "Put the Beast Down"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene42.jpg
-  narration: "<p>Now let's look at how popular Koyah is. Well what I can tell is he is the talk of the town, just not in the way most people want. The Haida are still at war with 13 civs, although one of them doesn't have any cities so they really don't count. But given how it’s better to hate Koyah than it is to be his friend, I’m expecting the Metis to DoW them at any point.</p>"
+  narration: "<p>Now let's look at how popular Koyah is. Well what I can tell is he is the talk of the town, just not in the way most people want. The Haida are still at war with 13 civs, although one of them doesn't have any cities so they really don't count. But given how it’s better to hate Koyah than it is to be his friend, I’m expecting the Metis to DoW them at any point.</p><p>Coiot: Public Enemy #1.</p>"
 - scene_number: 43
   scene_title: "Change in Management"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene43.jpg
