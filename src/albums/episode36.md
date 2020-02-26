@@ -21,11 +21,11 @@ scenes:
   narration: "<p>For the OC highlight, I chose to put in the spotlight this amazing piece of honest reporting. Nowhere else on the Cylinder can you find such an honest take on the news, and it's good to see in this far off future year of the 4000’s that someone still wishes to protect the eyes of our children by printing paper and not using Holo-broadcast.</p>"
 - scene_number: 03
   scene_title: "Giving credit where credit is due"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene04.jpg
   narration: "<p>Vihreaa yet again put together a great map for all of us to ~~gawk~~ at. Although I have to say there seems to be a mistake, and that's the fact that the Apache are smaller than they actually are. Oh well, they must be on the payroll of the Iroquois.</p>"
 - scene_number: 04
   scene_title: "The accuracy is striking"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode36-scene03.jpg
   narration: "<p>And here is u/Edse1991’s amazing tile accurate map, and yet again I see another amazing artist being used to spread Iroquois propaganda, shame really. But aside from that we see that the Qin and Australia making good sized gains from their respective wars against the Khamugs and the Nazca, while the Goths gained some back waters in Tibet. </p>"
 - scene_number: 05
   scene_title: "The House Always Wins"
