@@ -221,7 +221,7 @@ scenes:
 - scene_number: 53
   scene_title: "Turn 815"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene53.jpg
-  narration: "<p>And not even those who slew giants were safe either. Nyatsimba Mutota turned her armies west and went straight for two Beninese cities. How long until the rest of the continent fell? She had the willpower for it.</p>"
+  narration: "<p>And not even those who slew giants were safe either. Nyatsimba Mutota turned his armies west and went straight for two Beninese cities. How long until the rest of the continent fell? He had the willpower for it.</p>"
 - scene_number: 54
   scene_title: "The Murri"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene54.jpg
@@ -344,11 +344,11 @@ scenes:
   narration: "<p>The Venetians returned to Manx lands for their annual festival of remembering a man called Kirk Michael, a fictional folk hero who they burned on a bonfire every year or something bizarre that nobody questioned the origins of. On those crazy islands, it was difficult to tell which parts of their culture were true and what history had made up for itself.</p>"
 - scene_number: 84
   scene_title: "The Nenets"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene84.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene81.jpg
   narration: "<p>Over thousands of years, Pedro had found much to mourn. The passing of great civilisations, the passing of civilisations who had never become great… and, like now, the mourning of lost opportunities.</p><p>The north of Asia had been full of promise, of interesting land and expansion opportunities. Pedro mourned the fact that such promising territory had lain empty for so long: if only another civilisation had been here to fill the land with history and culture.</p>"
 - scene_number: 85
   scene_title: "Turn 895"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene85.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene84.jpg
   narration: "<p>Nothing happened.</p>"
 - scene_number: 86
   scene_title: "The Tongans"
@@ -356,19 +356,19 @@ scenes:
   narration: "<p>Tonga’s death didn’t seem that long ago: only hundreds of years rather than thousands. They had had a rollercoaster existence, barely bothering to expand at all in their early days but not appearing to suffer from it. But with such a limited area of land and such limited competence in warfare, Tonga’s time had come and gone.</p>"
 - scene_number: 87
   scene_title: "Turn 900"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene87.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene86.jpg
   narration: "<p>Uruguay pressed further north and took back  San José the Mayo, but that was the least of Pedro’s concerns. Somewhere across the mountains, trouble was brewing.</p>"
 - scene_number: 88
   scene_title: "T880 Leaders"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene88.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene87.jpg
   narration: "<p>As more civs became aware of the Sub, they began to jam our information gathering systems. Starting bonuses bonuses are determined from turn 900 and I have access to data up to turn 880. Looking at the maps it’s safe to assume stats remain generally the same. Here are the leaders in each category going into Endgame. </p><p> </p><p>Australia is a clear stats leader but is burdened with a bad start location for Endgame. Iroquois are finally catching up in military, Zimbabwe has been decimated by Benin (still in shock), and Shikoku are still relatively ok if you look at only numbers.</p>"
 - scene_number: 89
   scene_title: "T880 Military"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene89.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene88.jpg
   narration: "<p>This chart really drives home how rough this war has been for Zimbabwe. They’ve gone from 4th in military to 9th over the course of it. What happens if an actual power were to attack them? Taungoo had an interesting spike as well to just overtake Moors. Finally, are Uruguay the real Boers?</p><p> </p><p>There is no production chart because they remained surprisingly consistent. Zimbabwe’s of course tumbled but otherwise there are no major changes.</p>"
 - scene_number: 90
   scene_title: "T880 City Flips"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene90.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene89.jpg
   narration: "<p>And here are the total city count changes over the course of the episode. Qin are the big winner followed by the Benin of all civs. Anyone not listed ended up with a net 0 cities change.</p>"
 - scene_number: 91
   scene_title: "Summary Episode ‘winners’"
@@ -376,11 +376,11 @@ scenes:
   narration: "<p>I’ll end my observations with a glimpse at the biggest ‘winners’ of this summary episode. We’ve talked a lot about some of the major players, but there are a few surprises here that snuck in under the radar.</p>"
 - scene_number: 92
   scene_title: "Curiosity killed the civs"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene92.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene90.jpg
   narration: "<p>There were more of them now: a multinational effort to investigate the disturbance at the bottom of the world. Submarines were not the most efficient vehicles for carving through the ice, but nonetheless they were trying. Pick by pick, the ice shelves surrounding the mountains were being cut away.</p><p>It was ok, for now. Centuries would pass before first contact.</p>"
 - scene_number: 93
   scene_title: "Turn 1024"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene93.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene92.jpg
   narration: "<p>But the centuries passed regardless.</p><p>Benin spread further into Zimbabwe.</p><p>Zimbabwe stole desert from Palmyra.</p><p>Uruguay tore through the centre of the Nazca empire, and picked cities from New Zealand.</p><p>The Qin took the Goth city of Nuwakot near Nepal.</p><p>The Yupik lost Tlacopan, their only city where its citizens didn’t need coats.</p><p>Somehow, Kauwes – the former Selk’nam capital – fell to Venice of all people.</p><p>And to celebrate this, the festival of killing Kirk Michael spread further, and each year the Venetians started to Peel Kirk Michael. Or something like that.</p><p>The centuries passed, and Pedro in the midst of it all couldn’t move.</p>"
 - scene_number: 94
   scene_title: "A threat to our very existence"
@@ -388,10 +388,10 @@ scenes:
   narration: "<p>Then the world came.</p><p>The last of the ice was carved away, scouts were sent on treks through the mountains until they returned back to their subs with tales (and thermal images) of a Brazilian nuclear submarine stuck in a lake.</p><p>As one, the surviving civilisations merged. Uruguay was there. The Iroquois were there. Venice and the Manx were there. Venezuela and Shikoku and Australia and New Zealand were there. All armed, all curious.</p><p>“You cannot destroy this submarine!” Pedro had wailed into his radio once contact had been established. “If we die, the cylinder dies with us!”</p><p>That sentence had been taken as a threat rather than a clarification. Thirty-three civilisations, none of which knew the slightest thing about nuclear tectonic bonding, stopped focusing on each other for the first time in nine-thousand years.</p><p>The day came when the world made its decision. Through the radio in his office, Pedro heard the shrill, shrieking, overexcited voice of Indira Ghandi.</p><p>“By 6pm you will surrender your technology, your freedom and your entire existence to us, or we will send every nuclear missile right in your direction and wipe every trace of you from history!!”</p><p>The cylinder’s annals had held their fair share of mistakes. But together, the world had made its biggest mistake of all.</p><p>They had given him until 6pm.</p>"
 - scene_number: 95
   scene_title: "The only way out"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene95.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene93.jpg
   narration: "<p>“I have a plan,” Pedro whispered to his most trusted commander, “but it’ll cost 99.99% of the world’s population.”</p><p>“What’s the alternative?” his commander asked.</p><p>“Losing 100% of the world’s population.”</p><p>His commander had not needed to offer any approval. Cold logic dictated what must happen next. Pedro headed down to his war chamber, and took a deep breath of genuine, heartfelt sadness.</p>"
 - scene_number: 96
   scene_title: "Endgame"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene96.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene95.jpg
   narration: "<p>The job was done. He had spared only those who lived in the most well-guarded centres of each civilisation’s capital, and wiped the rest of the world clean.</p><p>“It was the only way,” he spent the rest of the day whispering to himself over and over. And he had been right. If one shred of nuclear technology had remained, the cylinder’s existence would remain in danger.</p><p>But the threat was gone now. The survivors would have another nine-thousand years to forget about the mythical submarine at the bottom of the world. It would become another folk tale, passed down the generations until everyone had forgotten what it meant. Meanwhile the civilisations would rebuild, re-expand, rediscover, and continue to do what they had done best since time immemorial: attacking the hell out of each other until only one glorious civilisation remained.</p><p> </p><p>Pedro returned to his office, sat down at his computer screen, and began to watch.</p>"
 ---
