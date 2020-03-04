@@ -320,7 +320,7 @@ scenes:
   narration: "<p>Benin may have fought through traditionally Ndongo lands, but plenty of their new cities were ones that Zimbabwe had founded themselves. That made Pedro smile. There was a huge morale difference between populations who lived on their own land and those who had been ejected from it.</p>"
 - scene_number: 78
   scene_title: "The Holy Roman Empire"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene78.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene80.jpg
   narration: "<p>The Holy Roman Empire, for example, had long lost the palace where its first couple of emperors had sat. It had become a tragic existence, spending their final days in somebody else’s former city. And to add insult to injury, not even a city that had been legitimately conquered: merely given to them based on a threat that hadn’t been there.</p>"
 - scene_number: 79
   scene_title: "Turn 880"
@@ -328,7 +328,7 @@ scenes:
   narration: "<p>Little happened in the following years. Except for the events so small they made no impact on Pedro’s screen.</p>"
 - scene_number: 80
   scene_title: "The Seljuks"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene80.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene78.jpg
   narration: "<p>And to be fair, some significant events made very little visual difference. Like the death of Beta Israel, the death of the Seljuks had barely registered on his map. When Pedro tried to remember the Seljuk story, all he remembered was how they had existed in their final few centuries, and there wasn’t much to remember about that either. Some empires had not earned their place in history.</p>"
 - scene_number: 81
   scene_title: "Turn 885"
