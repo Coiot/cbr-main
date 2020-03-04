@@ -336,11 +336,11 @@ scenes:
   narration: "<p>The civilisations that actually had earned their place were taking full advantage. Biding their time, they seemed to want to stay in history for as long as possible, even if it meant inaction.</p>"
 - scene_number: 82
   scene_title: "The Aztecs"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene82.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene83.jpg
   narration: "<p>Once upon a time, the Aztecs had existed. Pedro remembered a lot of shouting, but that was it.</p>"
 - scene_number: 83
   scene_title: "Turn 890"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene83.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene82.jpg
   narration: "<p>The Venetians returned to Manx lands for their annual festival of remembering a man called Kirk Michael, a fictional folk hero who they burned on a bonfire every year or something bizarre that nobody questioned the origins of. On those crazy islands, it was difficult to tell which parts of their culture were true and what history had made up for itself.</p>"
 - scene_number: 84
   scene_title: "The Nenets"
