@@ -344,7 +344,7 @@ scenes:
   narration: "<p>The Venetians returned to Manx lands for their annual festival of remembering a man called Kirk Michael, a fictional folk hero who they burned on a bonfire every year or something bizarre that nobody questioned the origins of. On those crazy islands, it was difficult to tell which parts of their culture were true and what history had made up for itself.</p>"
 - scene_number: 84
   scene_title: "The Nenets"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene81.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene91.jpg
   narration: "<p>Over thousands of years, Pedro had found much to mourn. The passing of great civilisations, the passing of civilisations who had never become great… and, like now, the mourning of lost opportunities.</p><p>The north of Asia had been full of promise, of interesting land and expansion opportunities. Pedro mourned the fact that such promising territory had lain empty for so long: if only another civilisation had been here to fill the land with history and culture.</p>"
 - scene_number: 85
   scene_title: "Turn 895"
@@ -352,27 +352,27 @@ scenes:
   narration: "<p>Nothing happened.</p>"
 - scene_number: 86
   scene_title: "The Tongans"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene86.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene96.jpg
   narration: "<p>Tonga’s death didn’t seem that long ago: only hundreds of years rather than thousands. They had had a rollercoaster existence, barely bothering to expand at all in their early days but not appearing to suffer from it. But with such a limited area of land and such limited competence in warfare, Tonga’s time had come and gone.</p>"
 - scene_number: 87
   scene_title: "Turn 900"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene86.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene85.jpg
   narration: "<p>Uruguay pressed further north and took back  San José the Mayo, but that was the least of Pedro’s concerns. Somewhere across the mountains, trouble was brewing.</p>"
 - scene_number: 88
   scene_title: "T880 Leaders"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene87.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene86.jpg
   narration: "<p>As more civs became aware of the Sub, they began to jam our information gathering systems. Starting bonuses bonuses are determined from turn 900 and I have access to data up to turn 880. Looking at the maps it’s safe to assume stats remain generally the same. Here are the leaders in each category going into Endgame. </p><p> </p><p>Australia is a clear stats leader but is burdened with a bad start location for Endgame. Iroquois are finally catching up in military, Zimbabwe has been decimated by Benin (still in shock), and Shikoku are still relatively ok if you look at only numbers.</p>"
 - scene_number: 89
   scene_title: "T880 Military"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene88.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene87.jpg
   narration: "<p>This chart really drives home how rough this war has been for Zimbabwe. They’ve gone from 4th in military to 9th over the course of it. What happens if an actual power were to attack them? Taungoo had an interesting spike as well to just overtake Moors. Finally, are Uruguay the real Boers?</p><p> </p><p>There is no production chart because they remained surprisingly consistent. Zimbabwe’s of course tumbled but otherwise there are no major changes.</p>"
 - scene_number: 90
   scene_title: "T880 City Flips"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene89.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene88.jpg
   narration: "<p>And here are the total city count changes over the course of the episode. Qin are the big winner followed by the Benin of all civs. Anyone not listed ended up with a net 0 cities change.</p>"
 - scene_number: 91
   scene_title: "Summary Episode ‘winners’"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene91.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene89.jpg
   narration: "<p>I’ll end my observations with a glimpse at the biggest ‘winners’ of this summary episode. We’ve talked a lot about some of the major players, but there are a few surprises here that snuck in under the radar.</p>"
 - scene_number: 92
   scene_title: "Curiosity killed the civs"
