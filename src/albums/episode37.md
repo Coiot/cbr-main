@@ -184,23 +184,23 @@ scenes:
   narration: "<p>This is Junior Information Officer Gragg9 stepping in to review the action for a moment while Pedro takes a quick nap. While not many borders have changed the past few years, plenty of cities changed hands since T700 when we started. Shikoku in particular lost 5 cities in one turn, which includes the first city nuked entirely out of existence (probably). I estimate around 2 BILLION citizens have lost their lives in the bloodshed so far.</p>"
 - scene_number: 44
   scene_title: "City ScoreCard"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene45.jpg
   narration: "<p>For those keeping score, here are the total cities gained and lost. 3 cities have been destroyed and 7 settled.</p>"
 - scene_number: 45
   scene_title: "T800 Leaders"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene46.jpg
   narration: "<p>Here are the leaders in what I consider to be the major categories in the late game. There is a notable shortage of Uruguay on this list.</p>"
 - scene_number: 46
   scene_title: "T800 Military"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene47.jpg
   narration: "<p>This chart may appear like a bunch of parallel lines at first, but there are some interesting things to note. Beginning with one that will excite, Uruguay is at the bottom of this particular list. As of turn 800 they have the 9th largest military. It also appears that the Moor’s have finally decided to build a military worthy of their status. The Metis military is a testament to consistency.</p>"
 - scene_number: 47
   scene_title: "T800 Production"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene48.jpg
   narration: "<p>Production, the ability of a civ to quickly build infrastructure and military, has been relatively stable. As civs reach the end of the tech tree there are fewer buildings to build that increase this stat. Golden ages are clearly visible and almost constant among most civs. In the face of nuclear hellfire Shikoku struggles to remain above average in this stat.</p>"
 - scene_number: 48
   scene_title: "The Sulu"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene44.jpg
   narration: "<p>As sad as it was to see a formerly competent civ become nothing, it was the way of the cylinder. Back in the day, the Sulu had built a formidable navy. When the enormous Taungoo had attacked, they had fought back with fantastic enthusiasm. However, melee units were not their thing. With a population almost entirely comprised of ranged fighters, the Sulu had lost their empire because too few of them had been willing to thrust a sword into an opponent up close.</p>"
 - scene_number: 49
   scene_title: "Turn 805"
@@ -212,11 +212,11 @@ scenes:
   narration: "<p>Mountain civilisations rarely did well in tournaments like this. Pedro had his own memories of Tibet and Afghanistan, and knew that whereas mountains stunted invading forces, fending off invasions was not enough to win continents. Mountains also stunted your own ability to grow your cities and carpet your lands with soldiers. Their home territory, combined with lacklustre military campaigns, had sealed Beta Israel’s status as a dead civilisation in waiting.</p>"
 - scene_number: 51
   scene_title: "Turn 810"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene52.jpg
   narration: "<p>After the death of Gudit, the rest of the world continued as if nothing happened. The cylinder was pitiless at times.</p>"
 - scene_number: 52
   scene_title: "The Songhai"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene51.jpg
   narration: "<p>But then again, pity was no advantage. The Moors and Benin had felt no pity as they had ripped apart one of the cylinder’s greatest civilisations, bringing it from glory to extinction in virtually no time at all. Pedro remembered it as the turning point when he, his crew, and presumably every immortal left on the cylinder, came to realise that not even the greats were safe.</p>"
 - scene_number: 53
   scene_title: "Turn 815"
