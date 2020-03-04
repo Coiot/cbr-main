@@ -132,19 +132,19 @@ scenes:
   narration: "<p>After the silence, Venice took back Kirk Michael. Or killed him. The details were unclear. Those islands were a silly place. Filled with silly people, and silly leaders.</p>"
 - scene_number: 31
   scene_title: "The Scottish"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene32.jpg
   narration: "<p>But aside from the catastrophe of Glasgow, Scotland had set out some excellent defence. Building a Great Wall and carpeting with ranged units would have been a sure-fire strategy for survival, were it not for their neighbours attacking over the water.</p><p>The Vikings had known where their opponents were weak, and struck it with full force. It had been like a warrior spending their whole lives preparing for an epic Kung Fu showdown, learning every move in the book and building up every muscle in their body… only to have a Viking opponent throw peanuts at them and trigger their fatal allergy.</p>"
 - scene_number: 32
   scene_title: "Turn 775"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene31.jpg
   narration: "<p>Five year passed and the map did not change.</p><p>Perhaps everyone still on this cylinder had earned their right to stay there. For the most part, those who didn’t deserve it were no longer around.</p>"
 - scene_number: 33
   scene_title: "The Omani"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene34.jpg
   narration: "<p>It made Pedro remember how not all civilisations were meant for this world. Oman just hadn’t been the right fit for such a cut-throat cylinder, hoarding money in the desert as their enemies founded true empires. Hemmed in by Palmyra along their peninsula, they had become helpless as their enemies – just like with Scotland – had attacked from the sea.</p><p>It was a lesson most other civilisations had taken to heart: develop a fighting expansionist instinct, or lose your cities to those who did.</p>"
 - scene_number: 34
   scene_title: "Turn 780"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene33.jpg
   narration: "<p>Nothing.</p>"
 - scene_number: 35
   scene_title: "The Canadians"
