@@ -113,7 +113,7 @@ scenes:
 - scene_number: 26
   scene_title: "Turn 760"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene26.jpg
-  narration: "<p>Xenobia woke up from her slumber and took two cities from Parthia. Presumably it had also woken up Mithridates, but it was difficult to tell.</p>"
+  narration: "<p>Zenobia woke up from her slumber and took two cities from Parthia. Presumably it had also woken up Mithridates, but it was difficult to tell.</p>"
 - scene_number: 27
   scene_title: "The Libyans"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene27.jpg
