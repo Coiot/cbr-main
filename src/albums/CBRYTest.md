@@ -3,7 +3,7 @@ title: "CBRY: Taste of Things to Come"
 narrated_by: "Coiot"
 description: "Showcase of several upcoming gameplay mods for Season 2, as well as many worthy civs that are up for voting."
 release_date: March 11, 2020
-audio_narration:
+audio_narration: "Nope"
 fullvideo:
 edition: X1
 date: 2020-03-10T00:00:00.000Z
@@ -21,7 +21,7 @@ scenes:
 - scene_number: 03
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene03.jpg
-  narration: "<p>Next is JFD's gameplay mods under the banner Rise to Power (RtP). This was previously known as JFDLC, but has now received a number of new updates and improvements. Not all RtP mods are active here, but chief among them is Cycles of Power and Soverinity, which takes a civ's innate flavors and biases to direct them towards a series of governments and reforms which gives them added bonuses and match their personalities and in-game situations and choices. They are subtle additions that add a little bit of world-building pieces that the sub can altch onto to launch original content for the sub. One of the mods, Workforces, gives charges to workers (like in Civ VI), and adds a new dynamic for civs wanting to choose between building workers or military throughout the game. It allows greatly reduces the number of workers a civ will build and retain on the map. The most noticeable mod is a UI known as the AI Observer, which displays all the key stats and diplomatic relationships of civs as their turns progress. This is meant more for streams than albums, but you can expect a more compact version of this for next season to add a little more information for those in the audience that do not go head first into the stat sheets all the time. You can find this collection here: https://steamcommunity.com/workshop/filedetails/?id=1840389923</p>"
+  narration: "<p>Next is JFD's gameplay mods under the banner Rise to Power (RtP). This was previously known as JFDLC, but has now received a number of new updates and improvements. Not all RtP mods are active here, but chief among them is Cycles of Power and Sovereignty, which takes a civ's innate flavors and biases to direct them towards a series of governments and reforms which gives them added bonuses and match their personalities and in-game situations and choices. They are subtle additions that add a little bit of world-building pieces that the sub can latch onto to launch original content for the sub. One of the mods, Workforces, gives charges to workers (like in Civ VI), and adds a new dynamic for civs wanting to choose between building workers or military throughout the game. It allows greatly reduces the number of workers a civ will build and retain on the map. The most noticeable mod is a UI known as the AI Observer, which displays all the key stats and diplomatic relationships of civs as their turns progress. This is meant more for streams than albums, but you can expect a more compact version of this for next season to add a little more information for those in the audience that do not go head first into the stat sheets all the time. You can find this collection here: https://steamcommunity.com/workshop/filedetails/?id=1840389923</p>"
 - scene_number: 04
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene04.jpg
@@ -29,7 +29,7 @@ scenes:
 - scene_number: 05
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene05.png
-  narration: "<p>A very special thanks goes to Explosive Watermelon, who has made a variety of utility mods that all go to removing many annoyances to previous royales. Most of these mods are simple, but will go a long way to making the viewing experience better. Many of them are private for now, but she has released a mod that allows range units to stack with melee units. This makes it so we do not have to see a city surronded with archers and the single melee unit is having to wait to capture a city. It was cute in 2.0 the first time we saw it, but after 2.1 and S1, we can be sure to welcome no deadlocks happening because melee units care blocked by their own comrades. You can find this mod here: https://steamcommunity.com/profiles/76561198135520647/myworkshopfiles/?appid=8930</p>"
+  narration: "<p>A very special thanks goes to Explosive Watermelon, who has made a variety of utility mods that all go to removing many annoyances to previous royales. Most of these mods are simple, but will go a long way to making the viewing experience better. Many of them are private for now, but she has released a mod that allows range units to stack with melee units. This makes it so we do not have to see a city surrounded with archers and the single melee unit is having to wait to capture a city. It was cute in 2.0 the first time we saw it, but after 2.1 and S1, we can be sure to welcome no deadlocks happening because melee units care blocked by their own comrades. You can find this mod here: https://steamcommunity.com/profiles/76561198135520647/myworkshopfiles/?appid=8930</p>"
 - scene_number: 06
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene06.jpg
@@ -413,7 +413,7 @@ scenes:
 - scene_number: 101
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene101.jpg
-  narration: "<p>Map of the location for the 17 religions in the game. Expect there to be more religions next season, so some civs that really need a religion will not miss out like last time (poor one out for Poverty Point). </p>"
+  narration: "<p>Map of the location for the 17 religions in the game. Expect there to be more religions next season, so some civs that really need a religion will not miss out like last time (pour one out for Poverty Point). Religious conflict will a constant, and lead to more early wars without necessarily making everyone more aggressive. JFD has also provided a mod that allows civs to choose a backup religion with their primary choice is not found, so we'll have much more variety in terms of religions as well that fight the civ's culture more.</p>"
 - scene_number: 102
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene102.jpg
@@ -446,20 +446,4 @@ scenes:
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene109.jpg
   narration: "<p>At the lower end is us, the rabble tribe of Babylonians. Hope you guys liked this preview for the Endgame map and some of the things we’re preparing for Season 2. Be sure to follow my stream at https://www.twitch.tv/volpe_ and the Discord for occasional streams as I test updates and bug fixes. But most importantly, please do register now on Reddit for the voting of Season 2’s civ roster. Make your choice count, and get the civs voted in you want to follow next season. Subscribe and follow the sub for all updates.  </p>"
-- scene_number: 110
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene110.jpg
-  narration: "<p></p>"
-- scene_number: 111
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene111.jpg
-  narration: "<p></p>"
-- scene_number: 112
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene112.jpg
-  narration: "<p></p>"
-- scene_number: 113
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene113.jpg
-  narration: "<p></p>"
 ---
