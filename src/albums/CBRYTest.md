@@ -213,7 +213,7 @@ scenes:
 - scene_number: 51
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene51.jpg
-  narration: "<p>Scotland builds the Abu Simbel, a Sovereignty wonder that establishes an early Theocracy.</p>"
+  narration: "<p>Scotland builds the Abu Simbel, a Sovereignty wonder that establishes the Theocracy government before it is normally available upon founding a religion.</p>"
 - scene_number: 52
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene52.jpg
@@ -397,7 +397,7 @@ scenes:
 - scene_number: 97
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene97.jpg
-  narration: "<p>The Mediterrean waters looks like they belongs to Sicily. Qian Liu gains the new title of Podesta from building a wonder (yup, that’s a thing with Sovereignty—unique titles and governments for building certain wonders). </p>"
+  narration: "<p>The Mediterrean waters looks like they belongs to Sicily. Qian Liu gains the new title of Podesta, which is a title granted by finishing the Aesthetics tree (plus being a Republic). Some titles are also tied to Wonders, while others are locked behind certain Reforms, Policies, and Governments.</p>"
 - scene_number: 98
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene98.jpg
