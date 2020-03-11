@@ -29,7 +29,7 @@ scenes:
 - scene_number: 05
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene05.png
-  narration: "<p>A very special thanks goes to Explosive Watermelon, who has made a variety of utility mods that all go to removing many annoyances to previous royales. Most of these mods are simple, but will go a long way to making the viewing experience better. Many of them are private for now, but she has released a mod that allows range units to stack with melee units. This makes it so we do not have to see a city surrounded with archers and the single melee unit is having to wait to capture a city. It was cute in 2.0 the first time we saw it, but after 2.1 and S1, we can be sure to welcome no deadlocks happening because melee units care blocked by their own comrades. You can find this mod here: https://steamcommunity.com/profiles/76561198135520647/myworkshopfiles/?appid=8930</p>"
+  narration: "<p>A very special thanks goes to Explosive Watermelon, who has made a variety of utility mods that all go to removing many annoyances to previous royales. Most of these mods are simple, but will go a long way to making the viewing experience better. Many of them are private for now, but she has released a mod that allows range units to stack with melee units (sadly I had an older version at the time of recording and it does not appear here). This makes it so we do not have to see a city surrounded with archers and the single melee unit is having to wait to capture a city. It was cute in 2.0 the first time we saw it, but after 2.1 and S1, we can be sure to welcome no deadlocks happening because melee units care blocked by their own comrades. You can find this mod here: https://steamcommunity.com/profiles/76561198135520647/myworkshopfiles/?appid=8930</p>"
 - scene_number: 06
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene06.jpg
@@ -153,7 +153,7 @@ scenes:
 - scene_number: 36
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene36.jpg
-  narration: "<p>The Iberians build Sargon's Palace, a new wonder included with Sovereignty that allows them to immediately establish a government and allows them to move production with trade routes. The Osages go to war with Pohwatans. </p>"
+  narration: "<p>The Iberians build Sargon's Palace, a new wonder included with Sovereignty that allows them to immediately establish a government and allows them to move production with trade routes. The Osages go to war with Powhatans. </p>"
 - scene_number: 37
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene37.jpg
@@ -213,7 +213,7 @@ scenes:
 - scene_number: 51
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene51.jpg
-  narration: "<p>Scotland builds the Abu Simbel, a Sovereignty wonder that provides additional yields from the starting Palace.</p>"
+  narration: "<p>Scotland builds the Abu Simbel, a Sovereignty wonder that establishes an early Theocracy.</p>"
 - scene_number: 52
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene52.jpg
