@@ -5,6 +5,7 @@ description: "As the cylinder rolls towards a new and even bleaker future, the r
 release_date: March 04, 2020
 audio_narration: https://youtu.be/lbUX0zMlKjE
 fullvideo:
+starting_turn: 700
 edition: X1
 date: 2020-03-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode37-scene06.jpg
@@ -393,5 +394,5 @@ scenes:
 - scene_number: 96
   scene_title: "Endgame"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene95.jpg
-  narration: "<p>The job was done. He had spared only those who lived in the most well-guarded centres of each civilisation’s capital, and wiped the rest of the world clean.</p><p>“It was the only way,” he spent the rest of the day whispering to himself over and over. And he had been right. If one shred of nuclear technology had remained, the cylinder’s existence would remain in danger.</p><p>But the threat was gone now. The survivors would have another nine-thousand years to forget about the mythical submarine at the bottom of the world. It would become another folk tale, passed down the generations until everyone had forgotten what it meant. Meanwhile the civilisations would rebuild, re-expand, rediscover, and continue to do what they had done best since time immemorial: attacking the hell out of each other until only one glorious civilisation remained.</p><p> </p><p>Pedro returned to his office, sat down at his computer screen, and began to watch.</p>"
+  narration: "<p>The job was done. He had spared only those who lived in the most well-guarded centres of each civilisation’s capital, and wiped the rest of the world clean.</p><p>“It was the only way,” he spent the rest of the day whispering to himself over and over. And he had been right. If one shred of nuclear technology had remained, the cylinder’s existence would remain in danger.</p><p>But the threat was gone now. The survivors would have another nine-thousand years to forget about the mythical submarine at the bottom of the world. It would become another folk tale, passed down the generations until everyone had forgotten what it meant. Meanwhile the civilisations would rebuild, re-expand, rediscover, and continue to do what they had done best since time immemorial: attacking the hell out of each other until only one glorious civilisation remained.</p><p>Pedro returned to his office, sat down at his computer screen, and began to watch.</p>"
 ---
