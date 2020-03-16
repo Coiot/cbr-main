@@ -57,7 +57,7 @@ scenes:
 - scene_number: 12
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene12.jpg
-  narration: "<p>Onto the European continent, there is Normandy (JFD), Denmark-Norway (DMS), Norway (Fiona), Liechtenstein (DuskJockey), the Teutonic Order (Uighur_Caesar), and Russia (JFD).</p>"
+  narration: "<p>Onto the European continent, there is Normandy (JFD), Denmark-Norway (JFD), Norway (Fiona), Liechtenstein (DuskJockey), the Teutonic Order (Uighur_Caesar), and Russia (JFD).</p>"
 - scene_number: 13
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbry-test-scene13.jpg
