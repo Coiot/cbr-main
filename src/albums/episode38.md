@@ -3,7 +3,7 @@ title: "Episode 38: Entering the Endgame"
 narrated_by: "Jmangelo"
 description: "The show enters the Endgame phase of the competition as the remaining competitors start anew to determine which civilization will be the last one standing."
 release_date: March 17, 2020
-audio_narration:
+audio_narration: #
 starting_turn: 03
 fullvideo:
 edition: X1
