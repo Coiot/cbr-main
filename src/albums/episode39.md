@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene01.jpg
   narration: "<p>Welcome to Part 2 of Endgame. I've dreamt of narrating something on r/civbattleroyale for multiple years and I'm honoured that I can finally have a go now that all the literate people have had theirs.</p><p></p><p>I'm a Civ 3 fanatic (let's guess about 8,000hrs) but I know my way around a hexagon well enough and I've read up on all the civs. I also played Civ 5 a lot until my computer retired itself and I have fond memories downloading too many mods and recreating scenarios from the royales. </p><p></p><p>This part is great - full of all the little twists one expects from a Battle Royale. The title refers to the fact that only one civ has actually built settlers so far - the others content with capturing cities. Let’s see if it continues!</p><p></p><p>NB: I call things that happened in the first half of the series pre-E (pre-Endgame). I like to imagine it actually means pre-Event to those living on the cylinder and write it as such. The Event - so cataclysmic, that to reference it is to suffer panic attacks. Don’t think about the Event. Anyway. Let’s play the Civ Battle Royale and Remain Indoors!</p>"
 - scene_number: 02
   scene_title: "Prussian Herald"
@@ -22,14 +22,14 @@ scenes:
 - scene_number: 03
   scene_title: "Vihreaa Strikes Again"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene03.jpg
-  narration: "<p>Vihreaa - stunning. Their maps - even more stunning. This time it’s an easy map to explain thanks to the restart for Endgame and the sparsity of cities. Just about everyone has settled their given settlers, though Sami and Venice seem to have mislaid them. I hear from other submariners that Pedro was deeply unhappy with their attitude towards the end and flung their units across the cylinder like the petulant baby he i- I mean, like the wise emperor he is. Anyway, good news for Prussian fans! Last week also saw the capture of Bombay, reducing India to the size of Nepal and increasing Maratha to the size of Taungoo.</p>"
+  narration: "<p>Vihreaa - stunning. Their maps - even more stunning. This time it’s an easy map to explain thanks to the restart for Endgame and the sparsity of cities. Just about everyone has settled their given settlers, though Sami and Venice seem to have mislaid them. I hear from other submariners that Pedro was deeply unhappy with their attitude towards the end and flung their units across the cylinder like the petulant baby he i- I mean, like the wise emperor he is. Anyway, good news for Prussian fans! Last week also saw the capture of Bombay, reducing India to the size of Nepal and increasing Maratha to the size of Taungoo.</p><p>A few other comments to make: Uruguay has taken Auckland from New Zealand and is marching towards Wellington, the capital. Parthia gave a city to the Goths in a peace deal. Shikoku also took the Khamug capital.</p>"
 - scene_number: 04
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene04.jpg
-  narration: "<p>A few other comments to make: Uruguay has taken Auckland from New Zealand and is marching towards Wellington, the capital. Parthia gave a city to the Goths in a peace deal. Shikoku also took the Khamug capital.</p>"
+  narration: "Coiot: Shameless plug of the TSL map Lacs and I have put together. Maybe you like my endorsements, maybe you don't, but hopefully this is useful for you when deciding on which civs to vote for. A non-biased version, and a separate map with the three inner European regions filled in (they were too crowded to do before the primaries removed many of the alternatives) will be released in the <a href='https://old.reddit.com/r/civbattleroyale/comments/fjw40l/cbrx_season_2_voting_megathread_voting_schedule/'>Voting Mega Thread</a> where you can learn all about the voting process and hopefully register to start participating."
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-pr38-scene33.jpg
   narration: "<p>It was always going to be this civ. An early successful war, taking full advantage of their given advantage is a recipe for a high ranking. For the sake of an exciting, drawn-out saga, I hope the other middling powers on the continent settle their differences quickly and fight.</p>"
 - scene_number: 06
   scene_title: "Uselu It Or Loselu It"
@@ -98,7 +98,7 @@ scenes:
 - scene_number: 22
   scene_title: "Tolu-Batyring The Walls Down"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene22.jpg
-  narration: "<p>The Khamugs were getting desperate enough to try New Zealand's strategy... </p><p></p><p>"Produce settlers, quick! We don't need any defense, we need to flee!" </p><p>"But sir, our settlers will be killed instantly if we head south." "So head north!" </p><p>"North is blocked by strange men on reindeers." </p><p>"Gah! Are there any more compass points we could head in?" </p><p>"How do you like mountains?" </p><p>"Hate them. Potential death to the south it is!"</p>"
+  narration: "<p>The Khamugs were getting desperate enough to try New Zealand's strategy... </p><p></p><p>“Produce settlers, quick! We don't need any defense, we need to flee!” </p><p>“But sir, our settlers will be killed instantly if we head south.” “So head north!” </p><p>“North is blocked by strange men on reindeers.” </p><p>“Gah! Are there any more compass points we could head in?” </p><p>“How do you like mountains?” </p><p>“Hate them. Potential death to the south it is!”</p>"
 - scene_number: 23
   scene_title: "Iro-cross"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene23.jpg
@@ -194,7 +194,7 @@ scenes:
 - scene_number: 46
   scene_title: "Encounters Of The Ichiban Kind"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene46.jpg
-  narration: "<p>The Cantonese caravan neared Nakamura. After a long journey, the caravanner asked for some cha before handing over his consignment. "Jo sun! It's so cold up here Sakamoto... lei dima?" </p><p></p><p>News from up north wasn't great - Turans were rebuilding the walls quicker than Shikokuans could knock them down, and whilst the Turan Guard were injured, the Shikokuan attackers were simply idle.</p><p></p><p>The caravanner wished him well and departed back to his homeland. "Joi geen!"</p>"
+  narration: "<p>The Cantonese caravan neared Nakamura. After a long journey, the caravanner asked for some cha before handing over his consignment. “Jo sun! It's so cold up here Sakamoto... lei dima?”</p><p>News from up north wasn't great - Turans were rebuilding the walls quicker than Shikokuans could knock them down, and whilst the Turan Guard were injured, the Shikokuan attackers were simply idle.</p><p></p><p>The caravanner wished him well and departed back to his homeland. “Joi geen!”</p>"
 - scene_number: 47
   scene_title: "The Manx Cat’s Out Of The Bag"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene47.jpg
@@ -290,7 +290,7 @@ scenes:
 - scene_number: 70
   scene_title: "Thinly Veiled Friendship"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene70.jpg
-  narration: "<p>Louis Riel met with Hiawatha, bringing a hatchet and two shovels just in case.</p><p></p><p>"Look Wathy, you can have Shishinday, a nice port city if you think about it, good beaches, excellent seafood, a silver mine... where was I? Oh, and give us the capital, that dusty stinkin' backwater. It's a good deal."</p><p></p><p>"Alright, but I'm fully prepared to dig this hatchet back up again and ISPS it to you. Once the Apache are no longer, we're the two giants of North America, and that means I’m onto you."</p><p></p><p>The Iroquois Army moves southwards.</p>"
+  narration: "<p>Louis Riel met with Hiawatha, bringing a hatchet and two shovels just in case.</p>><p>“Look Wathy, you can have Shishinday, a nice port city if you think about it, good beaches, excellent seafood, a silver mine... where was I? Oh, and give us the capital, that dusty stinkin’ backwater. It's a good deal.”</p><p>“Alright, but I'm fully prepared to dig this hatchet back up again and ISPS it to you. Once the Apache are no longer, we're the two giants of North America, and that means I’m onto you.”</p><p>The Iroquois Army moves southwards.</p>"
 - scene_number: 71
   scene_title: "Lido Lido Closes After Prawns Found In Pool, Reopens As Seafood Restaurant"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene71.jpg
