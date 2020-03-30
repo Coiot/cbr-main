@@ -24,11 +24,11 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene03.jpg
   narration: "<p>Vihreaa - stunning. Their maps - even more stunning. This time it’s an easy map to explain thanks to the restart for Endgame and the sparsity of cities. Just about everyone has settled their given settlers, though Sami and Venice seem to have mislaid them. I hear from other submariners that Pedro was deeply unhappy with their attitude towards the end and flung their units across the cylinder like the petulant baby he i- I mean, like the wise emperor he is. Anyway, good news for Prussian fans! Last week also saw the capture of Bombay, reducing India to the size of Nepal and increasing Maratha to the size of Taungoo.</p><p>A few other comments to make: Uruguay has taken Auckland from New Zealand and is marching towards Wellington, the capital. Parthia gave a city to the Goths in a peace deal. Shikoku also took the Khamug capital.</p>"
 - scene_number: 04
-  scene_title: ""
+  scene_title: "TSL Voting Map"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode39-scene04.jpg
-  narration: "Coiot: Shameless plug of the TSL map Lacs and I have put together. Maybe you like my endorsements, maybe you don't, but hopefully this is useful for you when deciding on which civs to vote for. A non-biased version, and a separate map with the three inner European regions filled in (they were too crowded to do before the primaries removed many of the alternatives) will be released in the <a href='https://old.reddit.com/r/civbattleroyale/comments/fjw40l/cbrx_season_2_voting_megathread_voting_schedule/'>Voting Mega Thread</a> where you can learn all about the voting process and hopefully register to start participating."
+  narration: "Coiot: Shameless plug of the TSL map Lacs and I have put together. Maybe you like my endorsements, maybe you don't, but hopefully this is useful for you when deciding on which civs to vote for. A non-biased version, and a separate map with the three inner European regions filled in (they were too crowded to do before the primaries removed many of the alternatives) will be released in the <a href='https://old.reddit.com/r/civbattleroyale/comments/fjw40l/cbrx_season_2_voting_megathread_voting_schedule/'>Voting Mega Thread</a> where you can learn all about the voting process for picking the roster of civilizations for Season 2, and hopefully register to start participating."
 - scene_number: 05
-  scene_title: ""
+  scene_title: "PR #1 of the Week"
   slide_url: https://cdn.civbattleroyale.tv/season1-pr38-scene33.jpg
   narration: "<p>It was always going to be this civ. An early successful war, taking full advantage of their given advantage is a recipe for a high ranking. For the sake of an exciting, drawn-out saga, I hope the other middling powers on the continent settle their differences quickly and fight.</p>"
 - scene_number: 06
