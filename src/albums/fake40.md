@@ -1,13 +1,13 @@
 ---
 title: "Episode 40: Finders Keepers, Losers Weepers"
 narrated_by: "ExplosiveWatermelon, Coiot, Admiral_Cloudberg, Limaeus, and Gragg9"
-description: "Abstract:"
+description: "Things go boom! Tears are wept! Mass murder and mayhem! Welcome back to the Civ Battle Royale!"
 release_date: April 1, 2020
 audio_narration:
 fullvideo:
 edition: X1
 date: 2020-03-31T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/year2020-aprilfools-scene167.jpg
+image: https://cdn.civbattleroyale.tv/year2020-aprilfools-scene08.jpg
 prcast:
 scenes:
 - scene_number: 01
