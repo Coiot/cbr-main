@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Mistakes were made"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode05-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode5-scene01.jpg
   narration: "<p>Hello, it’s your narrator, /u/Coiot_Licks_Butt420 here! I spent all night watching colors fight each other over a computer screen for your amusement.Let’s get into it...</p>"
 - scene_number: 02
   scene_title: ""
