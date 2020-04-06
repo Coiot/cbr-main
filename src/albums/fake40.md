@@ -5,6 +5,7 @@ description: "Things go boom! Tears are wept! Mass murder and mayhem! Welcome ba
 release_date: April 1, 2020
 audio_narration:
 fullvideo:
+starting_turn: 360NoScope
 edition: X1
 date: 2020-03-31T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/year2020-aprilfools-scene08.jpg

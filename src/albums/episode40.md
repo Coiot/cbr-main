@@ -4,6 +4,7 @@ narrated_by: "Paddywagon Man"
 description: "As the cylinder fills, once-isolated civs find themselves part of a world of tension and conflict, whether as conquerors or victims. Empires fall, but new contenders rise as the world of Endgame takes shape."
 release_date: April 1, 2020
 audio_narration:
+starting_turn: 65
 fullvideo:
 edition: X1
 date: 2020-03-31T00:00:00.000Z
