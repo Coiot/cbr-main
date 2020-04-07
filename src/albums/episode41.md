@@ -14,7 +14,7 @@ scenes:
 - scene_number: 01
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene01.jpg
-  narration: "<p>Welcome one and all to another episode of the Civ Battle Royale: Endgame! Chan to shiyotta ka? I hear that’s what they say in Shikoku when they haven’t seen their friends in a while. I’m Homusubi, last seen back in episode 106 of Mark 2, dormant Power Ranker (I’m sorry Gragg, I really am), creator of the Shikoku mod and most of the Japan options for Season 2 (can I remind people to vote Tanaka Kakuei here?). Far more importantly, though - I’d like to give a big o-kaeri - that’s welcome back - to Dawkinzz, who if everything goes well should be making his comeback this week.</p>"
+  narration: "<p>Welcome one and all to another episode of the Civ Battle Royale: Endgame! Chan to shiyotta ka? I hear that’s what they say in Shikoku when they haven’t seen their friends in a while. I’m Homusubi, last seen back in episode 106 of Mark 2, dormant Power Ranker (I’m sorry Gragg, I really am), creator of the Shikoku mod and most of the Japan options for Season 2. Far more importantly, though - I’d like to give a big o-kaeri - that’s welcome back - to Dawkinzz, who if everything goes well should be making his comeback this week.</p>"
 - scene_number: 02
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode41-scene02.jpg
@@ -298,5 +298,5 @@ scenes:
 - scene_number: 72
   scene_title: "Homage to Patagonia"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode41-scene72.jpg
-  narration: "<p>Our final slide this part is of South America, where the main front between Venezuela and the Guay looks pretty much exactly the same as when we last saw it. Of greater note is the Guay’s greatly expanded commitment to the secondary front, including settling a forward base at Las Piedras and strengthening their assault on the surprisingly unflipped Barquisimeto. It’s a tactic reminiscent of the legendary Backdoor Squad, pioneered by fellow South Americans the Kaweskar, who, incidentally, you should absolutely vote for for season 2.</p>"
+  narration: "<p>Our final slide this part is of South America, where the main front between Venezuela and the Guay looks pretty much exactly the same as when we last saw it. Of greater note is the Guay’s greatly expanded commitment to the secondary front, including settling a forward base at Las Piedras and strengthening their assault on the surprisingly unflipped Barquisimeto. It’s a tactic reminiscent of the legendary Backdoor Squad, pioneered by fellow South Americans the Kaweskar.</p>"
 ---
