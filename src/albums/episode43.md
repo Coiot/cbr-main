@@ -3,7 +3,7 @@ title: "Episode 43: Lines in the Sand"
 narrated_by: "thehonestyfish"
 description: "Old wars give way to new wars, while the scrappy underdogs struggle to stay alive amid the chaos around them."
 release_date: April 22, 2020
-audio_narration: 
+audio_narration:
 fullvideo:
 edition: X1
 date: 2020-04-21T00:00:00.000Z
@@ -12,23 +12,23 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Please Stand for the National Anthem..."
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode43-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode37-scene01.jpg
   narration: "<p>Tonight, on a very special episode of CBRX - tensions flare, wars are declared, and one of the civs you’ve grown to love is gonna horribly die. I’m /u/thehonestyfish, and I’ll be your narrator for this week. Those of you know who know me may know me as the outspoken, shameless Nenets supporter, or maybe as the guy who’s way behind on putting together “greatest extent” maps (they’re coming soon, I promise). Either way, I hope you have as much fun with this episode as I’ve had, since it’s quite a doozy. Please make sure your seat backs are in the upright position and your tray tables are stowed, because we are taking off!</p>"
 - scene_number: 02
   scene_title: "Zimbabwe, Probably. And they’ve got SPICES."
   slide_url: https://cdn.civbattleroyale.tv/season1-episode43-scene02.jpg
-  narration: "<p>[https://old.reddit.com/r/civbattleroyale/comments/g1pimz/maratha_this_part/]</p><p>For this week’s OC spotlight, I’m gonna throw it over to /u/holeeey and their adaptation of Bill Wurtz’ “history of the world, or whatever” video. It always manages to amaze me how parts of CBRX track with our actual history, and how that video is so often relevant. Now, if you’ll excuse me for 20 minutes, I need to go watch it again...</p>"
+  narration: "<p>For this week’s OC spotlight, I’m gonna throw it over to /u/holeeey and their adaptation of Bill Wurtz’ “history of the world, or whatever” video. It always manages to amaze me how parts of CBRX track with our actual history, and how that video is so often relevant. Now, if you’ll excuse me for 20 minutes, I need to go watch it again...</p>"
 - scene_number: 03
   scene_title: "Mapping at the Speed of Vih"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode43-scene03.jpg
-  narration: "<p>[https://i.redd.it/rlryduxzfws41.jpg]</p><p>I timed it this week. 3 hours and 15 minutes. That’s how long it took /u/Vihreaa to read the last episode, track all of the changes, make a new map, and release it to the sub. Kudos and hats off, because that is impressive work.  </p>"
+  narration: "<p>I timed it this week. 3 hours and 15 minutes. That’s how long it took /u/Vihreaa to read the last episode, track all of the changes, make a new map, and release it to the sub. Kudos and hats off, because that is impressive work.  </p>"
 - scene_number: 04
   scene_title: "Tile Accuracy Returns"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode43-scene04.jpg
-  narration: "<p>[https://i.imgur.com/4kk8OxW.png]</p><p>This week, we also have the return of the Tile Accurate maps, courtesy of /u/edse1991. As somebody who often uses these tile accurate maps to make my own maps, I’m both extremely pleased to see them return, and feel obliged to point something out for those of you that may not have considered. Putting together the Tile Accurate maps for Endgame’s smaller Cylinder requires brand new template files, which is an extra layer of work which was required before it was even possible to start these maps. Thanks, edse! </p>"
+  narration: "<p>This week, we also have the return of the Tile Accurate maps, courtesy of /u/edse1991. As somebody who often uses these tile accurate maps to make my own maps, I’m both extremely pleased to see them return, and feel obliged to point something out for those of you that may not have considered. Putting together the Tile Accurate maps for Endgame’s smaller Cylinder requires brand new template files, which is an extra layer of work which was required before it was even possible to start these maps. Thanks, edse! </p>"
 - scene_number: 05
   scene_title: "Mo’ Power Mo’ Rankings"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode43-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-pr42-scene29.jpg
   narration: "<p>I haven’t seen the new PRs at the time of writing this narration, but I think we all know that Nepal is going to slip into the #1 spot, and well deservedly. I would like to thank the Power Rankers for finally opening their eyes, and not giving it to someone weak like Kazakhstan. </p>"
 - scene_number: 06
   scene_title: "Prussian Lindisfarne"
