@@ -112,7 +112,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode44-scene25.jpg
   narration: "<p>Both the Kazakhs and Parthia have not been able to navigate the mountains into Nepal. On the opposite side of Nepal, with open borders from Taungoo, Maratha has units knocking on the door of the Nepalese capital. Can Maratha do what the others cannot?</p><p></p><p>Zimbabwe built Torre Del Oro, which is the first Enlightenment Era wonder built so far. Torre Del Oro grants +1 Culture, +2 Great Merchant Points, and buffs naval trade routes originating from the city in which it was built.</p>"
 - scene_number: 26
-  scene_title: "Illiam's New "Empire""
+  scene_title: "Illiam's New “Empire”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode44-scene26.jpg
   narration: "<p>Illiam: "You've turned this war against me"</p><p></p><p>Abd-ar: “You've done that yourself”</p><p></p><p>Illiam fails to bring peace, freedom, justice, or security to his empire as without Moorish help, as the Manx war on Prussia reversed fortune. Burano has been taking damage from a Prussian assault. If Prussia stops peacekeeping their old territory for the Vikings, and sends those units toward the Manx, they can possibly force the Manx off the mainland. The Vikings veto the proposal.</p>"
 - scene_number: 27
