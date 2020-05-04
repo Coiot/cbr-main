@@ -78,7 +78,7 @@ scenes:
 - scene_number: 17
   scene_title: "Failed Diplomacy"
   slide_url: https://cdn.civbattleroyale.tv/season01-episode44-scene17.jpg
-  narration: "<p>The Qin capture Jadaran by forcing one of their UU's past the Kazakh Knight line. Ryoma has enough melee units to flip it back, but so do the Kazakhs.</p><p></p><p>Up north, the Kazakh Knights reinforce Tura to handle Ryoma's swordies. The next stop up there would be the capital Kochi. Unless something dramatic happens, Ryoma should hold on up there for now.</p><p></p><p>Does the notification log say that we filed for peace with the Qin? Is that right? And we didn't receive any cities? Who's in charge here? I think it is time to riot.</p>"
+  narration: "<p>The Qin capture Jadaran by forcing one of their UU's past the Kazakh Knight line. Ryoma has enough melee units to flip it back, but so do the Kazakhs.</p><p></p><p>Up north, the Kazakh Knights reinforce Tura to handle Ryoma's swordies. The next stop up there would be the capital Kochi. Unless something dramatic happens, Ryoma should hold on up there for now.</p><p></p><p>Does the notification log say that we filed for peace with the Qin? Is that right? And we didn't receive any cities? Who's in charge here? I think it is time to riot.</p><p>Lime's note: That notification indicates that the Qin have access to the Khamug UU and UB, Jadaran is the former Khamug capital.</p>"
 - scene_number: 18
   scene_title: "The Berserker Gambit"
   slide_url: https://cdn.civbattleroyale.tv/season01-episode44-scene18.jpg
