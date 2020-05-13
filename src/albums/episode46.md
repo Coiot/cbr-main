@@ -14,7 +14,7 @@ scenes:
 - scene_number: 01
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode45-scene01.jpg
-  narration: "<p>Difficult looking screens positioned in a formidable formation. They mock me.</p><p></p><p>Welcome to this week’s jam-packed installment of the Sea Bricks Endgame. The narration for Episode 46 is provided by /u/Bulletproof_Cookie, who’s been following since the start of mk2.1. You may have seen a couple of my “OCs” during the duration of Season 1.</p><p></p><p>We have plenty of everything this week; major wars, irrelevant wars, capital captures, empires reduced to rump states, even an elimination! Almost every remaining civ has something worth talking about this week, so let us begin.</p>"
+  narration: "<p>Difficult looking screens positioned in a formidable formation. They mock me.</p><p></p><p>Welcome to this week’s jam-packed installment of the Sea Bricks Endgame. The narration for Episode 46 is provided by /u/Bulletproof_Cookie, who’s been following since the start of mk2.1. You may have seen a couple of my “OCs” during the duration of Season 1.</p><p></p><p>We have plenty of everything this week; major wars, irrelevant wars, capital captures, empires reduced to rump states! Almost every remaining civ has something worth talking about this week, so let us begin.</p>"
 - scene_number: 02
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode46-scene02.jpg
