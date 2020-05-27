@@ -75,7 +75,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-episode48-scene16.jpg
   narration: "<p>My prophecy was correct, I promise I didn't look ahead (well, OK, I did, but forgot what happened). Berlin has fallen, to the praise of cartographers and the dismay of border gore lovers everywhere. The Moorish air force has thinned the Palmyran army and landed some paratroopers behind enemy lines. Dura-Europos (current contender for silliest named city) is already in red, as is the Lido deck on Crete.</p><p></p><p>Also bonus points to the Moors for putting planes on their carriers.</p>"
 - scene_number: 17
-  scene_title: ""Education is the best provision for old age""
+  scene_title: "“Education is the best provision for old age”"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode48-scene17.jpg
   narration: "<p>Dura-Europos has fallen and both Lido and Germanicea are black. This is less a fight and more a slaughter. This is why you always focus on science, kids. </p><p> </p><p>This is an opportunity for Benin, if they can get to the cities before the Moors, they have a chance of uniting their empire. Also, I just noticed we have an unused spy. I propose we send him to Meroe to hang with the somehow still alive Nubians.</p><p> </p><p>Oh, and the Great Firewall is built by, you guessed it, the Iroquois</p>"
 - scene_number: 18
