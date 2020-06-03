@@ -102,11 +102,11 @@ scenes:
 - scene_number: 23
   scene_title: "Overextension"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode49-scene23.jpg
-  narration: "<p>Porlamar falls the next turn, but the warm, fuzzy, pleasant feeling that accompanies news of Uruguay being humiliated isn’t quite enough to wash the bitter taste of that last peace deal away. If this is how Parthia makes it to the end of the game, was it ever really worth it in the first place?</p>"
+  narration: "<p>The most humiliating part of this: in those final days, Parthia was protected not by the composite bowman of legend, but by the untimely teleportation of that one Indian settler. I feel sick. I’m sure Ablai Khan, who bombed Zadracarta into oblivion and knocked at its gates for dozens of turns, feels immeasurably worse.</p>"
 - scene_number: 24
   scene_title: "The Power of Diplomacy"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode49-scene24.jpg
-  narration: "<p>The most humiliating part of this: in those final days, Parthia was protected not by the composite bowman of legend, but by the untimely teleportation of that one Indian settler. I feel sick. I’m sure Ablai Khan, who bombed Zadracarta into oblivion and knocked at its gates for dozens of turns, feels immeasurably worse.</p>"
+  narration: "<p>Porlamar falls the next turn, but the warm, fuzzy, pleasant feeling that accompanies news of Uruguay being humiliated isn’t quite enough to wash the bitter taste of that last peace deal away. If this is how Parthia makes it to the end of the game, was it ever really worth it in the first place?</p>"
 - scene_number: 25
   scene_title: "Needs More Green"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode49-scene25.jpg
