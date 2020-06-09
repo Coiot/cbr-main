@@ -3,7 +3,7 @@ title: "Episode 50: March to the Sea"
 narrated_by: "Enigma-Conundrum"
 description: "Meat is grinded, civs are rumped, and war crimes are absolutely committed in this high-stakes free-for-all."
 starting_turn: "581"
-release_date: 2020-06-10T00:00:00.000Z
+release_date: June 10, 2020
 audio_narration:
 fullvideo:
 edition: X1
@@ -66,7 +66,7 @@ scenes:
 - scene_number: 14
   scene_title: "Straight Outta Edo"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode50-scene14.jpg
-  narration: "<p>OH MY GODDDDDDDDDDDDDDDDDDDDDDDDDDDDDD DID Y’ALL JUST SEE THAT SHIT</p><p>Okay, so here’s what went down - when Uruguay flipped Newcastle, Australia focused its troops on flipping it back, which they did successfully. Then Ewuare crept in the back door and flipped the city. For all of you who predicted that Uruguay would kill Australia, I’m so sorry that your supposedly-tame prediction is so completely false. Oh my god. Hold on, I need a minute. </p><p></p><p>Hey guys! It's me, ya boy, Glycolysis, SirMallock, the one and only, back again for another exhilarating guest appearance, this time brought to you by Enigma. So, what do we have going on this time... what. Well um, Australia's blue now. I suppose that's old news, though, isn't it? And hmm... you know, that Madagascaran musketman in the south is quite interesting, isn't it? Yes, and also WHY IS BENIN IN NEWCASTLE?? Snipe of the game, folks. I'm in awe of this lad. Invest in Benin now, everyone. This is Glycolysis, the coolest guy around, signing out!</p><p></p><p>Okay, it’s Enigma again, I’m calm... ahem, right, a eulogy. While Australia has been beyond dull in endgame, pre-endgame has been anything but dull as Bob Hawke got relentlessly dunked on. With Papua deciding that islands didn't really matter anyways, they got pounded early in the game. After surviving a Kiwi invasion that only failed due to massive incompetence, they bickered with Sulu to little avail. While a strong performer in the rankings, they never quite peaked or did... anything, honestly. Now, in endgame, they lazily settled across the outback before Uruguay's reviled Pacific fleet crashed against the beaches. Now, they lay defeated, taken out at the hands of the most magnificent snipe I think I’ve ever seen in CBR history.</p>"
+  narration: "<p>OH MY GODDDDDDDDDDDDDDDDDDDDDDDDDDDDDD DID Y’ALL JUST SEE THAT SHIT</p><p>Okay, so here’s what went down - when Uruguay flipped Newcastle, Australia focused its troops on flipping it back, which they did successfully. Then Ewuare crept in the back door and flipped the city. For all of you who predicted that Uruguay would kill Australia, I’m so sorry that your supposedly-tame prediction is so completely false. Oh my god. Hold on, I need a minute. </p><p></p><p>Hey guys! It's me, ya boy, Glycolysis, SirMallock, the one and only, back again for another exhilarating guest appearance, this time brought to you by Enigma. So, what do we have going on this time... what. Well um, Australia's blue now. I suppose that's old news, though, isn't it? And hmm... you know, that Madagascaran musketman in the south is quite interesting, isn't it? Yes, and also WHY IS BENIN IN NEWCASTLE?? Snipe of the game, folks. I'm in awe of this lad. Invest in Benin now, everyone. This is Glycolysis, the coolest guy around, signing out!</p><p></p><p>Okay, it’s Enigma again, I’m calm... ahem, right, a eulogy. While Australia has been beyond dull in endgame, pre-endgame has been anything but dull as Bob Hawke got relentlessly dunked on. With Papua deciding that islands didn't really matter anyways, they got pounded early in the game. After surviving a Kiwi invasion that only failed due to massive incompetence, they bickered with Sulu to little avail. While a strong performer in the rankings, they never quite peaked or did... anything, honestly. Now, in endgame, they lazily settled across the outback before Uruguay's reviled Pacific fleet crashed against the beaches. Now, they lay defeated, taken out at the hands of the most magnificent snipe I think I’ve ever seen in CBR history.</p><p>Coiot's Note: Agurably the honor goes to Yu'pik, but welcome to contend in the comments which is better.</p>"
 - scene_number: 15
   scene_title: "Can Someone Go Check In On Emmie?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode50-scene15.jpg
@@ -230,7 +230,7 @@ scenes:
 - scene_number: 55
   scene_title: "This May Be The Worst Trade Deal In The History of Trade Deals"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode50-scene55.jpg
-  narration: "<p>I… I… why, Hiawatha?  Why???  Apparently the Iroquois Isles are Kazakh clay now, for some ridiculous reason. Giving up his most well-protected holdings in the peace deal is just the worst idea. Hiawatha honestly just dropped himself another rank or two out of pure incompetence.</p>"
+  narration: "<p>I… I… why, Hiawatha?  Why???  Apparently the Iroquois Isles are Kazakh clay now, for some ridiculous reason. Giving up his most well-protected holdings in the peace deal is just the worst idea. Hiawatha honestly just dropped himself another rank or two out of pure madness.</p>"
 - scene_number: 56
   scene_title: "Game Over..?"
   slide_url: https://cdn.civbattleroyale.tv/season1-episode50-scene56.jpg
