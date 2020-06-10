@@ -29,7 +29,7 @@ scenes:
   narration: "<p>A piece of beautiful data from /u/AutisticNotWeird - we can see how Madagascar can, based on PR trends, emerge as the victor of the CBRX this very part!  Will it come true?  Who knows, but it’s fun to consider the Madagascarian peacekeepers launching a worldwide takeover.</p>"
 - scene_number: 05
   scene_title: "In A Surprise To No One"
-  slide_url: https://cdn.civbattleroyale.tv/pr49-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-pr49-scene19.jpg
   narration: "<p>Our Power Rankers have been working hard as usual, and they came to a shocking conclusion: the Kazakhs are number one. I know, it’s totally unexpected. In all seriousness, the war with the Iroquois that just began at the end of the last part could really make or break the Kazakh grip on the top spot. </p>"
 - scene_number: 06
   scene_title: "Now Back To Our Regularly Scheduled Programming"
