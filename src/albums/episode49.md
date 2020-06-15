@@ -3,7 +3,7 @@ title: "Episode 49: From Sunset to Sunrise"
 narrated_by: "LonelyRollingStar"
 description: "As the gap between the CBRX’s superpowers and its middle class widens, the same group of five that lords over the game comes to blows, the powers of the world turning their grand arsenals of destruction against one another as the cylinder grows ever more advanced..."
 release_date: June 03, 2020
-audio_narration:
+audio_narration: https://discordapp.com/channels/181804969119318017/416378745646219276/717559526534021161
 starting_turn: 486
 fullvideo:
 edition: X1
