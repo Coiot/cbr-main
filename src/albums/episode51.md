@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Introduction"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode51-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode50-scene01.jpg
   narration: "<p>Hi, I am DJJablonsky, I have been a fan of the CBR since I discovered it in mid Mk. II. I was hooked immediately and caught up in a few days, which may or may not have been a contributing factor in me doing a bit worse on a math test than I would have liked, but that is not important. I am really happy to finally get to narrate a part. And don’t forget, y’all gonna lose, to Al-Andalus</p><p></p><p>Hello it’s me, Limaeus/Limerickarcher, member of Blue Cassette and invisible culler behind these episodes. I’ll be popping in near the end to narrate the last few slides, just wanted to preface this so I don’t scare you later. </p>"
 - scene_number: 02
   scene_title: "Nice Sub"
@@ -28,7 +28,7 @@ scenes:
   narration: "<p>Not really a meme or map or anything, but u/shnarfl ’s analysis of the events of last part was really insightful and really drove the point home about how terrifying the Blue Horde really is to me, and how last part may have just been the end of the BR.</p>"
 - scene_number: 05
   scene_title: "♪KAZAKHSTAN♪"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode51-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-or50-scene12.jpg
   narration: "<p>♪ Indisputably #1 ♪ All other countries are puny little bugs! ♪</p><p></p><p>Thinking about this empire’s sheer scale makes me shudder. I bet they could take on the world and win by now, and I worry for the Moors chances to win this. </p><p></p><p>And other civs too, but they aren't as important.</p>"
 - scene_number: 06
   scene_title: "Orinoco? More like War-inoco"
