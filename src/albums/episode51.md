@@ -6,6 +6,7 @@ release_date: June 17, 2020
 audio_narration:
 fullvideo: https://youtu.be/L1_pwFM4SWk
 edition: X1
+starting_turn: 751
 date: 2020-06-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode51-scene06.jpg
 prcast:
@@ -28,7 +29,7 @@ scenes:
   narration: "<p>Not really a meme or map or anything, but u/shnarfl ’s analysis of the events of last part was really insightful and really drove the point home about how terrifying the Blue Horde really is to me, and how last part may have just been the end of the BR.</p>"
 - scene_number: 05
   scene_title: "♪KAZAKHSTAN♪"
-  slide_url: https://cdn.civbattleroyale.tv/season1-or50-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-pr50-scene12.jpg
   narration: "<p>♪ Indisputably #1 ♪ All other countries are puny little bugs! ♪</p><p></p><p>Thinking about this empire’s sheer scale makes me shudder. I bet they could take on the world and win by now, and I worry for the Moors chances to win this. </p><p></p><p>And other civs too, but they aren't as important.</p>"
 - scene_number: 06
   scene_title: "Orinoco? More like War-inoco"
