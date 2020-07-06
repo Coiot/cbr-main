@@ -3,8 +3,8 @@ title: "Episode 53: A Subterranean Worldview"
 narrated_by: "LunarNeedle"
 description: "Underneath the water, a man looks on to a world broken by endless war, nuclear hellfire, forbidden knowledge and a boatload of Hovertanks. You are merely the observer."
 release_date: July 01, 2020
-audio_narration:
-staring_turn: 1145
+audio_narration: https://youtu.be/4d2twIK2NbE
+starting_turn: 1145
 fullvideo:
 edition: X1
 date: 2020-06-30T00:00:00.000Z
