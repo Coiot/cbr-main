@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode53-scene01.jpg
   narration: "<p>Hey everyone, it’s Lunar again! I hope you enjoyed the last part. My proofreaders are close friends of mine who I always wanted to get into a part, so I thought I might as well use my Blue Cassette privilege to get them to assist me in this final part. There’s a lot to unpack here, but I implore you to follow along for the brutal personal hell that is late game Civilization 5. My friends joining me on such a journey are Jay and Robert, first time narrators and who honestly have been so supportive of me and my work as I toil away with turn times and crashes. Because we trio-teamed this, I will be noting who is narrating what part in the scene title so as to not break the flow of chaos.Finally, as someone who went through this all, I thank each and everyone of you for guiding us through this journey. This has been an emotional set of months and honestly I’m so happy to be in such a welcoming and open community. Thank you. ^-^</p>"
 - scene_number: 02
   scene_title: ""
@@ -66,7 +66,7 @@ scenes:
 - scene_number: 14
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene14.jpg
-  narration: "<p>And with a spin of the cylinder, Sangameshwar and Merv evaporated as the demilitarized land between the twin blue dragons and Zimbabwe grew and grew. There were so many stories in this part of the world that just disappeared, leaving behind land no god wishes to trek. A fitting end.Also fun fact, Newfoundland was just conquered by the Moors. The navy is slowly but surely winning versus the Iroquois. Also also, the next turn is another wave of Total War.</p>"
+  narration: "<p>And with a spin of the cylinder, Sangameshwar and Merv evaporated as the demilitarized land between the twin blue dragons and Zimbabwe grew and grew. There were so many stories in this part of the world that just disappeared, leaving behind land no god wishes to trek. A fitting end. Also fun fact, Newfoundland was just conquered by the Moors. The navy is slowly but surely winning versus the Iroquois. Also also, the next turn is another wave of Total War.</p>"
 - scene_number: 15
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene15.jpg
@@ -206,7 +206,7 @@ scenes:
 - scene_number: 49
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene49.jpg
-  narration: "<p>Just as soon as the people of Ablai Khan let out a war declaration on the entire world, so too did their nation fall. The Kazakhs are no more, leaving one less player in the midst of this game of Total War. But, Hiawatha is determined to not take any insult backing down, and has advanced on Uruguay to take Qerrullik, rationality thrown to the wayside. And, as the news of the Moors declaring war on Uruguay reaches the world, further doom is impending on a global scale.Abla Khan, you were the inevitable! You were guessed to win it all. You have universally great uniques and had universally bad neighbours. Honestly, your gameplay here was nothing short of human. From your simple beginnings fending off the Golden Holde and Parthian advances, to your tactical destruction of all of your neighbours in Endgame.You will be remembered. You will be hated. You will be loved. You were the strongest Asian civilization in Civilization Battle Royale history.</p>"
+  narration: "<p>Just as soon as the people of Ablai Khan let out a war declaration on the entire world, so too did their nation fall. The Kazakhs are no more, leaving one less player in the midst of this game of Total War. But, Hiawatha is determined to not take any insult backing down, and has advanced on Uruguay to take Qerrullik, rationality thrown to the wayside. And, as the news of the Moors declaring war on Uruguay reaches the world, further doom is impending on a global scale.Abla Khan, you were the inevitable! You were guessed to win it all. You have universally great uniques and had universally bad neighbours. Honestly, your gameplay here was nothing short of human. From your simple beginnings fending off the Golden Holde and Parthian advances, to your tactical destruction of all of your neighbours in Endgame. You will be remembered. You will be hated. You will be loved. You were the strongest Asian civilization in Civilization Battle Royale history.</p>"
 - scene_number: 50
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene50.jpg
@@ -550,9 +550,9 @@ scenes:
 - scene_number: 135
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene135.jpg
-  narration: "<p>God dang it! Do something! Anything! Please?!Alright, for those people gazing at the scrollbar, it’s about time I come clean. This game, at turn 1500, is over and the Moors have been declared the victors.</p>"
+  narration: "<p>God dang it! Do something! Anything! Please?! Alright, for those people gazing at the scrollbar, it’s about time I come clean. This game, at turn 1500, is over and the Moors have been declared the victors.</p>"
 - scene_number: 136
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-episode54-scene136.jpg
-  narration: "<p>This was a tough decision, but one that I, along with the entire Blue Cassette team agree on... At this point, turn times are over three hours per turn with little to nothing happening. No units being built, amassing gold and science for no reason, absolute devastation and a very confused AI. It’s clear this game is over, and that the Moors are the winners. The alternatives of waiting it out, or moving to a smaller map would only delay the inevitable and stall our production line. Speaking of the future...We’re opting to take this ending and move on to greener pastures. As I’ve been recording, the team has been reprogramming civilizations, optimizing game assets and perfecting the ultimate Royale. We’re really excited to move on to a thrilling new game (test runs have been looking promising) and brand-new futures! Season 2 of Civilization Battle Royale X is coming soon!From the entire development team to the all of Blue Cassette, thank you for tuning in to Season 1! I thank Jay and Robert for proofreading the previous part and helping me outright write this part. I wouldn’t make it without you guys, all of you. Thanks.See you soon! - Lunar</p>"
+  narration: "<p>This was a tough decision, but one that I, along with the entire Blue Cassette team agree on... At this point, turn times are over three hours per turn with little to nothing happening. No units being built, amassing gold and science for no reason, absolute devastation and a very confused AI. It’s clear this game is over, and that the Moors are the winners. The alternatives of waiting it out, or moving to a smaller map would only delay the inevitable and stall our production line. Speaking of the future...We’re opting to take this ending and move on to greener pastures. As I’ve been recording, the team has been reprogramming civilizations, optimizing game assets and perfecting the ultimate Royale. We’re really excited to move on to a thrilling new game (test runs have been looking promising) and brand-new futures! Season 2 of Civilization Battle Royale X is coming soon!From the entire development team to the all of Blue Cassette, thank you for tuning in to Season 1! I thank Jay and Robert for proofreading the previous part and helping me outright write this part. I wouldn’t make it without you guys, all of you. Thanks. See you soon! - Lunar</p>"
 ---
