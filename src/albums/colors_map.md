@@ -7,7 +7,7 @@ audio_narration:
 fullvideo:
 edition: X1
 date: 2020-07-21T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/S2_Hexes_Map.png
+image: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg
 prcast:
 scenes:
 - scene_number: 01
