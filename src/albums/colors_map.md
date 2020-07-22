@@ -3,7 +3,7 @@ title: "Preview: CBRX Season 2 Civ Colors and Map Changes"
 narrated_by: "Coiot and Lime"
 description: "A detailing of all the civilizations that will be sporting new colors for the in-game screenshots of Season 2. Will also be showcasing the new map created just for Season 2."
 release_date: July 22, 2020
-audio_narration:
+audio_narration: https://youtu.be/FvPvWBAtey0
 fullvideo:
 edition: X1
 date: 2020-07-21T00:00:00.000Z
