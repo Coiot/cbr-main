@@ -1,7 +1,7 @@
 ---
 title: "Power Rankings: Final Community Rankings"
 narrated_by: "PowerRankers"
-description: "Abstract:"
+description: ""
 release_date: July 29, 2020
 audio_narration: 
 fullvideo: 
