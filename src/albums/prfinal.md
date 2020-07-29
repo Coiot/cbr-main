@@ -7,7 +7,7 @@ audio_narration:
 fullvideo: 
 edition: X1
 date: 2020-07-28T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-prfinal-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-prfinal-scene39.jpg
 prcast: 
 scenes:
 - scene_number: 01
