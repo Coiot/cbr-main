@@ -10,6 +10,8 @@ edition: X1
 date: 2020-01-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode32-scene07.jpg
 prcast:
+prev: /albums/episode31/
+next: /albums/episode33/
 scenes:
 - scene_number: 01
   scene_title: "Intro: The introduction"

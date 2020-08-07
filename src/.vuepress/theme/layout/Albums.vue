@@ -1,61 +1,184 @@
 <template>
-<transition name="fade">
-  <div class="blog">
+  <transition name="fade">
+    <div class="blog">
+      <h1 class>
+        {{ $page.frontmatter.title }}
+        <span>– {{ $page.frontmatter.edition }}</span>
+      </h1>
 
-    <h1 class="">{{ $page.frontmatter.title }} <span>– {{ $page.frontmatter.edition }}</span></h1>
-
-    <div class="albumInfo">
-
-      <div class="column" tabindex="0">
-        <Label class="label">Release Date:</Label>
-        <p><span class="value">{{ $page.frontmatter.release_date }}</span></p>
+              <div class="page-nav" v-if="prev || next">
+        <p class="nextprev">
+          <span v-if="prev" class="prev">
+            ←
+            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev">{{ prev.title || prev.path }}</router-link>
+          </span>
+          
+          <span v-if="next" class="next">
+            <router-link v-if="next" :to="$page.frontmatter.next">{{ next.title || next.path }}</router-link>→
+          </span>
+          </p>
+        </p>
       </div>
 
-      <div class="column" tabindex="0">
-        <Label class="label">Narrated by:</Label>
-        <p><span class="value">{{ $page.frontmatter.narrated_by }}</span></p>
+      <div class="albumInfo">
+        <div class="column" tabindex="0">
+          <Label class="label">Release Date:</Label>
+          <p>
+            <span class="value">{{ $page.frontmatter.release_date }}</span>
+          </p>
+        </div>
+
+        <div class="column" tabindex="0">
+          <Label class="label">Narrated by:</Label>
+          <p>
+            <span class="value">{{ $page.frontmatter.narrated_by }}</span>
+          </p>
+        </div>
+
+        <div class="column" tabindex="0">
+          <Label class="label">Starting Turn:</Label>
+          <p>
+            <span class="value">{{ $page.frontmatter.starting_turn }}</span>
+          </p>
+        </div>
+
+        <div class="column" tabindex="0">
+          <Label class="label">Video:</Label>
+          <p>
+            <span class="value">
+              <a
+                :href="$page.frontmatter.audio_narration"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Audio Narration</a>
+            </span>
+          </p>
+          <p v-if="$page.frontmatter.fullvideo">
+            <span class="value">
+              <a
+                :href="$page.frontmatter.fullvideo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Full In-Game Turns</a>
+            </span>
+          </p>
+        </div>
       </div>
 
-      <div class="column" tabindex="0">
-        <Label class="label">Starting Turn:</Label>
-        <p><span class="value">{{ $page.frontmatter.starting_turn }}</span></p>
-      </div>
+      <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
+      <p
+        class="abstract"
+        tabindex="0"
+        v-if="$page.frontmatter.description"
+      >{{ $page.frontmatter.description }}</p>
 
-      <div class="column" tabindex="0">
-        <Label class="label">Video:</Label>
-        <p><span class="value"><a :href="$page.frontmatter.audio_narration" target="_blank" rel="noopener noreferrer">Audio Narration</a></span></p>
-        <p v-if="$page.frontmatter.fullvideo"><span class="value"><a :href="$page.frontmatter.fullvideo" target="_blank" rel="noopener noreferrer">Full In-Game Turns</a></span></p>
+      <section class="scenes">
+        <div
+          class="medium"
+          v-for="scene in $page.frontmatter.scenes"
+          :key="scene.number"
+        >
+          <h2
+            class="scenenumber"
+            v-bind:class="{ civdeathBorder: scene.death }"
+          >{{ scene.scene_number }}</h2>
+          <img
+            v-lazy="scene.slide_url"
+            tabindex="0"
+            alt="CBR In-Game Screenshot"
+            v-bind:class="{ civdeathImage: scene.death }"
+          />
+          <h3>{{ scene.scene_title }}</h3>
+          <div
+            class="narrations"
+            v-html="scene.narration"
+            tabindex="0"
+            v-bind:class="{ civdeathBorder: scene.death }"
+          ></div>
+          <div
+            class="narrations"
+            v-if="scene.reporter"
+            v-html="scene.reporter"
+            tabindex="0"
+            v-bind:class="{ reporter: scene.reporter }"
+          ></div>
+        </div>
+      </section>
+
+      <Content class="custom" />
+
+        <div class="page-nav" v-if="prev || next">
+        <p class="nextprev">
+          <span v-if="prev" class="prev">
+            ←
+            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev">{{ prev.title || prev.path }}</router-link>
+          </span>
+          
+          <span v-if="next" class="next">
+            <router-link v-if="next" :to="$page.frontmatter.next">{{ next.title || next.path }}</router-link>→
+          </span>
+          </p>
+        </p>
       </div>
+   
     </div>
-
-    <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
-    <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">{{ $page.frontmatter.description }}</p>
-
-    <section class="scenes">
-      <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="$page.frontmatter.scenes">
-        <h2 class="scenenumber" v-bind:class="{ civdeathBorder: scene.death }">{{ scene.scene_number }}</h2>
-        <img v-lazy="scene.slide_url" tabindex="0" alt="CBR In-Game Screenshot" v-bind:class="{ civdeathImage: scene.death }">
-        <h3>{{ scene.scene_title }}</h3>
-        <div class="narrations" v-html="scene.narration" tabindex="0" v-bind:class="{ civdeathBorder: scene.death }"></div>
-        <div class="narrations" v-if="scene.reporter" v-html="scene.reporter" tabindex="0" v-bind:class="{ reporter: scene.reporter }"></div>
-      </div>
-    </section>
-
-    <Content class="custom" />
-
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script>
+import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util";
 export default {
-  name: 'Albums',
+  name: "Albums",
+  computed: {
+    prev() {
+      const prev = this.$page.frontmatter.prev;
+      if (prev === false) {
+        return;
+      } else if (prev) {
+        return resolvePage(this.$site.pages, prev, this.$route.path);
+      } else {
+        return resolvePrev(this.$page, this.sidebarItems);
+      }
+    },
+    next() {
+      const next = this.$page.frontmatter.next;
+      if (next === false) {
+        return;
+      } else if (next) {
+        return resolvePage(this.$site.pages, next, this.$route.path);
+      } else {
+        return resolveNext(this.$page, this.sidebarItems);
+      }
+    },
+  },
+};
+function resolvePrev(page, items) {
+  return find(page, items, -1);
 }
+function resolveNext(page, items) {
+  return find(page, items, 1);
+}
+// function find(page, path, offset) {
+//   const res = [];
+//   path.forEach((item) => {
+//     if (item.type === "group") {
+//       res.push(...(item.children || []));
+//     } else {
+//       res.push(item);
+//     }
+//   });
+//   for (let i = 0; i < res.length; i++) {
+//     const cur = res[i];
+//     if (cur.type === "page" && cur.path === page.path) {
+//       return res[i + offset];
+//     }
+//   }
+// }
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/config.styl'
-@require '../styles/wrapper.styl'
+@import '../styles/config.styl';
+@require '../styles/wrapper.styl';
 
 .blog {
   text-shadow: 2px 2px #083832;
@@ -68,9 +191,16 @@ export default {
   margin-top: 2.4em;
 }
 
-.blog h1 span{
+.blog h1 span {
   font-size: 61%;
-  margin-left: .2rem;
+  margin-left: 0.2rem;
+}
+
+.nextprev {
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 2.5em;
+  display: flex;
 }
 
 .albumInfo {
@@ -128,7 +258,7 @@ img {
   width: 100%;
   line-height: 0;
   box-shadow: 0 5px 1px 0 rgba(8, 56, 50, 0.2);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 img:hover {
@@ -140,52 +270,50 @@ img:hover {
   font-size: 1.2rem;
   line-height: 1.8;
   text-shadow: 2px 2px #083832;
-  padding: 0 0 .5rem;
-  margin: .5rem 0 0;
+  padding: 0 0 0.5rem;
+  margin: 0.5rem 0 0;
   border-bottom: 2px solid #FFBF46;
 }
 
 .blog {
-  @extend $wrapper
+  @extend $wrapper;
 }
 
-.page-nav
-  padding-top 1rem
-  padding-bottom 0
-  .inner
-    min-height 2rem
-    margin-top 0
-    border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
+.page-nav {
+  padding: 1rem 0 0 0;
+}
 
 @media (max-width: $MQMobile) {
   .albumInfo {
     flex-flow: column nowrap;
   }
+
   .column {
     flex: 0 1 auto;
   }
+
   img {
     box-shadow: none;
   }
+
   .scenes h2 {
-    margin: 1.5rem 0 .5rem;
+    margin: 1.5rem 0 0.5rem;
   }
+
   .scenes h3 {
     font-size: 1.5rem;
     margin: 1rem 0 0;
   }
+
   .narrations {
     font-size: 1rem;
-    padding: .3rem .2rem;
+    padding: 0.3rem 0.2rem;
     overflow-wrap: break-word;
     margin: 0;
     border-top: 0;
     border-bottom: 1px solid #FFBF46;
   }
+
   .pswp img {
     width: 100% !important;
     height: 100% !important;

@@ -1,25 +1,25 @@
 const currentDateUTC = new Date().toUTCString()
 const autometa_options = {
-  enable : true,
-  image  : true,
-  twitter: true,
-  og     : true,
-  schema : true,
-  site: {
-    name   : 'CivBattleRoyale.tv',
-    twitter: 'lacoiot',
-  },
-  canonical_base: 'https://civbattleroyale.tv',
-  description_sources: [
-    'frontmatter',
-  ],
-  image_sources: [
-    'frontmatter',
-  ],
+	enable: true,
+	image: true,
+	twitter: true,
+	og: true,
+	schema: true,
+	site: {
+		name: 'CivBattleRoyale.tv',
+		twitter: 'lacoiot',
+	},
+	canonical_base: 'https://civbattleroyale.tv',
+	description_sources: [
+		'frontmatter',
+	],
+	image_sources: [
+		'frontmatter',
+	],
 };
 module.exports = {
 	title: 'CivBattleRoyale.tv',
-  description: '',
+	description: '',
 	dest: './public',
 	themeConfig: {
 		nav: [
@@ -32,27 +32,27 @@ module.exports = {
 		],
 		logo: '/cbr_logo_color.svg',
 		docsDir: 'src',
-    serviceWorker: true,
+		serviceWorker: true,
 	},
 	plugins: [
 		'vuepress-plugin-janitor',
 		[
 			'vuepress-plugin-medium-zoom',
 			{
-	 			selector: '.medium img',
-	 			delay: 1000,
-	 			options: {
-		 		background: 'rgba(27, 27, 27, 0.9)',
-		 		scrollOffset: 110,
-	 			}
- 			}
+				selector: '.medium img',
+				delay: 1000,
+				options: {
+					background: 'rgba(27, 27, 27, 0.9)',
+					scrollOffset: 110,
+				}
+			}
 		],
-		[ 'vuepress-plugin-autometa', autometa_options ],
-    [ 'vuepress-plugin-clean-urls',
-      {
-        normalSuffix: '/'
-      }
-    ],
+		['vuepress-plugin-autometa', autometa_options],
+		['vuepress-plugin-clean-urls',
+			{
+				normalSuffix: '/'
+			}
+		],
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],

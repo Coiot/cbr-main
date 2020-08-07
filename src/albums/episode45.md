@@ -10,6 +10,8 @@ edition: X1
 date: 2020-05-05T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode45-scene06.jpg
 prcast:
+prev: /albums/episode44/
+next: /albums/episode46/
 scenes:
 - scene_number: 01
   scene_title: "It Begins"

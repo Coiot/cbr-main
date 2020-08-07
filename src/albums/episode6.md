@@ -10,6 +10,8 @@ edition: X1
 date: 2019-07-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode6-scene06.jpg
 prcast:
+prev: /albums/episode5/
+next: /albums/episode7/
 scenes:
 - scene_number: 01
   scene_title: ""

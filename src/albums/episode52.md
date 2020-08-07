@@ -10,6 +10,8 @@ edition: X1
 date: 2020-06-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode52-scene06.jpg
 prcast:
+prev: /albums/episode51/
+next: /albums/episode53/
 scenes:
 - scene_number: 01
   scene_title: "Shaggy Shares Shots of Civs"

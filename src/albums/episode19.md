@@ -10,6 +10,8 @@ edition: X1
 date: 2019-10-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode19-scene07.jpg
 prcast:
+prev: /albums/episode18/
+next: /albums/episode20/
 scenes:
 - scene_number: 01
   scene_title: "Guess Who’s Back? Back Again."

@@ -10,6 +10,8 @@ edition: X1
 date: 2020-06-02T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode49-scene06.jpg
 prcast:
+prev: /albums/episode48/
+next: /albums/episode50/
 scenes:
 - scene_number: 01
   scene_title: "You Are Now Watching Garfield’s Horror Theater"

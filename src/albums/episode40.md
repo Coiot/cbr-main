@@ -10,6 +10,8 @@ edition: X1
 date: 2020-03-31T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode40-scene06.jpg
 prcast:
+prev: /albums/episode39/
+next: /albums/episode41/
 scenes:
 - scene_number: 01
   scene_title: ""

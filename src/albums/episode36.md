@@ -10,6 +10,8 @@ edition: X1
 date: 2020-02-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode36-scene06.jpg
 prcast:
+prev: /albums/episode35/
+next: /albums/episode37/
 scenes:
 - scene_number: 01
   scene_title: "Ring-a-Ding-Ding Baby"

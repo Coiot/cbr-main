@@ -10,6 +10,8 @@ edition: X1
 date: 2019-08-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode8-scene06.jpg
 prcast:
+prev: /albums/episode7/
+next: /albums/episode9/
 scenes:
 - scene_number: 01
   scene_title: "Ready to rumble?"

@@ -165,7 +165,7 @@ export function groupHeaders(headers) {
 		if (h.level === 2) {
 			lastH2 = h
 		} else if (lastH2) {
-			;(lastH2.children || (lastH2.children = [])).push(h)
+			; (lastH2.children || (lastH2.children = [])).push(h)
 		}
 	})
 	return headers.filter(h => h.level === 2)
@@ -195,6 +195,17 @@ export function resolveMatchingConfig(route, config) {
 	return {}
 }
 
+export function formatPublishDate(date) {
+	const dateFormat = new Date(date)
+	const options = {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric'
+	}
+
+	return dateFormat.toLocaleDateString('en-US', options)
+}
+
 function ensureEndingSlash(path) {
 	return /(\.html|\/)$/.test(path) ? path : path + '/'
 }
@@ -210,7 +221,7 @@ function resolveItem(item, pages, base, isNested) {
 		if (isNested) {
 			console.error(
 				'[vuepress] Nested sidebar groups are not supported. ' +
-					'Consider using navbar + categories instead.'
+				'Consider using navbar + categories instead.'
 			)
 		}
 		const children = item.children || []

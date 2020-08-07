@@ -10,6 +10,8 @@ edition: X1
 date: 2020-06-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode50-scene06.jpg
 prcast:
+prev: /albums/episode49/
+next: /albums/episode51/
 scenes:
 - scene_number: 01
   scene_title: "Some Men Just Want To Watch The World Burn… Like Me!"

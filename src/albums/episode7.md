@@ -10,6 +10,8 @@ edition: X1
 date: 2019-07-30T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode7-scene06.jpg
 prcast:
+prev: /albums/episode6/
+next: /albums/episode8/
 scenes:
 - scene_number: 01
   scene_title: "There’s far too much Korea in this part, and that deeply saddens me."

@@ -10,6 +10,8 @@ edition: X1
 date: 2020-05-19T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode47-scene06.jpg
 prcast:
+prev: /albums/episode46/
+next: /albums/episode48/
 scenes:
 - scene_number: 01
   scene_title: "Welcome"

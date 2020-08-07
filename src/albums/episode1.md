@@ -10,6 +10,8 @@ fullvideo: https://www.youtube.com/watch?v=g3ioO5J8Mts
 date: 2019-06-19T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
 thumbnail: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
+prev: 
+next: /albums/episode2/
 scenes:
 - scene_number: '01'
   scene_title: Opening Crawl

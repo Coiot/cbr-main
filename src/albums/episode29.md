@@ -9,6 +9,8 @@ edition: X1
 date: 2020-01-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode29-scene06.jpg
 prcast:
+prev: /albums/episode28/
+next: /albums/episode30/
 scenes:
 - scene_number: 01
   scene_title: ""

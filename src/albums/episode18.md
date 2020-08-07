@@ -10,6 +10,8 @@ edition: X1
 date: 2019-10-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode18-scene06.jpg
 prcast:
+prev: /albums/episode17/
+next: /albums/episode19/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

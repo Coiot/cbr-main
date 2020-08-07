@@ -9,6 +9,8 @@ edition: X1
 date: 2020-04-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode43-scene06.jpg
 prcast:
+prev: /albums/episode42/
+next: /albums/episode44/
 scenes:
 - scene_number: 01
   scene_title: "Please Stand for the National Anthem..."

@@ -10,6 +10,8 @@ edition: X1
 date: 2020-02-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode33-scene06.jpg
 prcast:
+prev: /albums/episode32/
+next: /albums/episode34/
 scenes:
 - scene_number: 01
   scene_title: "Sgt. Ragnar’s Lonely City Club Civ"

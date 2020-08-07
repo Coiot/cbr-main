@@ -10,6 +10,8 @@ edition: X1
 date: 2020-02-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode35-scene06.jpg
 prcast:
+prev: /albums/episode34/
+next: /albums/episode36/
 scenes:
 - scene_number: 01
   scene_title: "Welcome to Class"

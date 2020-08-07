@@ -10,6 +10,8 @@ starting_turn: 196
 date: 2020-04-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season01-episode44-scene06.jpg
 prcast:
+prev: /albums/episode43/
+next: /albums/episode45/
 scenes:
 - scene_number: 01
   scene_title: "We need a theme song"

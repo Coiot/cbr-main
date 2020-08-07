@@ -10,6 +10,8 @@ edition: X1
 date: 2020-02-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode34-scene06.jpg
 prcast:
+prev: /albums/episode33/
+next: /albums/episode35/
 scenes:
 - scene_number: 01
   scene_title: "Exciting things ahead!"

@@ -9,7 +9,9 @@
     "build": "vuepress build src",
     "build:docs": "vuepress build docs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue-router": "^3.4.2"
+  },
   "devDependencies": {
     "vue-lazyload": "^1.2.6",
     "vuepress": "^1.0.1",
@@ -17,6 +19,7 @@
     "vuepress-plugin-clean-urls": "^1.0.3",
     "vuepress-plugin-janitor": "^1.0.0",
     "vuepress-plugin-medium-zoom": "^1.1.2",
+    "vuepress-plugin-rss": "2.0.0",
     "vuepress-plugin-seo": "^0.1.2",
     "yaml-front-matter": "^4.0.0"
   }

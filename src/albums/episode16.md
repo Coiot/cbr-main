@@ -10,6 +10,8 @@ edition: X1
 date: 2019-10-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode16-scene06.jpg
 prcast:
+prev: /albums/episode15/
+next: /albums/episode17/
 scenes:
 - scene_number: 01
   scene_title: "Welcome Back"

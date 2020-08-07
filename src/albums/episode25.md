@@ -9,6 +9,8 @@ edition: X1
 date: 2019-12-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode25-scene07.jpg
 prcast:
+prev: /albums/episode24/
+next: /albums/episode26/
 scenes:
 - scene_number: 01
   scene_title: ""
