@@ -115,7 +115,8 @@
           </span>
           
           <span v-if="next" class="next">
-            <router-link v-if="next" :to="$page.frontmatter.next">{{ next.title || next.path }}</router-link>&ensp;→
+            <router-link v-if="next" :to="$page.frontmatter.next">{{ next.title || next.path }}</router-link>
+              <span>&ensp;→</span>
           </span>
           </p>
         </p>
