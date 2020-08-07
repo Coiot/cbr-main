@@ -153,10 +153,10 @@ export default {
   },
 };
 function resolvePrev(page, items) {
-  return find(page, items, -1);
+  return this.$page.find(page, items, -1);
 }
 function resolveNext(page, items) {
-  return find(page, items, 1);
+  return this.$page.find(page, items, 1);
 }
 // function find(page, path, offset) {
 //   const res = [];
