@@ -134,30 +134,32 @@ export default {
       const prev = this.$page.frontmatter.prev;
       if (prev === false) {
         return;
-      } else if (prev) {
+      } else (prev) {
         return resolvePage(this.$site.pages, prev, this.$route.path);
-      } else {
-        return resolvePrev(this.$page, this.sidebarItems);
-      }
+      } 
+      // else {
+      //   return resolvePrev(this.$page, this.sidebarItems);
+      // }
     },
     next() {
       const next = this.$page.frontmatter.next;
       if (next === false) {
         return;
-      } else if (next) {
+      } else (next) {
         return resolvePage(this.$site.pages, next, this.$route.path);
-      } else {
-        return resolveNext(this.$page, this.sidebarItems);
-      }
+      } 
+      // else {
+      //   return resolveNext(this.$page, this.sidebarItems);
+      // }
     },
   },
 };
-function resolvePrev(page, items) {
-  return this.page.find(page, items, -1);
-}
-function resolveNext(page, items) {
-  return this.page.find(page, items, 1);
-}
+// function resolvePrev(page, items) {
+//   return this.find(page, items, -1);
+// }
+// function resolveNext(page, items) {
+//   return this.find(page, items, 1);
+// }
 // function find(page, path, offset) {
 //   const res = [];
 //   path.forEach((item) => {
