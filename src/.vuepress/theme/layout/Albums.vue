@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util";
+import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util.js";
 export default {
   name: "Albums",
   computed: {
@@ -152,12 +152,12 @@ export default {
     },
   },
 };
-// function resolvePrev(page, items) {
-//   return find(page, items, -1);
-// }
-// function resolveNext(page, items) {
-//   return find(page, items, 1);
-// }
+function resolvePrev(page, items) {
+  return find(page, items, -1);
+}
+function resolveNext(page, items) {
+  return find(page, items, 1);
+}
 // function find(page, path, offset) {
 //   const res = [];
 //   path.forEach((item) => {
