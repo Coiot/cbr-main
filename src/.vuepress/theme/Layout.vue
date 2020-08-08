@@ -40,6 +40,8 @@ import Sidebar from "./components/Sidebar.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { resolveSidebarItems } from "./util";
 import VueLazyload from "vue-lazyload";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 
 Vue.use(VueLazyload, {
   observer: true,
@@ -57,6 +59,8 @@ export default {
     Sidebar,
     Navbar,
     SWUpdatePopup,
+    VueperSlides,
+    VueperSlide,
   },
 
   data() {

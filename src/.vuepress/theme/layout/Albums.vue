@@ -72,6 +72,28 @@
         v-if="$page.frontmatter.description"
       >{{ $page.frontmatter.description }}</p>
 
+      
+      <h2 class="scenenumber">Horiztonal</h2>
+
+      <vueper-slides lazy lazy-load-on-drag :slide-content-outside="'bottom'" :slide-ratio="9 / 16" :infinite="false" :bullets="false" fractions >
+  <vueper-slide v-for="scene in $page.frontmatter.scenes" :image="scene.slide_url" :key="scene.number" :title="scene.title" :content="scene.narration">
+   <template v-slot:content>
+       <div
+            class=""
+            style="flex-direction: column"
+          ><div
+            class="narrations"
+            v-html="scene.narration"
+            tabindex="0"
+            v-bind:class="{ civdeathBorder: scene.death }"
+          ></div>
+        </div>
+    </template>
+    </vueper-slide>
+</vueper-slides>
+
+<h2 class="scenenumber">Vertical</h2>
+
       <section class="scenes">
         <div
           class="medium"
@@ -128,8 +150,11 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util.js";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 export default {
   name: "Albums",
+  components: { VueperSlides, VueperSlide },
   computed: {
     prev() {
       const prev = this.$page.frontmatter.prev;
@@ -234,6 +259,12 @@ export default {
 .abstract {
   font-size: 1.8rem;
   line-height: 1.4;
+}
+
+.slide-wrapper {
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
 }
 
 .scenes {
