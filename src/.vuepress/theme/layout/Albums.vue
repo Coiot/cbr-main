@@ -75,7 +75,7 @@
       
       <h2 class="scenenumber">Horiztonal</h2>
 
-      <vueper-slides lazy lazy-load-on-drag :slide-content-outside="'bottom'" :slide-ratio="9 / 16" :infinite="false" :bullets="false" fractions >
+      <vueper-slides lazy lazy-load-on-drag :slide-content-outside="'bottom'" :slide-ratio="9 / 16" :infinite="false" arrows-outside :bullets="false" fractions :dragging-distance="200" prevent-y-scroll>
   <vueper-slide v-for="scene in $page.frontmatter.scenes" :image="scene.slide_url" :key="scene.number" :title="scene.title" :content="scene.narration">
    <template v-slot:content>
        <div
