@@ -53,6 +53,13 @@ module.exports = {
 				normalSuffix: '/'
 			}
 		],
+		[
+			'@vuepress/pwa',
+			{
+				serviceWorker: true,
+				updatePopup: true
+			}
+		]
 	],
 	head: [
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
