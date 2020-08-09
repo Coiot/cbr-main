@@ -72,10 +72,12 @@
         v-if="$page.frontmatter.description"
       >{{ $page.frontmatter.description }}</p>
 
-      
-      <h2 class="scenenumber">Horiztonal</h2>
+  
+      <h2 class="scenenumber">Horizontal</h2>
 
-      <vueper-slides lazy lazy-load-on-drag :slide-content-outside="'bottom'" :slide-ratio="9 / 16" :infinite="false" arrows-outside :bullets="false" fractions :dragging-distance="200" prevent-y-scroll>
+       <button class="button" @click="isToggle = !isToggle">Toggle</button>
+
+      <vueper-slides v-if="isToggle === true" lazy lazy-load-on-drag :slide-content-outside="'bottom'" :slide-ratio="9 / 16" :infinite="false" arrows-outside :bullets="false" fractions :dragging-distance="200" :touchable="false" >
   <vueper-slide v-for="scene in $page.frontmatter.scenes" :image="scene.slide_url" :key="scene.number" :title="scene.title" :content="scene.narration">
    <template v-slot:content>
        <div
@@ -151,9 +153,13 @@
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
 export default {
   name: "Albums",
+   data() {
+    return {
+      isToggle: false,
+      }
+  },
   components: { VueperSlides, VueperSlide },
   computed: {
     prev() {
@@ -180,6 +186,7 @@ export default {
     },
   },
 };
+
 // function resolvePrev(page, items) {
 //   return this.find(page, items, -1);
 // }
@@ -259,12 +266,6 @@ export default {
 .abstract {
   font-size: 1.8rem;
   line-height: 1.4;
-}
-
-.slide-wrapper {
-    display: flex;
-    -webkit-box-orient: vertical;
-    flex-direction: column;
 }
 
 .scenes {

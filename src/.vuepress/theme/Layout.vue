@@ -167,3 +167,20 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
+<style>
+.slide-wrapper {
+  display: flex;
+  -webkit-box-orient: vertical;
+  flex-direction: column;
+}
+
+.vueperslides__fractions {
+  border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
+  border-radius: 0.3em !important;
+  background: hsla(38.3, 42.2%, 63.4%, 0.8) !important;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  padding: 0.5em 1em;
+}
+</style>
