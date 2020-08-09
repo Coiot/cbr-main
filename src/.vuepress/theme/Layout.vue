@@ -177,10 +177,16 @@ export default {
 .vueperslides__fractions {
   border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
   border-radius: 0.3em !important;
-  background: hsla(38.3, 42.2%, 63.4%, 0.8) !important;
+  background: hsla(38.3, 42.2%, 63.4%, 0.9) !important;
   font-weight: 800;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
+  box-shadow: 2px 2px 2px 0 hsla(56.5, 75%, 13.3%, 0.3);
   padding: 0.5em 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+.vueperslides__fractions:hover {
+  opacity: 0;
 }
 </style>

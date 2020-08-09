@@ -85,7 +85,7 @@
           lazy-load-on-drag
           :slide-content-outside="'bottom'"
           :slide-ratio="9 / 16"
-          :infinite="'false'"
+          :infinite="false"
           arrows-outside
           :bullets="false"
           fractions
@@ -97,17 +97,14 @@
             v-for="scene in $page.frontmatter.scenes"
             :image="scene.slide_url"
             :key="scene.number"
-            :title="scene.title"
+            :title="scene.scene_title"
             :content="scene.narration"
+            :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
-              <div class style="flex-direction: column">
-                <div
-                  class="narrations"
-                  v-html="scene.narration"
-                  tabindex="0"
-                  v-bind:class="{ civdeathBorder: scene.death }"
-                ></div>
+              <div class="h-narration" style="flex-direction: column">
+                <h3 v-html="scene.scene_title"></h3>
+                <div class="narrations" v-html="scene.narration" tabindex="0"></div>
               </div>
             </template>
           </vueper-slide>
@@ -261,8 +258,8 @@ export default {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
-  padding-bottom: 2em;
-  margin-top: 4rem;
+  padding-bottom: 1em;
+  margin-top: 2.5rem;
 }
 
 .nextprev a {
@@ -316,8 +313,23 @@ button {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: $accentColor 0px 5px 20px -10px;
-  padding: 0.5em 0.8em;
-  margin: 1em 0 1.5em;
+  padding: 0.6em 0.8em;
+  margin: 0.8em 0 1.3em;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: darken($borderColor, 25%);
+  cursor: pointer;
+}
+
+.h-narration {
+  width: 1200px;
+  position: relative;
+  left: 20%;
+  right: 20%;
+  margin-left: -20vw;
+  margin-right: -20vw;
 }
 
 .scenes {
@@ -338,7 +350,7 @@ h2 {
 
 .scenes h3 {
   font-size: 1.7rem;
-  margin: 2.5rem 0 0;
+  margin: 2rem 0 0;
 }
 
 img {
@@ -355,10 +367,10 @@ img:hover {
 
 .narrations {
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.3;
   text-shadow: 2px 2px #083832;
   padding: 0 0 0.5rem;
-  margin: 0.5rem 0 0;
+  margin: 0.2rem 0 0;
   border-bottom: 2px solid #ffbf46;
 }
 
@@ -367,13 +379,13 @@ img:hover {
 }
 
 .page-nav {
-  padding: 1rem 0 0 0;
+  padding: 0.2rem 0 0 0;
 }
 
 @media (max-width: $MQMobile) {
   .nextprev {
     font-size: 0.9rem;
-    margin-top: 1rem;
+    margin-top: 0.3rem;
     flex-flow: row wrap;
   }
 
