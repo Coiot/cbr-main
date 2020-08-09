@@ -3,9 +3,9 @@ title: "Episode 51: Enemies On All Sides"
 narrated_by: "DJJablonsky & Limaeus"
 description: "Wars are fought, cities are captured, and entire nations are brought to their knees like never before, just like always."
 release_date: June 17, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=_2oJHram0C0
 fullvideo: https://youtu.be/L1_pwFM4SWk
-edition: X1
+edition: S1
 starting_turn: 751
 date: 2020-06-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode51-scene06.jpg

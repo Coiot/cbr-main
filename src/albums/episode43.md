@@ -3,9 +3,9 @@ title: "Episode 43: Lines in the Sand"
 narrated_by: "thehonestyfish"
 description: "Old wars give way to new wars, while the scrappy underdogs struggle to stay alive amid the chaos around them."
 release_date: April 22, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=-ScMlqlY-ZE
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-04-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode43-scene06.jpg
 prcast:

@@ -6,7 +6,7 @@ release_date: January 29, 2020
 audio_narration: https://youtu.be/GWVoMUv1O6Y
 fullvideo:
 starting_turn: 570
-edition: X1
+edition: S1
 date: 2020-01-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode32-scene07.jpg
 prcast:

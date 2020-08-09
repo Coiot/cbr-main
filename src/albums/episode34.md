@@ -3,10 +3,10 @@ title: "Episode 34: The Great Pacific Showdown, and, the other things"
 narrated_by: "Munkey Chumbles"
 description: "War rages in the Pacific, oh, and all those other wars too. What a world."
 release_date: February 12, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=WappZyz14gY
 starting_turn: 625
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-02-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode34-scene06.jpg
 prcast:

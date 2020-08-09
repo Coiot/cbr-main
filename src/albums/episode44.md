@@ -3,9 +3,9 @@ title: "Episode 44: Blobs and Blunders"
 narrated_by: "AlbinosRideDinos"
 description: "Wars from the powers to runts play out as each civ vies for relevance of any kind."
 release_date: April 29, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=qsSIMGX0Mso&t=3s
 fullvideo:
-edition: X1
+edition: S1
 starting_turn: 196
 date: 2020-04-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season01-episode44-scene06.jpg

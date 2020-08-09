@@ -6,7 +6,7 @@ release_date: January 22, 2020
 audio_narration: https://youtu.be/QUW8-BZrtkg
 fullvideo:
 starting_turn: 535
-edition: X1
+edition: S1
 date: 2020-01-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season01-episode31-scene06.jpg
 prcast:

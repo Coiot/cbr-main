@@ -3,10 +3,10 @@ title: "Episode 54: Shattering the Chains of Fate"
 narrated_by: "LunarNeedle, Jay/Fam and Robert Wencek"
 description: "As the cylinder spins slower and slower, scrappy leaders work with less and less to claim a victory. A tale of inches, told forever."
 release_date: July 08, 2020
-audio_narration: 
+audio_narration: https://www.youtube.com/watch?v=5Kn2kcmSex4
 starting_turn: 1210
 fullvideo: 
-edition: X1
+edition: S1
 date: 2020-07-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode54-scene05.jpg
 prcast: 

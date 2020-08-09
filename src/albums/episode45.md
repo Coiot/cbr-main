@@ -4,9 +4,9 @@ narrated_by: "arcticwolffox"
 description: "Old conflicts continue to simmer and new conflicts erupt throughout Europe and the Pacific"
 release_date: May 06, 2020
 starting_turn: 231
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=UQ7uLcRT7v4
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-05-05T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode45-scene06.jpg
 prcast:

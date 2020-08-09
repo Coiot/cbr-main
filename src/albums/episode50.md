@@ -4,9 +4,9 @@ narrated_by: "Enigma-Conundrum"
 description: "Meat is grinded, civs are rumped, and war crimes are absolutely committed in this high-stakes free-for-all."
 starting_turn: "581"
 release_date: June 10, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=ZesJ5iXxdH4
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-06-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode50-scene06.jpg
 prcast:

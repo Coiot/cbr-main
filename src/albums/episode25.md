@@ -5,7 +5,7 @@ description: "As the world slowly turns; wars push deeper and the limits of empi
 release_date: December 04, 2019
 audio_narration: https://youtu.be/y0bgJDGoOTc
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-12-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode25-scene07.jpg
 prcast:

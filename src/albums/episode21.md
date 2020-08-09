@@ -6,7 +6,7 @@ release_date: November 06, 2019
 audio_narration: https://youtu.be/4taahNIpCz4
 starting_turn: 316
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-11-05T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode21-scene06.jpg
 prcast:

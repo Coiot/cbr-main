@@ -5,7 +5,7 @@ description: "Part Thirty of the CBRX is an action packed look into fate-changin
 release_date: January 15, 2019
 audio_narration: https://youtu.be/8_Iaq6u0_mg
 fullvideo:
-edition: X1
+edition: S1
 starting_turn: 500
 date: 2020-01-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode30-scene06.jpg

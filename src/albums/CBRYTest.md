@@ -5,7 +5,7 @@ description: "Showcase of several upcoming gameplay mods for Season 2, as well a
 release_date: March 11, 2020
 audio_narration: "Nope"
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-03-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbry-test-scene06.jpg
 prcast:

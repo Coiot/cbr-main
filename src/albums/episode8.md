@@ -6,7 +6,7 @@ release_date: August 07, 2019
 starting_turn: 111
 audio_narration: https://youtu.be/hCbvbnK2arY
 fullvideo: https://youtu.be/JXiqBDh8peg
-edition: X1
+edition: S1
 date: 2019-08-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode8-scene06.jpg
 prcast:

@@ -6,7 +6,7 @@ release_date: March 04, 2020
 audio_narration: https://youtu.be/lbUX0zMlKjE
 fullvideo:
 starting_turn: 700
-edition: X1
+edition: S1
 date: 2020-03-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode37-scene06.jpg
 prcast:

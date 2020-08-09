@@ -6,7 +6,7 @@ release_date: September 11, 2019
 audio_narration: https://youtu.be/o_MwxxW_4ok
 starting_turn: 186
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-09-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode13-scene07.jpg
 prcast:

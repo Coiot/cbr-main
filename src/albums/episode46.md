@@ -4,9 +4,9 @@ narrated_by: "Bulletproof_Cookie"
 description: "In the wake of an emerging superpower, the quest for dominance reaches new heights in all continents. Small empires dwindle further in size, and the big empires fight for supremacy."
 release_date: May 13, 2020
 starting_turn: 272
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=hax1Tl_HvE0
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-05-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode46-scene06.jpg
 prcast:

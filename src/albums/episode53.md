@@ -6,7 +6,7 @@ release_date: July 01, 2020
 audio_narration: https://youtu.be/4d2twIK2NbE
 starting_turn: 1145
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-06-30T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode53-scene05.jpg
 prcast:

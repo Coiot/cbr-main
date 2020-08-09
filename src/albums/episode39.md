@@ -3,10 +3,10 @@ title: "Episode 39: Quicker To Take Than To Make"
 narrated_by: "TheMusicArchivist"
 description: "Consolidation of Episode 38’s bonuses continue, but with an unexpected entry to the race for First Place. War erupts on every continent bar one."
 release_date: March 25, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=sfHcW6Kbbxg
 fullvideo:
 starting_turn: 35
-edition: X1
+edition: S1
 date: 2020-03-24T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode39-scene06.jpg
 prcast:

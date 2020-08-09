@@ -6,7 +6,7 @@ release_date:
 starting_turn: 281
 audio_narration: https://youtu.be/4HxeABEqeko
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-10-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode19-scene07.jpg
 prcast:

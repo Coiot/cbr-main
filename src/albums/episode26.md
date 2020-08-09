@@ -5,7 +5,7 @@ description: "War is a dance on the edge of a crumbling cliff, and somebody has 
 release_date: December 11th, 2019
 audio_narration: https://youtu.be/NGiNP5v3VaE
 fullvideo:
-edition: X1
+edition: S1
 starting_turn: 401
 date: 2019-12-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode26-scene06.jpg

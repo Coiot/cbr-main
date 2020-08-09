@@ -6,7 +6,7 @@ release_date: August 21, 2019
 audio_narration: https://youtu.be/Ex3PA24zjVE
 fullvideo:
 starting_turn: 141
-edition: X1
+edition: S1
 date: 2019-08-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode10-scene06.jpg
 prcast:

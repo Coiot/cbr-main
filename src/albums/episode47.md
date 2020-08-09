@@ -6,7 +6,7 @@ release_date: May 20, 2020
 audio_narration: https://youtu.be/ZPQpX5xDYKI
 starting_turn: 336
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-05-19T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode47-scene06.jpg
 prcast:

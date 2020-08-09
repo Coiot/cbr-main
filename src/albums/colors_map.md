@@ -5,7 +5,7 @@ description: "A detailing of all the civilizations that will be sporting new col
 release_date: July 22, 2020
 audio_narration: https://youtu.be/FvPvWBAtey0
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-07-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg
 prcast:

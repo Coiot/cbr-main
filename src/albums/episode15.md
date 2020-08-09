@@ -6,7 +6,7 @@ release_date: September 25, 2019
 starting_turn: 216
 audio_narration: https://youtu.be/-PJN_eGUQKs
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-09-24T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode15-scene06.jpg
 prcast:

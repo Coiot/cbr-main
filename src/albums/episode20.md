@@ -3,10 +3,10 @@ title: "Episode 20: The World Turns"
 narrated_by: "Cadellinman"
 description: "Time rolls forward, and civilizations are forever changed. New feuds and old friends- it’s the Civilization Battle Royale X."
 release_date: October 30, 2019
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=yA9jh1CHDJU
 fullvideo:
 starting_turn: 296
-edition: X1
+edition: S1
 date: 2019-10-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode20-scene06.jpg
 prcast:

@@ -3,10 +3,10 @@ title: "Episode 38: Entering the Endgame"
 narrated_by: "Jmangelo"
 description: "The show enters the Endgame phase of the competition as the remaining competitors start anew to determine which civilization will be the last one standing."
 release_date: March 17, 2020
-audio_narration: 
+audio_narration: https://www.youtube.com/watch?v=f8L3VDMPOyQ
 starting_turn: 03
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-03-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode38-scene06.jpg
 prcast:

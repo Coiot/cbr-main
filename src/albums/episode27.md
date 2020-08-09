@@ -6,7 +6,7 @@ release_date: December 18th, 2019
 starting_turn: 421
 audio_narration: https://youtu.be/oy9F2BzPDOA
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-12-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode27-scene06.jpg
 prcast:

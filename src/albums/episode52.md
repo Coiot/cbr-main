@@ -6,7 +6,7 @@ release_date: June 24, 2020
 audio_narration: https://youtu.be/ZNWFfUdCkUw
 starting_turn: 901
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-06-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode52-scene06.jpg
 prcast:

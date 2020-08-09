@@ -10,7 +10,7 @@ starting_turn: "31"
 release_date: 'June 26, 2019'
 audio_narration: 'https://youtu.be/CbiqeWjvEfI'
 fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
-edition: X1
+edition: S1
 date: 2019-06-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg
 prev: /albums/episode1/

@@ -3,10 +3,10 @@ title: "Episode 41: A Storm of Swords, Plus the Occasional Catapult"
 narrated_by: "Homusubi (and Lunar)"
 description: "Power is projected, back doors are taken advantage of, and some civs have their world turned upside down multiple times in the space of a few turns as the old sporadic border wars become ever more frequent."
 release_date: April 8, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=kRSGrd-YvR4
 starting_turn: 95
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-04-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode41-scene06.jpg
 prcast:

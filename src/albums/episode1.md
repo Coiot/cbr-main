@@ -1,6 +1,6 @@
 ---
 title: 'Episode 01: The Phantom Menace'
-edition: X1
+edition: S1
 narrated_by: Coiot
 description: 'A communications disruption could mean only one thing: carnival.'
 starting_turn: "2"

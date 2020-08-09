@@ -6,7 +6,7 @@ starting_turn: "81"
 release_date: July 24, 2019
 audio_narration: https://youtu.be/oWmJfuQxchc
 fullvideo: https://youtu.be/xu1UcZ4r-6I
-edition: X1
+edition: S1
 date: 2019-07-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode6-scene06.jpg
 prcast:

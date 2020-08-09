@@ -5,7 +5,7 @@ description: "War rages across the globe, tensions boil over, and the narrator t
 release_date: January 08, 2020
 audio_narration: https://youtu.be/v8l5LpUFG5k
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-01-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode29-scene06.jpg
 prcast:

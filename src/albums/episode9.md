@@ -3,9 +3,9 @@ title: "Episode 09: Weaponized Peace"
 narrated_by: "ThyReformer"
 description: "With most of the cylinder entering the Medieval era, more and more civs begin to run out of space. To-be conquerors would do well to remember, however, that as victories mount, so too will resistance."
 release_date: August 14, 2019
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=FzvDKXAc8a0&t=1s
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-08-13T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode9-scene06.jpg
 prcast:

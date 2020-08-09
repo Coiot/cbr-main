@@ -3,14 +3,15 @@ title: "Episode 48: The Unexpected Value of an Air Force"
 narrated_by: "RanseStoddard"
 description: "As the cylinder's largest superpowers expand and fight, smaller nations are left with a choice: grow or die."
 release_date: May 27, 2020
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=xfCAie9WGLY
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-05-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode48-scene06.jpg
 prcast:
 prev: /albums/episode47/
 next: /albums/episode49/
+starting_turn: 
 scenes:
 - scene_number: 01
   scene_title: "Thanks for tuning in"

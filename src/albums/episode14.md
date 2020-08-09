@@ -6,7 +6,7 @@ release_date: September 18, 2019
 starting_turn: 201
 audio_narration: https://youtu.be/s-6RR8JCQGg
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-09-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode14-scene06.jpg
 prcast:

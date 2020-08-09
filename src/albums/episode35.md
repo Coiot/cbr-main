@@ -6,7 +6,7 @@ release_date: February 19, 2020
 audio_narration: https://youtu.be/ep_O55X8aCI
 starting_turn: 655
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-02-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode35-scene06.jpg
 prcast:

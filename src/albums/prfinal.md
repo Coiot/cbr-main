@@ -5,7 +5,7 @@ description: ""
 release_date: July 29, 2020
 audio_narration: 
 fullvideo: 
-edition: X1
+edition: S1
 date: 2020-07-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-prfinal-scene39.jpg
 prcast: 

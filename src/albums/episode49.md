@@ -6,7 +6,7 @@ release_date: June 03, 2020
 audio_narration: https://discordapp.com/channels/181804969119318017/416378745646219276/717559526534021161
 starting_turn: 486
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-06-02T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode49-scene06.jpg
 prcast:

@@ -5,7 +5,7 @@ description: "We watch as the world evolves, with empires carpeting vast swathes
 release_date: December 25, 2019
 audio_narration: https://youtu.be/1RbXcNghERg
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-12-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode28-scene06.jpg
 prcast:

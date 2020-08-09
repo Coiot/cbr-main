@@ -4,9 +4,9 @@ narrated_by: "Admiral_Cloudberg"
 description: "Coalition partners race to gobble up the spoils of war before their friends can get anything—some with more success than others."
 release_date: April 15, 2020
 startng_turn:
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=1d-pSpXuO9c
 fullvideo:
-edition: X1
+edition: S1
 date: 2020-04-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode42-scene06.jpg
 prcast:

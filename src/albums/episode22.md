@@ -6,7 +6,7 @@ release_date: November 13, 2019
 audio_narration: https://youtu.be/TDNoCDoaWZ8
 starting_turn: 336
 fullvideo:
-edition: X1
+edition: S1
 date: 2019-11-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode22-scene06.jpg
 prcast:

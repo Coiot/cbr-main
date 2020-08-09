@@ -5,7 +5,7 @@ description: "As Civs grow and develop, their wars with their near-equal neighbo
 release_date: August 28, 2019
 audio_narration: https://youtu.be/SCR_Kwpzad0
 fullvideo:
-edition: X1
+edition: S1
 starting_turn: 156
 date: 2019-08-27T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode11-scene06.jpg

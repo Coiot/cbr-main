@@ -6,7 +6,7 @@ release_date: November 20, 2019
 audio_narration: https://www.youtube.com/watch?v=fzTzFSNnMwQ&feature=youtu.be
 fullvideo:
 starting_turn: 352
-edition: X1
+edition: S1
 date: 2019-11-19T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode23-scene06.jpg
 prcast:
