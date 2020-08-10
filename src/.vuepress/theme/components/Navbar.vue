@@ -108,11 +108,12 @@ $navbar-horizontal-padding = 1.4rem;
   }
 
   .site-name {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-top: 0.7rem;
-    color: $backColor;
     position: relative;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: $backColor;
+    text-shadow: 2px 2px #eee;
+    margin-top: 0.7rem;
   }
 
   .links {
@@ -121,6 +122,7 @@ $navbar-horizontal-padding = 1.4rem;
     background-color: $navColor;
     white-space: nowrap;
     font-size: 1rem;
+    font-weight: 700;
     position: absolute;
     right: $navbar-horizontal-padding;
     top: $navbar-vertical-padding;

@@ -81,13 +81,11 @@
 
       <div v-if="isToggle === true">
         <vueper-slides
-          lazy
-          lazy-load-on-drag
           :slide-content-outside="'bottom'"
-          :slide-ratio="9 / 16"
           :infinite="false"
           arrows-outside
           :bullets="false"
+          :slide-ratio="9 / 16"
           fractions
           :dragging-distance="200"
           :touchable="false"
@@ -312,7 +310,7 @@ button {
   background-color: $accentColor;
   border: 1px solid #000;
   border-radius: 10px;
-  box-shadow: $accentColor 0px 5px 20px -10px;
+  box-shadow: $accentColor 0px 4px 20px -10px;
   padding: 0.6em 0.8em;
   margin: 0.8em 0 1.3em;
   transition: all 0.2s ease-in-out;

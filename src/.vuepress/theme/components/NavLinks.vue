@@ -1,152 +1,164 @@
 <template>
-<nav class="nav-links" v-if="userLinks.length || repoLink">
-  <!-- user links -->
-  <div class="nav-item" v-for="item in userLinks" :key="item.link">
-    <DropdownLink v-if="item.type === 'links'" :item="item" />
-    <NavLink v-else :item="item" />
-  </div>
+  <nav class="nav-links" v-if="userLinks.length || repoLink">
+    <!-- user links -->
+    <div class="nav-item" v-for="item in userLinks" :key="item.link">
+      <DropdownLink v-if="item.type === 'links'" :item="item" />
+      <NavLink v-else :item="item" />
+    </div>
 
-  <!-- repo link -->
-  <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
-    {{ repoLabel }}
-    <OutboundLink />
-  </a>
-</nav>
+    <!-- repo link -->
+    <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
+      {{ repoLabel }}
+      <OutboundLink />
+    </a>
+  </nav>
 </template>
 
 <script>
-import DropdownLink from './DropdownLink.vue'
-import NavLink from './NavLink.vue'
-import {
-  resolveNavLinkItem
-} from '../util'
+import DropdownLink from "./DropdownLink.vue";
+import NavLink from "./NavLink.vue";
+import { resolveNavLinkItem } from "../util";
 
 export default {
   components: {
     NavLink,
-    DropdownLink
+    DropdownLink,
   },
 
   computed: {
     userNav() {
-      return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
+      return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
     },
 
     nav() {
-      const {
-        locales
-      } = this.$site
-      if (locales && Object.keys(locales)
-        .length > 1) {
-        const currentLink = this.$page.path
-        const routes = this.$router.options.routes
-        const themeLocales = this.$site.themeConfig.locales || {}
+      const { locales } = this.$site;
+      if (locales && Object.keys(locales).length > 1) {
+        const currentLink = this.$page.path;
+        const routes = this.$router.options.routes;
+        const themeLocales = this.$site.themeConfig.locales || {};
         const languageDropdown = {
-          text: this.$themeLocaleConfig.selectText || 'Languages',
-          items: Object.keys(locales)
-            .map(path => {
-              const locale = locales[path]
-              const text = themeLocales[path] && themeLocales[path].label || locale.lang
-              let link
-              // Stay on the current page
-              if (locale.lang === this.$lang) {
-                link = currentLink
-              } else {
-                // Try to stay on the same page
-                link = currentLink.replace(this.$localeConfig.path, path)
-                // fallback to homepage
-                if (!routes.some(route => route.path === link)) {
-                  link = path
-                }
+          text: this.$themeLocaleConfig.selectText || "Languages",
+          items: Object.keys(locales).map((path) => {
+            const locale = locales[path];
+            const text =
+              (themeLocales[path] && themeLocales[path].label) || locale.lang;
+            let link;
+            // Stay on the current page
+            if (locale.lang === this.$lang) {
+              link = currentLink;
+            } else {
+              // Try to stay on the same page
+              link = currentLink.replace(this.$localeConfig.path, path);
+              // fallback to homepage
+              if (!routes.some((route) => route.path === link)) {
+                link = path;
               }
-              return {
-                text,
-                link
-              }
-            })
-        }
-        return [...this.userNav, languageDropdown]
+            }
+            return {
+              text,
+              link,
+            };
+          }),
+        };
+        return [...this.userNav, languageDropdown];
       }
-      return this.userNav
+      return this.userNav;
     },
 
     userLinks() {
-      return (this.nav || [])
-        .map(link => {
-          return Object.assign(resolveNavLinkItem(link), {
-            items: (link.items || [])
-              .map(resolveNavLinkItem)
-          })
-        })
+      return (this.nav || []).map((link) => {
+        return Object.assign(resolveNavLinkItem(link), {
+          items: (link.items || []).map(resolveNavLinkItem),
+        });
+      });
     },
 
     repoLink() {
-      const {
-        repo
-      } = this.$site.themeConfig
+      const { repo } = this.$site.themeConfig;
       if (repo) {
-        return /^https?:/.test(repo) ?
-          repo :
-          `https://github.com/${repo}`
+        return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`;
       }
     },
 
     repoLabel() {
-      if (!this.repoLink) return
+      if (!this.repoLink) return;
       if (this.$site.themeConfig.repoLabel) {
-        return this.$site.themeConfig.repoLabel
+        return this.$site.themeConfig.repoLabel;
       }
 
-      const repoHost = this.repoLink.match(/^https?:\/\/[^/]+/)[0]
-      const platforms = ['GitHub', 'GitLab', 'Bitbucket']
+      const repoHost = this.repoLink.match(/^https?:\/\/[^/]+/)[0];
+      const platforms = ["GitHub", "GitLab", "Bitbucket"];
       for (let i = 0; i < platforms.length; i++) {
-        const platform = platforms[i]
-        if (new RegExp(platform, 'i')
-          .test(repoHost)) {
-          return platform
+        const platform = platforms[i];
+        if (new RegExp(platform, "i").test(repoHost)) {
+          return platform;
         }
       }
 
-      return 'Source'
-    }
-  }
-}
+      return "Source";
+    },
+  },
+};
 </script>
 
 <style lang="stylus">
-@import '../styles/config.styl'
+@import '../styles/config.styl';
 
-.nav-links
-  display inline-block
-  a
-    color $backColor
-    &:hover, &.router-link-active
-      color $accentColor
-  a:not(.external)
-    font-weight 700
-  .nav-item
-    position relative
-    display inline-block
-    margin-top .3rem
-    margin-left 1.2rem
-    line-height 1.5rem
-    &:first-child
-      margin-left 0
-  .repo-link
-    margin-left 1.1rem
+.nav-links {
+  display: inline-block;
 
-@media (max-width: $MQMobile)
-  .nav-links
-    .nav-item, .repo-link
-      margin-left 0
+  a {
+    color: $backColor;
 
-@media (min-width: $MQMobile)
-  .nav-links a
-    &:hover, &.router-link-active
-      color $backColor
-  .nav-item
-    transition all .2s ease-in
-    &:hover, &.router-link-active
-      margin-bottom 0px
-      border-bottom 3px solid lighten($accentColor, 20%)
+    &:hover {
+      color: $accentColor;
+    }
+  }
+
+  a:not(.external) {
+    font-weight: 900;
+    text-shadow: 1px 1px #eee;
+  }
+
+  .nav-item {
+    position: relative;
+    display: inline-block;
+    margin-top: 0.3rem;
+    margin-left: 1.2rem;
+    line-height: 1.5rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .repo-link {
+    margin-left: 1.1rem;
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .nav-links {
+    .nav-item, .repo-link {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: $MQMobile) {
+  .nav-links a {
+    &:hover, &.router-link-active {
+      color: $backColor;
+    }
+  }
+
+  .nav-item {
+    transition: all 0.2s ease-in;
+
+    &:hover, &.router-link-active {
+      margin-bottom: 0px;
+      border-bottom: 3px solid lighten($accentColor, 20%);
+    }
+  }
+}
 </style>
