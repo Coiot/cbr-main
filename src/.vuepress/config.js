@@ -64,7 +64,6 @@ module.exports = {
 		['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-icon.png' }],
 		['link', { rel: 'icon', sizes: '32x32', href: '/favicon-32x32.png' }],
 		['link', { rel: 'icon', sizes: '16x16', href: '/favicon-16x16.png' }],
-		['link', { rel: 'manifest', href: '/site.webmanifest' }],
 		['link', { rel: 'manifest', href: '/manifest.json' }],
 		['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' }],
 		['meta', { name: 'msapplication-TileColor', content: '#FFBF46' }],
