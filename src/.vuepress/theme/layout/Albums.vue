@@ -307,17 +307,17 @@ button {
   line-height: 1.5;
   color: #fff;
   text-shadow: 2px 2px #083832;
-  background-color: $accentColor;
+  background-color: darken($accentColor, 15%);
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: $accentColor 0px 4px 20px -10px;
-  padding: 0.6em 0.8em;
+  padding: 0.3em 0.8em 0.42em;
   margin: 0.8em 0 1.3em;
   transition: all 0.2s ease-in-out;
 }
 
 button:hover {
-  background-color: darken($borderColor, 25%);
+  background-color: darken($accentColor, 35%);
   cursor: pointer;
 }
 
