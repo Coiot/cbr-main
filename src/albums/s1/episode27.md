@@ -10,8 +10,8 @@ edition: S1
 date: 2019-12-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode27-scene06.jpg
 prcast:
-prev: /albums/episode26/
-next: /albums/episode28/
+prev: /albums/s1/episode26/
+next: /albums/s1/episode28/
 scenes:
 - scene_number: 01
   scene_title: ""

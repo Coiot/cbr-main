@@ -10,8 +10,8 @@ edition: S1
 date: 2020-03-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode37-scene06.jpg
 prcast:
-prev: /albums/episode36/
-next: /albums/episode38/
+prev: /albums/s1/episode36/
+next: /albums/s1/episode38/
 scenes:
 - scene_number: 01
   scene_title: "Prepare yourselves."

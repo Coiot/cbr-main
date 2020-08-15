@@ -10,7 +10,7 @@ edition: S1
 date: 2020-07-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode54-scene05.jpg
 prcast: 
-prev: /albums/episode53/
+prev: /albums/s1/episode53/
 scenes:
 - scene_number: 01
   scene_title: ""

@@ -10,8 +10,8 @@ starting_turn: 500
 date: 2020-01-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode30-scene06.jpg
 prcast:
-prev: /albums/episode29/
-next: /albums/episode31/
+prev: /albums/s1/episode29/
+next: /albums/s1/episode31/
 scenes:
 - scene_number: 01
   scene_title: "Does the first panel have a title? If so this is it."

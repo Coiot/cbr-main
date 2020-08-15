@@ -10,8 +10,8 @@ edition: S1
 date: 2019-08-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode10-scene06.jpg
 prcast:
-prev: /albums/episode9/
-next: /albums/episode11/
+prev: /albums/s1/episode9/
+next: /albums/s1/episode11/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

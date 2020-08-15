@@ -10,8 +10,8 @@ edition: S1
 date: 2019-09-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode12-scene07.jpg
 prcast:
-prev: /albums/episode11/
-next: /albums/episode13/
+prev: /albums/s1/episode11/
+next: /albums/s1/episode13/
 scenes:
 - scene_number: 01
   scene_title: "Do I need to make up a title for this too? Fine, just use this one."

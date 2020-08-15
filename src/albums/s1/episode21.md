@@ -10,8 +10,8 @@ edition: S1
 date: 2019-11-05T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode21-scene06.jpg
 prcast:
-prev: /albums/episode20/
-next: /albums/episode22/
+prev: /albums/s1/episode20/
+next: /albums/s1/episode22/
 scenes:
 - scene_number: 01
   scene_title: "Introduction"

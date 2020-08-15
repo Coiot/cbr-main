@@ -10,8 +10,8 @@ edition: S1
 date: 2020-06-30T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode53-scene05.jpg
 prcast:
-prev: /albums/episode52/
-next: /albums/episode54/
+prev: /albums/s1/episode52/
+next: /albums/s1/episode54/
 scenes:
 - scene_number: 01
   scene_title: "A Proper Preamble"

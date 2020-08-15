@@ -10,8 +10,8 @@ edition: S1
 date: 2019-07-09T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode4-scene06.jpg
 prcast:
-prev: /albums/episode3/
-next: /albums/episode5/
+prev: /albums/s1/episode3/
+next: /albums/s1/episode5/
 scenes:
 - scene_number: 01
   scene_title: "The Irony of Fate"

@@ -10,8 +10,8 @@ starting_turn: 156
 date: 2019-08-27T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode11-scene06.jpg
 prcast:
-prev: /albums/episode10/
-next: /albums/episode12/
+prev: /albums/s1/episode10/
+next: /albums/s1/episode12/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

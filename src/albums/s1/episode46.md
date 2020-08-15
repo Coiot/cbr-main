@@ -10,8 +10,8 @@ edition: S1
 date: 2020-05-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode46-scene06.jpg
 prcast:
-prev: /albums/episode45/
-next: /albums/episode47/
+prev: /albums/s1/episode45/
+next: /albums/s1/episode47/
 scenes:
 - scene_number: 01
   scene_title: ""

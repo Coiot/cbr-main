@@ -1,13 +1,11 @@
 <template>
   <transition name="fade">
     <div class="album-list">
-      <h1>Latest Albums</h1>
-
       <router-link
         :to="post.path"
         tag="div"
         v-for="(post,index) in albums"
-        v-if="index < 4"
+        v-if="index < 2"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -23,6 +21,28 @@
           <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
         </div>
       </router-link>
+      <div>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 1"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
     </div>
   </transition>
 </template>
@@ -32,7 +52,9 @@ export default {
   computed: {
     albums() {
       return this.$site.pages
-        .filter((x) => x.path.startsWith("/albums") && !x.frontmatter.exclude)
+        .filter(
+          (x) => x.path.startsWith("/albums/mk2") && !x.frontmatter.exclude
+        )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
@@ -42,33 +64,26 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.4;
-  margin-top: 2.4em;
-}
-
 .album-list {
-  margin: 10rem 0 0;
+  margin: 4rem 6rem 0;
 }
 
 .post {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid #1a1a1a;
-  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.2);
-  margin-bottom: 5vw;
+  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.35);
+  margin-bottom: 4vw;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .post:hover {
-  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.3);
+  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.5);
   transform: scale(1.01);
 }
 
@@ -82,64 +97,88 @@ img {
   position: absolute;
   left: 0;
   top: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem;
   color: $textColor;
   text-shadow: 1px 2px #083832;
   background: #202020;
   border: 1px double #fff;
   border-left: 0;
-  box-shadow: 1px 4px 3px 0 rgba(19, 0, 0, 0.4);
+  box-shadow: 1px 4px 3px 0 rgba(19, 0, 0, 0.3);
   max-width: 550px;
 }
 
 .title-info p {
   display: inline-block;
   width: auto;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin: 0;
 }
 
 .title-info span {
-  display: inline-block;
-  width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .album-info {
   position: absolute;
   right: 0;
   bottom: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem;
   color: #1a1a1a;
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
   box-shadow: -4px 5px 0 0 #ffbf46;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .album-info p {
   display: inline-block;
   width: auto;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   margin: 0;
 }
 
 .album-info span {
-  display: inline-block;
-  width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: 0.86rem;
+  font-size: 1rem;
+}
+
+.list {
+  color: $textColor;
+  text-shadow: 1px 2px #083832;
+  background-color: #202020;
+  border: 1px double #fff;
+  padding: 1em 2em;
+  margin-bottom: 4vw;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.list:hover {
+  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.3);
+  transform: scale(1.01);
+}
+
+.list p {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.list p span {
+  font-size: 60%;
+  font-weight: 400;
+  margin-left: 0.2rem;
 }
 
 @media (max-width: 719px) {
   .album-list {
-    margin: 5rem 2rem 0;
+    margin: 1rem 1.5rem 0;
   }
 }
 </style>

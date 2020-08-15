@@ -10,8 +10,8 @@ edition: S1
 date: 2019-10-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode20-scene06.jpg
 prcast:
-prev: /albums/episode19/
-next: /albums/episode21/
+prev: /albums/s1/episode19/
+next: /albums/s1/episode21/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

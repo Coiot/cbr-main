@@ -10,8 +10,8 @@ edition: S1
 date: 2019-09-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode13-scene07.jpg
 prcast:
-prev: /albums/episode12/
-next: /albums/episode14/
+prev: /albums/s1/episode12/
+next: /albums/s1/episode14/
 scenes:
 - scene_number: 01
   scene_title: "An Unlucky Number"

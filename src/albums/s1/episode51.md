@@ -10,8 +10,8 @@ starting_turn: 751
 date: 2020-06-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode51-scene06.jpg
 prcast:
-prev: /albums/episode50/
-next: /albums/episode52/
+prev: /albums/s1/episode50/
+next: /albums/s1/episode52/
 scenes:
 - scene_number: 01
   scene_title: "Introduction"

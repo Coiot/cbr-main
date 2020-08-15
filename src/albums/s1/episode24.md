@@ -10,8 +10,8 @@ edition: S1
 date: 2019-11-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode24-scene06.jpg
 prcast:
-prev: /albums/episode23/
-next: /albums/episode25/
+prev: /albums/s1/episode23/
+next: /albums/s1/episode25/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

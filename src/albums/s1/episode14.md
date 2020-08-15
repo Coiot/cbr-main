@@ -10,8 +10,8 @@ edition: S1
 date: 2019-09-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode14-scene06.jpg
 prcast:
-prev: /albums/episode13/
-next: /albums/episode15/
+prev: /albums/s1/episode13/
+next: /albums/s1/episode15/
 scenes:
 - scene_number: 01
   scene_title: "After That Cliffhanger..."

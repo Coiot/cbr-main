@@ -5,7 +5,7 @@
         :to="post.path"
         tag="div"
         v-for="(post,index) in albums"
-        v-if="index < 1"
+        v-if="index < 2"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -26,7 +26,7 @@
           :to="post.path"
           tag="div"
           v-for="(post,index) in albums"
-          v-if="index > 0"
+          v-if="index > 1"
           :key="post.title"
           :tabindex="0"
         >
@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 10rem 6rem 0;
+  margin: 4rem 6rem 0;
 }
 
 .post {
@@ -91,6 +91,7 @@ img {
   width: 100%;
   line-height: 0;
   margin: 2rem 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .title-info {
@@ -178,7 +179,7 @@ img {
 
 @media (max-width: 719px) {
   .album-list {
-    margin: 5rem 2rem 0;
+    margin: 1rem 1.5rem 0;
   }
 }
 </style>

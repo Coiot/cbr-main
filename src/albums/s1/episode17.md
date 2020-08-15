@@ -10,8 +10,8 @@ edition: S1
 date: 2019-10-08T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode17-scene06.jpg
 prcast:
-prev: /albums/episode16/
-next: /albums/episode18/
+prev: /albums/s1/episode16/
+next: /albums/s1/episode18/
 scenes:
 - scene_number: 01
   scene_title: "Intro"

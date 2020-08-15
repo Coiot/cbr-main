@@ -10,8 +10,8 @@ edition: S1
 date: 2020-04-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode42-scene06.jpg
 prcast:
-prev: /albums/episode41/
-next: /albums/episode43/
+prev: /albums/s1/episode41/
+next: /albums/s1/episode43/
 scenes:
 - scene_number: 01
   scene_title: ""

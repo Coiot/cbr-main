@@ -12,7 +12,7 @@
       <slot name="sidebar-bottom" slot="bottom" />
     </Sidebar>
 
-    <Albums v-if="$page.frontmatter.edition" :sidebar-items="sidebarItems" />
+    <Albums v-if="$page.frontmatter.edition" />
 
     <div class="custom-layout" v-else-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout" />

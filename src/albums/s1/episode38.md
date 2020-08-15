@@ -10,8 +10,8 @@ edition: S1
 date: 2020-03-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode38-scene06.jpg
 prcast:
-prev: /albums/episode37/
-next: /albums/episode39/
+prev: /albums/s1/episode37/
+next: /albums/s1/episode39/
 scenes:
 - scene_number: 01
   scene_title: "EndGame"

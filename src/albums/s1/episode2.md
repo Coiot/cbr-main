@@ -13,8 +13,8 @@ fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
 edition: S1
 date: 2019-06-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg
-prev: /albums/episode1/
-next: /albums/episode3/
+prev: /albums/s1/episode1/
+next: /albums/s1/episode3/
 scenes:
 - scene_number: "1"
   scene_title: Ahoy!

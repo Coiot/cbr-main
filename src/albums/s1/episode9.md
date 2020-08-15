@@ -9,8 +9,8 @@ edition: S1
 date: 2019-08-13T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode9-scene06.jpg
 prcast:
-prev: /albums/episode8/
-next: /albums/episode10/
+prev: /albums/s1/episode8/
+next: /albums/s1/episode10/
 scenes:
 - scene_number: 01
   scene_title: "15 Turns of bloodshed"

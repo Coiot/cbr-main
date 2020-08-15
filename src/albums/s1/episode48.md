@@ -9,8 +9,8 @@ edition: S1
 date: 2020-05-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode48-scene06.jpg
 prcast:
-prev: /albums/episode47/
-next: /albums/episode49/
+prev: /albums/s1/episode47/
+next: /albums/s1/episode49/
 starting_turn: 
 scenes:
 - scene_number: 01

@@ -10,8 +10,8 @@ edition: S1
 date: 2020-01-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season01-episode31-scene06.jpg
 prcast:
-prev: /albums/episode30/
-next: /albums/episode32/
+prev: /albums/s1/episode30/
+next: /albums/s1/episode32/
 scenes:
 - scene_number: 01
   scene_title: "Stepping up to the Mic"

@@ -10,8 +10,8 @@ edition: S1
 date: 2020-03-24T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-episode39-scene06.jpg
 prcast:
-prev: /albums/episode38/
-next: /albums/episode40/
+prev: /albums/s1/episode38/
+next: /albums/s1/episode40/
 scenes:
 - scene_number: 01
   scene_title: ""
