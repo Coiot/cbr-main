@@ -1,25 +1,30 @@
 <template>
-<transition name="fade">
-  <div class="album-list">
+  <transition name="fade">
+    <div class="album-list">
+      <h1>Latest Albums</h1>
 
-    <h1>Latest Albums</h1>
+      <router-link
+        :to="post.path"
+        tag="div"
+        v-for="(post,index) in albums"
+        v-if="index < 2"
+        :key="post.title"
+        class="post"
+        :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
+        :tabindex="0"
+      >
+        <div class="title-info">
+          <p>{{ post.frontmatter.title }}</p>
+          <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
+        </div>
 
-    <router-link :to="post.path" tag="div" v-for="(post,index) in albums" v-if="index < 2" :key="post.title" class="post" :style="{ backgroundImage: `url(${post.frontmatter.image})` }" :tabindex="0">
-
-      <div class="title-info">
-        <p>{{ post.frontmatter.title }}</p>
-        <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
-      </div>
-
-      <div class="album-info">
-        <p>{{ post.frontmatter.narrated_by }}</p>
-        <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
-      </div>
-
-    </router-link>
-
-  </div>
-</transition>
+        <div class="album-info">
+          <p>{{ post.frontmatter.narrated_by }}</p>
+          <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+        </div>
+      </router-link>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -27,11 +32,13 @@ export default {
   computed: {
     albums() {
       return this.$site.pages
-        .filter(x => x.path.startsWith('/albums') && !x.frontmatter.exclude)
-        .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-    }
-  }
-}
+        .filter((x) => x.path.startsWith("/albums") && !x.frontmatter.exclude)
+        .sort(
+          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+        );
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -57,7 +64,7 @@ h1 {
   box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.2);
   margin-bottom: 5vw;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .post:hover {
@@ -98,7 +105,7 @@ img {
   width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .album-info {
@@ -110,14 +117,14 @@ img {
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
-  box-shadow: -4px 5px 0 0 #FFBF46;
+  box-shadow: -4px 5px 0 0 #ffbf46;
   max-width: 800px;
 }
 
 .album-info p {
   display: inline-block;
   width: auto;
-  font-size: .95rem;
+  font-size: 0.95rem;
   font-weight: 700;
   margin: 0;
 }
@@ -127,7 +134,7 @@ img {
   width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: .86rem;
+  font-size: 0.86rem;
 }
 
 @media (max-width: 719px) {
