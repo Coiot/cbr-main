@@ -26,6 +26,7 @@
         <div class="arc-header">
           <h2>Dawn of Civilization</h2>
           <span>Arc One</span>
+          <p>61 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -39,7 +40,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -54,6 +55,7 @@
         <div class="arc-header">
           <h2>Immortal Paradise</h2>
           <span>Arc Two</span>
+          <p>61 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -67,7 +69,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -82,6 +84,7 @@
         <div class="arc-header">
           <h2>Age of Discord</h2>
           <span>Arc Three</span>
+          <p>60 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -95,7 +98,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -110,6 +113,7 @@
         <div class="arc-header">
           <h2>Orange Phase</h2>
           <span>Arc Four</span>
+          <p>58 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -123,7 +127,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -138,6 +142,7 @@
         <div class="arc-header">
           <h2>Pacific Generation</h2>
           <span>Arc Five</span>
+          <p>49 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -151,7 +156,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -166,6 +171,7 @@
         <div class="arc-header">
           <h2>Nuclear Season</h2>
           <span>Arc Six</span>
+          <p>45 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -179,7 +185,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -194,6 +200,7 @@
         <div class="arc-header">
           <h2>Fallout Period</h2>
           <span>Arc Seven</span>
+          <p>34 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -207,7 +214,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -222,6 +229,7 @@
         <div class="arc-header">
           <h2>Northern Ice Age</h2>
           <span>Arc Eight</span>
+          <p>32 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -235,7 +243,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -250,6 +258,7 @@
         <div class="arc-header">
           <h2>Grand Alliances</h2>
           <span>Arc Nine</span>
+          <p>27 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -263,7 +272,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -278,6 +287,7 @@
         <div class="arc-header">
           <h2>Time of Rapture</h2>
           <span>Arc Ten</span>
+          <p>24 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -291,7 +301,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -307,6 +317,7 @@
         <div class="arc-header">
           <h2>Rise of the Machines</h2>
           <span>Arc Eleven</span>
+          <p>21 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -320,7 +331,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -335,6 +346,7 @@
         <div class="arc-header">
           <h2>Bio-Augment Tides</h2>
           <span>Arc Tweleve</span>
+          <p>18 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -348,7 +360,7 @@
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -363,20 +375,50 @@
         <div class="arc-header">
           <h2>The Green Revolution</h2>
           <span>Arc Thirteen</span>
+          <p>16 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
             :to="post.path"
             tag="div"
             v-for="(post,index) in albums"
-            v-if="index > 97 && index < 120"
+            v-if="index > 97 && index < 110"
             :key="post.title"
             :tabindex="0"
           >
             <div class="list">
               <p>
                 {{ post.frontmatter.title }}
-                <span>– {{ post.frontmatter.edition }}</span>
+                <span>{{ post.frontmatter.edition }}</span>
+              </p>
+
+              <p>
+                {{ post.frontmatter.narrated_by }}
+                <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+              </p>
+            </div>
+          </router-link>
+        </article>
+      </div>
+      <div class="arc">
+        <div class="arc-header">
+          <h2>Samba Forever</h2>
+          <span>Arc Fourteen</span>
+          <p>11 competitors remain.</p>
+        </div>
+        <article class="arc-list">
+          <router-link
+            :to="post.path"
+            tag="div"
+            v-for="(post,index) in albums"
+            v-if="index > 109 && index < 120"
+            :key="post.title"
+            :tabindex="0"
+          >
+            <div class="list">
+              <p>
+                {{ post.frontmatter.title }}
+                <span>{{ post.frontmatter.edition }}</span>
               </p>
 
               <p>
@@ -419,7 +461,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px solid #1a1a1a;
+  border-bottom: 8px solid #ffbf46;
   box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.35);
   margin-bottom: 4vw;
   cursor: pointer;
@@ -474,7 +516,7 @@ img {
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
-  box-shadow: -4px 5px 0 0 #ffbf46;
+  box-shadow: -3px 4px 0 0 #ffbf46;
   max-width: 900px;
 }
 
@@ -513,6 +555,7 @@ h1 {
 }
 
 .arc-header h2 {
+  font-size: 2rem;
   font-weight: 900;
   margin: 0 0 0.5em;
 }
@@ -521,6 +564,10 @@ h1 {
   color: #ffbf46;
   font-size: 1.2rem;
   font-weight: 800;
+}
+
+.arc-header p {
+  margin-right: 3em;
 }
 
 .arc-list {
@@ -568,7 +615,28 @@ h1 {
 
   .arc-header {
     width: 100%;
+    line-height: 0.1;
     padding: 0;
+  }
+
+  .arc-header h2 {
+    font-size: 3rem;
+  }
+
+  .arc-header span {
+    font-size: 2.5rem;
+  }
+
+  .arc-header p {
+    font-size: 1.5rem;
+  }
+
+  .arc-header p {
+    margin-right: 0;
+  }
+
+  .arc-list {
+    width: 100%;
   }
 
   .album-list {

@@ -29,7 +29,7 @@ import S1List from "./S1List.vue";
 export default {
   data() {
     return {
-      clickedEdition: null,
+      clickedEdition: S1List,
     };
   },
   components: {
