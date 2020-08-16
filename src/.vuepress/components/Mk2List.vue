@@ -21,9 +21,10 @@
           <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
         </div>
       </router-link>
+      <h1>Cycle One</h1>
       <div class="arc">
         <div class="arc-header">
-          <h1>Dawn of Civilization</h1>
+          <h2>Dawn of Civilization</h2>
           <span>Arc One</span>
         </div>
         <article class="arc-list">
@@ -51,7 +52,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Immortal Paradise</h1>
+          <h2>Immortal Paradise</h2>
           <span>Arc Two</span>
         </div>
         <article class="arc-list">
@@ -79,7 +80,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Age of Discord</h1>
+          <h2>Age of Discord</h2>
           <span>Arc Three</span>
         </div>
         <article class="arc-list">
@@ -107,7 +108,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Orange Phase</h1>
+          <h2>Orange Phase</h2>
           <span>Arc Four</span>
         </div>
         <article class="arc-list">
@@ -135,7 +136,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Pacific Generation</h1>
+          <h2>Pacific Generation</h2>
           <span>Arc Five</span>
         </div>
         <article class="arc-list">
@@ -163,7 +164,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Nuclear Season</h1>
+          <h2>Nuclear Season</h2>
           <span>Arc Six</span>
         </div>
         <article class="arc-list">
@@ -191,7 +192,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Fallout Period</h1>
+          <h2>Fallout Period</h2>
           <span>Arc Seven</span>
         </div>
         <article class="arc-list">
@@ -219,7 +220,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Northern Ice Age</h1>
+          <h2>Northern Ice Age</h2>
           <span>Arc Eight</span>
         </div>
         <article class="arc-list">
@@ -247,7 +248,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Grand Alliances</h1>
+          <h2>Grand Alliances</h2>
           <span>Arc Nine</span>
         </div>
         <article class="arc-list">
@@ -275,7 +276,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Time of Rapture</h1>
+          <h2>Time of Rapture</h2>
           <span>Arc Ten</span>
         </div>
         <article class="arc-list">
@@ -283,7 +284,7 @@
             :to="post.path"
             tag="div"
             v-for="(post,index) in albums"
-            v-if="index > 73 && index < 84"
+            v-if="index > 73 && index < 83"
             :key="post.title"
             :tabindex="0"
           >
@@ -301,9 +302,10 @@
           </router-link>
         </article>
       </div>
+      <h1>Cycle Two</h1>
       <div class="arc">
         <div class="arc-header">
-          <h1>Rise of the Machines</h1>
+          <h2>Rise of the Machines</h2>
           <span>Arc Eleven</span>
         </div>
         <article class="arc-list">
@@ -311,7 +313,7 @@
             :to="post.path"
             tag="div"
             v-for="(post,index) in albums"
-            v-if="index > 83 && index < 92"
+            v-if="index > 82 && index < 92"
             :key="post.title"
             :tabindex="0"
           >
@@ -331,7 +333,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>Bio-Augment Tides</h1>
+          <h2>Bio-Augment Tides</h2>
           <span>Arc Tweleve</span>
         </div>
         <article class="arc-list">
@@ -359,7 +361,7 @@
       </div>
       <div class="arc">
         <div class="arc-header">
-          <h1>The Green Revolution</h1>
+          <h2>The Green Revolution</h2>
           <span>Arc Thirteen</span>
         </div>
         <article class="arc-list">
@@ -490,6 +492,12 @@ img {
   font-size: 1rem;
 }
 
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  padding: 0.5em 0 0.1em;
+}
+
 .arc {
   width: 100%;
   display: flex;
@@ -504,7 +512,7 @@ img {
   width: 50%;
 }
 
-.arc-header h1 {
+.arc-header h2 {
   font-weight: 900;
   margin: 0 0 0.5em;
 }
@@ -565,6 +573,10 @@ img {
 
   .album-list {
     margin: 1rem 1.5rem 0;
+  }
+
+  h2 {
+    border-bottom: none;
   }
 }
 </style>
