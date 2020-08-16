@@ -1,12 +1,12 @@
 ---
 title: 'Part 47: Little Boy Blue'
-narrated_by: 
+narrated_by: 'Capcombric'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '479'
+release_date: 'March 30, 206'
 audio_narration: https://youtu.be/eLCn0Vgq61I
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-30T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part47-scene06.jpg
 scenes:
 - scene_number: "1"

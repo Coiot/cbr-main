@@ -1,6 +1,6 @@
 ---
 title: "Part 05: How to Fight Wars Good"
-narrated_by: Bencoccio
+narrated_by: 'Bencoccio'
 description: "The pressure cooker in northern Europe explodes in all directions while North America finally reaches its boiling point."
 starting_turn: "84"
 release_date: "August 25, 2015"

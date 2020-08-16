@@ -1,12 +1,12 @@
 ---
 title: 'Part 39: OZPOCALYPSE'
-narrated_by: 
+narrated_by: 'KnightofNi'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '402'
+release_date: 'March 02, 2016'
 audio_narration: https://youtu.be/i4Vt3VOM3uw
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-02T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part39-scene06.jpg
 scenes:
 - scene_number: "1"

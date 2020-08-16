@@ -1,12 +1,12 @@
 ---
 title: 'Part 50: Mali and Me'
-narrated_by: 
+narrated_by: 'PablodiSplooge'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '509'
+release_date: 'April 10, 2016'
 audio_narration: https://youtu.be/n_S9kqj7fis
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-04-10T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part50-scene06.jpg
 scenes:
 - scene_number: "1"

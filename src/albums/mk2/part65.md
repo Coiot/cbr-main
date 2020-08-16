@@ -1,12 +1,12 @@
 ---
 title: 'Part 65: Part Deux'
-narrated_by: 
+narrated_by: 'Whitefang131'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '680'
+release_date: 'July 17, 2016'
 audio_narration: https://youtu.be/tnLu5HLnNuc
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-07-17T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part65-scene06.jpg
 scenes:
 - scene_number: "1"

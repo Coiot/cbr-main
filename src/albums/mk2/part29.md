@@ -1,12 +1,12 @@
 ---
 title: 'Part 29: Ships Just Got Real...'
-narrated_by:
+narrated_by: 'NuclearWarlordGandhi'
 description: 'In a whirlwind of naval battles, one civ decides its time to make a stand.'
-starting_turn: ''
-release_date: ''
+starting_turn: '305'
+release_date: 'November 29, 2015'
 audio_narration: https://youtu.be/l1CZhQX5hTE
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-11-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part29-scene06.jpg
 scenes:
 - scene_number: "1"

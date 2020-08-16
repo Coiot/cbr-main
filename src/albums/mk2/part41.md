@@ -1,12 +1,12 @@
 ---
 title: 'Part 41: Save Her From This Shame!'
-narrated_by: 
+narrated_by: 'Pylgrim'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '423'
+release_date: 'March 10, 2016'
 audio_narration: https://youtu.be/8KiJqaxxiwI
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-10T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part41-scene06.jpg
 scenes:
 - scene_number: "1"

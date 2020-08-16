@@ -1,12 +1,12 @@
 ---
 title: 'Part 68: Totally Not A Dystopia'
-narrated_by: 
+narrated_by: 'GreatFanBR, TPangolin, and TA_Knight'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '702'
+release_date: 'August 07, 2016'
 audio_narration: https://youtu.be/487IyTHe-y4
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-08-07T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part68-scene06.jpg
 scenes:
 - scene_number: "1"

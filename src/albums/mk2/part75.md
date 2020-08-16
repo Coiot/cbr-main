@@ -1,12 +1,12 @@
 ---
 title: 'Part 75: Blast from the Past'
-narrated_by: 
+narrated_by: 'TechnostarBTD5 and Squato'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '746'
+release_date: 'September 19, 2016'
 audio_narration: https://youtu.be/n5EdP8xG5xc
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-09-19T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part75-scene06.jpg
 scenes:
 - scene_number: "1"

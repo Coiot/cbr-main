@@ -1,12 +1,12 @@
 ---
 title: 'Part 22: Strike of the Wobbegong'
-narrated_by:
+narrated_by: 'KirbyATK48'
 description: 'The Australian superpower makes another strong and insane move… Fear the Grand Wobbegong Armada!'
-starting_turn: ''
-release_date: ''
+starting_turn: '256'
+release_date: 'October 28, 2015'
 audio_narration: https://youtu.be/-sMWf3lTEJ8
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-10-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part22-scene06.jpg
 scenes:
 - scene_number: "1"

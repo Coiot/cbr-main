@@ -1,12 +1,12 @@
 ---
 title: 'Part 71: Shadow of the Colossus'
-narrated_by: 
+narrated_by: '_xSyracuse'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '719'
+release_date: 'August 24, 2016'
 audio_narration: https://youtu.be/yAU190sC8RU
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-08-24T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part71-scene06.jpg
 scenes:
 - scene_number: "1"

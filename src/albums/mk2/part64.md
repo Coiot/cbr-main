@@ -1,12 +1,12 @@
 ---
 title: 'Part 64: World War 2 - Part One'
-narrated_by: 
+narrated_by: 'TechnostarBTD5'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '674'
+release_date: 'July 10, 2016'
 audio_narration: https://youtu.be/zn_Do2_VpU0
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-07-10T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part64-scene06.jpg
 scenes:
 - scene_number: "1"

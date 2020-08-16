@@ -1,12 +1,12 @@
 ---
 title: 'Part 17: When the Sun Rises'
-narrated_by:
+narrated_by: '_Aeternix_'
 description: 'A cryptic statement gives some Civs inspiration (or confusion), while the wiser ones make strong advances in Africa and Oceania.'
-starting_turn: ''
-release_date: ''
+starting_turn: '221'
+release_date: 'October 11, 2015'
 audio_narration: https://youtu.be/VVDt28I5bko
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-10-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part17-scene06.jpg
 scenes:
 - scene_number: "1"

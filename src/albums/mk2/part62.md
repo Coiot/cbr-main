@@ -1,12 +1,12 @@
 ---
 title: 'Part 62: A World on the Brink of War'
-narrated_by: 
+narrated_by: 'patkellyrh'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '658'
+release_date: 'June 28, 2016'
 audio_narration: https://youtu.be/MQjesHZwi6w
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-06-28T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part62-scene06.jpg
 scenes:
 - scene_number: "1"

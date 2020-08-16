@@ -1,12 +1,12 @@
 ---
 title: 'Part 42: Turn Back The Glacier!'
-narrated_by: 
+narrated_by: 'an_actual_potato'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '431'
+release_date: 'March 13, 2016'
 audio_narration: https://youtu.be/IhtDCECIr8A
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-13T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part42-scene06.jpg
 scenes:
 - scene_number: "1"

@@ -1,12 +1,12 @@
 ---
 title: 'Part 52: Rising Tides, Crashing Skies'
-narrated_by: 
+narrated_by: 'iSandpeople'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '537'
+release_date: 'April 20, 2016'
 audio_narration: https://youtu.be/dTCIhq-usqk
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-04-20T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part52-scene06.jpg
 scenes:
 - scene_number: "1"

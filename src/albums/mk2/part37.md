@@ -1,12 +1,12 @@
 ---
 title: 'Part 37: The Final Freedom'
-narrated_by: 
+narrated_by: 'GloriousBeachead'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '381'
+release_date: 'February 24, 2016'
 audio_narration: https://youtu.be/jkqpCqwqdD0
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-02-24T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part37-scene06.jpg
 scenes:
 - scene_number: "1"

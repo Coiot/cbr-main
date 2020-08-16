@@ -100,17 +100,17 @@
             :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
-              <div class="h-narration" style="flex-direction: column">
+              <article class="h-narration" style="flex-direction: column">
                 <h3 v-html="scene.scene_title"></h3>
-                <div class="narrations" v-html="scene.narration" tabindex="0"></div>
-              </div>
+                <p class="narrations" v-html="scene.narration" tabindex="0"></p>
+              </article>
             </template>
           </vueper-slide>
         </vueper-slides>
       </div>
       <div v-if="isToggle === false">
         <section class="scenes">
-          <div class="medium" v-for="scene in $page.frontmatter.scenes" :key="scene.number">
+          <article class="medium" v-for="scene in $page.frontmatter.scenes" :key="scene.number">
             <h2
               class="scenenumber"
               v-bind:class="{ civdeathBorder: scene.death }"
@@ -135,7 +135,7 @@
               tabindex="0"
               v-bind:class="{ reporter: scene.reporter }"
             ></div>
-          </div>
+          </article>
         </section>
 
         <Content class="custom" />

@@ -1,12 +1,12 @@
 ---
 title: 'Part 46: The Land of Opportunity'
-narrated_by: 
+narrated_by: 'IamaScaleneTriangle'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '467'
+release_date: 'March 27, 2016'
 audio_narration: https://youtu.be/kyI8Zg8KgnE
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-27T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part46-scene06.jpg
 scenes:
 - scene_number: "1"

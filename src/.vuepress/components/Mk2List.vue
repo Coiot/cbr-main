@@ -5,7 +5,7 @@
         :to="post.path"
         tag="div"
         v-for="(post,index) in albums"
-        v-if="index < 2"
+        v-if="index < 1"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -22,11 +22,288 @@
         </div>
       </router-link>
       <div>
+        <h1>Dawn of Civilization</h1>
         <router-link
           :to="post.path"
           tag="div"
           v-for="(post,index) in albums"
-          v-if="index > 1"
+          v-if="index > 0 && index < 7"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Immortal Paradise</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 6 && index < 14"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Age of Discord</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 13 && index < 23"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Orange Phase</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 22 && index < 33"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Pacific Generation</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 32 && index < 42"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Nuclear Season</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 41 && index < 49"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Fallout Period</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 48 && index < 57"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Northern Ice Age</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 56 && index < 67"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Grand Alliances</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 66 && index < 74"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Time of Rapture</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 73 && index < 84"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Rise of the Machines</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 83 && index < 92"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>Bio-Augment Tides</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 91 && index < 98"
+          :key="post.title"
+          :tabindex="0"
+        >
+          <div class="list">
+            <p>
+              {{ post.frontmatter.title }}
+              <span>– {{ post.frontmatter.edition }}</span>
+            </p>
+
+            <p>
+              {{ post.frontmatter.narrated_by }}
+              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+            </p>
+          </div>
+        </router-link>
+      </div>
+      <div>
+        <h1>The Green Revolution</h1>
+        <router-link
+          :to="post.path"
+          tag="div"
+          v-for="(post,index) in albums"
+          v-if="index > 97 && index < 120"
           :key="post.title"
           :tabindex="0"
         >
@@ -56,7 +333,7 @@ export default {
           (x) => x.path.startsWith("/albums/mk2") && !x.frontmatter.exclude
         )
         .sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+          (b, a) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
     },
   },

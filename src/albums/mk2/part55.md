@@ -1,12 +1,12 @@
 ---
 title: 'Part 55: Awoken From Their Slumber'
-narrated_by: 
+narrated_by: '_Patronus_'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '576'
+release_date: 'May 11, 2016'
 audio_narration: https://youtu.be/z3QgVtpQxgU
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-05-11T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part55-scene06.jpg
 scenes:
 - scene_number: "1"

@@ -1,12 +1,12 @@
 ---
 title: 'Part 73: Boerder Patrol'
-narrated_by: 
+narrated_by: 'The_EnigmaConundrum'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '735'
+release_date: 'September 04, 2016'
 audio_narration: https://youtu.be/orZGiXx9Qww
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-09-04T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part73-scene06.jpg
 scenes:
 - scene_number: "1"

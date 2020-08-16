@@ -1,12 +1,12 @@
 ---
 title: 'Part 35: Kick‘em Whilst They‘re Down!'
-narrated_by: 
+narrated_by: 'Lacsirax Ariscal'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '366'
+release_date: 'February 17, 2016'
 audio_narration: https://youtu.be/6wFaytgwIiY
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-02-17T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part35-scene06.jpg
 scenes:
 - scene_number: "1"

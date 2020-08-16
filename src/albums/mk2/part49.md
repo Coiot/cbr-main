@@ -1,12 +1,12 @@
 ---
 title: 'Part 49: The Red Dawn...'
-narrated_by: 
+narrated_by: 'sledge115'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '500'
+release_date: 'April 06, 2016'
 audio_narration: https://youtu.be/AGDdLbGyrn0
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-04-06T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part49-scene06.jpg
 scenes:
 - scene_number: "1"

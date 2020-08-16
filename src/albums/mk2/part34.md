@@ -1,12 +1,12 @@
 ---
 title: 'Part 34: Snowdown at High Noon...'
-narrated_by: 
+narrated_by: 'tonystone2001'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '354'
+release_date: 'February 12, 2016'
 audio_narration: https://youtu.be/uil-R3P22-Q
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-02-12T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part34-scene06.jpg
 scenes:
 - scene_number: "1"

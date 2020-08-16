@@ -1,12 +1,12 @@
 ---
 title: 'Part 51: Pirate New Guinea'
-narrated_by: 
+narrated_by: 'RoastNonsense'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '522'
+release_date: 'April 13, 20166'
 audio_narration: https://youtu.be/vvFT0rn0LWo
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-04-13T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg
 scenes:
 - scene_number: "1"

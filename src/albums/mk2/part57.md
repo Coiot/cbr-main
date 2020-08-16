@@ -1,12 +1,12 @@
 ---
 title: 'Part 57: The Grudge Match'
-narrated_by: 
+narrated_by: 'CrucibleOfTraining'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '595'
+release_date: 'May 25, 2016'
 audio_narration: https://youtu.be/tmaUHkSPmjs
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-05-25T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part57-scene06.jpg
 scenes:
 - scene_number: "1"

@@ -1,12 +1,12 @@
 ---
 title: 'Part 23: "On My Command, You Shall Become Irrelevant!"'
-narrated_by:
+narrated_by: 'Wigmaster999'
 description: 'War is hell! Superiorities are reaffirmed and more Civs are pushed lower and lower down the ranks.'
-starting_turn: ''
-release_date: ''
+starting_turn: '264'
+release_date: 'November 01, 2015'
 audio_narration: https://youtu.be/QShQhEnK2ko
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-11-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part23-scene06.jpg
 scenes:
 - scene_number: "1"

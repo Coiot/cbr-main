@@ -1,12 +1,12 @@
 ---
 title: 'Part 40: Mad Parkes - Fury Boats'
-narrated_by: 
+narrated_by: 'sonicnerd23'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '413'
+release_date: 'March 07, 2016'
 audio_narration: https://youtu.be/lUQNCUgR2WA
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-03-07T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part40-scene06.jpg
 scenes:
 - scene_number: "1"

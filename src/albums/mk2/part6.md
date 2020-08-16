@@ -1,6 +1,6 @@
 ---
 title: "Part 06: Tonight, We Dine In Hell"
-narrated_by: DemosthenesKey
+narrated_by: 'DemosthenesKey'
 description: "The war in Europe heats up as Leonidas leads his armies."
 starting_turn: "97"
 release_date: "August 30, 2015"

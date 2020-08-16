@@ -1,12 +1,12 @@
 ---
 title: 'Part 25: The Rise of Draka'
-narrated_by:
+narrated_by: 'bluesox'
 description: 'We see more rumbles in Africa, Europe and South Asia as landscapes quickly change and shows of force become quite dramatic.'
-starting_turn: ''
-release_date: ''
+starting_turn: '279'
+release_date: 'November 08, 2015'
 audio_narration: https://youtu.be/cL2YMQ0UjbE
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-11-08T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part25-scene06.jpg
 scenes:
 - scene_number: "1"

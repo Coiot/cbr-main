@@ -1,12 +1,12 @@
 ---
 title: 'Part 54: X-Com Gon‘ Give It To Ya'
-narrated_by: 
+narrated_by: 'TA_Knight'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '558'
+release_date: 'May 04, 2016'
 audio_narration: https://youtu.be/_uAQTT_SKsQ
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-05-04T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part54-scene06.jpg
 scenes:
 - scene_number: "1"

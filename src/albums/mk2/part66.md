@@ -1,12 +1,12 @@
 ---
 title: 'Part 66: World War 2 - Part Three: New Dawn'
-narrated_by: 
+narrated_by: 'Pastry_Lad'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '687'
+release_date: 'July 24, 2016'
 audio_narration: https://youtu.be/LYA1F6pVucA
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-07-24T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part66-scene06.jpg
 scenes:
 - scene_number: "1"

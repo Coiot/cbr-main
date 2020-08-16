@@ -1,12 +1,12 @@
 ---
 title: 'Part 63: Spiders, Seal Tears, and Messiahs'
-narrated_by: 
+narrated_by: 'bigkr88'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '667'
+release_date: 'July 06, 2016'
 audio_narration: https://youtu.be/7I2g_xdvHhI
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-07-06T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part63-scene06.jpg
 scenes:
 - scene_number: "1"

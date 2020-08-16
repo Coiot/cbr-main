@@ -76,6 +76,7 @@ export default {
   }
 
   .list {
+    word-break: break-all;
     padding: 0 1rem;
     margin: 0.5rem 1.5rem;
   }

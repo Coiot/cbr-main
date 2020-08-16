@@ -1,12 +1,12 @@
 ---
 title: 'Part 61: Old Grudges Resurface'
-narrated_by: 
+narrated_by: '_xSyracuse'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '644'
+release_date: 'June 21, 2016'
 audio_narration: https://youtu.be/qvXnfNfgpaI
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-06-21T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg
 scenes:
 - scene_number: "1"

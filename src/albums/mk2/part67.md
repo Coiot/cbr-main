@@ -1,12 +1,12 @@
 ---
 title: 'Part 67: The Kekkoning'
-narrated_by:
+narrated_by: 'sonicnerd23'
 description:
-starting_turn:
-release_date:
+starting_turn: '694'
+release_date: 'July 31, 2016'
 audio_narration: https://www.youtube.com/watch?v=XuXYS_I0Vxg
 edition: Mk2
-date: 2017-06-16T06:07:58.782595+00:00
+date: 2016-07-31T06:07:58.782595+00:00
 image: https://cdn.civbattleroyale.tv/mark2-part67-scene06.jpg?format=webp&nearlossless=1
 scenes:
 - scene_number: 01

@@ -1,12 +1,12 @@
 ---
 title: 'Part 78: The Two Henrys'
-narrated_by: 
+narrated_by: 'sledge115'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '760'
+release_date: 'October 02, 2016'
 audio_narration: https://youtu.be/XB_AXAAY8FM
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-10-02T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part78-scene06.jpg
 scenes:
 - scene_number: "1"

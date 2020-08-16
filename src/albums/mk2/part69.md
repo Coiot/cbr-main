@@ -1,12 +1,12 @@
 ---
 title: 'Part 69: Lord of the Ryk'
-narrated_by: 
-description: Nice
-starting_turn: ''
-release_date: ''
+narrated_by: 'LeUmoq'
+description:
+starting_turn: '710'
+release_date: 'August 17, 2016'
 audio_narration: https://youtu.be/0IuRPhcXJ8Q
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-08-17T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part69-scene06.jpg
 scenes:
 - scene_number: "1"

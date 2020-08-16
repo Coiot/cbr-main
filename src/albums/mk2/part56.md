@@ -1,12 +1,12 @@
 ---
 title: 'Part 56: Eye of the Taiga'
-narrated_by: 
+narrated_by: 'ThyReformer'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '585'
+release_date: 'May 18, 2016'
 audio_narration: https://youtu.be/elqlzRonNVU
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-05-18T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part56-scene06.jpg
 scenes:
 - scene_number: "1"

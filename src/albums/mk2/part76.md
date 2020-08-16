@@ -1,12 +1,12 @@
 ---
 title: 'Part 76: Hail Kruger'
-narrated_by: 
+narrated_by: 'Lacsirax Ariscal'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '750'
+release_date: 'September 25, 2016'
 audio_narration: https://youtu.be/UvrUAghGIJA
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-09-25T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part76-scene06.jpg
 scenes:
 - scene_number: "1"

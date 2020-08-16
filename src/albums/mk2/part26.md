@@ -1,12 +1,12 @@
 ---
 title: 'Part 26: Who‘s the Fairest of them All?'
-narrated_by: 
+narrated_by: 'forgodandthequeen'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '288'
+release_date: 'November 15, 2015'
 audio_narration: https://youtu.be/TGCHZHSCO-4
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2015-11-15T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part26-scene06.jpg
 scenes:
 - scene_number: "1"

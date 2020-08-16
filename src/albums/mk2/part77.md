@@ -1,12 +1,12 @@
 ---
 title: 'Part 77: The Meiji Restoration'
-narrated_by: 
+narrated_by: '_xSyracuse and TechnostarBTD5'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '754'
+release_date: 'September 28, 2016'
 audio_narration: https://youtu.be/fcz1U-gr1QM
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-09-28T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part77-scene06.jpg
 scenes:
 - scene_number: "1"

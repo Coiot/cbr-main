@@ -1,12 +1,12 @@
 ---
 title: 'Part 15: Gun/Boat Diplomacy'
-narrated_by:
+narrated_by: 'senshidenshi'
 description: 'In the aftermath of elimination, a giant awakens!'
-starting_turn: ''
-release_date: ''
+starting_turn: '203'
+release_date: 'October 4, 2015'
 audio_narration: https://youtu.be/WFci8cwsA6M
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-10-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part15-scene06.jpg
 scenes:
 - scene_number: "1"

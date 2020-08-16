@@ -1,12 +1,12 @@
 ---
 title: 'Part 21:: Ah, If It Isn‘t My Favourite City-State!'
-narrated_by:
+narrated_by: 'Lurking_Chronicler'
 description: 'Look at those cute tiny Civs, there they go, denouncing, planning and looking tough, it’s adorable.'
-starting_turn: ''
-release_date: ''
+starting_turn: '250'
+release_date: 'October 25, 2015'
 audio_narration: https://youtu.be/_1CWfDoCUjE
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z
+date: 2015-10-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part21-scene06.jpg
 scenes:
 - scene_number: "1"

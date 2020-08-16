@@ -1,12 +1,12 @@
 ---
 title: 'Part 58: You Wouldn‘t Download a Warship'
-narrated_by: 
+narrated_by: 'lungora'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '609'
+release_date: 'June 01, 2016'
 audio_narration: https://youtu.be/XitYENdCA7c
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-06-01T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part58-scene06.jpg
 scenes:
 - scene_number: "1"

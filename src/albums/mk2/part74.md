@@ -1,12 +1,12 @@
 ---
 title: 'Part 74: The Tipping Point'
-narrated_by: 
+narrated_by: 'streetlamp25'
 description: ''
-starting_turn: ''
-release_date: ''
+starting_turn: '741'
+release_date: 'September 11, 2016'
 audio_narration: https://youtu.be/IrfergjEL5E
 edition: Mk2
-date: 2015-03-04T00:00:00.000Z 
+date: 2016-09-11T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part74-scene06.jpg
 scenes:
 - scene_number: "1"
