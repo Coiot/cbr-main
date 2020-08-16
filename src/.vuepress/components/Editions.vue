@@ -10,11 +10,11 @@
           <p>Mark Two</p>
         </div>
 
-        <div class="list">
+        <div class="list" @click="clickedEdition = 'PRList'">
           <p>Power Rankings</p>
         </div>
 
-        <div class="list">
+        <div class="list" @click="clickedEdition = 'OthersList'">
           <p>Others</p>
         </div>
       </div>
