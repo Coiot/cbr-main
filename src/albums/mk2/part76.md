@@ -10,13 +10,13 @@ date: 2016-09-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part76-scene06.jpg
 scenes:
 - scene_number: "1"
-  scene_title: Image 01
+  scene_title: 1
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene01.jpg
   narration: |-
     Welcome back to Mark II of the Civ Battle Royale! It‘s-a-me, Lacsirax Ariscal, resident ranker and erstwhile cartographer. The first time I narrated was Part 28, where we saw THREE eliminations, and the second was Part 35 where... uh... not much happened at all. Let’s see where Part 76 lies on the excitement spectrum! With the nascent war between Brazil and the Buccaneers, the ongoing conflict between Vietnam and the Boers, and the merciless takedown of Yakutia, this part has all the portents of being an absolute corker.
     This week’s titlecard is the work of the one and only /u/Jru247, the CBR community’s resident Great Artist. For more fantastic OC, news, discussions, drama and general Battle Royale ruckuses, make sure to subscribe to /r/civbattleroyale!
 - scene_number: "2"
-  scene_title: Image 02
+  scene_title: 2
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene02.jpg
   narration: There’s a lot of wars in the world, so naturally first we come to /u/mazerlaser’s
     relationship graph to take a look at some of the ones you might have forgotten.
@@ -26,13 +26,13 @@ scenes:
     the Nordic nations have large forces trained on each other’s borders, while Armenia
     just took out Israel, incurring some warmongering penalties on the way.
 - scene_number: "3"
-  scene_title: Image 03
+  scene_title: 3
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene03.jpg
   narration: |-
     The Boers top the Power Rankings again this week, although their current combatant Vietnam grabs the second place slot for the first time; indeed, if their push continues and they make landfall on Africa, there might be a big shake-up on the horizon… Anyway, thanks to all the other rankers who work far harder than me to bring these to you every week!
     More info here: https://www.reddit.com/r/civbattleroyale/comments/548ji1/the_civ_battle_royale_mk_ii_power_rankings_part_75/
 - scene_number: "4"
-  scene_title: Image 04
+  scene_title: 4
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene04.jpg
   narration: "/u/Spherical_Melon has a wonderful gift for the community: the Tile-Accurate
     City Map! With population sizes, roads and rivers, it’s a brilliant map to open
@@ -41,20 +41,20 @@ scenes:
     who updates Annals of the Worlds (the base of my City Map), is too busy at the
     moment, so they’ve gone on hold until his work frees up a little."
 - scene_number: "5"
-  scene_title: Image 05
+  scene_title: 5
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene05.jpg
   narration: We also as ever thank /u/edse1991 for the Tile-Accurate Map; of most
     note here is how tiny Yakutia looks. Remember when they were the sleeping giants?
     Now they’re more like bullied dwarves. Could Korea finish the job this part? Well,
     there’s only one way to find out – onwards to the main event!
 - scene_number: "6"
-  scene_title: Image 06
+  scene_title: 6
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene06.jpg
   narration: |-
     We start this part in Mexico, where Juarez of Mexico continues to stave off the incessant Australian navy. Parkes’ fleet currently controls Merida, Waipahu and Torreon, the three main cities at stake in this war; they’re also making a half-hearted push on Monterrey. This is a familiar scene, and Australia’s difficulty in holding any territory or making mainland progress has been a major bugbear for the Power Rankers, who this week placed Australia sixth, their lowest ranking since Part 3. And in Part 3, said rankers placed China fourth. Ah, hindsight.
     Anyway, Mexico, for once, doesn’t appear to be on the verge of retaking any cities from Australia. Perhaps that’s because of the Buccaneer Power Armour stalking the southern lands near Mexico City, drawing the attention of Juarez’s meagre land forces. To the northwest, a new threat looms – Blackfoot paratroopers far outnumber the lone marine sitting in Veracruz. Crowfoot and Juarez have long had beef, but this time the Blackfoot are on the front-foot. Will Crowfoot know how to handle this novelty?
 - scene_number: "7"
-  scene_title: Image 07
+  scene_title: 7
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene07.jpg
   narration: For much of the Bucc-Boer conflict that has dominated Babylonian media
     for the past five parts or so, one consistent theme has been Cap’n Morgan’s dominance
@@ -70,7 +70,7 @@ scenes:
     surround Messene. I don’t think that town’s rum industries are long for this world.
     Vodka production is skyrocketing, mind you.
 - scene_number: '08'
-  scene_title: Image 08
+  scene_title: 8
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene08.jpg
   narration: We saw Rabat ripped off the face of the planet last part, but one aspect
     that went relatively unnoticed is its position on top of a uranium mine. That’s
@@ -82,7 +82,7 @@ scenes:
     could be seeing another Kumasi moment, where the Boers surround the city with
     ranged units and wonder why they can’t enter.
 - scene_number: '09'
-  scene_title: Image 09
+  scene_title: 9
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene09.jpg
   narration: 'The War That Was Promised. Our first glimpse of the much-hyped conflict
     between Brazil and the Buccaneers this part, and it’s the expected story: Brazilian
@@ -95,7 +95,7 @@ scenes:
     conflict in South America so painfully slow almost entirely chopped down, it’s
     possible we’re about to see a very quick colour change.'
 - scene_number: "10"
-  scene_title: Image 10
+  scene_title: 10
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene10.jpg
   narration: The Blackfoot don’t appear to have moved since the first turn of the
     war with Mexico, but already we can see where the damage will be dealt. Hunkpapa,
@@ -107,7 +107,7 @@ scenes:
     but it’s also worth noting they have open borders with Australia, so Parkes’ occupation
     of Torreon isn’t impeding them at all.
 - scene_number: "11"
-  scene_title: Image 11
+  scene_title: 11
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene11.jpg
   narration: First blood to Brazil and it’s a capital! The old Incan centre of Cusco
     falls to a comfortable regiment of Brazilian paratroopers. For those hoping Pedro
@@ -120,7 +120,7 @@ scenes:
     it might fall next turn – and though the Buccaneers certainly have a navy nearby,
     it’s predictably mostly carriers.
 - scene_number: "12"
-  scene_title: Image 12
+  scene_title: 12
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene12.jpg
   narration: There’s no doubting the dominance of the Buccaneers’ Atlantic fleet,
     mind. Brazil have sent a task force to the Cabo Verde city of Sale, but one has
@@ -131,7 +131,7 @@ scenes:
     one. On land, Belo Horizonte and Recife, both cities founded by Brazil, look to
     be reclaimed imminently.
 - scene_number: "13"
-  scene_title: Image 13
+  scene_title: 13
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene13.jpg
   narration: 'It wouldn’t be a small embarked task force without a token Great Person,
     and it’s a Great Musician that Brazil have taken to Sale; in this day and age,
@@ -142,7 +142,7 @@ scenes:
     Guinea? It is in the exact same place as the historical one, modern-day Guinea-Bissau.
     Still, they’ve got to take Sale first.'
 - scene_number: "14"
-  scene_title: Image 14
+  scene_title: 14
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene14.jpg
   narration: Last part’s most volatile war shows no sign of slowing down – well, unless
     Korea decides to peace out to tackle the far greater threat of Canadian zombies.
@@ -151,7 +151,7 @@ scenes:
     so they have that going for them. The Inuit are nowhere in sight, while a lone
     Mongol SAM is a little too late to the Elgyay Occupation Party.
 - scene_number: "15"
-  scene_title: Image 15
+  scene_title: 15
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene15.jpg
   narration: Now, a series of slides where we look at various cities that you may
     or may not have known contained wonders. Hoorah! First, the Sri Lankan city of
@@ -160,7 +160,7 @@ scenes:
     knew? Also guys, if you want nutmeg, there’s a feeble looking Kimberley nearby
     who might know where that is…
 - scene_number: "16"
-  scene_title: Image 16
+  scene_title: 16
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene16.jpg
   narration: Next, Druzhina, and I DID know this had Himeji Castle in, but it’s worth
     highlighting as the city has just flipped to Korea from Yakutia. A combat bonus
@@ -169,7 +169,7 @@ scenes:
     sturdy empire. With it gone, the fall of Yakutia should accelerate even further,
     while Korea will enjoy a nice defensive bonus in the wars to come.
 - scene_number: "17"
-  scene_title: Image 17
+  scene_title: 17
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene17.jpg
   narration: Finally, Ciudad Juarez. I think everyone knew Ciudad Juarez had Stonehenge,
     right? The mountainside stone circle on which our lord and saviour Aslan was first
@@ -177,7 +177,7 @@ scenes:
     namesake Benito Juarez, as he’ll need a hell of a lot of faith to believe his
     crippled empire can stand against the Blackfoot, the Buccs and Australia.
 - scene_number: "18"
-  scene_title: Image 18
+  scene_title: 18
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene18.jpg
   narration: The four spies relocate yet again, with new-ish girl Ishtar hanging around
     in Santiago de Chile, now a Brazilian stronghold, and Semiramis making her way
@@ -185,7 +185,7 @@ scenes:
     which long-forgotten empires modern world leaders arbitrarily and inexplicably
     still have a grudge against.
 - scene_number: "19"
-  scene_title: Image 19
+  scene_title: 19
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene19.jpg
   narration: While we’re gallivanting around the world, let’s take a look at one of
     the planet’s least celebrated population centres – the so called Footleutians,
@@ -196,7 +196,7 @@ scenes:
     cold, these islands are probably among the most prosperous, peaceful and desirable
     settlements on the Cylinder.
 - scene_number: "20"
-  scene_title: Image 20
+  scene_title: 20
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene20.jpg
   narration: But who cares about prosperity and peace? There’s war to be had! Brazil’s
     attack on Sale has completely evaporated, leaving only the Great DJs milling about
@@ -207,7 +207,7 @@ scenes:
     Brazilian navy if not actually damage their cities. Brazil’s aerial advantage
     continues all the way down the coast to Duque de Caxias, mind.
 - scene_number: "21"
-  scene_title: Image 21
+  scene_title: 21
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene21.jpg
   narration: There are no new cities down on the main front, though Machu is certain
     to fall soon, and Brazil have pulled a fleet out of nowhere on the Pacific coastline
@@ -218,7 +218,7 @@ scenes:
     deployed nuke might be enough to throw the Brazilian advance into disarray, and
     force them to resort to their tried and true tactics of sitting around doing nothing.
 - scene_number: "22"
-  scene_title: Image 22
+  scene_title: 22
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene22.jpg
   narration: Speaking of nuclear devastation… it never ceases to amaze me just how
     on fire Mexico is. Literally, not figuratively. The Blackfoot swoop through Torreon,
@@ -228,7 +228,7 @@ scenes:
     every Mexican city in this shot is on the front line, now; that’s got to be a
     terrifying prospect for any residual Mexico fans out there.
 - scene_number: "23"
-  scene_title: Image 23
+  scene_title: 23
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene23.jpg
   narration: To the north, the Sioux capital of Hunkpapa has yielded, and it appears
     there will be no fourth coming for Sitting Jesus today. Oglala, the location of
@@ -239,7 +239,7 @@ scenes:
     to hold the superiority only in technological terms now – the days of a terrifying
     Inuit carpet are over, it seems.
 - scene_number: "24"
-  scene_title: Image 24
+  scene_title: 24
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene24.jpg
   narration: Finland easily seize Messene, and to the north, Cumae is surrounded by
     XCOMs. The old Roman cities of Antium and Arretium face a more interesting future,
@@ -247,7 +247,7 @@ scenes:
     but Kekkonen has brought more melee units. Either way, their time under the pirate
     banner seems short-lived.
 - scene_number: "25"
-  scene_title: Image 25
+  scene_title: 25
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene25.jpg
   narration: Morgan’s fan club should be taking any consolation they can get, and
     that consolation comes in the form of Iberiarrrr, which barely appears to be on
@@ -259,7 +259,7 @@ scenes:
     sound familiar?), Iceland would walk an invasion, but perhaps their sights are
     set elsewhere. Sweden look increasingly threatening.
 - scene_number: "26"
-  scene_title: Image 26
+  scene_title: 26
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene26.jpg
   narration: Yikes. The beautiful, free, peace-and-haiku-loving Japanese might be
     meeting their maker soon, as Kimberley actually looks to capture Osaka, their
@@ -267,7 +267,7 @@ scenes:
     bomb stationed nearby, though Jandamarra hardly needs to use it. How will Korea
     react to their BFFs being wiped off the Cylinder?
 - scene_number: "27"
-  scene_title: Image 27
+  scene_title: 27
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene27.jpg
   narration: Well, in the current climate, Korea are far too side-tracked to worry
     about a paltry city-state ally! They’ve trained their armies on Yarmanka, Oymyakon
@@ -275,7 +275,7 @@ scenes:
     Count how many Great Death Robots you can see; Korea are one of very few civs
     to use them as the main backbone of the army.
 - scene_number: "28"
-  scene_title: Image 28
+  scene_title: 28
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene28.jpg
   narration: Who said the Inuit were out of this war? Well, I certainly did, but I
     could be standing corrected as a snow-hearted Robot Infantry comes within spitting
@@ -285,7 +285,7 @@ scenes:
     still be able to grab some of those coastal cities before the Korean juggernaut
     can reach them.
 - scene_number: "29"
-  scene_title: Image 29
+  scene_title: 29
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene29.jpg
   narration: Kimberley continue to send troops north to Osaka, massively overestimating
     the scale of Japan’s defences. Hawaii, allegedly also at war with Japan, make
@@ -293,14 +293,14 @@ scenes:
     they’ve appeared in the part, so whichever power ranker winds up with them will
     be able to say ‘Hawaii appeared this part!’
 - scene_number: "30"
-  scene_title: Image 30
+  scene_title: 30
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene30.jpg
   narration: The Boers finally conquered Kumasi last part, albeit off-screen. Here’s
     more concrete evidence for any remaining unbelievers. The city, apparently once
     the capital of a people called the “Ashanti”, has been absolutely decimated by
     the siege – but if there’s one thing the Boers are good at, it’s rapid regrowth.
 - scene_number: "31"
-  scene_title: Image 31
+  scene_title: 31
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene31.jpg
   narration: Believe it or not, this front hasn’t changed one bit since the start
     of the part, which is a welcome change for a region that swaps its flags faster
@@ -309,7 +309,7 @@ scenes:
     on land. Now Carthage and Marrakech have been taken out of the equation, you really
     feel that both sides have lost heart in this matchup.
 - scene_number: "32"
-  scene_title: Image 32
+  scene_title: 32
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene32.jpg
   narration: Eagle-eyed readers will have noticed a notification earlier revealing
     the fall of Zhigansk to Inuit forces – it’s nice to see that they haven’t been
@@ -322,11 +322,11 @@ scenes:
     find a melee unit to seize sitting duck Nizhnekolymsk, while Yarmanka looks just
     out of range from that GDR if I know my Zones of Control.
 - scene_number: "33"
-  scene_title: Image 33
+  scene_title: 33
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene33.jpg
   narration: Well, as per, I eat my words immediately.
 - scene_number: "34"
-  scene_title: Image 34
+  scene_title: 34
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene34.jpg
   narration: Wow! The extent of Sri Lanka’s empire in the centre of a screenshot!
     All two of their fans must be rejoicing. Harbouring Ethiopian refugees might attract
@@ -338,7 +338,7 @@ scenes:
     continues his break for the Maldives, convening with the Burmese Musician for
     a brief oceanic romantic fling.
 - scene_number: "35"
-  scene_title: Image 35
+  scene_title: 35
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene35.jpg
   narration: Heading further north into Asia, and we can see the Vietnamese-Sibirian
     borderlands, in the wake of Sibir’s occupation of Afghanistan. Kuchum Khan has
@@ -348,7 +348,7 @@ scenes:
     – ranged. That said, there are enough melee units scattered about that you’d have
     to think they’d bring the hurt down on Sibir in any immediate war.
 - scene_number: "36"
-  scene_title: Image 36
+  scene_title: 36
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene36.jpg
   narration: Further north the contrast is even more noteworthy, with the bulk of
     Vietnam’s enormous army focussed here. Hell, they could take down Korea, Mongolia
@@ -356,7 +356,7 @@ scenes:
     also don’t exactly have the biggest airforce, though Sibir and Mongolia’s aren’t
     exactly much better.
 - scene_number: "37"
-  scene_title: Image 37
+  scene_title: 37
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene37.jpg
   narration: Uh… hold on a second… what?! They say a watched pot never boils, but
     this pot just superheated and brimmed RIGHT over! Vietnam declare war on Sibir!
@@ -365,7 +365,7 @@ scenes:
     although they do have to watch for the Boer threat, they appear to have quite
     the army capable of taking down Sibir a peg or two. Holy moly.
 - scene_number: "38"
-  scene_title: Image 38
+  scene_title: 38
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene38.jpg
   narration: Another look at that front, so you don’t have to scramble back a few
     slides. Sibir do have some semblance of an army mobilized at the front, but all
@@ -373,14 +373,14 @@ scenes:
     too healthy either. If Vietnam really pick up momentum here, this could be an
     absolute game-changer.
 - scene_number: "39"
-  scene_title: Image 39
+  scene_title: 39
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene39.jpg
   narration: There is, however, one almost inevitable casualty of Vietnamese Coalition.
     Yes, tender, beautiful Nedong is almost certainly going to fall to Sibir. If nothing
     else, it will give Sibir a rather amusing enclave within exclave-maesters and
     rivals Finland.
 - scene_number: "40"
-  scene_title: Image 40
+  scene_title: 40
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene40.jpg
   narration: Alright, time to calm down for a moment. As well as Korea’s ploys to
     destroy the remnants of Canada, they’ve also set their sights on the poor old
@@ -388,7 +388,7 @@ scenes:
     an unlikely war; has any major nation actually declared war on a civ with no cities?
     I haven’t seen it.
 - scene_number: "41"
-  scene_title: Image 41
+  scene_title: 41
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene41.jpg
   narration: Iceland bring two nuclear missiles down to a war they’re not fighting
     any more, but bigger news is that Finland have seized Panormus and Antium, possibly
@@ -396,7 +396,7 @@ scenes:
     over to Funchal, a city it is just as difficult to take with ranged units alone.
     Arretium is next in line, bringing with it another six planes.
 - scene_number: "42"
-  scene_title: Image 42
+  scene_title: 42
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene42.jpg
   narration: The Blackfoot contingent around Torreon has scattered for some reason,
     with the brunt heading north towards Ahahpitape. Oglala has largely been relinquished,
@@ -407,7 +407,7 @@ scenes:
     that they peaced out when they did, as their old capital Austin would be easy
     pickings now.
 - scene_number: "43"
-  scene_title: Image 43
+  scene_title: 43
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene43.jpg
   narration: As far away from the Sibirian front as you can possibly be, Vietnam field
     a tiny little contingent of artillery and associated forces. This area of Inuit
@@ -416,7 +416,7 @@ scenes:
     Walker Supporters. I’d be more concerned about the lack of Inuit land units –
     aren’t they meant to be a military powerhouse?
 - scene_number: "44"
-  scene_title: Image 44
+  scene_title: 44
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene44.jpg
   narration: Don’t get too excited, but I spy a melee unit (a Mobile SAM to be exact)
     next to Fort-de-France. At least I think it’s a Mobile SAM. I always get confused
@@ -424,12 +424,12 @@ scenes:
     the Brazilian Great DJ bravely heads further into Buccaneer territory, blasting
     his terrifying EDM at the terrified pirates, who know only sea shanties.
 - scene_number: "45"
-  scene_title: Image 45
+  scene_title: 45
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene45.jpg
   narration: Here is where the pain starts. Fortaleza and Machu fall to Brazil, paratroopers
     swarm around Belo Horizonte and Recife, and boy, that isn’t all.
 - scene_number: "46"
-  scene_title: Image 46
+  scene_title: 46
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene46.jpg
   narration: 'Anyone clinging onto to Pedro’s poor war record as a reason for hope
     can commence crying… now! Let’s count the cities down: Tiwanaku, Vitcos, Vilcabamba,
@@ -440,14 +440,14 @@ scenes:
     that Icelandic musician has quite the saga to pen. This is a rout of the highest
     order.'
 - scene_number: "47"
-  scene_title: Image 47
+  scene_title: 47
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene47.jpg
   narration: Nizhnekahhhhhhhyougetit has been recaptured, as has Oymyakon, which puts
     an end to the Mongolian Dream. It’s an admirable defence, and ultimately a futile
     one; Korea’s next wave is incoming, and Yakutia have very few reserves to mount
     any kind of further counterattack.
 - scene_number: "48"
-  scene_title: Image 48
+  scene_title: 48
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene48.jpg
   narration: Ouch! As we see our second slide of the peaceful Footleutians (in one
     part? Okay Nebby), we receive the news that the Inuit have joined the Buccaneer
@@ -458,7 +458,7 @@ scenes:
     for the Buccaneer that could be deployed elsewhere; at worst they could cause
     catastrophic damage to the Buccaneers’ core.
 - scene_number: "49"
-  scene_title: Image 49
+  scene_title: 49
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene49.jpg
   narration: Sibir’s heartland is not exactly a fertile land of soldier trees and
     tank vineyards. Nosirree. It’s as barren as a Buccaneer barracks, with as many
@@ -467,13 +467,13 @@ scenes:
     get me wrong, that’s a big, big should – there is very little reason to believe
     Sibir can hold onto their core for any meaningful amount of time.
 - scene_number: "50"
-  scene_title: Image 50
+  scene_title: 50
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene50.jpg
   narration: |-
     It can’t be! Not Japan! Japan the free, Japan the peaceful, Poom the terrible haiku poet’s pride and joy! But all men must die, and it’s Meiji’s turn this time round. Unless that cavalry retakes the city. Might happen. But I’m going to eulogise now because it seems unlikely that Japan will make the part out alive regardless, with a large Kimberley navy still loitering around.
     Believe it or not, Japan were once considered one of the Pacific’s greatest powers; at their peak they controlled an empire from the tip of Kamchatka down to north Luzon, and even held the Inuit for a time. Their downfall would come shortly after they played their part in the partition of the Philippines; Australia, on a high, immediately declared war on Japan and very quickly seized control of the main islands, despite a sterling defence from Korean peacekeepers. Yakutia took all but one of their remaining cities, Osaka, where they continued to remain for generations despite overwhelming odds. When the Kimberley-Texas-Hawaii coalition declared war on Japan, at the same time as the Boer coalition was rumbling, many laughed. They’re not laughing now. Rest in peace, sweet Meiji Emperor.
 - scene_number: "51"
-  scene_title: Image 51
+  scene_title: 51
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene51.jpg
   narration: From the takedown of one city state to the reinstatement of another,
     as Tibet re-joins the Rump State club with the capture of Nedong. Their Ukrainian
@@ -482,7 +482,7 @@ scenes:
     Vietnam should protect their capital from the Sibirian menace, so Gampo is down
     but not out.
 - scene_number: "52"
-  scene_title: Image 52
+  scene_title: 52
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene52.jpg
   narration: 'Here’s another thing for Sibir to be worried about: Vietnam has made
     timely peace with the Boers, sadly taking no comedic cities in the treaty, as
@@ -494,7 +494,7 @@ scenes:
     mainland Asia, it’s going to be hard for them to push against Vietnam in the future
     – a must if they want to secure Eurasia and indeed the game.'
 - scene_number: "53"
-  scene_title: Image 53
+  scene_title: 53
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene53.jpg
   narration: Why Mexico’s army is mostly focussed around Austin is anyone’s guess,
     but luckily for him the war effort appears to be stalling. Wahpekute has taken
@@ -502,7 +502,7 @@ scenes:
     long enough, they could feasibly still come out of these wars with their dignity
     intact. Baja California is surely lost for good, though.
 - scene_number: "54"
-  scene_title: Image 54
+  scene_title: 54
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene54.jpg
   narration: Recife is easily seized by Brazil in the northeast corner, and still
     the onslaught doesn’t look like it’s been depleted at all. Peruvian progress might
@@ -510,7 +510,7 @@ scenes:
     an advanced destroyer nearby waiting for the opportunity to strike. To the northwest,
     Australia’s Galapagos navy looks like it could pile some hurt on Central America.
 - scene_number: "55"
-  scene_title: Image 55
+  scene_title: 55
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene55.jpg
   narration: A closer look at the northern fronts, where the next line of Buccaneer
     cities lie undamaged – a state they’re unlikely to stay in. Two paratroopers have
@@ -518,7 +518,7 @@ scenes:
     sitting around Parana, practically Morgan’s only land army on the continent remaining.
     The hurt is far from over. In fact, I think it’s only just begun.
 - scene_number: "56"
-  scene_title: Image 56
+  scene_title: 56
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene56.jpg
   narration: Unbelievably, Korea take Yarmanka in lieu of Mongolia, who had practically
     the whole horde positioned next to the city. They also take Suntar, and are closing
@@ -530,7 +530,7 @@ scenes:
     get the burning feeling that Tygyn Darkhan isn’t long for the world. It’s worth
     bearing in mind that in Part 1’s Power Rankings, Yakutia took first place.
 - scene_number: "57"
-  scene_title: Image 57
+  scene_title: 57
   slide_url: https://cdn.civbattleroyale.tv/mark2-part76-scene57.jpg
   narration: |-
     The talented Spherical_Melon caps off our part this week with a wonderful illustration of the interminglings of technology seperated by centuries. I‘ve been Lacsirax Ariscal - until next time!

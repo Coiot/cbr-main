@@ -10,7 +10,7 @@ date: 2016-08-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part69-scene06.jpg
 scenes:
 - scene_number: "1"
-  scene_title: Image 01
+  scene_title: 1
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene01.jpg
   narration: Hello everyone, and welcome back to the Civ Battle Royale Mark 2! We
     are now at part 69 (hehehe), and I am your narrator, /u/LeUmoq! I am narrating
@@ -20,7 +20,7 @@ scenes:
     reconquering their lands from the Boers. If this part is even half as exciting
     as the previous one, then we are in for an hell of a ride!
 - scene_number: "2"
-  scene_title: Image 02
+  scene_title: 2
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene02.jpg
   narration: Just like most of the game, the Boers top the Power Rankings, due to
     their immense strength in military, as well as a tech lead only matched by the
@@ -29,7 +29,7 @@ scenes:
     been losing momentum in Europe, and have lost a few cities to Sweden. They are
     indisputably the most powerful nation on the entire cilinder.
 - scene_number: "3"
-  scene_title: Image 03
+  scene_title: 3
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene03.jpg
   narration: Here you can see the beautiful city map, made by some of our resident
     cartographers, /u/Malssistra and /u/LacsiraxAriscal! If you look at the map, you
@@ -40,7 +40,7 @@ scenes:
     however still very small, and will most likely lose their new city to the Sibir,
     who they are at war with. With that said, let‘s jump right into the action!
 - scene_number: "4"
-  scene_title: Image 04
+  scene_title: 4
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene04.jpg
   narration: Well, you can immediately ignore what I just said about Tibet losing
     their second city to Sibir, since Tibet just peaced out with Sibir! That means
@@ -49,7 +49,7 @@ scenes:
     made peace with Kuchum Khan [Sibir], ending one half of the meat-grinder on their
     border.
 - scene_number: "5"
-  scene_title: Image 05
+  scene_title: 5
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene05.jpg
   narration: On the now peaceful border between Vietnam and Sibir, Sibir has reconquered
     Bamda from their Korean overlords. However, the city will most likely not stay
@@ -60,7 +60,7 @@ scenes:
     almost completely carpeted their lands with soldiers, the Sibirian army is scattered
     around their lands, and not really present around Bamda and Wuppertal.
 - scene_number: "6"
-  scene_title: Image 06
+  scene_title: 6
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene06.jpg
   narration: It seems like the Trungs (Vietnam) chose to make peace bit too early,
     seeing as all Sibir cities on their border are at yellow health at most. If they
@@ -71,7 +71,7 @@ scenes:
     and outdated Tanks and Artillery. All by all, Kuchum [Sibir] is in quite a predicament
     in the south of his empire.
 - scene_number: "7"
-  scene_title: Image 07
+  scene_title: 7
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene07.jpg
   narration: In the Middle-East, Artashat, Kuchum‘s [Sibir] last city in the region
     has almost no HP. It will however most likely not be conquered anytime soon, as
@@ -82,7 +82,7 @@ scenes:
     isn‘t carpeted, so if Ethiopia attacks right now, they might grab some cities
     from Vietnam.
 - scene_number: '08'
-  scene_title: Image 08
+  scene_title: 8
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene08.jpg
   narration: Meanwhile, in America, Sam Houston [Texas] reconquers their capital,
     Austin, with their second to last melee unit. It is almost certain that they will
@@ -94,14 +94,14 @@ scenes:
     Buccaneers do not have a visible army nearby, however, so the fate of the city
     is not certain yet.
 - scene_number: '09'
-  scene_title: Image 09
+  scene_title: 9
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene09.jpg
   narration: Back to Vietnam, Henry Parkes (Australia) has send an XCOM squad to land
     in a Vietnamese citadel nearby Vigan, primed to capture the originally Philippine
     city. The Vietnamese are also ready to capture Cebu, with some embarked Drone
     UAV‘s nearby.
 - scene_number: "10"
-  scene_title: Image 10
+  scene_title: 10
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene10.jpg
   narration: The Boers attacked Buccaneer West Africa last part, and have quickly
     blitzed the area. However, they will most likely have trouble with keeping the
@@ -111,7 +111,7 @@ scenes:
     a nuclear bombing of West Africa, as he also completely irradiated the now Boer
     lands of Mali.
 - scene_number: "11"
-  scene_title: Image 11
+  scene_title: 11
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene11.jpg
   narration: In strategic mode, you can see the fallout made as a result of nuclear
     bombings better. That means that you can see the complete destruction of Central
@@ -120,7 +120,7 @@ scenes:
     Roman Ballista can be spotted in the Sibir lands nearby Morelia, unscathed by
     the nuclear explosions surrounding it.
 - scene_number: "12"
-  scene_title: Image 12
+  scene_title: 12
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene12.jpg
   narration: In the middle of the nuclear almost-apocalypse, a small spot of light
     can be spotted. The small defensive state of Tibet has founded a city nearby the
@@ -128,7 +128,7 @@ scenes:
     city has futuristic infrastructure, left behind by the Finns, but the Tibetans
     insist on using their Cannon from the Renaissance to defend the city, as is tradition.
 - scene_number: "13"
-  scene_title: Image 13
+  scene_title: 13
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene13.jpg
   narration: 'Buccaneer Iberia is mostly unscathed by the war going on just south
     of it, except Braga and Goa losing health. The region is almost completely empty
@@ -138,7 +138,7 @@ scenes:
     area with a Hovertank to see if there any hidden units anywhere. (Hint: there
     aren‘t)'
 - scene_number: "14"
-  scene_title: Image 14
+  scene_title: 14
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene14.jpg
   narration: Pedro [Brazil] has almost completely conquered Chile. Al that is left
     are Arica and Talca in southern Patigonia, protected by the Andes, and Iquique
@@ -146,7 +146,7 @@ scenes:
     unit to the other city of the mountain range, and both cities are ripe for the
     taking. This may very well be the last part for Bernardo O‘Higgins [Chile].
 - scene_number: "15"
-  scene_title: Image 15
+  scene_title: 15
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene15.jpg
   narration: In Inuit Kamchatka, the war with Yakutia is still heavily visible. Almost
     the entire peninsula is covered in fallout, and both Igloolik and Saniraiak are
@@ -154,20 +154,20 @@ scenes:
     The Inuits also have six Stealth Bombers stationed nearby the peninsula, so if
     some Yakutians do show up, they will be dealt with anyway.
 - scene_number: "16"
-  scene_title: Image 16
+  scene_title: 16
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene16.jpg
   narration: |-
     There is also a lot of fallout in the Australian lands. The former Kimberley lands of Rubibi and Kalumburu have been nuked, as well as Sulawesi and Western New Guinea. Vietnam is mostly unscathed in the region, but the Trungs [Vietnam] have lost My So‘n. Also of note, the Kimberly have militarized, having 5 planes and 5 missiles/nukes stationed in Simhapura. There are also planes in Makassar. Are they planning to join the war between Australia and Vietnam? Whatever side they join on, they will most likely be completely conquered and destroyed.
     In the midst of Australian Waters a quarantine zone has been set up around the former remains of Laguna devastated by nuclear radiation.
 - scene_number: "17"
-  scene_title: Image 17
+  scene_title: 17
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene17.jpg
   narration: Here is the previous shot again but now in beautiful colors and in 3D.
     An Australian Prime Minister has landed nearby Batam, ready to govern. Almost
     all cities in Borneo and northern Sulawesi have almost 0 HP, as also seen in the
     previous slide.
 - scene_number: "18"
-  scene_title: Image 18
+  scene_title: 18
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene18.jpg
   narration: My prediction about Sibir losing cities to Korea and Afghanistan has
     come true! Nishapur has been conquered by an Afghan Paratrooper, and Jarlmadangah
@@ -177,7 +177,7 @@ scenes:
     have a moment to appreciate the comeback that Afghanistan is making. They truly
     are the Graveyard of Empires. (Unless that empire is Vietnam)
 - scene_number: "19"
-  scene_title: Image 19
+  scene_title: 19
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene19.jpg
   narration: A look at the Korean core shows that Korea has not carpeted all that
     much. Most cities are surrounded by a ring of defensive troops, but a lot of the
@@ -186,7 +186,7 @@ scenes:
     in other cities. Most of these cities are close to the border with Yakutia, so
     it seems as if Korea is planning another attack on Tyghyn Darkhan [Yakutia].
 - scene_number: "20"
-  scene_title: Image 20
+  scene_title: 20
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene20.jpg
   narration: Using their giant fleet, the Buccaneers have reconquered some of the
     coastal cities that the Boer menace had conquered. They also weakened some inland
@@ -195,20 +195,20 @@ scenes:
     inland (as far as we can see). Is this a sign that the military dominance of the
     Orange Menace?
 - scene_number: "21"
-  scene_title: Image 21
+  scene_title: 21
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene21.jpg
   narration: Besides their West-African holdings, the Buccaneers also conquer the
     previously Spartan city of Messene from the Boers. The Swedes cannot be happy
     with this, seeing as they were very close to reconquering it. Cumae is still undefended,
     and Gustavus [Sweden] can most likely take it.
 - scene_number: "22"
-  scene_title: Image 22
+  scene_title: 22
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene22.jpg
   narration: |-
     It is a sad day for Texas. The capital has been lost again, and the only melee unit left is almost dead and in Mexican borders. The last city is also almost destroyed. It seems as if the end for Texas is nearby. One thing is for sure, the Alamo will never be forgotten. The Buccaneers also keep Guadalajara, and are close to getting Ciudad Juárez. All by all, a good turn for the Buccaneers. There is also some VERY exciting news on the message screen, but I will save that for another slide.
     Ciudad Juarez gets another rain of nuclear devastation. Dios mio.
 - scene_number: "23"
-  scene_title: Image 23
+  scene_title: 23
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene23.jpg
   narration: Semiranis finds out that the Inuit leader Ekeuhnick is planning an attack
     against Iceland. Most of these reports of planned attacks are false, so it is
@@ -218,21 +218,21 @@ scenes:
     can finally escape, which means that the Inuit finally have one the world‘s largest
     navies at their disposal to wreak havoc around the world.
 - scene_number: "24"
-  scene_title: Image 24
+  scene_title: 24
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene24.jpg
   narration: The Buccaneers still have some Nuclear Missiles left to throw on the
     Boers, but that‘s most likely not the largest problem that the Boers have right
     now. I will stop keeping you waiting, and keep this slide short, so I can move
     on to the next slide. You‘ll see why.
 - scene_number: "25"
-  scene_title: Image 25
+  scene_title: 25
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene25.jpg
   narration: |-
     AND HERE IT IS LADIES AND GENTLEMAN! Some might call this the suicide of the century following the cylinder‘s rough history of seemingly innocuous against-all-odds wars. France vs Iceland and Byzantium vs Finland - has Ethiopia decided to end themselves via the Boers? On a more serious note, this declaration of war seems very stupid, as the Boers have been the dominating power over Africa, hell, even the world for the better part of the game, but if you look closer, you can see that something‘s missing, namely the army of the Boers!
     West Africa seems almost completely void of Boer units, and with the Buccaneers fighting back hardily, the Boers are actually probably not able to completely steamroll Ethiopia. Also, Sweden is beating the Boers in Europe. Adding to that, Brazil and Sibir also declare war, both very strong nations with large armies and a huge amount of airpower. And if you remember, in the previous parts a HUGE Brazilian fleet was crossing the Atlantic. The Brazilian were made of because of that, but it was just part of a big plan to restrain the Boers. I would like to call this war/series of war “The Orange Containment Program.” On the North-Western front, Ethiopia definitely has the upper hand, together with the Buccaneers. Let‘s see if that‘s also the case on the other fronts of this massive war.
     Do not judge a book by it‘s cover.
 - scene_number: "26"
-  scene_title: Image 26
+  scene_title: 26
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene26.jpg
   narration: On the Eastern Front both Nations have their lands fully carpeted. However,
     the Boers are in a large tech-lead, so they have the upper hand on that part.
@@ -243,7 +243,7 @@ scenes:
     even with all of these bonuses and seemingly advantages to Ethiopia, I still think
     that Boers will win this war, unless other Superpowers join.
 - scene_number: "27"
-  scene_title: Image 27
+  scene_title: 27
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene27.jpg
   narration: On the Indian Oceanic front, the situation is much more even. Both nation
     have a large fleet, but a large part of the Boer fleet consists of empty Carriers,
@@ -252,14 +252,14 @@ scenes:
     up against the definite Superpower of the cilinder, and I hope that they win this
     war, even though it most likely will not happen.
 - scene_number: "28"
-  scene_title: Image 28
+  scene_title: 28
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene28.jpg
   narration: The Ethiopians are not alone with attacking the Boers! From the Atlantic
     a Brazilian fleet approaches Boerfrica, is already heavily damaging Kumasi and
     Messina. It also seems as if the entire Boer navy is on the other side of Africa,
     as only a Hovertank can be seen here.
 - scene_number: "29"
-  scene_title: Image 29
+  scene_title: 29
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene29.jpg
   narration: The rest of the Brazilian navy is shown here, as well as the rest of
     the Boer navy. It‘s pretty obvious that the Boers will dominate this naval battle,
@@ -267,12 +267,12 @@ scenes:
     will very likely be defeated by the Boers here, but not without putting up a hell
     of a fight.
 - scene_number: "30"
-  scene_title: Image 30
+  scene_title: 30
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene30.jpg
   narration: Immediately the former Zulu capital of Ulundi is nuked. This is very
     close to the Boer capital, and seems like a devastating blow to their core.
 - scene_number: "31"
-  scene_title: Image 31
+  scene_title: 31
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene31.jpg
   narration: It seems as if the nuke was a waste, because only a few improvements
     are pillaged, the city is still in green health, and there doesn‘t seem to be
@@ -280,13 +280,13 @@ scenes:
     until you realise that the blast caused the deaths of many millions and millions
     of people.
 - scene_number: "32"
-  scene_title: Image 32
+  scene_title: 32
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene32.jpg
   narration: It is discovered that Pedro doesn‘t just want the Boers to suffer, he
     also wants to get rid of the immensely powerful Ashanti Pikeman. This is completely
     understandable, seeing the massive influence the Pikeman has over the game.
 - scene_number: "33"
-  scene_title: Image 33
+  scene_title: 33
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene33.jpg
   narration: A view of the strategic map shows the nuclear devastation in Boer West
     Africa. Some of this fallout has probably been here since the horrible nuking
@@ -294,7 +294,7 @@ scenes:
     and the Boers themselves. It is clear that whoever comes out on top in this, they
     will inherent a scorched earth.
 - scene_number: "34"
-  scene_title: Image 34
+  scene_title: 34
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene34.jpg
   narration: A newcomer to Spartan political affairs, a man of Ayyubid origin - Ser
     Mallock of Dvin sits on his throne in Sparta, anow known as the Dvinish Empire.
@@ -303,13 +303,13 @@ scenes:
     Galleass. Sparta just made peace with their faraway enemy Korea, making sure that
     they survive another day.
 - scene_number: "35"
-  scene_title: Image 35
+  scene_title: 35
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene35.jpg
   narration: Korea still holds on to their cities in the north, and don‘t seem close
     to losing them to the Sibir. However, in Mongolian lands some Boer units can be
     spotted. These units can be used to attack Sibir right in their core.
 - scene_number: "36"
-  scene_title: Image 36
+  scene_title: 36
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene36.jpg
   narration: The Buccaneers also take Cumae from the Boers, another former Swedish
     city that will no longer be Swedish. Messene is under attack by two Boer units,
@@ -317,13 +317,13 @@ scenes:
     most likely not hold it for a long time, as it is right on the border with the
     Buccaneers and Sweden.
 - scene_number: "37"
-  scene_title: Image 37
+  scene_title: 37
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene37.jpg
   narration: They also retake Tombouctu in West Africa, and bring 4 cities to 0 health,
     and 2 to red health. They still have 2 nuclear missiles left to nuke West Africa
     with, as if it isn‘t irradiated enough already.
 - scene_number: "38"
-  scene_title: Image 38
+  scene_title: 38
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene38.jpg
   narration: Speaking about irradiated land, Mexico is completely broken in the south.
     All five cities pictured are in red health and surrounded by fallout and pillaged
@@ -333,21 +333,21 @@ scenes:
     a problem. The inland cities are pretty safe for now, but if the Buccaneers send
     some land-units, then Mexico should really be afraid.
 - scene_number: "39"
-  scene_title: Image 39
+  scene_title: 39
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene39.jpg
   narration: Northern Australia is nicely healing from the nuking it just recently
     encountered. The Workers are working hard to get rid of the fallout and to repair
     the infrastructure, and the cities are almost at full health. Australia should
     still be wary, because another nuking hides behind every corner...
 - scene_number: "40"
-  scene_title: Image 40
+  scene_title: 40
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene40.jpg
   narration: In the war between Sibir and Afghanistan are both of their Middle Eastern
     cities in the deep red.  They will not be conquered anytime soon due to the Ethiopian
     peacekeepers, but if those peacekeepers decide to defend their country in Africa,
     then these cities will fall in an instant.
 - scene_number: "41"
-  scene_title: Image 41
+  scene_title: 41
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene41.jpg
   narration: The eternal city has fallen. Mampong has switched sides multiple sides
     in the Battle Royale, but not once has it been through conquest. This city has
@@ -356,7 +356,7 @@ scenes:
     to an end. The unconquerable city has been brutally conquered by the Boers, and
     it will stay in their hands in the foreseeable future.
 - scene_number: "42"
-  scene_title: Image 42
+  scene_title: 42
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene42.jpg
   narration: Zabid, Adwa, Mek‘ele and Lalibela have all been brought down to 0 HP
     in just one turn by the Boers. They probably won‘t fall in the coming turn, but
@@ -364,20 +364,20 @@ scenes:
     completely on attacking the cities, as most Ethiopian units still have full health.
     Expect a lot of flipping in this region.
 - scene_number: "43"
-  scene_title: Image 43
+  scene_title: 43
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene43.jpg
   narration: The Ethiopian fleet descents on Harrismith, but the Boer fleet is also
     still very present in this region. It‘s anyone‘s guess if this city will be conquered,
     or if it will stay Boer.
 - scene_number: "44"
-  scene_title: Image 44
+  scene_title: 44
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene44.jpg
   narration: The Boers use their peacekeeper units in Mongolia for the exact opposite
     purpose, conquering Mandalgovi from Sibir. Sibir immediately reconquers it, but
     this will most likely not be the last of the Boer Peacekeepers to attack the Sibirian
     land.
 - scene_number: "45"
-  scene_title: Image 45
+  scene_title: 45
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene45.jpg
   narration: Here you can see the large squadron of peacekeepers in Mongolia on their
     way to Sibir. Some of them are already close to Bamda, which will probably fall
@@ -386,21 +386,21 @@ scenes:
     to conquer Sibir for themselves. Some rumbles have also broken out between the
     Boer and the Brazilian peacekeepers near Khonuu in Yakutia.
 - scene_number: "46"
-  scene_title: Image 46
+  scene_title: 46
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene46.jpg
   narration: THEY ACTUALLY DID IT, THE ABSOLUTE MADMEN! Texas uses their last Privateer
     to reconquer Austin AGAIN, and there are no visible Mexican melee units nearby,
     which means that it will stay Texan for now! Let‘s hope for Texas that they will
     keep this city, as well as Laredo, just for the sake of revenge.
 - scene_number: "47"
-  scene_title: Image 47
+  scene_title: 47
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene47.jpg
   narration: The Ethiopian offense is already dying out in the North. They only conquered
     Tangier, and have only really damaged one other city, which was theirs to begin
     with. This attack now seems as a big mistake, and the Boers were much stronger
     than Haile Selassie [Ethiopia] expected.
 - scene_number: "48"
-  scene_title: Image 48
+  scene_title: 48
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene48.jpg
   narration: Some Boer ships come across a fleet of Brazilian units, mostly embarked.
     These Brazilian units were probably on their way to the Boer Antarctic colonies,
@@ -408,7 +408,7 @@ scenes:
     but it consists mostly of embarked units, so the Boers will probably sink their
     ships before the Antarctic colonies fall.
 - scene_number: "49"
-  scene_title: Image 49
+  scene_title: 49
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene49.jpg
   narration: Harrismith and Potchefstroom take damage, but it is mostly superficial.
     The Ethiopians have pushed back some of the Boer units, making sure that their
@@ -416,14 +416,14 @@ scenes:
     and has made a lot of people very angry and has been widely regarded as a bad
     move.
 - scene_number: "50"
-  scene_title: Image 50
+  scene_title: 50
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene50.jpg
   narration: An Inuit Missile Cruiser stops near the Vietnamese harbour of Pasargadae.
     Two Nuclear Missiles are stationed there. As far as I know, the Inuit are only
     at war with Yakutia, so why they would send the missiles here, I do not know.
     Maybe they are planning an attack on Israel? It would surprise me to say the least.
 - scene_number: "51"
-  scene_title: Image 51
+  scene_title: 51
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene51.jpg
   narration: In this beautiful shot of the Korean Core you can see that they still
     haven‘t carpeted it. They have however completely carpeted both the Chinese sea
@@ -431,7 +431,7 @@ scenes:
     are so ahead in tech that they don‘t need a large army, and their only (current)
     enemy is too far away to attack them.
 - scene_number: "52"
-  scene_title: Image 52
+  scene_title: 52
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene52.jpg
   narration: When me and my siblings used to fight over toys when we were younger,
     my mom used to put the toy we were fighting over high on a shelve that we couldn‘t
@@ -442,42 +442,42 @@ scenes:
     can settle another city there. The Buccaneers however do reconquer Marrakech and
     Ciudad del Carmen.
 - scene_number: "53"
-  scene_title: Image 53
+  scene_title: 53
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene53.jpg
   narration: Tangier is reconquered by the Boers, and most border towns have been
     brought to zero, or at the most red health. This war was definitely a huge mistake
     on Ethiopia‘s part, and Sibir and Brazil probably agree with that.
 - scene_number: "54"
-  scene_title: Image 54
+  scene_title: 54
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene54.jpg
   narration: All Ethiopian cities make it through this turn, but most cities on the
     border are surrounded by Boer Hovertanks. The domination of Ethiopia is surely
     not far away, looking at the destruction of everything in their core.
 - scene_number: "55"
-  scene_title: Image 55
+  scene_title: 55
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene55.jpg
   narration: Paul Kruger [Boers] takes Mandalgovi again, this time without resistance
     from Sibir. It‘s not like there is too much bordergore in Siberia already, right?
     Right?
 - scene_number: "56"
-  scene_title: Image 56
+  scene_title: 56
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene56.jpg
   narration: Ethiopia can‘t recapture Tangier, but they do conquer Utique, and are
     close to conquering Fes. On this front, Haile Selassie [Ethiopia] is making gains,
     but that can‘t be said about the other fronts...
 - scene_number: "57"
-  scene_title: Image 57
+  scene_title: 57
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene57.jpg
   narration: All Ethiopian cities make it through this turn, but most cities on the
     border are surrounded by Boer Hovertanks. The domination of Ethiopia is surely
     not far away, looking at the destruction of everything in their core.
 - scene_number: "58"
-  scene_title: Image 58
+  scene_title: 58
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene58.jpg
   narration: Ethiopia does have a large air force in their capital, including an Atomic
     Bomb, primed to fall on Boer lands.
 - scene_number: "59"
-  scene_title: Image 59
+  scene_title: 59
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene59.jpg
   narration: In the middle of this horrible and bloody war, one group of people doesn‘t
     suffer. The Ashanti Pikemen still travels the Boer lands as a sort of traveling
@@ -492,18 +492,18 @@ scenes:
     the millions of people that already died in this war. Boers, Ethiopians, Soldiers,
     Civilians, they are all people.
 - scene_number: "60"
-  scene_title: Image 60
+  scene_title: 60
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene60.jpg
   narration: The Ethiopian attack on Harrismith has basically died out, and the island
     is still Boer, and will be for the time to come.
 - scene_number: "61"
-  scene_title: Image 61
+  scene_title: 61
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene61.jpg
   narration: The rest of Brazil‘s navy closes in on the Boer lands, hoping to weaken
     the might Draka. Their navy doesn‘t even begin to compare to the giganticness
     of the Boer navy, but they will put up a good fight.
 - scene_number: "62"
-  scene_title: Image 62
+  scene_title: 62
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene62.jpg
   narration: The Buccaneers and Brazil. Age old enemies. This war against a common
     enemy brings them together. A Buccaneer fleet is attacking Bamako, while the Brazilian
@@ -511,7 +511,7 @@ scenes:
     is the only part of the Boer Empire that is not carpeted, and so it is heavily
     focussed on by the Buccaneers and Ethiopia.
 - scene_number: "63"
-  scene_title: Image 63
+  scene_title: 63
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene63.jpg
   narration: Austin is still not retaken, and there are no Mexican melee units nearby,
     except a Marine protecting a Great Artist in a Citadel. The Buccaneers are readying
@@ -519,7 +519,7 @@ scenes:
     small gap in the mountains. If they come through, most Mexican cities are ripe
     for the taking, and will be a good addition to the Buccaneer Empire.
 - scene_number: "64"
-  scene_title: Image 64
+  scene_title: 64
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene64.jpg
   narration: Finland is recovering from their wars against Sweden and Sibir. They
     are rebuilding their carpet, they are reparing their infrastructure and getting
@@ -529,13 +529,13 @@ scenes:
     attacked Tibet, Vietnam came to the rescue of the mountain state, and Finland
     can‘t try to take that risk right after these two destructive wars.
 - scene_number: "65"
-  scene_title: Image 65
+  scene_title: 65
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene65.jpg
   narration: Sweden is also recuperating from their war. The Boers are driven out
     of Europe by Sweden and the Buccaneers, and the fighting has basically stopped.
     Now is the time to rebuild, regrow and then revenge.
 - scene_number: "66"
-  scene_title: Image 66
+  scene_title: 66
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene66.jpg
   narration: Both Chilean mountain fortresses are still not conquered. The Brazilians
     can‘t seem to get a melee unit over the Andes, even though if they did, it would
@@ -543,7 +543,7 @@ scenes:
     right now, but just one Melee ship is enough to conquer both cities. But Brazil
     isn‘t exactly known for fighting wars good.
 - scene_number: "67"
-  scene_title: Image 67
+  scene_title: 67
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene67.jpg
   narration: Pedro [Brazil] did however the last Chilean island, Iquique, famous for
     being the closest to the Submarine of the all-knowing Babylonians (that‘s you
@@ -551,7 +551,7 @@ scenes:
     the borders expand too much, we may have to relocate the submarine, just like
     in Mark 1.
 - scene_number: "68"
-  scene_title: Image 68
+  scene_title: 68
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene68.jpg
   narration: A shot of Inuit Texas shows that it is relatively empty. There is a lot
     of infrastructure here, and also very large cities, with populations in the thirties.
@@ -563,21 +563,21 @@ scenes:
     to do anything in the war against Afghanistan, unless that‘s what the Missile
     Cruiser with the nukes a few slides before was for...
 - scene_number: "69"
-  scene_title: Image 69
+  scene_title: 69
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene69.jpg
   narration: Back to an old war, Australia vs Vietnam! It is still a grinding stalemate,
     and no cities have switched hands since the previous time we looked at this war.
     It is for the good of both nations if they make peace now, so they can both rebuild
     for a following war.
 - scene_number: "70"
-  scene_title: Image 70
+  scene_title: 70
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene70.jpg
   narration: North-Western Australia is completely rebuild since the nuking, and is
     being carpeted again. I would like to use this slide as an appreciation for the
     beautiful outback, created by our own TPangolin (I believe). It truly made Australia
     a more interesting and beautiful place in this game.
 - scene_number: "71"
-  scene_title: Image 71
+  scene_title: 71
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene71.jpg
   narration: Ah, Aotearoa, or more recently known as ”New Ozzealand”. The former Maori
     empire was situated here, and there are still reminders of their culture throughout
@@ -585,7 +585,7 @@ scenes:
     it completely into the rest of the nation by sending ”pureblood” Australians there.
     Hopefully for the Maori, their legacy will live on forever.
 - scene_number: "72"
-  scene_title: Image 72
+  scene_title: 72
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene72.jpg
   narration: The Inuit send two XCOM-Squads (I believe their first ones) to Yakutia,
     ready to take the weakened cities there. Yakutia was once on the top spot to conquer
@@ -593,7 +593,7 @@ scenes:
     more aggressive nations. It‘s a bit sad that they were recently beaten by Korea,
     the civ that was on the bottom spot of the Power Rankings once. A sad story indeed.
 - scene_number: "73"
-  scene_title: Image 73
+  scene_title: 73
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene73.jpg
   narration: Speaking about falling from the top, here are the former Canadian territories,
     now Inuit. Here you can see another Inuit XCOM-Squad, proving that indeed, they
@@ -603,7 +603,7 @@ scenes:
     while, but their neighbour the Inuit fastly outgrew them, and defeated Canada
     in a series of crippling wars.
 - scene_number: "74"
-  scene_title: Image 74
+  scene_title: 74
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene74.jpg
   narration: The Buccaneers reconquer their first inland city from the Boers! They
     currently have quite a few land units near Rabat, so the push to reconquer Arrfrica
@@ -611,14 +611,14 @@ scenes:
     are also relatively army-less in this area, most likely to the repeated nuking
     of the area by the Buccaneers and Ethiopia.
 - scene_number: "75"
-  scene_title: Image 75
+  scene_title: 75
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene75.jpg
   narration: 'Paul Kruger [Boers] shows that he definitely hates fun, and after trying
     to kill the Buccaneers, is planning on attacking the Dvinish Empire of Sparta.
     If he does, I think the backlash of the community (read: SirMallock) would be
     so big, that they would just be completely razed from the map.'
 - scene_number: "76"
-  scene_title: Image 76
+  scene_title: 76
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene76.jpg
   narration: Ethiopia reconquers Aswan, and Ethiopia and the Boers both have a lot
     of units in the territory of the other, but one big difference is that most Boer
@@ -627,14 +627,14 @@ scenes:
     Addis Ababa. And I do spot a Boer Paratrooper on the outskirts of it. Is this
     the end for Addis Abeba?
 - scene_number: "77"
-  scene_title: Image 77
+  scene_title: 77
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene77.jpg
   narration: In West Africa, Marrakech is conquered by the Boers, for the umpteenth
     time. However, the Boers are losing ground in West Africa, and Ethiopia just sent
     a whole squadron of Paratroopers over the borders, and into the Western Sahara,
     so that might mean the end for Boer domination in the West.
 - scene_number: "78"
-  scene_title: Image 78
+  scene_title: 78
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene78.jpg
   narration: We end this part with a shot of the war that started the entire Second
     World War. Vietnam has a whole lot of Drone Fighters stationed in Hoi An, ready
@@ -643,13 +643,13 @@ scenes:
     although a huge army is currently embarking towards it, and I don‘t see much of
     an Australian resistance... Let‘s go on to the InfoAddict slides!
 - scene_number: "79"
-  scene_title: Image 79
+  scene_title: 79
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene79.jpg
   narration: Israel has the least land, which is pretty obvious, but what surprises
     me is that the largest City-State, Hawai‘i has more land than Armenia and Tibet,
     both not city-states!
 - scene_number: "80"
-  scene_title: Image 80
+  scene_title: 80
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene80.jpg
   narration: The Boers no longer have the largest army! Australia has overtaken them,
     because of the war going on in the Boer lands. On third place is Vietnam. Ethiopia
@@ -657,29 +657,29 @@ scenes:
     with Sibir and Brazil, they have way more than the Boers, so this war can still
     go either way.
 - scene_number: "81"
-  scene_title: Image 81
+  scene_title: 81
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene81.jpg
   narration: Israel has the smallest army of all civs alive, (no army) smaller than
     several legally dead civs, including, but not limited to the Ashanti, Rome, the
     Timurids, Burma, France, China, Morocco, Canada, and even the mystic Babylon itself.
     Truly sad.
 - scene_number: "82"
-  scene_title: Image 82
+  scene_title: 82
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene82.jpg
   narration: The Inuit have the most cities, but only 1 more than number 2 Australia.
     The Boers are in third place, and Sibir in 4th place.
 - scene_number: "83"
-  scene_title: Image 83
+  scene_title: 83
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene83.jpg
   narration: All city-states are easily listed here, including Texas, having lost
     Austin again to Mexico.
 - scene_number: "84"
-  scene_title: Image 84
+  scene_title: 84
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene84.jpg
   narration: Mexico‘s Catholicism is still by far the largest religion, with Ethiopia‘s
     Oriental Orthodoxy coming second and Israel‘s Judaism coming third.
 - scene_number: "85"
-  scene_title: Image 85
+  scene_title: 85
   slide_url: https://cdn.civbattleroyale.tv/mark2-part69-scene85.jpg
   narration: On this final slide, you see the religion map, which shows which religion
     dominates where. Africa is almost completely Oriental Orthodox, Europe and the

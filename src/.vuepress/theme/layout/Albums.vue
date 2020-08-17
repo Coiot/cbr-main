@@ -118,10 +118,6 @@
       <div v-if="isToggle === false">
         <section class="scenes">
           <article class="medium" v-for="scene in $page.frontmatter.scenes" :key="scene.number">
-            <h2
-              class="scenenumber"
-              v-bind:class="{ civdeathBorder: scene.death }"
-            >{{ scene.scene_number }}</h2>
             <img
               v-lazy="scene.slide_url"
               tabindex="0"
@@ -129,7 +125,9 @@
               v-bind:class="{ civdeathImage: scene.death }"
             />
             <div class="text">
-              <h3>{{ scene.scene_title }}</h3>
+              <h3 v-if="scene.scene_number == scene.scene_title">{{ scene.scene_number }}</h3>
+              <h3 v-else-if="scene.scene_title">{{ scene.scene_number }}: {{ scene.scene_title }}</h3>
+              <h3 v-else>{{ scene.scene_number }}</h3>
 
               <div
                 class="narrations"
@@ -243,6 +241,8 @@ export default {
 
 .blog {
   text-shadow: 2px 2px #083832;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .blog h1 {
@@ -266,8 +266,6 @@ export default {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
-  padding-bottom: 1em;
-  margin-top: 2.5rem;
 }
 
 .nextprev a {
@@ -347,7 +345,11 @@ button:hover {
   max-width: 1050px;
   height: auto;
   display: block;
-  padding: 0 auto 3rem;
+  margin-top: 1rem;
+}
+
+article + article {
+  margin: 3rem 0;
 }
 
 h2 {
@@ -369,8 +371,8 @@ img:hover {
 }
 
 .text {
-  border-bottom: 2px solid #ffbf46;
-  background-color: #181818;
+  border-bottom: 3px solid #ffbf46;
+  background-color: #1a1a1a;
   padding: 2rem;
 }
 

@@ -10,7 +10,7 @@ date: 2015-08-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg
 scenes:
   - scene_number: "1"
-    scene_title: Image 01
+    scene_title: 1
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene01.jpg
     narration:
       "The Official /r/Civ 60+ Civ Battle Royale! | Part 1: In the Beginning....\nHey
@@ -29,7 +29,7 @@ scenes:
       their predictions turn out to be. Also, join us over on /r/civbattleroyale for
       artwork, civilized discussion and not so civilized trash-talking! \nLet‘s begin!"
   - scene_number: "2"
-    scene_title: Image 02
+    scene_title: 2
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene02.jpg
     narration:
       First up, we have a map showing off all the starting locations of the
@@ -38,7 +38,7 @@ scenes:
       enough reference to see the potential that some civs have (and conversely, which
       ones seem the most likely to falter).
   - scene_number: "3"
-    scene_title: Image 03
+    scene_title: 3
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene03.jpg
     narration:
       We start our journey in the misty salt waters of Antarctica, where a
@@ -46,14 +46,14 @@ scenes:
       this bastion of frost and subsequent misery, the brave Babylonian crew members
       will, for generations keep a close eye on global happenings.
   - scene_number: "4"
-    scene_title: Image 04
+    scene_title: 4
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene04.jpg
     narration: |-
       Let‘s first take a look at the Civilizations of the North Sea. Throughout this initial inception of the Battle Royale I‘ll be posting the Power Rankings of certain civs alongside annotations. Firstly, let‘s have a look at the potential of the Irish!
       Some consider Malacy II to be an underdog, but its UU is perfectly designed for a Battle Royale such as this. Cheaper, faster and more resistant to ranged fire than regular long swordsman, look for these special units to spam the field and overwhelm any opposition. Also taking into account that they will receive a starting bonus to keep them competitive in the very early game, I for one, can see Ireland making a surprise late run in this brutal and unforgiving world. Sadly, being relegated to a small island in an already crowded location, the hive mind agrees that Ireland will most likely be a small bit player throughout the series, if they even survive.
       Ranking: 49/61
   - scene_number: "5"
-    scene_title: Image 05
+    scene_title: 5
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene05.jpg
     narration:
       "A quick glance at our Western Mediterranean contenders! Let‘s focus
@@ -73,7 +73,7 @@ scenes:
       culture focused civ. With little to keep it alive, only dumb luck will see this
       civ last beyond the early game\nRanking: 61/61"
   - scene_number: "6"
-    scene_title: Image 06
+    scene_title: 6
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg
     narration: |-
       To the west, we have five more Civilizations that may clash over this side of the Mediterranean. Let‘s shine a spotlight on the chances of Sparta and Israel!
@@ -82,7 +82,7 @@ scenes:
       The spy master fan favorites from the previous game return, ready to peer through windows and hide inside of bushes with as much vigor as ever before. Their rank may appear low, but they lead the region with plenty of room to expand north and east. Historically sleepy neighbors like the Ayyyyyyubids and Arabs certainly help their odds as they will seek to, as before, quickly establish supremacy over the Levant and more. Their UAs, and even their UUs, will help propel the chosen peoples to be a religious super power at the very least, influencing their neighbors whose residents will soon yearn for the comforts of the kibbutz and gefilte fish.
       Ranking: 27/61
   - scene_number: "7"
-    scene_title: Image 07
+    scene_title: 7
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene07.jpg
     narration:
       "To the north lies one of the fan favorite of the last game - Poland.
@@ -107,8 +107,8 @@ scenes:
       chance than most, even despite the high civ-density of Europe. You may be jumping
       on the Poland bandwagon early, but you know what they say... 'don‘t be stupid,
       be a smartie! Come and join the Nazi Party!'\nRanking: 37/61"
-  - scene_number: "08"
-    scene_title: Image 08
+  - scene_number: "8"
+    scene_title: 8
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene08.jpg
     narration: |-
       In the last game, Afghanistan and Armenia had plenty of room to settle West and East respectively, but now two new contenders have arrived to complicate the region‘s political standing - Persia and the Timurids.
@@ -116,8 +116,8 @@ scenes:
       Ranking: 26/61
       Persia is in one of the most hotly contested spots in the entire BR. They start right in the middle of IRL Iran. In the last BR, Israel was able to gain control of most of Iran just because the nearby Afghanistan, Armenia, and Arabia basically turtled the entire time. But now, with Persia in the picture, they now look to dominate the Middle East and keep their people happy so they use their UA to keep generating long Golden Ages with extra boosts. However, that is way easier said than done. Because they don‘t only have to worry about the Middle Eastern civs, including Byzantium, Israel, and the maybe-if-they-come-out-of-their-shell Arabian Empire. They also have to worry about Armenia and Afghanistan as well just in case they come out of their shells. And with more competition in India now, the Mughals might look west as well. Top it all off with the newcomer Timurids to the North and Persia has a lot to worry about. Chances are that at least one of those empires will eventually go into a full on war with Persia and cripple them. Persia has potential but there are is too hotly contested for us to rank them any higher.
       Ranking: 33/61
-  - scene_number: "09"
-    scene_title: Image 09
+  - scene_number: "9"
+    scene_title: 9
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene09.jpg
     narration:
       "To the north, the Huns and the Siberians lie in wait - eager for the
@@ -137,7 +137,7 @@ scenes:
       of attackers or defenders. If this civ builds a large army than, coupled with
       its unique speed, they could prove deadly\nRanking: 34/61"
   - scene_number: "10"
-    scene_title: Image 10
+    scene_title: 10
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene10.jpg
     narration:
       "Tibetan and Burmese challengers appear in the east! It seems almost
@@ -163,7 +163,7 @@ scenes:
       in mid-game. This civ will prove the world‘s most implacable turtle, at the least,
       and if they expand north quickly, perhaps much more.\nRanking: 29/61"
   - scene_number: "11"
-    scene_title: Image 11
+    scene_title: 11
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene11.jpg
     narration:
       "To the south lies the Sri Lankans on their island home that hugs the
@@ -180,7 +180,7 @@ scenes:
       but it’s likely “Paper Planes” will be stuck in your head whenever TPang screen
       caps them, regardless.\nRanking: 23/61"
   - scene_number: "12"
-    scene_title: Image 12
+    scene_title: 12
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene12.jpg
     narration:
       "To the north lies our three Asian tigers - China, Korea and Japan respectively.
@@ -205,7 +205,7 @@ scenes:
       AI game the AI has struggled to make it work. Sejong‘s best bet is to expand north,
       and build spearmen to try and beat the horse lords of the steppes.\nRanking: 38/61"
   - scene_number: "13"
-    scene_title: Image 13
+    scene_title: 13
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene13.jpg
     narration:
       "Upon the steppes of the Gobi lies our horse lords of the North! With
@@ -216,7 +216,7 @@ scenes:
       suppressing those around him will be key to a Mongolian victory if he is not to
       be caught between the Red Giants of Stalin and Mao.\nRanking: 9/61"
   - scene_number: "14"
-    scene_title: Image 14
+    scene_title: 14
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene14.jpg
     narration:
       "In South East Asia lies our seafaring tropical nations of Indonesia,
@@ -237,7 +237,7 @@ scenes:
       be reckoned with. It‘s worth noting that they will start with the ability to embark,
       boosting the early game for the Filipino adventurers.\nRanking: 30/61"
   - scene_number: "15"
-    scene_title: Image 15
+    scene_title: 15
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene15.jpg
     narration:
       Finally, we have some extremely decent competition for the Australian
@@ -245,7 +245,7 @@ scenes:
       at the new 'Outback' biome for the Australian Desert. We‘ll see how our newcomers
       rate in the Power Rankings in an upcoming slide.
   - scene_number: "16"
-    scene_title: Image 16
+    scene_title: 16
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene16.jpg
     narration: |-
       To the east we have the ultimate friendly rivalry; The Maori and Australia. With added sea bridges in Australia, will this initial comradarie end in bloodshed?
@@ -254,7 +254,7 @@ scenes:
       One of the winners of the last Battle, thanks in most part to a good location. As a civilization, Australia is almost entirely based around tourism, something of little importance this round. In previous AI games, Parkes has shown a penchant for turtling, with various levels of success. In the Battle Royale, he showed the true power of the turtle, by building up an immense military before striking against Indonesia. In the Colonialist Legacies game, he tried to turtle but never reached critical mass and was swiftly destroyed. But with Kimberley a stone‘s throw away, he can‘t afford to throw any shrimp on the barbie just yet. And he surely cannot hope for the easy success demonstrated last time. We shall all be waiting with bated breath for the return of the Tpangenning.
       Ranking: 1/61
   - scene_number: "17"
-    scene_title: Image 17
+    scene_title: 17
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene17.jpg
     narration:
       "DescriptionParadise Found: In the middle of the Pacific Ocean lies the
@@ -271,7 +271,7 @@ scenes:
       more production, but does not require Iron AND starts with more exp, as well as
       'Amphibious'.\nRanking: 45/61"
   - scene_number: "18"
-    scene_title: Image 18
+    scene_title: 18
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene18.jpg
     narration:
       "Ranking: 45/61\nOver in the frosted, tundra-bound north lies the fan
@@ -297,7 +297,7 @@ scenes:
       Nothing is guaranteed in the bigger, better Battle Royale Mk II, but believe me,
       brother, cold winds are rising.\nRanking: 2/61"
   - scene_number: "19"
-    scene_title: Image 19
+    scene_title: 19
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene19.jpg
     narration:
       "North America has plenty of open plains ripe for the taking, but who
@@ -322,7 +322,7 @@ scenes:
       era, so the timing of their wars is crucial. Can Lincoln overcome the deep divides
       in America‘s very fabric to become a superpower? Worked IRL.\nRanking: 19/61"
   - scene_number: "20"
-    scene_title: Image 20
+    scene_title: 20
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene20.jpg
     narration:
       "From her misty oceans, her looming shadow grows - the fan favourite
@@ -337,7 +337,7 @@ scenes:
       Mayan domination of the Caribbean is just one war with Henry Morgan away...\nRanking:
       21/61"
   - scene_number: "21"
-    scene_title: Image 21
+    scene_title: 21
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene21.jpg
     narration:
       "Finally, we get to have a look at our South American gladiators. With
@@ -353,7 +353,7 @@ scenes:
       tall and defensive, she may be able to come out on top in South America.\nRanking:
       39/61"
   - scene_number: "22"
-    scene_title: Image 22
+    scene_title: 22
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene22.jpg
     narration:
       "Let the games begin! Three turns in, and no Civilization has yet founded
@@ -373,14 +373,14 @@ scenes:
       despite living on an island, look to have a tall order ahead of them.\nRanking:
       52/61"
   - scene_number: "23"
-    scene_title: Image 23
+    scene_title: 23
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene23.jpg
     narration: |-
       Meanwhile in Australia, the Kimberley send their Settler off to the south, as one of their starting warriors tries to make sense of their odd, red surroundings.
       If the Kimberly can withstand the expansionist and aggressive tendencies of our current front runner, Australia, they will be in a very strong position to go far in this game. With their UA to promote trade between themselves and all the Indonesian islands, they will have no trouble generating revenue and happiness. The tracker UU that they get is also very good, and we will all be waiting to see if they can use them effectively in MK II. All in all, the winner of the Rumble Down Under can be considered one of the leading contenders for the crown!
       Ranking: 10/61
   - scene_number: "24"
-    scene_title: Image 24
+    scene_title: 24
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene24.jpg
     narration:
       "Over in Ayyubid territory, Saladin orders his people to colonize the
@@ -398,7 +398,7 @@ scenes:
       a chance of staying in the game for an extended period of time. However, it is
       most likely that they will become boxed in and turtle.\nRanking: 51/61"
   - scene_number: "25"
-    scene_title: Image 25
+    scene_title: 25
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene25.jpg
     narration:
       "To the south, the Boers aim to castrate even the notion of Zulu expansion
@@ -423,7 +423,7 @@ scenes:
       If Shaka wants to do well, he has to crush Kruger quickly, before the latter‘s
       food and production bonuses can truly come into effect.\nRanking: 15/61"
   - scene_number: "26"
-    scene_title: Image 26
+    scene_title: 26
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene26.jpg
     narration:
       "In West Africa, the Ashanti send their second worker off as a psuedo-scout
@@ -440,7 +440,7 @@ scenes:
       early if they want to make it out of the ancient era. If you are looking for an
       underdog this is the civ to cheer for.\nRanking: 50/61"
   - scene_number: "27"
-    scene_title: Image 27
+    scene_title: 27
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene27.jpg
     narration:
       "To the north, and Israeli plot to forward settle the Armenians is foiled
@@ -454,7 +454,7 @@ scenes:
       assistance of Russia, the Huns, Israel, Persia, and the Timurids, who are boxing
       them in. No expansion + No UU + Strong Neighbors = Screwed.\nRanking: 57/61"
   - scene_number: "28"
-    scene_title: Image 28
+    scene_title: 28
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene28.jpg
     narration:
       "Over in the Isles, both the Irish and the English colonists have arrived
@@ -470,14 +470,14 @@ scenes:
       will make it into the mid game with a strong position and influence in the overall
       Battle Royale.\nRanking: 18/61"
   - scene_number: "29"
-    scene_title: Image 29
+    scene_title: 29
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene29.jpg
     narration:
       It‘s turn 6 and already the Sri Lankans a Pantheon. Choosing to worship
       the Goddess of Protection, do the Sri Lankans predict a future of bloodshed and
       violence?
   - scene_number: "30"
-    scene_title: Image 30
+    scene_title: 30
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene30.jpg
     narration:
       "Holding back on a potentially castrating forward settle, the Champa
@@ -499,7 +499,7 @@ scenes:
       really break out as a contender it really wouldn‘t come as too much of a shock
       if they could challenge China for eastern Asia.\nRanking: 25/61"
   - scene_number: "31"
-    scene_title: Image 31
+    scene_title: 31
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene31.jpg
     narration:
       "To the north, China expands westward leaving an opening for Sejong to
@@ -513,14 +513,14 @@ scenes:
       empires. Can China under Mao take the Great Leap Forward from the Qin Empire and
       come to dominate East Asia? We certainly think so.\nRanking: 3/61"
   - scene_number: "32"
-    scene_title: Image 32
+    scene_title: 32
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene32.jpg
     narration: |-
       Like China, Timur also leads his people west - founding the city of Herat not too far from the Caspian. Historically, the Timurids were mighty and fierce - what are their chances this time around?
       The Timurids find themselves in the middle of Central Asia and fill a void that otherwise would be divided up between The Huns, Persia, and The mighty Turtle Afghanistan thus it may be a Germany in Europe situation all over again. This is not to say that Timur is doomed, his UA calls for VERY early expansion buffing his palace after the capture of his first city and building any buildings not built in the capital but built in the captured city in the capital (just look up the workshop page). Anyways he also suffers from a mediocre UB and an okay UU which won‘t help him when things start to heat up in the end of medieval- beginning of renaissance era when they appear. Timur deserves this spot in the rankings until he proves he can hang with the big boys in BR.
       Ranking: 44/61
   - scene_number: "33"
-    scene_title: Image 33
+    scene_title: 33
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene33.jpg
     narration:
       "Casimir, in his quest for a Coastal City inadvertantly stumps Hitler
@@ -541,7 +541,7 @@ scenes:
       its UU but overall the USSR is looking to be a contender throughout the series.
       Our rankings reflect that optimism\nRanking: 5/61"
   - scene_number: "34"
-    scene_title: Image 34
+    scene_title: 34
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene34.jpg
     narration:
       "The Ashanti Workers continue their wonderous pilgramage across West
@@ -557,19 +557,19 @@ scenes:
       (who ranks lower than them) are military based civs, perhaps giving them a window
       to expand by conquest.\nRanking: 54/61"
   - scene_number: "35"
-    scene_title: Image 35
+    scene_title: 35
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene35.jpg
     narration: |-
       England and Ireland firmly establish their colonies across their respective channels - with England sending both of her workers in the long voyage to York. Napoleon in retaliation for York‘s existence settles Orleans and nabs a large quantity of London‘s portion channel for himself.
       Meanwhile in Greenland, a withered Icelandic scout searches for new potential locations for bustling Icelandic Cities. With many decent potential locations, how will Iceland fare in this game?
   - scene_number: "36"
-    scene_title: Image 36
+    scene_title: 36
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene36.jpg
     narration: |-
       Fan favorite Iceland has an unfortunate starting location. TPang has promised “bonuses” in the form of boosting Greenland’s geography and a galley in place of a warrior at the beginning. They have an extreme bias to forward settle other continents though, and even get a unique great person (the Skald, replacing the great writer) to help them in their quest. However, The British Isles and Scandinavia are well overpopulated, keeping them from any expansion outside of Westward. No Unique Unit, no army or naval advantage, and no wartime advantage will make them hard pressed to succeed.
       Ranking: 55/61
   - scene_number: "37"
-    scene_title: Image 37
+    scene_title: 37
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene37.jpg
     narration:
       Israel starts their tradition of encompassing Desert Folklore into their
@@ -577,7 +577,7 @@ scenes:
       Timur, Afghanistan or Texas. As these nations weep for what can never be theirs
       - one can only hope that David will make the most out of his new Pantheon.
   - scene_number: "38"
-    scene_title: Image 38
+    scene_title: 38
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene38.jpg
     narration:
       "Perhaps they‘ll be friends, or foe - but like England and Ireland, Mexico
@@ -600,7 +600,7 @@ scenes:
       a weak Texas and then expanding south into its old stomping grounds.\nRanking:
       28/61"
   - scene_number: "39"
-    scene_title: Image 39
+    scene_title: 39
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene39.jpg
     narration:
       "Morgan sends his loyal crew to work in the new Buccaneer colony of Tortuga,
@@ -613,7 +613,7 @@ scenes:
       inroads into the mainland, and only time will tell, but at least this salty dog
       has high hopes for a fan favorite from last season.\nRanking: 11/61"
   - scene_number: "40"
-    scene_title: Image 40
+    scene_title: 40
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene40.jpg
     narration:
       "To the north, the Blackfoot seems to have accepted their role as the
@@ -630,7 +630,7 @@ scenes:
       no time to sit around and turtle. Expect them to settle Plains areas, in order
       to maximize their UA and UI.\nRanking: 22/61"
   - scene_number: "41"
-    scene_title: Image 41
+    scene_title: 41
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene41.jpg
     narration:
       Canada and America have the ability great strides in the open expanses
@@ -638,21 +638,21 @@ scenes:
       So as a sign of good faith - they keep a fair distance from each other..... for
       now.
   - scene_number: "42"
-    scene_title: Image 42
+    scene_title: 42
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene42.jpg
     narration:
       The Champa seems to have lost their way. Eight turns in and Che Bong
       Nga stands alongside Sejong as the only two out of the 61 Civilizations that have
       failed to found a second city.
   - scene_number: "43"
-    scene_title: Image 43
+    scene_title: 43
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene43.jpg
     narration:
       Meanwhile, over in paradise - Kamehameha sends his wayfarers across the
       waves in the hopes of finding some sweet spots wheret future Hawaiians can surf
       for the many generations to come
   - scene_number: "44"
-    scene_title: Image 44
+    scene_title: 44
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene44.jpg
     narration:
       "In the forested wastes of the tundra emerges the mighty Yakutian peoples.
@@ -671,7 +671,7 @@ scenes:
       with blitz, adding more functionality to an otherwise problematic unit.\nRanking:
       7/61"
   - scene_number: "45"
-    scene_title: Image 45
+    scene_title: 45
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene45.jpg
     narration:
       "Hitler follows by Polish example and settles the city of Hamburg on
@@ -693,7 +693,7 @@ scenes:
       on City States and Friendships... Godspeed Gustavus Adolphus, Godspeed.\nRanking:
       60/61"
   - scene_number: "46"
-    scene_title: Image 46
+    scene_title: 46
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene46.jpg
     narration:
       "Caesar expands southward, fostering the potential meeting of Hannibal
@@ -718,14 +718,14 @@ scenes:
       However, if he fails to exploit his early game advantages, Caesar might become
       irrelevant later on.\nRanking: 31/61"
   - scene_number: "47"
-    scene_title: Image 47
+    scene_title: 47
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene47.jpg
     narration:
       The Ashanti Workers continue their vacation, visiting the wild horses
       upon the western coast. Without any insight to Osei Tutu‘s motives, one can only
       he‘s ordering such extended leave to boost Ashanti morale.
   - scene_number: "48"
-    scene_title: Image 48
+    scene_title: 48
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene48.jpg
     narration:
       "Meanwhile, in the heart of Africa lies a civilization unseen by us so
@@ -739,27 +739,27 @@ scenes:
       the Boers to the south and a longer conga line of enemies to worry about, it’s
       still a mystery how well Nzinga will do.\nRanking: 32/61"
   - scene_number: "49"
-    scene_title: Image 49
+    scene_title: 49
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene49.jpg
     narration:
       Colombo expands their borders, incorporating ancient whale migration
       grounds into their empire. Whether or not they‘ll use such a resource for scientific
       research or delicious whale meat (or both) is up to their glorious king.
   - scene_number: "50"
-    scene_title: Image 50
+    scene_title: 50
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene50.jpg
     narration:
       Sejong establishes himself as a man of patience as Korea officially becomes
       the last country on earth to settle a second city.
   - scene_number: "51"
-    scene_title: Image 51
+    scene_title: 51
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene51.jpg
     narration:
       The Buccaneers pump out yet another scout to find the riches of the surrounding
       continents. From his throne in Port Royal, Morgan begins his initial plans for
       world domination - despite how unfeasible his officials says such a prospect is.
   - scene_number: "52"
-    scene_title: Image 52
+    scene_title: 52
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene52.jpg
     narration:
       Houston proves that one should not mess with Texas as he claims a Wheat
@@ -767,28 +767,28 @@ scenes:
       Texan decision to do so and calmly mutters under his breath '...such is life'
       as he orders another load of agave to be planted around his presidential home.
   - scene_number: "53"
-    scene_title: Image 53
+    scene_title: 53
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene53.jpg
     narration: |-
       Jandamarra asks his warriors to gaze over the open expanse of the Outback, for it is what shall mould them, and is what will make their empire great. To the north, the Gajah Mada makes vital improvements to Surabaya, but finds himself unable to find any land suitable for farming. Gajah will have to rely on the sea to keep his beautful rotund figure.
       God damnit Gajah Mada. Arguably the worst Vanilla civ in the game is at least given some leeway in BR Mk II. Close to extinction before the collapse of the first game, Indonesia may have better odds with an Australia now preoccupied with the Kimberley, buying it crucial time to expand throughout, well, Indonesia. Still, a weak UU and dismal history of performance leave this island civ very low on our rankings and rightfully so, to climb higher they‘ll have some proving to do.
       Ranking: 56/61
   - scene_number: "54"
-    scene_title: Image 54
+    scene_title: 54
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene54.jpg
     narration:
       A Filipino scout disguised as an envoy of Rizal‘s greets the Indonesian
       peoples with a nice 'Halo Halo'. Really Rizal, has just asked the scout to find
       new locations for Filipino cities.
   - scene_number: "55"
-    scene_title: Image 55
+    scene_title: 55
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene55.jpg
     narration:
       To the north, the mildly chilled and perpetually hard-nippled Icelandic
       peoples sponsor another Settler to increase the feasibility of a vast Icelandic
       Empire. Only time will tell if they decide to make the trek to Greenlander pastures.
   - scene_number: "56"
-    scene_title: Image 56
+    scene_title: 56
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene56.jpg
     narration:
       As Cork grows, Malachy II decides to capitalize on his hold of the isles
@@ -796,14 +796,14 @@ scenes:
       by the Irish leader before the technology that allows for the aquisition of Guinness
       is inevitably discovered.
   - scene_number: "57"
-    scene_title: Image 57
+    scene_title: 57
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene57.jpg
     narration:
       Paul Kruger sends off the first of what can only be many settlers with
       a remarkable speech which blesses the rains down in Africa for producing such
       lovely crops that allowed for the creation of another Settler.
   - scene_number: "58"
-    scene_title: Image 58
+    scene_title: 58
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene58.jpg
     narration:
       In the North, the Blackfoot decide that the Tundra isn‘t completely useless,
@@ -811,33 +811,33 @@ scenes:
       that they‘re not too complacent with their current surroundings and search for
       a place to plonk down a snowy comode.
   - scene_number: "59"
-    scene_title: Image 59
+    scene_title: 59
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene59.jpg
     narration: |-
       Leonidas decides that two Spartan cities are not enough, as he unveils his plans to expand his empire further than just the reaches of the Balkans. To the east, Alexios I Komenos of Byzantium decides it‘s best not to agitate the shirtless man with a massive spear and decides to head northward instead.
       Alexios Komnenos will get a Golden Age every time a war starts. Given his position on the edge of the Great European Clusterfuck, he may be in a Golden Age for as long as he lives. His naval UU, a replacement for the Galleass, which heals 15 points per turn in a Golden Age is going to be healing quite a lot, I suspect. Sparta, likely to be a warmonger, on his western front, may induce him to expand east into Anatolia, and away from the bloodbath that shall emerge. Any significant expansion west would be a death sentence.
       Ranking: 43/61
   - scene_number: "60"
-    scene_title: Image 60
+    scene_title: 60
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene60.jpg
     narration:
       The Kimberley decide to expand their fledgling empire to the fertile
       Top End, the traditional territory of the Yolngu peoples (creators of the Digeridoo).
   - scene_number: "61"
-    scene_title: Image 61
+    scene_title: 61
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene61.jpg
     narration:
       The Icelandic people have decided to settle abroad! Where shall the waves
       take them?
   - scene_number: "62"
-    scene_title: Image 62
+    scene_title: 62
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene62.jpg
     narration:
       Somehow, on turn 23 David founds the new religion of Judaism in Jerusalem.
       Rather shocked at these events, Tiridates III decides he couldn‘t really give
       an Artashat and decides to convert Yerevan to Judaism too.
   - scene_number: "63"
-    scene_title: Image 63
+    scene_title: 63
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene63.jpg
     narration:
       Meanwhile, the Yakutians look to the sky and start worshipping the Goddess
@@ -845,21 +845,21 @@ scenes:
       gold bonus from camps, this could be the start of the skyward rise of the Yakutian
       empire.
   - scene_number: "64"
-    scene_title: Image 64
+    scene_title: 64
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene64.jpg
     narration:
       The Germans also decide it‘s a swell idea to found a third city, and
       so they do. Following suit, the Caesar also orders for the inception of a brand
       new city.
   - scene_number: "65"
-    scene_title: Image 65
+    scene_title: 65
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene65.jpg
     narration:
       Evidently it seems that the speech that Kruger gave to his citizens was
       a little bit too exciting as his enthused Settlers make the great trek all the
       way into the heart of Africa.
   - scene_number: "66"
-    scene_title: Image 66
+    scene_title: 66
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene66.jpg
     narration:
       Alberti spreads the word that Akbar has the most delicious meals on the
@@ -867,13 +867,13 @@ scenes:
       as their diplomats inform them that Akbar gives out free curries in excess to
       any foreign dignitary.
   - scene_number: "67"
-    scene_title: Image 67
+    scene_title: 67
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene67.jpg
     narration:
       The Mexicans decide to trump their neighbours by potentially immigrating
       closer to the Texan border.
   - scene_number: "68"
-    scene_title: Image 68
+    scene_title: 68
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene68.jpg
     narration:
       In the south, the Maori discover the mysterious island of Tasmania. Reports
@@ -883,21 +883,21 @@ scenes:
       Meanwhile, Parkes decides to spend the majority of his time settling cities in
       accurate locations.
   - scene_number: "69"
-    scene_title: Image 69
+    scene_title: 69
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene69.jpg
     narration:
       Captain Morgan decides to find new sources of Rum around the Panama region.
       Will we see a game with both a Panama Canal and a Suez Canal city? Crazier things
       have happened.
   - scene_number: "70"
-    scene_title: Image 70
+    scene_title: 70
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene70.jpg
     narration:
       The Inuit decides that there‘s snow time like the present and sends an
       additional Settler southward to sunnier pastures. Across the bay, the Blackfoot
       founds another city with plenty of prospects for growth.
   - scene_number: "71"
-    scene_title: Image 71
+    scene_title: 71
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene71.jpg
     narration:
       And thus we come to the end of the first part of our Battle Royale! At
@@ -905,40 +905,40 @@ scenes:
       that Alberti might actually have some validity to his claims of a Mughal Empire
       full of delicious curry.
   - scene_number: "72"
-    scene_title: Image 72
+    scene_title: 72
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene72.jpg
     narration:
       Meanwhile, the Zulus take the cake for being the civilization least likely
       to have any cake at all.
   - scene_number: "73"
-    scene_title: Image 73
+    scene_title: 73
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene73.jpg
     narration:
       The Mughals also at this point top the list. It‘s a slim lead over the
       rest of the world, but it‘s a victory that no doubt the fans over at /r/mugglenation
       will gladly accept.
   - scene_number: "74"
-    scene_title: Image 74
+    scene_title: 74
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene74.jpg
     narration:
       The lead of the Mughals is evidently slim, having researched only two
       techs ahead of those who‘ve researched 6. The question is - with the high potential
       for Mughal growth, will their science output likewise grow?
   - scene_number: "75"
-    scene_title: Image 75
+    scene_title: 75
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene75.jpg
     narration:
       The Blackfoot, on par with Afghanistan have the most land at this point.
       Rest assured island nation fans with bruised egos - as this covers only the literal
       LAND area!
   - scene_number: "76"
-    scene_title: Image 76
+    scene_title: 76
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene76.jpg
     narration:
       The Israelites have two cities following Judaism as of turn 27, Yerevan
       and Jerusalem.
   - scene_number: "77"
-    scene_title: Image 77
+    scene_title: 77
     slide_url: https://cdn.civbattleroyale.tv/mark2-part1-scene77.jpg
     narration: |-
       The Religious Overview Map is not only handy for figuring out the spread of religion, but it‘s also super handy for seeing the growth and spread of cities around the globe!

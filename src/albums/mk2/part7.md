@@ -10,7 +10,7 @@ date: 2015-09-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part7-scene06.jpg
 scenes:
   - scene_number: "1"
-    scene_title: Image 01
+    scene_title: 1
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene01.jpg
     narration:
       "Welcome back to the /r/Civ 60+ Civ Battle Royale Mk. II | Part 6! Today
@@ -27,20 +27,20 @@ scenes:
       want to cruise through the power rankings if you haven‘t.\nAnd without further
       ado...“"
   - scene_number: "2"
-    scene_title: Image 02
+    scene_title: 2
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene02.jpg
     narration:
       "Take a moment to soak in this lovely map made by SylonL showing the
       state of the world as it was at the end of the last installment.\n \nDon‘t forget
       to open the full resolution image!"
   - scene_number: "3"
-    scene_title: Image 03
+    scene_title: 3
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene03.jpg
     narration:
       A beautiful representation of the world in polandball format by /u/EmeraldRange!
       Remember to check out /r/civbattleroyale for stuff like this on a daily basis!
   - scene_number: "4"
-    scene_title: Image 04
+    scene_title: 4
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene04.jpg
     narration:
       "Whatever you want to call it, Constantinople is going down, down, down,
@@ -57,7 +57,7 @@ scenes:
       even after whiffing against Rome and Poland, Leonidas finally blundered into the
       right patsy and is pressing it all the way home."
   - scene_number: "5"
-    scene_title: Image 05
+    scene_title: 5
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene05.jpg
     narration:
       "Briefly revealed by careful detective work for those in the know (r/soylentbuffalo
@@ -73,7 +73,7 @@ scenes:
       served that purpose very well indeed, another up in the Arctic could either lock
       down the rest of Alaska‘s lame hinterlands or make straight for Siberia."
   - scene_number: "6"
-    scene_title: Image 06
+    scene_title: 6
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene06.jpg
     narration: |-
       And like that, Constantinople goes; at six-pop on the fall, it is tied with the Blackfoot‘s capture of Mdekwankantonwan for biggest city to change hands.  (At least, to my recollection. Baltimore was a fiver.)
@@ -91,7 +91,7 @@ scenes:
       Spartan: “Well, in the time we save by not building city defenses, they learn the arts of war.“
       Blackfoot: “No wonder you only have four cities left.“
   - scene_number: "7"
-    scene_title: Image 07
+    scene_title: 7
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene07.jpg
     narration:
       "And again, we see Leonidas not exactly succeeding at keeping all his
@@ -102,8 +102,8 @@ scenes:
       Sparta isn‘t going to continue growing at that rate.  Of note: Cairo, at 16 and
       getting at least some religion income, is pretty swank.  Oh, and if Jerusalem
       falls, what happens when Ayyubid have two holy cities, anyhow?"
-  - scene_number: "08"
-    scene_title: Image 08
+  - scene_number: "8"
+    scene_title: 8
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene08.jpg
     narration:
       "Two turns ago, Saladin bribed Osei Tutu II, king of the Ashanti, into
@@ -119,22 +119,22 @@ scenes:
       happening on this slide frankly is the declaration of friendship between Ethiopia
       and Kongo.  For what it‘s worth, Kongo‘s leader appears far more deceptive than
       Haile.  Sooner or later we‘ll find out who‘s zooming who."
-  - scene_number: "09"
-    scene_title: Image 09
+  - scene_number: "9"
+    scene_title: 9
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene09.jpg
     narration: |-
       Three turns after flipping back to Hitler, Koln (Cologne) is still part of der Tausendjahriges Reich. Hey, Adolf, you really did make it to a thousand years!  Meanwhile, poor four-city Germany is set to instantly double that total... if only they could find some Lebensraum.  Down in the bunker, Hitler curses the fool who made Europe so overcrowded.  France doesn‘t exactly have the look of a steamrolling invading force here, though.  I think Adolf is going to hang on a while; he had been my tip for first out.  Now you would have to like the Bee-Zees for first casualty.
       I also want to note: accidentally or not, the Jerrys have their city defense doctrine pretty good here; array archers behind cities to shoot incoming forces; there‘s even a great general who might help if he got just a liiiiiitle bit closer to the front.  And on the eastern front, Poland appears to be getting a little too frisky with the catapults; we‘ll soon find out what wave comes next.
       Oh hai, its Sweden!  Not much to see, except a Baltic Sea not clogged with units on every square. I‘d wave goodbye to open seas if I were a Swede / Finn / Pole.
   - scene_number: "10"
-    scene_title: Image 10
+    scene_title: 10
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene10.jpg
     narration: |-
       Now Josef Stalin didn‘t skip the Lebesnraum class at dictator school; that‘s how you settle three cities.  Three gloriously awful, irrelevant cities... unless there is some pressing future need to prevent navies from transiting from the Pacific to the Atlantic via the Eurasian arctic? What‘s that you say, Yakutia is the biggest threat in the game?  Hmm.  Someday the Allies may be shipping Stalin surplus military hardware to outfit the dour defendes of Krasnodar and Gorkiy.
       In other news: Ethiopia has friends in the far east.  And in other, ghostlier news: Portugal has denounced Saladin.  Now that‘s a potential conflict I could get behind; Portugal might be the best-suited country to boss around the waves of the Mediterranean.
       Life must be unspeakable awful in Krasnodar and Vladivostok, so let‘s not gawk.
   - scene_number: "11"
-    scene_title: Image 11
+    scene_title: 11
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene11.jpg
     narration:
       "Well, well, well.  One explanation for some of the Sioux sloppiness
@@ -157,19 +157,19 @@ scenes:
       \n(btw for music and/or steampunk (and/or Rap Battle) fans: https://www.youtube.com/watch?v=0iRTB-FTMdk
       for Fighting Trousers, the pinnacle of the chap-hop movement.  ITS A THING, OKAY?)"
   - scene_number: "12"
-    scene_title: Image 12
+    scene_title: 12
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene12.jpg
     narration: |-
       Up in the frozen wastes of Ellesmere, Baffin and other nameless islands beyond Hudson Bay, the wily majesty of Sitting Bull‘s plan becomes evident: found disposable cities to lose and thereby make wars go away!   (it‘s particularly funny that the city Ekhuenick is probably going to settle for is named YANKTON AI.  Has the crisis situation driven Sitting Bull‘s AI into self-awareness?)
       Canada, meanwhile, is probably going to fall for the same gambit in Oohenupa, while other more bountiful cities could be had in Sioux‘s darkest hour.  A future of Canada/Inuit entanglements await.
   - scene_number: "13"
-    scene_title: Image 13
+    scene_title: 13
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene13.jpg
     narration: |-
       Vietnam is just looking laughably better than her neighbors.  Seven or eight swordsmen around Saigon, just awaiting orders.  Jose Rizal has a nice navy but he‘d better hope his little colony is not on the chopping block.  Could the Trung Sister go Vigan?  Probably not, they are straight up carnivores, as Mao can attest.
       Meanwhile, Japan has a case of warrior-itis that needs fixing.
   - scene_number: "14"
-    scene_title: Image 14
+    scene_title: 14
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene14.jpg
     narration:
       "Hitler‘s still got Cologne, but i think the city‘s refined air suits
@@ -181,7 +181,7 @@ scenes:
       strength.  Meanwhile, Ireland has the beginnings of a navy going, and Elizabeth
       has her archer carpet, as expected."
   - scene_number: "15"
-    scene_title: Image 15
+    scene_title: 15
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene15.jpg
     narration:
       "The Trung Sisters clearly don‘t fear retaliation from Champa; their
@@ -194,13 +194,13 @@ scenes:
       navy, stat. I like this empire though.  Underrated. Soft neighbors to grow fat
       upon."
   - scene_number: "16"
-    scene_title: Image 16
+    scene_title: 16
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene16.jpg
     narration: |-
       Skipping ahead two turns, Inuit found Qausuittuq in the Aleutians, effectively cutting off Blackfoot‘s two island colonies until open borders or deep-sea travel; i don‘t see any evidence of open borders between the anti-Sioux allies.  Too soon?
       The generally-demilitarized nature of this area bodes well for peace between the two.  Meanwhile, A Mexican scout noses around in habitable, claimable space in the Inuit hinterland. What could go wrong?
   - scene_number: "17"
-    scene_title: Image 17
+    scene_title: 17
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene17.jpg
     narration:
       "South America exists!  At least, the part where Morgan has a size-three
@@ -220,7 +220,7 @@ scenes:
       focusing on naval dominance (check) and colonizing in South America.  Now Morgan
       just needs more food, more pop, more science.  Oh, and take Parana!"
   - scene_number: "18"
-    scene_title: Image 18
+    scene_title: 18
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene18.jpg
     narration:
       "With his focus clearly on defending Shiasapa and Itazipcho from Canada
@@ -239,14 +239,14 @@ scenes:
       with Mexico.  Crowfoot clearly has Pacific ambitions and Mexico‘s got the ports
       he needs."
   - scene_number: "19"
-    scene_title: Image 19
+    scene_title: 19
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene19.jpg
     narration: |-
       Last seen some 15 turns ago (slide 6.26), Rome has gotten its act together, ever so slightly. The Portuguese have failed to defend their impetuous colonial settlement of Funchal, while Caesar has also colonized Sicily, giving him theoretical control over the Central Mediterranean.  Somehow Rome has gone from pop-14 to pop-11 during this time, which I imagine must have come as Portuguese vessels deprived them of their fishing grounds?  Well, it‘s all right now.  Rome has the impregnable Alps to the north and seems to have sent Maria packing.  That just leaves Leonidas as a going concern, but Cumae is *extremely* well defended and Sparta obviously has bigger fish to fry, for now.
       But, it must be said, there are not enough Roman people and not enough Roman armies to get much done.  Naked ballista swarms are not good enough!  Could Legions turn the tide?
       Meanwhile, France doesn‘t seem to have an agenda beyond trying to lay down a nice carpet.  Yes, a few piddles in Munich‘s direction, but the lack of a Mediterranean port is Napoleon‘s Achilles heel; without one he can never hope to engage Rome or Portugal further.
   - scene_number: "20"
-    scene_title: Image 20
+    scene_title: 20
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene20.jpg
     narration:
       "The state of play in Asia Minor.  With the Byzantines exiled, it is
@@ -273,7 +273,7 @@ scenes:
       out drunk, one arm over a samovar)\nPutin, aloud: I knew i should have come to
       this meeting shirtless."
   - scene_number: "21"
-    scene_title: Image 21
+    scene_title: 21
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene21.jpg
     narration:
       "Hey now!  Attila the Hun has had enough of these impostor hordes, he‘s
@@ -292,7 +292,7 @@ scenes:
       what this Battle Royale needs is a Russo-Finnish War.  Seriously, the real one
       is on any real afficianado‘s Top 5 Wars."
   - scene_number: "22"
-    scene_title: Image 22
+    scene_title: 22
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene22.jpg
     narration:
       "A close look at the Timurids.  Now, you‘d have to say they are not doing
@@ -311,7 +311,7 @@ scenes:
       Royale.\nIt would be pretty miraculous if they took a city off Sibir here but
       you never know."
   - scene_number: "23"
-    scene_title: Image 23
+    scene_title: 23
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene23.jpg
     narration:
       "Hawaii.  You know, those cities are legit good, and they‘re eventually
@@ -323,7 +323,7 @@ scenes:
       a real threat to, well, at least bother somebody or other.  Mexico?  Maori? Japan?
       \ How cool would a reverse Pearl Harbor be?"
   - scene_number: "24"
-    scene_title: Image 24
+    scene_title: 24
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene24.jpg
     narration:
       "Benito calls off the attack on Sissiton in favor of focusing on wonder-iffic
@@ -337,7 +337,7 @@ scenes:
       too.)  Oh god is it going to be fun seeing Sparta‘s no-walls cities get carved
       up some day."
   - scene_number: "25"
-    scene_title: Image 25
+    scene_title: 25
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene25.jpg
     narration:
       "Snipe alert! Snipe alert! Last seen five turns ago ready to fall to
@@ -353,7 +353,7 @@ scenes:
       of Battle Royale recaps, you feast on scraps or die.  Except sometimes its just
       there in the next slide..."
   - scene_number: "26"
-    scene_title: Image 26
+    scene_title: 26
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene26.jpg
     narration:
       "Trebizond falls; dog-tired Spartan Hoplites look at one another and
@@ -374,7 +374,7 @@ scenes:
       (fast-healing, like, Wolverine fast) but not long for relevancy as armies tech
       up."
   - scene_number: "27"
-    scene_title: Image 27
+    scene_title: 27
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene27.jpg
     narration:
       "In an attempt to reinvent himself as a solid bro, Leonidas makes peace
@@ -387,7 +387,7 @@ scenes:
       time it took you lot to flip the very end of Sitting Bull‘s dopey Arctic psuedopod.
       \ And the Blackfoot are supposed to be worried about you?"
   - scene_number: "28"
-    scene_title: Image 28
+    scene_title: 28
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene28.jpg
     narration:
       "Mercy, Trung Sisters style: it‘s a peace with China, and all it cost
@@ -407,7 +407,7 @@ scenes:
       else. Any bets on the first nation brave enough to DOW the Trungs?  (my guess:
       Yakutia.)"
   - scene_number: "29"
-    scene_title: Image 29
+    scene_title: 29
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene29.jpg
     narration:
       "Kimberley ding dongs with the Hagia Sofia, their second wonder and,
@@ -421,13 +421,13 @@ scenes:
       across the Timor Sea, Indonesia can only look on and wonder where all the food
       is coming from."
   - scene_number: "30"
-    scene_title: Image 30
+    scene_title: 30
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene30.jpg
     narration: |-
       The Hudson Bay theater, where the aforementioned Sioux City Sacrifice is playing out; Yanktonai, gone, Oohenupa gone, but what‘s this, we‘ll just found another, says Sitting Bull.  Now those Inuit longswords look awful ready to capture Sichangu as well ... Meanwhile, is Canada content with the Arctic twin cities, aka future Inuit targets?
       The Fine Print: Ethiopia ropes in more pen pals. Haile would be the most awkward friend at parties.
   - scene_number: "31"
-    scene_title: Image 31
+    scene_title: 31
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene31.jpg
     narration:
       "The western Med, where Maria has streamed back to retake Funchal, and
@@ -439,7 +439,7 @@ scenes:
       ridiculously, naval squares are a valuable resource as the AI likes to carpet
       them up with ships -- the only way it can get anything done once a naval war comes."
   - scene_number: "32"
-    scene_title: Image 32
+    scene_title: 32
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene32.jpg
     narration:
       "Ding dong!  The Inuit steamroller bound for Sichangu turns into a pumpkin
@@ -453,7 +453,7 @@ scenes:
       when they war with Canada or Iceland or Japan, i suppose.\nThe Fine Print: And
       take note of Olympus falling to the Ayyubids because..."
   - scene_number: "33"
-    scene_title: Image 33
+    scene_title: 33
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene33.jpg
     narration:
       "Carthago takes it right back.  That one Spartan citizen is going to
@@ -465,7 +465,7 @@ scenes:
       little, little navy might be about to catch Constantinople with its pants down!
       \ \nIn the Wings: Jerusalem looks safe.  Roman-held Funchal does *not*."
   - scene_number: "34"
-    scene_title: Image 34
+    scene_title: 34
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene34.jpg
     narration:
       "Sparta looks to dig in, rebuilding Constantinople‘s defenses as best
@@ -477,7 +477,7 @@ scenes:
       \ Obviously we‘re on a ten-turn clock and technically they are still at war with
       Saladin, but ..."
   - scene_number: "35"
-    scene_title: Image 35
+    scene_title: 35
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene35.jpg
     narration:
       "Slide 32: (Turn 120)\nLadies and Gentlemen, the lost land of South America.
@@ -493,7 +493,7 @@ scenes:
       except that seems like its not going to happen, this continent has a very Oceania
       / Eurasia / Eastasia feel to it right now.  Needed a fifth entrant."
   - scene_number: "36"
-    scene_title: Image 36
+    scene_title: 36
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene36.jpg
     narration:
       "Oh, snap!  Or is it snipe?  Constantinople falls to Tiridates‘ naval
@@ -514,7 +514,7 @@ scenes:
       \nNow, I say that ours is the superior way and we shall war on any men of belief
       who set foot on these shores!"
   - scene_number: "37"
-    scene_title: Image 37
+    scene_title: 37
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene37.jpg
     narration:
       "Four turns in, a look at the Atilla & Timur (best bros, they were in
@@ -528,7 +528,7 @@ scenes:
       started, at least.  \nIn the wings: A Finnish settler, a looong way from home.
       \ At least he‘s got an escort.  Also: Finland itself!"
   - scene_number: "38"
-    scene_title: Image 38
+    scene_title: 38
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene38.jpg
     narration:
       "A pop in on Korea, where Sejong inches closer to unlocking his final,
@@ -540,13 +540,13 @@ scenes:
       no evidence of a new Japanese settler here.\nIn the Fine Print, we see word of
       two cities in Asia Minor flipping again.  All that‘s missing is a spinning newspaper."
   - scene_number: "39"
-    scene_title: Image 39
+    scene_title: 39
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene39.jpg
     narration: |-
       And back to Asia Minor; as promised, Sparta retakes Constantinople while the Ayyubids take Trebizond, and, it must be noted, gets Jerusalem down into yellow.  Say what you will about Judaism vs. Islam, Cairo is certainly top dog when it comes to holy cities.
       In Sparta‘s far northwestern frontier, some troops get experience at Cumae‘s expense.  Those men could really be used elsewhere, Leonidas!  But, it looks like Constantinople has a few turns‘ grace before flipping again, at least.
   - scene_number: "40"
-    scene_title: Image 40
+    scene_title: 40
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene40.jpg
     narration:
       "In a bid for relevancy of any sort, Arabia lays siege to Jericho.  The
@@ -556,13 +556,13 @@ scenes:
       totally deserted Ayyubid interior.  Ethiopia‘s passivity is one of the great mysteries
       of the game.  Saving it for Der Boer?"
   - scene_number: "41"
-    scene_title: Image 41
+    scene_title: 41
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene41.jpg
     narration: |-
       Slide 38, Turn 121
       If a conflict touches off between Australia and Kimberley (doesn‘t it have to?) it may be over tensions in Papua and the northern territories rather than the sandy expanse that is the interior of the continent.  I‘m not saying there won‘t be fighting there, mind you, just that the war goals of both parties may revolve around nothingburger towns like Cairns.  (Hey, it might be a lovely place come 2015AD.)
   - scene_number: "42"
-    scene_title: Image 42
+    scene_title: 42
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene42.jpg
     narration:
       "Jumping ahead two turns, an interloper has appeared in the North Atlantic,
@@ -573,7 +573,7 @@ scenes:
       has the Appalachians to fall back upon for defense, though, and Canada has as
       yet not shown interest in picking on the Yank.  But it could get messy."
   - scene_number: "43"
-    scene_title: Image 43
+    scene_title: 43
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene43.jpg
     narration:
       "Well well well, here‘s what Attila‘s b-teamers were doing: waiting for
@@ -586,7 +586,7 @@ scenes:
       yes?  Anyhow, I am bullish on Tiridates‘ chances of surviving this. But it‘s patently
       good news for Sparta..."
   - scene_number: "44"
-    scene_title: Image 44
+    scene_title: 44
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene44.jpg
     narration:
       "Sparta, who have re-flipped Trebizond and seem to be defending Constantinople
@@ -596,14 +596,14 @@ scenes:
       all roses for Leonidas yet: if you look on the left hand side of the screen, you‘ll
       see an interesting development: Messene about to go into the yellow."
   - scene_number: "45"
-    scene_title: Image 45
+    scene_title: 45
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene45.jpg
     narration: |-
       That‘s because Augustus Caesar has his navy unopposed, has his legions online, has his ballistae online, and is ready to REVENGE! on Leonidas.
       Cumae, ever the redoubt, is being held down 300-style by a single legion, chilling as a horde of Spartans dash themselves on the rock.  Troops are wet in the Adriatic and the Med.  This is a serious development for Leonidas, who let this problem fester.
       Augustus still might take a white peace: you can see he‘s still fighting Portugal (combat damage at left.)
   - scene_number: "46"
-    scene_title: Image 46
+    scene_title: 46
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene46.jpg
     narration:
       "What has all the sound and fury wrought for Saladin?  Well... Bethlehem,
@@ -614,7 +614,7 @@ scenes:
       of Hippo Regius -- a potential future city of industry -- seems more likely to
       fall to Saladin."
   - scene_number: "47"
-    scene_title: Image 47
+    scene_title: 47
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene47.jpg
     narration:
       "And here‘s A.N.Other shocker.  Mao‘s not the only person who can give
@@ -628,7 +628,7 @@ scenes:
       to deplete the carpets.\nAnd how is Saladin going to hold on to Adrianople?  At
       pop-nine, it is quite the prize for Sparta, if Leonidas can multitask."
   - scene_number: "48"
-    scene_title: Image 48
+    scene_title: 48
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene48.jpg
     narration:
       "And how is Saladin going to hold on to Olympia?  \nSeriously, can all
@@ -642,7 +642,7 @@ scenes:
       has shrewdly placed there.  And Saladin‘s going to have to work a lot harder to
       get Hippo Regius on the right side of the ledger."
   - scene_number: "49"
-    scene_title: Image 49
+    scene_title: 49
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene49.jpg
     narration:
       "Ah, Russia vs. Armenia, it‘s been too long!  In truth, this will probably
@@ -652,7 +652,7 @@ scenes:
       which Russia has no way to contest, lacking the port to sally forth into the Black
       Sea.\nByzantium dodges another bullet, he may yet not be the first out!"
   - scene_number: "50"
-    scene_title: Image 50
+    scene_title: 50
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene50.jpg
     narration:
       "Predictably, Sibir has not given an inch against the Hun. Wabbit Season
@@ -663,7 +663,7 @@ scenes:
       for China, who don‘t need it.  Consider this real possibility: the first confirmed
       civ kill going to Korea."
   - scene_number: "51"
-    scene_title: Image 51
+    scene_title: 51
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene51.jpg
     narration:
       "We were overdue a pointless / counterproductive war declaration from
@@ -673,7 +673,7 @@ scenes:
       has Cologne (upper left hand corner, if you can‘t smell it from where you sit)
       and Yakutia becomes the first to audibly enter the medieval era."
   - scene_number: "52"
-    scene_title: Image 52
+    scene_title: 52
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene52.jpg
     narration:
       "Down in sub-Saharan Africa for a look-in, and you can see for yourself
@@ -688,7 +688,7 @@ scenes:
       in the corner, the Kongolese city of Kabasa, pop-14 and handsomely-defended, is
       an example of this underrated civ‘s ability to go tall and tech up."
   - scene_number: "53"
-    scene_title: Image 53
+    scene_title: 53
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene53.jpg
     narration:
       "In Central Africa, a motley force of Carthiginians holds Ejura, that
@@ -697,7 +697,7 @@ scenes:
       Hannibal AI.  \nThe existence of two undefended Kongolese cities in the middle
       of the Sahara is an affront to mapmakers everywhere.  Hannibal, go!"
   - scene_number: "54"
-    scene_title: Image 54
+    scene_title: 54
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene54.jpg
     narration:
       "Okay, la femmes Trung get a lot of hype around these parts, but surely
@@ -708,7 +708,7 @@ scenes:
       such concerns have stopped them before.  But this feels a bit like a placeholder
       / training day war for them.  Time will tell."
   - scene_number: "55"
-    scene_title: Image 55
+    scene_title: 55
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene55.jpg
     narration:
       "Folks, we may be running out of time to get our “Downfall“ parodies
@@ -728,7 +728,7 @@ scenes:
       Berlin, you‘re seriously mistaken... I‘d rather blow my brains out.“*\n  (*unchanged
       from the original.)"
   - scene_number: "56"
-    scene_title: Image 56
+    scene_title: 56
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene56.jpg
     narration:
       "Time for another history, here of Happy Times.  Tops and its not even
@@ -739,13 +739,13 @@ scenes:
       to my face.  And I‘m a fan of Pliny, both Elder and Younger.\nIn the greyed-out
       background, the Indonesia / Filipino color-coordination confusion."
   - scene_number: "57"
-    scene_title: Image 57
+    scene_title: 57
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene57.jpg
     narration: |-
       Kongo bribes Ethiopia into a war on Ashanti. At least, it looks like Kongo is the more ‘rough and ready‘ of the two.  Ashanti has a turtler‘s chance of holding out though with a carpet of down-tech units.  No composite bows is a bad, bad sign.  It may be minimally useful, but Ashanti does have a Naval advantage. Atebubu, with a defense of only 14 and on the wrong side of a river, is in the most danger.
       And though we won‘t see a slide of it today, the Mughals and Tibet are at war -- we‘re not holding our breath for excitement there.
   - scene_number: "58"
-    scene_title: Image 58
+    scene_title: 58
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene58.jpg
     narration:
       "Disposition of Selassie‘s forces. Unless there‘s an open borders between
@@ -756,7 +756,7 @@ scenes:
       aggression.  (and they are religion foes AND the city would connect Ethiopian
       lands.)"
   - scene_number: "59"
-    scene_title: Image 59
+    scene_title: 59
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene59.jpg
     narration:
       As Spartan chariots and hoplites bear down on Adrianople, a Pax Adriaticum
@@ -766,14 +766,14 @@ scenes:
       Not far away either. But, just spitballing.  Probably nothing but grinding against
       Portuguese triremes for the foreseeable future, for Augustus.
   - scene_number: "60"
-    scene_title: Image 60
+    scene_title: 60
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene60.jpg
     narration: |-
       Oh, Osei. It looks like you‘ve been invited to a carve-up!  Mansa Musa declares war on Ashanti, and refreshingly it looks like he wasn‘t actually planning on it ... his forces are not exactly amassed at the border.  The delay in arrival might actually help his cause if Ashanti transitions some units to the Eastern Front, as well.  Surely Musa can get a city out of this?
       Not to be outdone, the Carthaginian dogs of war are out of their cages in Ejira, descending on konongo in a flash... surely Warriors are not going to get the job done here though?
       So all in all, a bad week at the old rockpile for Ashanti.
   - scene_number: "61"
-    scene_title: Image 61
+    scene_title: 61
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene61.jpg
     narration:
       "Portugal retakes Funchal.  Again.  Rome v. Portugal is one of those
@@ -781,7 +781,7 @@ scenes:
       we can see that England is going with the ever-savvy “horsemen and scouts“ defense
       for York, in the face of a carpet of Napoleonic spearmen.  LOVE IT."
   - scene_number: "62"
-    scene_title: Image 62
+    scene_title: 62
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene62.jpg
     narration: |-
       And there goes Mexico, peacing out with the Sioux without ever getting so much as a boot dirty.  His formidable-in-theory army is now arrayed against, well, it must be said, Blackfoot.  And that Mexican settler behind the lines -- he‘s been camped there for years, and it *is* a viable spot -- maybe he‘s ready to provide Crowfoot with a Casus Belli.
@@ -792,7 +792,7 @@ scenes:
       The Texian military  winds up *looking* under-strength compared to its reputation.  It‘s not really all that scrawny, but the cities are so wide that it just winds up looking open.  Texas still has problems, but size and space is not one of them.
       Crowfoot has some military buildup to attend to.
   - scene_number: "63"
-    scene_title: Image 63
+    scene_title: 63
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene63.jpg
     narration:
       Iceland‘s shield of outposts across northern Newfoundland and Labrador
@@ -801,13 +801,13 @@ scenes:
       there are swordsmen hiding out -- really -- in the wastes of Greenland.  It is
       going to be an interesting fight when it breaks out.
   - scene_number: "64"
-    scene_title: Image 64
+    scene_title: 64
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene64.jpg
     narration: |-
       And the first galeasses i‘ve spotted belong to Kimberley, who is certainly taking Naval defense seriously.  In fact, you‘d say her military has a bit of an edge on Australia, who seem to have expended a lot of effort colonizing off Australia proper... gotta be prepared when the Day of Exile comes, eh?
       Aussie workers are escorted across the treeless Nullarbor Plain en route to Sunshine Coast -- taking nothing to chance as as Aboriginals could cut off the land route at any time.
   - scene_number: "65"
-    scene_title: Image 65
+    scene_title: 65
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene65.jpg
     narration:
       The other side of Australia, where we can see that Henry Parkes is taking
@@ -817,14 +817,14 @@ scenes:
       catching one another.  Maybe start a vortex that would send the whole continent
       down to the drink, Atlantis-style.
   - scene_number: "66"
-    scene_title: Image 66
+    scene_title: 66
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene66.jpg
     narration:
       Hawaii‘s handsome pop-6 speck looks on in dismay as Australia goes on
       a rapid-fire Oceanic colonizing binge.  Pluppets, one and all.  The Maori are
       ... well, they are playing the game..
   - scene_number: "67"
-    scene_title: Image 67
+    scene_title: 67
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene67.jpg
     narration:
       "Back to the Asia Minor theater, where Tiridates has done a bit of a
@@ -834,7 +834,7 @@ scenes:
       tigers when trying to squeeze into a narrow gap. \nAdrianople, interestingly,
       has adopted Islam.  Have fun while it lasts, imams."
   - scene_number: "68"
-    scene_title: Image 68
+    scene_title: 68
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene68.jpg
     narration:
       "Iceland is seriously not going to stop trying to make Greenland into
@@ -843,14 +843,14 @@ scenes:
       live?  Oh how much better off would these people be under Inuit rule?  Lots.  \nMeanwhile,
       up in the northwest, Sioux sets up yet another fall-guy city."
   - scene_number: "69"
-    scene_title: Image 69
+    scene_title: 69
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene69.jpg
     narration: |-
       And after a very roundabout courtship with the Ayyubid, Adrianoplitans find themselves in the loving, paternalistic embrace of Leonidas. First thing we do, lets tear down the walls! say the Spartans.  You know, given Leonidas‘ propensity for not shoring up his gains, is it really so far-fetched to imagine Byzantium takes this back shortly?  Well, yeah probably, he won‘t declare war.  But still.
       The most interesting development here is that the city gives Leonidas a longer border with Casimir, one which an actual army could muster up and invade in either direction.  I smell another war in their future.
       Also of note: the Nazi cities are -- all three of them -- are still doing their Nazi thing.  Nary a scratch.  Just a few more turns to survive then Hitler can have a “zweitausendjahriges reich“ party in his bunker.  There will be hats, and fists will pound tables in joy rather than anger.
   - scene_number: "70"
-    scene_title: Image 70
+    scene_title: 70
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene70.jpg
     narration:
       "Yakutia, in all its glory.  Any bookies care to post a line on *Mongolia*
@@ -859,7 +859,7 @@ scenes:
       or Japan, or the Inuit.  But any of them who get a look at this might say “naaaaah.“
       \ And most of those scouts up there are probably just thinking “kill us already!“"
   - scene_number: "71"
-    scene_title: Image 71
+    scene_title: 71
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene71.jpg
     narration: |-
       Joy in the Third Reich as France decides other matters are more interesting than pursuing a claim on Munich.  This may well set off alarm bells in London, and, well, York.
@@ -867,7 +867,7 @@ scenes:
       Hitler‘s generals have done very well to limit the losses to just Cologne... Norway‘s raid on Hamburg still seems unserious at best, and Poland has proven ineffectual.  May they fight a thousand years.
       Also note: Sweden looks to have run out of room to build units; War may be coming to Scandinavia sooner rather than later.
   - scene_number: "72"
-    scene_title: Image 72
+    scene_title: 72
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene72.jpg
     narration:
       "In a development no one expected, Tibet is laying siege to Shanghai,
@@ -880,13 +880,13 @@ scenes:
       latter of whom could really use some expansion in this direction -- scene of Mirwas
       Hotak‘s glories in the BRmkI."
   - scene_number: "73"
-    scene_title: Image 73
+    scene_title: 73
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene73.jpg
     narration: |-
       The first truly nonsensical war: Kongo and Mali DOW Saladin. Right after they‘ve begun a gang-up of Ashanti.  Now, the Ayyubids have been, no doubt, naughty boys.  And their military looks pretty spent.  But you need a border in this game to get anywhere, and neither power has one.  This is just getting the AI needlessly confused.
       Meanwhile, in Ashanti, Atebubu is under pressure, but the defenders look up to the task.  Ethiopia is here in spirit only.
   - scene_number: "74"
-    scene_title: Image 74
+    scene_title: 74
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene74.jpg
     narration:
       "p>We end our journey through Match Day seven with a look in on the Sioux
@@ -901,7 +901,7 @@ scenes:
       \ And one that has probably cracked 20: Ottawa, which was at 19 nine turns back.
       \ I didn‘t see any other 19s in a cruise through.  On to the stats!"
   - scene_number: "75"
-    scene_title: Image 75
+    scene_title: 75
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene75.jpg
     narration:
       "Texas explodes from #7 in pop, last time around, straight to the top.  Austin‘s
@@ -912,7 +912,7 @@ scenes:
       kid,“ apparently.  Burma appears to be peeking in at #13.  It‘s just all about
       North America here."
   - scene_number: "76"
-    scene_title: Image 76
+    scene_title: 76
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene76.jpg
     narration:
       "Scraping the bottom: Rome and Byzantium, two victims of Spartan love.  Everyone
@@ -920,7 +920,7 @@ scenes:
       all about food.  Guys?  And Mexico is a far, far cry from the swollen North American
       states."
   - scene_number: "77"
-    scene_title: Image 77
+    scene_title: 77
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene77.jpg
     narration:
       "Untested Yakutia are, predictably, tops; Afghanistan , Australia and
@@ -929,7 +929,7 @@ scenes:
       total!  Of course, bison fight for Blackfoot so their total gets an asterisk.  Biggest
       surprise is Agentina at #9."
   - scene_number: "78"
-    scene_title: Image 78
+    scene_title: 78
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene78.jpg
     narration:
       China is so shell-shocked it‘s not even funny.  Me, *I* am shell-shocked
@@ -939,14 +939,14 @@ scenes:
       I‘m just an old myopic racist who can never tell the Aztec and Maya apart, but
       it is, to me, a big surprise to see Pacal this low.
   - scene_number: "79"
-    scene_title: Image 79
+    scene_title: 79
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene79.jpg
     narration:
       "Its ocean-colony spammers all the way down the line until you get to
       Yakut at 6 and brazil at #8, which must be doing something right.  Oh, a word
       for the Timurids at 11 cities.  Unexpected!"
   - scene_number: "80"
-    scene_title: Image 80
+    scene_title: 80
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene80.jpg
     narration:
       The Mughals hit some early-game hype but its‘ been nowheresville since;
@@ -954,7 +954,7 @@ scenes:
       and chops to get active and win a war; Elizabeth (#11 in population) and Burma.  Sorry,
       Poland, I can‘t plump for you here.
   - scene_number: "81"
-    scene_title: Image 81
+    scene_title: 81
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene81.jpg
     narration:
       Judaism still leads, but not as sharply as before; Islam is still a backwater
@@ -962,7 +962,7 @@ scenes:
       just pipping Mexico is an impressive feat, especially considering the distances
       and competition.  Mighty Yakutia could wind up split between Shinto and Akatt-u...
   - scene_number: "82"
-    scene_title: Image 82
+    scene_title: 82
     slide_url: https://cdn.civbattleroyale.tv/mark2-part7-scene82.jpg
     narration:
       "Comments mostly in the prior page but just to reward you for getting

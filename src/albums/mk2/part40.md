@@ -10,7 +10,7 @@ date: 2016-03-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part40-scene06.jpg
 scenes:
 - scene_number: "1"
-  scene_title: Image 01
+  scene_title: 1
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene01.jpg
   narration: 'Hello, everybody, and welcome back to another thrilling installment
     of the Civilization V Battle Royale, Mk II! I’m your narrator, /u/sonicnerd23,
@@ -18,7 +18,7 @@ scenes:
     taking you on another journey through the wonderful (read: wartorn) world of the
     CBR!'
 - scene_number: "2"
-  scene_title: Image 02
+  scene_title: 2
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene02.jpg
   narration: First off, as usual, here’s a map of the world as of the last part courtesy
     of users /u/SylonL and /u/LacsiraxAriscal, and I’ve got to hand it to them - they’ve
@@ -27,7 +27,7 @@ scenes:
     precise), must have been a daunting task, yet they still delivered, so props to
     them!
 - scene_number: "3"
-  scene_title: Image 03
+  scene_title: 3
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene03.jpg
   narration: The curtain opens on a stagnant civ desperate to remain in the game.
     With the support of their crossbowmen, the Ayyubids retake Cairo from Carthage
@@ -36,7 +36,7 @@ scenes:
     a bevy of cannons and crossbowmen to back him up, it will most definitely flip
     back by the next turn.
 - scene_number: "4"
-  scene_title: Image 04
+  scene_title: 4
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene04.jpg
   narration: Heading further north, we can see that the Second Swedish-Spartan War
     has come grinding to a stalemate. After suffering from a shockingly-competent
@@ -45,13 +45,13 @@ scenes:
     Ohrid. As a fan of Sparta since their conquest of Rome, it pains me to see how
     far they’ve fallen, but I have hope that the worst is behind them in this war.
 - scene_number: "5"
-  scene_title: Image 05
+  scene_title: 5
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene05.jpg
   narration: |-
     As it turns out, the Buccaneers weren‘t as altruistic as we thought. Their 'peacekeeping' force around Cologne has moved on, opening the way for Iceland to take it for themselves, and let’s be real here: they’re going to take it. Both of the Naus previously defending the city now fly Icelandic colors, and their riflemen are either garrisoned in the city and waiting for the end or on a suicide mission to London (seriously, how did they get over there?!).
     While we’re focusing on the English Channel, I’d also like to make note of France’s lack of any real naval defense. They still have galleasses at a time where most navies have upgraded into frigate or even battleships. York and Orleans especially look like juicy targets, and Paris isn’t that far away. If Iceland were to declare war on France now, they could win big.
 - scene_number: "6"
-  scene_title: Image 06
+  scene_title: 6
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene06.jpg
   narration: Meanwhile, in North America, the White Walkers march onward. Charlottetown
     flips back to the Inuit while Quebec City looks ripe for the taking. However,
@@ -63,7 +63,7 @@ scenes:
     forces sent to retake Yankton have been wiped out and Baltimore and Corpus Christi
     are looking quite vulnerable right now.
 - scene_number: "7"
-  scene_title: Image 07
+  scene_title: 7
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene07.jpg
   narration: The Great Oceanian War continues to heat up as, in spite of their naval
     victories, the Kimberley are being swamped by Diggers. A sizeable Australian carpet
@@ -73,14 +73,14 @@ scenes:
     times afterwards thanks to the massive Kimberley navy that has gathered near the
     city.
 - scene_number: '08'
-  scene_title: Image 08
+  scene_title: 8
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene08.jpg
   narration: As expected, Carthage retakes Cairo, and, with their nearest melee unit
     being three tiles away, it seems unlikely that the Ayyubids are going to be able
     to flip it again. To make matters worse, the Carthaginian Army continues to press
     forward, threatening the city of Aswan.
 - scene_number: '09'
-  scene_title: Image 09
+  scene_title: 9
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene09.jpg
   narration: Hey, guys, remember when South America was known in the BR for being
     irrelevant? Brazil and Chile do, and hoo boy, are they working hard to eliminate
@@ -91,7 +91,7 @@ scenes:
     assault Incan coastal cities, though they’ve been kicked out of Vitcos and they
     look in dire need of reinforcements.
 - scene_number: "10"
-  scene_title: Image 10
+  scene_title: 10
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene10.jpg
   narration: As the Chileans retake Vitcos once again, we turn our attention to the
     frozen steppes of the Sibir Khanate, which, in the turns following their decisive
@@ -102,7 +102,7 @@ scenes:
     Lhasa without artillery and they would get curbstomped by any other power in the
     immediate region.
 - scene_number: "11"
-  scene_title: Image 11
+  scene_title: 11
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene11.jpg
   narration: In the western half of the Sibir Khanate, we see exactly how wide the
     technological disparity is between Kuchum Khan and his neighbors. The only civ
@@ -110,7 +110,7 @@ scenes:
     even then, they would probably take massive casualties, which would ripen them
     up for an assault by other civs like Vietnam or Sri Lanka.
 - scene_number: "12"
-  scene_title: Image 12
+  scene_title: 12
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene12.jpg
   narration: NO. OH MY GOD. UNBELIEVEABLE. Not one to be outdone by the Maori, The
     Blackfoot take Olongapo right out from under the nose of the Vietnamese and then
@@ -120,12 +120,12 @@ scenes:
     for future conflict, as the Maori have done for Uxmal, or will they just let it
     be a sitting duck?
 - scene_number: "13"
-  scene_title: Image 13
+  scene_title: 13
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene13.jpg
   narration: 'Senshi‘s Note: I couldn‘t find any narration for this slide :/ I do
     think the previous slide brings everything up, though, so that‘s fine.'
 - scene_number: "14"
-  scene_title: Image 14
+  scene_title: 14
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene14.jpg
   narration: The Great Oceanian War rages on as the Kimberley stubbornly flip back
     a number of cities. While the Kimberley still has a good number of land forces
@@ -134,7 +134,7 @@ scenes:
     Only a few Great War Infantry near Sunshine Coast are what remain of it. Do the
     Kimberley have the production to keep up their defenses?
 - scene_number: "15"
-  scene_title: Image 15
+  scene_title: 15
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene15.jpg
   narration: As Carthaginian riflemen move to defend Cairo from Ayyubid relief forces,
     they continue to push on Aswan. Unfortunately for the Ayyubids, the only way they
@@ -142,7 +142,7 @@ scenes:
     and with Carthage’s wall of crossbowmen to the north of Aswan, this looks like
     a difficult, if not impossible, endeavor indeed.
 - scene_number: "16"
-  scene_title: Image 16
+  scene_title: 16
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene16.jpg
   narration: Meanwhile, the Boers continue to- WOAH! The Boers have Modern Armor!
     Not just your standard, old run-of-the-mill tanks, but Modern Armor! As if it
@@ -150,20 +150,20 @@ scenes:
     due to their ridiculous tech advantage. Any war they declare against their neighbors
     is sure to be over in a few turns.
 - scene_number: "17"
-  scene_title: Image 17
+  scene_title: 17
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene17.jpg
   narration: 'As the Chilean Backdoor Squad reinforces itself and retakes Vitcos,
     the Brazilians bring La Rioja down to a small sliver of health with a cavalry
     unit on its doorstep. Argentina fans, take a good, long look: this is the last
     you’re ever going to see of Evita.'
 - scene_number: "18"
-  scene_title: Image 18
+  scene_title: 18
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene18.jpg
   narration: |-
     Semiramis does a little snooping around Reykjavik and discovers plans for an Icelandic invasion of Osaka. Knowing the impracticality of such a plan, she has a hearty chuckle before making note of it and digging deeper.
     Also in this screenshot, we see the Japanese theater of the Great Oceanian War. From what we’ve seen thus far, it’s been pretty silent, but now that the Vietnamese have finally discovered Dynamite, their cannon carpet has become an artillery carpet, which will help tremendously with securing the waters around this area, should the Vietnamese Navy make a committed push. It’s also apparent the Koreans have continued beelining techs to make nukes, fielding AA guns and machine guns (Ballistics), paratroopers (Radar), and bazookas (Nuclear Fission itself). At this rate, it won’t be long until we see Korean nukes. Plus, look at that submarine carpet! I have a feeling Parkes won’t want to mess with Korea again for a long time…
 - scene_number: "19"
-  scene_title: Image 19
+  scene_title: 19
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene19.jpg
   narration: 'Bidyadanga flips, giving the Kimberley the defensive advantage once
     again. It begs the question: how strong is this Red Fort that it’s able to withstand
@@ -171,7 +171,7 @@ scenes:
     of titanium, it should be a non-fort at this point. In the north, the bitter battle
     for Kalumbru continues.'
 - scene_number: "20"
-  scene_title: Image 20
+  scene_title: 20
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene20.jpg
   narration: The Texans finally manage to retake Yankton, which looks to be in safe
     hands for now. The closest Inuit unit capable of taking cities is in Sihasapa.
@@ -179,7 +179,7 @@ scenes:
     Inuit are quite exhausted yet. The Regina-Charlottetown line remains at a stalemate,
     with the Inuit poised to flip Regina once more.
 - scene_number: "21"
-  scene_title: Image 21
+  scene_title: 21
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene21.jpg
   narration: The Vietnamese fleet descends upon Caloocan, hoping to reunite the island
     of Luzon for the first time since the gangbang of the Phillippines. While it is
@@ -189,14 +189,14 @@ scenes:
     to divert some of their forces towards flipping lost cities back, which could
     cost them in the long run.
 - scene_number: "22"
-  scene_title: Image 22
+  scene_title: 22
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene22.jpg
   narration: Meanwhile, Ishtar discovers that the Inuit, not satisfied with their
     new lands in North America, are looking to send their troops on a permanent, tropical
     vacation to Burma.  Of course, the relevance of such a discovery is diminished
     by the several other borders in between the two civs.
 - scene_number: "23"
-  scene_title: Image 23
+  scene_title: 23
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene23.jpg
   narration: The Kimberley’s Antarctic colonies once again secure, Jandamarra recalls
     the naval forces stationed there back to the mainland for obvious reasons. Meanwhile,
@@ -204,13 +204,13 @@ scenes:
     Great Musician, fleeing the wars that ravage his homeland, sails south to find
     artistic inspiration in the frigid wastes of Antarctica.
 - scene_number: "24"
-  scene_title: Image 24
+  scene_title: 24
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene24.jpg
   narration: The Ayyubids, stubborn to the end, once again retake Cairo. With another
     pikeman. This is starting to get a little insane. Credit where credit’s due, they’re
     making the most of what they’ve got, but soon they won’t have that much left.
 - scene_number: "25"
-  scene_title: Image 25
+  scene_title: 25
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene25.jpg
   narration: The White Walkers make another forceful push, retaking Yankton and damaging
     Corpus Christie on the Texan front, and breaking through the Regina-Charlottetown
@@ -218,7 +218,7 @@ scenes:
     the Inuit appear to be committing more to their war effort. Now, it’s all a matter
     of whether or not the Canadians and Texans can handle the extra pressure.
 - scene_number: "26"
-  scene_title: Image 26
+  scene_title: 26
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene26.jpg
   narration: The ravaged Arctic hellhole of Kiyaksa remains in Canadian hands, despite
     sitting at 0 HP. I’ll admit, for as awful it is as a city, it’s pretty defensible.
@@ -230,13 +230,13 @@ scenes:
     are going to be hard-pressed to send in a unit actually capable of taking the
     city (*coughNOTHELICOPTERScough*).
 - scene_number: "27"
-  scene_title: Image 27
+  scene_title: 27
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene27.jpg
   narration: |-
     And thus, we say goodbye to Eva Peron’s Argentina. Argentina was hugely hampered at the beginning of the game by their being trapped between Chile in the south and the Brazilians and Inca to the north. From there, they did a decidedly average job until Chile declared war on them and took away Buenos Aires. Things were thought to be looking up for them when they, with Brazilian aid, pushed on the Inca, but this unfortunately turned out to be bait, as the Brazilians brutally and efficiently backstabbed them not even a few turns later. Evita will pass on, but don’t cry for her, Argentina fans. You know she’ll never leave you - the great artist and musician left behind will make sure her memory carries on.
     F
 - scene_number: "28"
-  scene_title: Image 28
+  scene_title: 28
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene28.jpg
   narration: The Australians mount a massive offensive against their foes, taking
     no less than five cities combined from Vietnam and the Kimberley. Undoubtedly,
@@ -244,7 +244,7 @@ scenes:
     Digger carpet still looks mighty intimidating whilst the Kimberley forces continue
     to be ground down.
 - scene_number: "29"
-  scene_title: Image 29
+  scene_title: 29
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene29.jpg
   narration: On the Indonesian front, the Australians have flipped Orange and Yungngora.
     While the Kimberley, with their Great War Bombers and destroyers, will almost
@@ -254,7 +254,7 @@ scenes:
     the only thing standing in between it and an approaching land force being a lone
     Great War Infantry.
 - scene_number: "30"
-  scene_title: Image 30
+  scene_title: 30
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene30.jpg
   narration: Meanwhile, the East China Sea (or rather, the East Vietnam Sea) is firmly
     in the hands of the Vietnamese navy. Hoi An has recovered all of its health and
@@ -263,7 +263,7 @@ scenes:
     submarines can hold off the approaching reinforcements from the Japanese islands,
     it’s as good as theirs.
 - scene_number: "31"
-  scene_title: Image 31
+  scene_title: 31
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene31.jpg
   narration: As the crossbow garrison at Aswan says their final prayers, a Great Musician
     near Baalbek composes a lament for solo voice and violin quartet in their honor.
@@ -272,7 +272,7 @@ scenes:
     Engineer, and he’s right on the frontlines. Sorry, Saladin, but no amount of brick
     and mortar is going to save your hide now.
 - scene_number: "32"
-  scene_title: Image 32
+  scene_title: 32
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene32.jpg
   narration: The Buccaneers, having caught wind of the Boers’ experiments in Africa,
     decide they want in on some of that action themselves and push forward into the
@@ -283,7 +283,7 @@ scenes:
     they both buy into the idea of nuclear deterrence. All Morgan needs to do now
     is construct a Giant Death Robot and he’s good to go.
 - scene_number: "33"
-  scene_title: Image 33
+  scene_title: 33
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene33.jpg
   narration: The Yakuts, not to be outdone by a bunch of pirates, enter into the Atomic
     Era themselves. Despite their hibernation since their war with Japan, Yakutia
@@ -291,7 +291,7 @@ scenes:
     for them, tech isn’t everything; judging by this screenshot, they have far more
     workers than they do land military units.
 - scene_number: "34"
-  scene_title: Image 34
+  scene_title: 34
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene34.jpg
   narration: As their neighbors the Mughals enter into the Modern Era, Burma is looking
     decidedly Renaissance. It’s evident they’re past it, as per the Gatling Gun garrisoned
@@ -300,7 +300,7 @@ scenes:
     that Burma wouldn’t come out on top. Their best bet right now is to DoW the Champa
     and snipe some cities before Vietnam gobbles them all up.
 - scene_number: "35"
-  scene_title: Image 35
+  scene_title: 35
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene35.jpg
   narration: Fresh off the acquisition of their first overseas territory, the Blackfoot
     declare war on the Inca, hoping to create an empire in which the sun never sets.
@@ -308,25 +308,25 @@ scenes:
     to commit to this war, let alone much of an army in general. If the Mexicans decided
     that they wanted a piece of the Blackfoot, they could very well find some success.
 - scene_number: "36"
-  scene_title: Image 36
+  scene_title: 36
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene36.jpg
   narration: Here, we‘ve got a shot of the Boer core and, holy moly, that carpet looks-
     ...Oh. Ohhhhhhhhhhh, no. Nukes. Be afraid. Be VERY afraid.
 - scene_number: "37"
-  scene_title: Image 37
+  scene_title: 37
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene37.jpg
   narration: The Kimberley now have landships! This should help them hold the line
     against the Australians a bit more. Now if they could pump them out en masse like
     the Boers or Sibir, that would be ideal. Unfortunately, I don’t think their production
     is that up to snuff… Do they still have anything left in their treasury?
 - scene_number: "38"
-  scene_title: Image 38
+  scene_title: 38
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene38.jpg
   narration: |-
     What do you do when your infantry UU isn’t good at capturing cities? Capture them with literally anything else, apparently, including an AA gun. As Cebu and Manila are recaptured, Vietnam continues to put pressure on Australia around Luzon, scattering their reinforcement fleet and bringing Caloocan down to red. At this point, it looks sure to fall. I only hope for their own sake the Australians remember to move their aircraft and carriers when it does.
     Senshi‘s Note: And people said the AI couldn‘t handle it >:D
 - scene_number: "39"
-  scene_title: Image 39
+  scene_title: 39
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene39.jpg
   narration: Apparently, when TPang wasn’t looking, Chile had declared war on Brazil,
     presumably because of that huge diplo hit that came with eliminating Argentina,
@@ -336,7 +336,7 @@ scenes:
     especially La Rioja, could end up being a detriment to him if he doesn’t garrison
     them properly.
 - scene_number: "40"
-  scene_title: Image 40
+  scene_title: 40
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene40.jpg
   narration: As the Kimberley landship sees its first taste of combat against an enemy
     Digger, it looks as though the Kimberley are making a concerted push against the
@@ -345,7 +345,7 @@ scenes:
     a single point of damage to the Kimberley capital. That just goes to show how
     tenacious the Kimberley’s defense has been.
 - scene_number: "41"
-  scene_title: Image 41
+  scene_title: 41
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene41.jpg
   narration: We return to the Spartan core, where fighting between the Swedes and
     the Spartans continues just outside of Ohrid and Cumae. By the looks of things,
@@ -355,13 +355,13 @@ scenes:
     can turtle, rebuild, tech up, and eventually get to a point where they can at
     least gain parity with the other Mediterranean powers.
 - scene_number: "42"
-  scene_title: Image 42
+  scene_title: 42
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene42.jpg
   narration: |-
     Further north, we can see Swedish Central Europe, as well as an impressive Swedish fleet, which is now boasting carriers. It’s curious - despite clearly having Electronics and its prerequisite techs, we’ve not yet seen Swedish GWIs or battleships. You’d think, what, with the war with Sparta, they’d be trying to get a leg up on the competition by upgrading their forces, but then again, this is the same game where Sri Lanka had a carpet of triremes for the longest time, so I suppose it isn’t that farfetched.
     Elsewhere in this shot, Cologne is on its last legs as a galleass and cannon try desperately to fend off the Polar Vortex, and we catch our first glimpse in France of Napoleon’s other UU, the Cheveau-lèger, a lancer replacement that has +2 additional movement and a 33% attack bonus when below 50% health. It’s a pretty cool unit; shame Napoleon’s AI doesn’t appear to want to put it to the test.
 - scene_number: "43"
-  scene_title: Image 43
+  scene_title: 43
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene43.jpg
   narration: Still further north, we can see Sweden proper, but something seems to
     be missing, namely military units. It seems that they’ve committed most of their
@@ -369,7 +369,7 @@ scenes:
     completely exposed to, say, a carpet of Finnish Paratruupers. Gustavus Adolphus
     better be praying that Kekkonen’s attention is currently elsewhere.
 - scene_number: "44"
-  scene_title: Image 44
+  scene_title: 44
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene44.jpg
   narration: The Mughals, inspired by the stories they’ve heard of America’s valiant
     last stand, decide to take up the Freedom ideology in their honor. Ultimately,
@@ -377,7 +377,7 @@ scenes:
     civ and an Autocracy civ, both of which are technologically superior to them.
     Do I sense a Poland 1939 scenario happening in the near future?
 - scene_number: "45"
-  scene_title: Image 45
+  scene_title: 45
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene45.jpg
   narration: Oh, snap, here we go! Henry Morgan pulls another one of his dual DoWs,
     this time taking on both Brazil and the Inca and allying with Chile in a war that
@@ -388,7 +388,7 @@ scenes:
     Australia. Also, he should probably get some actual melee units to his holdings
     in South America; they look seriously barren.
 - scene_number: "46"
-  scene_title: Image 46
+  scene_title: 46
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene46.jpg
   narration: 'Meanwhile, the Brazilian fleet brings Iquique down to 0 HP. With a bunch
     of naval melee units surrounding the island, it’s sure to- Woah, woah, woah, hold
@@ -396,7 +396,7 @@ scenes:
     to have one of those things in their own fleet. I suppose that’s what happens
     when the AIs get privateer happy: naval UUs aren’t necessarily UUs anymore.'
 - scene_number: "47"
-  scene_title: Image 47
+  scene_title: 47
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene47.jpg
   narration: Vietnam makes some headway in both of their wars, seizing Caloocan and
     Kauthara. Both cities are likely to flip a few more times, but it’s likely the
@@ -406,14 +406,14 @@ scenes:
     gain anything significant from this war. Sure, Caloocan was a decently-sized city,
     but meanwhile, the Australians are taking huge chunks out of the Kimberley.
 - scene_number: "48"
-  scene_title: Image 48
+  scene_title: 48
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene48.jpg
   narration: The Ashanti pikeman sails through a lake in the midst of Boer territory,
     taking in the many technological marvels that dot the lands. A Boer lancer, overlooking
     the lake, recalls a simpler time when he, too, was once without a horse. In the
     meantime, we can see the Boers have been producing more Modern Armor.
 - scene_number: "49"
-  scene_title: Image 49
+  scene_title: 49
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene49.jpg
   narration: The Kimberley make known the true meaning of the word “Digeridoom” as
     they launch a brutal counteroffensive, not only retaking Kalumbru, but also taking
@@ -421,7 +421,7 @@ scenes:
     the war. Will it become a new battleground? Not if Prime Minister Chifley and
     his roving gang of Diggers has anything to say about it.
 - scene_number: "50"
-  scene_title: Image 50
+  scene_title: 50
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene50.jpg
   narration: Woah! Only two turns after entering the Atomic Era, Yakutia completes
     the Manhattan Project. Now, that’s some production right there! If they could
@@ -430,7 +430,7 @@ scenes:
     capability to make nukes. If his AI is the type to drop bombs like he does rhymes,
     maybe the Snoryak still has a shot at this world domination stuff.
 - scene_number: "51"
-  scene_title: Image 51
+  scene_title: 51
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene51.jpg
   narration: Oof, I wonder if Sri Lanka regrets declaring this war yet. The Arabian
     fleet once again makes a good showing, dominating the small Sri Lankan naval force
@@ -440,7 +440,7 @@ scenes:
     up capturing these two cities in the end, but this is just embarrassing for Sri
     Lanka.
 - scene_number: "52"
-  scene_title: Image 52
+  scene_title: 52
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene52.jpg
   narration: While a joint Buccaneer-Chilean naval force assault the Incan coastline,
     the Brazilians enter the Atomic Era. As it stands right now, their offensive against
@@ -448,14 +448,14 @@ scenes:
     in their northernmost cities, compared with the Brazilians’ meager five. Where
     are those Brazilwood Bombers when they’re needed the most?
 - scene_number: "53"
-  scene_title: Image 53
+  scene_title: 53
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene53.jpg
   narration: Fortunately, the Brazilians are seeing some successes in the south. Iquique
     has fallen, and by the looks of things, Copiapo is next. However, the Brazilian
     fleet seems a little worn and in need of reinforcements. Can Pedro provide them,
     or will the assault on Copiapo be repelled?
 - scene_number: "54"
-  scene_title: Image 54
+  scene_title: 54
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene54.jpg
   narration: The war in the Arabian Sea continues to wear on as Sri Lankan reinforcements
     begin to arrive, and it looks like at this point, the war will end in a draw.
@@ -464,7 +464,7 @@ scenes:
     zone. In the midst of all this, wandering Soviet ships wonder what the hell they’ve
     stumbled into.
 - scene_number: "55"
-  scene_title: Image 55
+  scene_title: 55
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene55.jpg
   narration: Aswan has fallen, and now Carthaginian forces move to take the remaining
     two Ayyubid cities south of Cairo. Baalbek looks sure to fall to the mass of riflemen
@@ -472,7 +472,7 @@ scenes:
     the invasion of Zabid and sent a meager force of two crossbowmen to do the dirty
     work. Perhaps the Carthaginians will send a stronger force after Baalbek is captured?
 - scene_number: "56"
-  scene_title: Image 56
+  scene_title: 56
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene56.jpg
   narration: Suddenly, a crack team of Finnish Paratruupers descends upon an unsuspecting
     Arabia! While it’s unlikely that these four units are going to capture a city
@@ -483,7 +483,7 @@ scenes:
     paratroopers and long-range aircraft, we’re going to be seeing a lot more situations
     like this in future parts.
 - scene_number: "57"
-  scene_title: Image 57
+  scene_title: 57
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene57.jpg
   narration: Kuchum Khan continues to build up his military, but compared to the Finnish
     military just across the border, the Siberian military is, like, so Modern Era.
@@ -492,7 +492,7 @@ scenes:
     isn’t that far away from entering the Information Era. Sibir had better step up
     its game if it wants to have parity with Finland in future conflicts.
 - scene_number: "58"
-  scene_title: Image 58
+  scene_title: 58
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene58.jpg
   narration: The defensive line at Yankton has crumbled, and now the White Walkers
     are bursting forth with the intensity of a blizzard, reaching as far south as
@@ -501,7 +501,7 @@ scenes:
     Texas certainly isn’t going to come out of this war the North American powerhouse
     it was a few parts ago; it’s goal now is to minimize any damage done to them..
 - scene_number: "59"
-  scene_title: Image 59
+  scene_title: 59
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene59.jpg
   narration: The Buccaneers once again prove their naval might by taking another Incan
     coastal city and bringing the rest down to yellows and reds. To make matters worse
@@ -509,7 +509,7 @@ scenes:
     is without the Buccaneers sending in their infantry and siege units. If Bernardo
     doesn’t act fast, Chile’s not going to get anything from this war.
 - scene_number: "60"
-  scene_title: Image 60
+  scene_title: 60
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene60.jpg
   narration: Canada, what are you doing?! The Regina-Charlottetown line is the other
     way, and the Inuit almost have Quebec City! Oh, dear. People, I think the Canadian
@@ -517,7 +517,7 @@ scenes:
     able to send a force to retake it in time, then Canada’s capital is going to be
     in serious danger.
 - scene_number: "61"
-  scene_title: Image 61
+  scene_title: 61
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene61.jpg
   narration: The Marseille gambit has failed and now the Australian Digger carpet
     continues to push forward. Although the Kimberley current have the Red Fort in
@@ -526,20 +526,20 @@ scenes:
     a portion of the Grand Wobbegong Armada seems to have assumed control. In either
     case, things aren’t looking too good for the Kimberley.
 - scene_number: "62"
-  scene_title: Image 62
+  scene_title: 62
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene62.jpg
   narration: |-
     Poor Haakon can’t catch a break. First, he loses all of his cities to Sweden except two, one of which might as well be a polar bear colony. Then, he gets citadel’d by Sweden and can’t do anything about it. Now, according to Agent Em, it seems like even rulers from across the sea want to kick the guy while he’s down, as the Brazilians are caught plotting against him. Is this what he gets for being the ruler of Snoreway?
     It’s kinda cruel - we criticize AI like Indonesia, Norway, or even Yakutia for being “lazy” or “asleep,” and we don’t even stop to consider that maybe they don’t want to fight. Maybe they don’t want to cause Austin-scale bloodbaths. Maybe they just want to live their little lives inside their little virtual world and create the greatest arts, mount a successful space voyage, or bring the world together through diplomacy.
     ...Okay, chill, sonicnerd. You’re trying to humanize a freaking computer. Anyways...
 - scene_number: "63"
-  scene_title: Image 63
+  scene_title: 63
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene63.jpg
   narration: |-
     Kalumbru, formerly a proud city of the Kimberley Empire, now stands as a broken, bloodied city firmly under the iron grip of the Australians. Now, it is Rubibi’s turn. For the entire war, it has managed to avoid taking any damage. No longer.
     But if I can make a case for the Kimberley, they might still be able to scrounge together a competent defense. There are two artillery units positioned in or next to Rubibi as well as six planes and a battleship stationed in the city. Combine all these with the defensive strength that the city has from the Red Fort, and it’s evident that the Australians are going to have a particularly bad time trying to crack this nut shell… or they could shell it to oblivion from the ocean with their frigates and newfound battleship and take it anyways.
 - scene_number: "64"
-  scene_title: Image 64
+  scene_title: 64
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene64.jpg
   narration: Unfortunately, we’ve reached the end of the action this time. But hey,
     why not stick around for some sweet InfoAddict data and even a little intrigue?
@@ -547,49 +547,49 @@ scenes:
     to dead/mostly dead civs, plotting to hunt down the last Roman units. Good luck
     with that, buddy.
 - scene_number: "65"
-  scene_title: Image 65
+  scene_title: 65
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene65.jpg
   narration: The Boers once again lead in population, and the top ten mostly remains
     the same as it was in the last part. A notable exception is Hawaii continuing
     to rise in population, becoming the 9th most populated civ over Vietnam.
 - scene_number: "66"
-  scene_title: Image 66
+  scene_title: 66
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene66.jpg
   narration: The Australians, perhaps unsurprisingly, lead in land area. I’m honestly
     more surprised that the Kimberley still remain in the top ten even after the loss
     of big cities like Junjuwa and Kalumbru. Those Indonesian territories must have
     added quite a bit to their empire, huh?
 - scene_number: "67"
-  scene_title: Image 67
+  scene_title: 67
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene67.jpg
   narration: On the opposite end of the list, China ranks dead last. Even Portugal
     has more land, and they’re confined to Sardinia and Corsica! China’s basically
     become the new Byzantium, just sorta sitting there in their irrelevancy waiting
     for someone to finally put them out of their misery.
 - scene_number: "68"
-  scene_title: Image 68
+  scene_title: 68
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene68.jpg
   narration: The Inuit rise to the top of the city list due to their conquests this
     part, while the Kimberley fall out of the top ten due to their losses this part.
 - scene_number: "69"
-  scene_title: Image 69
+  scene_title: 69
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene69.jpg
   narration: The Boers and Inuit remain neck-and-neck for tech, with the Koreans and
     Vietnamese not that far behind.
 - scene_number: "70"
-  scene_title: Image 70
+  scene_title: 70
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene70.jpg
   narration: Taking a look at the religion overview, it looks as though Islam pretty
     much dead, and with the Ayyubids unable to retake Cairo, it looks to stay that
     way. F. I need a balloon…
 - scene_number: "71"
-  scene_title: Image 71
+  scene_title: 71
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene71.jpg
   narration: Catholicism and Akatt-u continue to spread to non-religious cities whilst
     Judaism and Orthodox Christianity continue to duke it out for supremacy over the
     Iberian peninsula.
 - scene_number: "72"
-  scene_title: Image 72
+  scene_title: 72
   slide_url: https://cdn.civbattleroyale.tv/mark2-part40-scene72.jpg
   narration: |-
     And finally, for the first time, we get a screenshot of the Culture Overview! As expected, the non-Autocracy civs are suffering from unhappiness issues. Thankfully for them, Diety bonuses seem to be offsetting such problems. It’s also worth noting that the Inuit currently stand at a relatively low 34 happiness - could we see the White Walkers’ advance slow next part as they capture more cities?

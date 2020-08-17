@@ -10,7 +10,7 @@ date: 2018-01-02T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part99-scene06.jpg
 scenes:
 - scene_number: "1"
-  scene_title: Image 01
+  scene_title: 1
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene01.jpg
   narration: "Happy holidays and greetings to you all! This is u/GoatontheMountain,
     coming to you with great humility and enthusiasm for the adventures we have in
@@ -20,19 +20,19 @@ scenes:
     four-year-old daughter. She declared herself a Carthage supporter because Hannibal
     looks funny and it‘s good to throw elephants at bad guys. Truth."
 - scene_number: "2"
-  scene_title: Image 02
+  scene_title: 2
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene02.jpg
   narration: Behold, the glory of u/Spherical_Melon‘s Puppet Map. Where will all those
     painstakingly drawn lines shift over the coming ten turns? Only the Norns know
     the answer...
 - scene_number: "3"
-  scene_title: Image 03
+  scene_title: 3
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene03.jpg
   narration: |-
     The Power Rankings aren‘t even out yet, but I think we all know exactly what shade of oranje is featured above these words. It‘ll take quite a turn for that to change by this album‘s end, but hope yet remains in this strange little world!
     Coiot‘s Note: Sometimes the narrations are ready before the PR Slides.
 - scene_number: "4"
-  scene_title: Image 04
+  scene_title: 4
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene04.jpg
   narration: "We‘ve made it to turn 113 of the MkII.b era, and what a journey awaits
     us! The nascent war for the world‘s tundra begins in earnest as Eheunick (Inuit)
@@ -48,14 +48,14 @@ scenes:
     paratroopers only to almost exclusively XCOMs. It‘s like reading the record of
     a landscape through the layers of a canyon. But less peaceful and more shooty."
 - scene_number: "5"
-  scene_title: Image 05
+  scene_title: 5
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene05.jpg
   narration: |-
     A flood of notifications spin, though we shall never know their contents. Is it still a denouncement if no sentient creature ever hears it, or just a processor bellowing into the digital winds?
         On the battlefield, the Inuit have wisely kept a good stock of civilian units, serving essentially as seat holders for troops they may someday want in this sector. Without those workers there would be none of these omnipresent Future Worlds improvements and 30% more lime green parachutes.
         Eheunick has really gone all in on his future infantry and ranged naval mounts strategy, boarding several more raiding parties down in James Bay. The robots can probably stay hidden, but I have to assume breaching to allow the bio units to breathe will rather diminish a cybersub‘s stealth capabilities.
 - scene_number: "6"
-  scene_title: Image 06
+  scene_title: 6
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene06.jpg
   narration: "It‘s strangely empty around Selfoss, but Ingolfur may have (accurately!)
     decided it‘s both cheaper and safer to simply wait three turns for Crowfoot (Blackfoot)
@@ -72,7 +72,7 @@ scenes:
     more population out their tundra towns than the Inuit? I know they are a lot less
     dense, but it really feels like Eheunick is dropping the ball here."
 - scene_number: "7"
-  scene_title: Image 07
+  scene_title: 7
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene07.jpg
   narration: "Europe, where strange blonde figures battle over the ancestral homes
     of nations now remembered only in the names that still dot this scarred countryside.
@@ -87,7 +87,7 @@ scenes:
     houses. \n Before we move, let‘s all agree to pin an imaginary medal on Gustavus‘
     (Sweden) chest for all those properly equipped carriers!"
 - scene_number: '08'
-  scene_title: Image 08
+  scene_title: 8
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene08.jpg
   narration: "To central Asia, where the Vietnamese take inspiration from the dwarfs
     and retreat to their mountain holdfasts. Sad to say, Boer fans, but Kruger seems
@@ -104,14 +104,14 @@ scenes:
     place, knowing the north African worker army will soon relocate here and replace
     them all with modern improvements."
 - scene_number: '09'
-  scene_title: Image 09
+  scene_title: 9
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene09.jpg
   narration: To the east, Australia is back on the front foot in the northern theater,
     though we‘ve seen this too many times to be conclusive. Australia is unlikely
     to produce enough units to sustain a push from Rach Gia and Bien Hoa alone, though
     the new air support up north will certainly help!
 - scene_number: "10"
-  scene_title: Image 10
+  scene_title: 10
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene10.jpg
   narration: "Up to nine more nukes are more waiting to leave Western Australia even
     more empty than it is in our own world. Aussie workers stand ready to scrub the
@@ -120,7 +120,7 @@ scenes:
     explosive decompression. \n Through it all, do the spectating Kimberly laugh or
     weep as their ancient homes are put to the nuclear torch?"
 - scene_number: "11"
-  scene_title: Image 11
+  scene_title: 11
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene11.jpg
   narration: Good night, sweet, fractured zealot kingdom. All Tiridates (Armenia)
     ever wanted was to unite the world in the love of someone else‘s religion, and
@@ -130,7 +130,7 @@ scenes:
     only getting 66% of the way there. Yerevan should survive to next week‘s centennial
     celebration, but no longer.
 - scene_number: "12"
-  scene_title: Image 12
+  scene_title: 12
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene12.jpg
   narration: "It‘s far too soon to project a result here, but that quartet of great
     generals west of Tegea will surely exacerbate the yawning chasm in troop quality
@@ -141,7 +141,7 @@ scenes:
     Boer fleet hanging out just outside Sibir in the Black Sea—how did they get there,
     and why?"
 - scene_number: "13"
-  scene_title: Image 13
+  scene_title: 13
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene13.jpg
   narration: "Goolarabooloo? More like GoolaraBOOMloo, no? The Vietnamese fleet is
     fading, but the devastated Millibinyarrin and Windjanan citizenry are still far
@@ -155,13 +155,13 @@ scenes:
     the entire map under his benevolent, non-combative control? Could Pedro find that
     the world is, in the end, truly not large enough to contain him?"
 - scene_number: "14"
-  scene_title: Image 14
+  scene_title: 14
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene14.jpg
   narration: As expected, Parkes (Australia) takes Tianjian, but at the cost of all
     the melee forces involved. I‘d say it will impossible to hold for long, but Vietnam
     looks barer than we‘ve ever seen, with only two units north of Than Hoa.
 - scene_number: "15"
-  scene_title: Image 15
+  scene_title: 15
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene15.jpg
   narration: "Long ago, Tibet refused to found a religion. Forgotten in the centuries
     since then is that this leaves one slot open, and now the moment has arrived!
@@ -179,7 +179,7 @@ scenes:
     refuses to move anyone to protect the Shetlands solely so he can one day make
     an “Oh my Odin, they killed Kilkenny! You bastards!!” joke."
 - scene_number: "16"
-  scene_title: Image 16
+  scene_title: 16
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene16.jpg
   narration: "Checking in on our new beliefs here, we see +2 culture, a waste, and
     +10% growth, a reasonable enough bonus though significantly less so at this stage
@@ -190,7 +190,7 @@ scenes:
     Missions could let them bribe the Afghan peacekeepers out of the way to finally
     unite Arabia? It certainly couldn‘t hurt to try!"
 - scene_number: "17"
-  scene_title: Image 17
+  scene_title: 17
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene17.jpg
   narration: "Arianism is still clearly the best of all religions (production, science,
     industrial units and a bunch of culture) but Monasteries and Jesuit Education
@@ -201,7 +201,7 @@ scenes:
     have offended the primacy of Christ, for the Blackfoot Arians have felt no compulsion
     to join their Catholic and Lutheran cousins in battle."
 - scene_number: "18"
-  scene_title: Image 18
+  scene_title: 18
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene18.jpg
   narration: "Helpfully highlighted here, Sejong (Korea) will show Trigger (Darkhan,
     of Yakutia) mercy, leaving his descendants to ride out Ragnarok beneath the Arctic
@@ -214,7 +214,7 @@ scenes:
     and slaughter for the sub‘s delight. After years of careful effort, desperate
     bugfixes, and frighteningly intense devotion, the Boers win."
 - scene_number: "19"
-  scene_title: Image 19
+  scene_title: 19
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene19.jpg
   narration: "Aussie flotsam swirls around Kaneohe, where Kamehameha (Hawai‘i) enters
     the information era, meaning they‘ve finally discovered robots, lasers or cell
@@ -224,7 +224,7 @@ scenes:
     great musicians who will surely soothe the world with their dulcet ukulele ballads
     in the years to come."
 - scene_number: "20"
-  scene_title: Image 20
+  scene_title: 20
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene20.jpg
   narration: "Despite their dire straits, Armenia still has a nearly full carpet!
     Unfortunately, it‘s about the size (and effectiveness) of a welcome mat, but at
@@ -235,28 +235,28 @@ scenes:
     down the ancient fortresses in a suicidal declaration of resistance to the hordes
     of robots and mech artillery funneling south."
 - scene_number: "21"
-  scene_title: Image 21
+  scene_title: 21
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene21.jpg
   narration: "Cumae has been demilitarized, cities swap (Malmo, Messene and Hamburg,
     all to Sweden) and the war for Europe shifts north. \n Pedro cares not. Whether
     the Lion or Rune flies over these provincial capitals, the bright green brigade
     will rule the streets and hills."
 - scene_number: "22"
-  scene_title: Image 22
+  scene_title: 22
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene22.jpg
   narration: Mech artillery, which look an awful like they ought to be melee-capable
     spider tanks, sadly are not and can not, meaning Hafnarfjordur is safe. There
     is certainly movement on this front, but so far it‘s all just noisy bombing runs
     and the fleets still feeling one another out.
 - scene_number: "23"
-  scene_title: Image 23
+  scene_title: 23
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene23.jpg
   narration: Forn Siðr reforms, with the theological equivalent of Goddess of Protection.
     Is that really a great call? I mean, who could stand to benefit from Arianism‘s
     +1% production bonus per follower more than the spread out island empire facing
     down potent enemies on both sides? Pride will be the death of you, Ingolfur!
 - scene_number: "24"
-  scene_title: Image 24
+  scene_title: 24
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene24.jpg
   narration: "If you knew it was likely your last night on the cylinder, what would
     you produce? One last unit  for a kamikaze charge? Wealth, to take with you into
@@ -266,7 +266,7 @@ scenes:
     their final opuses, and lament the nearly-born great musician who will now likely
     never take up his synth axe drumitar to tour the future world."
 - scene_number: "25"
-  scene_title: Image 25
+  scene_title: 25
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene25.jpg
   narration: Across the battlefield Tyumen holds up a dark mirror to Armenia‘s idealism.
     While one ageless lord accepts defeat with grace the other knows only hellfire.
@@ -274,7 +274,7 @@ scenes:
     halls, but in Sibir the uranium will not slowly fuel a city but rather fall and
     flash, in a heartbeat, to burn one out.
 - scene_number: "26"
-  scene_title: Image 26
+  scene_title: 26
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene26.jpg
   narration: "34. 34 potential nukes, unguarded but for a few fighter wings and scattershot
     cybersubs, drift toward the tired western Australian provinces. There is no formation
@@ -286,7 +286,7 @@ scenes:
     through grade school textbooks and chilling bedtime tales, and so they simply
     watch the dread raft fleet pass."
 - scene_number: "27"
-  scene_title: Image 27
+  scene_title: 27
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene27.jpg
   narration: Hamburg goes back to Iceland, but the Swedes now hold unchallenged sway
     over the North Sea, while no one can claim a firm hold on northern Europe. That
@@ -295,13 +295,13 @@ scenes:
     I‘m not generally a betting woman, but I‘ll throw down a sawbuck on the Swedes
     to come out ahead here, barring a repeat of Sibir‘s intervention last go around.
 - scene_number: "28"
-  scene_title: Image 28
+  scene_title: 28
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene28.jpg
   narration: |-
     Did someone fiddle with the AI during the reboot? Suddenly everyone (Iceland excluded) is loading their carriers up for war. Sadly, all those nukes would be for naught in the event of a war with the Walkers, owing to neutral units protecting most every blue and white city center. If they targeted the Blackfoot, however…
      Truly, all we want for the new year is one war where neutral, unrelated third party units don‘t significantly change the outcome. At least those rapidly replicating GDRs should work as intended, smashing through the 300 meter tall wall of ice meant to hold the wildling buccaneer horde of Petit-Goave safely and forever in their swampland home.
 - scene_number: "29"
-  scene_title: Image 29
+  scene_title: 29
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene29.jpg
   narration: "Open mouth, insert foot, and kiss that tenner goodbye. Iceland conjure
     up yet another army from thin air while Gustavus forms a defensive line from Wroclaw
@@ -311,7 +311,7 @@ scenes:
     Berlin and Hamburg are still in play, but that force out of Cumae could swarm
     Tegea and be on Ohrid in a heartbeat."
 - scene_number: "30"
-  scene_title: Image 30
+  scene_title: 30
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene30.jpg
   narration: "Panning south, Iceland has nine cities in the black. What‘s worse, poor
     Elis has been totally nuked off the map, a small crater all that remains of a
@@ -327,7 +327,7 @@ scenes:
     and simply let the Spartans pass. How the world might look now if Leonidas had
     succeeded in those early days…"
 - scene_number: "31"
-  scene_title: Image 31
+  scene_title: 31
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene31.jpg
   narration: "Oh glorious dawn! Only the hardest-hearted Sibirian (or exhausted power
     ranker) could fail to smile as the flat grey horde are repulsed by the warmer
@@ -339,7 +339,7 @@ scenes:
     that once doomed the Trungs, either way this is a good sign for cyboergs and a
     worrisome one for the rest of the world."
 - scene_number: "32"
-  scene_title: Image 32
+  scene_title: 32
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene32.jpg
   narration: This corner of the Indian Ocean, and the soft Trung underbelly, are safe
     and whole once more. Well, except for the nukes. And the near-constant aerial
@@ -347,7 +347,7 @@ scenes:
     can‘t just appreciate science for its own sake but instead must use it for something
     so gauche as war.
 - scene_number: "33"
-  scene_title: Image 33
+  scene_title: 33
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene33.jpg
   narration: "Bukhara falls again, and it shan‘t flip back. With one leg of its tripartite
     base cut out the Armenian empire sways perilously. \n The Boers and Swedes care
@@ -356,13 +356,13 @@ scenes:
     noone recarpets like the Double K. Wow. Kruger ought not to turn his back if he
     wishes to keep his latest spoils."
 - scene_number: "34"
-  scene_title: Image 34
+  scene_title: 34
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene34.jpg
   narration: |-
     The Tegea offensive quickly peters out for Ingolfur and the Swedes will retake it immediately. The Viking reforms his army in the Low Countries, eager to harrow the retaken Berlin and defend the latest flashpoint at Hamburg. Meanwhile, the Swedes seem more eager to pounce on the aforementioned Tegea and the once safe Munich!
      It‘s amazing how much this conflict shifts, with hot spots moving north to south, the lines bulging and bowing east to west. While lasting progress has been scarce, this may be the most dynamic, competitive and compelling theater across the combined history of the CBRs, the exact opposite of the Vietnam/Sibir stalemate of a thousand years or the many rapid steamrolls we‘ve seen.
 - scene_number: "35"
-  scene_title: Image 35
+  scene_title: 35
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene35.jpg
   narration: "Back in Northern Brazil, a pair of embarked biotroopers circumvent the
     green sea via a more traditionally blue one and look to emulate their worker brethren,
@@ -374,7 +374,7 @@ scenes:
     a wise viking might see whether he or she could sneak a nuke or two in on Medicine
     Hat."
 - scene_number: "36"
-  scene_title: Image 36
+  scene_title: 36
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene36.jpg
   narration: "Obligatory naval stat shaming time! Iceland has built 183 naval units
     in this slide, of which two are melee capable. 108 are aircraft carriers, six
@@ -396,7 +396,7 @@ scenes:
     the canyon walls of nuclear powered behemoths, and only in their dreams are they
     free."
 - scene_number: "37"
-  scene_title: Image 37
+  scene_title: 37
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene37.jpg
   narration: To Europe! Here, at least, things move. Another overnight miracle army
     spawns out of Cumae, and Tegea and Munich are once more in the yellow. A Boer
@@ -404,7 +404,7 @@ scenes:
     the relentless advance of the Brazilians, now dangerously close to the front and
     threatening to gum up the whole works.
 - scene_number: "38"
-  scene_title: Image 38
+  scene_title: 38
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene38.jpg
   narration: The piggyback brigade closes in on Hafnarfjordur while the vikings fall
     back to Keflavik. No one seems even the slightest bit interested in contesting
@@ -412,7 +412,7 @@ scenes:
     well spread cities with any of the ten settlers he has at the ready. The only
     problem is capturing the region first.
 - scene_number: "39"
-  scene_title: Image 39
+  scene_title: 39
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene39.jpg
   narration: "All has been quiet on the Vietnamese-Australian front as both sides
     seem content with where the borders have settled in Asia. Australia has their
@@ -423,7 +423,7 @@ scenes:
     Vigan. The Blackfoot are also in on the trend, but for them these are bleeding
     edge, not throwbacks."
 - scene_number: "40"
-  scene_title: Image 40
+  scene_title: 40
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene40.jpg
   narration: "Jandamarra (Kimberly) dreams of escaping his archipelagic paradise home
     and sniping a final city from the soon-to-be finished Armenians in the landlocked
@@ -433,14 +433,14 @@ scenes:
     laugh and put in an order for another carrier. \n Please also note that Hoi An
     is already back in Vietnamese hands."
 - scene_number: "41"
-  scene_title: Image 41
+  scene_title: 41
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene41.jpg
   narration: "Ghengis‘ (Mongolia) capital is kitted out for maximum production. For
     such a small footprint and relatively low tech level that‘s a damn fine little
     city—all that from just fourteen population! \n    I also had no idea the horde
     had build Oxford. Books and covers and all that, I suppose."
 - scene_number: "42"
-  scene_title: Image 42
+  scene_title: 42
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene42.jpg
   narration: "The Boers have indeed decided to largely ignore Balkh and test themselves
     against the mountains. Kruger believes himself mightier even than the tectonic
@@ -453,7 +453,7 @@ scenes:
     up here. The Trungs could badly use a few of those nukes to clear some big holes
     in that line."
 - scene_number: "43"
-  scene_title: Image 43
+  scene_title: 43
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene43.jpg
   narration: "The ruins of Elis will lie dormant, it seems, as another nuclear-created
     void is papered over by the borders of newly settled Ani, already stretched out
@@ -461,7 +461,7 @@ scenes:
     to Sparta from this point forward will require a passport, it seems. \n Also,
     that chimera seems to have reproduced. *shudder*"
 - scene_number: "44"
-  scene_title: Image 44
+  scene_title: 44
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene44.jpg
   narration: "Hamburg goes yellow and Sweden‘s army is looking quite mäktig in the
     north. They‘ll need all those numbers, though, if they‘re going to bring down
@@ -469,7 +469,7 @@ scenes:
     it‘s possible Ingolfur was beaten to the punch by Kruger at Elis with so many
     settlers available."
 - scene_number: "45"
-  scene_title: Image 45
+  scene_title: 45
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene45.jpg
   narration: "The non-natives are expelled from North America! Wandering through a
     forgotten drydock Eheunick stumbles across a mothballed advanced destroyer and
@@ -480,7 +480,7 @@ scenes:
     (well, freezes over even more) as Greenland starts to turn blue. It‘s slow going,
     but so far the vikes show no sign of pushing back against the icy advance."
 - scene_number: "46"
-  scene_title: Image 46
+  scene_title: 46
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene46.jpg
   narration: Nevermind! Iceland summon up the courage to return to to St. Louis, marching
     in with a sole biotrooper while a fleet of cybersubs and arsenal ships nudge him
@@ -488,7 +488,7 @@ scenes:
     Ingolfur could flip the entire eastern seaboard a time or two. Come on, Ingy,
     Washington is a capital! You know you can‘t resist!
 - scene_number: "47"
-  scene_title: Image 47
+  scene_title: 47
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene47.jpg
   narration: 'Speaking of capitals, case in point: Iceland leave easier pickings standing
     for the moment and sieze Constantinople instead. Forces continue to menace the
@@ -496,7 +496,7 @@ scenes:
     flank open again, no matter how useful those troops at Poznan and Adrianople would
     be in Bulgaria right about now.'
 - scene_number: "48"
-  scene_title: Image 48
+  scene_title: 48
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene48.jpg
   narration: "The advanced destroyer strikes again! The brave biotrooper in St. Louis
     is no match for its raw ferocity and his so-called friends do nothing to protect
@@ -505,7 +505,7 @@ scenes:
     the sea floor at the end of their long, secret trek across the Atlantic seabed,
     storming the rocky beaches and siezing yet another Icelandic city for their master."
 - scene_number: "49"
-  scene_title: Image 49
+  scene_title: 49
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene49.jpg
   narration: "“Say NO to repeal the ban!” \n “Yeah, bring us back our incense!” \n
     “No, we‘re trying to do the opposite. It‘s a triple negative, see...” \n Relations
@@ -513,7 +513,7 @@ scenes:
     multifront border. Looking around, it‘s clear the endgame is near when even the
     “backwards” regional powers are building building-sized nuclear warrior robots!"
 - scene_number: "50"
-  scene_title: Image 50
+  scene_title: 50
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene50.jpg
   narration: "Another devastating flip leaves few survivors for the Boers to subjugate
     in Trincomalee, but does net Kruger his first slice of the Bay of Bengal. \n To
@@ -524,7 +524,7 @@ scenes:
     composition is already endgame ready. The only thing really missing is a top tier
     infantry and a smattering of giant freaking robots."
 - scene_number: "51"
-  scene_title: Image 51
+  scene_title: 51
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene51.jpg
   narration: "The final hours of Yerevan, and no power on earth can save Tiridates‘
     capital now. Worse, Sibir has secured passage through Boer territory and has sent
@@ -538,7 +538,7 @@ scenes:
     to take in a fleeing great musician, that he may record for all time his experiences.
     Perhaps the next generation will learn from this one‘s cruelty."
 - scene_number: "52"
-  scene_title: Image 52
+  scene_title: 52
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene52.jpg
   narration: "In a truly stunning development, Reykjavik falls! \n …\n Okay, close
     enough. And all it cost Sweden was Tegea! Tegea is legally required to change
@@ -550,7 +550,7 @@ scenes:
     and Poznan. Snatch back Reykjavik, maybe add Ohrid, and sue, Ingolfur. This might
     be your last chance."
 - scene_number: "53"
-  scene_title: Image 53
+  scene_title: 53
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene53.jpg
   narration: "Info time! \n First up, the Ministries of War: \n Iceland and Sweden
     are surprisingly close now, considering their production gap and the size of the
@@ -563,7 +563,7 @@ scenes:
     can connect the dots where tiny black gaps appear in other lines to figure out
     where the Black Fleet stands!"
 - scene_number: "54"
-  scene_title: Image 54
+  scene_title: 54
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene54.jpg
   narration: "Ministries of Health and Agriculture: \n Mark my words, before long
     that Boer 900,000,000 will drop to one. In the blink of an ocular sensor, the
@@ -574,7 +574,7 @@ scenes:
     the Samba Kings surge past the Ice Lords, Vietnam crumbles, and the Swedes are
     now on a par with the Kimberly."
 - scene_number: "55"
-  scene_title: Image 55
+  scene_title: 55
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene55.jpg
   narration: "It really would be helpful if these numbers were linear with citizen
     counts, rather than logarithmic. Comparing population with production, for instance,
@@ -582,7 +582,7 @@ scenes:
     Down at the bottom Armenia defiantly declare WE ARE STILL HERE! and refuse to
     board the sub."
 - scene_number: "56"
-  scene_title: Image 56
+  scene_title: 56
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene56.jpg
   narration: "Ministries of Industry: \n The Boers have a 2:1 advantage over third
     place, and the Inuit are nearly there as well. Just a bit more of Greenland will
@@ -592,14 +592,14 @@ scenes:
     though, wars like Sweden/Iceland do show that it pays never to go completely reductionistic
     with production and war prowess."
 - scene_number: "57"
-  scene_title: Image 57
+  scene_title: 57
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene57.jpg
   narration: "26 million Mongolians, 1,400 hammers. \n 4 million Armenians, 92 hammers.
     \n 40 million Hawai‘ians, 84 hammers. \n Q. How many Hawai‘ans does it take to
     screw in a lightbulb? \n A. Have you seen the population chart? You lost them
     at “screw.”"
 - scene_number: "58"
-  scene_title: Image 58
+  scene_title: 58
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene58.jpg
   narration: "Ministries of War: \n 5.3 million troops is a tremendous achievement,
     but can you imagine how boring Pedro‘s playstyle would be? Just eighty turns of
@@ -611,7 +611,7 @@ scenes:
     a long-lost bit of trivia in this world, every bit as quaint and forgotten as
     cooking fires themselves."
 - scene_number: "59"
-  scene_title: Image 59
+  scene_title: 59
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene59.jpg
   narration: Vietnam in twelfth, but really the gap between Australia in second and
     their slot isn‘t nearly as large as one would expect. By the same token, the Trungs
@@ -621,12 +621,12 @@ scenes:
     but also cognizant that they would be a military underdog to a Sri Lanka/Kimberly
     alliance.
 - scene_number: "60"
-  scene_title: Image 60
+  scene_title: 60
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene60.jpg
   narration: Wait, so what are all those notifications for each turn if not denunciations?
     When did the cylinder get so...polite?
 - scene_number: "61"
-  scene_title: Image 61
+  scene_title: 61
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene61.jpg
   narration: "Christians (and North American Christian-adjacent heretics) outnumber
     heathens 7:1, and Heathens 110:1. \n Again, let‘s salute Tibet‘s failure as it
@@ -634,7 +634,7 @@ scenes:
     seventh slot come from? Who will join the faith game next? We‘ll have to wait
     to find out!"
 - scene_number: "62"
-  scene_title: Image 62
+  scene_title: 62
   slide_url: https://cdn.civbattleroyale.tv/mark2-part99-scene62.jpg
   narration: "Forn Siðr has a chance to sweep Europe if they can hold off the Arians
     to their west and the Catholics and Lutherans focus all their missionary energy
