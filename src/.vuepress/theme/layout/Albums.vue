@@ -366,8 +366,8 @@ img {
 }
 
 img:hover {
-  box-shadow: 0 1px 0 0 hsla(45.3, 75%, 43.7%, 1);
-  transform: scale(1.005);
+  box-shadow: 0 2px 0 0 hsla(45.3, 75%, 43.7%, 1);
+  transform: scale(1.007);
 }
 
 .text {

@@ -3,7 +3,7 @@
     <div class="album-list">
       <div class="header">
         <h1>Mark Two</h1>
-        <span>August 11, 2015 - December 18, 2018</span>
+        <span>August 11, 2015 – December 18, 2018</span>
       </div>
       <router-link
         :to="post.path"

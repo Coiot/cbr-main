@@ -2,7 +2,7 @@
   <transition name="fade">
     <div>
       <div class="edition-list">
-        <div class="list">
+        <div class="list" @click="clickedEdition = 'S2List'">
           <span>Season Two</span>
         </div>
 
