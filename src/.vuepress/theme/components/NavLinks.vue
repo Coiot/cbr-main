@@ -112,6 +112,7 @@ export default {
 
     &:hover {
       color: $accentColor;
+      transform: scale(1.03);
     }
   }
 

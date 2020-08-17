@@ -292,6 +292,7 @@ export default {
 .value a {
   color: #fff;
   font-weight: 600;
+  transition: all 0.2s ease-in-out;
 }
 
 .abstract {
@@ -318,6 +319,7 @@ button {
 
 button:hover {
   background-color: darken($accentColor, 35%);
+  transform: scale(1.005);
   cursor: pointer;
 }
 

@@ -2,20 +2,24 @@
   <transition name="fade">
     <div>
       <div class="edition-list">
+        <div class="list">
+          <span>Season Two</span>
+        </div>
+
         <div class="list" @click="clickedEdition = 'S1List'">
-          <p>Season One</p>
+          <span>Season One</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'Mk2List'">
-          <p>Mark Two</p>
+          <span>Mark Two</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'PRList'">
-          <p>Power Rankings</p>
+          <span>Power Rankings</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'OthersList'">
-          <p>Others</p>
+          <span>Others</span>
         </div>
       </div>
       <component :is="clickedEdition"></component>
@@ -41,32 +45,35 @@ export default {
 
 <style scoped>
 .edition-list {
-  width: 100%;
+  height: 3.4rem;
   display: flex;
-  justify-content: space-around;
-  margin: 4rem 0 0;
+  justify-content: center;
+  background-color: #fff;
+  border-bottom: 4px solid #ffbf46;
+  padding: 0.3em 1.5em 0;
+  margin: 0 0 1rem;
 }
 
 .list {
+  width: max-content;
+  display: flex;
   flex-grow: 1;
-  color: $textColor;
-  text-shadow: 1px 2px #083832;
-  background-color: #202020;
-  border: 1px double #fff;
-  padding: 1em 2em;
-  margin: 0 1rem 2vw;
+  justify-content: center;
+  color: #1a1a1a;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  margin: 0.8rem 0;
 }
 
-.list:hover {
-  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.3);
-  transform: scale(1.01);
-}
-
-.list p {
-  font-size: 1rem;
+.list span {
+  font-size: 1.2rem;
   font-weight: 800;
+  text-shadow: 1px 1px #eee;
+  transition: all 0.1s ease-in-out;
+}
+
+.list span:hover {
+  border-bottom: 3px solid #ffcc6b;
+  transform: scale(1.03);
 }
 
 @media (max-width: 719px) {

@@ -5,7 +5,7 @@
         :to="post.path"
         tag="div"
         v-for="(post,index) in albums"
-        v-if="index < 2"
+        v-if="index < 1"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -26,7 +26,7 @@
           :to="post.path"
           tag="div"
           v-for="(post,index) in albums"
-          v-if="index > 1"
+          v-if="index > 0"
           :key="post.title"
           :tabindex="0"
         >
@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 4rem 6rem 0;
+  margin: 3rem 5rem 0;
 }
 
 .post {
