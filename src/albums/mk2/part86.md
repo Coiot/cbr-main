@@ -2,7 +2,7 @@
 title: 'Part 86: Requiem for a Leg Day'
 narrated_by: Msurdej
 description: 'All those interval training sessions have come down to this. Will muscle outperform steel? Elsewhere in Europe, the clash of lions also has everyone at attention.'
-starting_turn: ''
+starting_turn: '813'
 release_date: 'October 3, 2017'
 audio_narration: https://youtu.be/eg82NL2xM_k
 edition: Mk2

@@ -103,6 +103,13 @@
               <article class="h-narration" style="flex-direction: column">
                 <h3 v-html="scene.scene_title"></h3>
                 <p class="narrations" v-html="scene.narration" tabindex="0"></p>
+                <p
+                  class="narrations"
+                  v-if="scene.reporter"
+                  v-html="scene.reporter"
+                  tabindex="0"
+                  v-bind:class="{ reporter: scene.reporter }"
+                ></p>
               </article>
             </template>
           </vueper-slide>
@@ -121,20 +128,23 @@
               alt="CBR In-Game Screenshot"
               v-bind:class="{ civdeathImage: scene.death }"
             />
-            <h3>{{ scene.scene_title }}</h3>
-            <div
-              class="narrations"
-              v-html="scene.narration"
-              tabindex="0"
-              v-bind:class="{ civdeathBorder: scene.death }"
-            ></div>
-            <div
-              class="narrations"
-              v-if="scene.reporter"
-              v-html="scene.reporter"
-              tabindex="0"
-              v-bind:class="{ reporter: scene.reporter }"
-            ></div>
+            <div class="text">
+              <h3>{{ scene.scene_title }}</h3>
+
+              <div
+                class="narrations"
+                v-html="scene.narration"
+                tabindex="0"
+                v-bind:class="{ civdeathBorder: scene.death }"
+              ></div>
+              <div
+                class="narrations"
+                v-if="scene.reporter"
+                v-html="scene.reporter"
+                tabindex="0"
+                v-bind:class="{ reporter: scene.reporter }"
+              ></div>
+            </div>
           </article>
         </section>
 
@@ -333,45 +343,55 @@ button:hover {
 }
 
 .scenes {
-  display: block;
-  padding: 0;
   width: 100%;
   max-width: 1050px;
   height: auto;
+  display: block;
   padding: 0 auto 3rem;
 }
 
 h2 {
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 900;
   color: white;
   margin: 1.5rem 0 1rem;
-}
-
-.scenes h3 {
-  font-size: 1.7rem;
-  margin: 2rem 0 0;
 }
 
 img {
   width: 100%;
   line-height: 0;
-  box-shadow: 0 2px 1px 0 hsla(45.3, 75%, 43.7%, 0.6);
   transition: all 0.2s ease-in-out;
 }
 
 img:hover {
-  box-shadow: 0 2px 1px 0 hsla(45.3, 75%, 43.7%, 1);
-  transform: scale(1.01);
+  box-shadow: 0 1px 0 0 hsla(45.3, 75%, 43.7%, 1);
+  transform: scale(1.005);
+}
+
+.text {
+  border-bottom: 2px solid #ffbf46;
+  background-color: #181818;
+  padding: 2rem;
+}
+
+.scenes h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
 }
 
 .narrations {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
   line-height: 1.3;
   text-shadow: 2px 2px #083832;
-  padding: 0 0 0.5rem;
-  margin: 0.2rem 0 0;
-  border-bottom: 2px solid #ffbf46;
+  padding: 0;
+  margin: 0.1rem 0 0;
+}
+
+.reporter {
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 .blog {
@@ -422,6 +442,12 @@ img:hover {
   .pswp img {
     width: 100% !important;
     height: 100% !important;
+  }
+}
+
+@media (max-width: $MQNarrow) {
+  .blog {
+    margin: 0 1rem;
   }
 }
 

@@ -2,7 +2,7 @@
 title: 'Part 83: The Great Leap Forward'
 narrated_by: X-Rok
 description: 'The ceasefire between the Green Dragon and the Orange Menace gives way to a new conflict across attrition-weary Europe and the Pacific.'
-starting_turn: ''
+starting_turn: '797'
 release_date: 'Oct 30, 2016'
 audio_narration: https://youtu.be/vYjDVjiw7iE
 edition: Mk2

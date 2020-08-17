@@ -2,7 +2,7 @@
 title: 'Part 93: Fortunate S‘on'
 narrated_by: Sparrowhawk815
 description: ''
-starting_turn: ''
+starting_turn: '854'
 release_date: 'November 21, 2017'
 audio_narration: https://youtu.be/81UPPGO0cpg
 edition: Mk2

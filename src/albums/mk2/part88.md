@@ -2,7 +2,7 @@
 title: 'Part 88: Exercises in Futility'
 narrated_by: Scissor
 description: 'Orange meets Green in the Middle East as two of the favorite contenders are eager to show of their fancy new troopers.'
-starting_turn: ''
+starting_turn: '826'
 release_date: 'October 17, 2017'
 audio_narration: https://youtu.be/FDg2nkc9UKs
 edition: Mk2

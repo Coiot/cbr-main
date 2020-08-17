@@ -2,7 +2,7 @@
 title: 'Part 90: Heartaches by the Number'
 narrated_by: TechnostarBTD5
 description: 'The sunset riders line up their shots as Mini-Pedro is summoned and deploys the tiny Brazilian fleet. Elsewhere, the Boers and Sibir continue to try to cut Vietnam off at the mountain pass.'
-starting_turn: ''
+starting_turn: '836'
 release_date: 'October 31, 2017'
 audio_narration: https://youtu.be/80zuQxeesmg
 edition: Mk2

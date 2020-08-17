@@ -2,7 +2,7 @@
 title: 'Part 79: Continental Lords'
 narrated_by: 'JohnRegular, xSyracuse, The_EnigmaConundrum, and Mrmac23'
 description: 'The Boerg prove restless and the lords of the sea take to the waves to claim new shores.'
-starting_turn: ''
+starting_turn: '765'
 release_date: 'Oct 09, 2016'
 audio_narration: https://youtu.be/ZMRcHCOgFKQ
 edition: Mk2

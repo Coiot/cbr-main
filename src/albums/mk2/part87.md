@@ -2,7 +2,7 @@
 title: 'Part 87: The Hundred Days'
 narrated_by: Lacsirax Ariscal
 description: 'Sweden’s bold march across Eastern Europe continues as the great powers around the world adapt to the Great Famine by focusing on biological enhancements for their troops.'
-starting_turn: ''
+starting_turn: '821'
 release_date: 'October 10, 2017'
 audio_narration: https://youtu.be/gvRGfIERU6c
 edition: Mk2

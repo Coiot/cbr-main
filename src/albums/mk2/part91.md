@@ -2,7 +2,7 @@
 title: 'Part 91: Break Down the Walls'
 narrated_by: Jmangelo
 description: 'The trumpets circle around the fallen. The war between the Boers and Vietnam intensifies even further and a new escaltion is reached in the destruction.'
-starting_turn: ''
+starting_turn: '842'
 release_date: 'November 7, 2017'
 audio_narration: https://youtu.be/K5EqbCoS1qc
 edition: Mk2

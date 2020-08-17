@@ -2,7 +2,7 @@
 title: 'Part 82: DEUS VULT'
 narrated_by: volkanos
 description: 'The denizens of Babylon rejoice to the sound of Leg Day returning to the holy city.'
-starting_turn: ''
+starting_turn: '791'
 release_date: 'Oct 23, 2016'
 audio_narration: https://youtu.be/4wzhcC-L7J8
 edition: Mk2

@@ -2,7 +2,7 @@
 title: 'Part 95: Hell No, We Won’t Go!'
 narrated_by: DerErlenkonig
 description: ''
-starting_turn: ''
+starting_turn: '871'
 release_date: 'December 5th, 2017'
 audio_narration: https://youtu.be/qTbDz45l1TQ
 edition: Mk2

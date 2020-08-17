@@ -2,7 +2,7 @@
 title: 'Part 94: Some Assembly Required'
 narrated_by: LordFowl
 description: ''
-starting_turn: ''
+starting_turn: '862'
 release_date: 'November 28, 2017'
 audio_narration: https://youtu.be/DES5Oi95sIA
 edition: Mk2

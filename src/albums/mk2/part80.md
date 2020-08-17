@@ -2,7 +2,7 @@
 title: 'Part 80: There One Moment, Gone the Next'
 narrated_by: Lunar
 description: 'The map wildly shifts in color as armies sweep through nuclear wastelands. A long, action-packed episode awaits.'
-starting_turn: ''
+starting_turn: '772'
 release_date: 'Oct 12, 2016'
 audio_narration: https://youtu.be/t557AP2OGLw
 edition: Mk2

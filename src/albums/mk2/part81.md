@@ -2,7 +2,7 @@
 title: 'Part 81: The Valiants of Chapultepec'
 narrated_by: 'Hakantula and Night_Man_'
 description: 'One final last stand before stampeding bisons as elsewhere the mighty black flag is also lowered.'
-starting_turn: ''
+starting_turn: '782'
 release_date: 'Oct 16, 2016'
 audio_narration: https://youtu.be/IcOch_HKunU
 edition: Mk2

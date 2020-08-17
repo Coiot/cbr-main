@@ -23,7 +23,7 @@ scenes:
     is presently beyond T900+, but today we're going to go over the first 30 turns
     and give some quick introductions and some inside information from the results
     of our test runs of this setup.</p>"
-  reporter: "Captain Morgan: Your captain here, wishing you lads a good time!"
+  reporter: "<strong>Captain Morgan</strong>: Your captain here, wishing you lot a good time!"
 - scene_number: '02'
   scene_title: OC of the Week
   slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene02.jpg

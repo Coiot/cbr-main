@@ -2,7 +2,7 @@
 title: 'Part 92: How to Augment your Dragon'
 narrated_by: Lunar
 description: 'Hype in all corners of the cylinder! The trenches in Europe are drawn and the mountain strongholds begin to buckle. All that was needed was the storming of the beaches.'
-starting_turn: ''
+starting_turn: '848'
 release_date: 'November 14, 2017'
 audio_narration: https://youtu.be/uYkj78AZPK0
 edition: Mk2

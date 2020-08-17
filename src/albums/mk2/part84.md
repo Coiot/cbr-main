@@ -2,7 +2,7 @@
 title: 'Part 84: Sticking the Landing'
 narrated_by: Coiot
 description: 'After being up in the air for 11 months, the struggle resumes once more. Everything is just as familiar, but also not quite.'
-starting_turn: ''
+starting_turn: '801'
 release_date: 'September 20th, 2017'
 audio_narration: https://youtu.be/J3UOaZ-edkQ
 edition: Mk2

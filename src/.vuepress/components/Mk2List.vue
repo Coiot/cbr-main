@@ -1,6 +1,10 @@
 <template>
   <transition name="fade">
     <div class="album-list">
+      <div class="header">
+        <h1>Mark Two</h1>
+        <span>August 11, 2015 - December 18, 2018</span>
+      </div>
       <router-link
         :to="post.path"
         tag="div"
@@ -771,7 +775,19 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 3rem 5rem 0;
+  margin: 0 5rem;
+}
+
+.header {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.header span {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-shadow: 2px 2px #083832;
+  margin-left: 2rem;
 }
 
 .post {
@@ -781,15 +797,14 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-bottom: 8px solid #ffbf46;
-  box-shadow: 0 5px 2px 0 rgba(8, 56, 50, 0.35);
-  margin-bottom: 4vw;
+  box-shadow: 0 6px 0 0 #ffbf46;
+  margin-bottom: 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .post:hover {
-  box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.5);
+  box-shadow: 0 2px 0 0 #ffbf46;
   transform: scale(1.01);
 }
 
@@ -805,7 +820,7 @@ img {
   top: 2rem;
   padding: 1.5rem 2rem;
   color: $textColor;
-  text-shadow: 1px 2px #083832;
+  text-shadow: 2px 2px #083832;
   background: #202020;
   border: 1px double #fff;
   border-left: 0;
@@ -833,6 +848,7 @@ img {
   bottom: 1rem;
   padding: 1.5rem 2rem;
   color: #1a1a1a;
+  text-shadow: 2px 2px #eee;
   background: #fff;
   border: 1px double #1a1a1a;
   border-right: 0;
@@ -857,13 +873,14 @@ img {
 h1 {
   font-size: 4rem;
   font-weight: 900;
+  text-shadow: 3px 3px #083832;
   padding: 0.5em 0 0.1em;
 }
 
 .competitors {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(0.4rem, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(0.3rem, 1fr));
   list-style-type: none;
 }
 
@@ -883,14 +900,16 @@ h1 {
 .competitors p {
   font-size: 1.25rem;
   font-weight: 900;
-  /* text-shadow: 1px 1px #eee; */
-  padding-right: 1rem;
+  text-shadow: 2px 2px #083832;
+  padding-right: 0.7rem;
+  margin: 0.5rem 0;
 }
 
 .competitors span {
   color: #fff !important;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 400;
+  text-shadow: 2px 2px #083832;
 }
 
 .arc {
@@ -908,18 +927,21 @@ h1 {
 }
 
 .arc-header h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
+  text-shadow: 3px 3px #083832;
   margin: 0 0 0.5em;
 }
 
 .arc-header span {
   color: #ffbf46;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: 800;
+  text-shadow: 2px 2px #083832;
 }
 
 .arc-header p {
+  text-shadow: 2px 2px #083832;
   margin-right: 3em;
 }
 
@@ -952,13 +974,15 @@ h1 {
 .list p {
   font-size: 1.4rem;
   font-weight: 800;
+  text-shadow: 2px 2px #083832;
   line-height: 1.2;
 }
 
 .list p span {
   font-size: 65%;
   font-weight: 400;
-  margin-left: 0.2rem;
+  text-shadow: 2px 2px #083832;
+  margin-left: 0.6rem;
 }
 
 @media (max-width: 719px) {
