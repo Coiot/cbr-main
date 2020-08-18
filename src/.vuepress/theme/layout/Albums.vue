@@ -81,9 +81,28 @@
 
       <div v-if="isToggle === true">
         <vueper-slides
+          ref="vueperslides2"
+          :slide-ratio="1 / 8"
+          :dragging-distance="50"
+          @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
+          :visible-slides="8"
+          fixed-height="80px"
+          :arrows="false"
+          :bullets="false"
+          style="margin-bottom:1rem"
+        >
+          <vueper-slide
+            v-for="i in $page.frontmatter.scenes"
+            :image="i.slide_url"
+            :key="i.number"
+            @click.native="$refs.vueperslides2 && $refs.vueperslides2.goToSlide(i)"
+          ></vueper-slide>
+        </vueper-slides>
+        <vueper-slides
+          ref="vueperslides1"
+          @slide="$refs.vueperslides2 && $refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
           :slide-content-outside="'bottom'"
-          :infinite="false"
-          arrows-outside
+          arrows-inside
           :bullets="false"
           :slide-ratio="9 / 16"
           fractions
@@ -245,8 +264,9 @@ export default {
 
 .blog h1 {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1;
+  padding-top: 2rem;
 }
 
 .blog h1 span {
@@ -384,15 +404,15 @@ img:hover {
 }
 
 .scenes h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 800;
   margin: 0;
 }
 
 .narrations {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.2;
   text-shadow: 2px 2px #083832;
   padding: 0;
   margin: 0.1rem 0 0;
@@ -435,17 +455,24 @@ img:hover {
   }
 
   .scenes h3 {
-    font-size: 1.5rem;
-    margin: 1rem 0 0;
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .text {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .narrations {
     font-size: 1rem;
-    padding: 0.3rem 0.2rem;
     overflow-wrap: break-word;
     margin: 0;
     border-top: 0;
-    border-bottom: 1px solid #ffbf46;
+  }
+
+  .reporter {
+    padding-bottom: 1rem;
   }
 
   .pswp img {
@@ -457,6 +484,10 @@ img:hover {
 @media (max-width: $MQNarrow) {
   .blog {
     margin: 0 1rem;
+  }
+
+  .blog h1 {
+    margin-top: 0.5rem;
   }
 }
 
