@@ -174,6 +174,11 @@ export default {
   flex-direction: column;
 }
 
+.vueperslide {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .vueperslides__fractions {
   border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
   border-radius: 0.3em !important;

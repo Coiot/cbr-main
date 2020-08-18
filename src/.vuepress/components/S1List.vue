@@ -450,7 +450,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 6px 0 0 #ffbf46;
-  margin-bottom: 0;
+  margin-bottom: 2.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -526,7 +526,8 @@ h1 {
   font-size: 4rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
-  padding: 0.5em 0 0.1em;
+  padding: 0.7em 0 0.1em;
+  margin-top: 0;
 }
 
 .competitors {
@@ -534,14 +535,23 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(0.3rem, 1fr));
   list-style-type: none;
+  counter-reset: civs;
 }
 
 .competitors li {
+  width: 100%;
   display: flex;
   flex-flow: row;
   align-items: baseline;
-  width: 100%;
+  counter-increment: civs;
   transition: all 0.2s ease-in-out;
+}
+
+.competitors li:before {
+  content: counter(civs);
+  color: hsl(40, 80%, 60%);
+  font-size: 0.9rem;
+  margin-right: 0.9rem;
 }
 
 .competitors li:hover {
@@ -589,7 +599,6 @@ h1 {
   color: #ffbf46;
   font-size: 1.7rem;
   font-weight: 800;
-  text-shadow: 2px 2px #083832;
 }
 
 .arc-header p {

@@ -90,6 +90,7 @@
           :dragging-distance="200"
           :touchable="false"
           class="medium"
+          style="background-size: contain;"
         >
           <vueper-slide
             v-for="scene in $page.frontmatter.scenes"
@@ -101,7 +102,9 @@
           >
             <template v-slot:content>
               <article class="h-narration" style="flex-direction: column">
-                <h3 v-html="scene.scene_title"></h3>
+                <h3 v-if="scene.scene_number == scene.scene_title">{{ scene.scene_number }}</h3>
+                <h3 v-else-if="scene.scene_title">{{ scene.scene_number }}: {{ scene.scene_title }}</h3>
+                <h3 v-else>{{ scene.scene_number }}</h3>
                 <p class="narrations" v-html="scene.narration" tabindex="0"></p>
                 <p
                   class="narrations"
@@ -124,17 +127,12 @@
               alt="CBR In-Game Screenshot"
               v-bind:class="{ civdeathImage: scene.death }"
             />
-            <div class="text">
+            <div class="text" v-bind:class="{ civdeathBorder: scene.death }">
               <h3 v-if="scene.scene_number == scene.scene_title">{{ scene.scene_number }}</h3>
               <h3 v-else-if="scene.scene_title">{{ scene.scene_number }}: {{ scene.scene_title }}</h3>
               <h3 v-else>{{ scene.scene_number }}</h3>
 
-              <div
-                class="narrations"
-                v-html="scene.narration"
-                tabindex="0"
-                v-bind:class="{ civdeathBorder: scene.death }"
-              ></div>
+              <div class="narrations" v-html="scene.narration" tabindex="0"></div>
               <div
                 class="narrations"
                 v-if="scene.reporter"
@@ -281,7 +279,7 @@ export default {
 }
 
 .column {
-  flex: 0 0 25%;
+  flex: 1 0 25%;
 }
 
 .label {
@@ -332,12 +330,21 @@ button:hover {
 }
 
 .h-narration {
-  width: 1200px;
   position: relative;
-  left: 20%;
-  right: 20%;
-  margin-left: -20vw;
-  margin-right: -20vw;
+  border-bottom: 3px solid darken($accentColor, 20%);
+  background-color: #1a1a1a;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.h-narration h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.1rem;
+}
+
+.h-narration p {
+  font-size: 1rem;
+  line-height: 1.6 !important;
+  margin: 0.2rem 0;
 }
 
 .scenes {
@@ -366,12 +373,12 @@ img {
 }
 
 img:hover {
-  box-shadow: 0 2px 0 0 hsla(45.3, 75%, 43.7%, 1);
+  box-shadow: 0 3px 0 0 hsla(45.3, 75%, 43.7%, 1);
   transform: scale(1.007);
 }
 
 .text {
-  border-bottom: 3px solid #ffbf46;
+  border-bottom: 3px solid darken($accentColor, 20%);
   background-color: #1a1a1a;
   padding: 2rem;
 }

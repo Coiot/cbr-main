@@ -51,7 +51,7 @@ export default {
   background-color: #fff;
   border-bottom: 4px solid #ffbf46;
   padding: 0.3em 1.5em 0;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
 }
 
 .list {
