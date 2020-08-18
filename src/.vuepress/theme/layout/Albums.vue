@@ -82,9 +82,9 @@
       <div v-if="isToggle === true">
         <vueper-slides
           ref="vueperslides2"
-          :slide-ratio="1 / 8"
-          :dragging-distance="50"
           @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
+          :slide-ratio="1 / 8"
+          :dragging-distance="5"
           :visible-slides="8"
           fixed-height="80px"
           :arrows="false"
@@ -92,10 +92,11 @@
           style="margin-bottom:1rem"
         >
           <vueper-slide
-            v-for="i in $page.frontmatter.scenes"
-            :image="i.slide_url"
-            :key="i.number"
-            @click.native="$refs.vueperslides2 && $refs.vueperslides2.goToSlide(i)"
+            v-for="(scene, index) in $page.frontmatter.scenes"
+            :image="scene.slide_url"
+            :key="scene.number"
+            @click.native="$refs.vueperslides2 && $refs.vueperslides2.goToSlide(index)"
+            style="margin: 0 .2rem"
           ></vueper-slide>
         </vueper-slides>
         <vueper-slides
