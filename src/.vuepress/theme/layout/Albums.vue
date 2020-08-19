@@ -471,7 +471,7 @@ img:hover {
 
   .narrations {
     font-size: 1rem;
-    overflow-wrap: break-word;
+    word-break: break-word;
     margin: 0;
     border-top: 0;
   }

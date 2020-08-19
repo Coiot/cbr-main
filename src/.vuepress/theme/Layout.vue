@@ -24,8 +24,6 @@
       <slot name="page-top" slot="top" />
       <slot name="page-bottom" slot="bottom" />
     </Page>
-
-    <SWUpdatePopup />
   </div>
 </template>
 

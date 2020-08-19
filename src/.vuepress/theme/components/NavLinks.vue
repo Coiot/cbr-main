@@ -6,35 +6,23 @@
         <DropdownLink v-if="item.type === 'links'" :item="item" />
         <NavLink v-else :item="item" />
       </div>
-
-      <!-- repo link -->
-      <a
-        v-if="repoLink"
-        :href="repoLink"
-        class="repo-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ repoLabel }}
-        <OutboundLink />
-      </a>
     </nav>
     <div class="nav-links">
       <ul class="edition-links">
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s2">Season Two</a>
+          <a href="https://civbattleroyale.tv/albums/s2/">Season Two</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s1">Season One</a>
+          <a href="https://civbattleroyale.tv/albums/s1/">Season One</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/mk2">Mark Two</a>
+          <a href="https://civbattleroyale.tv/albums/mk2/">Mark Two</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/pr">Power Rankings</a>
+          <a href="https://civbattleroyale.tv/albums/pr/">Power Rankings</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/others">Others</a>
+          <a href="https://civbattleroyale.tv/albums/others/">Others</a>
         </li>
       </ul>
     </div>
