@@ -691,6 +691,7 @@ h1 {
   }
 
   h1 {
+    word-break: break-all;
     padding: 0.4em 0 0.1em;
   }
 
