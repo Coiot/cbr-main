@@ -113,7 +113,6 @@ img {
   left: 0;
   top: 2rem;
   padding: 1.5rem 2rem;
-  color: $textColor;
   text-shadow: 2px 2px #083832;
   background: #202020;
   border: 1px double #fff;
@@ -249,7 +248,6 @@ h1 {
 
 .list {
   flex-grow: 1;
-  color: $textColor;
   text-shadow: 1px 2px #083832;
   background-color: #202020;
   border: 1px double #fff;
