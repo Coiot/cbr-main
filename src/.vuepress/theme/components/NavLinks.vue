@@ -163,10 +163,10 @@ export default {
   .repo-link {
     margin-left: 1.1rem;
   }
+}
 
-  .edition-links {
-    display: none;
-  }
+.edition-links {
+  display: none;
 }
 
 @media (max-width: $MQMobile) {
