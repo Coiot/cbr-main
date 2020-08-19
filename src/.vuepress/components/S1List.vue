@@ -646,7 +646,20 @@ h1 {
   margin-left: 0.6rem;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 900px) {
+  .header {
+    flex-flow: column;
+    margin-bottom: 2rem;
+  }
+
+  .header h1 {
+    margin: 0;
+  }
+
+  .header span {
+    margin-left: 0;
+  }
+
   .arc {
     flex-flow: column;
   }
@@ -679,7 +692,12 @@ h1 {
     margin: 1rem 1.5rem 0;
   }
 
+  h1 {
+    padding: 0.4em 0 0.1em;
+  }
+
   h2 {
+    overflow-wrap: break-word;
     border-bottom: none;
   }
 }

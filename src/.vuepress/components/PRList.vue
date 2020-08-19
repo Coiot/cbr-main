@@ -9,7 +9,7 @@
         :to="post.path"
         tag="div"
         v-for="(post,index) in albums"
-        v-if="index < 2"
+        v-if="index < 1"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -30,7 +30,7 @@
           :to="post.path"
           tag="div"
           v-for="(post,index) in albums"
-          v-if="index > 1"
+          v-if="index > 0"
           :key="post.title"
           :tabindex="0"
         >
@@ -60,7 +60,7 @@ export default {
           (x) => x.path.startsWith("/albums/pr") && !x.frontmatter.exclude
         )
         .sort(
-          (b, a) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
     },
   },

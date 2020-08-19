@@ -76,15 +76,14 @@ export default {
   transform: scale(1.03);
 }
 
-@media (max-width: 719px) {
+@media (max-width: 799px) {
   .edition-list {
-    flex-flow: column;
-    margin: 1rem 0 0;
+    display: none;
   }
 
   .list {
     word-break: break-all;
-    padding: 0 1rem;
+    padding: 0;
     margin: 0.5rem 1.5rem;
   }
 }

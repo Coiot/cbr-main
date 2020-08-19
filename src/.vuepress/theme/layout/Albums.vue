@@ -82,20 +82,21 @@
       <div v-if="isToggle === true">
         <vueper-slides
           ref="vueperslides2"
-          @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
+          @slide="$refs.vueperslides2 && $refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
           :slide-ratio="1 / 8"
-          :dragging-distance="5"
+          :dragging-distance="10"
           :visible-slides="8"
           fixed-height="80px"
           :arrows="false"
           :bullets="false"
+          class="first"
           style="margin-bottom:1rem"
         >
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
             :image="scene.slide_url"
             :key="scene.number"
-            @click.native="$refs.vueperslides2 && $refs.vueperslides2.goToSlide(index)"
+            @click.native="$refs.vueperslides1 && $refs.vueperslides1.goToSlide(index)"
             style="margin: 0 .2rem"
           ></vueper-slide>
         </vueper-slides>
@@ -109,7 +110,7 @@
           fractions
           :dragging-distance="200"
           :touchable="false"
-          class="medium"
+          :transition-speed="900"
           style="background-size: contain;"
         >
           <vueper-slide
@@ -435,7 +436,7 @@ img:hover {
 @media (max-width: $MQMobile) {
   .nextprev {
     font-size: 0.9rem;
-    margin-top: 0.3rem;
+    margin-top: 1rem;
     flex-flow: row wrap;
   }
 
@@ -451,6 +452,10 @@ img:hover {
     box-shadow: none;
   }
 
+  h1, h2 {
+    word-break: break-all;
+  }
+
   .scenes h2 {
     margin: 1.5rem 0 0.5rem;
   }
@@ -461,8 +466,7 @@ img:hover {
   }
 
   .text {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
   }
 
   .narrations {

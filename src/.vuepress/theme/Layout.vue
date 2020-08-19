@@ -194,4 +194,21 @@ export default {
 .vueperslides__fractions:hover {
   opacity: 0;
 }
+
+.first .vueperslide--active {
+  box-shadow: inset 0 4px 0 0 hsl(40, 100%, 60%) !important;
+}
+
+.vueperslides--touchable .vueperslides__track--dragging,
+.vueperslides--touchable .vueperslides__track--mousedown,
+.vueperslides--touchable .vueperslides__track,
+.vueperslides--touchable {
+  cursor: default !important;
+}
+
+@media (max-width: 600px) {
+  .vueperslides__fractions {
+    display: none;
+  }
+}
 </style>
