@@ -7,7 +7,7 @@
         <NavLink v-else :item="item" />
       </div>
     </nav>
-    <!-- <div class="nav-links">
+    <div class="nav-links">
       <ul class="edition-links">
         <li class="nav-item">
           <a href="https://civbattleroyale.tv/albums/s2/">Season Two</a>
@@ -25,7 +25,7 @@
           <a href="https://civbattleroyale.tv/albums/others/">Others</a>
         </li>
       </ul>
-    </div>-->
+    </div>
   </div>
 </template>
 
