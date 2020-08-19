@@ -56,7 +56,7 @@ module.exports = {
 			'@vuepress/pwa',
 			{
 				serviceWorker: true,
-				updatePopup: false
+				updatePopup: true
 			}
 		]
 	],
@@ -69,6 +69,6 @@ module.exports = {
 		['meta', { name: 'msapplication-TileColor', content: '#FFBF46' }],
 		['meta', { name: 'theme-color', content: '#FFBF46' }],
 		['link', { rel: 'canonical', href: 'https://civbattleroyale.tv' }],
-		// ['meta', { name: 'viewport', content: 'initial-scale=1' }],
+		['meta', { name: 'viewport', content: 'initial-scale=1' }],
 	]
 }
