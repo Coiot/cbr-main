@@ -336,7 +336,7 @@ button {
   line-height: 1.5;
   color: #fff;
   text-shadow: 2px 2px #083832;
-  background-color: darken($accentColor, 15%);
+  background-color: darken($accentColor, 25%);
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: $accentColor 0px 4px 20px -10px;

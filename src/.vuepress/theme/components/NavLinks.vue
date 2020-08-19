@@ -7,7 +7,7 @@
         <NavLink v-else :item="item" />
       </div>
     </nav>
-    <!-- <div class="nav-links">
+    <div class="nav-links">
       <ul class="edition-links">
         <li class="nav-item">
           <a href="https://civbattleroyale.tv/albums/s2/">Season Two</a>
@@ -25,7 +25,7 @@
           <a href="https://civbattleroyale.tv/albums/others/">Others</a>
         </li>
       </ul>
-    </div>-->
+    </div>
   </div>
 </template>
 
@@ -86,31 +86,6 @@ export default {
           items: (link.items || []).map(resolveNavLinkItem),
         });
       });
-    },
-
-    repoLink() {
-      const { repo } = this.$site.themeConfig;
-      if (repo) {
-        return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`;
-      }
-    },
-
-    repoLabel() {
-      if (!this.repoLink) return;
-      if (this.$site.themeConfig.repoLabel) {
-        return this.$site.themeConfig.repoLabel;
-      }
-
-      const repoHost = this.repoLink.match(/^https?:\/\/[^/]+/)[0];
-      const platforms = ["GitHub", "GitLab", "Bitbucket"];
-      for (let i = 0; i < platforms.length; i++) {
-        const platform = platforms[i];
-        if (new RegExp(platform, "i").test(repoHost)) {
-          return platform;
-        }
-      }
-
-      return "Source";
     },
   },
 };

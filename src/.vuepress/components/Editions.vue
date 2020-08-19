@@ -78,7 +78,7 @@ export default {
 
 @media (max-width: 799px) {
   .edition-list {
-    /* display: none; */
+    display: none;
   }
 
   .list {
