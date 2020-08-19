@@ -82,7 +82,7 @@
       <div v-if="isToggle === true">
         <vueper-slides
           ref="vueperslides2"
-          @slide="$refs.vueperslides2 && $refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
+          @slide="$refs.vueperslides1 && $refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
           :slide-ratio="1 / 8"
           :dragging-distance="10"
           :visible-slides="8"
@@ -110,6 +110,7 @@
           fractions
           :dragging-distance="200"
           :touchable="false"
+          class="medium"
           :transition-speed="900"
           style="background-size: contain;"
         >

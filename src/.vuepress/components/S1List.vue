@@ -695,7 +695,7 @@ h1 {
   }
 
   h2 {
-    overflow-wrap: break-word;
+    word-break: break-all;
     border-bottom: none;
   }
 }
