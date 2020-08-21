@@ -28,320 +28,328 @@
           <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
         </div>
       </router-link>
+
+      <h1>Competitors</h1>
+      <ul class="competitors">
+        <li v-for="civ in civs">
+          <p>{{ civ.name }}</p>
+          <span>{{ civ.leader }} – {{ civ.author }}</span>
+        </li>
+      </ul>
     </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "Mk2",
+  name: "Season Two",
   data() {
     return {
       civs: [
         {
-          name: "Afghanistan",
-          leader: "Mirwais Hotak",
-          author: "Colonialist Legacies",
+          name: "Anangu",
+          leader: "Anangu",
+          author: "TopHatPaladin",
         },
         {
-          name: "Arabia",
-          leader: "Harun Al-Rashid",
-          author: "Firaxis",
+          name: "Bhutan",
+          leader: "Jigme Singye Wangchuck",
+          author: "RawSasquatch",
         },
         {
-          name: "Argentina",
-          leader: "Eva Peron",
-          author: "Leugi",
+          name: "Burkina Faso",
+          leader: "Thomas Sankara",
+          author: "DMS",
         },
         {
-          name: "Armenia",
-          leader: "Tiridates III",
-          author: "JFD and Janboruta",
-        },
-        {
-          name: "Ashanti",
-          leader: "Osei Tutu I",
-          author: "MoreCivilizations",
-        },
-        {
-          name: "Australia",
-          leader: "Henry Parkes",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Ayyubids",
-          leader: "Saladin",
-          author: "MoreCivilizations",
-        },
-        {
-          name: "Blackfoot",
-          leader: "Crowfoot",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Boers",
-          leader: "Paul Kruger",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Brazil",
-          leader: "Pedro II",
-          author: "Firaxis",
-        },
-        {
-          name: "Buccaneers",
-          leader: "Henry Morgan",
-          author: "MoreCivilizations",
-        },
-        {
-          name: "Burma",
-          leader: "Anawratha",
+          name: "Chinook",
+          leader: "Comcomly",
           author: "Sukritact",
         },
         {
-          name: "Byzantium",
-          leader: "Alexios I Komnenos",
-          author: "JFD and Janboruta",
+          name: "Chola",
+          leader: "Raja Raja I",
+          author: "More Civilizations",
         },
         {
-          name: "Canada",
-          leader: "Lester B. Pearson",
+          name: "Chukchi",
+          leader: "Lawtiliwadlin",
+          author: "Senshidenshi",
+        },
+        {
+          name: "Dene",
+          leader: "Thanadelthur",
           author: "Colonialist Legacies",
         },
         {
-          name: "Carthage",
-          leader: "Hannibal",
-          author: "JFD and Janboruta",
-        },
-        {
-          name: "Champa",
-          leader: "Che Bong Nga",
-          author: "Tomatekh",
-        },
-        {
-          name: "Chile",
-          leader: "Bernardo O‘Higgins",
-          author: "Leugi",
-        },
-        {
-          name: "China",
-          leader: "Mao Zedong",
-          author: "Our World/DMS",
-        },
-        {
-          name: "England",
-          leader: "Elizabeth I",
-          author: "Firaxis",
-        },
-        {
-          name: "Ethiopia",
-          leader: "Halie Selassie",
-          author: "Firaxis",
+          name: "Dutch East India Company",
+          leader: "Jan Coen",
+          author: "Vanadius",
         },
         {
           name: "Finland",
-          leader: "Urho Kekkonen",
+          leader: "Mannerheim",
           author: "Hypereon",
         },
         {
-          name: "France",
-          leader: "Napoleon",
-          author: "JFD and Janboruta",
+          name: "Gauls",
+          leader: "Vercingetorix",
+          author: "Sukritact",
+        },
+        {
+          name: "Georgia",
+          leader: "Tamar",
+          author: "Urdnot_Scott",
         },
         {
           name: "Germany",
-          leader: "Hitler",
-          author: "JFD and Janboruta",
-        },
-        {
-          name: "Hawaii",
-          leader: "Kamehameha",
-          author: "MoreCivilizations",
-        },
-        {
-          name: "Huns",
-          leader: "Attila",
-          author: "Firaxis",
-        },
-        {
-          name: "Iceland",
-          leader: "Ingolfur Arnorson",
-          author: "JFD and Janboruta",
-        },
-        {
-          name: "Inca",
-          leader: "Pachacuti",
-          author: "Firaxis",
-        },
-        {
-          name: "Indonesia",
-          leader: "Gajah Mada",
-          author: "Firaxis",
-        },
-        {
-          name: "Inuit",
-          leader: "Ekeuhnick",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Ireland",
-          leader: "Malachy II",
-          author: "Hiram",
-        },
-        {
-          name: "Israel",
-          leader: "David",
-          author: "Leugi",
-        },
-        {
-          name: "Japan",
-          leader: "Meiji",
-          author: "JFD and Janboruta",
-        },
-        {
-          name: "Kimberley",
-          leader: "Jandamarra",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Kongo",
-          leader: "Nzinga",
-          author: "Tomatekh",
-        },
-        {
-          name: "Korea",
-          leader: "Sejong",
-          author: "Firaxis",
-        },
-        {
-          name: "Mali",
-          leader: "Mansa Musa",
-          author: "Tomatekh",
-        },
-        {
-          name: "Maori",
-          leader: "Te Rauparaha",
-          author: "MoreCivilizations",
-        },
-        {
-          name: "Maya",
-          leader: "Pacal",
-          author: "Firaxis",
-        },
-        {
-          name: "Mexico",
-          leader: "Benito Juarez",
-          author: "Colonialist Legacies",
-        },
-        {
-          name: "Mongolia",
-          leader: "Genghis Khan",
+          leader: "Wilhelm II",
           author: "TarcisioCM",
         },
         {
-          name: "Morocco",
-          leader: "Ahmad Al-Mansur",
-          author: "Firaxis",
+          name: "Gran Colombia",
+          leader: "Simon Bolivar",
+          author: "Leugi",
         },
         {
-          name: "Mughals",
-          leader: "Akbar",
-          author: "MoreCivilizations",
+          name: "Great Perm",
+          leader: "Stephen",
+          author: "CurlySnail",
         },
         {
-          name: "Norway",
-          leader: "Haakon IV",
+          name: "Hawaii",
+          leader: "Lili'uokalani",
           author: "JFD and Janboruta",
         },
         {
-          name: "Persia",
-          leader: "Darius I",
-          author: "Firaxis",
+          name: "Hejaz",
+          leader: "Hussein bin Ali",
+          author: "Uighur_Caesar",
         },
         {
-          name: "Philippines",
-          leader: "Jose Rizal",
+          name: "Iceland",
+          leader: "Kristjan Eldjarn",
+          author: "DuskJockey",
+        },
+        {
+          name: "Jamaica",
+          leader: "Marcus Garvey",
+          author: "PiGreat",
+        },
+        {
+          name: "Japan",
+          leader: "Tanaka Kakuei",
+          author: "Homusubi",
+        },
+        {
+          name: "Homusubi",
+          leader: "Baldwin III",
+          author: "More Civilizations",
+        },
+        {
+          name: "Kosovo",
+          leader: "Ibrahim Rugova",
+          author: "Silent Forza",
+        },
+        {
+          name: "Kulin",
+          leader: "William Barak",
           author: "Colonialist Legacies",
         },
         {
-          name: "Poland",
-          leader: "Casimir III",
-          author: "Firaxis",
+          name: "Kurdistan",
+          leader: "Mustafa Barzani",
+          author: "Uighur_Caesar",
         },
         {
-          name: "Portugal",
-          leader: "Maria I",
-          author: "Firaxis",
+          name: "Laos",
+          leader: "Fa Ngum",
+          author: "JFD",
         },
         {
-          name: "Rome",
-          leader: "Augustus Caesar",
-          author: "Firaxis",
+          name: "Lesotho",
+          leader: "Moshoeshoe I",
+          author: "CurlySnail",
         },
         {
-          name: "Sibir",
-          leader: "Kuchum Khan",
-          author: "Hiram",
+          name: "Malacca",
+          leader: "Mansur Shah",
+          author: "Orangechrisy",
         },
         {
-          name: "Sioux",
-          leader: "Sitting Bull",
+          name: "Manchu",
+          leader: "Nurhaci",
+          author: "Senshidenshi",
+        },
+        {
+          name: "Mapuche",
+          leader: "Lautaro",
+          author: "Leugi",
+        },
+        {
+          name: "Marajoara",
+          leader: "P'küee",
+          author: "Senshidenshi",
+        },
+        {
+          name: "Mississippi",
+          leader: "Tuskaloosa",
           author: "Tomatekh",
         },
         {
-          name: "Sparta",
-          leader: "Leonidas",
-          author: "MoreCivilizations",
+          name: "Namibia",
+          leader: "Jacob Morenga",
+          author: "TopHatPaladin",
         },
         {
-          name: "Sri Lanka",
-          leader: "Parakramabahu I",
-          author: "Light In The East",
+          name: "Neutral Nation",
+          leader: "Tsouharissen",
+          author: "Dawkinzz and Round Table",
+        },
+        {
+          name: "New Netherland",
+          leader: "Peter Stuyvesant",
+          author: "Vanadius",
+        },
+        {
+          name: "Nigeria",
+          leader: "Awolowo",
+          author: "Colonialist Legacies",
+        },
+        {
+          name: "Northern Yuan",
+          leader: "Mandukhai",
+          author: "TopHatPaladin",
+        },
+        {
+          name: "Olmecs",
+          leader: "U Kix Chan",
+          author: "Leugi & Tomatekh",
+        },
+        {
+          name: "Paraguay",
+          leader: "Solano López",
+          author: "Uighur_Caesar",
+        },
+        {
+          name: "Peru-Bolivia",
+          leader: "Andrés de Santa Cruz",
+          author: "Senshidenshi",
+        },
+        {
+          name: "Provisional All-Russian Government",
+          leader: "Kolchak",
+          author: "ExplosiveWatermelon",
+        },
+        {
+          name: "Ptolemies",
+          leader: "Cleopatra",
+          author: "Light in the East & TarcisioCM",
+        },
+        {
+          name: "Punjab",
+          leader: "Ranjit Singh",
+          author: "JFD & Janboruta",
+        },
+        {
+          name: "Quilombo dos Palmares",
+          leader: "Zumbi",
+          author: "PorkBean",
+        },
+        {
+          name: "Rio Grande",
+          leader: "Antonio Canales Rosillo",
+          author: "JakeWalrusWhale",
+        },
+        {
+          name: "Somalia",
+          leader: "Mohammed Siad Barre",
+          author: "TopHatPaladin",
+        },
+        {
+          name: "Spain",
+          leader: "Carlos III",
+          author: "TarcisioCM",
         },
         {
           name: "Sweden",
-          leader: "Gustavus Adolphus",
-          author: "JFD and Janboruta",
+          leader: "Karl XII",
+          author: "JFD & Janboruta",
         },
         {
-          name: "Texas",
-          leader: "Sam Houston",
-          author: "RawSasquatch/Kramer",
+          name: "Tahiti",
+          leader: "Purea",
+          author: "LastSword",
         },
         {
-          name: "Tibet",
-          leader: "Songsten Gampo",
-          author: "MoreCivilizations",
+          name: "Taiping Heavenly Kingdom",
+          leader: "Hong Xiuquan",
+          author: "PorkBean",
         },
         {
-          name: "Timurids",
-          leader: "Timur",
-          author: "Tomatekh",
+          name: "Teutonic Order",
+          leader: "Hermann von Salza",
+          author: "Uighur_Caesar",
         },
         {
-          name: "USA",
-          leader: "Lincoln",
-          author: "JFD and Janboruta",
+          name: "Three Affiliated Tribes",
+          leader: "Four Bears",
+          author: "Sukritact",
+        },
+        {
+          name: "Tongva",
+          leader: "Toypurina",
+          author: "RawSasquatch",
+        },
+        {
+          name: "Tuareg",
+          leader: "Tin Hinan",
+          author: "More Civilizations",
+        },
+        {
+          name: "Two Sicilies",
+          leader: "Ferdinand I",
+          author: "JFD & Janboruta",
         },
         {
           name: "USSR",
-          leader: "Stalin",
-          author: "JFD and Janboruta",
+          leader: "Lenin",
+          author: "JFD & Janboruta",
+        },
+        {
+          name: "Uzbekistan",
+          leader: "Islam Karimov",
+          author: "JakeWalrusWhale",
+        },
+        {
+          name: "Vandals",
+          leader: "Genseric",
+          author: "JFD & Janboruta",
         },
         {
           name: "Vietnam",
-          leader: "Trung Sisters",
-          author: "Colonialist Legacies",
+          leader: "Ho Chi Minh",
+          author: "Chrisy15",
         },
         {
-          name: "Yakutia",
-          leader: "Tygyn Darkhan",
+          name: "Wales",
+          leader: "Llywelyn",
           author: "Hiram",
         },
         {
-          name: "Zulu",
-          leader: "Shaka",
-          author: "Firaxis",
+          name: "Yuan",
+          leader: "Yuan",
+          author: "TarcisioCM and Chrisy15",
+        },
+        {
+          name: "Zaire",
+          leader: "Mobutu Sese Seko",
+          author: "DMS",
+        },
+        {
+          name: "Zanzibar",
+          leader: "Barghash bin Said",
+          author: "Senshidenshi",
         },
       ],
     };
@@ -626,12 +634,12 @@ h1 {
   }
 
   h1 {
-    word-break: break-all;
+    word-break: break-word;
     padding: 0.4em 0 0.1em;
   }
 
   h2 {
-    word-break: break-all;
+    word-break: break-word;
     border-bottom: none;
   }
 }

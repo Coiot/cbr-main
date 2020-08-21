@@ -1039,12 +1039,12 @@ h1 {
   }
 
   h1 {
-    word-break: break-all;
+    word-break: break-word;
     padding: 0.4em 0 0.1em;
   }
 
   h2 {
-    word-break: break-all;
+    word-break: break-word;
     border-bottom: none;
   }
 }
