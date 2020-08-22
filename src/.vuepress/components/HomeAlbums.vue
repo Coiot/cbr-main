@@ -45,18 +45,18 @@ export default {
 h1 {
   font-size: 3rem;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1;
   margin-top: 2.4em;
 }
 
 .album-list {
-  margin: 10rem 0 0;
+  margin: 0;
 }
 
 .post {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

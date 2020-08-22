@@ -142,7 +142,7 @@ export default {
           author: "Homusubi",
         },
         {
-          name: "Homusubi",
+          name: "Jerusalem",
           leader: "Baldwin III",
           author: "More Civilizations",
         },
@@ -486,6 +486,7 @@ h1 {
   flex-flow: row;
   align-items: baseline;
   counter-increment: civs;
+
   transition: all 0.2s ease-in-out;
 }
 
@@ -502,17 +503,18 @@ h1 {
 }
 
 .competitors p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 900;
   text-shadow: 2px 2px #083832;
-  padding-right: 0.7rem;
+  padding-right: 0.5rem;
   margin: 0.5rem 0;
 }
 
 .competitors span {
   color: #fff !important;
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   font-weight: 400;
+  word-break: break-word;
 }
 
 .arc {
