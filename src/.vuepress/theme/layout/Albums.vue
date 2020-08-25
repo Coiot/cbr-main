@@ -453,10 +453,6 @@ img:hover {
     box-shadow: none;
   }
 
-  h1, h2 {
-    word-break: break-all;
-  }
-
   .scenes h2 {
     margin: 1.5rem 0 0.5rem;
   }
