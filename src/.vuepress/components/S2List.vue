@@ -267,6 +267,11 @@ export default {
           author: "TopHatPaladin",
         },
         {
+          name: "Soviet Russia",
+          leader: "Lenin",
+          author: "JFD & Janboruta",
+        },
+        {
           name: "Spain",
           leader: "Carlos III",
           author: "TarcisioCM",
@@ -309,11 +314,6 @@ export default {
         {
           name: "Two Sicilies",
           leader: "Ferdinand I",
-          author: "JFD & Janboruta",
-        },
-        {
-          name: "USSR",
-          leader: "Lenin",
           author: "JFD & Janboruta",
         },
         {
