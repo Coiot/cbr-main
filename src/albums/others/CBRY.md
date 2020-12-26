@@ -11,7 +11,7 @@ image: https://cdn.civbattleroyale.tv/cbry-season1-episode1-scene01.jpg
 prcast:
 scenes:
   - scene_number: 01
-    scene_title: "Right now."
+    scene_title: "Christmas Miracle"
     slide_url: https://cdn.civbattleroyale.tv/cbry-season1-episode1-scene01.jpg
     narration: "<p>EW (ExplosiveWatermelon): Hello friends!</p><p></p><p>Coiot: Hello and happy holidays everyone! We welcome you to a short experiment that has consumed the last seven days for me to get ready from inception to completion in time for a Christmas release: CBRY Season 1 Episode 1. </p><p></p><p>Credits for this album go to JFD, Tophat, and EW for providing some debugging and code cleanup, Limaeus for all the work spent in our new S2 utilities and optimizations, and Lunar for providing city state code he made all the way back in 2017 intended for the original Mk2 rebuild and Mk3.</p><p></p><p>This game was run without DLL on a new M1 Macbook Pro. For anyone wondering, it runs AI games exceptionally well. In fact, not once did the fan even need to be turned on while recording this game, and it’s hardly warm to the touch. Apple sponsorship soon™.  </p>"
   - scene_number: 02
