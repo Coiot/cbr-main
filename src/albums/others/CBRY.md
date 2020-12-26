@@ -5,7 +5,7 @@ description: "Coiot and ExplosiveWatermelon team up once more to deliver an expe
 release_date:
 audio_narration:
 fullvideo:
-edition: X1
+edition: Y1
 date: 2020-12-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbry-season1-episode1-scene01.jpg
 prcast:
