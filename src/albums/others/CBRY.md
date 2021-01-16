@@ -2,9 +2,10 @@
 title: "Come Together"
 narrated_by: "Coiot & ExplosiveWatermelon"
 description: "Coiot and ExplosiveWatermelon team up once more to deliver an experimental CBR AI game. Could this be the start of something grand? Something new? Something old, and something blue? I don’t know, I’m writing this at 2 AM to surprise Coiot. No matter your emotional state, have a valid Christmas!"
-release_date:
+release_date: December 25, 2020
 audio_narration:
 fullvideo:
+starting_turn: 1
 edition: Y1
 date: 2020-12-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbry-season1-episode1-scene01.jpg
