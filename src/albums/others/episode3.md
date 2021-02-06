@@ -5,6 +5,7 @@ description: "EW Returns for another narration of epic proportions. This time th
 release_date: February 06, 2021
 audio_narration:
 fullvideo:
+starting_turn: 120
 edition: Y1
 date: 2021-02-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbry-season1-episode3-scene03.jpg
@@ -12,7 +13,7 @@ prcast:
 scenes:
   - scene_number: 01
     scene_title: "So it Begins..."
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbry-season1-episode2-scene01.jpg
     narration: "<p>Hello there.</p><p></p><p>My name is ExplosiveWatermelon, and I am your narrator for this part. I’ve hopefully put together something very special for you- a glimpse at the world through a closer lens. Enjoy!</p>"
   - scene_number: 02
     scene_title: "EW’s Youtube Channel"
