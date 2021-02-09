@@ -221,7 +221,7 @@ scenes:
 - scene_number: 53
   scene_title: "*Garbled Screaming*"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene53.jpg
-  narration: "<p>Lunar: In order to play the role of an insane and mentally depressed person in the movie "Joker" - Joaquin Phoenix witnessed the settlement of the Kosovan city of Prizreni, effectively shutting down the possibility of a canal city between the Black Sea and the Medittereanean.For real though, look at the quality of land here. Full of resources and flat land which could make war an absolutely explosive prospect. I’m legit excited for Eastern Europe this game. Remember, this was the front that saw the amazing Kazakh collapse last season and it’s likely to only get more juicy as the season continues.</p>"
+  narration: "<p>Lunar: In order to play the role of an insane and mentally depressed person in the movie “Joker” - Joaquin Phoenix witnessed the settlement of the Kosovan city of Prizreni, effectively shutting down the possibility of a canal city between the Black Sea and the Medittereanean. For real though, look at the quality of land here. Full of resources and flat land which could make war an absolutely explosive prospect. I’m legit excited for Eastern Europe this game. Remember, this was the front that saw the amazing Kazakh collapse last season and it’s likely to only get more juicy as the season continues.</p>"
 - scene_number: 54
   scene_title: "A Natural Rivalry"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene54.jpg
