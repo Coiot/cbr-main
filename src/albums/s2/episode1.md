@@ -28,7 +28,7 @@ scenes:
   narration: "<p>Coiot: It’s hard to be quicker than Vihreaa, and indeed he was already ready weeks back with the initial state of the game. Always room for more mapmakers in the community, in particular those that focus on smaller portions of the map and build up fun things to show. This season we also have print out of all the exact locations of cities and citadels, so if you want to play around with civ specific maps it will be easier now more than ever to not have to squint on the mini-map. </p>"
 - scene_number: 05
   scene_title: "PR #1 of the Week"
-  slide_url: https://cdn.civbattleroyale.tv/season2-pr0-scene61.jpg.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr0-scene61.jpg
   narration: "<p>Coiot: Northern Yuan is the inaugural leader at the #1 spot of the rankings. It does mean that Mandukhai has to live up to big expectations, and this season will be much harder to determine a clear leader than last year. Difficulty staying at the top is especially true for her since pesky Southern Yuan is in the way. </p>"
 - scene_number: 06
   scene_title: "The Watcher in the Water"
