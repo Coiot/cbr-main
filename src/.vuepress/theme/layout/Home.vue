@@ -2,7 +2,11 @@
   <transition name="fade">
     <div class="home">
       <div class="hero">
-        <img v-if="data.heroImage" :src="$withBase(data.heroImage)" alt="hero" />
+        <img
+          v-if="data.heroImage"
+          :src="$withBase(data.heroImage)"
+          alt="hero"
+        />
 
         <!-- <p class="action" v-if="data.actionText && data.actionLink">
         <NavLink class="action-button" :item="actionLink" />
@@ -14,7 +18,7 @@
         <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
         </div>-->
-        <h1>{{ data.heroText || $title }}</h1>
+        <!-- <h1>{{ data.heroText || $title }}</h1> -->
       </div>
 
       <Content custom />
@@ -51,7 +55,7 @@ export default {
 @import '../styles/config.styl';
 
 .home {
-  padding: $navbarHeight 2rem 0;
+  padding: 1.5rem 2rem 0;
   max-width: 960px;
   margin: 0px auto;
 
@@ -127,7 +131,7 @@ export default {
 
   .footer {
     padding: 2.5rem;
-    border-top: 1px solid $borderColor;
+    border-top: 2px solid $borderColor;
     text-align: center;
     color: lighten($textColor, 25%);
   }
