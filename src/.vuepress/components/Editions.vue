@@ -28,16 +28,16 @@
 </template>
 
 <script>
-import S1List from "./S1List.vue";
+import S2List from "./S2List.vue";
 
 export default {
   data() {
     return {
-      clickedEdition: S1List,
+      clickedEdition: S2List,
     };
   },
   components: {
-    S1List,
+    S2List,
   },
   computed: {},
 };

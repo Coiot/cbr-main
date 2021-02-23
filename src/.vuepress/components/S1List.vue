@@ -8,7 +8,7 @@
       <router-link
         :to="post.path"
         tag="div"
-        v-for="(post,index) in albums"
+        v-for="(post, index) in albums"
         v-if="index < 1"
         :key="post.title"
         class="post"
@@ -17,14 +17,20 @@
       >
         <div class="title-info">
           <p>{{ post.frontmatter.title }}</p>
-          <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
+          <span v-if="post.frontmatter.edition">{{
+            post.frontmatter.edition
+          }}</span>
         </div>
 
         <div class="album-info">
           <p>{{ post.frontmatter.narrated_by }}</p>
-          <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+          <span
+            >Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release
+            Date: {{ post.frontmatter.release_date }}</span
+          >
         </div>
       </router-link>
+
       <h1>Competitors</h1>
       <ul class="competitors">
         <li v-for="civ in civs">
@@ -44,7 +50,7 @@
           <router-link
             :to="post.path"
             tag="div"
-            v-for="(post,index) in albums"
+            v-for="(post, index) in albums"
             v-if="index > 0 && index < 37"
             :key="post.title"
             :tabindex="0"
@@ -57,7 +63,11 @@
 
               <p>
                 {{ post.frontmatter.narrated_by }}
-                <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+                <span
+                  >Starting Turn:
+                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                  {{ post.frontmatter.release_date }}</span
+                >
               </p>
             </div>
           </router-link>
@@ -74,7 +84,7 @@
           <router-link
             :to="post.path"
             tag="div"
-            v-for="(post,index) in albums"
+            v-for="(post, index) in albums"
             v-if="index > 36 && index < 54"
             :key="post.title"
             :tabindex="0"
@@ -87,7 +97,11 @@
 
               <p>
                 {{ post.frontmatter.narrated_by }}
-                <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+                <span
+                  >Starting Turn:
+                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                  {{ post.frontmatter.release_date }}</span
+                >
               </p>
             </div>
           </router-link>

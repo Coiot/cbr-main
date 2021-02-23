@@ -8,7 +8,7 @@
       <router-link
         :to="post.path"
         tag="div"
-        v-for="(post,index) in albums"
+        v-for="(post, index) in albums"
         v-if="index < 2"
         :key="post.title"
         class="post"
@@ -17,19 +17,24 @@
       >
         <div class="title-info">
           <p>{{ post.frontmatter.title }}</p>
-          <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
+          <span v-if="post.frontmatter.edition">{{
+            post.frontmatter.edition
+          }}</span>
         </div>
 
         <div class="album-info">
           <p>{{ post.frontmatter.narrated_by }}</p>
-          <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+          <span
+            >Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release
+            Date: {{ post.frontmatter.release_date }}</span
+          >
         </div>
       </router-link>
       <div>
         <router-link
           :to="post.path"
           tag="div"
-          v-for="(post,index) in albums"
+          v-for="(post, index) in albums"
           v-if="index > 1"
           :key="post.title"
           :tabindex="0"
@@ -42,7 +47,11 @@
 
             <p>
               {{ post.frontmatter.narrated_by }}
-              <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+              <span
+                >Starting Turn:
+                {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                {{ post.frontmatter.release_date }}</span
+              >
             </p>
           </div>
         </router-link>
@@ -60,7 +69,7 @@ export default {
           (x) => x.path.startsWith("/albums/others") && !x.frontmatter.exclude
         )
         .sort(
-          (b, a) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );
     },
   },

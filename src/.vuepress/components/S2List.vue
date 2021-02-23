@@ -3,15 +3,12 @@
     <div class="album-list">
       <div class="header">
         <h1>Season Two</h1>
-        <span>
-          Soon
-          <sup>TM</sup>
-        </span>
+        <span>February 10, 2021 – Present </span>
       </div>
       <router-link
         :to="post.path"
         tag="div"
-        v-for="(post,index) in albums"
+        v-for="(post, index) in albums"
         v-if="index < 1"
         :key="post.title"
         class="post"
@@ -20,12 +17,17 @@
       >
         <div class="title-info">
           <p>{{ post.frontmatter.title }}</p>
-          <span v-if="post.frontmatter.edition">{{ post.frontmatter.edition }}</span>
+          <span v-if="post.frontmatter.edition">{{
+            post.frontmatter.edition
+          }}</span>
         </div>
 
         <div class="album-info">
           <p>{{ post.frontmatter.narrated_by }}</p>
-          <span>Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release Date: {{ post.frontmatter.release_date }}</span>
+          <span
+            >Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;Release
+            Date: {{ post.frontmatter.release_date }}</span
+          >
         </div>
       </router-link>
 
@@ -36,6 +38,41 @@
           <span>{{ civ.leader }} – {{ civ.author }}</span>
         </li>
       </ul>
+
+      <h1>Cycle One</h1>
+      <div class="arc">
+        <div class="arc-header">
+          <h2>Chronicle Begins</h2>
+          <span>Arc One</span>
+          <p>61 competitors remain.</p>
+        </div>
+        <article class="arc-list">
+          <router-link
+            :to="post.path"
+            tag="div"
+            v-for="(post, index) in albums"
+            v-if="index > 0 && index < 37"
+            :key="post.title"
+            :tabindex="0"
+          >
+            <div class="list">
+              <p>
+                {{ post.frontmatter.title }}
+                <span>{{ post.frontmatter.edition }}</span>
+              </p>
+
+              <p>
+                {{ post.frontmatter.narrated_by }}
+                <span
+                  >Starting Turn:
+                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                  {{ post.frontmatter.release_date }}</span
+                >
+              </p>
+            </div>
+          </router-link>
+        </article>
+      </div>
     </div>
   </transition>
 </template>
