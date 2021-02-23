@@ -1,5 +1,5 @@
 ---
-title: "The Great Game"
+title: "Episode 3: The Great Game"
 narrated_by: "ExplosiveWatermelon"
 description: "EW Returns for another narration of epic proportions. This time they take a look at the world through the lens of a being, trapped in time, with only the most anthropological look at society. The great game is upon us, my friends."
 release_date: February 06, 2021

@@ -24,7 +24,7 @@ scenes:
   - scene_number: 03
     scene_title: "A Round of Applause for… YOU!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene03.jpg
-    narration: "<p>Thank you to all donors for keeping this project afloat. Without donations from the community through monthly donations on Patreon and one-time donations on Ko-Fi, the CivBattleRoyale would not run as it does, with server fees and CDN costs to cover. Thanks to everyone who chips in! Remember, there are incentives to donors, from the private channels on the Discord, the flairs, the ability to request screenshots or insert lines of in-character narration into past albums, and now Reon will be giving donors a biweekly balance bonus on the Stock Exchange.</p>"
+    narration: "<p>Thank you to all donors for keeping this project afloat. Without donations from the community through monthly donations on <a href='https://www.patreon.com/civbr'>Patreon</a> and one-time donations on <a href='https://ko-fi.com/cbrtv'>Ko-Fi</a>, the CivBattleRoyale would not run as it does, with server fees and CDN costs to cover. Thanks to everyone who chips in! Remember, there are incentives to donors, from the private channels on the Discord, the flairs, the ability to request screenshots or insert lines of in-character narration into past albums, and now Reon will be giving donors a biweekly balance bonus on the Stock Exchange.</p>"
   - scene_number: 04
     scene_title: "Deadsharkscantswim Tripmap"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene04.jpg

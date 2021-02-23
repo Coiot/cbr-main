@@ -15,11 +15,7 @@
           <img :src="post.frontmatter.image" />
 
           <div class="album-info">
-            <p>
-              <span v-if="post.frontmatter.edition">{{
-                post.frontmatter.edition
-              }}</span>
-            </p>
+            <p>{{ post.frontmatter.edition }}</p>
             <span>{{ post.frontmatter.title }}</span>
             <!-- <span>Release Date: {{ post.frontmatter.release_date }}</span> -->
           </div>
@@ -62,7 +58,7 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 23%;
-  max-height: 50vh;
+  max-height: 40vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -86,7 +82,7 @@ img {
 
 .album-info {
   flex-grow: 1;
-  padding: 0.5rem 1rem 1rem;
+  padding: 1rem 0.8rem 2rem;
   color: #1a1a1a;
   background: #fff;
   border-right: 0;
@@ -96,9 +92,9 @@ img {
 .album-info p {
   display: inline-block;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin: 0;
+  margin: 0 0 0 0.5rem;
 }
 
 .album-info span {
@@ -106,7 +102,7 @@ img {
   width: auto;
   margin: 0;
   margin-left: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 719px) {

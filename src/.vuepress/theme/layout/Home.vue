@@ -55,8 +55,8 @@ export default {
 @import '../styles/config.styl';
 
 .home {
-  padding: 1.5rem 2rem 0;
-  max-width: 960px;
+  padding: 1.5rem 1rem 0;
+  max-width: 1100px;
   margin: 0px auto;
 
   .hero {
