@@ -111,15 +111,15 @@ scenes:
     narration: "<p>2560 BC, Lagos: Also in this year, seeing the lands of his neighbour empty and his borders too near, Awolowo gathered his forces and invaded Burkina Faso. The Giant of Africa reached out to seize Banfora and Ouahigouya for itself. It is said that Thomas Sankara, who had believed Nigeria to pose no threat to the Burkinabe revolution, was so caught off guard by the declaration of war that he spent the following week at Stonehenge, searching for solutions and solace from the spirit world and found none. At the same time the Nigerian troops advanced, camping in sacred groves warmed and guided by council fires, confident in the knowledge that their war was in-line with their Itan faith.</p>"
   - scene_number: 25
     scene_title: "Gaulden Opportunity"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene25.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene26.jpg
     narration: "<p>2560 BC, Nemossos: The German war against the Gauls had turned swiftly in Vercingetorix’s favour. In Nemossos the garrison laughed at how pitiful the German armies sent to invade had been, and though some still menaced Gergovia, they could not possibly take the city. So emboldened were the Gauls by the weakness of their foe that they had decided that now that Kaiser Wilhelm II had sent his armies to die against bold Gallic defenders, it was time to settle more lands to the east. With a small retinue and supported by patrolling scouts the settlers found no enemies, no resistance in the dense Teutoburg Forests. Only later would the Gauls discover the consequences of their folly!</p>"
   - scene_number: 26
     scene_title: "Barre’d Entry"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene26.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene27.jpg
     narration: "<p>2560 BC, Mogadishu: The great Somali army, intended to conquer Zanzibar, had not in the years since the war broke out made significant progress. Some skirmishes were had, where the outnumbered Zanzibarian armies fought like the lions of the Maasai steppe. Some of the Somali forces had been sent to Hargeysa, to watch the shores for a surprise attack from Hejaz across the Gulf of Aden. President Barre refused all envoys and ambassadors from Zanzibar, believing in the strength of his armies to take Malindi, but they milled about leaderless.</p><p>2560 BC, Namangan: In Uzbekistan Islam Karimov, feeling that the city of Namangan was backwards and boring, ordered a member from each family to devote their lives to becoming Shashmaqam musicians. Many died destitute, but their songs continue to bring joy to the city of Namangan.</p><p>2560 BC, Madrid: In this year, after King Carlos III forgot about his son Ferdinand’s birthday, he received a Sicilian ambassador, who informed him that Ferdinand I had formally broken off relations with his father and declared war on Spain. Before he had time to recover from the shock, King Carlos III was visited by a Welsh ambassador, who declared that King Llywelyn would be joining the war in support of Ferdinand in an effort to dethrone the King of Spain, as well as to seize the Gascon territory rightfully belonging to Wales.</p>"
   - scene_number: 27
     scene_title: "Beat Him Like a Drum"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene27.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene25.jpg
     narration: "<p>2520 BC, Behchoko: Thanadelthur led the Dene into war against the Three Affiliated Tribes, her armies poised to attack Seepoosha. Across the mountains from Seepoosha, able-bodied soldiers armed themselves and companies of horse archers were mobilized, ready to defend Behchoko from counter-attacks with Four Bears might mount, or to join in on the offensive. While the rest of the North American civilizations watched the first war unfolding in the northern reaches of their continent, they thought up schemes of how to exploit this conflict - which of the two sides would come out more weakened, unable to resist a second attack? Which lands would now go uncontested as the combatant’s focus was on warfare rather than the settling of new lands.</p>"
   - scene_number: 28
     scene_title: "Comrade Sankara and the Green Knight"
@@ -211,11 +211,11 @@ scenes:
     narration: "<p>2240 BC, Ouagadougou: The Burkinabe capital was just lightly damaged, but the imminent threat of the Nigerian army had been too great, and Thomas Sankara had been forced to sue for peace. In addition to Banfora, Awolowo demanded that Sankara cede the port city of Ouahigouya to the “Republic of the Upper Volta” - now a semi-autonomous state within Awolowo’s plans for a Nigerian federation. The price of peace was heavy for the leader of the land of upright people, but Thomas Sankara could not allow his faith in the revolution to falter.</p><p>2240 BC, Mukden: In this year Nurhaci and Kublai Khan also made peace, following countless years of devastation and death without either side making any recognizable gains.</p>"
   - scene_number: 50
     scene_title: "Hail Mary!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene50.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene51.jpg
     narration: "<p>2200 BC, Madrid: Fighting a war against Wales and Two Sicilies, his neighbour and his own son, King Carlos III found solace in prayer, confession, and the mysteries of the Catholic faith, which he began promoting as the official religion across the Kingdom of Spain. With his spirits lifted, the King felt more at ease with the geopolitical realities of his realm, and saw that the situation was not so dire. Welsh triremes were kept at bay on the Bay of Biscay, and Santiago de Compostela remained undisturbed by the Welsh forces stationed in Brittany. All was well for now, if not at sea then at least in Heaven and on earth.</p>"
   - scene_number: 51
     scene_title: "The Sparkle of Your China"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene51.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene50.jpg
     narration: "<p>2160 BC, Tianjing: Hong Xiuquan gathered his armies in the Taiping Heavenly Kingdom’s capital. Following the declaration of peace between the Manchu and Yuan, he had felt uneasy in the balance of power in China. Now, with the Yuan settling Ganzhou on the Shandong Peninsula, he felt that it was necessary for the Heavenly Kingdom to prepare for war.</p>"
   - scene_number: 52
     scene_title: "You Ancient, You Free"
@@ -275,15 +275,15 @@ scenes:
     narration: "<p>1960 BC, Moundville: Fed up with the belligerent landgrabber and warmonger to his south, Tuskaloosa declared war on Antonio Canales Rosillo in this year. Mississippian forces found Saltillo woefully undermanned to repulse an invasion stretching all the way along the border, and there was some consideration given to invading the little town of Matamoros as well. Embroiled in the conflict with the Tongva and aspirations of territorial expansion, Rio Grande was not ready for war to come from the Great Plains.</p>"
   - scene_number: 66
     scene_title: "Bourbon’s Bury the Battleaxe"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene66.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene68.jpg
     narration: "<p>1960 BC, Santiago de Compostela: The defences of Santiago de Compostela were almost totally shattered, the morale of its defenders in tatters, when long-awaited news arrived from Madrid: peace! Though this peace was between King Carlos III and his son Ferdinand I, and would bring no respite to Santiago de Compostela. Carlos and Ferdinand had met in the Balearic islands, unclaimed by any civilizations, discussed their disagreements, and hugged it out. Carlos had brought Ferdinand a crucifix he’d had made especially for his son, and the king of the Two Sicilies had accepted his father’s apology and gift. Peace between the Bourbons was secured. Indeed it was a joyous day, though Santiago de Compostela remained ripe for the taking - if only a Welsh force were to enter the city.</p>"
   - scene_number: 67
     scene_title: "Raise Your Tankard to Good King Genseric"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene67.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene66.jpg
     narration: "<p>1920 BC, Hippo Regius: News of the end of the war between father and son reached the Vandal capital by way of the gossiping lips of Sicilian merchants. Genseric considered these developments, and wondered whether he might be able to make use of his Alani Horsemen, stationed across his empire from Iberia to Libya. For now he was content to found new cities along the Mediterranean coastline, but there would come a day when all the coastal cities had been settled, and then his forces would conquer the Mediterranean world on horseback, he vowed.</p>"
   - scene_number: 68
     scene_title: "Raja Raja’s Raj"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene68.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene67.jpg
     narration: "<p>1920 BC, Kanchipuram: Between the Krishna and Godavari rivers the people of Kanchipuram helped prepare a group of settlers for their long journey from their own meager supplies. The war with Bhutan might have felt more pressing, but the small force of Bhutanese warriors in Phuntsholing did not pose a great threat to the town. The settlers were in a hurry, for while Chola expansion along the Gulf of Kutch with the village of Nagapattinam had been successful, it was rumoured that Punjab was planning on expanding into the heart of the Indian subcontinent.</p>"
   - scene_number: 69
     scene_title: "War of the Two Yuans"
