@@ -386,18 +386,22 @@ button:hover {
   position: relative;
   border-bottom: 3px solid darken($accentColor, 20%);
   background-color: #1a1a1a;
-  padding: 0.5rem 1rem 1rem;
+  padding: 0.5rem 1rem .5rem;
+
 }
 
 .h-narration h3 {
   font-size: 1.2rem;
-  margin: 1rem 0 0.1rem;
+  margin: 1rem 0 .5rem;
 }
 
 .h-narration p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6 !important;
-  margin: 0.2rem 0;
+  padding: 0 !important;
+  margin: 0;
+  max-height: 9rem;
+  overflow: auto;
 }
 
 .scenes {
@@ -433,7 +437,7 @@ img:hover {
 .text {
   border-bottom: 3px solid darken($accentColor, 20%);
   background-color: #1a1a1a;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
 }
 
 .scenes h3 {
@@ -447,10 +451,8 @@ img:hover {
   font-weight: 500;
   line-height: 1.2;
   text-shadow: 2px 2px #08201d;
-  max-height: 8rem;
   padding: 0;
-  margin: 0.1rem 0 0;
-  overflow:auto;
+  margin: 0;
 }
 
 .reporter {
