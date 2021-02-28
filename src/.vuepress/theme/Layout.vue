@@ -202,6 +202,12 @@ export default {
   cursor: default !important;
 }
 
+.vueperslides__bullet,
+.vueperslides__bullets {
+  opacity: 0;
+  width: 0;
+}
+
 @media (max-width: 600px) {
   .vueperslides__fractions {
     display: none;

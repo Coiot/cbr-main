@@ -105,6 +105,8 @@
             v-for="(scene, index) in $page.frontmatter.scenes"
             :image="scene.slide_url"
             :key="scene.number"
+            @keyup.left="previous()"
+            @keyup.right="next()"
             @click.native="
               $refs.vueperslides1 && $refs.vueperslides1.goToSlide(index)
             "
@@ -121,10 +123,9 @@
           "
           :slide-content-outside="'bottom'"
           arrows-inside
-          :bullets="false"
+          :bullets="true"
           :slide-ratio="9 / 16"
           fractions
-          :dragging-distance="200"
           :touchable="false"
           class="medium"
           :transition-speed="900"
