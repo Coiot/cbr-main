@@ -447,8 +447,10 @@ img:hover {
   font-weight: 500;
   line-height: 1.2;
   text-shadow: 2px 2px #08201d;
+  max-height: 8rem;
   padding: 0;
   margin: 0.1rem 0 0;
+  overflow:auto;
 }
 
 .reporter {
