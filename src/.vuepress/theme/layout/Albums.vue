@@ -400,7 +400,7 @@ button:hover {
   line-height: 1.6 !important;
   padding: 0 !important;
   margin: 0;
-  max-height: 9rem;
+  max-height: 9.7rem;
   overflow: auto;
 }
 
