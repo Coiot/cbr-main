@@ -14,6 +14,8 @@
 
     <Albums v-if="$page.frontmatter.edition" />
 
+    <PR v-if="$page.frontmatter.pr" />
+
     <div class="custom-layout" v-else-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout" />
     </div>
@@ -31,6 +33,7 @@
 import Vue from "vue";
 import nprogress from "nprogress";
 import Albums from "./layout/Albums.vue";
+import PR from "./layout/PR.vue";
 import Home from "./layout/Home.vue";
 import Page from "./layout/Page.vue";
 import Navbar from "./components/Navbar.vue";
@@ -51,6 +54,7 @@ Vue.use(VueLazyload, {
 export default {
   components: {
     Albums,
+    PR,
     Home,
     Page,
     Sidebar,

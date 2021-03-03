@@ -5,7 +5,7 @@ description: ""
 release_date: Feburary 15, 2021
 audio_narration:
 fullvideo:
-edition: S2
+pr: S2
 date: 2021-02-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season2-pr1-scene01.jpg
 prcast:

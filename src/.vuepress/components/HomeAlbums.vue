@@ -18,6 +18,7 @@
           <span v-if="post.frontmatter.edition">{{
             post.frontmatter.edition
           }}</span>
+          <span v-else-if="post.frontmatter.pr">{{ post.frontmatter.pr }}</span>
         </div>
 
         <div class="album-info">

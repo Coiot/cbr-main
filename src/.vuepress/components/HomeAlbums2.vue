@@ -15,7 +15,10 @@
           <img :src="post.frontmatter.image" />
 
           <div class="album-info">
-            <p>{{ post.frontmatter.edition }}</p>
+            <p v-if="post.frontmatter.edition">
+              {{ post.frontmatter.edition }}
+            </p>
+            <p v-else>{{ post.frontmatter.pr }}</p>
             <span>{{ post.frontmatter.title }}</span>
             <!-- <span>Release Date: {{ post.frontmatter.release_date }}</span> -->
           </div>
