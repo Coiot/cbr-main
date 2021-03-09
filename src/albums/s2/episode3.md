@@ -270,7 +270,7 @@ scenes:
   - scene_number: 65
     scene_title: "Orange Containing Orange"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode3-scene65.jpg
-    narration: "<p>Ranjit Singh’s war against the Chola is going quite well. Thiruvarur has burned to the ground, and another city is almost within his grasp. But troubling news comes from the West: Kurdistan has declared war. If Barzani keeps his troops focused on the war with Cleopatra, then Punjab is safe, but if he diverts them East, the squishy western flank could be in major trouble.</p>"
+    narration: "<p>Ranjit Singh’s war against the Chola is going quite well. Thiruvarur has burned to the ground, and another city is almost within his grasp. But troubling news is that Singh has also declared war on Kurdistan. If Barzani keeps his troops focused on the war with Cleopatra, then Punjab is safe, but if he diverts them East, the squishy western flank could be in major trouble.</p>"
   - scene_number: 66
     scene_title: "Pushed to the Sea"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode3-scene66.jpg
