@@ -1,5 +1,5 @@
 ---
-title: "Burn, Baby, Burn!"
+title: "Episode 3: Burn, Baby, Burn!"
 narrated_by: "Vivala"
 description: "As wars heat up across the cylinder, civs crumble, powers assert themselves, and the web of diplomacy grows ever more complicated."
 release_date: March 10, 2021
