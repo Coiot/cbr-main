@@ -20,12 +20,11 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "Albums", link: "/albums/" },
+      { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
       {
         text: "Youtube",
         link: "https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ",
       },
-      { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
-      { text: "Discord", link: "https://discord.gg/vAvSFdu" },
       { text: "Twitch", link: "https://www.twitch.tv/civbattleroyale" },
     ],
     logo: "/cbr_logo_color.svg",
