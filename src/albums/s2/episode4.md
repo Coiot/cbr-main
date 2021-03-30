@@ -6,7 +6,7 @@ release_date: March 24, 2021
 audio_narration:
 starting_turn: 91
 fullvideo:
-edition: X1
+edition: S2
 date: 2021-03-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode4-scene06.jpg
 prcast:

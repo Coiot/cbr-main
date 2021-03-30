@@ -37,13 +37,6 @@
           </p>
         </div>
 
-        <div class="column" tabindex="0">
-          <Label class="label">Starting Turn:</Label>
-          <p>
-            <span class="value">{{ $page.frontmatter.starting_turn }}</span>
-          </p>
-        </div>
-
         <div
           v-if="$page.frontmatter.audio_narration"
           class="column"
