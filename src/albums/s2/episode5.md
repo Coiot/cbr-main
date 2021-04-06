@@ -28,7 +28,7 @@ scenes:
     narration: "<p>u/ARedundantSofa also gives us a wonderful map, the absolutely amazing BabylonMap. Smoothed, more natural borders make this map really pleasing to look at and the style is just great. Keep it up!</p>"
   - scene_number: 05
     scene_title: "Pretty Sikh"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr5-scene61.jpg
     narration: "<p>Punjab pushes PARG out of the top spot! They have good tech, good science, good pop, good army size, and good food, but most importantly, they have 14 cities and are tied for top production. They are a behemoth currently, but we’ll have to wait and see if they can manage to hold the top in the coming parts. </p>"
   - scene_number: 06
     scene_title: "Tenko-do-go-take-the-capital"
