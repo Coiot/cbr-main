@@ -2,10 +2,10 @@
 title: "Bloodstains and Fire"
 narrated_by: "Orange"
 description: "Wood, sand, and bodies burn as the madmen of this cylinder force the weak to their knees."
-release_date:
+release_date: April 07, 2021
 audio_narration:
 fullvideo:
-edition: X1
+edition: S2
 date: 2021-04-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene06.jpg
 prcast:
@@ -17,7 +17,7 @@ scenes:
   - scene_number: 02
     scene_title: "The fight of a century (maybe)"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene02.jpg
-    narration: "<p>u/X-Rok delivers us this fantastic rendition of the 5-on-5 beatdown of destiny. Will this big war lead to nothing or will Punjab come from behind with a steel chair and take out the competition? Will Kosovo get the drop on Georgia and force their submission? Will those mouths ever not be unsettling? And of course, will this distract us from the fact that in 1998, The Undertaker threw Mankind off Hell In A Cell, and plummeted 16 ft through an announcer's table? Find out this week on the CivBattleRoyale!</p><p></p><p>[The Following Contest is a Five on Five Coalition War - Imgur] (dont include this bit in the slide)</p>"
+    narration: "<p>u/X-Rok delivers us this fantastic rendition of the 5-on-5 beatdown of destiny. Will this big war lead to nothing or will Punjab come from behind with a steel chair and take out the competition? Will Kosovo get the drop on Georgia and force their submission? Will those mouths ever not be unsettling? And of course, will this distract us from the fact that in 1998, The Undertaker threw Mankind off Hell In A Cell, and plummeted 16 ft through an announcer's table? Find out this week on the CivBattleRoyale!</p>"
   - scene_number: 03
     scene_title: "Tile-Accurate Map"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene03.jpg
