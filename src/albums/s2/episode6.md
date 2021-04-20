@@ -53,7 +53,7 @@ scenes:
 - scene_number: 11
   scene_title: "Happiness is a warm mountain"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene11.jpg
-  narration: "<p>Pliny has finished his masterpiece, the "List of people less likely to burn down a captured city". From the list, we may confirm our suspect: the Welsh are really masochists arsonists. They are simply too happy after all the blood and flames that destroyed their former cities. If you're wondering why the gap between the first leader and the rest is so wide, it's because Bhutan gains one happiness for every owned mountain. Quite fitting for a leader that IRL has advocated for using the Gross National Happiness index to measure the well-being of citizens rather than GDP.</p>"
+  narration: "<p>Pliny has finished his masterpiece, the “List of people less likely to burn down a captured city”. From the list, we may confirm our suspect: the Welsh are really masochists arsonists. They are simply too happy after all the blood and flames that destroyed their former cities. If you're wondering why the gap between the first leader and the rest is so wide, it's because Bhutan gains one happiness for every owned mountain. Quite fitting for a leader that IRL has advocated for using the Gross National Happiness index to measure the well-being of citizens rather than GDP.</p>"
 - scene_number: 12
   scene_title: "Are we the virus?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene12.jpg
@@ -61,7 +61,7 @@ scenes:
 - scene_number: 13
   scene_title: "Somalia redemption arc"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene13.jpg
-  narration: "<p>I’m telling you, Somalia is as cracked as he is jacked. I saw them at a Lidl the other day buying Monster and adult diapers. I asked them what the diapers were for and he said "they contain my full power so I don’t completely shit on these Hejaz kids".</p><p></p><p>Or maybe not, but they managed to take Al Bahah. Wow.</p>"
+  narration: "<p>I’m telling you, Somalia is as cracked as he is jacked. I saw them at a Lidl the other day buying Monster and adult diapers. I asked them what the diapers were for and he said “they contain my full power so I don’t completely shit on these Hejaz kids”.</p><p></p><p>Or maybe not, but they managed to take Al Bahah. Wow.</p>"
 - scene_number: 14
   scene_title: "Lions vs eagles"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene14.jpg
@@ -69,7 +69,7 @@ scenes:
 - scene_number: 15
   scene_title: "The Red Menance"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene15.jpg
-  narration: "<p>Kolchak, PARG's leader, takes a history lesson and discovers that the USSR is their natural enemy. Promptly, he summons his ambassadors and tells them to declare war against "that red civilization". The advisors try to convince him that he's confusing the USSR and Vietnam, but he quits their doubts with a lapidary sentence: "I'm paid to lead, not to read''.</p><p></p><p>On a more serious note, I'm fairly confident PARG has more catapults than all the other civs combined.</p>"
+  narration: "<p>Kolchak, PARG's leader, takes a history lesson and discovers that the USSR is their natural enemy. Promptly, he summons his ambassadors and tells them to declare war against “that red civilization”. The advisors try to convince him that he's confusing the USSR and Vietnam, but he quits their doubts with a lapidary sentence: “I‘m paid to lead, not to read”.</p><p></p><p>On a more serious note, I’m fairly confident PARG has more catapults than all the other civs combined.</p>"
 - scene_number: 16
   scene_title: "Odyssean journey"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene16.jpg
@@ -81,7 +81,7 @@ scenes:
 - scene_number: 18
   scene_title: "We got a(nother) city to burn"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene18.jpg
-  narration: "<p>A horseman quickly rushes into the war council room, where the Mississipian leader Tuskaloosa is discussing future strategies with his generals.</p><p>"The beacons of New Town! The beacons are lit!". The unimpressed Tuskaloosa smiles and declares "Yeah, my people were a little unhappy, so I decided to burn down another city. They love this kind of stuff, the fires, the flames, the smell of burning human corpses, y'know, the usual. Now, don't interrupt me again, we're planning the assault of Sashin"</p>"
+  narration: "<p>A horseman quickly rushes into the war council room, where the Mississipian leader Tuskaloosa is discussing future strategies with his generals.</p><p>“The beacons of New Town! The beacons are lit!”. The unimpressed Tuskaloosa smiles and declares “Yeah, my people were a little unhappy, so I decided to burn down another city. They love this kind of stuff, the fires, the flames, the smell of burning human corpses, y'know, the usual. Now, don't interrupt me again, we're planning the assault of Sashin”</p>"
 - scene_number: 19
   scene_title: "Algeria season 1 flashbacks"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene19.jpg
@@ -97,7 +97,7 @@ scenes:
 - scene_number: 22
   scene_title: "Best civ in America btw"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene22.jpg
-  narration: "<p>My father measures IQ for a living. I asked him to watch 154 turns of Mississippi gameplay and to then provide a rough estimate of the intelligence quotient for the popular American civ.</p><p>After not speaking with my father for about a month, I received a text early one morning that simply read, "fuckfuckfuck."</p><p>Confused, I asked what was wrong.</p><p>"That American fellow you asked me to study, I've never seen anything like it. He's operating on a plain of intelligence four to five times higher than the smartest men I've ever studied. His tactical troops management is communicating cryptic hidden messages. He's displaying levels of strategy that should not be remotely possible."</p><p>I had completely forgotten about asking my father to study Canyon, but now I was intrigued, "So how high is his IQ?" I inquired.</p><p>He responded mere seconds later, "Just under infinity."</p><p></p><p>A huge crowd of merry Mississippians is still cheering for the pyrotechnic show, but now the party's over.</p><p>"Don't worry, don't worry" reassures Tuskaloosa "We tactically delayed the capture of Sanish so now has 3 pops and will burn down for longer!"</p><p>A round of applause and shouts welcomed his speech.</p>"
+  narration: "<p>My father measures IQ for a living. I asked him to watch 154 turns of Mississippi gameplay and to then provide a rough estimate of the intelligence quotient for the popular American civ.</p><p>After not speaking with my father for about a month, I received a text early one morning that simply read, “fuckfuckfuck.”</p><p>Confused, I asked what was wrong.</p><p>“That American fellow you asked me to study, I've never seen anything like it. He's operating on a plain of intelligence four to five times higher than the smartest men I've ever studied. His tactical troops management is communicating cryptic hidden messages. He's displaying levels of strategy that should not be remotely possible.”</p><p>I had completely forgotten about asking my father to study Canyon, but now I was intrigued, “So how high is his IQ?” I inquired.</p><p>He responded mere seconds later, “Just under infinity.”</p><p></p><p>A huge crowd of merry Mississippians is still cheering for the pyrotechnic show, but now the party's over.</p><p>“Don't worry, don't worry” reassures Tuskaloosa “We tactically delayed the capture of Sanish so now has 3 pops and will burn down for longer!”</p><p>A round of applause and shouts welcomed his speech.</p>"
 - scene_number: 23
   scene_title: "Calm before the storm?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene23.jpg
@@ -149,11 +149,11 @@ scenes:
 - scene_number: 35
   scene_title: "Reverse 1967"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene35.jpg
-  narration: "<p>Cleopatra has failed to gain anything against Kosovo, so four turns ago they signed a peace treaty. Immediately, Cleopatra switches her focus on the much weaker Jerusalem. In her motivational speech, she declares that the war will last "at most six days''. Her boldness is certainly justified: Jerusalem may be the capital with fewer inhabitants in the whole Cylinder. Egyptian troops immediately surround the city.</p><p></p><p>Capital attacked count: 5</p>"
+  narration: "<p>Cleopatra has failed to gain anything against Kosovo, so four turns ago they signed a peace treaty. Immediately, Cleopatra switches her focus on the much weaker Jerusalem. In her motivational speech, she declares that the war will last “at most six days.” Her boldness is certainly justified: Jerusalem may be the capital with fewer inhabitants in the whole Cylinder. Egyptian troops immediately surround the city.</p><p></p><p>Capital attacked count: 5</p>"
 - scene_number: 36
   scene_title: "Cheers from the sub"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene36.jpg
-  narration: "<p>Pedro: "Ehi, Nebby, it's been a while, why don't we take a pause?"</p><p>Nebby: "Oh, excellent idea my friend. I declare a golden age!"</p><p>Abd-ar-Rahman: "Hey. I just wanted you to know that you can't just say "golden age" and expect anything to happen"</p><p>Nebby: "I didn't say it. I declared it"</p>"
+  narration: "<p>Pedro: “Ehi, Nebby, it's been a while, why don't we take a pause?”</p><p>Nebby: “Oh, excellent idea my friend. I declare a golden age!”</p><p>Abd-ar-Rahman: “Hey. I just wanted you to know that you can‘t just say ”golden age” and expect anything to happen”</p><p>Nebby: “I didn‘t say it. I declared it”</p>"
 - scene_number: 37
   scene_title: "Surrounded and blocked"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene37.jpg
@@ -161,7 +161,7 @@ scenes:
 - scene_number: 38
   scene_title: "Can’t touch this"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene38.jpg
-  narration: "<p>At one point in the Welsh council, sources said, the Last General turned to the elderly chancellor and screamed, "You (bleeping) need me. You can't win without me". The Last General left his troops and the council largely speechless. He dominated the battlefield in every way. The Last General's back.</p>"
+  narration: "<p>At one point in the Welsh council, sources said, the Last General turned to the elderly chancellor and screamed, “You (bleeping) need me. You can't win without me.” The Last General left his troops and the council largely speechless. He dominated the battlefield in every way. The Last General's back.</p>"
 - scene_number: 39
   scene_title: "Village > Town"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene39.jpg
@@ -169,7 +169,7 @@ scenes:
 - scene_number: 40
   scene_title: "Change of mind"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene40.jpg
-  narration: "<p>"Why didn't you tell me before!?" shouted PARG's leader, Kolchak.</p><p>"But, general, we tried to..." stuttered a scared soldier.</p><p>"Trying is not enough! Make peace with the poor Vietnam, they suffered enough" cut short Kolchak</p><p>Then it whispered to himself: "And now what do I do with all those catapults? They can't even launch a 90 kg projectile over 300 meters"</p><p>He glimpsed at the map and then came up with a genius idea: they will use them against Uzbekistan, an enemy they actually border with!</p><p>"Sometimes my genius is... almost frightening" he smiled to himself.</p>"
+  narration: "<p>“Why didn't you tell me before!?” shouted PARG's leader, Kolchak.</p><p>“But, general, we tried to...” stuttered a scared soldier.</p><p>“Trying is not enough! Make peace with the poor Vietnam, they suffered enough” cut short Kolchak</p><p>Then it whispered to himself: “And now what do I do with all those catapults? They can't even launch a 90 kg projectile over 300 meters”</p><p>He glimpsed at the map and then came up with a genius idea: they will use them against Uzbekistan, an enemy they actually border with!</p><p>“Sometimes my genius is... almost frightening” he smiled to himself.</p>"
 - scene_number: 41
   scene_title: "Yeah, they're a little confused but they got the spirit."
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene41.jpg
@@ -185,7 +185,7 @@ scenes:
 - scene_number: 44
   scene_title: "Leonida distant smile"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene44.jpg
-  narration: "<p>Soldier 1: "Ehi, do you think we may have exaggerated with the rocks and stuff? I think we set the city ablaze"</p><p>Soldier 2: "They deserved it. They're burning down Dvin. What kind of barbaric population would destroy Leg Day city itself?"</p><p>Soldier 1: "Yeah, you're right"</p>"
+  narration: "<p>Soldier 1: ”Ehi, do you think we may have exaggerated with the rocks and stuff? I think we set the city ablaze”</p><p>Soldier 2: “They deserved it. They're burning down Dvin. What kind of barbaric population would destroy Leg Day city itself?”</p><p>Soldier 1: “Yeah, you're right”</p>"
 - scene_number: 45
   scene_title: "Impassable terrains"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene45.jpg
@@ -197,11 +197,11 @@ scenes:
 - scene_number: 47
   scene_title: "And we gonna let it burn, burn, burn, burn"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene47.jpg
-  narration: "<p>Three Affiliated Tribes have made peace with Mississippi. They avoided the last place, but gave Nishu and Sanish away in the deal. Try to guess what happened next? Yes, exactly. Mississippi now officially owns the "Best arsonist of the Cylinder" award. I think they killed a million people combined, if not more, in those stakes.</p>"
+  narration: "<p>Three Affiliated Tribes have made peace with Mississippi. They avoided the last place, but gave Nishu and Sanish away in the deal. Try to guess what happened next? Yes, exactly. Mississippi now officially owns the “Best arsonist of the Cylinder” award. I think they killed a million people combined, if not more, in those stakes.</p>"
 - scene_number: 48
   scene_title: "Lion removal"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene48.jpg
-  narration: "<p>A couple of turns ago, Iceland declared war against Sweden. They quickly surround Helsingborg, bringing the city to red. </p><p></p><p>Germany has founded Essen. Like, imagine being a citizen of "Food". At least, Germany is playing way more like a Jäger.</p>"
+  narration: "<p>A couple of turns ago, Iceland declared war against Sweden. They quickly surround Helsingborg, bringing the city to red. </p><p></p><p>Germany has founded Essen. Like, imagine being a citizen of “Food.” At least, Germany is playing way more like a Jäger.</p>"
 - scene_number: 49
   scene_title: "Just another day in the survey corps"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene49.jpg
@@ -237,7 +237,7 @@ scenes:
 - scene_number: 57
   scene_title: "“What do you mean with that?”"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene57.jpg
-  narration: "<p>Soldier 2: "See? I told you not to worry, our practice target is still here"</p><p>Soldier 1: "Neat! More experience for us. But... are you sure this will help us advance?"</p><p>Soldier 2: "Uh? Advance?"</p>"
+  narration: "<p>Soldier 2: “See? I told you not to worry, our practice target is still here”</p><p>Soldier 1: “Neat! More experience for us. But... are you sure this will help us advance?”</p><p>Soldier 2: “Uh? Advance?”</p>"
 - scene_number: 58
   scene_title: "This may be the best deal in the history of war deals"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene58.jpg
@@ -269,7 +269,7 @@ scenes:
 - scene_number: 65
   scene_title: "More stuck than Evergreen"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene65.jpg
-  narration: "<p>Cleopatra is starting to feel uneasy. Her "fast victory" is going on and on without an end. Yes, Jerusalem is still in red, but it's been in this state for the last six turns.</p><p>"Just a minor setback" she declares, before quickly changing the topic of conversation.</p>"
+  narration: "<p>Cleopatra is starting to feel uneasy. Her “fast victory” is going on and on without an end. Yes, Jerusalem is still in red, but it's been in this state for the last six turns.</p><p>“Just a minor setback” she declares, before quickly changing the topic of conversation.</p>"
 - scene_number: 66
   scene_title: "Jungle warfare"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene66.jpg
