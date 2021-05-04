@@ -1,11 +1,12 @@
 ---
-title: "Capitals Storming"
+title: "Episode 6: Capitals Storming"
 narrated_by: "Framonti"
 description: "Under the light of burning cities, some civilizations rise and others fall."
 release_date: April 21, 2021
 audio_narration:
 fullvideo:
 edition: S2
+starting_turn: 151
 date: 2021-04-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene06.jpg
 prcast:

@@ -1,11 +1,12 @@
 ---
-title: "Bloodstains and Fire"
+title: "Episode 5: Bloodstains and Fire"
 narrated_by: "Orange"
 description: "Wood, sand, and bodies burn as the madmen of this cylinder force the weak to their knees."
 release_date: April 07, 2021
 audio_narration:
 fullvideo:
 edition: S2
+starting_turn: 121
 date: 2021-04-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene06.jpg
 prcast:
