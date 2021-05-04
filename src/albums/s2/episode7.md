@@ -18,15 +18,15 @@ scenes:
   - scene_number: 02
     scene_title: "Getting Heavy"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene02.jpg
-    narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/mviuvc/the_citystates_last_part_spoiler/Whilst it might be true that we’ve a few civs down to one city, how many of them do we expect to fall soon? All of them? None of them? I doubt even a Medic could heal the damage to their chances in the BR though. That’s enough TF2 talk, though. Are there TF2 AI games?</p>"
+    narration: "<p>Whilst it might be true that we’ve a few civs down to one city, how many of them do we expect to fall soon? All of them? None of them? I doubt even a Medic could heal the damage to their chances in the BR though. That’s enough TF2 talk, though. Are there TF2 AI games?</p>"
   - scene_number: 03
     scene_title: "20,000 Hexes Over the Sea"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene03.jpg
-    narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/mye4ye/so_thats_what_that_japanese_settler_has_been_up_to/ Ah, the tale of the Japanese settler. Truly the most inspiring story since Sejong sent his round a bay in Mk2. Perhaps today will be the day his long ramble comes to conclusion? The journey is truly Vernian though, so the comparison is very apt.</p>"
+    narration: "<p>Ah, the tale of the Japanese settler. Truly the most inspiring story since Sejong sent his round a bay in Mk2. Perhaps today will be the day his long ramble comes to conclusion? The journey is truly Vernian though, so the comparison is very apt.</p>"
   - scene_number: 04
     scene_title: "The Uzbek-Taiping Croissant"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene04.jpg
-    narration: "<p>https://www.reddit.com/r/civbattleroyale/comments/mv6wrp/cbrx_vihreaan_tileaccurate_map_part_6/Here we have our lovely map by Vihreaa, a staple of the CBR as much as anything else these days. Everyone’s been talking about that sexy Russia-Perm border, but there are loads of cool shapes to be found! For instance, Germany looks like a snail with a question mark above its head! </p>"
+    narration: "<p>Here we have our lovely map by Vihreaa, a staple of the CBR as much as anything else these days. Everyone’s been talking about that sexy Russia-Perm border, but there are loads of cool shapes to be found! For instance, Germany looks like a snail with a question mark above its head! </p>"
   - scene_number: 05
     scene_title: "Singh When You’re Winning"
     slide_url: https://cdn.civbattleroyale.tv/season2-pr6-scene61.jpg
