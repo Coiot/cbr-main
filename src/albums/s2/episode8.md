@@ -18,7 +18,7 @@ scenes:
   - scene_number: 02
     scene_title: "#cashmoney"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene02.jpg
-    narration: "<p>This week’s OC comes from u/ARedundantSofa, and it shows our favorite profit-driven madlads, the Vandals, getting that gold-cash-gold. https://i.redd.it/i2luljedovz61.png</p>"
+    narration: "<p>This week’s OC comes from u/ARedundantSofa, and it shows our favorite profit-driven madlads, the Vandals, getting that gold-cash-gold.</p>"
   - scene_number: 03
     scene_title: "VihreaaVision"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene03.jpg
@@ -29,7 +29,7 @@ scenes:
     narration: "<p>And our second map… doesn't exist. In its absence, please enjoy this… thing… made by u/Paraguay_Stonks. If I had to see it, so must you.</p>"
   - scene_number: 05
     scene_title: "The Secret is Gomutra"
-    slide_url: https://cdn.civbattleroyale.tv/eason2-pr7-scene61.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene61.jpg
     narration: "<p>For the fourth episode in a row, Ranjit Singh’s Punjab is number one, and it isn’t hard to see why. Their military and production are second to none, though they could stand to be a little less… quiet. Are they unstoppable? I mean, when has a juggernaut with an orange and blue color scheme ever let us down?</p>"
   - scene_number: 06
     scene_title: "Too Kulin for Schoolin’"
