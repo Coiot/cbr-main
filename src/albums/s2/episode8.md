@@ -130,7 +130,7 @@ scenes:
   - scene_number: 30
     scene_title: "Homu Is Where The Heart Is"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene30.jpg
-    narration: "<p>Back east, Taiping manages to land some knights onto the isle of Formosa, retaking the city of Huangmei from the Malaccan menace. Malacca, for its episode, has sent a detachment of its navy into the East China Sea, albeit a fleet devoid of any melee ships. This war is a slog, and Mansur’s navy is far from home. According to sailors on some Malaccan vessels, the faint cries of Japanese missionaries can sometimes be heard on calm nights like a siren’s song; “have you heard the good word? Naruhodo!”</p>"
+    narration: "<p>Back east, Taiping manages to land some knights onto the isle of Formosa, retaking the city of Huangmei from the Malaccan menace. Malacca, for its part, has sent a detachment of its navy into the East China Sea, albeit a fleet devoid of any melee ships. This war is a slog, and Mansur’s navy is far from home. According to sailors on some Malaccan vessels, the faint cries of Japanese missionaries can sometimes be heard on calm nights like a siren’s song; “have you heard the good word? Naruhodo!”</p>"
   - scene_number: 31
     scene_title: "CataPARG"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene31.jpg
@@ -154,7 +154,7 @@ scenes:
   - scene_number: 36
     scene_title: "Razing Bran"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene36.jpg
-    narration: "<p>Over in the Battle for the Gobi, PARG captures-- and razes --Erdene Zuu from the Northern Yuan. Kolchak’s army does not appear to have taken too many hits in the assault, but Mandukhai’s forces are howling, and his core largely undefended. To make matters worse, there also appears to be a rather large horde of mixed units filing in from the east towards Bayan Tumen out of Yuan Classic™.</p>"
+    narration: "<p>Over in the Battle for the Gobi, PARG captures-- and razes --Erdene Zuu from the Northern Yuan. Kolchak’s army does not appear to have taken too many hits in the assault, but Mandukhai’s forces are howling, and her core largely undefended. To make matters worse, there also appears to be a rather large horde of mixed units filing in from the east towards Bayan Tumen out of Yuan Classic™.</p>"
   - scene_number: 37
     scene_title: "A Ponderous Hajj"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene37.jpg
@@ -194,7 +194,7 @@ scenes:
   - scene_number: 46
     scene_title: "They Razed Paradise"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene46.jpg
-    narration: "<p>In the War to Pave Paradise & Put Up a Parking Lot, William Barak captures the Tahitian city of Mai’ao and sets it ablaze. While Purea has the ability to take the island back, there’s no guarantee he can hold it. In the south, Tahiti sends out another settler in search of an island that may be safe from the aggressors in the west.</p>"
+    narration: "<p>In the War to Pave Paradise & Put Up a Parking Lot, William Barak captures the Tahitian city of Mai’ao and sets it ablaze. While Purea has the ability to take the island back, there’s no guarantee she can hold it. In the south, Tahiti sends out another settler in search of an island that may be safe from the aggressors in the west.</p>"
   - scene_number: 47
     scene_title: "Agog, Agape, Aghat"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene47.jpg
@@ -286,7 +286,7 @@ scenes:
   - scene_number: 69
     scene_title: "Kiwi For Your Thoughts?"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene69.jpg
-    narration: "<p>Pora Pora burns as the Kulin navy surrounds South Island. With only a single pahi and a composite bowman, it’s very unlikely that Purea will be able to save his New Zealand holdings.</p>"
+    narration: "<p>Pora Pora burns as the Kulin navy surrounds South Island. With only a single pahi and a composite bowman, it’s very unlikely that Purea will be able to save her New Zealand holdings.</p>"
   - scene_number: 70
     scene_title: "The Boer Were Here"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene70.jpg
