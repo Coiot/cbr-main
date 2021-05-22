@@ -13,7 +13,7 @@ prcast:
 scenes:
   - scene_number: 01
     scene_title: "hey ;)"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene01.jpg
     narration: "<p>Hello everyone! I’m political hack, Discord ping abuser, and New York 6/Cleveland 8 u/PonderousHajj. I’ll be your narrator for this episode. Good luck everybody!</p>"
   - scene_number: 02
     scene_title: "#cashmoney"
