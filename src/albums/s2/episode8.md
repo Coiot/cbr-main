@@ -1,5 +1,5 @@
 ---
-title: "The Gang Gets Stuck In A Meatgrinder"
+title: "Episode 8: The Gang Gets Stuck In A Meatgrinder"
 narrated_by: "PonderousHajj"
 description: "This week, the empires of the cylinder take turns stubbing their toes and shouting expletives."
 release_date: May 19, 2021
