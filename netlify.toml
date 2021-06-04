@@ -1,29 +1,35 @@
 [[headers]]
-for = "/*.jpg"
-
-[headers.values]
-Cache-Control = "public, max-age=504800"
-
-[[headers]]
-for = "/*.png"
-
-[headers.values]
-Cache-Control = "public, max-age=504000"
+  for = "/*.jpg"
+  [headers.values]
+  Cache-Control = "public", 
+  max-age=504800"
 
 [[headers]]
-for = "/*.css"
-
-[headers.values]
-Cache-Control = "public, max-age=504800"
-
-[[headers]]
-for = "/*.js"
-
-[headers.values]
-Cache-Control = "public, max-age=504800"
+  for = "/*.png"
+  [headers.values]
+  Cache-Control = "public", 
+  max-age=504000"
 
 [[headers]]
-for = "*"
+  for = "/*.css"
+  [headers.values]
+  Cache-Control = "public", 
+  max-age=504800"
 
-[headers.values]
-Cache-Control = "public, s-max-age=504800"
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+  Cache-Control = "public", 
+  max-age=504800"
+
+[[headers]]
+  for = "*"
+  [headers.values]
+  Cache-Control = "public", 
+  s-max-age=504800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+  Cache-Control = "public", 
+  s-max-age=504800"
