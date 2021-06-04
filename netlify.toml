@@ -1,38 +1,22 @@
 [[headers]]
   for = "/*.jpg"
   [headers.values]
-  Cache-Control = "public", 
-  max-age=504800"
+  Cache-Control = "public, max-age=504000"
 
 [[headers]]
   for = "/*.png"
   [headers.values]
-  Cache-Control = "public", 
-  max-age=504000"
+  Cache-Control = "public, max-age=504000"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
-  Cache-Control = "public", 
-  max-age=504800"
+  Cache-Control = "public, max-age=504000"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
-  Cache-Control = "public", 
-  max-age=504800"
-
-[[headers]]
-  for = "*"
-  [headers.values]
-  Cache-Control = "public", 
-  s-max-age=504800"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-  Cache-Control = "public", 
-  s-max-age=504800"
+  Cache-Control = "public, max-age=504000"
 
 [build.processing]
   skip_processing = false
