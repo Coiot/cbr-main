@@ -1,7 +1,7 @@
 ---
 title: Home
 home: true
-description: "Civilization Battle Royale X (CBR X) Archive."
+description: "Civilization Battle Royale (CBR) Archive."
 heroText:
 tagline:
 actionText:

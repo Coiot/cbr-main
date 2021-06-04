@@ -14,7 +14,7 @@ const autometa_options = {
   image_sources: ["frontmatter"],
 };
 module.exports = {
-  title: "CivilizationBattleRoyale.com",
+  title: "Civ Battle Royale",
   description: "Image Archive for the Civilization Battle Royale (CBR)",
   dest: "./public",
   themeConfig: {
@@ -29,7 +29,7 @@ module.exports = {
     ],
     logo: "/cbr_logo_color.svg",
     docsDir: "src",
-    serviceWorker: true,
+    serviceWorker: false,
   },
   plugins: [
     "vuepress-plugin-janitor",
@@ -51,13 +51,13 @@ module.exports = {
         normalSuffix: "/",
       },
     ],
-    [
-      "@vuepress/pwa",
-      {
-        serviceWorker: true,
-        updatePopup: true,
-      },
-    ],
+    // [
+    //   "@vuepress/pwa",
+    //   {
+    //     serviceWorker: true,
+    //     updatePopup: true,
+    //   },
+    // ],
   ],
   head: [
     [
