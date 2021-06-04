@@ -6,16 +6,16 @@ const autometa_options = {
   og: true,
   schema: true,
   site: {
-    name: "CivBattleRoyale.tv",
-    twitter: "lacoiot",
+    name: "Civilization Battle Royale",
+    twitter: "isaacvolpe",
   },
-  canonical_base: "https://civbattleroyale.tv",
+  canonical_base: "https://civilizationbattleroyale.com",
   description_sources: ["frontmatter"],
   image_sources: ["frontmatter"],
 };
 module.exports = {
-  title: "CivBattleRoyale.tv",
-  description: "",
+  title: "CivilizationBattleRoyale.com",
+  description: "Image Archive for the Civilization Battle Royale (CBR)",
   dest: "./public",
   themeConfig: {
     nav: [
@@ -54,8 +54,8 @@ module.exports = {
     [
       "@vuepress/pwa",
       {
-        serviceWorker: false,
-        updatePopup: false,
+        serviceWorker: true,
+        updatePopup: true,
       },
     ],
   ],
