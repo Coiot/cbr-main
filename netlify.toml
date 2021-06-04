@@ -5,6 +5,12 @@ for = "/*.jpg"
 Cache-Control = "public, max-age=504800"
 
 [[headers]]
+for = "/*.png"
+
+[headers.values]
+Cache-Control = "public, max-age=504800"
+
+[[headers]]
 for = "/*.css"
 
 [headers.values]
