@@ -8,7 +8,7 @@ Cache-Control = "public, max-age=504800"
 for = "/*.png"
 
 [headers.values]
-Cache-Control = "public, max-age=504800"
+Cache-Control = "public, max-age=504000"
 
 [[headers]]
 for = "/*.css"
