@@ -51,13 +51,6 @@ module.exports = {
         normalSuffix: "/",
       },
     ],
-    // [
-    //   "@vuepress/pwa",
-    //   {
-    //     serviceWorker: true,
-    //     updatePopup: true,
-    //   },
-    // ],
   ],
   head: [
     [
