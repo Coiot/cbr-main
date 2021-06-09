@@ -51,7 +51,7 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 0 && index < 7"
+            v-if="index > 0 && index < 6"
             :key="post.title"
             :tabindex="0"
           >
@@ -84,7 +84,7 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 7 && index < 37"
+            v-if="index > 5 && index < 37"
             :key="post.title"
             :tabindex="0"
           >
