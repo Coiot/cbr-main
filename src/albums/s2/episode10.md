@@ -1,6 +1,6 @@
 ---
 title: "Episode 10: The Historians’ Hand"
-narrated_by: "ECH"
+narrated_by: "ECH & Lacsirax Ariscal"
 description: "Amidst an era of regional consolidation, desperate national struggles and broadening power projection, one scholar considers the impact of ideas in history..."
 release_date: June 16, 2021
 audio_narration:
