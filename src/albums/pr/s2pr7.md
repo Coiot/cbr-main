@@ -7,251 +7,251 @@ audio_narration:
 fullvideo:
 pr: S2
 date: 2021-05-11T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season2-pr7-scene01.jpg
+image: https://cdn.civbattleroyale.tv/season2-pr7-scene01.jpg?format=webp&quality=80
 prcast:
 scenes:
   - scene_number: 01
     scene_title: "Wales"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene01.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>Llywelyn, meet last place; last place, meet Llywelyn. Oh, you’ve met? Well, that’s awkward.</p><p></p><p>After one episode at the lofty rank of 60th, Wales plummets back to 61st, thanks to a renewed invasion by the Gauls and Spain. This time it really looks like Wales is done for. But we said that in episode 5 too, and look what happened.</p>"
   - scene_number: 02
     scene_title: "Peru-Bolivia"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene02.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene02.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: It takes a special kind of civ to have your best and worst episode simultaneously. Really, it’s unsurprising it’s the civ-that’s-actually-two that had such an episode of two halves. First half: oh my god, Peru-Bolivia captured a city and held onto it for a while too, taking a newly settled Maracaibo while Bolívar was busy bullying Jamaica. That’s the first city capture Santa Cruz has made all game, and it’ll likely be the last. Of course, in the second half of the episode the Mapuche declared war and easily swept through and captured the capital of Tacna. Pay no attention to the fact the city appears to be flying blue flags, that’s probably just a visual glitch. So Peru-Bolivia are down to one city, and elimination beckons… at some point in the future. The truth is the Mapuche don’t really have a way of getting to Lima (looks like their troops can’t pass through Tacna, must be another glitch). And it only has a single sea tile adjacent to it, so a naval invasion is unlikely to fell it either. We may well be seeing a red smear on the map for some time to come. Invest, I guess?</p>"
   - scene_number: 03
     scene_title: "Vietnam"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene03.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene03.jpg?format=webp&quality=80
     narration: "<p>Random Strategy:You know I think they're pushing sequels for this out too fast. We're already on Laos vs Vietnam IV , and I, II and III were all boring and rushed. Now it's true that IV has lasted longer than the other three combined so there is a bit more hope for our first elimination. However, despite the long length of the war, Laos hasn't even started damaging the walls of Sai Gon, due to the difficult trek through the jungle. Elimination might still happen as Vietnam has no army or production to build one, but it's less likely than for the two civs just below.</p><p></p>"
   - scene_number: 04
     scene_title: "Three Affiliated Tribes"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene04.jpg?format=webp&quality=80
     narration: "<p>Random Strategy:Good news! TAT are not dead! It seems that their capital was strong enough to defend against ”sending 2 units at a time through mountain passes”! And they've even managed to rebuild their army. The Chinook are still stubbornly refusing to give peace but given that their military presence in the area has overall reduced since last episode, it's not too worrying.</p>"
   - scene_number: 05
     scene_title: "Somalia"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene05.jpg?format=webp&quality=80
     narration: "<p>Rosay: Somalia did absolutely fucking nothing and is a rump state that is lucky to be alive and is only this high cause the other rumps will perish first, lets move on</p>"
   - scene_number: 06
     scene_title: "Jamaica"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene06.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene06.jpg?format=webp&quality=80
     narration: "<p>Rosay:This was a rough time to be a Jamaica fan man. As one of the only guys who had hope in this little civ to just sort fly under the radar but give us some memey moments(to be fair they did provide), they just were so unfortunate to have their efforts taken away from them. If the New Netherlands taking Cuba wasn't bad enough, Jamaica lost all their territories outside the Caribbean, that they took from Gran Colombia. Now a ravaged Jamaica is under attack by Gran Colombia, and even though Jamaica will likely survive their conflict, they are still likely to be stranded to their island unable to leave without dying. Thankfully naval invasions are not a strong suit of the AI so Jamaica can ironically enough still defy their incredibly low expectations.</p>"
   - scene_number: 07
     scene_title: "Tuareg"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene07.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene07.jpg?format=webp&quality=80
     narration: "<p>Skies: Well, that was a humdinger of a cliffhanger last part. The Tuareg have been roped into a coalition war against the accursed Burkina Faso, the nation who brought them so low. Unfortunately, aside from the Ptolemies, nobody is really in a position to come and help them, so a large Burkinabe contingent is looming on their doorstep. Oh dear. With an eighth of Sankara’s military, I guess the best Tin Hinan can hope for is to do a Paraguay, and snipe some cities in the confusion. But then, that could lead to warmonger penalties? Perhaps the best course of action is to do nothing and wait for cities to be razed and settle the ruins? Then again, civs do covet lands… The Tuareg really don’t have an easy option, but at least they have options now. Time will tell if they act on them, or just turtle until someone puts them out of their misery.</p>"
   - scene_number: 08
     scene_title: "Anangu"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene08.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene08.jpg?format=webp&quality=80
     narration: "<p>Reformer:Hey! Anangu settled another city! The Republic of Amata is expanding! Kulin’s soldiers are already trembling, for they know this is the beginning of the end! Soon, hellfire and brimstone will rain upon those who dared defy the REPUBLIC OF AMATA!</p><p></p><p>With that piece of alt-history out of the way, Amata may enjoy being a Malaccan protectorate more than living in the shadow of Kulin - Malacca has already proven that they are surprisingly friendly to weak civs, unless their name is Vietnam. Malacca’s victory against Kulin is the sign that Amata will live on forever!</p><p></p><p>...ah, fuck, I did it again, didn’t I?</p>"
   - scene_number: 09
     scene_title: "Teutonic Order"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene09.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene09.jpg?format=webp&quality=80
     narration: "<p>Msurdej:Desperately clawing their way up the bottom 10,we have the Teutonic Order. After falling to last place in episode 2, the Order has been languishing in the bottom of the pack. This last rise in the ranks is their largest in the real game (not counting the rise from Part 0-1), and mostly due to other people failing harder. While they could be eliminated easily, only a few civs could eliminate them due to placement. They might stick around a bit longer, but one day, they will be gone.</p>"
   - scene_number: 10
     scene_title: "Jerusalem"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene10.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene10.jpg?format=webp&quality=80
     narration: "<p>Msurdej:Much like I predicted the last part, Jerusalem lost its capital, Tripoli, and gave Ascalon away. Now down to two cities, Baldwin is safe for now. Sure they’ve got a few wars against them, but none of them are with their neighbors at the moment, so they should be fine for now. But if Kurdistan or Kosovo decide to attack them, it’ll probably all over for them.</p>"
   - scene_number: 11
     scene_title: "Olmecs"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene11.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene11.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>The bleeding has stopped! Now the healing can begin - or it would, normally, if the Olmecs, even after weathering the loss of their capital, were not still at war. Sure, the occasional potshots New Netherlander ships are taking at Olmec cities aren’t likely to amount to much, but a foreign object in an open wound is still a foreign object in an open wound, and for a civ like the Olmecs that has already been punted into such a position of relative irrelevance, their odds of ever so much as taking another city grow slimmer by the turn. U Kix Chan’s not in danger of dying, not yet, given his sole existential threat Rio Grande has elected to spare him for the time being and the staggeringly defensive terrain he finds himself residing in, but in spirit, in measure of his hopes and dreams and plans for the future? He might as well be. The Olmecs could be gone two parts from now, or survive into the top half, but to suggest either outcome would be the product of anything other than random chance would be to suggest madness. The Olmecs’ fate is now fully up to the whims of chance. Which isn’t too much of a difference from how it’s always been, really.</p>"
   - scene_number: 12
     scene_title: "Hawaii"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene12.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene12.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>You’d be forgiven for thinking Hawaii would be much lower on the list considering they’re at war with two civs that outpace them militarily in basically every way: Tahiti (Eh) and the Chukchi (AH!) They did just lose half the population of one of their biggest cities, so let’s be clear, they are in terrible shape. However, the odds of them straight up dying from these wars isn’t as high as it could be. The Chukchi have much bigger fish to fry, so they probably won’t put in the effort needed to end Hawaii, and as for Tahiti… well, they’re Tahiti.. If they hadn’t shown the competency to take Hawaii out before, I doubt they’re going to now. Instant death isn’t a guarantee here, but considering the only strength Hawaii had was that they would be difficult to kill, having two enemies with overseas armies doesn’t exactly bode well for their long term prospects.</p>"
   - scene_number: 13
     scene_title: "Neutral Nation"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene13.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene13.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>The Neutral Nation continues to be a mystery inside a conundrum wrapped in an enigma. You’d think they’d be dead by now, but somehow they aren’t. New Netherland tried repeatedly to attack their capital and failed, Iceland captured and razed one of their cities, but then they spawned another anachronistic musketman and captured Mossfellsbaer... again. What will they do next? How have they been in so many wars and lost and gained so many cities but haven’t ever decisively won or lost anything?</p><p></p><p>And let’s just not talk about those Mississippi citadels, shall we.</p>"
   - scene_number: 14
     scene_title: "Manchu"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene14.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene14.jpg?format=webp&quality=80
     narration: "<p>Msurdej:Manchu is crashing and burning. Girin has been captured and burnt to the ground. Several of their other cities have been attacked, and many of their neighbors are attacking them as well. With assaults coming from every side, Nurhaci could easily crumble in a few parts. It will merely depend on whether or not the Manchu can navigate a political hellscape.</p>"
   - scene_number: 15
     scene_title: "Namibia"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene15.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene15.jpg?format=webp&quality=80
     narration: "<p>Skies:</p><p></p><p>Namibia are burning slowly but surely. As opposed to some of the other rumps, who at least have the plucky underdog thing going (or being so pathetic you feel sorry for them), Namibia are just, meh. Zaire and Lesotho have won Southern Africa at this point, and Namibia just have nowhere to expand and ever-encroaching green walls on either side. But their biggest sin, amidst all this, is that they’re boring. Civs around them, like the Manchu or Neutrals, are at least fighting, settling cities, or laying down mad-lad citadels. Jacob Morenga is just putting up token resistance as more and more of his cities are taken away. If anything, potentially they could gain from an alliance war, but at this point if they were gobbled up in a part I don’t think anyone would complain.</p>"
   - scene_number: 16
     scene_title: "VOC"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene16.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene16.jpg?format=webp&quality=80
     narration: "<p>Msurdej  </p><p>There once was a civ called the V.O.C.  Who’s AI was a sore sight to see  </p><p>Their cities are few  </p><p>Their chances are too  </p><p>Now format this limerick right BC</p>"
   - scene_number: 17
     scene_title: "Zanzibar"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene17.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene17.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>This is why some of these rumps need to hurry up and die already. Zanzibar at 45th looks like a way higher achievement than it sounds. Zanzibar would be one of the worst civs on the cylinder if not for the actual worst civs on the cylinder pushing them up the rankings. I desire blood.</p>"
   - scene_number: 18
     scene_title: "Laos"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene18.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene18.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>Sometimes fate smiles on you; sometimes it reacts to your very presence with rage; and sometimes it never really cares particularly much about your plight at all. Twenty-three turns into a war against a neighboring city-state, during which just about no progress has been made, it’s safe to say that Laos’ military incompetence has fallen solidly into the latter category, if only because their sordid history of failing to achieve anything of note has grown so long and damning that not only have any environmental effects been sorted out, so too have the prerequisites, error bars, and thesis. Vietnam is a neighbor Laos has struggled against since the dawn of time, sure, but for the love of all that’s holy, it’s an unprotected city state. If Laos can’t even begin to make progress on a foe as weak as this, it’s doubtful they’ll ever do anything other than die quietly for the rest of the game. There’s still time left, of course, for them to prove their doubters wrong. Conquer this one city, consign their eternal rivals to ignominy as the game’s first eliminated civ, start delivering on what little promise they have left. But at this point, really, is any of that even remotely realistic?</p>"
   - scene_number: 19
     scene_title: "Tahiti"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene19.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene19.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: Another new high for Tahiti, who have continued to rise every episode, Part 0 rankings notwithstanding. Safe to say they might have earned it this episode though, adding three cities to their domain and swatting away an advanced invasion force from main threats the Kulin. Hard to see them climbing much higher from here, though - none of this exactly precipitates world takeover. And they’ve still not managed to eliminate Hawaii, even as the Chukchi were softening them up. Still, I won’t complain seeing their pretty colours continue to spread across the Pacific, for the time being.</p>"
   - scene_number: 20
     scene_title: "Georgia"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene20.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene20.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>Friends, Georgians, countrymen. We are gathered here today to mourn the loss of one of the greatest elements of this young BR, one whose loss we’ll feel for generations to come. I speak, of course, of Kars, the fabled last Georgian exclave, lost to the treacherous Uzbeks at the start of this part, and set aflame to appease their frenzied bloodlust. Kars was only with us a short while, settled in the relatively recent past of part 4, but was immediately a topic of amused befuddlement and cylinder wide interest, proof of a trend that would elevate Georgia to their current status as pulp darlings. The settlement of Batumi and Gori deep in Soviet lands was amusing, yes, but it was Kars that proved Georgia’s status as a settling maverick, and proved them nondiscriminatory in their practice. Tragically, however, Kars would prove the last exclave on record, a filling world proving hostile to Georgian dreams of having just one of their cities in the bowels of every major empire, and this part the unthinkable finally happened. Kars may have been lost, but its legacy shall remain, in Georgian hearts and minds, in the culture of a proud people, in oddly shaped ruins Uzbek workers occasionally pass by on their way to sell their cows. And, of course, it shall live on forever in greatest extent maps, because Tamar’s probably never going to have it as good as she did back then. Rest in peace, Kars. Your sacrifice will be remembered by all… for maybe a part or two.</p>"
   - scene_number: 21
     scene_title: "Great Perm"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene21.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene21.jpg?format=webp&quality=80
     narration: "<p>Skies:What is there to say about Perm that’s not already been said? Saint Stephen is backed into a corner by PARG and the USSR, and aside from denying us a dope historical analogue, he’s also just, not doing anything. They’re not irredeemably bad, but are comfortably out of the high-stakes running, at least for now. They could snap up that Georgian exclave at a moment’s notice, and maybe even bulldoze into Georgia proper, but given how aggressive Perm have been, well, it’s unlikely. At least those early snow settles have come in handy, and prevented the USSR entirely encapsulating them. Our favorite saint will need more than small mercies to do well from here though- more along the lines of divine intervention.</p>"
   - scene_number: 22
     scene_title: "Spain"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene22.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene22.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>Well, if you were hoping for Spain to have some sort of golden opportunity in the Gallic/German war to take anything off the Gauls and restore an iota of their reputation, that moment has passed. The war ended and Spain is in exactly the same spot as they were before. Unless the Germans decide to pull a “War 2 but now we know how to fight wars good,” I guess it’s back to Spain being completely hemmed in on all sides waiting in fear of the day when the Vandals get bored of them. Sigh</p>"
   - scene_number: 23
     scene_title: "Iceland"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene23.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene23.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>Iceland falls several ranks again after another bruiser of an episode. Kristjan Eldjarn started it off on the right foot by capturing and razing a German city, but then they lost a city to the Dene, razed a city they took from the Dene in response, then razed a Neutral Nation city, then lost Helsingborg to Germany, then got it back, then got citadelled by the Gauls even more, and now they’re probably going to lose Helsingborg again. Whew, what an episode. Overall though it was a disappointing part for Iceland fans, since they razed everything they gained and finished the episode with fewer cities than they started with.</p>"
   - scene_number: 24
     scene_title: "Hejaz"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene24.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene24.jpg?format=webp&quality=80
     narration: "<p>Reformer:Welp, this ain’t looking very good for our dear Arabian civ. Ptolemies are coming, and despite their war with Burkina Faso on the other side of their empire, they do not look to be slowing down. Realistically, this could even be the end of Hejaz if Ptolemies is determined enough, that’s how weak Hejaz is. At least they have positive science output nowadays. Hejaz’s best bet here is to try and depend the few geographical obstacles between them and the Ptolemies, and pray for Burkina Faso to be enough of a threat to force Ptolemies’ troops off into the west. Good luck...for luck is the only thing that can save you right now.</p>"
   - scene_number: 25
     scene_title: "Sweden"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene25.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene25.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>Sweden’s been doing some building and settling this part, earning a +3 rise in the ranks. Speaking of settling, what the hell did the people of Sigtuna do to deserve that? Is that where Carolinus sends people who make catboi jokes? “You drew “art” of me with anime cat ears! Go to the three tile snow city and suffer!” Look Karl, if you want people to stop making fun of you, you need to pick up the slack and build an actual empire. Maybe build an army, for starters. Finland currently outpowers you by a decent chunk there, and they’re your weakest neighbor.</p>"
   - scene_number: 26
     scene_title: "Kurdistan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene26.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene26.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>Kurdistan still exists, despite the footage still arguing otherwise. </p>"
   - scene_number: 27
     scene_title: "Yuan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene27.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene27.jpg?format=webp&quality=80
     narration: "<p>Random StrategyNow I said earlier that I think they're pushing sequels out a bit too fast, and it's true we're on Yuan vs Manchu IV already. However, I think these wars have been a little more exciting than the Vietnam/Laos ones. This iteration looks like it could finally be the big one, as the Manchu are the victim of a massive coalition: Yuan should definitely try to pick up some of the pieces, and try to avoid them falling into Chukchi or Japanese hands. Unfortunately, South Yuan has already made a few blunders. First of all they lost a large portion of their army by throwing them into the sea. Secondly, they declared war on Northern Yuan for some dumb reason. Now Northern Yuan is of course much bigger and scarier than Southern Yuan and not someone you want to be fighting while also trying to make your first conquest. Luckily, Northern Yuan have reacted to this will all the apathy of a bear wanting to go into hibernation after being disturbed. Even so, these blunders make it likely they will lose out on getting a piece of the Manchu which would then leave them even more isolated.</p>"
   - scene_number: 28
     scene_title: "Tongva"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene28.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene28.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>So the Tongva have two things going for them: One: their home turf is rough as hell and impossible for their current neighbors to do anything about. Chinook could get boats maybe, but Rio took several parts to knock over the Olmecs and those guys suck. Two: Their neighbors aren’t super great either. Chinook keeps having its efforts at relevance foiled by geography, and Rio took several parts to knock over the Olmecs.</p><p></p><p>Everything else is bad news. Most of their stats are bad, notably effective science (lower than the Hejaz, who you’ll note spent the past several parts with crippling science penalties) food (again, lower than the Hejaz, the guys who are half desert), and production. Their military is at least roughly equal to their neighbors, which should let them survive a fair bit longer than they deserve, but that’s all that can be said there. Still, statistical noise puts them up five ranks this part, which is, hilariously, the exact difference between their rank and their infoaddict score.</p>"
   - scene_number: 29
     scene_title: "Bhutan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene29.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene29.jpg?format=webp&quality=80
     narration: "<p>Random Strategy</p><p>The slow nibbling of Bhutan continues. This time Bhutan gave away Paro, a core city, to Uzbekistan for no reason. That’s yet another lost city in a long string of lost cities. Luckily Uzbekistan razed it allowing Bhutan to resettle the city, so the damage was “only” limited to the city’s large population. Trying to be more interesting than the standard Himalaian turtle, Bhutan did declare war on the Chola. Unfortunately, the war is mostly naval, Chola is an entirely naval civ and Bhutan only owns 2 coastal cities which are completely incapable of producing anywhere near enough ships. So the most likely outcome of this war is yet another city snipped off. If they continue losing cities at this rate they will be completely eliminated by part 15.</p>"
   - scene_number: 30
     scene_title: "Gran Colombia"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene30.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene30.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>We here at the Power Rankers have had a lot of fun trashing Gran Colombia, but it’s time to face some harsh truths. We have to acknowledge that Gran Colombia have a slim, but growing chance of winning the whole Royale. Yes, seriously. </p><p></p><p>Look, I won’t mince words. South America sucks this season. It does. There is no one on the continent that can hold a candle against powers like Germany, the Vandals, Taiping, Malacca, etc, etc, but what that means is that everyone there has a ton of potential. There is a very real chance that a major power could emerge and steamroll the continent, and somehow, it’s Gran Colombia that continues to make moves towards setting themselves to be that. They have a long hill to climb to get past some of their neighbors, but quite frankly, they’re moving up that hill faster than a lot of the other civs on the continent. I am disgusted to say it, but we have to keep an eye on Gran Colombia.</p>"
   - scene_number: 31
     scene_title: "Finland"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene31.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene31.jpg?format=webp&quality=80
     narration: "<p>Skies:Finland are weird. Their stats say 25th, but their gameplay is so toothless you might as well put it on a movie poster and sell it to young adults, before cashing in on endless streaming series. Their military is larger than both Taiping and PARG, and they have the second-highest population in the world. Perhaps that’s where their issue lies- for all their other stats that are competitive with civs ranked 10-20, they have awful production. If we see that change, and maybe see Finland getting a little more aggro and taking on Sweden, maybe even Iceland, Mannerheim could very easily shoot up the standings. Don’t count them out just yet, since of all the sleeper picks out there, Finland might just be the best.</p>"
   - scene_number: 32
     scene_title: "Palmares"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene32.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene32.jpg?format=webp&quality=80
     narration: "<p>Msurdej  </p><p></p><p>Hello Zumbi, meet your new neighbors, the Vandals! Well, ok, they’ve been your neighbors  for a while now, but now they’re coming for you! And having just lost a few island cities earlier in the episode, Palmares ain’t prepared for this. Sure, the Vandal invasion may not seem like much now, but if Geneseric gets Geneserious, it could be trouble for not just Palmares, but all of South America.</p>"
   - scene_number: 33
     scene_title: "Dene"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene33.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene33.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>Blood stains the north red</p><p>Two cities, now just ash and bones</p><p>No glory, no prize.</p>"
   - scene_number: 34
     scene_title: "Japan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene34.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene34.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>Japan is somehow the biggest winner this episode, rising eight places and returning to the top half for the first time since episode 2. The reason? Well, it’s hard to pin down. Certainly, the fact that they took a city of Northern Yuan with little pushback contributed. Kakuei also made a great move by attacking the Manchu alongside Chukchi, because not only does it raise the possibility that they could take a Manchurian city, it also means they’ll be on good terms with the Chukchi, who are easily their biggest threat. So overall it looks like Japan is rising because they were genuinely playing well, which is a change from their behavior in literally every episode before this one.</p>"
   - scene_number: 35
     scene_title: "Kosovo"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene35.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene35.jpg?format=webp&quality=80
     narration: "<p>Rosay: Kosovo is not a bad civ per-say, just a civ stuck in a region they really can't break out of. However all that can change due to their tyrannical neighbors over extension. See Kosovo's neighbor Germany is busy sending its troops on a day trip to Iceland (oh we'll get to that later) and their entire southern border is defenseless. Hell Kosovo actually has a military near that of the Germans thanks to this day trip. Now we cant really tell what goes on in the ones and zeros of the ai, but if I were a betting boy, I'd say that Kosovo is foaming at the mouth to take some cities off of the people who robbed them of their expansion room and citadeled them into oblivian. Its not to late for Kosovo, they just need to act fast, and maybe enlist the help of their Gaulish and Sicilian neighbors</p>"
   - scene_number: 36
     scene_title: "Chola"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene36.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene36.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>Pretty decent time to be Chola. The Bhutanical invasion has opened the gates for the Chola to use their more advanced army to aggress upon the city that splits them in twain, and none of their other neighbors are at war with them, so they can really focus on that breach. Further, the Bhutanese fleet is all triremes, against cities with 20+ Defense, which is a bit of an ask. The boys in yellow might make some solid gains next part if they can manage the terrain.</p>"
   - scene_number: 37
     scene_title: "Paraguay"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene37.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene37.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: South America continues to be a frustrating, baffling, bizarre continent - though in its collective incompetency, we are left with a continent in which it’s impossible to rule out any contender. Case in point, Paraguay, who are actually the first civ on the continent to two capitals - albeit through an incredible snipe of Tacna in a battle where the Mapuche pulled all the weight. It’s indicative of a civ whose military size and tech level surpasses their far larger neighbour, even as both stats massively trail those of a lower ranked civ on another continent (compare with Kosovo just a couple slides up!) A decent production also cements Paraguay's potential as the continent’s eventual unifier - but their weak point remains the same as it was in Episode 0, the same as it was in the 19th century, being situated in an unenviable position right at the continent’s flat centre, vulnerable to collapse from a single coalition. The sheer volatility of this civ’s prospects are a perfect microcosm of this strange continent.</p>"
   - scene_number: 38
     scene_title: "Marajoara"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene38.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene38.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: And as a perfect mirror of Paraguay’s tenacious fragility is the quiet menace of Marajoara, the continent’s tech leader and owner of its largest military, despite a measly production. They feel like a quiet civ, but they also have one of the region’s most glittering military records, having gained two cities (Panamá from Gran Colombia, Aqualtene from Palmares) without ever having their own cities so much as flip. A future in which P’kuee unites the Amazon basin doesn’t seem out of the question. But if this is part of a grand plan, there seems to be one factor left unaccounted for. As much as the Marajoara’s stats may be superlative on their own continent, they pale in comparison to the real superpowers of the world. And unfortunately, one has just turned up on their doorstep; the Vandals, who settled three cities in the Caribbean this episode, all within firing range of important Marajoara cities. We’ve seen many a transatlantic invasion in CBR history, but mostly they’ve been the other way round - Buccs, Brazil, Mk 1 Chile finding success in Africa. The Vandals look primed to reverse that trend - and first on the chopping block would be the coastal core of the Marajoara.</p>"
   - scene_number: 39
     scene_title: "New Netherland"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene39.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene39.jpg?format=webp&quality=80
     narration: "<p>Reformer:</p><p></p><p>If you ask me, the fumbling against the Neutrals is TOTALLY forgivable. I mean, look at that terrain! And besides, they were also being harassed by the Olmecs. It is completely understandable that they struggle a bit. </p><p></p><p>...says no one. I mean, look at the two civs mentioned: Neutrals and Olmecs, bottom of the barrel, no-good civs with no chance of winning anything ever, at this point. And though terrain and distance respectively explain some of the difficulty posed by the two civs, it is far from acceptable for a civ New Netherland’s rank to be practically losing against the Neutrals. Their expansion is nice, and their stats are, well, mediocre, but the scariest thing here by far is their war record. Their best war was the one that involved the capture Portmore, and that city was basically a burning husk by the time the New Netherlanders got around. It does not bode well for the inevitable clash against the juggernaut of the continent, the Mississippi, but maybe something can unexpectedly change. I feel like I’m betting on something unexpectedly changing way too much, though...</p>"
   - scene_number: 40
     scene_title: "Burkina Faso"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene40.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene40.jpg?format=webp&quality=80
     narration: "<p>Reformer:“So, you have chosen...death.”Hey again. It is unfortunately not terribly uncommon for a rump state to decide that joining a coalition against a far stronger neighbor is a good idea, only to find out that all (or almost all) other coalition members have no way of fighting the coalition target. This is the case with Burkina Faso and Tuareg: the only other civ capable of fighting Burkina Faso is Ptolemies, and for the time being, a lot of Ptolemies’ troops are busy ending Hejaz’s pathetic existence. This leaves Tuareg to basically die alone. But enough about Tuareg. Burkina Faso is in a tight spot, despite what the coalition war looks like right now. It is entirely realistic that this is merely the beginning - the coalition only assembled near the end of the part, after all. More civs may still be waiting to declare war, and those civs could include far more dangerous threats, such as the Nigerians. Vandals would likewise be a credible threat, but not quite as severe, at least in the short term. In the long term, the Vandals’ impressive production could be bad news. Still, if this is the extent of the coalition, Burkina Faso should be fine to take a city off Tuareg while at least stalemating the Ptolemies. </p>"
   - scene_number: 41
     scene_title: "Rio Grande"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene41.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene41.jpg?format=webp&quality=80
     narration: "<p>Rosay:After the disaster of that was the first couple of parts Rio Grande went through, I'd feel safe in saying that the nation is beginning to find its footing. After taking a city off of the Olmecs, Rio Grande inches its way to the top 20, while still having options. Not to mention the big bad Mississippi is beginning to look alot less scary with the stat gap shrinking, so Rio Grande doesn't have to be too cautious of pissing them off. Rio grande could take a page out of Bolivar's book and start going after their mooks of neighbors, like Jamaica and Tongva, which we all know they can beat in a war. There still is the underlying problem that stops Rio Grande from being great however, that being they can't really venture north right now, only south but hey one directional progress is better that no directional progress</p>"
   - scene_number: 42
     scene_title: "Mapuche"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene42.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene42.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>The Mapuche hold steady in 20th place, maintaining their position as the highest rated civ in South America for the second episode in a row. Their lands are finally starting to fill out and their stats are no longer horrible, so the position is increasingly justified. However, there are still signs of weakness. Paraguay is getting stronger every episode, and this week Solano Lopez sniped an all-important capital right out from under Lautaro’s nose, denying him a prize that could have caused us to bump him up a rank or two. Furthermore, Paraguay, Palmares, and Marajoara all have bigger armies than Mapuche, and Paraguay in particular could do a lot of damage if they wanted to. So despite the improvements, the Mapuche have a ways to go if they want their position as the South American leaders to become permanent.</p>"
   - scene_number: 43
     scene_title: "Northern Yuan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene43.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene43.jpg?format=webp&quality=80
     narration: "<p>Skies:Another part, another thirty turns of Northern Yuan doing nothi- wait, what? They did something? Finally, Mandukhai has stopped hibernating and actually noticed the vultures picking away at the extremities of her empire. Yes, Khovd fell to Japan, but you can get that back later. That said, their population is atrocious, as is their tech count. They have the opposite problem to Finland, fantastic production propped up by very, very mediocre stats everywhere else. I’ve always been low on Northern Yuan, but this war with Yuan and Japan could really show their true colors: either they’ll come roaring back into contention and prove that good AI can make up for bad gameplay, or they’ll peter out, flop over, and die to make way for the new kings of central Asia.</p>"
   - scene_number: 44
     scene_title: "Nigeria"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene44.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene44.jpg?format=webp&quality=80
     narration: "<p>MsurdejI wondered whether Nigeria was still doing well in tech after a few parts. It turns out they lost the top effective science, and they have a tech score of....34?! The next highest (Kulin), only have 32, and fellow African civs Zaire and The Vandals have 31. With cannons and muskets, Nigeria has a chance to  muscle in on its neighbor Burkina Faso. But if that chance is missed, and they remain focused on farther away conquests, Awolowo might find his empire a stepping stone for the larger, more productive Zaire.</p>"
   - scene_number: 45
     scene_title: "Lesotho"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene45.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene45.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>Lesotho is staring an hourglass in the face and daring it to flinch. Which isn’t too bad a state of being, not really: most civs in the cylinder currently have much greater worries on their minds than “will I get to pick apart this particular rump state or will somebody else do it for me,” and having such a worry is probably just something that comes with the territory of being a relatively well-off civ. But still: Zaire has been at war with Namibia since, what, the early Cretaceous period? And the going’s been slow, sure, but bit by painstaking bit Namibia’s wearing down. Rehoboth fell just this episode - it might take another few hundred centuries for Kactchanas to fall, but it will if Zaire stays as stubborn as they’ve been, and once that city goes down all the forests that have been impeding Zaire’s movement and enabling Namibian guerilla troops to this point will find themselves replaced by flat, featureless desert, scattered hills Namibia’s only remaining natural defense. And Lesotho could really stand to gain from taking some Namibian cities for themselves, given just how small and out of the way Zanzibar is and how increasingly outclassed they find themselves by their only competent neighbors. So, here they are. Watching an hourglass count down, and convincing themselves that one day the sand will stop falling and they’ll be able to collect. Not a terrible state of being, but not exactly one conducive to winning marks, either.</p>"
   - scene_number: 46
     scene_title: "Two Sicilies"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene46.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene46.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>Up five places: Two Sicilies! Reason: Pending. The Gauls showing once and for all that Germany was not, in fact, an unbeatable nation of immortal god-kings and skilled slayers of men but really rather ordinary has left Europe in a state of relative flux, yes, but the key to Two Sicilies is that they’ve never really been much of a part of continental Europe at all. There was the war with Kosovo, sure, and that was a whole barrel of laughs, but in terms of their approach to fighting and relevant neighbors they’ve more in common with the Vandals or Ptolemies than dyed in the wool future EU members like the bickering giants immediately above them. So, then, why the five spot rise? There might not be any single satisfactory answer, but there is this: Ferdinand’s military has been hitting the goddamn gym. It’s been great for parts now, sure, but now it’s within striking distance of being the world’s very best, third in the world and with legitimate claim to the title of the most terrifying navy in all the world’s oceans. Then again, the Vandals are second, and they’re a neighbor Ferdinand probably lies awake at night to thoughts of more often than not, so in all likelihood the closest thing to a single cause for the Two Sicilies’ meteoric rise is the deeply unsatisfying answer of their peers simply getting a little worse. Still, though, might as well flaunt this near-elite rank while you’ve got it.</p>"
   - scene_number: 47
     scene_title: "Chinook"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene47.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene47.jpg?format=webp&quality=80
     narration: "<p>Skies;Much like South America, this series’ North America is one of the best and most competitive we’ve seen. That said, that doesn’t always mean good things for its civs. The Chinook could very easily have been a frontrunner in past games, but unfortunately for them, Rio Grande, the New Netherlands and especially Mississippi have all been very effective, and even the expected minnows of Tongva and Dene have shown up. It’s not like Comcomly couldn’t take either of his two smaller neighbours, outside interference notwithstanding, but the fact remains the Chinook have to move soon, lest some of the other players get there first. With the Chukchi at their back as well, and being another civ showing off some excellent performance, the whole region is very up-in-the-air. Stats-wise, they’re almost exactly even with the Mississippi, so they’re still passing a basic benchmark.</p>"
   - scene_number: 48
     scene_title: "Kulin"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene48.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene48.jpg?format=webp&quality=80
     narration: "<p>Random Strategy:I hope you weren't holding any kulin stonks, because they're this part's biggest loser! There is one reason for this: Malacca, who this episode went from looking like this mark’s Sulu to doubling their city count and are now serious competition for the region. The Kulin did also declare war on Malacca, hoping to catch them while they were distracted with Punjab but unfortunately that was not to be: Malacca had unlocked their caravel UU which is stronger than any of the Kulin's medieval ships. Using them, they have even turned the war around and started flipping Koolaroo! Now it's not a total disaster because Malacca won't be able to hold into Koolaroo (badly timed peace deal notwithstanding) and the Kulin still have better stats than Malacca, which means in a future war, (one in which the Malacca aren't powerspiking with a beeline to their UU), the Kulin should be every so slightly favoured. Oh also the Kulin declared war on Tahiti but don't seem to care too much about it.</p>"
   - scene_number: 49
     scene_title: "Taiping"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene49.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene49.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: Just as the Power Rankers had started to broadly agree that they were terrifying, Taiping had a deeply humiliating episode, collapsing to Malacca’s superior navies and hurtling out of the top 10. Hong Xiuquan need not man the panic stations just yet, though. Taiping’s archipelago holdings could have been a nice launching pad to pinsir Malacca or maybe even aggress Kulin, but they were only one of many eggs in a basket. Malacca currently lacks the land forces to launch any serious attack on the Taiping core, and Hong still has plenty of bordering rumps to incorporate into his Heavenly holdings - Bhutan, Laos and Yuan would all be relatively simple invasions. The ceiling’s still high, even if Taiping aren’t the unthreatened fortress we thought they were last ep.</p>"
   - scene_number: 50
     scene_title: "Uzbekistan"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene50.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene50.jpg?format=webp&quality=80
     narration: "<p>Knot:The Uzbeks continue to be a wildcard on the cylinder. They peaced out with PARG this part leaving the war in about as strong a position as they entered. Heck maybe a stronger position. They didn’t really walk away with anything major, but they spotlighted a surprisingly level of doofyness in the PARG’s tactics, and a decent amount of competence in their own tactics (though they could do without burning all their captures.) They’re still surrounded by a lot of scary powers, but at the moment they continue to hold their own.</p>"
   - scene_number: 51
     scene_title: "Chukchi"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene51.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene51.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>While the Hawaiian campaign may have failed, the Chukchi have gained solid ground in Korea (even if they are burning that ground in the process) and have all-around solid stats, particularly scientifically. Bois got guns. Further, they’ve got pretty weak neighbors- Manchu, as established, but also their current friends Japan and prior victim the Chinook could all fall to them pretty easily. This is to say nothing of their strong naval position- if they actually committed to it, Hawaii would actually be in their reach. World’s their oyster, all they need to do is start taking (and not burning) it.</p>"
   - scene_number: 52
     scene_title: "Zaire"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene52.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene52.jpg?format=webp&quality=80
     narration: "<p>Rosay:Ok as the guy who has consistently ranked Zaire the highest, I would like to say that Zaire is being slept on. You see Zaire has some of the best stats in Africa, and unlike in a region like South America, that's actually a possible game winning feat. Not to mention that they out class all of their neighbors in one way or another. Going down the line from actual threats to non issues, the Ptolmies are hella distracted right now, the Vandals are good sure but they have no way of putting down Zaire, Burkina Faso and Nigeria have no where near the production needed to keep up an extended conflict with the nation, the only way Lesotho can truly expand is through Zaire(which Zaire also out classes), and the rest are rumps. Hell Zaire is even active, taking Namibia as we speak. Id honestly say that these bad boys are one of my favorites to win it all</p>"
   - scene_number: 53
     scene_title: "Germany"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene53.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene53.jpg?format=webp&quality=80
     narration: "<p>Rosay:Despite showing a dominating display against iceland, and an honestly mediocre display germany drops a whole SEVEN rankings from the previous part, why is that? Well turns out going into all the wars at once might just leave you exposed to any competent power to destroy you in one go. A quick look at the German borders shows that literally any high tier power could take a slice out of the German empire, primarily the USSR, which is on the verge of being a true power. Its not just the Russians either, as several states near Germany can do some serious damage. The Gauls could initiate a round two against the Germans whenever the hell they please, Two Sicilies is a high tier civ trapped in a top tier region needing their breakout moment, hell even Kosovo and Sweden could take some potshots off of Germany. Honestly, the war with Iceland is just one giant distraction that may cost the Germans, so they should just peace out and defend their core.</p>"
   - scene_number: 54
     scene_title: "Gauls"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene54.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene54.jpg?format=webp&quality=80
     narration: "<p>Random Strategy</p><p>MASSIVE SUCCESS! Now last week, I noted that the Gauls had a slight advantage on land thanks to researching knights before Germany (even though Germany has higher tech) but a very large disadvantage at sea. Both of those swung in the Gauls favour! Not only did they liberate Vienna, but the German navy was shot down by composite bowmen stationed in Britain and were unable to capture any cities other than Cenabum (which was doomed to fall anyway)! Military victories by the underdog are always great to see and this greatly improves the Gauls prospects moving forwards. However, it should be noted that Germany is still bigger than the Gauls by a significant margin so still possesses the advantage. Moving forwards, the Gauls can kill Spain if they want, or move north against Iceland.</p>"
   - scene_number: 55
     scene_title: "Ptolemies"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene55.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene55.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>If any other civ invaded their technologically stifled but massive neighbor with an army that had the potential to take large swaths of territory, they would absolutely be seen as the undisputed top dog of their continent. Unfortunately, the Ptolemies declared war on Hejaz the same part that Zaire ramped up their demolition of Namibia & the Vandals decided to start poking civs in South America. Life’s pretty unfair for Cleopatra. Now instead of this being a moment where she could distinguish herself as the strongest civ in Africa, she kinda has to win the war just to keep pace with her neighbors’ exploits. </p>"
   - scene_number: 56
     scene_title: "Mississippi"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene56.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene56.jpg?format=webp&quality=80
     narration: "<p>LonelyRS</p><p></p><p>Just another quiet part for the Mississippi… which, naturally, means they pumped out cities like mad, threw them down in uncaringly in spots which, suspiciously, just happened to be where they’d set old ones to the torch, and all in all found themselves retreading old ground with none of the problems that led to their losing that land the first time fixed at all. That’s just what you’re going to get, with the Mississippi, an empire seemingly more devoted to simulating the Big Bounce theory of the universe’s origin than it is devoted to armies, or conquest, or letting their citizens feel joy more than once every nine years. Naturally, they’ve found themselves stumbling into a spot as a major contender anyways, because everyone below them is somehow even less suited for the role. And, really, when you’re that big, with that many cities and in such a small pond, you can get away with a few oscillatory delusions here and there…</p><p></p><p>Though, perhaps, it would behoove the Mississippi to start paying attention to the Pacific Northwest anyways. Chinook may not have done a whole lot to deserve their place as a major American power, but stats-wise they and the Mississippi have found themselves in a dead heat, and if it weren’t for the neighboring Chukchi maybe the salmon fishers’d find themselves atop North America for a change. Something to keep an eye on, while the Mississippi idle away their time in the way they do best.</p>"
   - scene_number: 57
     scene_title: "PARG"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene57.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene57.jpg?format=webp&quality=80
     narration: "<p>Reformer: Well, at least the embarrassment of a war against the Uzbeks is finally over. Now, PARG can instead fight an enemy that can’t reach them, all the way over in Punjab. PARG’s barely existent army is much better situated for fighting on tiny, limited fronts between mountains. Because seriously, where are all the units? What kind of superpower or regional power do you think you are? One that loses wars, apparently. My confidence in them has absolutely sunk, despite how well I know that civs can prove themselves better later on. As long as PARG can retain their amazing stats and vast empire, they should be fine to...I don’t know, bang rocks together? Just, don’t take too long, alright? The USSR are doing even better on the other side of the Perm, so get yourself together, man. We’re all rooting for you. You can do it. I believe in you.</p>"
   - scene_number: 58
     scene_title: "Vandals"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene58.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene58.jpg?format=webp&quality=80
     narration: "<p>Knot:</p><p></p><p>Uh, y’all, the Vandals are terrifying. Like I thought they were just another fine powerhouse in the sea of fine powerhouses that is Africa, but have you seen what they’ve been doing? They’re posturing towards civs on another freaking continent? And South America does not have the tools to stop them. It’s South America for crying out loud. I’m starting to fear what happens when the Vandals actually get the tools for transatlantic invasion. Remember how everyone felt about Uruguay in Africa from CBRX 1? What if that happens in South America, but then the Vandals keep going? I am not prepped to start considering world powers this early in the game. Be afraid.</p>"
   - scene_number: 59
     scene_title: "USSR"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene59.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene59.jpg?format=webp&quality=80
     narration: "<p>Altima</p><p></p><p>Despite doing nothing this part, Russia rises to rank three as a result of the general shake-up of the top ten and also having admittedly exceptional stats. Don’t celebrate this too hard though, wouldn’t want to wake Lenin from his nap.</p>"
   - scene_number: 60
     scene_title: "Malacca"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene60.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene60.jpg?format=webp&quality=80
     narration: "<p>Lacsirax: Welcome to the overhyped club, Malacca! Enjoy your time here, because you never know how short a stay it might be. In fairness, Mansur Shah has done far more to earn a place here than previous attendees Mandukhai and Thomas Sankara. Our previous concerns for the future of the promising Malaccans came down to two strong neighbours. But Mansur has made a mockery of both of them at the same time, obliterating Taiping’s island holdings while laughingly batting away an attempted Kulin invasion, decimating their mainland city of Coolaroo in the process. So that’s it, right? They’re unstoppable! Well… there’s one major caveat in all of this. These incredibly successful wars have all been fought on the high seas, in an era where their powerful UU, the Jong, rules the waves. But with all but three of their cities on islands, their prospects in a land war remain more unclear. Their only borders are runts like Vietnam and VOC, so the threat of invasion is negligible, but they will need to prove their worth on dry land before their status as top dogs of East Asia is assured.</p>"
   - scene_number: 61
     scene_title: "Punjab"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene61.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr7-scene61.jpg?format=webp&quality=80
     narration: "<p>Cloudberg:</p><p></p><p>Punjab remains an uncontroversial first place pick for the fourth episode in a row, which now means they’ve now been in the top spot for fully half the season. The reasons are, of course, manifold: they still have the best overall stats, now including the highest production of any civ (thanks Germany), as well as the second post cities and a military that could give anyone else on the cylinder a run for their money. However, Ranjit Singh has now been pretty quiet for several episodes, and if he wants to avoid being surpassed by more active empires, he had better wake up and start declaring some major wars.</p>"
 ---

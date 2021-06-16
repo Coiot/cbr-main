@@ -7,11 +7,11 @@ release_date: 'October 31, 2017'
 audio_narration: https://youtu.be/80zuQxeesmg
 edition: Mk2
 date: 2017-10-31T00:00:00.000Z 
-image: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene01.jpg?format=webp&quality=80
   narration: Welcome back, followers of Nebuchadnezzar, to the r/civ Battle Royale!
     I’m /u/TechnostarBTD5, resident Power Ranker and long-time fan of this sub, and
     I will be guiding you through this installation of the Civ Battle Royale Mk. 2.1.
@@ -19,18 +19,18 @@ scenes:
     /u/arcticwolffox. Et tu, Trungs?
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene02.jpg?format=webp&quality=80
   narration: As always, we have our excellent map by /u/Spherical_Melon. Aside from
     Boer gains in Arabia, note the disappearance of several more white splotches.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene03.jpg?format=webp&quality=80
   narration: We power rankers did not have a hard time choosing the Boers as our top
     pick this week. Their strong showing against Vietnam so far has shown that they
     still have a lot of expansion prospects, something many other top civs lack.
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene04.jpg?format=webp&quality=80
   narration: Pasargadae is back in Vietnamese hands, but the Boers have a mech artillery
     and robot infantry lined up to recapture the city. For now, Skynet has ordered
     the Boer forces to siege Gyumri while the Vietnamese defenders scramble to reinforce
@@ -39,47 +39,47 @@ scenes:
     armor from taking Hebron.
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene05.jpg?format=webp&quality=80
   narration: Vietnam has also recaptured Baghdad, though it looks to be only a matter
     of time before the Boer forces around the city secure it once more. Meanwhile,
     Batticaloa breathes a sigh of relief as its Afghani peacekeepers show no sign
     of leaving.
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg?format=webp&quality=80
   narration: While the Boers have annihilated all traces of the Vietnamese navy from
     their home waters, their own navy is holed up in the Red Sea. According to Skynet,
     the official reason is to protect embarked units on their way to Vietnam, but
     the missiles loaded on the cybersubs and arsenal ship suggest otherwise.
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene07.jpg?format=webp&quality=80
   narration: Vietnamese South India seems to have repelled the Boer invaders, though
     two cities are still severely bombarded. I am sure this region is breathing a
     sigh of relief right now.
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene08.jpg?format=webp&quality=80
   narration: While Vietnam’s core is certainly impressive, the shortage of Vietnamese
     land units show that this state of constant war can eat up even Vietnam’s reserves.
     There are now more Kimberly units in Vietnam’s core than Vietnamese units.
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene09.jpg?format=webp&quality=80
   narration: The Australian navy, after extorting war reparations from the Buccaneers,
     seems to be pulling back for the time being. Kudos to Parkes for actually putting
     planes on those carriers – perhaps Morgan made peace after seeing those superior
     tactics for himself.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene10.jpg?format=webp&quality=80
   narration: Sri Lanka has formed a declaration of friendship with Vietnam, forestalling
     their fate for 50 turns more. Though considering how Vietnam turned on even their
     dearest friend Tibet, Sri Lanka might not be as safe as the Trungs have led them
     to believe.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene11.jpg?format=webp&quality=80
   narration: Wait, what is this? A barbarian carrier? It seems as though the hiatus
     has given the Autonomous Revolutionary Regiments (Buccaneers) too much authority,
     and one has turned rogue after ending its turn in Inuit waters. As far as I know,
@@ -87,25 +87,25 @@ scenes:
     unit – before the hiatus, this never happened.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene12.jpg?format=webp&quality=80
   narration: M’banza-Kongo and many other Boer cities finally seem to be recovering
     from the Great Starvation. The Boer military certainly is. Compared to the Inuit
     forces seen last slide, the Boers are slightly less carpeted but just as scary.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene13.jpg?format=webp&quality=80
   narration: Brazil has invested wholeheartedly in the Texan war, sending a full division
     of units to Laredo – accompanied by no less than 2 advanced destroyers. It seems
     Pedro has finally had enough of Sam Houston.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene14.jpg?format=webp&quality=80
   narration: The situation in the Gulf of Aden has not changed much since we last
     saw it, though Baghdad is in Boer hands at the top of the screen. Batticaloa is
     just as healthy as usual, however…
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene15.jpg?format=webp&quality=80
   narration: As we pan north, we see a striking change in the Middle Eastern frontlines.
     Sweden snags Hebron, reducing Exclavia to a 3-city rump on par with Armenia. The
     Boers snag Gyumri and Pasargadae, while Vietnam captures a pointless city in the
@@ -114,7 +114,7 @@ scenes:
     free of damage.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene16.jpg?format=webp&quality=80
   narration: Aside from Carrollton’s flip, the other thing to note on this slide is
     the suspicious number of pillaged improvements outside of Merv. While we cannot
     see the fallout directly, I can assume Vietnam quickly retaliated against Kuchum
@@ -122,7 +122,7 @@ scenes:
     saved many lives in the metropolis.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene17.jpg?format=webp&quality=80
   narration: The Mongolian exclaves are a quiet place in the cylinder… for now. Korea
     still has not built up much of a land carpet, though considering their open borders
     treaty with Mongolia, they might not need one for a while. Alas, passiveness is
@@ -130,14 +130,14 @@ scenes:
     fast if he wants to stand a chance.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene18.jpg?format=webp&quality=80
   narration: It seems the Icelandic Isles are hosting a party for green nations. Brazil,
     Vietnam, and Australia have all been invited to attend. The Trungs even decided
     to take a break from fighting the Boers to show up. A lone Swedish advanced destroyer
     watches on, hoping against hope that Iceland remains as passive as ever.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene19.jpg?format=webp&quality=80
   narration: The Australians have the largest military on the cylinder, and it shows
     here. Every land tile and most naval tiles have a unit on them, making Australia
     by far the largest nation to have a full carpet. If they so chose to deploy this
@@ -145,100 +145,100 @@ scenes:
     it is for the AI to fight in Indonesia, perhaps it won’t be.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene20.jpg?format=webp&quality=80
   narration: Mongolia has agreed with Hawaii that they really need to catch up in
     tech, giving us a shot of Mongolia’s core. Mongolia has a carpet for sure, though
     what’s more incredible is that the Australian carpet reaches all the way out here.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene21.jpg?format=webp&quality=80
   narration: The Jaws theme starts playing in the background as the Brazilian fleet
     approaches their hapless victim. A lone Hawaiian peacekeeper stands between Texas
     and total annihilation, though do they have what it takes to protect all of Laredo?
     Definitely not.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene22.jpg?format=webp&quality=80
   narration: Brazil certainly has done a much better job than the Buccs at militarizing
     the northern Amazon, though the Buccaneers have done their best to fortify what
     parts of the coast they still control.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene23.jpg?format=webp&quality=80
   narration: Since we last saw this area, the Boers have swept clear most of the Vietnamese
     defenders around Gyumri and forced Vietnam to retreat to Artashat. In the background,
     Carrollton flips again and the 1000 residents still living in the city complain
     about having to change their flags yet again.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene24.jpg?format=webp&quality=80
   narration: Vietnam is making another push towards Pasargadae, though given the rough
     parity between the two sides in the region, it is likely to flip again. As the
     war stands, both sides are struggling to reinforce this bloodbath, as both the
     Arabian and Persian deserts remain void of units.
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene25.jpg?format=webp&quality=80
   narration: Speaking of bloodbaths… Nishapur is in Siberian hands, while Bamda is
     flying Vietnam’s colors. Though since these things change as quickly as the weather,
     it’s anybody’s guess who will control what at the war’s end. The Australian peacekeepers
     watch in vain as their efforts are ignored.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene26.jpg?format=webp&quality=80
   narration: Korea’s land military might not be all that impressive, but these 10-stacks
     of stealth bombers are downright terrifying. That 9-stack in Turfan is likely
     the same or similar composition. If only the AI would use their planes for bombarding
     units as well as cities!
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene27.jpg?format=webp&quality=80
   narration: I may be mistaken, but Hoi An’s whopping 45 population may just be the
     largest in the cylinder after the Great Starvation. However, this shot of their
     core also reveals that the unit shortage extends to the rest of Vietnam, not just
     the parts we’ve seen.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene28.jpg?format=webp&quality=80
   narration: Our spies have reported in from the Order of the Rump, and up first is
     Armenia. Yerevan is hard at work building an infantry, a unit that the Armenian
     military sorely needs.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene29.jpg?format=webp&quality=80
   narration: Up next is Hawaii. This island paradise still has plenty of food to spare,
     though the population is likely to cap at 43 without Future Worlds buildings.
     Naturally, Hawaii is building another peacekeeping unit to promptly send abroad.
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene30.jpg?format=webp&quality=80
   narration: The defenders of Laredo struggle to put together a defense against the
     approaching Brazilian navy, though one extra anti-aircraft gun will merely buy
     Sam Houston a bit of time to flee with whatever units of his remain.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene31.jpg?format=webp&quality=80
   narration: In the Blackfoot capital of Siksikawa, the air force has ordered another
     bomber to be constructed to supplement their overflowing land carpet. If this
     was the modern era, it would be a sight to behold. Alas, the Blackfoot carpet
     pales in comparison to the glacier surrounding them.
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene32.jpg?format=webp&quality=80
   narration: The Buccaneers are building a VR training center in Port Royal, probably
     based on some stolen Boer technology near their last African colonies. The 26
     citizens in the city bode well for Henry Morgan, especially since his capital
     was nuked just before the hiatus.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene33.jpg?format=webp&quality=80
   narration: It seems Morgan had a purpose in mind for that training center. Our spies
     report that the captain is sending a sneak attack towards another civ. It remains
     to be seen whether or not that’s a good idea, but considering how powerful the
     nations around the Buccaneers are, it’s probably not.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene34.jpg?format=webp&quality=80
   narration: While Vietnam flipped Pasargadae yet again, the Boers are on Artashat’s
     doorstep. If Vietnam cannot reinforce this front, Persia proper could be in danger.
     While Skynet’s algorithms may struggle with the imposing Iranian mountains, the
@@ -246,13 +246,13 @@ scenes:
     the screen down to 1 HP every turn.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene35.jpg?format=webp&quality=80
   narration: Our spies have been dispatched to a new set of cities, ranging in importance
     from the powerful Brazilian and Australian empires to one of the few Exclavian
     cities left.
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene36.jpg?format=webp&quality=80
   narration: Sweden is taking their sweet time rebuilding their land army, and here
     we see why. Even though every city here is out of resistance, Sweden has barely
     annexed half the cities in this image. While what we see here might just be enough
@@ -260,7 +260,7 @@ scenes:
     Finland was.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene37.jpg?format=webp&quality=80
   narration: Though then again, Iceland has more pressing matters to worry about.
     While the land forces in this area are obviously in the Inuit’s favor, don’t count
     on the Icelandic navy either. The Inuit have nearly twice as many useful ships
@@ -268,14 +268,14 @@ scenes:
     Vinland, Iceland could quickly lose their North American holdings.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene38.jpg?format=webp&quality=80
   narration: At last, we have found the Boer navy. A noticeable chunk of their fleet
     has been sent to Antarctica – either for a training exercise or to intercept those
     Vietnamese ships to the northeast. Meanwhile, Hawaii signs yet another research
     agreement, acknowledging the need for technological equality across the cylinder.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene39.jpg?format=webp&quality=80
   narration: "Blood pools in the water outside of Laredo. The last Texan defenders
     stare in vain as their city is overwhelmed by the Brazilian navy.  The last Texan
     Great Musician rides off into the sunset, a lone rider disappearing over the horizon.\nSam
@@ -294,35 +294,35 @@ scenes:
     pride. Press F to pay respects."
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene40.jpg?format=webp&quality=80
   narration: 'As we slide to the north, we see a strange sight in Blackfoot lands:
     a significant number of Australian units. The lands around these parts belonged
     to ‘Straya not too long ago. It seems like Henry Morgan is applying Putin’s strategy
     towards lost land: occupy it “peacefully” until it becomes yours again.'
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene41.jpg?format=webp&quality=80
   narration: Just where are the Kimberley going? If I didn’t know better, I would
     have assumed they were trying to invade Vietnam. Thankfully for the Kimberley,
     that is not the case. We are left to wonder what exactly Jandamarra is trying
     to do with this navy.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene42.jpg?format=webp&quality=80
   narration: Pasargadae has flipped back into Boer hands, and this time, Kruger has
     personally ordered a division of reinforcements to secure the city. To the north,
     Artashat still hasn’t fallen, though the Vietnamese force around the city has
     all but evaporated.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene43.jpg?format=webp&quality=80
   narration: An Australian biodrone and a Siberian biotrooper defend the mountain
     pass outside of Nishapur from some Vietnamese paratroopers, though Vietnam is
     throwing much less units into this meatgrinder as they were before. Is the Vietnamese
     carpet finally exhausted?
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene44.jpg?format=webp&quality=80
   narration: If there’s any relief for Vietnam, Sibir’s core looks much, much worse.
     The few biotroopers Sibir can produce are immediately sent to the front lines
     to try and defend any gains they make. There is no room for other units in their
@@ -330,21 +330,21 @@ scenes:
     SAM.
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene45.jpg?format=webp&quality=80
   narration: Now we know why Dvin had to go. The Boers have sent a sizable fleet into
     the Eastern Mediterranean to defend the massive air force attacking Vietnam. Kruger
     has even ordered some carriers to the region to house more planes. At long last,
     a use for these floating strips of asphalt!
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene46.jpg?format=webp&quality=80
   narration: The last Texan civilians attempt to flee from Brazil as their military
     escorts are wiped out. Meanwhile, Brazil has established Laredo as a naval base.
     Now that Brazil has finally learned the powers of the navy, where will they look
     next?
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene47.jpg?format=webp&quality=80
   narration: This glance at the southern Inuit Empire reveal something telling. San
     Antonio and the other great metropolises of the region have been hard-hit by the
     Great Starvation. Dallas is the only city above 30 population in this slide. At
@@ -352,21 +352,21 @@ scenes:
     in the empire with the infamous AI ring of garrison units.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene48.jpg?format=webp&quality=80
   narration: The Australian navy, after forcing the Buccaneers to finally make peace,
     are retreating back along the Brazilian coast to the lands from which they came
     with their missiles and airplanes in tow. Brazil’s core is less militarized than
     it should be, so Australian troops have room to take a vacation in their lands.
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene49.jpg?format=webp&quality=80
   narration: Wow, that is a lot of workers. It seems like Kruger wishes to improve
     every single tile he can lay his hands on. Considering the newfound abundance
     of hydroponic domes in the Sahara, they seem to be doing their job with the efficiency
     we expect from Boer workers.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene50.jpg?format=webp&quality=80
   narration: Back in the Arabian Peninsula, the fighting is as intense as ever. Several
     Boer cities are down to 1HP, but Vietnam lacks the melee units to capture them.
     To the dismay of the Boer worker horde (or to their delight, depending on how
@@ -374,19 +374,19 @@ scenes:
     the tile improvements in the region.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene51.jpg?format=webp&quality=80
   narration: Somehow, Artashat has not fallen, but the Boer forces are steadily marching
     across the Fertile Crescent. To the north, Vietnam flips Carrollton yet again,
     though Siberian biotroopers on its doorstep will surely recapture it soon.
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene52.jpg?format=webp&quality=80
   narration: And now to our favorite mountain meatgrinder, where Nishapur is close
     to flipping yet again. Will Vietnam overcome the Australian defense and take the
     city? Only time will tell.
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene53.jpg?format=webp&quality=80
   narration: Korea is slowly looking more and more like Australia as Henry Parkes
     sends more spare units to the region. Somehow, a large number of those units are
     diggers, even though Australia has reached the end of the tech tree. Korea had
@@ -394,14 +394,14 @@ scenes:
     place their units!
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene54.jpg?format=webp&quality=80
   narration: Close to our submarine, we take a glance at the Brazilian outpost of
     Iquique. While their technological development may seem scary if we Babylonians
     want to remain secret, if the Boers didn’t discover our existence, Brazil surely
     won’t.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene55.jpg?format=webp&quality=80
   narration: A lone Texan battleship marvels in awe at the sheer size of the Australian
     navy, marking a new beginning in the era of refugee units. Before the hiatus,
     we had many of these lost units floating at sea, though now they are merely the
@@ -409,7 +409,7 @@ scenes:
     this new era, one where lost civilizations once again roam the seas.
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene56.jpg?format=webp&quality=80
   narration: Turning our eyes towards the Australian core, we see an impressive medley
     of units. Hovertanks, biotroopers, Giant Death Robots, robotic infantry, chimeras,
     biodrones and more – if it exists and is not obsolete, Parkes has them. There
@@ -417,81 +417,81 @@ scenes:
     the mix.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene57.jpg?format=webp&quality=80
   narration: While Indonesia has fewer ships than the Australian core, every Australian
     land tile in this image is filled with some sort of unit. If they were to declare
     war on Vietnam, Australia could break the long stalemate and finally secure a
     foothold in Asia.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene58.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene58.jpg?format=webp&quality=80
   narration: If war did break out between these two, the real battleground would be
     China, not Indonesia. The Australian expeditionary force has militarized just
     about the entire Korean border, and the stream of units shows no sign of stopping.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene59.jpg?format=webp&quality=80
   narration: Compared to China, Korean Yakutia is almost devoid of units. Even Mongolia
     appears to have land superiority over Korea here, though the cities’ combat strengths
     are nothing to scoff at.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene60.jpg?format=webp&quality=80
   narration: And now for a look at Mongolia. They have a full carpet but the units
     are simply subpar. Unless they invest heavily in tech, they will struggle to expand
     even with the weak neighbors that they have.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene61.jpg?format=webp&quality=80
   narration: Here lies Nedong, the most improbable city on the cylinder. Once founded
     by Tibet in the aftermath of the bloody Finno-Sibir war, Nedong was quickly made
     into a Siberian exclave. Now, it is surrounded by Sweden.
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene62.jpg?format=webp&quality=80
   narration: 'Carthage sticks out like a sore thumb in Boer North Africa, though given
     the friendly relationship between these two powers, a Boer stab seems unlikely
     in the near future. Iceland can continue doing what Iceland does best: controlling
     capitals.'
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene63.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene63.jpg?format=webp&quality=80
   narration: Speaking of capitals, Rome is surrounded by a concentration of forces
     usually not seen on the European continent. Iceland seems to be guarding their
     possessions jealously.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene64.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene64.jpg?format=webp&quality=80
   narration: Continuing our tour of Iceland, we take a stop in Iberia to check out
     the situation there. Both parties seem to have a rough parity in the region, though
     neither side has invested much in militarizing the peninsula.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene65.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene65.jpg?format=webp&quality=80
   narration: Ireland is green as always, though this time, it is due to a small platoon
     of Australian units sent to Europe. They should consider themselves lucky – few
     Aussie units get to see that distant continent.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene66.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene66.jpg?format=webp&quality=80
   narration: On our last stop before the InfoAddict slides, we see Icelandic Greenland.
     I feel that name describes it well – despite the icy snow cover, Icelandic workers
     have covered much of the island in the green of hydroponics domes.
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene67.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene67.jpg?format=webp&quality=80
   narration: Onto the InfoAddict slides! Here we see a graph of military strength.
     Vietnam’s supply of units continues to be exhausted, though for the first time
     since the hiatus, the Boers have eclipsed Australia in military might.
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene68.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene68.jpg?format=webp&quality=80
   narration: Here we see the net income of the world’s nations. The Boers are clearly
     on top, though the poor nation at the bottom is most likely Exclavia. You’ll see
     why I say that in a few slides.
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene69.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene69.jpg?format=webp&quality=80
   narration: The Boers lead the pack in production as always, though the Inuit, Vietnam,
     and Australia are working to catch up. Farther down the list, Brazil, Iceland,
     Korea, and Sibir all have roughly equal amounts of production that they are using
@@ -500,51 +500,51 @@ scenes:
     cities integrated quickly, Gustavus!
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene70.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene70.jpg?format=webp&quality=80
   narration: This graph shows the dramatic effects of the Great Starvation. The sudden
     drop in world population is all too apparent here, though the nations of the cylinder
     seem to be recovering as they build Future Worlds buildings in more and more cities.
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene71.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene71.jpg?format=webp&quality=80
   narration: We saw the Buccaneer deals last part, though its significance cannot
     be overstated. With this deal, Henry Morgan managed to escape the war without
     giving a city back to Parkes, which is quite the victory for him.
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene72.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene72.jpg?format=webp&quality=80
   narration: Australia seems to be getting all the gold they can from these peace
     deals. This combined with the Buccaneer’s peace treaty gives Australia more than
     2000 extra GPT, though considering the number of diggers in the Australian core
     alone, Parkes does not seem eager to use it.
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene73.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene73.jpg?format=webp&quality=80
   narration: And this is why Exclavia is so far in debt. Even though they have no
     way to pay, they are still obliged to pay Kruger almost 1900 GPT. At least they
     only have to deal with it for 10 turns longer.
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene74.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene74.jpg?format=webp&quality=80
   narration: Organized religion is finally regaining a foothold in this pot-hiatus
     world. Boer Lutheranism is the most prolific, though Arianism and Catholicism
     are still spreading healthily as well.
 - scene_number: "75"
   scene_title: 75
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene75.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene75.jpg?format=webp&quality=80
   narration: And here’s the religion map. Take note that Catholicism is spreading
     healthily in both Korea and Sibir, though its Australian founders have not done
     much to spread it to the rest of their empire.
 - scene_number: "76"
   scene_title: 76
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene76.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene76.jpg?format=webp&quality=80
   narration: And now for a bonus shot of the Canadian Archipelago. What’s startling
     in this image is that the two halves of the Inuit Empire are still not connected
     by rail. They must rely on shipping in the Northwest Passage to get supplies to
     the south.
 - scene_number: "77"
   scene_title: 77
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene77.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part90-scene77.jpg?format=webp&quality=80
   narration: |-
     We wrap up this part with a shot of the Inuit core, one of the most impenetrable fortresses in the cylinder. Only the Boer core and Australian mainland look tougher to conquer. Will we eventually see the day when even these lands are touched by war? Only time will tell!
     This has been an interesting part to narrate. We saw the final days of Texas, while Vietnamese forces are starting to feel the power of attrition. This has been /u/TechnostarBTD5, signing off. See you in the power rankings!

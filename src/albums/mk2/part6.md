@@ -7,11 +7,11 @@ release_date: "August 30, 2015"
 audio_narration: https://youtu.be/o23KakENiWU
 edition: Mk2
 date: 2015-08-30T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg?format=webp&quality=80
 scenes:
   - scene_number: "1"
     scene_title: 1
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene01.jpg?format=webp&quality=80
     narration:
       "Welcome back to the /r/Civ 60+ Civ Battle Royale Mk. II | Part 6! Today
       we‘re having /u/DemosthenesKey do the narrations. Don’t forget to ignore work
@@ -19,7 +19,7 @@ scenes:
       easily found on the MEGATHREAD: http://redd.it/3gkegn"
   - scene_number: "2"
     scene_title: 2
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene02.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene02.jpg?format=webp&quality=80
     narration:
       "Take a moment to soak in this lovely map made by SylonL (with cities
       added by LacsiraxAriscal), showing the state of the world as it was at the end
@@ -32,7 +32,7 @@ scenes:
       by/u/cr42yr1ch.
   - scene_number: "4"
     scene_title: 4
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene04.jpg?format=webp&quality=80
     narration:
       Japan holds a perilous position still. While their main island is defensible,
       and somewhat unlikely to fall to the dragon of China or the magpie of Korea (did
@@ -42,7 +42,7 @@ scenes:
       fate.
   - scene_number: "5"
     scene_title: 5
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene05.jpg?format=webp&quality=80
     narration:
       God, I’d love to live in the islands of Hawaii. It just seems… nice.
       Look at all those composite bowmen! Now that’s what I call job security. As they
@@ -52,7 +52,7 @@ scenes:
       Eastern Lands that they conquer first, as we see....
   - scene_number: "6"
     scene_title: 6
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg?format=webp&quality=80
     narration:
       "… Here. Hawaii wants that sweet American soil. They’re not alone in
       this, of course, it’s just that most of the inhabitants want it all for themselves.
@@ -61,7 +61,7 @@ scenes:
       them again?"
   - scene_number: "7"
     scene_title: 7
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene07.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene07.jpg?format=webp&quality=80
     narration:
       Here we see the Pirates Who Don’t Do Anything in their natural habitat
       - jungling, with plenty of rum to take mid. Bucs OP, pls nerf. I assume I am not
@@ -69,7 +69,7 @@ scenes:
       Caribbean. No? No. Good.
   - scene_number: "8"
     scene_title: 8
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene08.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene08.jpg?format=webp&quality=80
     narration:
       The pressure builds. Not the Melbourne method, Johnny! That one took
       hours! And will likely take hours more as Whanganui-a-Tara’s territory starts
@@ -78,7 +78,7 @@ scenes:
       But as Dracula said to Dooku - I wouldn’t count on it.
   - scene_number: "9"
     scene_title: 9
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene09.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene09.jpg?format=webp&quality=80
     narration:
       "Speaking of Australian settlers, looks like one cheeky bloke is trying
       to sneak past the aborigines here. Where he thinks he’s going I have no clue,
@@ -90,7 +90,7 @@ scenes:
       the Sunshine Coast."
   - scene_number: "10"
     scene_title: 10
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene10.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene10.jpg?format=webp&quality=80
     narration:
       "Egypt/Sparta vs Byzantium: Spartzantium Harder relaunches as Egypt’s
       triemes try some potshots at the Kommenos fleet, and David sends out missionaries
@@ -98,7 +98,7 @@ scenes:
       the Armenians to his kid Absalom’s bar mitzvah. No one comes."
   - scene_number: "11"
     scene_title: 11
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene11.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene11.jpg?format=webp&quality=80
     narration:
       "Now that Sparta and Egypt have both declared on poor Alexios, Leo’s
       forces continue to move in on Ohrid… very… slowly… Something will doubtless happen
@@ -110,7 +110,7 @@ scenes:
       they could get to space by blowing things up."
   - scene_number: "12"
     scene_title: 12
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene12.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene12.jpg?format=webp&quality=80
     narration:
       Maria and Elizabeth make peace, giving each other fake plastic smiles
       and telling each other that they’ll be totes besties now, and probably have a
@@ -118,7 +118,7 @@ scenes:
       the carpet of blue sitting at York’s doorstep.
   - scene_number: "13"
     scene_title: 13
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene13.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene13.jpg?format=webp&quality=80
     narration:
       She DOES have an army, of course, but it’s mostly situated near Ireland
       (Scotland? I’ll call it Scotland for now). If England declares, they would either
@@ -126,7 +126,7 @@ scenes:
       army waiting on their doorstep.
   - scene_number: "14"
     scene_title: 14
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene14.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene14.jpg?format=webp&quality=80
     narration:
       Content with his spoils of the Baltimore Ravens and equally confident
       that he can stop any riots through good old fashioned Texan machismo, peace is
@@ -136,14 +136,14 @@ scenes:
       Austin, it’s too little too late.
   - scene_number: "15"
     scene_title: 15
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene15.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene15.jpg?format=webp&quality=80
     narration:
       Afghanistan, China, and Portugal hold the top three places in production.
       If China uses their power well I forsee trouble on the Asian front, and Portugal
       may be more of a contender now that peace has been made with England.
   - scene_number: "16"
     scene_title: 16
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene16.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene16.jpg?format=webp&quality=80
     narration:
       Shaka, as usual, holds a bottom-place spot. The Zulus, normally such
       a terrifying foe, seem to be only a bunch of paper tigers. (What’s the word for
@@ -154,7 +154,7 @@ scenes:
       in it.
   - scene_number: "17"
     scene_title: 17
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene17.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene17.jpg?format=webp&quality=80
     narration:
       Meanwhile it’s a battle royale between the Sioux and the Blackfoot! Well,
       since it’s only confined to one continent it’s not all that. We’ll call it a hunger
@@ -163,7 +163,7 @@ scenes:
       of cattle, carrying off of women, all that jazz.
   - scene_number: "18"
     scene_title: 18
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene18.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene18.jpg?format=webp&quality=80
     narration:
       The land war of Leonidas would probably be doing a bit better if he actually
       brought that Great General to the front lines, but then I’m not a military genius
@@ -173,7 +173,7 @@ scenes:
       navy to bear.
   - scene_number: "19"
     scene_title: 19
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene19.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene19.jpg?format=webp&quality=80
     narration:
       "Nothing here we haven’t seen before, so I’ll just point out that the
       Spartans have a settler up there for absolutely no reason. I like to pretend that
@@ -181,21 +181,21 @@ scenes:
       with balls. \nPlatonically, of course."
   - scene_number: "20"
     scene_title: 20
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene20.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene20.jpg?format=webp&quality=80
     narration:
       And like that the city falls! The Blackfoot have taken a Sioux city,
       and are growing ever closer to their capital. A strong push forward could mean
       a lot for them here, and possibly control over all of Western Canada…
   - scene_number: "21"
     scene_title: 21
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene21.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene21.jpg?format=webp&quality=80
     narration:
       Old Sarai is in the red now, and will likely fall next turn. The Mongols
       need to turtle up and use that defensive ground they have, tearing apart the invading
       forces before they can get stomped.
   - scene_number: "22"
     scene_title: 22
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene22.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene22.jpg?format=webp&quality=80
     narration:
       "‘Nam’s in a bit of a bad place right now, as their army seems much too
       spread out to effectively fight China. Tianjin is sitting alone, but so’s Ho Lu,
@@ -203,7 +203,7 @@ scenes:
       point? Stay tuned!"
   - scene_number: "23"
     scene_title: 23
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene23.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene23.jpg?format=webp&quality=80
     narration:
       Oh, Shaka. Poor, tiny Shaka. If land was a metaphor for size of certain
       body parts, then you would be an ironic deconstruction of the popular (and sorta
@@ -213,7 +213,7 @@ scenes:
       an “R” in there, so they’ll be the Gorers.
   - scene_number: "24"
     scene_title: 24
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene24.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene24.jpg?format=webp&quality=80
     narration:
       True to predictions from the peanut gallery of yours truly, Trebizond
       falls to the Spartans and their Bronze-Age power armor! Or more realistically,
@@ -223,7 +223,7 @@ scenes:
       get the kill-steal.
   - scene_number: "25"
     scene_title: 25
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene25.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene25.jpg?format=webp&quality=80
     narration:
       Heh. Cute little Icelandic settler (everyone wave at the American trieme
       over there, give Lincoln our condolences and regards). Where do you think you’re
@@ -231,7 +231,7 @@ scenes:
       Would you watch an Iceland vs Canada-Final-Form battle? Because I would.
   - scene_number: "26"
     scene_title: 26
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene26.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene26.jpg?format=webp&quality=80
     narration:
       Maria I, feeling emboldened by managing to stick a city next to Rome,
       has decided it’s time to put her big girl panties on and go for the city that
@@ -244,7 +244,7 @@ scenes:
       old times if he didn‘t join Maria in her quest to persecute the Romans.
   - scene_number: "27"
     scene_title: 27
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene27.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene27.jpg?format=webp&quality=80
     narration:
       The Afghans are trying their hardest to carpet properly, confident that
       with enough arrows to blot out the sun their soldiers will have basically what
@@ -252,7 +252,7 @@ scenes:
       in Agra scoff at this, and declare their cool-game “weak”.
   - scene_number: "28"
     scene_title: 28
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene28.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene28.jpg?format=webp&quality=80
     narration:
       Aaaaaaand there goes Old Sarai! Will Sibit be content with a city that
       was so close to his territory they could smell the breeze from it, or will he
@@ -261,13 +261,13 @@ scenes:
       so it’s unlikely they’ll have a chance at recovery.
   - scene_number: "29"
     scene_title: 29
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene29.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene29.jpg?format=webp&quality=80
     narration:
       "Poor Russia looks a bit hemmed in here. They’d need an army of seamstresses
       to get out of it! #punoftheday"
   - scene_number: "30"
     scene_title: 30
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene30.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene30.jpg?format=webp&quality=80
     narration:
       And Nicomedia falls to the Spartan menace, which is much like the Phantom
       Menace in that they both would have benefited from more practical effects. With
@@ -275,14 +275,14 @@ scenes:
       a second city. We ride, Spartan brothers, we ride to Constantinople!
   - scene_number: "31"
     scene_title: 31
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene31.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene31.jpg?format=webp&quality=80
     narration:
       And Mexico, proving once more that living on a prayer is totes better
       than living in cities you’ve captured, declares peace with Texas. You had in the
       bag, guys, and you muffed it.
   - scene_number: "32"
     scene_title: 32
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene32.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene32.jpg?format=webp&quality=80
     narration:
       Battle erupts around Sichangu and Hunkpapa! The Blackfoot armies have
       taken damage - can they hold on to what they’ve got? It doesn’t make a difference
@@ -290,14 +290,14 @@ scenes:
       grin.
   - scene_number: "33"
     scene_title: 33
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene33.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene33.jpg?format=webp&quality=80
     narration:
       "They’ve got each other, and that’s a lot for loooooove… THEY’LL GIVE
       IT A SHOT. \n*coughs*\nIn a shocking turnaround of events, Byzantium RETAKES Nicomedia!
       It won’t last long but w/e. They tried. 7/10, Participation Award, etc."
   - scene_number: "34"
     scene_title: 34
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene34.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene34.jpg?format=webp&quality=80
     narration:
       Jandamarra completes The Oracle. It tells him he’s the wisest of the
       Greeks, which is weird seeing as how he’s very Aboriginal. Perhaps the Oracle
@@ -305,14 +305,14 @@ scenes:
       after a second massive world war.
   - scene_number: "35"
     scene_title: 35
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene35.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene35.jpg?format=webp&quality=80
     narration:
       Surprisingly, Indonesia manages to spread out quite a bit in the open
       Oceania. Another of their settlers is floating across the seas, a gleam in their
       eye and their pants.
   - scene_number: "36"
     scene_title: 36
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene36.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene36.jpg?format=webp&quality=80
     narration:
       Lester B. Pearson’s beguiling grin reaches max charge, and he declares
       on poor Sitting Bull. There’s not much hope for him now, hemmed in as he is by
@@ -320,13 +320,13 @@ scenes:
       Canada’s got, and they’re not afraid to jam their hockey sticks where they please.
   - scene_number: "37"
     scene_title: 37
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene37.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene37.jpg?format=webp&quality=80
     narration:
       Eh? Mexico too? Oh, Benito. Don’t you know that your men seem to have
       an irrational fear of ACTUALLY CAPTURING CITIES.
   - scene_number: "38"
     scene_title: 38
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene38.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene38.jpg?format=webp&quality=80
     narration:
       Nicomedia flips again and Spartan troops land dangerously close to a
       number of Byzantine cities. The archers and city defense may be enough to defend
@@ -334,34 +334,34 @@ scenes:
       Land some more deathblows!
   - scene_number: "39"
     scene_title: 39
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene39.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene39.jpg?format=webp&quality=80
     narration:
       Oh, my sweet sweet Buccaneers. You know I love y’all. Their navy is growing
       fast, and it may be that the Arrr lmao’s launch an attack soon… the rum, after
       all, can’t be gone forever. Offscreen, Napoleon declares war on Hitler.
   - scene_number: "40"
     scene_title: 40
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene40.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene40.jpg?format=webp&quality=80
     narration:
       In other news, Napoleon declares war on Hitler, but this time onscreen.
       There’s only room for one megalomaniacal dictator with dreams of conquering Europe
       HERE, buddy!
   - scene_number: "41"
     scene_title: 41
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene41.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene41.jpg?format=webp&quality=80
     narration:
       David and the nation of Israel declare war on Hitler, making my job difficult
       by being so inherently funny that no commentary could possibly make it funnier.
   - scene_number: "42"
     scene_title: 42
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene42.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene42.jpg?format=webp&quality=80
     narration:
       Adolf… did you ever consider that you could try being better with people?
       Poland tosses a DOW, though those horsemen and warriors will have a tough time
       with all that Third Reich-y spear stuff.
   - scene_number: "43"
     scene_title: 43
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene43.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene43.jpg?format=webp&quality=80
     narration:
       "Norway’s starting to look a little… cramped. And Sweden’s looking a
       little spread out. Could now be the time for true Nords to fight? Rumors of a
@@ -371,7 +371,7 @@ scenes:
       and faster in Snow and Tundra."
   - scene_number: "44"
     scene_title: 44
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene44.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene44.jpg?format=webp&quality=80
     narration:
       Yakutia’s Great Wall will surely keep all invaders out, as if that blanket
       of an army wouldn’t have done the job. Only partially kidding, as the horde of
@@ -379,21 +379,21 @@ scenes:
       outside for fun are scary.
   - scene_number: "45"
     scene_title: 45
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene45.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene45.jpg?format=webp&quality=80
     narration:
       Uh oh. Looks like we may not see the fanfiction-esque triumph of Israel
       over Berlin after all - Harun Al-Rasid DOW’s on David, and the only defensible
       terrain he has is desert. Desert and scouts.
   - scene_number: "46"
     scene_title: 46
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene46.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene46.jpg?format=webp&quality=80
     narration:
       Saladin joins him. Yeah, don’t think we’ll be seeing any of that lovely
       blue-and-white border much longer. That’s actually really depressing, both for
       historical parallels and because I think the color’s prettier than most others.
   - scene_number: "47"
     scene_title: 47
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene47.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene47.jpg?format=webp&quality=80
     narration:
       Somehow France has already brought Cologne down to red, and their armies
       have almost reached Munich as well… The history books cite the French invasion
@@ -401,7 +401,7 @@ scenes:
       history started taking Advil.
   - scene_number: "48"
     scene_title: 48
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene48.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene48.jpg?format=webp&quality=80
     narration:
       "The armies of Australia - Kimberley and Aussie alike - gather. We may
       be seeing war here soon. God help those lost to the spiders and spears. \nAlso
@@ -409,14 +409,14 @@ scenes:
       the Kimberley have managed it, it seems that they want some as well."
   - scene_number: "49"
     scene_title: 49
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene49.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene49.jpg?format=webp&quality=80
     narration:
       Perhaps Shaka is finally tired of being at the bottom of the lists, as
       he’s readied two more settlers to go find some unclaimed land. Good luck with
       that, buddy, you’ll need it.
   - scene_number: "50"
     scene_title: 50
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene50.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene50.jpg?format=webp&quality=80
     narration:
       War brews in Africa as well. Who shall strike first? Who first shall
       fall? The gods do not play chess with men, but rather a fiddly little game involving
@@ -424,34 +424,34 @@ scenes:
       of handing the pieces sticks of TNT and then giggling at them.
   - scene_number: "51"
     scene_title: 51
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene51.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene51.jpg?format=webp&quality=80
     narration:
       Bethlehem falls to yellow and the defenders of Jericho start to take
       damage. It’s the end of the world as they know it.
   - scene_number: "52"
     scene_title: 52
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene52.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene52.jpg?format=webp&quality=80
     narration:
       "Cologne falls to La Grande Armee! Could Munich be next? I know who we’re
       all rooting for! \nNo, it’s not Hitler. Unless your name rhymes with “Evan Braun”
       you probably shouldn’t be."
   - scene_number: "53"
     scene_title: 53
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene53.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene53.jpg?format=webp&quality=80
     narration:
       Is it just me, or are one-tile island cities really cute? I think they’re
       really cute. Oh, and in other news the newly settled inhabitants of Kopavagur
       say nasty things about the Irish.
   - scene_number: "54"
     scene_title: 54
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene54.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene54.jpg?format=webp&quality=80
     narration:
       Varna will fall. All will fall before Sparta. Leonidas looks out over
       his territory and pronounces it good. The wolves will test the Byzantines. Born
       in the purple? The phalanx shall see what color they bleed.
   - scene_number: "55"
     scene_title: 55
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene55.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene55.jpg?format=webp&quality=80
     narration:
       I’m not actually sure if what the Philippines has just done is called
       forward-settling, or just obstinately proving that AI has some difficulty imitating
@@ -461,7 +461,7 @@ scenes:
       never know either way.
   - scene_number: "56"
     scene_title: 56
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene56.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene56.jpg?format=webp&quality=80
     narration:
       Tianjin is almost finished protesting the wholesale slaughter of their
       people, which is nice as it looks like their newfound conquerors have taken the
@@ -469,14 +469,14 @@ scenes:
       army.
   - scene_number: "57"
     scene_title: 57
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene57.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene57.jpg?format=webp&quality=80
     narration:
       Cologne flips back, and may stay that way unless the French army actually
       reinforces. For once. Hitler makes peace with Elizabeth in the meantime, and thanks
       his lucky camps that she isn’t Churchill.
   - scene_number: "58"
     scene_title: 58
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene58.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene58.jpg?format=webp&quality=80
     narration:
       American Scout cannot speak any language but American, and so spends
       most of his time in the North confusedly asking people where the nearest coffee
@@ -484,21 +484,21 @@ scenes:
       food like pizza and hot dogs and Texan flags.
   - scene_number: "59"
     scene_title: 59
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene59.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene59.jpg?format=webp&quality=80
     narration:
       The Sioux nation is currently regretting sending out so many small cities.
       Nothing they can do about it now, of course, as all will go to feed the Great
       Beast of Revelations (here known as Canada, Dragon of which is Lester B. Pearson).
   - scene_number: "60"
     scene_title: 60
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene60.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene60.jpg?format=webp&quality=80
     narration:
       Mexico’s armies take damage, but move closer towards Sioux territory
       regardless. Sisselton seems their best bet, though if they can manage it Wahpekute
       will do as well.
   - scene_number: "61"
     scene_title: 61
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene61.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene61.jpg?format=webp&quality=80
     narration:
       And so it begins. Constantinople, the Other Rome, begins feeling the
       strikes upon its walls. Those archers will make for a nasty Spartan meatgrinder,
@@ -506,28 +506,28 @@ scenes:
       okay with, I personally think Theodora’s more of a cutie.
   - scene_number: "62"
     scene_title: 62
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene62.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene62.jpg?format=webp&quality=80
     narration:
       Bethlehem falls to Saladin, and in an even more shocking turn of events,
       he declares upon Leonidas! Olympia won’t last long under that assault, and perhaps
       the Byzantines can take a breather if Leo sends troops to reinforce.
   - scene_number: "63"
     scene_title: 63
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene63.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene63.jpg?format=webp&quality=80
     narration:
       Meanwhile, Tutu declares on Hannibal, and everyone here giggles privately
       at his name. Everyone else is picturing regiments wearing pink tutus, right? It’s
       not just me?
   - scene_number: "64"
     scene_title: 64
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene64.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene64.jpg?format=webp&quality=80
     narration:
       Saladin, not content with warring on Israel and Sparta at once, also
       declares on Carthage. It’s okay, though, all the other civs are making fun of
       him because he’s got a silly hat.
   - scene_number: "65"
     scene_title: 65
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene65.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene65.jpg?format=webp&quality=80
     narration:
       "Armenia DOW’s on Leonidas! If I didn’t know better I’d say the other
       civilizations deliberately ganged up on any civ that looked likely to gain a strong
@@ -538,7 +538,7 @@ scenes:
       heads."
   - scene_number: "66"
     scene_title: 66
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene66.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene66.jpg?format=webp&quality=80
     narration:
       And so we come at long last to rankings! Leading in population is Afghanistan,
       closely followed by the Kanada Krew. Behind them trail, funnily enough, both of
@@ -547,7 +547,7 @@ scenes:
       their mothers.
   - scene_number: "67"
     scene_title: 67
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene67.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene67.jpg?format=webp&quality=80
     narration:
       Shaka hasn’t managed to do much with his settlers yet, and so remains
       dead last. Poor David isn’t much better off considering the loss of Bethlehem,
@@ -556,7 +556,7 @@ scenes:
       place.
   - scene_number: "68"
     scene_title: 68
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene68.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene68.jpg?format=webp&quality=80
     narration:
       The Kims may nearly equal Australia in population, but Australia is stronkest
       of civs with cities, holding 14 currently. Canada ties for fourth with Yakutia,
@@ -564,7 +564,7 @@ scenes:
       smile capture some more.
   - scene_number: "69"
     scene_title: 69
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene69.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene69.jpg?format=webp&quality=80
     narration:
       Israel is ahead of Germany this time, with the rather inept Fuhrer’s
       leadership leaving them 3 cities and no more than that. At least if one falls,
@@ -572,7 +572,7 @@ scenes:
       bottom are the United States, Rome, and Byzantium.
   - scene_number: "70"
     scene_title: 70
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene70.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene70.jpg?format=webp&quality=80
     narration:
       Aussies civs love their literacy, with the twain holding positions 2
       and 4 in science. Lester’s leadership ensures Canada the third-place spot, while
@@ -580,21 +580,21 @@ scenes:
       a reprieve.
   - scene_number: "71"
     scene_title: 71
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene71.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene71.jpg?format=webp&quality=80
     narration:
       It’s a who’s who of losers down here - Rome, Israel, Germany, the Zulus,
       Byzantium, and (upsettingly) my homeboys the Irish. As they currently hold Scotland,
       I suggest an infusion of Nac Mac Feegle and kilts.
   - scene_number: "72"
     scene_title: 72
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene72.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene72.jpg?format=webp&quality=80
     narration:
       Australia is number one in land area, with the Inuit taking second and
       the soon-to-be-dead Sioux holding a somewhat uncomfortable third. Everyone wave
       at Lester in fourth over there, folks! The Red Menance plots and plans still.
   - scene_number: "73"
     scene_title: 73
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene73.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene73.jpg?format=webp&quality=80
     narration:
       We can be sure that no matter what happens to the Chosen People, their
       religion will live on - Judaism still has a massive lead over every other religion,
@@ -602,7 +602,7 @@ scenes:
       Islam is cool, but few seem to agree.
   - scene_number: "74"
     scene_title: 74
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene74.jpg
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part6-scene74.jpg?format=webp&quality=80
     narration:
       We end by checking out the world religion map, and I end by consoling
       myself with the pretty blue color. I’ve always love you, Light Teal. Thanks so

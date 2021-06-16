@@ -7,11 +7,11 @@ release_date: 'June 21, 2016'
 audio_narration: https://youtu.be/qvXnfNfgpaI
 edition: Mk2
 date: 2016-06-21T00:00:00.000Z 
-image: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene01.jpg?format=webp&quality=80
   narration: "Come on! Come all! It’s the 61st part of r/civ’s Battle Royale! I’ll
     be your narrator for this part, /u/_xSyracuse. You all may know me from my occasional
     comments on r/civbattleroyale, or my annoying banter and failed roasts on the
@@ -25,14 +25,14 @@ scenes:
     just because they’re happy to even be alive."
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene02.jpg?format=webp&quality=80
   narration: "What a treat! Praise Tpang! Nebby’s right hand man has bestowed upon
     us an animated map of the progress of the CBR Mk. II so far.\nOf interest:  \n-The
     Mysterious Disappearance of Ireland\n-The Flip of Sydney\n-Bye Mali\n-Bye France\n-Bye
     Morocco\n-South America doing nothing most of the time"
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene03.jpg?format=webp&quality=80
   narration: On to the map! The only real changes after part 60 is the noticeable
     lack of Red in the Western Hemisphere, and A much darker green has been introduced
     into the Arabian Peninsula. Also, apparently Brown is the new Maroon, and Sparta
@@ -41,13 +41,13 @@ scenes:
     of this part.
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene04.jpg?format=webp&quality=80
   narration: |-
     The Boers remain in first place again. They declared a war last part! And one easily within it’s XCOM range, but yet, just like the SOPA war, refused to actually do anything. Although, I do commend Ethiopia for sucking up to the Paul Kruger (Boers) so much for him to wake up and declare a war with them! Good Job Hailee (Ethiopia)!
     Although, according to the Power Rankings, Ekeuhnick of the Inuit is catching up to the Boers, and nearly took the #1 spot this week!
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene05.jpg?format=webp&quality=80
   narration: "The next victim of the Armenian “conquest” of Sparta is the Armenian
     city of Gyumri falling, and city right next to the capital of Yerevan. Tiridates
     III of Armenia must be sweating by now, as his (barely existent) defense is faltering.
@@ -59,34 +59,34 @@ scenes:
     as shown in the Caspian Sea."
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg?format=webp&quality=80
   narration: |-
     It appears that The Lion of The North is plotting against…Stalin and the USSR! Now, why this is, I haven‘t a clue, and I’m not a gambling man, but If I were, I would guess that Gustavus isn’t pleased that Stalin pretty much gave Iceland all that French Clay, instead of giving it to Sweden. Although, no offense to our beloved Semiramis, Civilization V spies don’t get the most reliable information most of the time. I don’t know what’s going to be played out between these two civ, but I want blood.
     Also of Note: Sweden has Mechanized Artillery, which I believe is brand spanking new from the research labs of Trondheim, Sigtuna, and Stockholm are currently being deployed towards the Swedish border with the Soviets.
     And both Sweden and Finland are building Future Worlds Improvements. Good Jobs, Gustav (Sweden) and Top Kek (Finland).
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene07.jpg?format=webp&quality=80
   narration: |-
     There shall be no more peace for Australia, according to the infamous Agent Em, who reports to the sub that Henry Parks of Australia is plotting against Mirwais Hotak (Afghanistan). Way to kick someone while they’re down, Parks.
     In other news, Sydney has fully recovered! With a massive 36 population, I believe this takes the prize as the second largest city in the world, only behind the Chilean city of Copiapo, which has reached the milestone of 40, and an actual pop higher than that!
     Also, looking around, the only Future Worlds units I see are Drone UAVs, which are located west of Brisbane, and a few Advanced Destroyers in the sea East of Sydney and Brisbane. Also, it seems, Parks may of caught the same bug as the Buccaneers, Iceland, and Sweden, and other civs, and is building an excess amount of Carriers. I do see quite a few floating around here!
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene08.jpg?format=webp&quality=80
   narration: |-
     Please Press “F” to pay respects for Harun Al-Rashid of Arabia, who has just been eliminated by Haile Selassie of Ethiopia. I’m not really good with Eulogies, and honestly, I can’t remember much about what Arabia did this whole game. Although, for what I do know, Arabia was a civ with really good tech (Look at the improvements by Jericho!), and did wage war upon Israel, but other than that, just kinda sat there, then got gangbanged by Ethiopia and The Boers, a truly terrifying combo, after Finnish Bombing raids! I honestly feel a little sorry for Harun, but in this game about spilling blood and nuking the shit out of millions of people, It’s honestly just the circle of life. Meanwhile, the last Arabian Helicopter tries to evacuate the last workers, and among them, Harun Al-Rashid himself. But apparently crossing the Red Sea is tougher in practice than thought.
     In the background, the the Armenian city of Artashat goes to Sparta
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene09.jpg?format=webp&quality=80
   narration: Yup, Artashat goes to Sparta. But Gyumri is Armenian again. Still, Armenia
     is stuck with three cities, with a grand total of 8 (land)  military units to
     defend. And Nearly half of these units are Artillery. I’d be worrying for Tiridates,
     Armenia Fans.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene10.jpg?format=webp&quality=80
   narration: "We now get a look at Inuit-Occupied Canada, in which cities are already
     being annexed, like Winnipeg and Ottawa. This doesn’t look good, for, well, anyone
     really. Also, The Inuit have developed Organic Infantry, a monster of a unit.
@@ -95,7 +95,7 @@ scenes:
     has also developed Vertols ."
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene11.jpg?format=webp&quality=80
   narration: |-
     This is a HUGE Slide. So let’s dissect it as best we can.
     KOREA HAS XCOMS! This is a huge development for them, giving them a HUGE technological advantage over ALL their neighbors, even Australia. There may also be a few new units here, but I’m not 100% sure.
@@ -104,7 +104,7 @@ scenes:
     The Boers complete another wonder, which I can’t quite tell what it is at them moment.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene12.jpg?format=webp&quality=80
   narration: "Uh-oh. I think The Lion of the North Gustavus Adolphus of Sweden may
     be a little over his head on this one. Currently, he’s plotting against Ekeuhnick
     of the Inuit. \nAlso featured in this slide is Finnish Arsenal Ships, a valuable
@@ -112,14 +112,14 @@ scenes:
     already done with the British Isles. Also, Drone UAVs are spotted in Finnish Territory."
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene13.jpg?format=webp&quality=80
   narration: And Possibly the absolute worst of all the current plotting, we have
     Henry Morgan plotting against the Last Legion. Though I doubt anything would come
     from this war, it’s still a terrifying prospect that anyone could destroy our
     favorite exiled unit, along with the Ashanti Pikeman, of course.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene14.jpg?format=webp&quality=80
   narration: "As previously stated, Genghis Khan has completed the Manhattan Project,
     and along with that I see Modern Armor and Helicopter Gunships floating around
     Mongolian Territory.\nMeanwhile: The Yakuts are actually building an army, so
@@ -128,7 +128,7 @@ scenes:
     just rolled out their first Vertols, which can be seen below the city of Barnaul."
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene15.jpg?format=webp&quality=80
   narration: "So THAT’S what the boers Just built. Angelnet. One of the best wonders
     added by Future Worlds, it is “A Modern Red Fort. Doubling the strength of the
     already powerful Utility Fog Generator, this wonder will make every city a fortress”,
@@ -139,13 +139,13 @@ scenes:
     about it."
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene16.jpg?format=webp&quality=80
   narration: |-
     The Boers and Arabia have peaced out, not that it matters anyway. All the Arabian clay is now Ethiopian clay, which is almost nearly carpeted. Yes, there are holes Ethiopia’s carpet, but not many, and most that’ll probably be filled within a part or two.
     Meanwhile, Hawaiian Peacekeepers struggle to get home and the infamous Drunken Mongolian Prophet stumbles towards Addis Ababa on horseback.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene17.jpg?format=webp&quality=80
   narration: "This time, The Lion is plotting against Leonidas (Sparta). This is certainly
     one Gustavus of Sweden could chew, but It would not be a walk in the park like
     the USSR would. \nMeanwhile, Brazilian Peacekeepers arrive in former Carthaginian
@@ -153,14 +153,14 @@ scenes:
     friends now, as they have open borders."
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene18.jpg?format=webp&quality=80
   narration: |-
     Gyumri falls back to Sparta, which is a really bad sign for any Armenian Fans. (Yeah, all 3 of you)
     I only see 4 Armenian Land Units, and half are Artillery still. This is not looking good for my friends Tiridates.
     Also, Look in Persia, it’s tiny cities (Besides Persepolis), are all being surronded by units from other countries: Ethiopua, Mongolia, I even see a Sri Lankan AA Gun and a Afghani Paratrooper. Also, it seems the Hunnic Workers are now working for Darius (Persia).
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene19.jpg?format=webp&quality=80
   narration: "Three of the last Canadians, 2 Destroyers and a Caravel, can be seen
     on this slide, which look like they will be able to escape the evil clutches of
     the Inuit. \nI’m also going to call your attention to the Bucc’s navy. Currently,
@@ -170,7 +170,7 @@ scenes:
     Naval rivals enjoy Cybersubs and Arsenal Ships, including Iceland and the Inuit."
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene20.jpg?format=webp&quality=80
   narration: "While the Boers continue to fill up former Mali, other civs scramble
     for the living space of Former Morocco. Currently, Brazil and Australia are the
     main competitors. \nI really can’t see anything else in this slide of note other
@@ -179,7 +179,7 @@ scenes:
     Cumana."
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene21.jpg?format=webp&quality=80
   narration: "Oh no, Tiridates of Armenia must be terrified now. Facing enemy DOWs
     by two massive superpowers, the USSR and Japan. \nActually, the last known time
     Japan declared war, was upon the Sioux, who then was eliminated by the Canadians
@@ -189,14 +189,14 @@ scenes:
     still also has only two cities, Yerevan and Bukhara."
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene22.jpg?format=webp&quality=80
   narration: "Wow, The USSR declaration may be slightly more relevant than we think,
     as they currently have 3 units just north of the Armenian Capital, and possibly
     more on the way. They actually may be able to snipe the city after the Spartans
     put the effort into siegeing it. \nNow THAT, folks, is what the CBR is all about."
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene23.jpg?format=webp&quality=80
   narration: "As Spices are banned by the world congress, we also get a really nice
     few of South America.\nOf Note:\n-Chile Is recovering from the Australian War
     quite nicely, building up a semi-carpet and also starting to repair it’s navy.
@@ -210,28 +210,28 @@ scenes:
     units can be seen."
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene24.jpg?format=webp&quality=80
   narration: "Olives have were also nearly banned, and Tpang has graced us with a
     core shot of Sparta, which is probably celebrating with a leg day twice as long
     as normal as usual, as Leonidas’ empire must be filled with olives. \nHAVE A GOOD
     LEG DAY, SPARTANS!"
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene25.jpg?format=webp&quality=80
   narration: Everybody loves to plot against The Last Legion and Ashanti Pikemen,
     as that’s who nearly every civ seems to want to eliminate. I pity the poor units
     who who float around on bodies of water, not doing anything with their lives,
     other than maybe a history exhibition every once and awhile.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene26.jpg?format=webp&quality=80
   narration: Yerevan is taking damage, but Leonidas has only brought Helicopters to
     the siege. If Stalin could just move his Artillery, and get on of his other two
     units in there, he could possibly snipe the city. I could only imagine the rejoice
     of USSR fans everyone, and also the memes that would be sure to come out of this.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene27.jpg?format=webp&quality=80
   narration: "Apparently, Henry Parks of Australia is plotting against Leonidas of
     Sparta. He does have those units in Marrrrracco (I think that’s what the Buccs
     are calling it :/), so he may be able to take a city or two, but it’d probably
@@ -241,7 +241,7 @@ scenes:
     Quantity beats Quality."
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene28.jpg?format=webp&quality=80
   narration: "Henry Morgan of the Buccaneers is also getting his plotting pants on!
     He seems to be plotting against Samuel Houston of Texas, hoping to get a new exclave
     called Arrrrrstin, I can’t see Texas putting up much of a fight, but again, the
@@ -251,7 +251,7 @@ scenes:
     exponentially, so I’m not so sure about the rum drinking Pirates chances."
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene29.jpg?format=webp&quality=80
   narration: "SPARTA HAS PEACED OUT WITH ARMENIA! RIGHT WHEN TIRIDATES WAS ABOUT TO
     KEEL OVER AND DIE! \nHonestly Leonidas, that was really stupid. Yes, you would
     get the elimination penalty, but you would still get a capital, a valuable thing
@@ -259,7 +259,7 @@ scenes:
     Yerevan\nRIP Soviet Snipe of Yerevan."
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene30.jpg?format=webp&quality=80
   narration: "A FUTURE WORLDS WONDER NOT BUILT BY THE BOERS? I DIDN’T KNOW THAT WAS
     POSSIBLE! \nYou heard it here first, folks! The Vietnamese have built a wonder
     called the Citadel Station, a wonder that gives… oh I don’t know, but Tpang will
@@ -268,19 +268,19 @@ scenes:
     the new, fancy Future Worlds units, so good for them."
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene31.jpg?format=webp&quality=80
   narration: |-
     Ah-ha. The Citadel Station is a wonder that improves the yields of Scientist and Engineer specialists, more specifically, it gives +2 Science and Gold from scientists, and +2 Gold and Production from engineers. A nice wonder, though compared to other wonders *cough Skynet cough*. It’s not so great. But it’s still a nice thing to have I guess.
     Meanwhile, let’s take a moment to appreciate how fucking awesome that art is for the Citadel Station, shall we?
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene32.jpg?format=webp&quality=80
   narration: |-
     It seems like Henry Morgan has finally decided to train his workers in scrubbing Fallout. And since all the world’s powers are not afraid to use nukes if need be, this is a good thing for Henry, as rebuilding infrastructure will be critical in the coming parts, to be able to keep churning out units to fill in the holes made by war.
     Meanwhile More Aussies Units are also being shipped into the area through the port of Rabat.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene33.jpg?format=webp&quality=80
   narration: Agent Semiramis actually received some real intel, and The Lion of the
     North has declared war upon Ekeuhnick of the Inuit. Now, I really cannot tell
     if this was just a Boldness flair showing it’s ugly head here, or the beginning
@@ -290,7 +290,7 @@ scenes:
     that.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene34.jpg?format=webp&quality=80
   narration: "If a SOPA revival against the Inuit does occur, there are a few civs
     that most likely not join in, like Australia, Vietnam, Mexico, and the Blackfoot,
     who are all share open borders with Ekeuhnick and his White Walkers. \nAlso, It
@@ -300,7 +300,7 @@ scenes:
     Name, Pearson)."
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene35.jpg?format=webp&quality=80
   narration: "The Boers have completed yet another Wonder, the Digital Emancipation.
     Which provides Production, Science, and Culture based on information era buildings
     within the empire. The Future Worlds guide, u/TA_knight, said he had no idea on
@@ -311,20 +311,20 @@ scenes:
     the Brazilian Units floating towards Boer territory."
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene36.jpg?format=webp&quality=80
   narration: |-
     The Kimberley has completed the Manhattan Project, Following Mongolia’s lead from earlier this part. The now rump state of the Kimberley had a chance to do stuff again and take out Sri Lanka, but the damn Aussies intervened and took them over instead. That’s probably the fate for the Kimberley until Vietnam or Australia comes and conquers them. But hey, as of now, the Kimberley are friends with Henry Parks (Australia), so all he needs to worry about is Vietnam.
     Also, the Kimberley have a workable Krakatoa, which is nice, I guess.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene37.jpg?format=webp&quality=80
   narration: Apparently, Declaring war upon the Inuit isn’t enough for The Lion (Sweden),
     still hasn’t had enough, and is currently plotting against Napoleon. Sweden, I
     really hate to break it to you, but France has been dead for a while now, and
     all that currently remains are a few units in Spartan territory.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene38.jpg?format=webp&quality=80
   narration: 'Henry Morgan of the Buccaneers is currently plotting against Leonidas
     of Sparta. That would be another really good war for the Buccs, and they could
     easily pick up another two capitals: Rome and Carthage with their navy, and well
@@ -332,7 +332,7 @@ scenes:
     Technically Winning”, with a total count of 8 capitals, if I’m correct.'
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene39.jpg?format=webp&quality=80
   narration: "The Soviet Sieges of Yerevan isn’t going particularly well, but they
     have Paratroopers now! Which would’ve helped them… when Armenia had more land
     and was completely empty… \nI still have hopes for them though.\nAnyway, Sparta
@@ -341,7 +341,7 @@ scenes:
     Conquests."
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene40.jpg?format=webp&quality=80
   narration: "The newest rump state on the cylinder, Armenia, has decided to declare
     war on another, Tibet!  \nHonestly, there’s not much to say here about either
     civ other than that Tibet is seriously behind in tech, sporting riflemen. Although,
@@ -350,7 +350,7 @@ scenes:
     of the cylinder, Vietnam has one of the farthest reaches of power in the CBR."
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene41.jpg?format=webp&quality=80
   narration: Tibet, seeing the diplomatic middle finger that is the Armenian DOW,
     declares peace with another Diplomatic Middle Finger, the Yakutian DOW on them.
     Honestly, nothing came out of this war, not like anything could’ve, but it gives
@@ -359,7 +359,7 @@ scenes:
     much like Tiridates of Armenia did… before he was nearly swallowed by Sparta.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene42.jpg?format=webp&quality=80
   narration: KOREA HAS DECLARED A WAR! On Hawaii.. But no need to fear! Korea has
     XCOMs, which will probably allow for Korea to eliminate Hawaii. Also, Robot Infantry
     has appeared in Korea, just south eastwards of Seoul. Korea is actually looking
@@ -369,7 +369,7 @@ scenes:
     declare war fast.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene43.jpg?format=webp&quality=80
   narration: "Here’s the last of Hawaii, the island of Kaneohe. Korea will probably
     be able to land some XCOMs, and do some damage. If they can get some more ships
     down here besides a single Submarine.\nAlso, for those who care, Persia has join
@@ -377,13 +377,13 @@ scenes:
     Persia and Tiridates of Armenia scream. They then probably throw back a shot."
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene44.jpg?format=webp&quality=80
   narration: "Sibir has joined Korea un declaring war upon Hawaii, but unlike Korea,
     I doubt they’ll be able to do anything about it. \nI think Tpang was also trying
     to show off the Siberian Vertols, but I already covered that."
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene45.jpg?format=webp&quality=80
   narration: |-
     HOLY FUCKING SHIT GUYS. HYPEEEEEEEEE! EVERYBODY THIS IS THE BEGINNING OF THE FUTURE. THIS MUST ALSO BE THE REASON WHY TURNS ARE SO LONG. VIETNAM HAS DECLARED WAR UPON HENRY PARKS AND AUSTRALIA. THIS IS HONESTLY A WAR THAT COULD GO EITHER WAY. GUYS THIS WAR WILL BE BLOODY! I EXPECT NUKES TO FLY! I EXPECT CITIES TO BURN! I EXPECT MASS GENOCIDE! I EXPECT A NEW CIVBALL IS GOING TO HAVE TO BE DRAWN! HOW THIS WAR TURNS OUT COULD CHANGE EVERYTHING.
     HHHHHYYYYYPPPPPEEEEE!!!!!
@@ -391,7 +391,7 @@ scenes:
     Anyway, this slide only shows us the Vietnamese core, which doesn’t give us much information on what has already happened in this war.
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene46.jpg?format=webp&quality=80
   narration: "In the Vietnamese city of Iloilo, Drone Fighters prepare  for war, as
     do Bombers, and even Nuclear Bombs. While no shots have been fired in this war
     yet, rest assured, they will. There will be many, many shots, and many many deaths.
@@ -404,13 +404,13 @@ scenes:
     the distance."
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene47.jpg?format=webp&quality=80
   narration: |-
     Here’s some damage! Shots have been fired, and My Son is at 0 health, the Aussies cities of Mataram (Another great name), Ambron and Whangarei have also taken massive damage. This war is going to be really good. I can feel it. And Diggers are closing in on My Son, and this war is already favoring Australia.
     Anyway, I think Vietnam just got Mech Artillery, so good for them.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene48.jpg?format=webp&quality=80
   narration: "Bombs are being stockpiled on either side, and the Cities of Manila
     (Vietnam), Legaspi (should be a Spartan City) and Zamboang-something (Australia)
     have all taken Damage, and all could flip soon. Australia also has acquired Drone
@@ -422,7 +422,7 @@ scenes:
     right now, just wondering how the power rankers are going to rank these two civs."
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene49.jpg?format=webp&quality=80
   narration: Both the Vietnamese cities of Cebu and Iloilo are in the red, and Iloilo
     may flip, which would be terrible for Vietnam, with all of the planes in that
     city. However, luckily for Vietnam, All I see in the area is Australian Embarked
@@ -430,21 +430,21 @@ scenes:
     the Henry Parks (Australia) can do by means of capturing cities.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene50.jpg?format=webp&quality=80
   narration: |-
     It seems the game has crashed attempting to process the game. :(
     Anyway, the Australian Core, everybody….
     Sorry, I had to go cry in a corner for a few minutes, because that is scary as shit! All of this is currently on it’s way to the Vietnam front. If the Trungs want to make it out with a win, they need to work fast, take some cities, then peace out before all of this shit gets there. That’s seriously the only way I see the Trungs (Vietnam) winning. Although, I could see them holding this off though.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene51.jpg?format=webp&quality=80
   narration: We are also greeted with a shot of Australian Polynesia. This shot is
     actually only 20 tiles or so to the East, but still shows more of that carpet.
     Although, in this slide I see Advanced Destroyers and Caravels. Good job Parks!
     Remembering those Melee ships!
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene52.jpg?format=webp&quality=80
   narration: This is the full extent of the Australian carpet… almost spanning the
     entire Pacific ocean. This is honestly nightmare inducing, and I know I’ll be
     feeling it tonight. Just seeing these slides makes me question the Trungs. Do
@@ -456,7 +456,7 @@ scenes:
     or smart the AIs are.
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene53.jpg?format=webp&quality=80
   narration: "WHAT THE SHIT. HOW HAVE THE BOERS JUMPED THIS MUCH IN POP!\nThat’s legitimately
     scary. Over 500 million people in the Boer Empire. \nAnyway. Welcome to the Stats!
     \nThe top 5 in pop remain the same in population. Boers lead with 528 million,
@@ -464,18 +464,18 @@ scenes:
     over 200 million."
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene54.jpg?format=webp&quality=80
   narration: Australia has the most “Land”, but the Inuit have the most actual land.
     Confirmed.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene55.jpg?format=webp&quality=80
   narration: Nearly everything remains the same, but the Aussies are catching up with
     the Boers. Also, Vietnam have 450k or less soldiers than Australia the civ they
     just declared war on. Smart, Trungs, Smart.
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene56.jpg?format=webp&quality=80
   narration: |-
     Let us take a look at the dead civs who still have units out there somewhere…
     Anyone know where the Burma units are?
@@ -486,14 +486,14 @@ scenes:
     =(
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene57.jpg?format=webp&quality=80
   narration: The Inuit are only 1 city behind in city count compared to the Aussie
     Empire, who’s sitting at 103. I imagine that the Inuit’s Tech Cost is through
     the roof right now, though. This gives civs like Korea and Iceland a chance to
     catch up some to the Inuit.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene58.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene58.jpg?format=webp&quality=80
   narration: |-
     The Boers are currently only 2 techs away from the end of the tech tree, which is crazy.
     Other things to note:
@@ -503,19 +503,19 @@ scenes:
     -A Dead civ is a tech leader….
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene59.jpg?format=webp&quality=80
   narration: "THE ONLY THING THAT MATTERS ON THIS SLIDE IS THAT ISLAM HAS GAINED ANOTHER
     FOLLOWER. \nTHE PARTY POPE’s DEATH SHALL NOT BE IN VAIN.\nPraise the party pope.
     \nHave a balloon: ????"
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene60.jpg?format=webp&quality=80
   narration: |-
     Aaaand here’s the religion map.
      I don’t know if anything has changed since last time because I don’t look at this lol
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene61.jpg?format=webp&quality=80
   narration: "HOLY SHIT. AN EXTRA SLIDE! PRAISE TPANG! PRAISE THE PARTY POPE! PRAISE
     SITTING JESUS! PRAISE… uh… I don’t know… Senshi? YEAH! PRAISE SENSHI PRAISE DENSHI!\nAnyway
     according to Tpang: “I started recording the next part And then I was like DAMN”\nWell,
@@ -529,7 +529,7 @@ scenes:
     up a Soviet Snipe of Yerevan a few slides ago. lol ."
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part61-scene62.jpg?format=webp&quality=80
   narration: "And here we can see why this war was probably started, because the Soviets
     citadeled the shit out of Finland, and Top Kek didn’t like that. Well, at least
     Finland won’t be 100% border gore anymore with the USSR out of the way. There’s

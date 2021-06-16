@@ -8,420 +8,420 @@ starting_turn: 1
 fullvideo:
 edition: S2
 date: 2021-02-09T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene06.jpg
+image: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene06.jpg?format=webp&quality=80
 prev:
 next: /albums/s2/episode2/
 scenes:
   - scene_number: 01
     scene_title: "Cylinder Awakes"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene01.jpg?format=webp&quality=80
     narration: "<p>Coiot: On behalf of all Blue Cassette and the CBRX team, I welcome you to the new season of the Civ Battle Royale. The game is presently beyond T1000+, but today we‘re going to go over the first 30 turns. The team will be providing some quick introductions and provide play-by-play focus of the first settles, the first mistakes, and the first wars. It was quite a journey getting here after the events of last year, and all the work has paid off with an exquisite game that runs smooth and even at the T1000 mark operates at roughly one hour a turn. It’s an achievement, and I hope you join us throughout the year as we watch it unfold. </p>"
   - scene_number: 02
     scene_title: "Countdown"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene02.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene02.jpg?format=webp&quality=80
     narration: "<p>Coiot: This week’s OC is Sevastopol_Station’s wonderful nine part comic series that lead up to tonight’s launch. The civs are itching for the action, and I know the sub will start to make personas from all the crazy stuff waiting for them this season. Now that episodes release biweekly, consider contributing, as community content from the sub has the highest influence on narrations and discussions.</p>"
   - scene_number: 03
     scene_title: "Please Clap"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene03.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene03.jpg?format=webp&quality=80
     narration: "<p>Coiot: A big thank you to all our donators that have stayed subscribed throughout the interim. While we have informed Patreons that we have worked on our own donation system running Stripe, it is still not ready to accept payments so <a href='https://www.patreon.com/civbr'>Patreon</a> is still the place to directly contribute to covering our server and CDN costs, as well as getting us a little extra for all the hard work and time. As always, there is also the <a href='https://ko-fi.com/cbrtv'>Ko-Fi</a> account for one-time donations if you would prefer that option as opposed to a subscription. We’re always looking to give out incentives to donators, so apart from the private channels on the Discord, the flairs, and the ability to request screenshots or insert lines of in-character narration into past albums, Reon will be giving donators a biweekly balance bonus to the new Stock Exchange. </p>"
   - scene_number: 04
     scene_title: "Hand-Drawn Map"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene04.jpg?format=webp&quality=80
     narration: "<p>Coiot: It’s hard to be quicker than Vihreaa, and indeed he was already ready weeks back with the initial state of the game. Always room for more mapmakers in the community, in particular those that focus on smaller portions of the map and build up fun things to show. This season we also have print out of all the exact locations of cities and citadels, so if you want to play around with civ specific maps it will be easier now more than ever to not have to squint on the mini-map. </p>"
   - scene_number: 05
     scene_title: "PR #1 of the Week"
-    slide_url: https://cdn.civbattleroyale.tv/season2-pr0-scene61.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season2-pr0-scene61.jpg?format=webp&quality=80
     narration: "<p>Coiot: Northern Yuan is the inaugural leader at the #1 spot of the rankings. It does mean that Mandukhai has to live up to big expectations, and this season will be much harder to determine a clear leader than last year. Difficulty staying at the top is especially true for her since pesky Southern Yuan is in the way. </p>"
   - scene_number: 06
     scene_title: "The Watcher in the Water"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene06.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene06.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Hello all, HillSpawn here to narrate the introduction slides for our 61 CBRX S2 civilizations before the action starts. Sit back, get out your popcorn and try not to slurp your soda, the show is about to begin!</p><p>The Cylinder’s most advanced piece of technology, the cybersub RSV Babylonian Observer, lies in wait, submerged within the frigid waters of Lake Vostok. Surrounded by the inhospitable Antarctic landscape and encircled by nigh-impenetrable ice shelves, it is the most secure location on the Cylinder, concealing the most closely guarded secret of the known world: it’s all a simulation.Aboard the RSV Babylonian Observer, under the newly established command of Admiral Caliph Abd-ar Rahman III, the various radars, sonars and sensors of the sub are calibrated and uncalibrated, the live video-feeds from countless satellites orbiting the Cylinder are played across a dozen screens in the Babylonian Observer’s bridge, and dozens of Babylonian operatives in deep cover in all the Cylinder’s civilizations are ready to begin collecting intelligence. Seated on his command-throne, Abd-ar Rahman III unseals the RSV Babylonian Observer’s orders, passed down from Nebuchadnezzar II himself, to Pedro II before him, and now in his possession. Their task is laughably simple yet confoundingly complex.“Commence Operation Observer.” Admiral Caliph Abd-ar Rahman III commands, “Start up the Battle Royale!”</p>"
   - scene_number: 07
     scene_title: "Land of Ice and Fire"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene07.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene07.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Iceland, presided over by the academically inclined President Kristján Eldjárn, lies at the most northwestern corner of Europe. The RSV Babylonian Observer’s team of expert analysts, fondly dubbed the “Power Rankers”, don’t have high expectations for Iceland’s performance. President Kristján seems more interested in cultural aspirations than warfare and expansionism, though he can be relied upon to assert his civilizations fishing rights. That is all well and good, for the harsh terrain of the North Atlantic islands won’t feed a population bent on world conquest, but the fish of the sea might.</p>"
   - scene_number: 08
     scene_title: "Cymru am byth!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene08.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene08.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: *sung to the tune of “Hen Wlad Fy Nhadau”*</p><p></p><p>The land of Wales is dear to Llywelyn,</p><p>Old land where their settlers are unrivaled and free;</p><p>In war its defenders so gallant and brave,</p><p>Outnumbered will probably be.</p><p></p><p>Wales, Wales, good luck to Wales,</p><p>Their seas secure their land so pure,</p><p>O may the old language endure.</p><p></p><p>Old land of the hills, the Paradise of cattle,</p><p>Each gorge and each valley for now free of battle;</p><p>If Llywelyn builds cities, and Caers and corps</p><p>There may be more Welsh lands and shores.</p><p></p><p>Yet foemen may trample his land ‘neath their feet,</p><p>The language of Cambria will know no retreat;</p><p>City names won’t be erased if traitors take their land,</p><p>Nor silenced the harp in Dawkinzz‘s hand.</p>"
   - scene_number: 09
     scene_title: "Wild Boar Bourbon"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene09.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene09.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The fate of Western Europe in this simulation will likely be decided by the choices of these future rivals: the Gauls led by Vercingetorix and Spain led by Carlos III. The senior partner of Bourbon & Son is seen as a strong contender by the analytics team, possessing uncontested land in Iberia and a reputation for competent rule, whilst Vercingetorix is under threat of being hemmed in on all sides by Wales, Spain, the Two Sicilies and German. The Gauls can be masters of their own fates by taking the fight to the Spaniards, claiming the strategically important chokepoints of the Pyrenees, but they’ll need to show aggression to succeed at such a ploy. Unfortunately if history is any guide, the Gauls won’t take up arms before they’re already in the jaws of defeat.</p>"
   - scene_number: 10
     scene_title: "Deserters"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene10.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene10.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Sporting scandalous shades of tan, neither the Vandals nor the Tuareg are seen as favorites in the illicit betting rings of the RSV Babylonian Observer’s mess deck. Blending into the arid plains and deserts of Maghreb, Genseric and Tin Hinan are both held back by the limited resources and opportunities for expansion at their disposal. Where the Tuareg can count on the desert being on their side in any future wars, the Vandals’ best hope lies in conquering the coastal cities of the Mediterranean, but there is no guarantee that Genseric is up to that task. </p>"
   - scene_number: 11
     scene_title: "Tout-à-Coup d’État Jazz"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene11.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene11.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: South of Abalessa, Thomas Sankara strives to inspire Burkina Faso’s revolutionary zeal for liberating the working classes of West Africa from their chains, as well as from the governance of other civilizations. The major hurdle standing between Africa’s Che Guevara and a permanent revolution around the entire Cylinder is geography. Ouagadougou may be in the hospitable lands south of the Sahel, but Burkina Faso will have to fight to stake their claim on West Africa. The Sahara Desert to their North does not exactly beckon colonists, and the Tuareg with their defensive bonuses will be a tough nut to crack. Nigeria looms to their East, and will challenge Burkina Faso for control of the thin fertile strip between the Sahara and the Atlantic Ocean. Sankara, like the rest of the Cylinder’s socialist revolutionaries, has many counter-revolutionary forces to overcome.</p>"
   - scene_number: 12
     scene_title: "Decolonization Station"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene12.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene12.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: South-East of Burkina Faso, Lagos and Kinshasa are separated by the Gulf of Guinea, the Congo Basin, and the vastly different expectations placed upon them. While Mobutu Sese Seko’s authoritarian kleptocracy of Zaire is estimated to be the African superpower, Nigeria’s past performance in preliminary simulations only nets them an average rating in the Analytics Team’s estimates. Awolowo has great potential for rapid population growth thanks to the mores and folkways of the Giant of Africa, but his leadership style is better suited for winning over the hearts, minds and souls of his enemies’ civilians, whereas on the Cylinder only conquest matters. Mobutu Sese Seko is likelier to be the man to recognize his moment and seize the rich lands of Africa when the time comes.</p>"
   - scene_number: 13
     scene_title: "No Country for German Men"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene13.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene13.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Far to the south of Zaire, but not far enough to feel entirely comfortable, Jacob Morenga leads Namibia. Windhoek straddles both the Namib and Kalahari Deserts, and like Tin Hinan’s Tuareg in the Sahara, Namibia’s deserts are their greatest allies in war, devastating their foes through attrition. The dead of their enemies are seen as sacrifices to the sinister Namibian gods, inspiring the faith of their people. Perhaps it is for the best that Namibia is situated in a subpar desert location, wedged between Lesotho, Zaire and the ocean, for Jacob Morenga’s reign of terror and human sacrifice would surely spell an even grimmer, darker future for the Cylinder than is otherwise anticipated by the Antarctic observers.</p>"
   - scene_number: 14
     scene_title: "Almost as High as Moshoeshoe’s Stovepipe Hat"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene14.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene14.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Southeastern Africa and Madagascar lie open to Moshoeshoe I’s Lesotho. Moshoeshoe gained his kingdom through warfare and kept it through skilful diplomacy. Lesotho’s defensive edge in hilly terrain means that the Kingdom in the Sky will likely play a role in the action of southern and eastern Africa for quite a while, though the risk of being reduced to a forgotten enclave within a larger African empire is very real.</p>"
   - scene_number: 15
     scene_title: "Reformed Pirates and Slavers"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene15.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene15.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: East Africa is home to two maritime powers, Zanzibar and Somalia, fated by geography to be rivals. Mohammed Siad Barre, Africa’s other socialist revolutionary, has the edge over sultan Barghash bin Said in naval warfare, however the sultan is expected to establish a naval empire across the islands of the Indian Ocean, island-hopping out of harm’s way. Rather evenly matched civilizations, the winner of this East African duel will either come out tough enough to take on the other African powers, or as a Pyrrhic victor with little strength to oppose an invasion from their numerous neighbors. Whether the celestial orbs align with Somalia’s Star of Unity, or Zanzibar’s navies have the wind at their backs, East Africa promises to provide an interesting case-study in naval power struggles.</p>"
   - scene_number: 16
     scene_title: "Meet Me in the Middle East"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene16.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene16.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The Middle East is crowded with sunburnt crusaders, Greeks cosplaying as Egyptians and famed railroad demolitionists, and the region is predicted to spiral into violence and suffering before being permanently stabilized through intervention from outside the region. The Ptolemies under Cleopatra look to make friends and trading partners, but on the Cylinder all friendship is temporary and trade merely a method for financing war. Hussein bin Ali’s Hejaz also desires friendship, if only to gain Foreign Operatives to advise his military. Baldwin III already owns the holy city of Jerusalem the crusaders so coveted, and so he must now cynically justify his wars of expansion under the guise of uniting the faithful under the banner of Jerusalem, assuming his civilization produces a religion. All three of them must overcome the inherent challenges of the desert landscapes they inhabit, and Jerusalem and the Ptolemies must be especially wary of naval invasions across the Mediterranean. Truly, there are few locations on the Cylinder with bleaker outlooks than the Middle East.</p>"
   - scene_number: 17
     scene_title: "Adrift in the Adriatic"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene17.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene17.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The narrow Adriatic Sea lies between Kosovo and the Two Sicilies. The junior partner of Bourbon & Son, Ferdinand I of the Two Sicilies, son of Spain’s Carlos III, helped by the Two Sicilies’ ability to upgrade its existing navy and gain free naval units whilst building cargo ships, is expected to rise to rule the Mediterranean. It is not entirely unlikely that the Sicilian navy is the last thing seen by the Vandals, the Ptolemies and Jerusalem, and with the Alps and the Apennines to secure them from European invasions, the Two Sicilies are in a competitive position. Ibrahim Rugova must be glad that Pristina is not settled on the coast, preferring the security of the Balkan Mountains. Kosovo’s ability to pull their friends into their wars has the potential to amplify the military threat posed by the Kosovars, bringing coalitions of civilizations against their foes in possibly apocalyptic conflicts. While the Two Sicilies and Kosovo are not guaranteed to come to blows early on in the simulation, we can safely bet that the first global conflict will begin because of some damn friendly thing in the Balkans.</p>"
   - scene_number: 18
     scene_title: "Teutonic Twins"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene18.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene18.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The German Empire and the Teutonic Order are very similar: both are Germanic, militaristic, and surrounded by enemies. However, where Wilhelm II is expected to celebrate numerous victories and dominate the European continent, most prognostications envisage Hermann von Salza being served humiliating terms of surrender by one (or both) of their mighty neighbours, the German Empire or the USSR, as the Baltic region, which the Teutonic Order was established to conquer and convert lies squarely in the spheres of influence of both greater powers. While Germany is all but guaranteed their place in the sun, the Teutonic Order will need all the help, defense and healing in the world to be considered a contender.</p>"
   - scene_number: 19
     scene_title: "Lions from the North"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene19.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene19.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Baron Mannerheim and King Karl XII glare at each other across the Baltic Sea, which isn’t wide enough to prevent the eventual war between these cross-flagged rivals. Finland and Sweden are both militaristic civilizations, with Sweden favouring the offense and Finland defense. It remains to be seen which of the brothers is first to throw down the gauntlet and march their forces around the Gulf of Bothnia, or set out on an amphibious invasion. Sweden is favoured in this matchup, for Finland must constantly guard their eastern flank against Soviet attacks, while the Baltic Sea guards Sweden against Germany. Even if Iceland or Wales were to colonize the Norwegian coast, Sweden’s military strength would likely outmatch any civilizations attempting to establish a North Sea Empire. The Marshal of Finland is historically the best leader to guide his civilization in a war against insurmountable odds, but he has to face the limitless ambitions and military genius of Karl XII. While a pride of lions typically has multiple males, one of these northern lions may very well have to swallow their pride and surrender to the other.</p>"
   - scene_number: 20
     scene_title: "“Must Crush Capitalism!”"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene20.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene20.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Vladimir Lenin leads the Union of Soviet Socialist Republics, terrifying all the monarchs, theocrats, aristocrats, plutocrats, kleptocrats and democratically elected heads of state of Eurasia. Though his rule does not yet extend far beyond Moscow’s Red Square, Lenin is ready to bring his proletarian revolution to the ends of the Cylinder. His admirers in Burkina Faso, Somalia and Vietnam couldn’t hope for a better role-model, though it is doubtful whether they will be able to rise to the same heights anticipated of the USSR. The USSR is expected to become an industrial powerhouse, swelling the Red Army’s ranks with fresh soldiers and its cities with impressive infrastructure, and it will take a counter-revolutionary coalition or an old enemy in the East to take Lenin down.</p>"
   - scene_number: 21
     scene_title: "Preserved in the Permafrost"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene21.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene21.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: ...though not this old enemy. Stephen I shepherds Great Perm, filling in the expanses of tundra surrounding the Urals. These lands, which other civilizations turn up their noses at, are a treasure to the Permians. The sheer quantity of frozen waste available to Great Perm makes them a competitive civilization, for even cities settled in the tundra are cities in which armies can be produced and faiths established. Permian merchants are able to maximize their profits in the tundra, aiding Stephen’s efforts for expansion. While less warlike than their neighbours, the Arctic wastes and taiga stretching as far as the eye can see will slow down any invaders, at least at first. Great Perm promises to build an empire where no other civilization wants to settle, though we hope it is more exciting to watch than a hibernating bear.</p>"
   - scene_number: 22
     scene_title: "Mountain Mama and Papa"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene22.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene22.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Georgia and Kurdistan both consider the mountains their dear friends. Both civilizations gain their own defensive advantages from the mountains, with Tamar constructing citadels and houses of worship in the Caucasus, providing unassailable walls and a shield of faith to her people, where Mustafa Barzani’s Kurds will forage in the Zagros Mountains for all the resources they are able to find therein, seizing the impassable terrain as their own. Both civilizations will be nearly impossible to dislodge from their defensive positions, though Kurdistan is considered a favorite to rise to a dominant position in the Middle East, utilizing their advantages in high-altitude warfare to pick apart the civilizations to their south. Georgia, on the other hand, must swiftly expand beyond their mountainous homeland or risk being surrounded by the Soviets to their North and the Kurds to their South.</p>"
   - scene_number: 23
     scene_title: "Aral Sea Thieves"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene23.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene23.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Islam Karimov’s Uzbekistan is the Cylinder’s Central Asian powerhouse, with natural boundaries providing shelter from Punjabi, Permian and All-Russian incursions, whilst having nearly unchallenged claims to huge tracts of land. While fortuitous geography has granted Islam Karimov great potential, it is his innate potential which makes Uzbekistan a strong contender to rise to primacy among the civilizations of the Cylinder. Whenever Uzbek cities grow in population, there is a chance that the excess population will be forced to  slave away in producing gold, entertainment, military forces or civilian labourers. Life under the iron rule of Islam Karimov may be harsh, but none can deny that his style of governance benefits Uzbekistan in competition with its neighbors.</p>"
   - scene_number: 24
     scene_title: "Supreme Leader of Siberia"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene24.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene24.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Lenin’s old enemy, exiled from the true capital of the Russian civilization, bides his time in Omsk. Far beyond the Urals, Admiral Kolchak’s Provisional All-Russian Government is consolidating its forces in preparation for the final showdown: the conquest of all Russian lands. What Kolchak defines as “Russian lands” remains to be seen, but Uzbekistan and Great Perm, his nearest neighbors - not that they are too close for comfort - need to watch out. While Lenin’s USSR in Moscow are Kolchak’s ultimate target, the PA-RG’s armies may find themselves conquering many lands before they reach the end of the  winding railroad back to a home they’ve never known. For that to happen though, PA-RG must settle all the land they have available, or risk disappointing Kolchak forever.</p>"
   - scene_number: 25
     scene_title: "Holy Men of the Himalayas"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene25.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene25.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: High up in the Himalayas, Bhutan and Punjab are poised to ask the entire rest of the world whether they have a minute to talk about religion. Where Thimphu’s happy population are likely to find meaning in life through religion, Punjab will, given the opportunity, greet its neighbours by sending their missionaries first and their armies second. Given the close proximity of Mt. Kailash to Lahore, Ranjit Singh is all but guaranteed to found a religion, and foreign cities which he converts will soon be celebrating the arrival of Punjabi troops. Bhutan’s king Jigme Singye Wangchuck will need all the Dapon-archers he can recruit to keep his kingdom free from Punjab’s clutches, but he is known to be eager to recruit them, so even if Bhutan does not come to rule all of the Indian subcontinent, he may simply prevent his enemies from moving with the sheer volume of Dapons in the field. </p>"
   - scene_number: 26
     scene_title: "Timid Tamil"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene26.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene26.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The southern tip of the Indian subcontinent is inhabited by Chola, led by Raja Raja I. Their location is unenviable, surrounded by the Indian Ocean in three directions, with two competitors to the North. Sri Lanka with its natural wonder, the Sri Pada, is open for Chola settlers, which means the Chola stands a strong chance to found a religion, but this will only help them so far. Raja Raja I has his work cut out for him if he wishes to establish a Chola thalassocracy in the Indian Ocean.</p>"
   - scene_number: 27
     scene_title: "Yas Khatun, Slay!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene27.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene27.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: In the preliminary assessment of the Cylinder’s civilizations delivered onto Admiral Caliph Abd-Ar Rahman III’s desk, the Babylonian analytics team rated Mandukhai’s Northern Yuan as the most powerful civilization on the Cylinder. Reading over the report, Abd-Ar Rahman found the Northern Yuan’s abilities and armies, fine-tuned for the conquest of enemy cities opportune for world conquest. Now, with the video-feed from the Babylonian satellites on his screen, he is impressed. Karakorum is surrounded by land which none of Northern Yuan’s neighbors can easily access. Mandukhai has all the horses she could need to equip a cavalry-charge which could blot out the sun with the dust kicked up by their hooves. From the Mongolian steppes a true contender may rise, and Abd-Ar Rahman wonders, could this Khatun of the Northern Yuan truly be his successor at the RSV Babylonian Observer’s helm?</p>"
   - scene_number: 28
     scene_title: "Conquest Dynasties Coexist"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene28.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene28.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Kublai Khan’s Yuan were once steppe nomads themselves, but in their capital of Khanbaliq along the Hai River, the Yuan are more the rulers and defenders rather than conquerors of empires. When fighting numerically or technologically superior foes the Yuan work tirelessly to close the gap, and once surpassed will sap away the defenses of their opponents’ cities. Much of Northern China lies open to them, assuming Northern Yuan does not get there first. Many have counted out Yuan, but that is a mistake. However, Kublai Khan must remember not to rule out the Manchu. In Mukden by the Liao River, Nurhaci and his octagonal military structure await the opportunity to march into Khanbaliq.The Aisin Gioro chieftain has already forged the disparate Jurchen tribes into the unified Manchu civilization, and if either of the Yuans, Northern or otherwise, fail to take dominion of Northeast Asia, the Manchu candidate is ready to take their place.</p>"
   - scene_number: 29
     scene_title: "Heresy Inc. Headquarters"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene29.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene29.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: A jade-green paint job and a change in spelling is all it takes to turn China’s southern capital of Nanjing into a holy city fit to house a divine being, the capital of the lord and saviour Yesu Jidu’s younger brother Hong Xiuquan. While the population is inclined to believe that Hong Xiuquan is indeed the younger brother of an incarnate god from far in the West, Hong Xiuquan’s neighbors cannot be convinced to submit to the Taiping Heavenly Kingdom by the ravings of a madman - however his armies are ready to reach out to those whom the Taiping Heavenly King can’t sway. South China is a verdant, lush paradise, a fitting land to proclaim Heaven on the Cylinder, but Hong Xiuquan’s erratic leadership might prove more dangerous than a serpent’s whispers for the longevity of the Taiping Heavenly Kingdom.</p>"
   - scene_number: 30
     scene_title: "Tread the Trail or be Trampled"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene30.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene30.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Hà Nội and Viang Chang are home to two civilizations and two leaders who are not fated to coexist for long. Indochina is too small for both Ho Chi Minh and Fa Ngum, their borders nearly touching and their armies already scouting the terrain between them. In this coming conflict Vietnam’s guerrilla tactics and ability to utilize Laotian infrastructure will be pitted against Laos’ Uparaja-generals and War Elephants. The Truong Son Trail may once again bring Ho Chi Minh victory in safeguarding the revolution, though he has to work fast, lest Fa Ngum’s War Elephants catch his guerrillas - or worse, his cities - by surprise. Whether the Buddhist king or the Marxist-Leninist revolutionary emerges victorious from this conflict, they will lead a veritable Southeast Asian regional power.</p>"
   - scene_number: 31
     scene_title: "Strait Talk"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene31.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene31.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: At the southern tip of the Malay Peninsula, Mansur Shah is sovereign over the Strait of Malacca and no trade passes without his say-so, as is explicitly detailed in the Maritime Law of Malacca. Mansur Shah is fortunate to be far from the attention of his northern neighbours in Vietnam and Laos, and is better suited for naval conflict than Jan Coen’s Dutch East India Company. Malacca has a maritime mindset in both military and mercantile matters, and their emphasis on trade may very well aid them in equipping a potent navy. However, there are only so many opportune targets for Mansur Shah, and he’ll have to embrace the life of a landlubber if he desires prolonged success on the Cylinder.</p>"
   - scene_number: 32
     scene_title: "Corporate Conundrums"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene32.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene32.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Krakatoa’s ever-smoking caldera is an inescapable sight for the citizens of the Vereenigde Oostindische Compagnie’s first colony of Batavia. It also holds some poetic symbolism for how the RSV Babylonian Observer’s analytics team expects Jan Coen’s time on the Cylinder to go: up in flames. While the VOC is more than happy to claim as many of the spice islands as they can, they are at risk, squeezed between a competent naval neighbor in Malacca and the looming threat of a strong Australian civilization turning its gaze to Southeast Asia. If Jan Coen is able to direct the VOC in claiming all of the Indonesian archipelago he may stand a chance against the civilizations of Indochina, Australia and India. However, he is equally likely to sink to a watery grave or spontaneously combust.</p>"
   - scene_number: 33
     scene_title: "Unturned Earth, Unburned Beds"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene33.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene33.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Mutit Julu and Coranderrk are the first settlements in the Land Down Under, emerging from the Dreamtime onto prime time programming aboard the RSV Babylonian Observer. At the foot of Uluru, Tjilpi’s Anangu are guaranteed to be a religious powerhouse, drawing upon the wonders of nature and the traditions of their ancestors in inspiring their faith. However, their initial position in the heart of the desert is considerably weaker than that of their immediate neighbor, Kulin. William Barak can expand along Australia’s East coast and beyond onto the secure isles of New Zealand, while the Anangu must trek through the desert to reach the continent’s prime territories. Kulin and Anangu are another fated pairing, though the two may agree to coexist longer than other regional neighbors.</p>"
   - scene_number: 34
     scene_title: "Calm Port in Paradise"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene34.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene34.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: From the island of O’ahu, Queen Lili’uokalani rules Hawaii. The Hawaiians don’t have to fear the threat posed by foreign business interests to the security of their kingdom, though they should still prepare for the day when the other civilizations of the Cylinder take interest in the archipelago at the crossroads of the Pacific. Speaking of Pacific, meaning peaceful, Queen Lili’uokalani’s focus on flourishing arts and culture may keep her citizens happy and intellectually satiated, but pens are poor competitors to swords. The Pacific Ocean is wide, but Hawaii has reason to fear both the inhabitants of the West Coast of North America and the East Asian civilizations, or else these paradise-islands may become a paradise lost.</p>"
   - scene_number: 35
     scene_title: "What he Does in the Shadows"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene35.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene35.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The Shogun of Darkness rules the land of the rising sun, where in the shadows of smoke-filled rooms money and loyalty change hands, infrastructure contracts are awarded to political allies, and members of the fledgling yakuza gangs and emerging zaibatsu cliques take form. At the heart of it all Tanaka Kakuei orchestrates the secret arrangements to best serve the interests of Japan and himself, whilst promising prosperity to the peasants of his civilization. Secluded on his island at the edge of Asia, Tanaka Kakuei must compete with the Manchu, Yuan and Chukchi for land if he wishes to keep Japan under his control. While corruption charges can’t bring down a leader on the Cylinder, conquerors crossing the Sea of Japan can. It is a good thing that Japan has a leader as ambitious and unscrupulous as Tanaka Kakuei, who might just have what it takes to go toe to toe with the continental chieftains and emperors of East Asia.</p>"
   - scene_number: 36
     scene_title: "Terror of the Tundra"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene36.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene36.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Lawtiliwadlin’s nomadic hunters and fishers are ready to take up arms and raid both East Asia and Alaska, eager to defeat the weak southerners and return home as heroes. Kagyrgyn is perched at the furthest ends of Eurasia on the Chukotka Peninsula in an environment which the Chukchi are well-adapted to exploit, plentiful in fish, crabs and deer. The Chukchi are fortunate that none of their Asian neighbors are as well adapted to tundra-life as they are, and their Chulte’nnin composite bowmen coupled with the ability of their troops to claim nearby battlefields into their empire and force enemy forces to retreat will help the Chukchi hold their own in future wars against the likes of the Manchu, the Northern Yuan, the Japanese and the civilizations further to the south. Lawtiliwadlin’s settlers will have a slightly harder time reaching the best settlement locations, but once there the Chukchi are well set to keep pushing forth and take the fight to their enemies.</p>"
   - scene_number: 37
     scene_title: "Unbearable Ruckus"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene37.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene37.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The first satellite-image from the New World shows the two northernmost civilizations of the Americas: Thanadelthur’s Dene and Four Bears’ Three Affiliated Tribes. The Dene are a pious and cultured civilization, which immediately places them at a disadvantage in the competition for dominance in North America. The Dene are in a good position to settle much of the land in the Arctic Circle, which may improve their longevity. Thanadelthur’s Sacred Drummers may fill the Arctic with the sounds of sweet music and sermons, but she’ll need soldiers to stop her cities from being filled with the sounds of battle. To the South along the Missouri River, Four Bears plots out the beginnings of his Great Plains Trade Empire in the curiously named Like-A-Fishhook. The Three Affiliated Tribes are expected to be strong contenders to establish themselves as the regional power of the Northwest, but they have to keep watch on the horizon across the plains, in case the Mississippi run out of farmland for their corn and need to seek it in the lands of their neighbors.</p>"
   - scene_number: 38
     scene_title: "Run, Salmon, Run!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene38.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene38.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Comcomly’s Chinook are already claiming the bounty of the sea outside their borders, as they will aspire to do as long as they have a coastal presence on the Cylinder. The Rockies shield the Chinook from aggressors for now, and if Comcomly wishes to enjoy the bounties of the sea for long, he would do wisely to not only seize territory along the coast as well as inland towards the mountains, building a powerful core for his empire and setting up Plankhouses all the way to support his trade-efforts. The Chinook and the Three Affiliated Tribes may be eager to trade together, but as neighbors the two may very well come to blows before long, as neighbors on the Cylinder are wont to do. </p>"
   - scene_number: 39
     scene_title: "Beach Bums and Cowboys"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene39.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene39.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Travelling South along the West Coast we find the Tongva capital of Juyubit and Laredo, capital of the Rio Grande. With Ti’at settler-scouts available to sail away to distant lands, Toypurina is in a comfortable position to establish herself as Empress over a trans-Pacific realm. However, like many of the civilizations dotting the Pacific Rim, she is more of a cultivator of culture than a conqueror. Toypurina stands a chance to rule the waves, though she has to watch her back and flank. Antonio Canales Rosillo’s civilization is named after its river and known for its horses. Rio Grande is expected to be one of the strongest candidates to conquer the Western world on horseback, thanks to their powerful mounted units and turning the very rivers of their land against their enemies. North America has no shortages of rivers, and Rio Grande has mastered the art of breeding horses, so their neighbors are right to fear the name of El Zorro del Chaparral.</p>"
   - scene_number: 40
     scene_title: "Headstart"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene40.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene40.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Most of the civilizations on the Cylinder only care for terrestrial matters, and so the Olmecs, obsessively watching the movements of Venus stand out from the crowd. U Kix Chan promises to turn some heads - into stone - immortalizing the Great People of his civilization as Colossal Heads, looming menacingly in the jungles of Central America. Nestled on the Bay of Campeche at the back of the Gulf of Mexico, Coatzacoalcos is far enough from other civilizations to allow the Olmecs to focus on astronomy and headwork. U Kix Chan is not perceived as an aggressive enough leader to unite all of Central America under Olmec rule, but if he finds himself in the right headspace with a shining morning star to guide him, who knows what the Olmecs can accomplish.</p>"
   - scene_number: 41
     scene_title: "Liberate Your Mind and Your Country"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene41.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene41.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: At the bottom of Admiral Caliph Abd-Ar Rahman III’s list of the analytics team’s preliminary assessments of the Cylinder’s civilizations rests Jamaica. Marcus Garvey has been written off as a contented and relaxed leader of a generally light-hearted and easygoing Caribbean civilization with no hope for success given the harsh realities of life on the Cylinder. While the RSV Babylonian Observer’s commander may be fond of Jamaica’s reggae and herbal remedies, he foresees Marcus Garvey’s return to the submarine to be in the role of court bard rather than commander. Due south of Kingston, he sees more potential in Simon Bolivar’s skills as a leader of armies and “liberator” of cities. Bolivar proclaims that Gran Colombia will bring stability and prosperity to all the civilizations of Latin America, and his Libertador-generals are equally capable at leading troops as they are at writing up elaborate political treatises to back up Bolivar’s message. While the rough terrain of Central America and the Amazon may slow down Gran Colombia’s conquests, much is expected of Simon Bolivar.</p>"
   - scene_number: 42
     scene_title: "South American Horror Story"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene42.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene42.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Both Solano López’s Paraguay and Andrés de Santa Cruz’s Peru-Bolivia are civilizations built for war, yet neither of them is expected to come out on top in South America. The Frankenstein’s confederacy of Peru-Bolivia is able to use trade to pacify and profit off conquered civilizations, and is specialized in building navies for coastal conquests. Paraguay doesn’t allow limited resources to stand between itself and necessary infrastructure, and in a pinch can sell everything and the kitchen sink to rush out armies. However, their main challenge is the competition they face from the rest of South America. In the Power Rankers’ expert opinions any of the other South American civilizations stand a better chance at victory than Paraguay and Peru-Bolivia. While Tacna and Asunción house able leaders, they may very well be outmatched.</p>"
   - scene_number: 43
     scene_title: "King of the Cone"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene43.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene43.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Lautaro’s Mapuche inhabit terrifically defensible terrain in the southern cone of South America. The Andes protect Puren from their neighbors. The Mapuche are able to seize rival territory with their Chemamull-memorials, established on the land where Mapuche forces fall, and thus make territorial gains even whilst losing soldiers. Fighting on these Chemamulls bolsters the Mapuche forces, and so any forces trying to conquer the Mapuche face a nigh-impossible task, and Lautaro’s forces marching where their predecessors fell will swipe aside the enemies to his North.</p>"
   - scene_number: 44
     scene_title: "Abolitionist Action"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene44.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene44.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The fiercely independent people of Quilombo dos Palmares are established in the Eastern tip of South America. Zumbi’s Capoeristas are evasive masters of the wilderness, and will be able to outmaneuver any of their neighbors in the jungle. A nation of escaped slaves, the ethos of freedom which the Palmares embodies can sway any rival civilians to their side - however they will need more than Capoeristas to solidify themselves on this forgotten continent.</p>"
   - scene_number: 45
     scene_title: "Strength of the Amazons"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene45.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene45.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The last of the South American civilizations is P’küee’s Marajoara. Secure in the Amazon River delta, Camutins is protected by the rainforests that surround it, as well as Marajoara’s Teso-shrines, which can be rebuilt era after era, increasing the city’s health each time. Marajoara has great potential if given the opportunity to grow undisturbed by its neighbors. Far away from the more aggressively militaristic civilizations of South America, Marajoara may be the one left standing in the rubble of their petty wars. However, if Zumbi or Simon Bolivar decide that P’küee’s population needs liberating, Marajoara’s story may come to a sudden stop.</p>"
   - scene_number: 46
     scene_title: "Flyover Country"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene46.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene46.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: Roughly smack-dab in the middle of North America, Tuskaloosa governs in Cahokia. The Great Plains of North America are flatter than the ends of the Cylinder, and it is here the Mississippi will plant the kernels of their a-maize-ing economy. The Mississippi have structured their civilization around Regional Centers, cities with high population which support the growth and infrastructure development in adjacent cities. While the Mississippi don’t stare at the sky like the Olmecs, they take a keen interest in how far from the equator they are, placing a strange religious significance on this distance. Tuskaloosa leads one of the strongest civilizations in North America, with incredible potential to grow into the breadbasket of the Great Plains. However, the wide open terrain which he is likely to settle won’t benefit any defensive efforts once war breaks out, and on the Cylinder wars always break out.</p>"
   - scene_number: 47
     scene_title: "Even Old New York was Once Nieuw-Amsterdam (and Kandoucho Could Be Toronto)"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene47.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene47.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: The last two civilizations of North America round out this introduction to the civilizations competing for conquest of the Cylinder. Tsouharissen leads the Neutral Nation, wedged between the Huron and Ontario Lakes. The analytics team has flagged the Neutral Nation as the North American civilization with the greatest potential for success. The Neutral Nation’s armies swell with green recruits seized from the civilian populations of the freshly-conquered cities of their foes, fated to either fall in battle or eventually join the tattooed ranks of the Neutral Nation. However the Neutral Nation’s greatest advantage may be its closest neighbor, New Netherland. Peter Stuyvesant leads the second Dutch colony on the Cylinder, and these strangers in a strange land will need grit and determination if they are to survive the frontier justice which the rest of North America is prepared to dole out. Peter Stuyvesant is here to build forts and hunt beavers, and to his credit building forts will lengthen New Netherland’s lifespan on the Cylinder. The whole Eastern Seaboard is open for New Netherland to colonize, but so long as the Dutch have the Neutral Nation in their faces and the ocean at their backs, they will be under constant threat.</p>"
   - scene_number: 48
     scene_title: "Old Habits Die Hard"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene48.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene48.jpg?format=webp&quality=80
     narration: "<p>Lunar: Ol’ Solano is back to his old habits it seems? Damn, that didn’t even last through the Wales turn before a shot was fired across the bow to their South America rival. Honestly, if he doesn’t burn down every bridge between him and his rival, he is in a good position to wreak havoc across the cylinder. A toast to this game’s Chaotic Evil everybody!</p>"
   - scene_number: 49
     scene_title: "Subjective Optimism"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene49.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene49.jpg?format=webp&quality=80
     narration: "<p>Lunar: The Provisional All-Russian Government was truly a nation I wanted to see in. Do I think they’ll do well? Well, maybe! They have some decent land available to scoop up even if it lacks arctic ocean access from seasons past, it’s still good enough land to settle and every tile can be a good enough city once the tech has properly stabilized. If I was in Kolchak’s position I would build archers and settlers ad infinitum and settle those Tundra cows for no reason other than to say that my beef gives me Cold Resistance II.</p>"
   - scene_number: 50
     scene_title: "Malaccan Expansion"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene50.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene50.jpg?format=webp&quality=80
     narration: "<p>Lunar: Oh my lord Malacca! The game has just started and you‘re moving towards the Dutch East India Company. This is either going to be like the Boer forward-settle that chokes the naval trading empire to the island of Java, or a move that nets one foreign sounding city in Jan Coen’s impressive city portfolio. Considering how the majority of the units are moving towards this new settle, I’m beginning to believe the former. In a saying that I will say time and time again - time will tell.</p>"
   - scene_number: 51
     scene_title: "Big Stick Policy"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene51.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene51.jpg?format=webp&quality=80
     narration: "<p>Lunar: Something that I’ve learned in playing Civilization for as long as I have is that settles are investments. They take a lot of production and stifle a city, but in exchange grant you a section of the land that without war you will never lose. You could either settle optimally like Three Affiliated Tribes settle of Seepoosha or you could settle knowing a war will happen with your neighbour like with the Dene settler in the northern sector of the map with a lake and set of hills to provide defense. The best route for the former is defend the city you settled but for the latter here, they need to produce an army and take Seepoosha immediately or they will be on the defensive for the rest of the game. These next turns will be a test for Thanadelthur. </p>"
   - scene_number: 52
     scene_title: "Strongest West Europe Ever?"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene52.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene52.jpg?format=webp&quality=80
     narration: "<p>Lunar: The Gauls and Germany are both huge contenders here with two large plots of easily industrialized land. The Gauls UA allows them to summon Silver, Gold, Copper, Iron or Aluminum when building mines, so as they industrialize they might not experience the early game happiness slump that their Germanic or Hispanic neighbours will. Wilhelm II moves his settler east of Berlin while the Gauls settle towards the English channel. I’d put my coins on Gauls to make a defensive empire while I expect Germany to burn bright and die quick… but yet again they do have a Great War Infantry replacement called Stormtrooper, which can make for some quality memes if I do say so myself.</p>"
   - scene_number: 53
     scene_title: "*Garbled Screaming*"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene53.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene53.jpg?format=webp&quality=80
     narration: "<p>Lunar: In order to play the role of an insane and mentally depressed person in the movie “Joker” - Joaquin Phoenix witnessed the settlement of the Kosovan city of Prizreni, effectively shutting down the possibility of a canal city between the Black Sea and the Medittereanean. For real though, look at the quality of land here. Full of resources and flat land which could make war an absolutely explosive prospect. I’m legit excited for Eastern Europe this game. Remember, this was the front that saw the amazing Kazakh collapse last season and it’s likely to only get more juicy as the season continues.</p>"
   - scene_number: 54
     scene_title: "A Natural Rivalry"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene54.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene54.jpg?format=webp&quality=80
     narration: "<p>Lunar: There’s a lot of small things to gleam from this screenshot. Tongva settles a city close to their capital with no luxury resources visible. Maybe they see oil under the sand? Either way, not a fantastic settle. Rio Grande seems to be sending their settler down south towards Olmec. I hope Olmecs have some big brain plays in their colossal head of theirs. Heh.Meanwhile the Mississippi seems to be moving closer and closer towards Rio Grande. I expect there to be a clash very soon between them. I could see a full defeat of either of them to be the deciding point for the continent. Rio Grande needs to get a hold of horse units quickly so their units can start with the bonus experience from their UA.</p>"
   - scene_number: 55
     scene_title: "Maghreb Madness"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene55.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene55.jpg?format=webp&quality=80
     narration: "<p>Lunar: Aghat! That’s a bold settle. Tuareg might be wanting to raid the caravans of the desert with their UA with that settle, as all land trade routes through their land steal gold, but I don’t think angering your nearby neighbour - one with access to Cargo Ships, is a great idea Tin Hinan…Again, just like Dene and the Three Tribes in North America, the efficacy of this plan is entirely dependent on how well they could hold the city. While I complimented the Three Tribes earlier, I think this settle will just result in a new relatively free Vandal city when catapults come knocking.</p>"
   - scene_number: 56
     scene_title: "Smart Moves"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene56.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene56.jpg?format=webp&quality=80
     narration: "<p>Lunar: Two Sicilies settled a great city in modern day Venice which is far away from their capital, but is defensible due to the Alps. They now have the free reign to settle Italy at their leisure and maybe even reach around towards Kosovo if they’re feeling especially cheeky. Meanwhile, Germany desires Poland so badly they are moving their settler very close to the Teutonic Order’s capital of Marienburg. Do I expect whatever city is settled to remain German? If it wasn’t for their spectacular performance in test games, I’d say no, but I assure you this cocky forward settle might be prosperous… or it could be one of this seasons greater blunder - no inbetween.Teutonic Order meanwhile seem determined to settle to the North, and the Sicillian scout enjoys some lovely Kartoffelpuffer with the hesitant German archer who just wants to watch a quarry get built in peace. Meanwhile, we get the first Pantheon being founded somewhere off screen. Neat!</p>"
   - scene_number: 57
     scene_title: "Pathfinding Really Do Be Like That"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene57.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene57.jpg?format=webp&quality=80
     narration: "<p>Lunar: Recently agitated relations between Andrés de Santa Cruz and Solano López have been the talk of the town with the announcement of the new settlement south of our beloved capital today. A Peru-Bolivian settler who attended the festival celebrating the city‘s construction said, “I didn’t even know you could do that! The local workers were blocking traffic, so I was just staying home. Didn’t know I had an important job to do.”The settler was fired and replaced with local hero Benicio Romani who, in his anointing speech announced that they will have an even bigger celebration than Paraguay. Local officials cast doubt on the validity of that statement, especially considering their capital still has only one working citizen.“That’s why I did it!” Solano started to press this morning. When questioned, he denounced the media before returning to his manor. This is Asunción Weekly - signing off.</p>"
   - scene_number: 58
     scene_title: "Perm-enant Problems"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene58.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene58.jpg?format=webp&quality=80
     narration: "<p>Lunar: Needing to decide whether or not to settle the Russian proving grounds between Perm, Soviet Union, All-Russian, Uzbekan lands primarily occupied by Tundra - an essential tile meant to take advantage of the bonus luxury resources from their UA, opt to settle a nearly inhospitable city in the far north Ural mountains on snow… Yep…In more positive news, hey there’s some goody huts! I wonder if they have anything useful like technology or even free unit upgrades.</p>"
   - scene_number: 59
     scene_title: "Living In The Shadow"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene59.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene59.jpg?format=webp&quality=80
     narration: "<p>Lunar: There’s one thing that Yuan has, and that’s land, but where have we seen this before? While to a much lesser extent, the mad settling spree of the Khamug proves that settling isn’t the only thing that matters in this episode. Instead, building a great industrial base to constantly keep defending the many, many fronts you’ll encounter is the more sustainable approach. To that extent, the settlement of a three-tile city of Shangdu is a promising sign, but Khamug’s better get improving or else they might be left behind as the inevitable six-plus front wars come to Central Asia....That being said, units trained in conquered cities receive extra movement when you are at war with the nation you took it from, so maybe Mandukhai aims to succeed where the Khamug’s fell short. Also: All-Russia taking the Goodie Hut right in front of Northern Yuan is a heck of an alpha play I love to do to AI when I play Civ. Good stuff!</p>"
   - scene_number: 60
     scene_title: "Race for India"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene60.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene60.jpg?format=webp&quality=80
     narration: "<p>Lunar: Honestly, to go from two nations right next to each other in India last season to a large plot of land just waiting for wars to be fought is an exciting prospect. Three cities settle towards the open lands of India. Who will come out on top? Personally, I’m expecting Punjab to come in. Their base land is pretty mediocre and they don’t want to settle north because of Uzbekistan, so settling south along the coast seems logical enough, but honestly it could be anyone’s game. Something cool to note about the Dapon is that it gains bonus combat strength from being near other Dapon, it never obsoletes and can move immediately after purchase. That’s a scary combination that might result in Bhutan fielding an entirely ranged archer army. Not scary for others, but scary for the prospects of a unified subcontinent. Archers don’t take cities unless they are unoccupied, which with AI is unlikely to ever happen.</p>"
   - scene_number: 61
     scene_title: "Zanzibar - The Quest For Diamond Hands"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene61.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene61.jpg?format=webp&quality=80
     narration: "<p>Lunar: With the settlement of Malindi, already the capital of Somalia is losing some tiles. A very risky proposition when a ship can surround the Zanzibar capital in only one turn after being produced. For their sake, we hope they get their Jahazi, a caravel replacement that while weaker costs no maintenance and provides gold for merely sitting next to an unclaimed, unimproved Luxury Resource nearby, both on land and at sea. Zanzibar needs to have a hunger for those tendies if he wants to ensure he doesn’t mysteriously lose his capital in one-turn.Oh yeah, and Somalia settled a yieldless city near Arabia off screen without going for Lake Victoria, which I don’t know how I feel. On one hand, the Lake provides a lot of food early game, but actually gives less yields than your average tile late game with all those fancy Future World improvements. Somalia might be playing the long game?</p>"
   - scene_number: 62
     scene_title: "Not So Fertile Sands"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene62.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene62.jpg?format=webp&quality=80
     narration: "<p>Lunar: Dang. I forgot how luxury rich this part of the world was this time around.  These cities could be fertile cities down the line, but for now they will be food starved and even then, where do they settle? South seems a smart choice, as north is full of flat featureless desert up until you reach the borders of Perm or All-Russia. I think it’d be best for them to spread out their cities to make the most of the land they have available because remember, if you’re not going to have more than seven population, then you need seven good enough tiles until specialists are profitable enough to invest into, so further spread out cities would be a good choice for Islam Karimov.Once more, I’m going to point out that randomly upon city-growth, the citizen has a chance to be sacrificed for gold, happiness or civilian units, potentially allowing them to carpet the desert in cities without needing to invest the vital food in producing settlers themselves.</p>"
   - scene_number: 63
     scene_title: "Russian Contention"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene63.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene63.jpg?format=webp&quality=80
     narration: "<p>Lunar: Georgia is looking pretty blessed with their borders, occupying Azerbaijani lands as they settle Kutaisi. I love the Georgian UA that turns forts into citadels overtime while providing faith, but it would require them to build forts. I could see a dangerous combination with Architect of the Gods, a belief I transitioned that provides a bunch of yields to forts and citadels. Of course, you need to found a religion, which is a challenge in itself.Meanwhile Soviet Union begins spreading itself with Petrograd near modern-day Ukraine, moving further and further down towards Georgia. With Kurdistan just to the south, Georgia might be compressed to the same borders as our timeline which would be a shame</p>"
   - scene_number: 64
     scene_title: "Underrated"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene64.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene64.jpg?format=webp&quality=80
     narration: "<p>Lunar: Not going to lie, looking at the map I could genuinely see a great opportunity for Zaire to just dominate the map. Jungle is only a garbage settle if you don’t have workers, which AI loves to spam. They have a gigantic amount of land and only really need to dominate Nigeria to have a solid control of the continent. Everyone else is either crowded in north-west Africa, on the coast behind mountains, or has an immediate neighbour to distract them. Zaire has none of these problems, and with settles like Lubumbashi, could pacify Nigeria and claim all of central Africa.That being said, Nigeria settle of Ibadan is relatively defensible and with motions north they are successfully trying to scout as much land as possible. Zaire has most of their army in their capital, while the Nigerian army is on the move. Much like Rio Grande and Mississippi, this is the conflict to watch in this continent.</p>"
   - scene_number: 65
     scene_title: "Unsettling Surprises"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene65.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene65.jpg?format=webp&quality=80
     narration: "<p>Lunar: And with this, Jamaica makes landfall within close distance to where Haiti was assaulting Venezuela last season and where Buccaneers made landfall in Mk2. However, with traffic jams in a heavily militarized Bogota, that city might not be long for the world. Will we be seeing South America settle Cuba and the Haitian islands once more? My mind says Jamaica might neglect the home-islands in favor of forward settling Olmecs and regretting both that settle and this one once their neighbours are fully militarized.</p>"
   - scene_number: 66
     scene_title: "Heavenly Fortunes"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene66.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene66.jpg?format=webp&quality=80
     narration: "<p>Lunar: The Heavenly Kingdom settles south to begin to squeeze Vietnam. This isn’t good for anyone in south east Asia, and it seems to be well defended. Elsewhere Manchuria seems to happily claim the north Korean peninsula, with one more city allowing them to unify the peninsula. I expect good things for the Heavenly Kingdom this game, not going to lie. Not only do they have a lot of land, somewhat distant neighbours, but their only major land thread was Yuan and Vietnam, who both seem more preoccupied with settling north and south respectively. Good times for Hong Xiuquan indeed.</p>"
   - scene_number: 67
     scene_title: "Prosperous Futures"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene67.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene67.jpg?format=webp&quality=80
     narration: "<p>Lunar: Honestly, the one thing I love from this season is how not-crowded Western Europe is. We have a French, Italian, Spanish, German, with two Eastern Europe civilizations. The balance will allow for potential borders to very much resemble our own. Huge love goes out to /u/Vihreaa and /u/DJjablonsky for their amazing maps already this season. You guys make this season amazing to skim through. Cheers!Oh yeah, back to the game. We’re seeing interesting relations, and some buildup of units finally, with Wales having more than one archer while Spain is already populating the cities with trades. Seriously, Carlos III - it’s only turn 13 and you’re already trying to make money. I can see where his priorities lie.Oh hey, another Pantheon!</p>"
   - scene_number: 68
     scene_title: "Meanwhile in Australia"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene68.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene68.jpg?format=webp&quality=80
     narration: "<p>Lunar: Kulin settles the Dawkinzz antagonizing city of Barere Barere Balug, defended well with Diorite Axeman which are warrior replacements with a one-time trade mission that gains more gold and experience the farther it is away. It’s also cheaper if you’re producing stone or marble, which I cannot immediately see here unless it’s behind the capital. A shame, but I doubt we’ll be seeing more than four of these. Take a picture class, as these soldiers will be brandishing blades soon!</p>"
   - scene_number: 69
     scene_title: "Ginny-Come-Lately"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene69.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene69.jpg?format=webp&quality=80
     narration: "<p>HillSpawn: As the satellite footage on the multiple screens of the RSV Babylonian Observer’s bridge flip between various locations on the Cylinder, one particular image catches the eye of Admiral Caliph Abd-Ar Rahman III.“Stop! Go back! That island in the middle of nowhere, quickly now. What is this civilization, they weren’t in my documents!”</p><p></p><p>The PR-representative for the analytics team is ushered forward to give their sheepish response.“Sir, it’s Tahiti. Leader, Queen Purea. Capital, Pape’ete. Pacific island civilization. Their settlers frequently get lost while at sea and reappear on coastlines half a world away. Inevitably end up with a disconnected intercontinental empire that other civilizations will just eat up. They seem to be doing as predicted, settler ready to get whisked away across the ocean, steady population growth. Not expected to be conquered early, not really expected to do anything, sir.”The commander of the RSV Babylonian Observer harrumphs, and moves on to the next satellite-image of the Cylinder.</p>"
   - scene_number: 70
     scene_title: "Arctic Salon"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene70.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene70.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Hi, it’s Admiral Abd ar-Rahman Cloudberg, dropping in to tell you about what’s happening in Siberia. I haven’t read any of the slides before this point, but here goes. </p><p></p><p>Great Perm and the White Russians are both settling northward, but one city is clearly better than the other. Samara has more furs than Kolchak could ever conceivably wear, while Pokcha has a lot of this weird white stuff that falls from the sky. On the upside, however, maintaining a great perm is simple there: just get your hair wet, sculpt it however you like, then step outside for a few minutes and that hairstyle will become semi-permanent.</p>"
   - scene_number: 71
     scene_title: "Mecca and Medina"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene71.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene71.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Our first look at Hejaz since the intro slides (I assume, since a cmd+f’ed Hejaz and didn’t find anything else) shows that they have chosen to settle Medina to the south of their capital, on the coast of the Red Sea. Hussein bin Ali has a critical decision to make going forward, however: stick to the dry hills of western Arabia, or make a run for the fertile crescent, which will bolster his food, population, and science, but will be difficult to defend? I don’t think there’s a right answer here, since usually the first civ that settles lower Iraq loses the region to someone else. Alternatively, Hejaz could make a big brain play by parting the Red Sea and settling the Nile instead.</p>"
   - scene_number: 72
     scene_title: "Call of the Klondike"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene72.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene72.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Thanadelthur makes a risky but potentially decisive move, settling a third city in the fertile interior of British Columbia. The city is strategically situated on the back side of the Rocky Mountains, which will make it extremely difficult for the Three Affiliated tribes to attack—something which is especially important given that the Dene are known to be allergic to military units. So far, however, Four Bears doesn’t have much of an army either, and with a fourth Dene city coming soon™, the Tribes could actually find themselves seriously outflanked.</p>"
   - scene_number: 73
     scene_title: "High and Dry"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene73.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene73.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Over in Scandinavia, Finland has a third settler out, ready to claim the Gulf of Bothnia for Great Suomi. Sweden, meanwhile, has claimed the Aland Islands, much to the chagrin of Finns everywhere. Also worth noting is that despite Scandinavia having a river or lake on practically every tile, Finland somehow managed to settle Turku on like the one spot in the entire region that isn’t next to a river or a lake. Good work.</p>"
   - scene_number: 74
     scene_title: "Ascend to Crab"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene74.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene74.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: As P’kuee stares out over the vast expanse of the Caribbean, she remarks to an aide, “One day, this will all be ours.”</p><p></p><p>The aide seems hesitant. “But, my lady,” she stutters, “there are CRABS out there.”</p><p></p><p>“Crabs?”</p><p></p><p>“You know, weird crusty bois with big claws and eyes on sticks.”</p><p></p><p>“Oh, those. What’s the problem?”</p><p></p><p>“I fucking hate crabs,” the aide mutters.</p>"
   - scene_number: 75
     scene_title: "Board Meeting #24762"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene75.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene75.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: A Babylonian named Boethius is giving a powerpoint presentation in front of the Submarine high command, including Nebby, Pedro, and Abd ar-Rahman. The topic? The mostest literate people on the cylinder. So far, there’s not a ton of variation, as we’re still in the earliest of opening stages. At the moment six civs are tied for the lead with 9 techs: Lawtiliwadlin of the Chukchi, Genseric of the Vandals, Ferdinand I of the Two Sicilies, Llewelyn of Wales, Mansur Shah of Malacca, and Barghash bin Said of Zanzibar.</p><p></p><p>“Cool presentation,” says Nebby. “Next!”</p>"
   - scene_number: 76
     scene_title: "Cymru am byth!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene76.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene76.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Things are starting to heat up in Europe, where a lot of very aggressive civs (and also Wales) are competing for a small amount of land. That said, Wales is the one with the most aggressive settlement plan here: Llewelyn has landed a settler in Normandy, and will most likely plant a city there on the very next turn! This will probably piss off Vercingetorix, who made the questionable decision to settle in Belgium instead. The question is: can Wales hold on to their bold forward settle? Or will the Gauls be forced to reckon with sneaky Carlos III, who is spreading the glory of Spain up through the Pyrenees?</p>"
   - scene_number: 77
     scene_title: "Four Corners"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene77.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene77.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: In the southwestern United States, four civilizations are encroaching on the region from four directions. Now, what would be very satisfying is if they form a perfect junction at the exact spot where Colorado, Utah, Arizona, and New Mexico meet in real life. But let’s be honest, this is all going to belong to Jamaica by episode 5.</p>"
   - scene_number: 78
     scene_title: "Invest in $JAM on the CBR stock exchange!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene78.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene78.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: And why do I say that? Because Jamaica is on a roll! They’ve now settled a second city on mainland South America, this time in an even more defensible position—on a hill, on a river, next to a mountain! And on top of this, a fourth settler is heading off to the west to settle Central America. Gran Colombia, meanwhile, is still sitting on one city, refusing to move their settler. Maybe they’re scared?</p>"
   - scene_number: 79
     scene_title: "That still only counts as one!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene79.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene79.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Over in Southeast Asia, Laos and Vietnam are so far coexisting peacefully, but something tells me Laos has blood on its mind. Why? Because they’ve adopted honor, including the policy which gives them a unique great general. Their unique great general, the Uparaja, also immediately spawns two war elephants upon birth. You can see one of the war elephants just west of Viang Chan, and another to the south. Is Vietnam ready for an elephant-based attack? Only time will tell.</p>"
   - scene_number: 80
     scene_title: "Toypurina’s Landing"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene80.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene80.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Our satellite pans to Hawaii, where it is possible to see that Liliuokalani has made her acquaintance with Toypurina of the Tongva, who sent a dolphin scout across the Pacific to meet them. The shallow water connection between Hawaii and California is already paying dividends. Lili would be wise to remember, however, that those dolphin bois can settle cities, and that she barely has any land as is—better not lose it to a bunch of filthy mainlanders!</p>"
   - scene_number: 81
     scene_title: "Summer on the Silk Road"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene81.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene81.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Uzbekistan expands ever southward, building Samarkand as their first city south of the Amu Darya. Despite being desert, these are fertile lands both in real life and in the game—Uzbekistan is the most populous of all the IRL Central Asian countries; can they repeat this feat in the CBR? They certainly will have no shortage of happiness, given the sheer number of luxuries in this area. They also have plenty of land to expand into, with no neighbors visible anywhere nearby. Buy $UZB?</p>"
   - scene_number: 82
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene82.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene82.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: The Pampas of South America begin to fill in, as Paraguay and the Mapuche each hit three cities. Peru-Bolivia is sending a settler eastward, god only knows where.</p><p></p><p>“Sir,” says an assistant to Santa Cruz, “We passed that big mountain oozing with silver and other precious gems not too far back. Wouldn’t it be a good idea to settle there?”</p><p></p><p>“No,” Santa Cruz replies, “We will keep going onto the open plains straight into the territory of a madman who kills everything that moves.”</p><p></p><p>“Alright, sounds like a plan,” the assistant mutters.</p>"
   - scene_number: 83
     scene_title: "The cylinder loses its war virginity"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene83.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene83.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: OwO what’s this? War were declared! </p><p></p><p>Unsurprisingly, the first war of Season 2 involves Paraguay. Much more surprising, however, is the fact that Paraguay is on the receiving end of the war, not the giving end. Despite having only one city, Simon Bolivar has decided to attack Solano Lopez, in what might just be the most batshit first war the Civ Battle Royale has ever seen. Gran Colombian troops, including a warrior escorting their settler, are already attacking hapless Paraguyan scouts. I don’t imagine any cities are going to change hands here, but if it’s a sign that Solano Lopez has already overplayed his denouncement card, then it could be curtains for Paraguay sooner rather than later.</p><p></p><p>Meanwhile, Jamaica has settled a fourth city on the Cayman Islands, which makes this already one of their best performances ever.</p>"
   - scene_number: 84
     scene_title: "The first coalition"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene84.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene84.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Wow, that was fast! A coalition against Paraguay is already building as Palmares joins Gran Colombia in attacking the mad denouncer. Turns out insulting every civ you meet is a bad idea, who knew. With his unique warriors already swarming in large numbers, Zumbi is in a good position to put the pressure on Lopez’s newest and easternmost city, Pribebuy. Can Paraguay hold its own? Or will their neighbors decide 90% wasn’t enough?</p>"
   - scene_number: 85
     scene_title: "Just your daily reminder that Mandukhai uses the pronouns she/her"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene85.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene85.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: Mandukhai continues to settle cities in a line stretching ever deeper into Siberia. On paper it’s a good move, staking out all that free land to build up a good core before attacking anyone else. On the other hand, not being aggressive early can lead to Yakutia syndrome, where the North Asian civ has good stats but does nothing all game. </p><p></p><p>In other news, ScoutCon seems to be coming to Siberia, with scouts from five civs in this scene, and possibly more arriving daily.</p>"
   - scene_number: 86
     scene_title: "ScoutCon 2?"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene86.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene86.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: The vast expanse of Central Africa remains unsettled, but Zaïre is working quickly to chain that, with a settler already heading east into the Congo basin. Also, beating out the previous scene, this scene features seven scouts—can you find them all?</p>"
   - scene_number: 87
     scene_title: "Showdown on the River Liao"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene87.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene87.jpg?format=webp&quality=80
     narration: "<p>Cloudberg: My god, it’s Yuan with a steel chair! Kublai Khan has attacked the Manchu with a massive horde of units, gunning (arrowing?) straight for Nurhaci’s capital, Mukden. The city is on a hill, across a river, and has walls, so it will be difficult to take. But the Manchu are seriously low on units—will their strong fortifications be sufficient to beat back Kublai’s legendary war machine? I have my doubts.</p><p></p><p>In the background, Japan makes a very curious decision to settle Osaka in upper Manchuria, where they can’t possibly defend it. You do you, I guess.</p><p></p><p>Now handing the narration back to Lunar, who has more big news for you.</p>"
   - scene_number: 88
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene88.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene88.jpg?format=webp&quality=80
     narration: "<p>Lunar: I’m back with another huge war declaration!  We all expected it at some point, but for episode one for Vietnam to get declared on by Laos so early could be the do-or-die decision and I think Laos has a superior unit composition here. Wars through the jungle are always going to be difficult, but with a unit carpet off the Laotian capital spilling into Vietnamese lands, it’ll be difficult for Vietnam to defend. Thankfully, the mountain two files from the Laos capital might be the thing allowing Vietnam to effectively funnel Laotian troops to their demise by the hands of Vietnamese archer army. But, will the lines break and will Vietnam meet an early death</p>"
   - scene_number: 89
     scene_title: "Nile bound no longer"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene89.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene89.jpg?format=webp&quality=80
     narration: "<p>Lunar: So, uh. The Vandals might get entirely locked in with the Ptolemies potential forward settle. This isn’t looking good for my investment into Vandal stock, but is looking good for the Ptolemies who might have the majority of north-east Africa under their control. Could this be the play that defines Cleopatra’s reign?Unique ability reminder time: Queen of Kings allows Ptolemies to gain 5% of a civilization’s highest yield upon establishing an embassy, potentially overbearingly overpowered on a CBRX-scaled game. Watch the InfoAddict stats rise for Cleopatra soon.</p>"
   - scene_number: 90
     scene_title: "When does an alpha move cross over into a dumb move?"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene90.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene90.jpg?format=webp&quality=80
     narration: "<p>Lunar: Lesotho’s settlement of Butha-Buthe puts them closeby a moderately militarized rival with a city that has little to no defenses. Going to say that this was not a great position for Moshoeshoe I, but yet again AI tends to prioritize total army size and not army-size in immediate area like players, so they might…Yeah, Lesotho - that’s not an impressive army. I don’t think a chariot archer is going to save you here. I’d get that unit to the eventual frontline immediately. Good news, if they hold and secure this frontline, they could build up and potentially take the Namibian capital. I’m interested heavily in how Lesotho and Namibia are going to trade this week.</p>"
   - scene_number: 91
     scene_title: "Underdog story in the making?"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene91.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene91.jpg?format=webp&quality=80
     narration: "<p>Lunar: Chukchi are in an interesting position so far. They have decent swaths of land to potentially settle, but due to the projection of the map, it grant unique access to Hokkaido. With all the islands of Alaska being mere tiles from the northern Japanese shores, they have a unique situation of large and well protected island cities, and large production centers on land. Expect them to overperform if they keep on aggressively settling their neighbours.Also, huge huge note: The Great Library was built in Omsk! PARG might be able to develop a large but early tech advantage. I’m beginning to see the potential end of Perm with their current settling patterns in the empty arctic and towards the Soviet Union. Keep your eyes to the North for the coming episodes.</p>"
   - scene_number: 92
     scene_title: "Settlers Without Directions"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene92.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene92.jpg?format=webp&quality=80
     narration: "<p>Lunar: Not to add Saltillo onto the situation, but now Rio Grande has three cities and is likely to be producing more. It even has a caravan boosting the food of it’s empire. Although all of that is likely to change as Mississippi aims to drop a distant settle much closer to the ocean than you’d expect. With the army of Rio and Mississippi both lacking, this decision might not immediately backfire, but I expect it to when either empire begins to carpet up. A risky move Tuskaloosa, but one I fully and entirely support as it could entirely contain Rio Grande to the gulf.</p>"
   - scene_number: 93
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene93.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene93.jpg?format=webp&quality=80
     narration: "<p>Coiot: We close out the first episode with a few info slides. Even though we could not get images this time around of the Holy Cities the turn they were founded we have here the first three religions of the game.</p>"
   - scene_number: 94
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene94.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene94.jpg?format=webp&quality=80
     narration: "<p>Coiot: Some nice picks for beliefs so far. Dene with Dance of the Aurora is sure to found a religion shortly. A few appropriate picks here and there but I like that Spain went with Cheesemaking. </p>"
   - scene_number: 95
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene95.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene95.jpg?format=webp&quality=80
     narration: "<p>Coiot: Jamaica with OCean’s Bounty is another good pantheon choice that I see, and overall many of the upcoming religion founders have already staked out their pantheon slot in prep for the next phase.</p>"
   - scene_number: 96
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene96.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene96.jpg?format=webp&quality=80
     narration: "<p>Coiot: Japan gets the very niche Spirit World pantheon that compliments their immediate start next to Mt Fuji. Nigeria with the buffed Sacred Groves also going for the very niche Marsh tile bonus. </p>"
   - scene_number: 97
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene97.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene97.jpg?format=webp&quality=80
     narration: "<p>Coiot: There are still 19 more religions slots available, so expect this map to be filled with pretty colors soon enough. As always, we can also clearly see in this map all the cities founded so far.</p>"
   - scene_number: 98
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene98.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene98.jpg?format=webp&quality=80
     narration: "<p>Coiot: Not much fo Malacca to show this time around as action was elsewhere, but they are presently in the lead for most population. Hawaii coming in third to mirror Mk2 also abundant ohana numbers. </p>"
   - scene_number: 99
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene99.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene99.jpg?format=webp&quality=80
     narration: "<p>Coiot: Malacca in the lead here as well (promise no shenanigans) as they take full advantage of a peaceful start. </p>"
   - scene_number: 100
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene100.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene100.jpg?format=webp&quality=80
     narration: "<p>Coiot: Spain with the highest production and also relatively in a good spot in the peninsula. They’ve done well to lock their core down and are building up. </p>"
   - scene_number: 101
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene101.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene101.jpg?format=webp&quality=80
     narration: "<p>Coiot: Gauls leading for the most gold distribution and a several other new faces join the top ranks than the previous few rankings.</p>"
   - scene_number: 102
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene102.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene102.jpg?format=webp&quality=80
     narration: "<p>Coiot: Despite being surrounded by a few neighbors, Burkina Faso has spread out the most on the map. Little cozy, but having more land at the start is good if they can defended it.</p>"
   - scene_number: 103
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene103.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene103.jpg?format=webp&quality=80
     narration: "<p>Coiot: Hejaz with the most troops and yet they have to travel a bit to their nearest competitor. It’s probably not all in naval units so Jeruslaem is the only likely target if they are thinking of putting their army to good use. </p><p></p><p>That is all for this week. Join us again in two week’s time for the next episode of CBRX Season 2. Content will still be coming on the subreddit during the two week interval, so check back here next week for the Power Ranking album and CBRY. Be sure to join our Discord to participate in our new simulated stock exchange to place bets on your favorite civs and see if you have the foresight to see who will be coming up on top.</p>"
 ---

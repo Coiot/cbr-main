@@ -7,11 +7,11 @@ release_date: 'Feburary 06, 2018'
 audio_narration: https://youtu.be/x8I82X6WWDI
 edition: Mk2
 date: 2018-02-06T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene01.jpg?format=webp&quality=80
   narration: "Hello everyone. This is u/Spaceman9800, here to narrate part 104. As
     this image by u/VictorianCreatures shows, the Boer Empire, which was once thought
     to be unassailable, is being carved up by the other contestants. The blue smoke
@@ -19,7 +19,7 @@ scenes:
     and the dawn of a new age for the cylinder. We shall see what the future holds…"
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene02.jpg?format=webp&quality=80
   narration: "And at the head of the table is Brazil, under Pedro. Until recently,
     Brazil was locked in on the South American continent, and not even in the top
     five. Then Pedro started building XCOMs and Paratroopers and never stopped. Now
@@ -28,7 +28,7 @@ scenes:
     We will see."
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene03.jpg?format=webp&quality=80
   narration: "u/DerErlenkonig brings us the tile-accurate map as of the end of last
     part. Brazil isn’t the only one who has expanded at the Boer’s expense, as the
     Orange is indeed being contained. Iceland now has the cylinder surrounded from
@@ -38,7 +38,7 @@ scenes:
     its logic circuits fill with rage at the encroaching humans…"
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene04.jpg?format=webp&quality=80
   narration: "u/Spherical_Melon’s map shows the human and robot cost of this war much
     more clearly. Millions of digital minds have been extinguished. Once mighty cities
     are reduced to rubble. Some, like the contested Indian ocean island city of Pathein
@@ -46,7 +46,7 @@ scenes:
     under the glow of nuclear flare. Let us begin."
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene05.jpg?format=webp&quality=80
   narration: "Mali’s long nuclear history is on display here. A pirate GDR surveys
     the devastation, reminiscing about the days when they were the ones nuking this
     region. Without Iceland’s Air support, Brazil’s XCOMs must face the terminators
@@ -55,14 +55,14 @@ scenes:
     nukes?"
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene06.jpg?format=webp&quality=80
   narration: "Ciudad de Carman is reclaimed by the Boers as their workers try desperately
     to scrub the glassed Sahara. The hydroponic domes that let the Draka recover from
     the Great Famine are now simply ruined domes in the sand. An embarked biotrooper
     charges Sardinia for some reason."
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene07.jpg?format=webp&quality=80
   narration: "Sibir marches into Persepolis as the Boers reclaim Ecbatana. Finnish
     Batticaloa is looking more like Battered-caloa, though no one here can claim the
     kill. Here we also see the first front of a new war. What started as an effort
@@ -71,7 +71,7 @@ scenes:
     are the first combatants of this new war."
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene08.jpg?format=webp&quality=80
   narration: "Here we see one of the two new belligerents. After the War in Vietnam
     didn’t go so well, the (Native) Americans have decided to try Europe instead.
     Their army is outdated, but it is vast, and thanks to some Australian fillings,
@@ -79,32 +79,32 @@ scenes:
     them."
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene09.jpg?format=webp&quality=80
   narration: "Speaking of Carnival… They’re everywhere! And unlike with the Boers,
     Sweden didn’t close their open borders, so their cities are surrounded. In parts
     of Finland there are more Brazilians than Swedes. This is not looking good for
     Gustavus."
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene10.jpg?format=webp&quality=80
   narration: "Pedro II The Terrible, Autocrat of the Brazilian Empire. At 109 techs
     they are on par with their cybernetic rivals, though they’ve chosen to stay human.
     And to fuel that human emotion of Wrath, they have an army of over 6 million.
     The largest in the world."
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene11.jpg?format=webp&quality=80
   narration: "Gustavus has less than half that number. He too is “The Terrible”...
     I guess when your as bloodthirsty as our cylinder’s leaders are, the moniker is
     somewhat general-purpose."
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene12.jpg?format=webp&quality=80
   narration: "Dawkinzz‘s Note: Don‘t sleep on the Blackfoot because they just need
     to tech up and will snowball like Brazil has."
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene13.jpg?format=webp&quality=80
   narration: "And as we survey India, the battle of the titans is over. Brazil signs
     peace. A Kimberley GDR shakes its mechanical fist in frustration, realizing that
     they and Sibir are now facing the Boerg alone. A Korean production firm offers
@@ -112,7 +112,7 @@ scenes:
     near Agra works on the soundtrack."
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene14.jpg?format=webp&quality=80
   narration: "Either Kruger and Pedro already have open borders, or units don’t get
     kicked out when a war ends, because a lot of XCOMs are still vacationing on the
     Arabian peninsula, and Boer carriers loom outside of India. The Swedish mobile
@@ -121,25 +121,25 @@ scenes:
     the employ of a Boer noble family."
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene15.jpg?format=webp&quality=80
   narration: "Ecbatan and Artashat have either been captured or traded in the peace
     treaty. With Brazil out, the Boers have also retaken Persepolis from the Siberians.
     Sweden draws first blood, taking Gyumri from the Brazilians."
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene16.jpg?format=webp&quality=80
   narration: "Tarentum was also either captured or traded in the treaty. The density
     of Boer troops is nonzero for once, which may be what prompted the peace. Brazil
     came away with a sizable and easily defensible colony here, a clear win. Panormus
     is all that remains of once mighty Boeurope."
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene17.jpg?format=webp&quality=80
   narration: "All those Buccaneer settlers must be really disappointed nothing got
     nuked off the map here."
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene18.jpg?format=webp&quality=80
   narration: "Had Brazil kept up this war Looma would likely have been theirs. A Vietnamese
     cybersub hides under the Antarctic ice, cursing their allies for dropping out
     now. A Kimberley carrier carries a possibly nuclear payload towards their former
@@ -147,7 +147,7 @@ scenes:
     by Big Carrier) looks on."
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene19.jpg?format=webp&quality=80
   narration: "Can a computer breath a sigh of relief? Evidently yes, as billions of
     digital Boer citizens do just that. Their unprotected core is safe, and it looks
     like they didn’t even have to give up anything important in the peace deal. On
@@ -155,77 +155,77 @@ scenes:
     an army. It exceeds 1,500,000 signatures a millisecond after being posted."
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene20.jpg?format=webp&quality=80
   narration: "Varna and Ani also change hands, either conquered or given as a peace
     offering to the cyborgs. Sweden’s core is not so lucky. Gothenburg is in the red,
     Nicaea and Adrianople are in the yellow and other cities are taking damage."
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene21.jpg?format=webp&quality=80
   narration: "So many Brazilians! And more just keep coming from neighbouring lands
     like Sibir. Tampere and Vaasa have already fallen. Karkov, Kuopio and Linkoping
     look to be next. This year was the IRL anniversary of the battle of Stalingrad,
     so its only appropriate that one is raging in the BR as we speak."
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene22.jpg?format=webp&quality=80
   narration: "REYKJAVIK FALLS TO BRAZIL. Well, the one on the Rhine, at least, that
     was Swedish. Berlin also falls. The parts of Germany that are still Yellow are
     in the yellow. Not even Sweden-proper is safe as Stockholm takes some damage.
     In the North Sea, some blackfoot paratroopers join in. “See, we’re contributing!”"
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene23.jpg?format=webp&quality=80
   narration: "Even on the Scandinavian peninsula itself, most of the land units are
     Brazilians or workers. Those Swedish military that are here have taken to the
     sea for some reason."
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene24.jpg?format=webp&quality=80
   narration: "A Persian Privateer looks on as America’s soldiers storm Europe’s beaches.
     Around Vestmannaeyjar, one of the northernmost settlements in the world, Brazilian
     and blackfoot reinforcements mass, ready to storm the beaches."
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene25.jpg?format=webp&quality=80
   narration: "Hamburg and Munich join Green-many. Who‘s next?"
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene26.jpg?format=webp&quality=80
   narration: "Gyumri is next. Also, Sibir retakes Persepolis. Our Mobile SAM travels
     past Gaza, to reconnect with their comrades in Hebron."
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene27.jpg?format=webp&quality=80
   narration: "Moscow, Kuopio and Kharkov go Green. Sweden is going to need more than
     the worker near Long Xuyen to stop the bleeding."
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene28.jpg?format=webp&quality=80
   narration: "Linkoping has fallen. The rest of Swedish Finland is holding, but Lappeenranta
     and (North) Jyvaskyla are looking rater endangered. There’s a bit more of an army
     here, though nowhere in the Swedish core can match its distant colony of Hebron."
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene29.jpg?format=webp&quality=80
   narration: "Pedro: “The Boers are not to be trusted! I mean, how did they convince
     me to sign that peace treaty that was so clearly not in my favor? They must be
     up to something!” Meanwhile the petition on Change. Borg calling for Kruger to
     build an army gathers a few million more signatures, but will he listen?"
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene30.jpg?format=webp&quality=80
   narration: "Vietnam reforms their religion (Theravada Buddhism) as the Kimberley
     make peace with both of their superpower adversaries."
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene31.jpg?format=webp&quality=80
   narration: "This time the Kimberley kept Ambon in the treaty, ensuring that they
     have actual gains from this war. Sure, it‘s a one-tile island, but you’ve got
     to start somewhere."
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene32.jpg?format=webp&quality=80
   narration: "World congress considers world religion (Catholicism) and Natural Heritage
     sites, two proposals whose history gives them a snowball’s chance in the Australian
     Outback of passing. Hey, at least they’re not trying to ban sugar, spice and everything
@@ -237,18 +237,18 @@ scenes:
     teleported there because Brazil fills every tile in their homeland?"
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene33.jpg?format=webp&quality=80
   narration: "Antioch, Nicea and Ыngvellir (not sure how to render that character so
     I used a Cyrillic one that looks similar) are conquered. The King of the Jungle
     is soundly defeating the Lion of the North."
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene34.jpg?format=webp&quality=80
   narration: "Stalingrad and Lappeenranta fall. In a glimmer of hope for Sweden supporters,
     Scandinavia proper seems to be clearing of Brazilians though."
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene35.jpg?format=webp&quality=80
   narration: "Sibir and the Boers peace out, leaving I think Vietnam as the last OCPII
     member. Persepolis is traded to Kruger in the peace treaty. Sibir still came out
     of this war with Kabul and several other cities, so Sibir supporters can be happy.
@@ -256,101 +256,101 @@ scenes:
     lest they meet the same fate as Gustavus…"
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene36.jpg?format=webp&quality=80
   narration: "Brazilian troops form a beachhead in Norway. The Blackfoot paratroopers
     are nowhere to be seen, but a Blackfoot GDR floats on the horizon."
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene37.jpg?format=webp&quality=80
   narration: "Poznan, Gothenburg and Minsk join Brazilian Rus. This is probably the
     best carpet this flat and hard-to-control region has ever had. Sibir should really
     be using this opportunity to fill the clearing on their western border with their
     own units…"
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene38.jpg?format=webp&quality=80
   narration: "Another display of just how bad Sibir is at this. Count the settlers!
     I see 24. Mao’s knight looks on from the frozen north, occupying, ironically,
     one of the few settleable spots."
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene39.jpg?format=webp&quality=80
   narration: "The Heathen faith has been going strong in Iceland, spreading throughout
     its core to rival the religions founded earlier in the game. Big Carrier and Carnival
     have also spread throughout this region."
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene40.jpg?format=webp&quality=80
   narration: "All those Kimberley units were bound for the Boers, but you know who
     else is there, at war with the Kimberley and looking rather juicy right now? Finland
     with its honor guard of Afghan mercenaries. Can Jandamarra doot it?"
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene41.jpg?format=webp&quality=80
   narration: "Constantinople and Ohrid are Brazil’s latest trophies. On the bright
     side, the Mobile Sam has rejoined its friends in Hebron. I wonder if Gustavus
     will end up exiled to the Middle East, like Kekkonen before him."
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene42.jpg?format=webp&quality=80
   narration: "Vietnam is also slowly filling with Carnival, though they have some troops
     of their own. I also count 5 settlers."
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene43.jpg?format=webp&quality=80
   narration: "Should Gustavus really be denouncing people right now? Sure Iceland has
     few non-carrier units, but they have planes. Maybe he’s hoping to convince them
     to stop harboring Brazilians?"
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene44.jpg?format=webp&quality=80
   narration: "Of course there’s plenty of places in Europe that already harbor Brazilians.
     Hamburg, Malmo and Lodz are the latest additions to that list. Also wow the Balkans
     are a mess."
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene45.jpg?format=webp&quality=80
   narration: "Tigranocerta falls to Brazil, even as Sweden reclaims Adrianople. I think
     Hebron also flipped."
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene46.jpg?format=webp&quality=80
   narration: "Espoo is the latest Brazilian conquest. I wonder how long until Gustavus
     is forced to start nuking his former territory?"
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene47.jpg?format=webp&quality=80
   narration: "Brazilian troops pour into Scandinavia. There’s a Swedish advanced destroyer
     outside of Espoo, so it‘s nice to know that if Gustavus goes down, he’ll at least
     go down with a decent naval bias."
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene48.jpg?format=webp&quality=80
   narration: "Hawaii bravely states the obvious, but that’s a dangerous thing to do
     when Brazilians surround you. On the other hand, is there anywhere in the cylinder
     they don’t surround now?"
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene49.jpg?format=webp&quality=80
   narration: "The Kimberley close in on Batticaloa."
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene50.jpg?format=webp&quality=80
   narration: "Malamo and Hamburg are retaken. Can Gustavus turn the tide?"
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene51.jpg?format=webp&quality=80
   narration: "I want to say there’s more Swedish units here now, but sadly the Advanced
     destroyer isn’t amongst them. Malamo flips back to Brazil. Also, look at all that
     smoke in Sweden. Those Brazilian XCOMs must be doing some pillaging."
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene52.jpg?format=webp&quality=80
   narration: "Australia fails to make Catholicism the World Religion. This may in part
     be because even many of their own citizens follow Theravada or Pantheon, not Catholicism."
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene53.jpg?format=webp&quality=80
   narration: "In the bottom right you can see the reason we’re being shown Kruger’s
     stats: He’s joined the attack on Sweden. Kruger’s army is now only the 6th largest
     in the world, but the Boers are still the happiest, most scientific and crop-producing
@@ -358,7 +358,7 @@ scenes:
     they have, should they really be starting new wars right now?"
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene54.jpg?format=webp&quality=80
   narration: "Illustrating that point, the battered Gustavus is only half a million
     men and women at arms behind Kruger right now.  But battered he is, and while
     the Swedes have had some great underdog moments in the past, it will be hard to
@@ -366,53 +366,53 @@ scenes:
     again."
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene55.jpg?format=webp&quality=80
   narration: "There’s not a Swedish unit in sight in the Balkans or Ukraine. Antioch
     has joined the green, as has Adrianople, ending Gustavus’s last outposts on the
     Black Sea."
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene56.jpg?format=webp&quality=80
   narration: "Pedro’s core, as fully carpeted as ever. Some of those planes may be
     better placed in his overseas colonies, but given how well he’s doing, who am
     I to question his strategies?"
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene57.jpg?format=webp&quality=80
   narration: "Buccaneer Africa is well carpeted and protected by a dense array of nukes.
     The pirates are doing their best to prepare for the day the inevitable lime-green
     reckoning comes."
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene58.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene58.jpg?format=webp&quality=80
   narration: "“BALLISTIC MISSILE THREAT INBOUND TO HAWAII. SEEK IMMEDIATE SHELTER.
     THIS IS NOT A DRILL” and indeed it isn’t. Korea is in fact the source of the missile
     threat with Sibir helping them out. Can Hawaii’s valiant navy defeat the might
     of Big Carrier, or will this little patch of orange be contained?"
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene59.jpg?format=webp&quality=80
   narration: "Kamehameha shows is his secret weapon: Triplanes! In fairness he’s got
     a jet there to. Why he moved them onto a vulnerable carrier instead of keeping
     them on his home island is beyond me."
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene60.jpg?format=webp&quality=80
   narration: "“We may be last in tech, but we are 1st in heart.”"
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene61.jpg?format=webp&quality=80
   narration: "This war is sponsored by Big Carrier, keeping Korea 12th in active duty
     military. Their technology may be second to none, but lobbying has crippled the
     government of Sejong the Pious (the first leader we’ve seen who isn’t “The Terrible”)."
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene62.jpg?format=webp&quality=80
   narration: "Kuchum Khan is in the middle of the pack on everything. He’s pretty far
     from Hawaii’s tiny island, so I doubt he’ll matter in this war."
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene63.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part104-scene63.jpg?format=webp&quality=80
   narration: "The Kimberley mechs land and F keys are primed as Batticaloa’s Finnish
     and Afghan defenders struggle against the Giant Death Robots and their marine
     escort. Meanwhile a Vietnamese worker and carrier are on a lonely mission to continue

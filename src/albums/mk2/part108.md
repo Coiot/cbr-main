@@ -7,18 +7,18 @@ release_date: 'March 06, 2018'
 audio_narration: https://youtu.be/rggjbOlKeeI
 edition: Mk2
 date: 2018-03-06T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene01.jpg?format=webp&quality=80
   narration: Hello everyone! I’m political hack, casual discord user, and the last
     remaining Portugal flair-holder u/PonderousHajj, and I’ll be your narrator for
     this, the 108th part of the Civilization Battle Royale.Today’s featured art (“art”)
     comes to us courtesy of u/arcticwolffox, and boy oh boy is it relevant.
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene02.jpg?format=webp&quality=80
   narration: This week’s first map is by none other than our own Spherical Melon,
     showing us how the Brazilian python continues on its mission to swallow the Boer
     Rijk whole. We also get to see just how quickly both the Blackfoot and Mongolia
@@ -28,20 +28,20 @@ scenes:
     oceans.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene03.jpg?format=webp&quality=80
   narration: The next map is from the one and only /u/DerErlenkonig, showing us where
     each civ stands on the gameboard, so to speak. Brazil continues its breakneck
     expansion at the expense of the former hegemon, the Boers.
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene04.jpg?format=webp&quality=80
   narration: 'And to nobody’s surprise, Brazil comes in at number one. Lacsirax--
     speaking with uncharacteristic certainty --believes the show’s over: the permanent
     carnival has come to town. While she may be right, stranger things have happened.
     For example, Brazil became the global hyperpower.'
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene05.jpg?format=webp&quality=80
   narration: We begin today in the western theater of the Second Brazil-Boerg War,
     aka OCP III, where Pedro’s conquests continue with minimal resistance from Kruger.
     Anziku, Kabasa, Kakango, and the former Kongolese capital of M’banza-Kongo all
@@ -54,14 +54,14 @@ scenes:
     capacity to retake cities, possessing only ranged units and carriers.
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene06.jpg?format=webp&quality=80
   narration: The eastern theater looks no different. Mundigak, Olyokminsk, and Lalibela
     have all turned green as a deluge of XCOM units flood into the African Great Lakes
     region. Neither Kruger’s freshwater navy nor his last remaining biotroopers and
     Boerg drones seem likely to stop it.
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene07.jpg?format=webp&quality=80
   narration: For one reason or another Pedro decides to denounce Henry Parkes, with
     whom he shares a de facto maritime border.Meanwhile, remnants of the once-mighty
     Blackfoot army drift through the Pacific, evidently sharing open borders with
@@ -70,7 +70,7 @@ scenes:
     Confederacy.
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene08.jpg?format=webp&quality=80
   narration: In Baja California, it’s only a matter of time before Ekeuhnick captures
     the Blackfoot holdout of Waipahu, even though Aussie peacekeepers block that city’s
     main point of entry on land.Worth noting is that, despite the denouncement of
@@ -78,7 +78,7 @@ scenes:
     to be moving troops into North America.
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene09.jpg?format=webp&quality=80
   narration: Ekeuhnick’s new territory is already fully carpeted with top-of-the-line
     units, and is probably the only army on the cylinder right now that can put up
     a real fight against Brazil. Their inevitable war looks like it’ll be a stagnant
@@ -87,7 +87,7 @@ scenes:
     appear to be from dead civs, and soon-to-be dead civs.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene10.jpg?format=webp&quality=80
   narration: Over in Greenland, Ingolfur’s land troops are heavily outnumbered by
     Brazilian peacekeepers and Free Blackfoot resistance fighters, while his navy
     is apparently still under the corrupting influence of Big Carrier. At least his
@@ -96,14 +96,14 @@ scenes:
     the only comfort soft sheets provide is to the enemy.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene11.jpg?format=webp&quality=80
   narration: We turn now to Siberia, where Sibir continues to hammer away at Mongolia’s
     dwindling and largely outdated military. Kuchum Khan captures Almarikh from Genghis
     Khan with a division of robot infantry and biotroopers, while Inuit peacekeepers
     glare intensely at their Brazilian counterparts.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene12.jpg?format=webp&quality=80
   narration: In the Sea of Zanj (I had to google that one), the once-mighty Boer navy
     has vanished. On land, Brazil’s army appears to have regrouped and prepares its
     thrust into the Boer core.It doesn’t look like Pedro brought his airforce to this
@@ -111,7 +111,7 @@ scenes:
     can muster up some ground forces ASAP.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene13.jpg?format=webp&quality=80
   narration: And just like that, Pietermaritzburg, Nylstroom, and Potchefstroom are
     captured. Pedro is cutting through city after city like it’s nothing. Boer cities--
     with defense scores that push 200 points across the board --are falling like dominos.
@@ -120,7 +120,7 @@ scenes:
     Waipahu, falls to the Inuit.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene14.jpg?format=webp&quality=80
   narration: In Europe, Sweden denounces Iceland. Both civs possess respectable navies
     positioned at point-blank range, though neither possess any destroyers. Having
     said that, Sweden has a much larger land army, and-- by my count --34 air units
@@ -130,19 +130,19 @@ scenes:
     which Iceland would be effectively powerless to recapture.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene15.jpg?format=webp&quality=80
   narration: Nkuna falls to Brazil as Kruger orders a feeble counterattack with some
     of his last remaining drones. At sea, his navy retreats south while Buccaneer
     observers pause to study the situation on behalf of Big Carrier investors.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene16.jpg?format=webp&quality=80
   narration: In the west, Bethal and Benoni fall; worker drones from Madagascar begin
     evacuating, presumably headed to Antarctica by way of the Mozambique Channel.Brazilian
     territory now extends to within three tiles of Pretoria.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene17.jpg?format=webp&quality=80
   narration: Over on the Indian subcontinent we see just how efficiently Pedro is
     consolidating his empire, having annexed and built courthouses in Agra, Lahor,
     Balkh, Gaur, and Fatehpur Sikri. Furthermore, he’s clearly using these cities
@@ -156,7 +156,7 @@ scenes:
     good side? Because, after all...
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene18.jpg?format=webp&quality=80
   narration: "...Pretoria has fallen.The carnival came to town and plunged a dagger
     into the heart of the Boerg. Alongside Pretoria, the cities of Mpinda and Standerton
     are also captured, while a Brazilian pincer moves to take both Ermelo and Vryburg.The
@@ -170,26 +170,26 @@ scenes:
     per turn."
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene19.jpg?format=webp&quality=80
   narration: On Madagascar, Heidelberg goes green. While it looks like Kruger can
     hold off Pedro’s embarked forces with his navy for a few more turns, his resistance
     likely won’t last much longer than that.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene20.jpg?format=webp&quality=80
   narration: Across the ocean, Henry Parkes of Australia has seized the earlier expulsion
     of Brazil’s omnipresent army and rebuilt his carpet-- and with cutting-edge units
     that aren’t Diggers!His Aussie diplomats finalize a Declaration of Friendship
     with Sweden, which could spell further trouble for Iceland down the line.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene21.jpg?format=webp&quality=80
   narration: Boerg resistance fighters briefly recapture Pretoria, before Brazil,
     which has not been deleted, moves back in, this time for good.Ermelo and the city
     of Wolfmaransstad on Comoros fall.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene22.jpg?format=webp&quality=80
   narration: 'Blackfoot diehards hoping that Ekeuhnick would be content after conquering
     North America, sorry: the Inuit have taken Honolulu. Crowfoot is down to two cities.Could
     fate be so cruel as to doom the Blackfoot to spend the rest of the CBR confined
@@ -197,25 +197,25 @@ scenes:
     end up stuck in Kaneohe?'
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene23.jpg?format=webp&quality=80
   narration: Nobamba and Vryburg are taken by Brazil while a largely useless Boer
     navy looks on. A lone Australian Digger appears just to make me eat my words.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene24.jpg?format=webp&quality=80
   narration: Bahir Dar falls to Pedro while Kruger musters up a few Boerg drones from
     his new capital in Ulundi to defend Johannesburg and Boksburg, despite the impending
     XCOM wave from the north.
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene25.jpg?format=webp&quality=80
   narration: Sibir continues to put pressure on Mongolia, taking Khoro and Hovd. The
     latter looks prime to flip a couple times, but Sibir clearly has the reserve strength
     to hold it in the long run. As such, it provides an excellent staging ground for
     a final assault on Karakorum.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene26.jpg?format=webp&quality=80
   narration: The new Blackfoot capital is the megacity of Miliani, on what I assume
     is the island of Kauai. It’s guarded by a flotilla of robots-- both giant and
     human-sized --and Atomic Era units like mobile SAMs, paratroopers, and Marines.
@@ -223,14 +223,14 @@ scenes:
     islands for the city’s elite, and refugees from the mainland.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene27.jpg?format=webp&quality=80
   narration: The story is largely the same in the city of Kaneohe, although this city
     has more room to breathe, with more empty tiles around it. In the event of war
     with Australia, they could potentially pick off a few islands for themselves before
     Parkes got around to taking them back.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene28.jpg?format=webp&quality=80
   narration: Clearly two islands aren’t enough, though, as the Blackfoot sack Ahkaiyikokakinik
     in the Aleutian chain. The other Inuit  cities in the area appear to have been
     heavily damaged, as well. With just a single advanced destroyer, though, the Blackfoot
@@ -240,14 +240,14 @@ scenes:
     on Brazil before total defeat, or maybe to force an armistice.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene29.jpg?format=webp&quality=80
   narration: Kwa Dukuza falls to Brazil as XCOMs, biotroopers, and paratroopers continue
     to stream into what’s left of Boer Africa.Kruger still possesses an impressive
     navy, but unfortunately it’s not a very useful one for taking cities. Of the 50ish
     ships on screen, only one is a melee unit.
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene30.jpg?format=webp&quality=80
   narration: As you may have noticed in the last slide, Crowfoot has made peace with
     Ekeuhnick, and has given up the former Hawaiian megalopolis of Kaneohe in the
     process.This island, completely surrounded by Australia, could be a flashpoint
@@ -255,7 +255,7 @@ scenes:
     share an uncomfortable border.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene31.jpg?format=webp&quality=80
   narration: Ahkaiyikokakinik has also been relinquished, meaning the Blackfoot are
     left with a single, one tile island city in the middle of the Pacific, plus an
     army broken up into segments wandering around the farthest reaches of the cylinder.
@@ -266,7 +266,7 @@ scenes:
     even the Buccs if he tried.
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene32.jpg?format=webp&quality=80
   narration: Whether it be through an error stemming from the mapping process of the
     mk. II, a glitch in the Boerg hivemind, or magic, Brazil’s capture of a city on
     the African continent has managed to result in… uh, this happening. Kruger’s Antarctic
@@ -274,7 +274,7 @@ scenes:
     by ice and the power of Brazilian culture.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene33.jpg?format=webp&quality=80
   narration: "<p>A quick glance at the Sahel shows that Pedro is not playing around.
     He has begun the process of annexing cities, moving over his air force, and repairing
     damaged Boer infrastructure with an army of workers.</p> <p>We also see the new
@@ -284,7 +284,7 @@ scenes:
     surrounded by smoking ruins.</p>"
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene34.jpg?format=webp&quality=80
   narration: Bulawayo, Boksburg, Vereeneging, and Ficksburg are all captured by Brazil,
     while the neutered Boer navy watches helplessly. The pace of this conquest really
     is quite stunning. Kruger, for his part, seems to have been able to drum up some
@@ -293,7 +293,7 @@ scenes:
     in just a couple more turns.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene35.jpg?format=webp&quality=80
   narration: "<p>Sibir takes New Sarai. While Mongolian defenses continue to crumble,
     it’s worth noting that Kuchum Khan’s forces are having trouble keeping up with
     the rate of his expansion. It’s entirely possible that Genghis can flip back Hovd
@@ -302,13 +302,13 @@ scenes:
     troops in the area. What are they up to?</p>"
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene36.jpg?format=webp&quality=80
   narration: "<p>What is probably the last remaining Finnish unit drifts lazily across
     the Indian Ocean, probably with Kekkonen drunk/asleep at the wheel.</p> <p>The
     Trungs rub salt in the wound and denounce Kruger.</p>"
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene37.jpg?format=webp&quality=80
   narration: "<p>Rustenburg falls as a sizable force of Brazilians embarks with its
     eyes set on Madagascar. I’m not sure if the pillaged tiles are the results of
     nukes, though-- their populations still seem too high.</p> <p>Still, it’s clear
@@ -316,7 +316,7 @@ scenes:
     of Reunion and Mauritius.</p>"
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene38.jpg?format=webp&quality=80
   narration: WHOA, THERE.Ekeuhnick makes a surprise declaration of war on Henry Parkes,
     and immediately Honolulu is flipped. It’s convenient that “aloha” means both hello
     and goodbye, ‘cause the Inuit lost that city just as soon as they captured it.It’s
@@ -329,33 +329,33 @@ scenes:
     such an awesome part to narrate?!
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene39.jpg?format=webp&quality=80
   narration: Kaneohe is already in the black and surrounded by Aussie forces (including
     a Digger). A Blackfoot Great General stays behind while the rest of his troops
     evacuate, mouthing to himself, “are you f@#%ing kidding me?!”
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene40.jpg?format=webp&quality=80
   narration: Conveniently, Australian troops were already at the front lines of the
     Mexican theater when Ekeuhnick declared war. While this provides a small buffer
     for Brazilian Mesoamerica, Australia’s units here are likely doomed.
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene41.jpg?format=webp&quality=80
   narration: Back in Africa, Pedro begins the final prong of Operation Shaka’s Revenge,
     capturing a Boer core city, Johannesburg, as well as the ancient Zulu city of
     Ulundi (home to the Future Worlds wonder of the Bionic Tower). Kruger is down
     to his last two cities on continental Africa, and his last six melee units.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene42.jpg?format=webp&quality=80
   narration: "<p>Kaneohe is predictably captured by Australia, and is unlikely to
     flip back. The once-massive population of the city has either been culled or fled,
     and it’s now just another dot on the map for Henry Parkes.</p> <p>It’s almost
     cruel, though, that they took the city while the Blackfoot were still in range.</p>"
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene43.jpg?format=webp&quality=80
   narration: "<p>Here we get a beautiful shot of Sibir’s core, and of the respectable
     carpet there. I won’t go beyond respectable, though, as about a third of Kuchum
     Khan’s territory is occupied by Brazilian peacekeepers. Still, it’s good to see
@@ -364,7 +364,7 @@ scenes:
     reverses its ban on perfume.</p>"
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene44.jpg?format=webp&quality=80
   narration: "<p>They pass on making Catholicism the world religion, however.</p>
     <p>In Europe, Pedro continues annexing cities and building more troops. Ekeuhnick’s
     Swedish-based expeditionary forces have the potential to do some damage here,
@@ -373,7 +373,7 @@ scenes:
     match-up.</p>"
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene45.jpg?format=webp&quality=80
   narration: "<p>Pedro takes the city that shares its name with the Boer leader: Krugersdorp.
     Ekeuhnick sends a small force to either help shore up the Boer’s defense against
     their common rival, or just observe, but it’s too little, too late: Madagascar
@@ -382,7 +382,7 @@ scenes:
     tide.</p> <p>For whatever reason, Pedro isn’t done yet. This is getting absurd.</p>"
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene46.jpg?format=webp&quality=80
   narration: "<p>Now, for the exact opposite of competent AI: Kuchum Khan makes peace
     with Genghis Khan, netting Sanchu, Rutog, and Dalandzadgad in the process, but
     missing the only city that really matters in the CBR: Karakorum.</p> <p>Mapmakers
@@ -391,14 +391,14 @@ scenes:
     Inuit continue their staring contest in neutral territory.</p>"
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene47.jpg?format=webp&quality=80
   narration: "<p>I… honestly never expected we’d see this day: the Boers have been
     kicked out of Africa, and by Brazil of all civs. The enormity of this cannot be
     overstated. Nodwengu and Umgungundlovu fall to Pedro, and Kruger has no ability
     to take them back.</p> <p>This is really unbelievable.</p>"
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene48.jpg?format=webp&quality=80
   narration: "<p>Nongoma and Kroonstad also fall, meaning Pedro now controls all of
     Madagascar. Ekeuhnick’s plan to help the Boers falls flat, leaving him with a
     single robot infantry desperately trying to escape the approaching Brazilian army.</p>
@@ -406,7 +406,7 @@ scenes:
     Unless Pedro gets a sudden change of heart, they’ll almost certainly fall, too.</p>"
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene49.jpg?format=webp&quality=80
   narration: "<p>Back where the bottom truly started to fall out for Kruger we see
     Pedro consolidating his gains. Tile improvements are being repaired, a new carpet
     is being built, cities are being annexed and put to work, and the true consequences
@@ -415,7 +415,7 @@ scenes:
     civs, in addition to its carpet.</p>"
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene50.jpg?format=webp&quality=80
   narration: The same can be said for the Middle East, now unified under one banner
     for the first time in history. Here, Brazil has settled São José dos Campos,
     continuing a trend of establishing provincial capitals in each new region that’s
@@ -423,13 +423,13 @@ scenes:
     annexed.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene51.jpg?format=webp&quality=80
   narration: "<p>In Anatolia and the Balkans, Contagem and Osasco have been established,
     while Constantinople-- already back up to a population of 29 --has been annexed.</p>
     <p>For the time being, Sibir has a stronger army on its side of the border.</p>"
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene52.jpg?format=webp&quality=80
   narration: "<p>I guess that about wraps up this pa... oh.</p> <p>Mongolia and Brazil
     join together and declare war on Korea. In any other scenario, this would be death
     by suicide for Genghis Khan. I mean, it may still be.</p> <p>Brazil has a large
@@ -440,7 +440,7 @@ scenes:
     Pedro is an absolute madman.</p>"
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene53.jpg?format=webp&quality=80
   narration: "<p>At the very least, it does not appear that the Inuit have open borders
     with either Korea or Mongolia. So long as the peace between the two remains, Pedro
     has the upper hand here, and even if war breaks out again, Ekeuhnick’s ability
@@ -450,7 +450,7 @@ scenes:
     in Vietnam to the south.</p>"
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene54.jpg?format=webp&quality=80
   narration: "<p>In the land where the book on fighting wars good was written, Sejong
     seems to have only read the cliff notes. Pedro is pushing hard and fast into Korea,
     but it doesn’t look like it’s a very sustainable attack.</p> <p>Sejong’s cities
@@ -460,13 +460,13 @@ scenes:
     hostilities resume.</p>"
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene55.jpg?format=webp&quality=80
   narration: |-
     Further south are still more Brazilian and Inuit troops. The fate of Korea may very well be decided by a proxy war hosted by a neighboring civ that is also somehow not party to said proxy war.
     These are… confusing times on the cylinder.
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene56.jpg?format=webp&quality=80
   narration: "<p>In the north of Korea, again, the Inuit stand to gain the most. Sejong
     has virtually no army up here while Ekeuhnick has a formidable carpet just over
     the border. If Brazil captures any one of these cities and doesn’t carpet up quickly
@@ -476,7 +476,7 @@ scenes:
     just flat-out conquer them first.</p>"
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part108-scene57.jpg?format=webp&quality=80
   narration: "<p>We close this chapter with a shot of the Brazilian Raj, which has
     been almost completely annexed by Pedro, and has gone on from building courthouses
     to new biotroopers in order to quench the bloodthirst of the accidental occidental

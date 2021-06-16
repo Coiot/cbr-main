@@ -7,11 +7,11 @@ release_date: 'September 13, 2015'
 audio_narration: https://youtu.be/Fmwl_BhkCdk
 edition: Mk2
 date: 2015-09-13T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene01.jpg?format=webp&quality=80
   narration: This is u/KingEggbert, former “expert” power ranker and now a do-nothing
     college student, (pre-med at the College of William and Mary, go TRIBE!). As I
     haven’t been getting my 5+ hour a day civ BR fix ever since I retired from the
@@ -22,7 +22,7 @@ scenes:
     come on over and join us at /r/civbattleroyale (and FLAIR UP)!
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene02.jpg?format=webp&quality=80
   narration: As per usual, u/SylonL has updated a gorgeous colored map of the world
     as of the end of part eight. For those that don’t know, u/Pylgrim has been giving
     a high quality series of analyses concerning the unclaimed hot-spots of the world
@@ -30,7 +30,7 @@ scenes:
     (srsly join us).
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene03.jpg?format=webp&quality=80
   narration: We start out this chapter in the arctic winds of the North, where the
     Inuit contemplate sending another settler to reach a desolate copper mine currently
     staked out by exiled Mexican and American outlaws. What horrible crimes they committed
@@ -41,20 +41,20 @@ scenes:
     shortly).
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene04.jpg?format=webp&quality=80
   narration: 'In this slide, we can see the embarkation of two settlers: one Inuit,
     and one Blackfoot. Does this mean a race to colonize the taiga of Asia? Which
     American civ will be the first to announce their ambitions towards Kamchatkifest
     Destiny?'
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene05.jpg?format=webp&quality=80
   narration: |-
     Greetings and Aloha to the sandy beaches of Hawaii! Despite starting off with ocean embarkation, Kamehameha still managed to let Australia forward settle their proverbial backyard. Meanwhile, what sort of joke of a name for a city is “Townsville”? It sounds like a default fake name for Cities: Skylines if you accidentally save your game untitled. Townsville! Cityopolis! Hamletsburg!
     Note from TPang: “Have you never seen the Powerpuff Girls?”
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene06.jpg?format=webp&quality=80
   narration: In Central America, we see the extremely solid Texan navy, which could
     absolutely wipe-out the Buccs if they are the first to caravels. Of course, that
     would require the AI to have a formidable navy tactical prowess, which is luls-inducing
@@ -63,20 +63,20 @@ scenes:
     fact that you need melee units to take out cities.
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene07.jpg?format=webp&quality=80
   narration: 'Korea’s clutch on Guangzhou remains solid, and as always there are Israeli
     spies watching, keeping notes. Also in this picture: confirmation of China’s acquisition
     of Shanghai, as predicted on /r/civbattleroyale when crafty detectives took to
     the mini-maps of the last update.'
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene08.jpg?format=webp&quality=80
   narration: Oh boy! PHILIPINO GALLEASSES SPOTTED! Does this make up for the fact
     that they literally have an army of scouts, warriors and archers? Probably not,
     but not many civs have seemed to reach compass yet, so it is exciting nonetheless.
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene09.jpg?format=webp&quality=80
   narration: On the African front, The Boers have decided to ignore the Zulus led
     by Oblomov Shaka, and turn their sights Northerly the past few updates. Due to
     the geography of Africa, Ethiopia cannot seem to direct their full forces into
@@ -86,7 +86,7 @@ scenes:
     to be a science major.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene10.jpg?format=webp&quality=80
   narration: 'Mongolia graciously accepts Shaoshan as tribute from the Chinese, who
     honestly had no business settling there in the first place. While this may seem
     to be a non-troversy, it seems Sibir was eyeing that land as well, and declares
@@ -95,7 +95,7 @@ scenes:
     winner of this war: whoever gets Yakutia to align with them first.'
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene11.jpg?format=webp&quality=80
   narration: 'Sparta inches ever so closer to Cumae, but while weakened, the Romans
     have both of their UUs at their disposal defending the hotly contested gates.  Leonidas
     seems to be the first ruler to have a veritable army of pikeman rather than spearmen.
@@ -106,7 +106,7 @@ scenes:
     sense of the word.'
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene12.jpg?format=webp&quality=80
   narration: Australia is still kinda just chillin. With only two civs on the entire
     subcontinent, it is no wonder how Kimberly and Australia are perennial favorites
     by the community at large and the power rankers. And what’s with Australian city
@@ -114,7 +114,7 @@ scenes:
     deep kiddie-pool in a water park.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene13.jpg?format=webp&quality=80
   narration: For those  who were paying attention to the announcements atop the screen
     the past few slides, you’d have noticed the Ashanti wars are where most of the
     action is taking place this update. First, Osei Tutu nabbed Atebubu from the Kongo,
@@ -127,20 +127,20 @@ scenes:
     word crimes.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene14.jpg?format=webp&quality=80
   narration: The mighty Timurid army located above the dangerous forces of Afghanistan
     and below the might of the Hunnic carpet of battering rams, which in turn is sandwiched
     between the strength of the powerful USSR collective and the formidable Siberian
     death cloud. Persia is here too.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene15.jpg?format=webp&quality=80
   narration: With the Cham trireme in the way, the Philippines only need one trireme
     around Vigan to hold off the entire Vietnamese navy. Japan and Korea seem to be
     on the verge of spamming incredible navies in their own right.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene16.jpg?format=webp&quality=80
   narration: "“Swiggity swooty, we’re coming for St. Louis” seems to be the battle
     cry of the Western front of the Icelandic navy.  America could do well to get
     Canada aligned with them if they care at all for their North-eastern-most city,
@@ -148,7 +148,7 @@ scenes:
     assault."
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene17.jpg?format=webp&quality=80
   narration: The tug-of-war between the Moroccan navy and Ashanti army continues,
     and the Kongo seem to be setting themselves up for a (veritable) snipe should
     they play their cards right. That being said, Osei Tutu is being hammered from
@@ -156,7 +156,7 @@ scenes:
     on Carthage many years ago.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene18.jpg?format=webp&quality=80
   narration: In a move no one will likely care about, the Tibetans and Huns are now
     at war! Something tells me this won’t mean a thing. Since there is not much of
     note in this slide, let us take in the beauty that is Lhasa’s defense stats. Twenty-eight
@@ -164,14 +164,14 @@ scenes:
     you turtle.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene19.jpg?format=webp&quality=80
   narration: In a move that might actually surmount to something, Tibet has declared
     war on Burma. Take that, you Buddhist heathens! Anyone that believes there to
     be a clear winner to this battle is seeing something that I can’t, because both
     armies look pretty timid.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene20.jpg?format=webp&quality=80
   narration: 'Now back to Spartan Pikemen versus Roman Ballistae. What on paper looks
     like an easy Spartan victory is proving troublesome, and no, there is no Polish
     scout this time: just really hard geography to maneuver around. Now The Spartans
@@ -180,14 +180,14 @@ scenes:
     he is thousands of miles away.  Darius promptly fell back asleep.'
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene21.jpg?format=webp&quality=80
   narration: Armenia is an underdog due to the fact that their UA nerfs them into
     keeping themselves from attacking anyone in their vicinity, as they only get bonuses
     against opposite religions. Even more worrisome-ly, Yervantashat is extremely
     vulnerable to a naval attack, and the Timurids seem to rule these seas.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene22.jpg?format=webp&quality=80
   narration: One would think the USSR have a snow bonus the same as the Inuit with
     their preference for taiga and tundra, but nope.  Which really makes you wonder
     how Stalin thought Gorky was a good idea.  Like, there is only one fish tile,
@@ -195,21 +195,21 @@ scenes:
     for at least one slide.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene23.jpg?format=webp&quality=80
   narration: 'Vigan is still contested, and in a ballsy move the Philippines send
     only triremes to defend, sending their galleasses out elsewhere.  Meanwhile, Armenia
     and the Huns have declared a stalemate. Clearly this is so Atilla can set his
     full concentration on the real prize: Tibet.'
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene24.jpg?format=webp&quality=80
   narration: 'Ahhh, there is where the galleasses are going: Pangasinan. Nice one,
     Philippinbros, but do you really think that the EXPERT POWER RANKERS’ NUMBER ONE
     PICK AUSTRALIA will give in so easily to you? Pfft. Half the world away, Hitler
     has given up on Sparta and Norway, as if he ever had any chance against them anyway.'
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene25.jpg?format=webp&quality=80
   narration: Speaking of the Nazis, here they are. Hitler has NO discernable Navy,
     making a Scandinavian invasion a mere pipe dream, and clearly seem to be the bottom-dwellers
     of Europe, on the same level as the Romans. It is only a matter of time until
@@ -219,7 +219,7 @@ scenes:
     Germany.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene26.jpg?format=webp&quality=80
   narration: Speaking of major luls,  the Kimberly have bypassed INDONESIA for CHAMPA.
     One would think with Indonesia’s spices, trade would be majorly profitable for
     Indonesia. But nope! CHAMPA is preferable. Trust me, I love the Champa-ions, them
@@ -230,21 +230,21 @@ scenes:
     at windmills. And here they are being more relevant than Indonesia. How beautiful.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene27.jpg?format=webp&quality=80
   narration: At this point it isn’t “will Kumasi stay in Ashanti control?” so much
     as “will Morocco or the Kongo net the second capital of the game?” Not that it
     matters much, as Kumasi has a population down to one, but it does have access
     to several resources making it a promising investment.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene28.jpg?format=webp&quality=80
   narration: The Mongolian invasion of Shenzen has been halted by the Sibirian forces,
     as was likely Kuchum Khan’s strategy all along.  The Mongolian army is clearly
     outmatched on this front. Meanwhile, the Chinese army consists of solely a Great
     Merchant. So fierce.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene29.jpg?format=webp&quality=80
   narration: And Kumasi goes to… drumroll please… MOROCCO! Congrats Ahmed, you really
     made my power rankings look embarrassing (I put you at number 61 initially, and
     really lead the PR group into thinking you deserved it). As I have said earlier,
@@ -254,14 +254,14 @@ scenes:
     on the horizon...
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene30.jpg?format=webp&quality=80
   narration: Maria heard what I had to say, and to test her mettle, declared war on…
     Saladin? Wrong Arabian leader, Maria. In fact, that’s pretty racist of you for
     mixing them up like that. For shame, Maria. In her defense, it is slightly more
     likely to surmount to some importance than Attila’s war on Tibet.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene31.jpg?format=webp&quality=80
   narration: 'Kamchatkifest Destiny goes to: THE INUIT! Congrats, and their city looks
     like a true keeper with furs, horses, and is that amber? Anyway, better luck next
     time, Blackfeet, maybe you can net Easter Island with that settler instead. To
@@ -271,7 +271,7 @@ scenes:
     Yakutia, who has a pantheon and a UA enhancing their deer to mini-Natural Wonders.'
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene32.jpg?format=webp&quality=80
   narration: Watch out, Phillippinbros. There seems to be no more monopoly on galleasses
     in this war, anymore. That being said, Geelong looks like a lost cause with the
     Philippine army marching their way over. If Indonesia wishes to become relevant,
@@ -279,7 +279,7 @@ scenes:
     being relevant.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene33.jpg?format=webp&quality=80
   narration: The scuffle over Vigan is getting heavy, are you sure diverting your
     galleasses wasn’t a mistake now, Philippines? Vigan should have succumbed by now
     due to their military incompetence, but Vietnam decided to be EXTRA incompetent
@@ -288,14 +288,14 @@ scenes:
     Ashanti women and children. Total besties.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene34.jpg?format=webp&quality=80
   narration: The Ashanti make peace with Kongo, ultimately securing Atebubu. Without
     an Eastern front to worry about, maybe the entirety of the Ashanti forces will
     be enough to retake their capital. But as long as they have to deal with Mansa
     Musa as well, it seems unlikely they can recover from Ahmed’s devastating blow.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene35.jpg?format=webp&quality=80
   narration: The invasion of Lalibela by The Boers was ultimately a failure, and Kruger
     decides to retreat and regroup for the time being. Their assault on the Kongo
     is relentless, however, and seems to be cracking at Kakongo’s defenses. While
@@ -305,18 +305,18 @@ scenes:
     but harder times await if they wish to secure the war.
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene36.jpg?format=webp&quality=80
   narration: Thankfully I get a break from typing as TPang decides to net a second
     screencap of Hawaii. Phew. Thanks for the breather, TPang! I owe you one.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene37.jpg?format=webp&quality=80
   narration: |-
     The Cham empire is more formidable than you likely thought. Perhaps moreso than Burma?  Well, let’s not get ahead of ourselves. But they have plenty going for themselves, including a 29 shield defense in their capital, which as noted earlier is receiving healthy trade from the Kimberly. Vietnam won’t snatch Panduranga with the same ease as the first Viet-Cham war, but are still the heavy favorites. Of note: Sri Jayawardenapura Kotte. What a name! Take note, Australia: THAT is a suitable city name for a major empire. Sunshine Coast and Townsville really just makes me sick.
     Note from TPang: “TPang does not approve of the narration of this slide.”
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene38.jpg?format=webp&quality=80
   narration: Wow, maybe the Cham DO have a chance against Burma, they have the technological
     advantage! The Cham could also ake Vijaya back while the Trung sisters are distracted
     to the East. But instead the “Pirates of the East” decide to, once again, not
@@ -324,48 +324,48 @@ scenes:
     war seems to have fizzled out into nothingness.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene39.jpg?format=webp&quality=80
   narration: Here we get a view of the Mughals, a former powerhouse who now seem to
     be flirting with obscurity. The Afghanistan generals seem to have taken a page
     from the “How to Fight Wars Good” book, perfecting the Mexican strategy of Phagocytosis.
     [S/O to Ben Coccio
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene40.jpg?format=webp&quality=80
   narration: In an unprecedented move, America is competent at some facet of the game!
     St Louis seemed to be dead in the water, but so far nary a scratch has occurred,
     and instead it is at a healthy population of four!
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene41.jpg?format=webp&quality=80
   narration: Sensing the imminent Icelandic threat, Canada is forging a bond with
     America, proving the adage “The enemy of my enemy is my friend.”Although the fans
     want bad blood between the irl best bros, Canada knows real threat is Iceland.
     Additionally, Texas seems to be the only civ on Eastern North America with swordsmen.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene42.jpg?format=webp&quality=80
   narration: 'On the other half of the World, The Armenians declare war on Timurlane.
     A startling move: the Caspian Sea is dominated by Timurid ships, Armenia shares
     the Timurid’s majority faith, and Yervantashat is vulnerable by an amphibious
     invasion.'
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene43.jpg?format=webp&quality=80
   narration: And as quickly as Morocco took Kumasi, The Ashanti took it back. This
     game of back and forth may never end. Morocco would probably do better to concentrate
     on one city rather than spread out his naval fleet, but I only go for science
     victories so what do I know…
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene44.jpg?format=webp&quality=80
   narration: Cumae is being held steady by the Romans, holding the theatre to a stalemate.  An
     army of Ballistae are being embarked as well, is a counterattack on the horizon?
     Messene is well defended, it looks like, so perhaps it is merely to hold back
     Antium from total devastation.
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene45.jpg?format=webp&quality=80
   narration: Phagocytosis, more like phago-SIKE-tosis. Ok I’ll stop. Anyway, Afghanistan
     seems to be capitalizing on the Armenian-Timurid war, which likely is the reason
     why Lahor is defenseless. A counter-attack from Samarqand into Kandahar or Kabul
@@ -373,7 +373,7 @@ scenes:
     Mirwais Hotak. Time to earn your nickname, “the graveyard of empires!”
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene46.jpg?format=webp&quality=80
   narration: 'Remember when we all thought Elizabeth had no chance?  Wow, that was
     a long time ago. Now she is turtling just fine and has a population to be envious
     of.  If only Ireland actually capitalized early as we all had hoped. But it isn’t
@@ -383,40 +383,40 @@ scenes:
     guessed it, ranged units. Lol.'
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene47.jpg?format=webp&quality=80
   narration: Here at the Cape of Good Hope, we can see Oblomov Shaka spamming spearmen,
     for, ultimately, an army of Impis to wreak havoc on the land. Kruger isn’t the
     slightest bit worried, but players of the game know better than to leave a border
     with the Zulus undefended. But Kruger will likely get away with it, for now.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene48.jpg?format=webp&quality=80
   narration: |-
     The last few islands in the Pacific are being snatched up by whoever can get there first. Here we see one-tile islands hosting cities for the Kimberley, Maori, and Australians. And yes, Mackay is just slightly less embarrassing a name than Sunshine Coast or Townsville.
     Note from TPang: “Like you can talk, your home country of America has places called ‘Hookersville‘ and ‘ Whiskey Dick Mountain‘. I‘m not even joking”
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene49.jpg?format=webp&quality=80
   narration: The sleeping giant is still sleepy and still giant. I don’t think I am
     the first person to call them Snorlax, but the name fits them PERFECTLY. Do something!
     You are bound to win any war you fight! To the Northeast, the multinational coalition
     of spies and scouts huddles together for warmth.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene50.jpg?format=webp&quality=80
   narration: 'The war of the Sarais was just a ruse: it was all along just a race
     to Shenzen. Sibir graciously accepts China’s offering as tribute. If Sibiria ever
     wants to expand, they only need to look Southward as Lhasa seems rather defenseless,
     perhaps investing too much energy in the Burmese?'
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene51.jpg?format=webp&quality=80
   narration: Casimir and Elizabeth declare war on Sparta, despite the fact that Hitler
     is easy pickings. Oh well. Seems like Leonidas has bigger problems now than Cumae,
     and will have to divert his attention elsewhere.
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene52.jpg?format=webp&quality=80
   narration: 'Here you can see the Armenian Great General/Great Prophet hybrid UGP:
     the Mamikonian. From the Cv V customization wikia: “Mounted units within two tiles
     gain the Nakharar promotion, granting them a 33% bonus when attacking cities and
@@ -424,7 +424,7 @@ scenes:
     than the first religion founded.”'
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene53.jpg?format=webp&quality=80
   narration: 'I know this slide is probably more so I can concentrate on the Buccs,
     and this may be my Texan fanboy inside of me talking, but WHOOO DOGGIE look’at
     up there yonder navy! YEEEEE-HAW! It’s just about bursting with Texan triremes
@@ -432,7 +432,7 @@ scenes:
     should I say, Arrrrrrgentina? Ok I swear I’ll stop.'
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene54.jpg?format=webp&quality=80
   narration: 'So, now Vigan is again at zero hitpoints. And once again, there are
     ZERO Vietnamese melee units or triremes. Congrats, Cham archer, you have been
     THE deciding factor in the Western front of the Philippinbro wars. Like the Polish
@@ -441,31 +441,31 @@ scenes:
     tile.'
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene55.jpg?format=webp&quality=80
   narration: And the Eastern front? Pangasinan is falling to the six ships (two of
     which are galleasses) the Philippines sent out. Can the underdog be plucky on
     BOTH fronts of the war?
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene56.jpg?format=webp&quality=80
   narration: Once again thanks for the breather screencap, TPang. I needed it.  Mackay
     is still a dumb name. On to more pressing slides.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene57.jpg?format=webp&quality=80
   narration: Now onwards to the Middle East. The Menorah sigil represents the Israeli
     UU the Maccabee, a swordsman replacement with a flanking bonus and yields faith
     when it successfully kills a unit. Mecca and Cairo seem to be the only two cities
     following Islam.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene58.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene58.jpg?format=webp&quality=80
   narration: Mirwais Hotak is finding the siege of Lahor more frustrating than anticipated.
     It was never going to be a cakewalk since it was surrounded on four tiles by mountains,
     but several turns later there has been no advancement.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene59.jpg?format=webp&quality=80
   narration: Back to the Australian mainland, where we can see… oh no. You’ve got
     to be kidding me.  Ok calm down, just ignore it, think happier thoughts… Ugh I
     can’t help it. HOBART!? GOLD COAST!?  I cannot believe these are actual city names.
@@ -474,7 +474,7 @@ scenes:
     it will just sit here, wasting away.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene60.jpg?format=webp&quality=80
   narration: Kakongo is ka-crumbling down, basically at a rate that seems as if Nzinga
     doesn’t even want it anymore, but is willing to let millions die in the siege
     anyway. Oh, AI. Never change. On a more exciting note, Kruger is starting to take
@@ -482,21 +482,21 @@ scenes:
     Like I said, AI. Never change.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene61.jpg?format=webp&quality=80
   narration: The Adriatic wars continue, but with Poland in the mix it is hard for
     Sparta to gain ground, and Rome is clearly content with maintaining the status
     quo.  Despite the proximity to several wars, French caravans plow through the
     area, either bravely or obliviously.
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene62.jpg?format=webp&quality=80
   narration: St. Louis is looking much worse than it had the last time we saw it,
     and seems ready to capitulate itself. This would be the first major invasion of
     a civ successfully taking a city from another continent. This only happened once
     in the Mk. I, with Chile taking a Malian city much, much later in the timeline.
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene63.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene63.jpg?format=webp&quality=80
   narration: And… Pangasinan falls to the Philippines! Did you see that coming? The
     navy around Greater Newcastle seems, er… greater, and the city defense is stronger
     almost as if it were a new castle… I can’t take it anymore, Australia. Pls stop
@@ -506,7 +506,7 @@ scenes:
     already.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene64.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene64.jpg?format=webp&quality=80
   narration: In case you were wondering, yes, Texas is still not to be messed with.
     Over half of their cities are capital-quality, and they have the strongest navy
     in the hemisphere, even if their melee units aren’t quite up to snuff. The Sioux,
@@ -515,14 +515,14 @@ scenes:
     buddied up with Canada.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene65.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene65.jpg?format=webp&quality=80
   narration: Here, the Blackfoot civ has shown to power out a navy, at the expense
     of possibly too little melee units. Will that come back to haunt them? As of right
     now, they are wide open for a Sioux invasion, with only an army of workers guarding
     Ahahpitape, and similarly little around Mdewakantonwan.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene66.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene66.jpg?format=webp&quality=80
   narration: Arabia seems to be doing well in their little theatre, where Baghdad
     is under a lot of pressure from Arabian swordsmen. Their army is winning their
     share of the battles, but the Arabian navy is getting annihilated. Darius decides
@@ -530,7 +530,7 @@ scenes:
     to us on how that works out, Darius. Seems like a surefire winner.
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene67.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene67.jpg?format=webp&quality=80
   narration: 'And our final slide shows the Icelandic navy victorious against Lincoln.
     Or should I say, Reykjaviktorious? Or maybe #Rektjavik? This is clearly been the
     update of the underdog: Rome, Iceland, The Philippines, Arabia and Morocco all
@@ -538,43 +538,43 @@ scenes:
     Australia, and Sparta!'
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene68.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene68.jpg?format=webp&quality=80
   narration: And as always, we end with the data slides. Texas is comfortably number
     one, with Hawaii being the surprise of the bunch at number 8.
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene69.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene69.jpg?format=webp&quality=80
   narration: Mexico and Mongolia don’t seem to be doing bad enough to be in the bottom
     ten, but I don’t make up the stats. The others seem to be perfectly at home at
     the bottom. Surprise, where are the Nazis? Not in the bottom, somehow.
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene70.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene70.jpg?format=webp&quality=80
   narration: Did you think the USSR was top five in military? Me neither. Sparta being
     left off the list is surprising as well, they might have lost many more pikeman
     attacking Cumae than I thought.
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene71.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene71.jpg?format=webp&quality=80
   narration: Yakutia at the top of another list. Go figure.
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene72.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene72.jpg?format=webp&quality=80
   narration: The Zulus at the bottom of another list. Go figure.
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene73.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene73.jpg?format=webp&quality=80
   narration: The Inuit, Australians, and Boers are at another level with city settlement,
     although some of the Australian cities are on one tile islands in the Pacific,
     whereas the Boers and Inuit have much higher quality clay. That being said, the
     Boer cities  are much more tightly packed around their capital region.
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene74.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene74.jpg?format=webp&quality=80
   narration: Judaism rocks. Islam struggles for relevancy.
 - scene_number: "75"
   scene_title: 75
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene75.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part9-scene75.jpg?format=webp&quality=80
   narration: 'The religion overview: two obvious things of note. Catholicism is about
     to explode once contact is made regularly with South America. Additionally: Buddhism,
     Akatt-u, and Shintoism should be on an all out race to Australia. With Australia’s

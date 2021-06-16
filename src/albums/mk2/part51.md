@@ -7,35 +7,35 @@ release_date: 'April 13, 20166'
 audio_narration: https://youtu.be/vvFT0rn0LWo
 edition: Mk2
 date: 2016-04-13T00:00:00.000Z 
-image: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg
+image: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg?format=webp&quality=80
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene01.jpg?format=webp&quality=80
   narration: Welcome to part 51 of the Civilization Battle Royale! I am /u/RoastNonsense
     and I have the honor of narrating this week. The first 50 parts have taken us
     from 61 civilizations down to 34, and the party shows no signs of stopping.
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene02.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene02.jpg?format=webp&quality=80
   narration: Here we have the world city map lovingly curated by /u/Lasciraxariscal
     and /u/Malistrassa. If you haven’t done so before, I encourage you to open it
     in full resolution some time and scroll around a bit to see what you’ve been missing.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene03.jpg?format=webp&quality=80
   narration: The power rankers have again completed their work and the Boers are still
     on top, as they repeatedly unveil new units from the Future Worlds mod, not to
     mention introducing Mr. Giant Death Robot and his growing number of twin brothers.
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene04.jpg?format=webp&quality=80
   narration: 'Once again /u/AlbinosRideDinos provides us with a visual aid as to how
     the Power Rankings look mapified! You can read the entire CBR Power Rankings by
     our team of experts here: #0''>http://imgur.com/a/PPzlS/layout/horizontal/#0'
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene05.jpg?format=webp&quality=80
   narration: We start this week with a view of the eastern Mediterranean, where the
     Spartans have a thorough if outdated naval carpet. Sparta’s army has reached the
     shadow of the walls of Jerusalem after last part’s citadel spam, and Armenia has
@@ -43,7 +43,7 @@ scenes:
     the Leonidas feels good after leg day, he may well charge east soon.
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg?format=webp&quality=80
   narration: In the eastern Indian Ocean, the war between Sri Lanka and the Kimberley
     has started with Simhapura and Denpasar both being bombarded and the two sides
     clashing with large numbers of destroyers. While both sides have ranged naval
@@ -51,7 +51,7 @@ scenes:
     will be decided not through combined arms but by getting up close and personal.
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene07.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene07.jpg?format=webp&quality=80
   narration: Since we’ve last seen Sub-Saharan Africa, the Buccaneers have lost Yeji
     but taken Bamako, which held the lion’s share of the Malian air force. Mansa Musa
     should be able to retake the city soon, but half his empire glows in the dark.
@@ -60,13 +60,13 @@ scenes:
     Musa lives to regret it.
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene08.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene08.jpg?format=webp&quality=80
   narration: |-
     Simhapura has been flipped down to 1 pop after hard fighting and now lies well behind the Kimberley destroyer line. The Kimberley haven’t been at all proactive this game, but they did fight very well for a while against Australia. The question is whether Sri Lankan carriers just off the subcontinent will bring a repeat of what happened the last time Jandamarra (Kimberley) got in a fight.
     In a fine show that there are no grudges being held, the Kimberley capital Makassar is thoroughly protected by Aussie troops.
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene09.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene09.jpg?format=webp&quality=80
   narration: Ingolfur Arnarson has completed what Te Rauparaha could not as the Sydney
     (Memorial) Opera House is completed in scenic Reykjavik. Iceland’s greatest musician
     has written the sordid tale of the Maori’s terrible fall from trying to build
@@ -76,13 +76,13 @@ scenes:
     ticket in all of Iceland.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene10.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene10.jpg?format=webp&quality=80
   narration: |-
     Henry Parkes has taken a  more sanguine approach to the tragedy, opting to develop nuclear weapons himself for a policy of mutant third eye for an eye, tooth for a tooth.
     While Australia has a considerable number of Diggers, remember that the nickname diggers was bestowed on ANZAC troops for their actions at Gallipoli in the Great War, and that this UU is falling ever further behind the Future Worlds units we see in other parts of the world. The cool hats aren’t enough to scare the world any more, Henry, you need powered armor, or at least the helmet icons of infantry.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene11.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene11.jpg?format=webp&quality=80
   narration: Mali is back to controlling all their territory, and their gatling guns
     sit and wait in an uneasy calm. The one unit of infantry south of Tombouctu is
     a very small start to building a modern army, but with the western Malian empire
@@ -92,7 +92,7 @@ scenes:
     less ruinous.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene12.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene12.jpg?format=webp&quality=80
   narration: The Kimberley have Simhapura firmly in hand and Sri Lanka’s destroyer
     line has been pushed back further. Parakramabahu (Sri Lanka) seems intent on keeping
     a strong home fleet tight around the capital of Colombo rather than reinforcing
@@ -101,7 +101,7 @@ scenes:
     at the front line.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene13.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene13.jpg?format=webp&quality=80
   narration: Tulum has a fair sized portion of the Wollongong Armada around it, and
     Morgan decides the best move is to embark a great many ground troops with nearly
     no naval escorts. The Australian sub commanders must be licking their chops at
@@ -110,21 +110,21 @@ scenes:
     amphibious assault might flip the city.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene14.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene14.jpg?format=webp&quality=80
   narration: |-
     The Sibir-Yakutia war remains a stalemate and Finnish and Boer peacekeepers have eliminated even the small naval conflict that once existed in the one-tile channel. Now it’s only an endless stream of Yakut bombing runs and defiant Sibirian citizens shaking their fists amongst the rubble.
     It’s for the best really, as Yakutia has only a handful of mechanized infantry and tanks, and most of their people in the west are holding shovels instead of firearms. The citizens of Tomtor perhaps gaze longingly at the Boer power armor infantry nearby and dream of a time when Yakutia held the position the Boers held now…
     As a side note, Mongolia is starting to build up an air force to go with their carpet, and the Mongol-Yakut border is the one place the peacekeepers have gaps.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene15.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene15.jpg?format=webp&quality=80
   narration: A destroyer flips Bamako back to Buccaneer hands, and Yeji is dropped
     to zero from bombardment. In the classic tale of navy vs. army, the Buccaneers
     can ruin a great many things but won’t take much territory, while Mali can only
     try to roll with the punches and flip cities back.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene16.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene16.jpg?format=webp&quality=80
   narration: Henry Morgan has sailed a landship into the Pacific in front of the enemy
     fleet and recaptured Tulum for the moment. Between Aussie planes and privateers
     it’ll flip back, but with Nassau in the frame, we can see that the Buccs have
@@ -132,27 +132,27 @@ scenes:
     two landships near Vilcas can somehow make the crazy run their buddy did.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene17.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene17.jpg?format=webp&quality=80
   narration: An advanced Inuit fleet has found a very unlucky Kimberley artillery
     battery, and this may be the most action that come from the Inuit declaring war
     on Jandamarra. If there were just an Inuit privateer, this slide would have the
     complete collection from caravel up to the limit of Inuit technology.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene18.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene18.jpg?format=webp&quality=80
   narration: |-
     Sri Lankan air strikes are hitting Simhapura and Denpasar but the destroyer clash is now nearly at the border. Kimberley has finally brought in subs to fire from behind their destroyer screen, and the AI’s tendency to have planes go for cities rather than units may cost Sri Lanka dearly in this case.
     Vietnam has done a fine job in filling up the territory of its recent Champa conquests, including an air force to match anyone nearby. If the Trung sisters decide to pick a fight, they are ready to go again.
     On a personal note, I’m now much more hopeful for my Kimberley stocks in the Battle Royale Stock Exchange at /r/BRSE, where you can buy and sell shares to predict the future of the game in financial style.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene19.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene19.jpg?format=webp&quality=80
   narration: |-
     Kandahar is back in Afghan hands as Vietnamese troops work on two of the most hard to reach cities in the world. There are only two tiles that allow access to Lahor, but they’re covered by Mongolian troops, and while Vietnam has troops at the gates of Khost, they aren’t getting any artillery or air support. It seems likely the advance will stall out here unless the indirect fire support changes priorities.
     Meanwhile, Finland has finished installing wall-to-wall carpeting in the old Mughal cities, and are spilling into both Afghanistan and Sri Lanka. If they put this kind of focus into Batticaloa on the Arabian penninsula, Kekkonen could probably take a sizeable bite out of the middle east. If.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene20.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene20.jpg?format=webp&quality=80
   narration: Pliny has travelled the world and seen all the wonderful things, and
     lo, Paul Kruger is at the top of the list. I expect he’ll stay first and increase
     his lead given how the Boers are grabbing all the Future Worlds wonders as soon
@@ -160,14 +160,14 @@ scenes:
     but they’ll more likely have a funeral than any more wonder unveilings.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene21.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene21.jpg?format=webp&quality=80
   narration: Fully 19 civilizations have a wonder at present, more than half of the
     civs in the world. At this point in a domination game many of the older wonders
     have lost their luster, and Finland having the Statue of Liberty is worth a lot
     more going forward than say, Terracotta Army and the Oracle.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene22.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene22.jpg?format=webp&quality=80
   narration: Mali has finally settled with the Buccs after starting the ball rolling
     on SOPA, and the final cost is four cities on top of the millions of dead. Those
     sensitive to border gore may wish to avert their eyes as there’s not only the
@@ -178,7 +178,7 @@ scenes:
     heavily on one’s mind.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene23.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene23.jpg?format=webp&quality=80
   narration: Mansa Musa of Mali, fresh from the ending of the last chain of DoW’s
     he started, teams up with Chile to go to war with a much weaker target in Kamehameha.
     The world has gotten small enough that very few declarations of war don’t lead
@@ -187,20 +187,20 @@ scenes:
     last.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene24.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene24.jpg?format=webp&quality=80
   narration: As we check in with our spies, we see Parakramabahu plotting against
     Arabia, but it’s doubtful they can spare the strength given how they’re getting
     pushed back by the Kimberley and Arabia has infantry, unlike its neighbors. No
     earth-shaking surprises this edition.
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene25.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene25.jpg?format=webp&quality=80
   narration: |-
     Vietnam continues to throw itself down tiny corridors and into walls as far as Afghanistan is concerned, with no artillery support for Khost and Lahor having four peacekeepers running interference. The paratrooper assault on Kandahar has relented, and the Finnish blob is threatening to spread to where Vietnam may get blocked out from further progress to the west.
     Please take a moment now to relax and contemplate the unit carpet of Tibet, with great musicians playing harmonies on the mountainsides. There is no war in Lhasa. There is no war in Lhasa.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene26.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene26.jpg?format=webp&quality=80
   narration: Off to Europe now, where Sweden has developed the tech for communications
     arrays in stark contrast to the fact that most of their army still seems to be
     on horseback wearing neat hats. The Swedes also have a stark contrast in neighbors,
@@ -211,25 +211,25 @@ scenes:
     even trapped when it comes to diplomacy.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene27.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene27.jpg?format=webp&quality=80
   narration: |-
     Australia and the Buccaneers have made peace, with a net change of just Tulum. We can see how empty the Buccaneer portion of South America is, probably a significant factor in deciding to be done with a power as large as Oz. Also, the overwhelming air superiority the Buccs held is now down to 4 planes in Huamanga. Where they all went to, I do not know. While I’m impressed that the Buccs did this well after so many DoW’s, the loss of Tulum is the first time an enemy has advanced to gain a strategic base at Bucc expense.
     In the southwest corner the Chilean fleet is headed off to their war with Hawai’i, saying “Pardon me” while slipping through the gap in the Wollongong Armada.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene28.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene28.jpg?format=webp&quality=80
   narration: |-
     The Hawai’i DoW chain gets a new link as the Blackfoot join in. While they haven’t done much on land, the Blackfoot have had a surprising Pacific presence, with island cities in the Aleutian chain and their sniped city of Olangapo from when Oz and Vietnam were fighting. Their navy has a lot of sails for this point of the game, but Hawaii doesn’t have subs deployed and this Blackfoot fleet may be able to push hard.
     Note also the utterly terrifying naval carpet the Inuit are building up, and similarly the Sioux have built up to having fully four military units at once.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene29.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene29.jpg?format=webp&quality=80
   narration: |-
     Here in the east Atlantic, a Buccaneer flotilla including an advanced destroyer has had to consult the relationship graphic by /u/mazerlaser to discover just which of all these ships they’re supposed to be shooting at. Henry Morgan (Buccs) is in fact at war with Persia, so those privateers are in quite a lot of trouble.
     On a personal note, I am very glad that some day when Chile and the Buccs go to war, it will almost certainly be some other narrator who has to tell their naval forces apart. (Please, oh please, don’t let that DoW be on the next slide. PLEASE.)
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene30.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene30.jpg?format=webp&quality=80
   narration: Okay, NOW we’re getting some good stuff from our spies.Ishtar will earn
     an Intelligence Star for this one, as Yakutia vs. Mongolia could be a very consequential
     war. Yakutia has only a small number of troops, especially on the west, and Mongolia
@@ -241,7 +241,7 @@ scenes:
     brain.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene31.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene31.jpg?format=webp&quality=80
   narration: The World Congress has met and Chile has not found their favor, getting
     embargoed. Chile has been pouring its resources into its navy since the war with
     Brazil, and all those escuadras nacionales and subs could mean big trouble for
@@ -250,7 +250,7 @@ scenes:
     while for minor results.
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene32.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene32.jpg?format=webp&quality=80
   narration: The other World Congress proposal banned gold, which must be a bit annoying
     to Henry Parkes as he has two mines right by Melbourne. The Aussie carpet of Diggers
     isn’t aging well, and there’s a caravel at the right side of the screen. Having
@@ -259,13 +259,13 @@ scenes:
     battleships, and subs.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene33.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene33.jpg?format=webp&quality=80
   narration: |-
     The Inuit are yet farther into the Future Worlds techs, and now have generators adding 4 gold to the output of snow tiles, a big boon for the White Walker economy. With the discovery of Nanomaterials the generator also gains +2 production, cranking these snow tiles up even farther.
     Note that while there are very few land units, the naval carpet is very formidable.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene34.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene34.jpg?format=webp&quality=80
   narration: Texas is probably the best positioned city-state in the game at present,
     with a decent number of units and a noticeable lack of any ominous border build-ups.
     The Inuit have just a few garrisons in the American Midwest, Mexico could definitely
@@ -274,7 +274,7 @@ scenes:
     Austin might fit the bill for a while.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene35.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene35.jpg?format=webp&quality=80
   narration: Sri Lanka joins Yakutia in declaring war on Texas. Ambitious, given that
     Parakramabahu has been pushed even further away from  Austin and the Kimberley.
     Simhapura is again extremely low after air strikes, but no Sri Lankan destroyer
@@ -285,7 +285,7 @@ scenes:
     superiority looks like it’s a bad idea.
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene36.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene36.jpg?format=webp&quality=80
   narration: Arabia has finally reached the top step and joined the information age,
     leaving some of its neighbors behind. With mechanized infantry and bazookas starting
     to roll out, Harun al-Rashid could become very threatening if he shells out the
@@ -294,14 +294,14 @@ scenes:
     border to defend afterward. You can do it, Harun! I believe in you!
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene37.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene37.jpg?format=webp&quality=80
   narration: A drone UAV says good morning to the Giant Death Robot outside Atebubu.
     Drone UAV’s are flying ranged units with 100 ranged power and the ability to move
     after attacking. They also have no resource cost, so be prepared to make friends
     with quite a lot of them. Mr. Giant Death Robot will still be my friend, though.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene38.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene38.jpg?format=webp&quality=80
   narration: Another future worlds first is this hypervelocity missle, where you put
     in 200 hammers and get out 120 combat power of single use explosion. It also has
     evasion 100, so don’t worry about those pesky Mobile SAMs giving you any trouble.
@@ -310,7 +310,7 @@ scenes:
     Bahir Dar.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene39.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene39.jpg?format=webp&quality=80
   narration: North Africa is fairly empty for people for people not named Morocco.
     Ethiopia has pulled its forces back and Mali still needs to clean up fall out
     from the atomic bombing. Nyeni, at 8 population may be the smallest capital in
@@ -321,7 +321,7 @@ scenes:
     hand and take.
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene40.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene40.jpg?format=webp&quality=80
   narration: Chile and Hawai’i are skirming off the coast of Baja, and Hawai’i’s lack
     of submarines will cost them dearly the longer the war goes on. Mexican sailors
     look on amused to see obsolete units fight for their amusement, as in the days
@@ -329,13 +329,13 @@ scenes:
     that actually did that.)
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene41.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene41.jpg?format=webp&quality=80
   narration: |-
     Wulungarra has fallen into Sri Lankan hands on a forgotten front far from either civilization’s homeland. A few destroyers probably won’t be able to take either of the other Kimberley ice cities, but for civs the size of these two, a 9 pop city is nothing to sneeze at.
     Elsewhere on this slide, Sibir scouts hope to one day complete their treasure hunt so they can freeze in the north instead.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene42.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene42.jpg?format=webp&quality=80
   narration: Sri Lanka’s resistance has collapsed, and the Kimberley destroyer line
     is free to fall upon the target of its choice. With battleships finally coming
     to the front, the Jandamarra’s navy can pick a target and shell it into oblivion
@@ -345,13 +345,13 @@ scenes:
     Lanka) nothing.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene43.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene43.jpg?format=webp&quality=80
   narration: |-
     A look now at Persia, for all you Persia fans out there: multiple pikemen on the front lines, a scattering of artillery, no aircraft, and no, that’s not a Persian infantry near Persepolis, he’s Sri Lankan and just visiting.
     A few parts ago in the poll /u/unklphil runs (Highly recommended! Please vote!) I threw up my hands in despair and started voting for Finland to take over the Middle East. Yes, they only have one city, but honestly who else is going to do it? Arabia is finally starting to look decent, but they are all of them on borrowed time.
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene44.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene44.jpg?format=webp&quality=80
   narration: Vietnam continues to only bombard Lahor while only having troops next
     to Khost. Afghan troops have advanced toward Peshawar, but it’s doubtful they’ll
     be able to go any further. This war is going to be slowly frozen in place as the
@@ -359,7 +359,7 @@ scenes:
     peacekeepers slowly choke all the open space away from Afghanistan.
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene45.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene45.jpg?format=webp&quality=80
   narration: The citadel highlighted is not new, it’s been there since at least part
     49, but it puts a huge crimp in Vietnam’s ability to prosecute the war. An open
     border treaty would with Sibir would at least create the possibility get multiple
@@ -368,7 +368,7 @@ scenes:
     needs space to get to melee range, and that space simply doesn’t exist.
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene46.jpg?format=webp&quality=80
   narration: The Wobbegong Armada is having a huge gathering at their newest naval
     base of Tulum, and surely some of them are frustrated to see how empty Buccaneer
     territory is, wondering if there might have been so much more available if they
@@ -378,7 +378,7 @@ scenes:
     the next wave of conflict.
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene47.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene47.jpg?format=webp&quality=80
   narration: Paul Kruger has completed the CN tower, which is HUGE. With +1 pop and
     +33% culture for all 49 cities, the Boers will get a notable boost to effective
     science and their social policies. Anything that scales with the size of the empire
@@ -386,7 +386,7 @@ scenes:
     left, they don’t really have a big an impact as this does.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene48.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene48.jpg?format=webp&quality=80
   narration: Here Fearless Leader TPang has found Inuit Railgun Armor, which lies
     between Modern Armor and Giant Death Robots. They require aluminum and have a
     combat power of 120, which, by the by, is greater than the defense value of any
@@ -395,7 +395,7 @@ scenes:
     wreak utter mayhem if it could just get into position and Ekeuhnick said go.
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene49.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene49.jpg?format=webp&quality=80
   narration: All of Kamchatka glows in the dark. The canal city of Igloolik has a
     ring of Vietnamese peacekeepers, and there’s even an extremely optimistic/deluded
     Inuit settler who would try to put a replacement city in the world’s only available
@@ -406,7 +406,7 @@ scenes:
     all have the chance to see the destruction left behind from a nuclear exchange.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene50.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene50.jpg?format=webp&quality=80
   narration: Sri Lanka has only carriers on its front line, and that may mean a lot
     of lost planes very soon. The Dreamtime Destroyer Swarm is almost within sight
     of the Parakramabahu’s palace in Colombo, and after all this naval combat, there’s
@@ -415,13 +415,13 @@ scenes:
     better left undisturbed.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene51.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene51.jpg?format=webp&quality=80
   narration: |-
     Meiji and his haiku poets have finally reached the modern era. Beatniks delivering haiku to beret-wearing finger-snapping crowds will be filling the coffee shops of Osaka any day now. I wonder what ideology they’ll choose?
     In the top right of the slide you can see one of the Blackfoot’s Aleutian Island cities, which are a significant chunk of population thanks to the Deity AI bonuses. Headed south from same is a moderate sized fleet of sail era ships eating a light breakfast of Hawai’ian privateers before heading south to the main island chain. The three trade ships offer the promise of the fine brunch, to boot.
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene52.jpg?format=webp&quality=80
   narration: "A separate Blackfoot fleet from the mainland is headed toward Hawai’i
     from the north to complete a pincer move with the combined Blackfoot/Chilean fleets
     coming up from the southeast. Kamehameha has to be a bit worried that his fleets
@@ -432,7 +432,7 @@ scenes:
     ships would have an easy time going through the last few Hawai’ian privateers…"
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene53.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene53.jpg?format=webp&quality=80
   narration: "First, a big round of applause for the Sioux, who have built their very
     first gunpowder unit! Mr. Giant Death Robot is proud of you!\nIn bigger news,
     the Blackfoot have assembled a very respectable carpet of units and are overflowing
@@ -443,7 +443,7 @@ scenes:
     a while against the units of any of their neighbors."
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene54.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene54.jpg?format=webp&quality=80
   narration: In a repeat of one of the world’s greatest magic tricks, an enormous
     number of Boer paratroopers have vanished before our eyes, just like when Sweden
     ended its open borders treaty with Paul Kruger. It becomes exceedingly clear how
@@ -453,7 +453,7 @@ scenes:
     painful very quickly.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene55.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene55.jpg?format=webp&quality=80
   narration: Oh, Meiji, you daring man! It’s been nice knowing you. While I personally
     enjoy taking Freedom in my civ games, it’s rather close to a death sentence in
     an AI domination match with the relationship penalty from differing ideology,
@@ -462,7 +462,7 @@ scenes:
     that might need a bit of exercise soon…
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene56.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene56.jpg?format=webp&quality=80
   narration: This slide is a good look at why there are Finnish units appearing far
     and wide, as all Finnish territory is covered, as well as the westernmost bits
     of Sibir territory. Paratroopers are nice, but there are scattered great war infantry
@@ -471,7 +471,7 @@ scenes:
     luck with repealing that embargo.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene57.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene57.jpg?format=webp&quality=80
   narration: Outside of Gyantse, the last Mughal admiral looks at the sun setting
     over his old home while the evening’s land breeze brings the smells of the still-burning
     fields surrounding the city. They came from the sky on silk flowers, dropping
@@ -484,13 +484,13 @@ scenes:
     the ashes of his children’s home. He closed his eyes.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene58.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene58.jpg?format=webp&quality=80
   narration: |-
     Okay, everybody breathe. It gets dusty in here, I totally get that somebody might have something in their eye.
     In this slide, we see the last Ashanti pikemen, who spend their years swimming laps in a three tile long pool. In the mixed-polearms swimming medley in the International Games there’s just no beating the Ashanti teams. Watching the swimming is Mr. Giant Death Robot north of Kakongo, and a scattering of mech artillery. They can carry two missiles apiece, though none here are doing so.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene59.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene59.jpg?format=webp&quality=80
   narration: The naval fighting has moved from south of Colombo to surround Sri Jayawardenapura
     Kotte and the city is down to half health. Aircraft carriers probably won’t save
     Parakramabahu this time, and the last Sri Lankan destroyers are at low health
@@ -498,13 +498,13 @@ scenes:
     just to let them know the rest of the navy will be back soon.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene60.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene60.jpg?format=webp&quality=80
   narration: |-
     Olangapo, the most remote Blackfoot city faces a significant force of privateers and a GWI just to the north. With little in the way of reinforcements nearby, the city will soon find just how much 42 defense can do to save them all.
     In this slide’s edition of Count the Airplanes, there are fully 44 Aussie aircraft, despite the fact that they aren’t even the main subject of the slide. Just putting that out there for future reference.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene61.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene61.jpg?format=webp&quality=80
   narration: Lahor is all the way down to red, and it means not a thing, since some
     Mongolian cannon battery has been parked there for years. This slide gives a lovely
     view of Afganistan’s unique improvement the Kalle. It gives +1 gold and +1 food,
@@ -514,7 +514,7 @@ scenes:
     flip the city briefly.
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene62.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene62.jpg?format=webp&quality=80
   narration: With a nice shot of the Buccaneer core, we can see that they have nice
     population, but not a significant unit carpet. They have helicopter gunships,
     but only landships to train against rather than tanks or modern armor. The Aussie
@@ -526,19 +526,19 @@ scenes:
     to the country.
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene63.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene63.jpg?format=webp&quality=80
   narration: |-
     The Blackfoot fleet has reached the shores of Honolulu with an upgraded bomber in tow, but there likely isn’t enough to bring down the Hawai’ian capital yet, even if there weren’t Hawai’ian privateers ready to come help. The Blackfoot sub has an all-you-can-eat buffet, so the longer the war goes on, the more free kills it can pile up. An important question for this slide is if there are any Chilean forces just to the south, or if these scattered few Blackfoot ships are all that have arrived.
     Also, please note the mystery trireme by Kahalui. It could only get there by teleportation, since Hawai’i is surrounded by deep water. It can’t be Pirate or Chilean since it would have been destroyed by bombardment. I conclude this must be an American trireme, stranded here for hundreds of years, rowing for generations.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene64.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene64.jpg?format=webp&quality=80
   narration: |-
     A press of the F key may be in order, as Dvin no longer has Islam as majority religion. Having been converted as the final act of a wandering great prophet in exile after the fall of the Ayyubid Empire, there will never again be an Islamic city in the world.
     The Spartans are sending a number of great generals toward Dvin and may be about to citadel-bomb their way toward Bethlehem or possibly above Jerusalem, just to annoy Armenia further. Leonidas has an awful lot of empty space in the territory of his neighbors, and the temptation must be enormous. A declaration of war looks to be in the cards sometime soon.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene65.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene65.jpg?format=webp&quality=80
   narration: The Chileans are indeed in the seas south of the Big Island, and a blockaded
     Honolulu can’t stay at 35 population for long. The Blackfoot carriers are hitting
     Waikiki, bringing it down to below half health, but the Hawai’ians finally have
@@ -546,7 +546,7 @@ scenes:
     able to attack cities anymore.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene66.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene66.jpg?format=webp&quality=80
   narration: The Antarctic Flotilla of the Kimberley navy fight their way to retake
     Wulungarra, but neither side has the forces to make progress on assaulting a city.
     It’ll probably be a destroyer one way and then the other, and a lonely existence
@@ -554,7 +554,7 @@ scenes:
     near Colombo and Sri J. Kotte are resolved.
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene67.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene67.jpg?format=webp&quality=80
   narration: See, like that. Sri J. Kotte is nicely resolved, once the sub north of
     the city is killed. Kimberley subs east of Colombo have likely cleared away the
     aircraft carriers Parakramabahu (Sri Lanka) used to have, and the path is clear
@@ -563,7 +563,7 @@ scenes:
     16 inch shells and bring a city to its knees.
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene68.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene68.jpg?format=webp&quality=80
   narration: Okay, now this is a good reason to avoid declaring war against the Inuit.
     With a missile cruiser patrolling the far parts of the world ready to turn an
     enemy capital to glass, leaders are probably willing to bite their tongues when
@@ -574,7 +574,7 @@ scenes:
     in the blast radius.)
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene69.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene69.jpg?format=webp&quality=80
   narration: "As we look at the current Kimberley core, there are sufficient peacekeepers
     to prevent nukes any time soon. Let this be a lesson not to keep grudges against
     civs who declare war on you, as they might have value as inadvertent human shields
@@ -584,7 +584,7 @@ scenes:
     could be missiles or atomic bombs, but the Australian oil reserves must be staggering."
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene70.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene70.jpg?format=webp&quality=80
   narration: "Honolulu has dropped one to 34 pop, but the combined Chilean/Blackfoot
     forces aren’t in position to threaten any cities. Hawai’i still has reinforcement
     to bring from the northwest, and they may not suffer anything worse than a scare
@@ -595,7 +595,7 @@ scenes:
     taking Tulum. Don’t take Mansa Musa’s suggestions for lottery numbers, either."
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene71.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene71.jpg?format=webp&quality=80
   narration: Hawai’ian and Blackfoot privateers clash as both Vietnamese and Inuk
     great musicians look on. Hawai’i has never had a very concentrated military force,
     but their scattered navy has been sufficient for tying up opposition forces. At
@@ -607,7 +607,7 @@ scenes:
     would make short work of Kamehameha (Hawai’i).
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene72.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene72.jpg?format=webp&quality=80
   narration: Ah, at last! The Trung Sisters have gotten their act together, and not
     do they have jet fighters in play, they have an atomic bomb for cracking any extra
     hard targets. Khost and Lahor are down to nothing, and a machine gun is all that’s
@@ -617,13 +617,13 @@ scenes:
     in their power. A few paratroopers around Kandahar and it’d be beautiful.
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene73.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene73.jpg?format=webp&quality=80
   narration: |-
     Mansa Musa (Mali) has declared war on Sri Lanka. What is today’s lesson, class? Don’t follow his example! Sri Lanka may be weak enough that they don’t pose a major threat to somebody joining in the war, but Persia could probably manage to bungle a war with Sri Lanka and still come out the worse for wear.
     On the map we have civs building strength with the Buccs getting units around their puppeted cities, Mali building up an army, Morocco working toward a naval carpet, even near Kumasi, and then Ethiopia is the odd duck, as they still have very little in their western conquests. The Boers continue their quiet ways, and Mr. Giant Death Robot now has a friend of his own kind next door to talk to.
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene74.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene74.jpg?format=webp&quality=80
   narration: We return to the Vietnam-Afghanistan front, and nothing has moved. The
     hero machine gun has fended of a paratrooper, and Khost stands on zero health
     still. The Finnish peacekeepers won’t let Vietnam use its nuclear bomb even if
@@ -632,13 +632,13 @@ scenes:
     very long time.
 - scene_number: "75"
   scene_title: 75
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene75.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene75.jpg?format=webp&quality=80
   narration: |-
     Off to Iceland, and clearly the althing has been strongly in favor of naval funding as the seas around Britain are swarmed with battleships, which probably take the majority of Icelandic oil supplies. Iceland’s open border with Sweden, Finland, and Canada support the fan theory that Iceland’s next best target will be France, but Ingolfur is keeping his own counsel and hasn’t announced anything as yet. Ireland and Britain are fairly empty on land, but whose ships would survive to land anyone there?
     Religion map fans will note the border between Europe’s Judaism and North America’s Catholicism is a pair of cold Icelandic cities with few enough neighbors that neither religion will make further progress without the use of missionaries.
 - scene_number: "76"
   scene_title: 76
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene76.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene76.jpg?format=webp&quality=80
   narration: The Kimberley are in the ascendent in the Antarctic, as their Dreamland
     Destroyers are about to reconquer Wulungarra and the only Sri Lankan melee units
     in range are one privateer and a destroyer a breath away from dying. The ships
@@ -646,14 +646,14 @@ scenes:
     now that Sri Lanka’s attack on the ice colonies has been stopped.
 - scene_number: "77"
   scene_title: 77
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene77.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene77.jpg?format=webp&quality=80
   narration: And it’s info addict time again! The Boers are number one in population,
     thanks to the jump from the CN tower. Iceland is in fourth, and Yakutia is out
     of the top ten. The first place Boers have more than double 7th place Vietnam,
     and about triple the 13th place Morocco.
 - scene_number: "78"
   scene_title: 78
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene78.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene78.jpg?format=webp&quality=80
   narration: Mexico has faded to be one spot above the USSR, and in a shock to me
     at least, Japan’s one city Osaka has a higher population than all of the Kimberley
     cities combined. As a note, population number scales non-linearly, so one 16 pop
@@ -661,20 +661,20 @@ scenes:
     would have a higher population than 4 cities with 4 pop.
 - scene_number: "79"
   scene_title: 79
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene79.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene79.jpg?format=webp&quality=80
   narration: The usual suspects in area, with Australia’s piece of the Pacific Ocean
     on top, Vietnam above Yakutia, and Chile having surpassed Brazil. Finland is only
     12th, which may be why they can’t stuff any more paratruupers in their borders.
 - scene_number: "80"
   scene_title: 80
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene80.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene80.jpg?format=webp&quality=80
   narration: Korea and Sparta are on the bottom page, and while they have some reason
     for hope regionally, you can’t be that low in territory for long and hope to make
     it much deeper into the game. Mali has dropped below France, and the USSR is ahead
     of only the city-states.
 - scene_number: "81"
   scene_title: 81
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene81.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene81.jpg?format=webp&quality=80
   narration: The Boers still hold first in manpower, but Vietnam is only a hair behind
     Australia now, and Vietnam’s units are much more modern. A war between them could
     be quite the party some day in the future. Korea’s 9th place in manpower could
@@ -683,7 +683,7 @@ scenes:
     comes to war.
 - scene_number: "82"
   scene_title: 82
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene82.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene82.jpg?format=webp&quality=80
   narration: The Boers keep the tech lead, with the Inuit in a decent second, and
     then a significant drop to third and fourth. Sri Lanka is peeking in at 13th place,
     though it hasn’t really shown in their war with the Kimberley. Korea at number
@@ -692,32 +692,32 @@ scenes:
     a very literate turtle.
 - scene_number: "83"
   scene_title: 83
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene83.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene83.jpg?format=webp&quality=80
   narration: Looking at the raw science rankings, things mostly look familiar, but
     the Australian city number penalty to science cost really shows through, as their
     6k science is going toward much higher costs per tech. Finland, on the other hand,
     has much better efficiency and ranks higher in techs than raw science.
 - scene_number: "84"
   scene_title: 84
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene84.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene84.jpg?format=webp&quality=80
   narration: Looking a city number, Australia has 20% more cities than the second
     place Sibir, and almost double the 5th place Buccaneers. To give a quick sketch
     of the distribution, the top two have 165 cities, the next three combined have
     159, and the sixth through tenth have 167.
 - scene_number: "85"
   scene_title: 85
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene85.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene85.jpg?format=webp&quality=80
   narration: The bottom page all together totals 63 cities. We again have 4 city-states,
     and Mali still has 6 cities after giving 4 cities away to the Henry Morgan (Buccs).
 - scene_number: "86"
   scene_title: 86
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene86.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene86.jpg?format=webp&quality=80
   narration: On the religion page, Islam is down to zero cities, and there will never
     be more. Catholicism is on top as it reaches the last cities down in Chile, and
     Tibet’s great contribution to the world has nearly 1200 followers.
 - scene_number: "87"
   scene_title: 87
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene87.jpg
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part51-scene87.jpg?format=webp&quality=80
   narration: At last, the religion map. This has been /u/RoastNonsense narrating,
     and it has been a thrill. Thank you so much to TPang for the opportunity, and
     thank you so much to the community for all the things you do and the information
