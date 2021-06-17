@@ -7,17 +7,17 @@ release_date: 'July 06, 2016'
 audio_narration: https://youtu.be/7I2g_xdvHhI
 edition: Mk2
 date: 2016-07-06T00:00:00.000Z 
-image: https://cdn.civbattleroyale.tv/mark2-part63-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/mark2-part63-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene01.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene01.jpg
   narration: |-
     Welcome ladies and gentlemen to Part 63 of the Civ Battle Royale with cheese!  This is your narrator, /u/bigkr88, otherwise known as the Unflaired, because stupid reddit won‘t show my buccs flair that I‘ve been wanting to wave loudly and proudly for months.  Again, this is an emergency narration, but as I‘ve been wanting to do this for a long while and I caught TPangs message right as it arrived, so, let‘s get it on!
     Title card by /u/Cadellinman
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene02.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene02.jpg
   narration: Now for this wonderful hexagonal map of the cylinder, where I would like
     to point out just how screwed the Blackfoot are if the Inuit decide to bring the
     long night to them, just how many random paratrooper snipes Finland has pulled
@@ -26,13 +26,13 @@ scenes:
     drowning before they even see land.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene03.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene03.jpg
   narration: 'As usual, the #1 civ on the power rankings, which is unsurprisingly
     the Inuit, what with their zombie armies and nukes made of ice and fissionable
     atomic baby seal tears.'
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene04.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene04.jpg
   narration: For a new addition to the Battle Royale parts that I personally hope
     will be sticking around, military comparisons!  First up, Australia vs Vietnam,
     where the numbers seem decisively in Australia‘s favor in terms of sheer military
@@ -40,7 +40,7 @@ scenes:
     which would theoretically allow Vietnam to bring more of their manpower to bear.
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene05.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene05.jpg
   narration: However, Vietnam is also fighting/trouncing their weakened neighbor Persia
     to the west, in a fun little three way scuffle since Sparta decided to run their
     daily ironman marathon east.  While Vietnam has not had the long distance conquests
@@ -51,7 +51,7 @@ scenes:
     invading Europe itself!
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene06.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene06.jpg
   narration: So, all of that out of the way, lets get to some proper throwdowns!  First
     we turn to the Persian kerfuffles, where Persepolis is firmly in Vietnam‘s grasp
     and Gordum and Susa, while being damaged, remain unlikely to flip, at the least
@@ -63,7 +63,7 @@ scenes:
     Artashat and planting a fresh city to fill the gap?
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene07.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene07.jpg
   narration: As for Vietnam‘s other war, it is looking every bit as entertaining as
     we had hoped.  Virtually all of the island cities on this slide are heavily damaged,
     and Vietnam‘s military access through Blackfoot seas is proving to be advantageous
@@ -72,7 +72,7 @@ scenes:
     with Diggers as far as the eye can see.
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene08.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene08.jpg
   narration: To the north, we see more of Vietnam‘s core, and we get an idea of just
     how vast both sides air power is.  More cities are in the red or have the pure
     black health bars of doom, and with Australian paratroopers on hand, we may see
@@ -80,7 +80,7 @@ scenes:
     been waiting for, folks!
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene09.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene09.jpg
   narration: This region is a hotbed of hostilities, as the teched up Koreans are
     fighting a two front war against the Mongolians and the Japanese, the Mongolian
     city of Turfan at the upper left already in the red with X-Coms bearing down on
@@ -89,7 +89,7 @@ scenes:
     last city a few times, but we may need to ready the F keys regardless.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene10.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene10.jpg
   narration: Now for a shot of the Blackfoot nation, which at this point appears strong
     enough to be able to resist another Mexican tequila-fueled invasion.  The Blackfoot
     have actually carpeted fairly well, all things considered; it is fair to say that
@@ -102,7 +102,7 @@ scenes:
     a match between two cylinder juggernaughts, nowhere is safe.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene11.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene11.jpg
   narration: Now we turn back to the Korean invasion of Mongolia, where Genghis Khan
     and Meiji have decided to make peace and unite against their mutual enemy, not
     that it will do either of them any good.  Its raining X-Coms all throughout the
@@ -110,13 +110,13 @@ scenes:
     and looking to fall soon.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene12.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene12.jpg
   narration: In the north, the Mongolians are actually managing to hold the line with
     some success, and are actually making a push towards Guangzhou.  If you look at
     the minimap, it would appear Osaka remains standing as well.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene13.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene13.jpg
   narration: Of course right as I say that, Korea proceeds to launch a fresh offensive
     past Guangzhou and now looks to be able to take Otrar and Turfan in the north,
     and Beijing in the south, with Shanghai firmly in Korea‘s hands and surrounded
@@ -125,7 +125,7 @@ scenes:
     until the X-Coms jump right over them.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene14.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene14.jpg
   narration: Highlighting Sparta‘s recent conquests and failed conquests, we can see
     that unless either Persia or Sparta commit more to the Gaza front their war will
     soon stagnate.  Armenia is looking significantly worse for the wear, with only
@@ -136,7 +136,7 @@ scenes:
     gold to upgrade them with.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene15.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene15.jpg
   narration: Back to the Osaka front, we can see that Japan somehow remains alive
     after the initial Korean push, though Osaka is near death and a unit of cavalry
     is all that stands between the city and a unit of Korean railgun armor.  Is anyone
@@ -148,7 +148,7 @@ scenes:
     out from under Vietnam by accident.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene16.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene16.jpg
   narration: So, Mongolia and Sri Lanka have decided after surviving a war that they
     probably shouldn‘t have that they need to flex their muscles to scare off any
     other invaders. They could have hit Persia, but Ecbatana is actually kinda heavily
@@ -160,7 +160,7 @@ scenes:
     military!  Until the Mongolians started shooting missiles at them, that is.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene17.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene17.jpg
   narration: Welp, folks, show‘s over, pack it up and go home.  David is now Jesus,
     and he plopped his holy buttocks right in Gaza, which is a war torn hellhole analogous
     to the modern day Gaza strip.  I feel like we‘ve now officially seen everything.  Gotta
@@ -170,7 +170,7 @@ scenes:
     is calling for Vietnamese paratroopers all week, but one problem at a time.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene18.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene18.jpg
   narration: Ethiopian peacekeepers are flooding into the Gaza strip to protect their
     newly arisen Jewish saviour, and Pasargadae falls, splitting the Persian empire
     in half.  It may be that the revival of David was Persia‘s last act of defiance,
@@ -178,7 +178,7 @@ scenes:
     aggression of the Trung Sisters.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene19.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene19.jpg
   narration: Now back to South America, where short of Tiwanaku flipping back not
     too much had developed on this front until Pedro decided to finish off his weakened
     neighbor to the south!  Already Brazilian paratroopers are landing amidst O‘Higgens
@@ -187,7 +187,7 @@ scenes:
     would be surprised by such an action; in the cylinder, only the ruthless survive.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene20.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene20.jpg
   narration: While this is obviously a pretty one-sided annexation, Brazil may not
     be coming out of this unscathed.  Their navy is actually mostly nonexistant, a
     few nuclear subs hiding amongst a fleet of embarked units; the destroyers of Chile
@@ -195,7 +195,7 @@ scenes:
     glory for them.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene21.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene21.jpg
   narration: Back to the Vietnamese-Australian front, cities remain burning and torn
     to bits, especially on Australia‘s side of the conflict.  Most likely due to the
     air force of drone fighters and stealth bombers which, based on the fact that
@@ -204,14 +204,14 @@ scenes:
     pretty tenuous at this point.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene22.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene22.jpg
   narration: To the north, Australia‘s cities are getting crumped hard, but an absolutely
     massive swarm of units is blocked in by Australia‘s island cities.  Nearby, the
     Inuit look on the conflict with malice, an arsenal ship loaded with 3 ice and
     seal tears atomic missiles at the ready.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene23.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene23.jpg
   narration: The White Walkers role in the Australian-Vietnamese conflict is rather
     peculiar, seeing as their lands are playing host to rather meaningless skirmishes
     in North America and in eastern Siberia.  What exactly the two are fighting over
@@ -219,14 +219,14 @@ scenes:
     from the Yakutia-Inuit wars from before.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene24.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene24.jpg
   narration: In Mongolia, the war is remaining somewhat back and forth, as Turfan
     in the north may flip a few times, Otrar‘s position is looking tenuous, and the
     Boer wall of human shields continue to frustrate Korea‘s attempts at doing a full
     court press on Mongolia‘s territory.
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene25.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene25.jpg
   narration: Persia attempts to link their territory together again successfully,
     recovering Pasargadae, though Typhoon Trungs continues to rain on their parade.  Mongolia
     is actually managing to get a fair number of units near Armenian territory, and
@@ -234,7 +234,7 @@ scenes:
     captures with no ships or paratroopers involved.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene26.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene26.jpg
   narration: A shot of Iceland‘s core, consisting of Iceland, where they too appear
     to be suffering from empty carrier syndrome like their carribean counterpart the
     Buccaneers.  And for the wardecs, there is Iceland declaring war on Sparta, which
@@ -243,13 +243,13 @@ scenes:
     memes.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene27.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene27.jpg
   narration: Iceland‘s path to Sparta is unfortunately clogged up by an absolute mountain
     of Finnish and Australian expats.  Italy and Greece seem rather well populated,
     so for the moment Sparta‘s core appears to be rather durable.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene28.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene28.jpg
   narration: The Boers, on the other hand, have a very easy path to attack Sparta‘s
     African holdings, with an absolutely horrifying air force and a strike group of
     X-coms ready to pounce on Utique and Carthage.  As a side note, I‘d like to point
@@ -258,34 +258,34 @@ scenes:
     if not manpower.  Definitely moreso than the Spartans, at least.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene29.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene29.jpg
   narration: Down in the former Sri Lanka, the global conflict between Australia and
     Vietnam has another front as Vietnamese paratroopers are meeting with some success
     as Galle comes close to falling, though that won‘t last if Vietnamese don‘t get
     reinforcements over soon.
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene30.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene30.jpg
   narration: The Boers have a Giant Death Robot in a very odd position, on the western
     edge of the Indian ocean.  The reason... Pacific Rim 3.  The Inuitpocalypse is
     cancelled again.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene31.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene31.jpg
   narration: Back to the southern tip of South America, Chile is folding like a house
     of cards.  Every city except for Concepoon are getting damaged, La Serena has
     fallen, and Santiago De Chile may start flipping between the mechanized infantry
     of Chile and Brazilian paratroopers.
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene32.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene32.jpg
   narration: At the Sri Lankan front, Galle and Colombo are looking rather vulnerable
     and the Vietnamese fleet seems to be just sitting at the sea border, not fully
     committing to the fight.  Again, Vietnamese can make some permanent gains here,
     they just need to commit the manpower.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene33.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene33.jpg
   narration: We get a full view of the Mediterranean Sea, and as before, Iceland is
     having trouble bringing their full force to bear due to the number of expats in
     mainland Europe, and the Boers so far haven‘t pierced Spartan core.  The disturbing
@@ -293,7 +293,7 @@ scenes:
     with a very juicy Greece to the immediate south.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene34.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene34.jpg
   narration: Hawaii‘s conclave of Kaneohe remains somewhat stable, given that no one
     is actively trying to remove them from the Cylinder, but as the carrier numbers
     rise and the Inuit glacier floats nearby, any chance of a comeback is pointless.  To
@@ -301,7 +301,7 @@ scenes:
     islands, with apparently few Australian melee units to contest them.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene35.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene35.jpg
   narration: Mongolia and Korea continue to grind away at each other, with Korea having
     the definite upper hand thanks to their tech.  Mongolia‘s lost about a quarter
     of their landmass so far having Shanghai and Beijing drop in the south, Otrar
@@ -309,7 +309,7 @@ scenes:
     Tabriz vulnerable, if Korea can slice through the horde of ranged and AA units.
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene36.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene36.jpg
   narration: Off the coast of China, Vietnam‘s navy has worn thing, though the mass
     of units to the top right capturing Caloocan and coming close to flipping Manila,
     and the stream of units at the bottom of the slide are threatening Myson and Ambon.  Also,
@@ -317,7 +317,7 @@ scenes:
     game during the steam summer sale.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene37.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene37.jpg
   narration: Chile continues to hold out surprisingly well, though as can be seen
     by the slowly emptying southern tip of South America its only a matter of time
     until Brazil rolls over O‘Higgins nation.  Even if they don‘t, eventually Australia
@@ -325,7 +325,7 @@ scenes:
     and a digger notwithstanding.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene38.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene38.jpg
   narration: To the northwest of the previous slide.... oh wow.  I‘m very curious
     as to why Australia hasn‘t dropped the hammer on Chile with all of this within
     a few turns travel.  This isn‘t even purely a horde of floating infantry, Chile‘s
@@ -333,14 +333,14 @@ scenes:
     Bay.  Its just a matter of racing Brazil‘s forces.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene39.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene39.jpg
   narration: Meanwhile back in Mongolia, Genghis has actually managed to push back
     for a brief moment, retaking Turfan and Beijing and sporting an airforce which
     iiiis probably outdated compared to the airforce in China, which is approximately
     4x larger in comparison on this front alone.
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene40.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene40.jpg
   narration: Sibir‘s core, and some of Mongolia‘s northern enclaves, is looking pretty
     horrifying.  Should Sibir decide to strike Mongolia, the war would be short, bloody,
     and probably the nail in the coffin for Mongolia.  Right now, the one thing I
@@ -349,14 +349,14 @@ scenes:
     would be a bloodbath.
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene41.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene41.jpg
   narration: A hush falls over the Babylonian sub Nebuchadnezzar as a Brazilian nuclear
     submarine armed with a zika missile passes near the mountains barricading us away
     from the rest of the cylinder.  Do they know that they are trapped in this game
     for our amusement?
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene42.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene42.jpg
   narration: In the Mediterranean Sea, Utique looks close to falling as a few teams
     of X-Coms clean up the Spartan units in Africa.  As much as Rome and Manitea are
     getting hammered, Iceland‘s robot infantry is still having trouble cutting through
@@ -365,7 +365,7 @@ scenes:
     empty Iberian landscape.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene43.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene43.jpg
   narration: Looking back to Persia, we see things have continued to go sour as Vietnam
     has retaken Persepolis and Pasagardae, and Baghdad looks close to falling to Vietnamese
     paratroopers.  The Persian navy is trapped in the gulf, sadly unable to actually
@@ -374,7 +374,7 @@ scenes:
     peace in a chaotic world.
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene44.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene44.jpg
   narration: Utique falls, and two more X-Coms stand ready to breach and clear Carthage.  While
     its not the steamroll that would be expected, it is a remarkable demonstration
     of the Boer‘s ability to apply the military aspect of economy of force, committing
@@ -382,13 +382,13 @@ scenes:
     of leg day from Africa, where every day is actually Kenyan Marathon day.
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene45.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene45.jpg
   narration: Iceland is trying really hard to put pressure on Sparta, they really
     are, the problem is they just can‘t throw enough paratroopers into Italy, with
     most of the damage being done by the decent air wing stationed in Ravenna.
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene46.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene46.jpg
   narration: The eastern Indian ocean is seeing an escalation of arms, as Australia
     commits atomic bombs to the front, presumably relaying the bomb through carriers
     with the final destination being Sri Lanka, the ultimate final destination the
@@ -396,13 +396,13 @@ scenes:
     again.
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene47.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene47.jpg
   narration: A flotilla of Australian ships head west towards the horn of Africa,
     perhaps to strike at Chile‘s east coast, perhaps on a pleasure cruise.  Regardless,
     they bring at least one of the dreaded drone fighters.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene48.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene48.jpg
   narration: The east of Lagstralia, double stacks of naval and amphibious land units,
     a large force of units whose battlecry of ‘THE PANG IN THE SOUTH!‘ as they prepare
     to strike out at Vietnam.  In addition, we recieve confirmation that the lost
@@ -410,7 +410,7 @@ scenes:
     promise of an eternal Carnival.
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene49.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene49.jpg
   narration: Nope, Australia was the one to take the city, with a surprise Advanced
     Destroyer from nowhere.  While it will probably flip back, it says a lot about
     the lack of strength in Chile‘s west coast that a small force could take the capital.  Now
@@ -418,7 +418,7 @@ scenes:
     attacked.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene50.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene50.jpg
   narration: CHARLES, GO AWAY.  WE‘RE WATCHING ARMIES ANNIHILATE EACH OTHER MERCILESSLY
     FOR OUR AMUSEMENT.  YOU ARE WHY WE CAN‘T HAVE GLORIOUS THINGS.  YOU ARE THE NAVAL
     AI OF OUR LIVES.  YOU ARE THE ROME OF THE CIVBATTLEROYALE WITH CHEESE.  Also Vietnam
@@ -426,7 +426,7 @@ scenes:
     with Iloilo and Gladstone looking rather tenuous.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene51.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene51.jpg
   narration: A Mexican flotilla brushes past the Hawaiian enclave of peace and rum,
     consisting of a mix of units that would actually pose a threat to an isolated
     island city state.  If Mexico is making preparations for the imminent Inuit invasion,
@@ -434,7 +434,7 @@ scenes:
     glacier.
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene52.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene52.jpg
   narration: Those robotic units really put in the work, with Iceland actually pushing
     through and capturing Rome from Sparta!  Sparta has the manpower to take it back,
     but, the proud Icelandic droid has given Leonidas cramps.  A man who gets cramps
@@ -444,7 +444,7 @@ scenes:
     an advantage in this regard.
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene53.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene53.jpg
   narration: With that said, the Boers have not only taken Carthage, but scattered
     the nearby Spartan units, making any flips of the city a daunting prospect.  The
     question is now whether they will follow through and push into southern Italy,
@@ -452,7 +452,7 @@ scenes:
     breaking into new continents.
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene54.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene54.jpg
   narration: South of Japan, the naval conflict rages on, with Vietnam‘s core continuing
     to crank out reinforcements and putting pressure on Australia, while Aussie reinforcements
     trickle in, including... a nuclear armed missile, presumably loaded with native
@@ -460,7 +460,7 @@ scenes:
     they?
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene55.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene55.jpg
   narration: In the world news, the ban on Jade was not passed, with virtually all
     of Asia amongst the major participants in the World Congress voting against it.  The
     back and forth struggle between Korea and Mongolia continues unabated, with Shanghai
@@ -470,7 +470,7 @@ scenes:
     in Korea‘s military than that of Mongolia.
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene56.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene56.jpg
   narration: The other edict was a ban on cocoa, which hits the South American markets
     rather hard, though humorously Chile voted in favor of it, presumably trying to
     give Brazil one more good bruise before the annexation is over.  Australia, the
@@ -480,7 +480,7 @@ scenes:
     but, I wouldn‘t hold out hopes of the backdoor squad pulling any miracles.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene57.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene57.jpg
   narration: Embarassed by their defeats, Leonidas leads his Spartans in a counterattack
     that takes back Rome, a line of Finnish peacekeepers making any chance of Iceland
     flipping it back questionable without Icelandic units with the move to reach past
@@ -489,7 +489,7 @@ scenes:
     their newest conquest with Paratroopers and X-Coms.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene58.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene58.jpg
   narration: Our spies are reporting back with gems like the Buccaneers plotting against
     Sparta and Mexico, both of which would be interesting, Sparta moreso.  The Buccaneers
     have an impressive navy and a small but advanced army at the Mediterranean, making
@@ -498,14 +498,14 @@ scenes:
     that it would expose the Buccaneers to a larger land border with the Inuit.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene59.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene59.jpg
   narration: Streaming past Finnish border guards before they could ask for passports,
     a pair of Icelandic Railgun Armor units has taken Rome!  Sparta‘s position in
     Italy is still somewhat strong, but it remains notable that Iceland is finally
     able to put enough units towards making a meaningful offensive against Sparta.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene60.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene60.jpg
   narration: The Battle of Valparaiso rages on, Chilean mechanized infantry finding
     themselves caught in the open against Buccaneer Advanced Destroyers and Australian
     submarines while Brazilian paratroopers hop over the mountains in mass.  Can I
@@ -514,7 +514,7 @@ scenes:
     I can‘t tell if they‘re Buccs or Chileans.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene61.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene61.jpg
   narration: A brave Persian privateer actually manages to seize Susa momentarily,
     perhaps in a bid to buy time for Baghdad to stabilize after the last Vietnamese
     wave was fought off.  To the top left, Persian units seem to be retreating into
@@ -523,14 +523,14 @@ scenes:
     potshots at Armenians for fun and profit.
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene62.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene62.jpg
   narration: Further south of Baghdad Vietnamese paratroopers fight to keep a landing
     zone open for reinforcements, knowing full well one more push against Baghdad
     will be all thats needed.  Behold, fellow Babylonians, the courage of the gladiators
     that fight for our amusement.
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene63.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene63.jpg
   narration: We get a pretty sweet shot now of Vietnam‘s northern frontier and Sibir‘s
     south to get a comparison between the two.  In terms of raw technology, Sibir‘s
     power armor has a definite edge, making an early conflict heavily favoring our
@@ -542,7 +542,7 @@ scenes:
     your one iota of importance is who annexes you first.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene64.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene64.jpg
   narration: That is a LOT of atomic bombs that Iceland has packing.  Which means
     that is a very boned southern Italy.  It does bring to mind, what would Iceland
     name their atomic bombs after?  Frost giants?  Ancient Inuit necromancers that
@@ -550,13 +550,13 @@ scenes:
     minds want to know.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene65.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene65.jpg
   narration: |-
     As our final slide full of action and drama and conflict, we look to the south of Japan once more, where Vietnamese forces have captured Iloilo and look to have the manpower on hand to keep it, while at the same time sending units east past Australia‘s islands in what might be an envelopment, or at the least an attempt to cut the Japanese islands off from reinforcements. More Australian reinforcements can be seen flooding in from the south, so this battleground is nowhere close to being decided yet, but the Vietnamese have made some good headway thus far.
     Hidden off in the corner reveals that Australia has declared war on Leonidas! It also just so happens that there are some Australian paratroopers in Europe at the moment too. Could we see some more intercontinental sniping efforts by a leader named Henry?
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene66.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene66.jpg
   narration: But now, join me in celebrating the return of INFOADDICTS!!!! For sheer
     landmass, Australia remains the undisputed king thanks to their dominance of the
     Pacific, far ahead of even the Inuit who have blanketed North America in the Long
@@ -564,14 +564,14 @@ scenes:
     Iceland Sibir and Vietnam form the next grouping.
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene67.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene67.jpg
   narration: Next, military manpower, where we have a few surprises, like the Inuit
     actually being edged out by Vietnam, and the Buccs having fallen below Sweden
     and Iceland, most likely due to the carriers in the Bucc fleet all being run on
     skeleton crews.
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene68.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene68.jpg
   narration: For sheer number of cities, the Inuit and Australia are actually neck
     and neck at 103 cities each, the next cluster of civs arriving at around 60 cities
     each. It is worth noting the Inuit cities may actually be worth somewhat less,
@@ -579,7 +579,7 @@ scenes:
     much closer together.
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene69.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene69.jpg
   narration: And now for our city-states, Japan, Texas, Tibet, Hawaii, and the Gaza
     Strip, home to our new messiah David. While we didn‘t see Osaka fall yet, it may
     not be long before Korea knocks them out; otherwise, most of the other city states
@@ -587,14 +587,14 @@ scenes:
     in the case of Israel a carpet of Ethiopian peacekeepers.
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene70.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene70.jpg
   narration: The Boers, as usual, lead us in raw SCIENCE!, far ahead of the Inuit
     despite the White Walker‘s advantage in cities. Granted, it would appear that
     the Boers are actually towards the end of the tech tree, given the presence of
     X-Coms, so as the game goes on this science lead will probably be much less valuable.
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene71.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene71.jpg
   narration: At the bottom of the science rankings, the civs that evolution forgot.
     Sparta‘s presence near the bottom shows just how far they‘re falling behind at
     this point in the game given they‘re having to fight groups like the Boers and
@@ -602,25 +602,25 @@ scenes:
     advantages in manpower.
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene72.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene72.jpg
   narration: The Inuit currently lead the world in tourism, most likely due to their
     zombification of POWs who are then sent to wander the icy cold wastes of North
     America.
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene73.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene73.jpg
   narration: For great works of art and culture, somehow the vikings of Iceland are
     on top, most likely due to rampant pillaging of the museums of civs like France
     and England.
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene74.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene74.jpg
   narration: For the religion slide, somehow, Catholicism has overtaken Judaism; hopefully
     with the second coming of our messiah David in the holy Gaza strip, this trend
     will reverse.
 - scene_number: "75"
   scene_title: 75
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene75.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part63-scene75.jpg
   narration: Finally, the world religion map, where Catholicism is seen dominating
     the Americas, while pockets of southern Asia continue to remain atheistic, its
     people obviously abandoning any faith in the gods that have placed them in this

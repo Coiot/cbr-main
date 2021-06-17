@@ -7,11 +7,11 @@ release_date: "August 25, 2015"
 audio_narration: https://youtu.be/mxNtZfQAJIM
 edition: Mk2
 date: 2015-08-25T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg
 scenes:
   - scene_number: "1"
     scene_title: 1
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene01.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene01.jpg
     narration:
       "Good evening ladies and gentlemen and all the triremes at sea. Welcome
       to the /r/Civ 60+ Civ Battle Royale (with cheese) Mk. II | Part 5! This is /u/bencoccio
@@ -20,7 +20,7 @@ scenes:
       the MEGATHREAD: http://redd.it/3gkegn"
   - scene_number: "2"
     scene_title: 2
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene02.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene02.jpg
     narration:
       The state of the world, 2740 B.C., presented in a ravishing limited edition
       folio by SylonL. Reserve your copy today by clicking on it and downloading it.
@@ -36,7 +36,7 @@ scenes:
       by/u/cr42yr1ch.
   - scene_number: "4"
     scene_title: 4
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene04.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene04.jpg
     narration:
       "In 2740 B.C., just north of here in China, a book of military strategy
       and tactics is written by The Guy Who Won All Those Wars. It’s called How to Fight
@@ -52,20 +52,20 @@ scenes:
       settler. Just be yourself. What happens in Vegas stays in Vegas."
   - scene_number: "5"
     scene_title: 5
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene05.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene05.jpg
     narration: |-
       Leonidas, marching north with his hoplites, reads a copy of How to Fight Wars Good and gets really super inspired. He decides the surest path to victory in his many-fronted war is not concentrating on Cumae first to secure his supply, but simply committing 100% to ass-kicking everyone everywhere all at once. He shares this new strategy with his generals who seem so impressed with its brilliance they are left speechless.
        Leonidas’s son, Leonidas the younger, knows this is folly yet says nothing. What can he say? He can never admit to his father that he scotched his own daring assault on Cumae because he was so moved by a polish soldier’s love of a simple, beautiful flower. These are feelings no Spartan should ever feel, let alone reveal...
       Of Note: The Portuguese have settled the island of Corsica and Byzantium seems to be finally building a navy.
   - scene_number: "6"
     scene_title: 6
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg
     narration: |-
       President Juárez reads the communiqué just brought to him by carrier parrot from his, General Santa Ana. “Your Excellency, As per your orders, I am moving the pieces into place for Operation Phagocytosis. Austin will be yours by the end of the week. My adjutant Pedro (a bit of a striver but still a good lad) has given me an early birthday present; a copy of a new book from far away China called How to Fight Wars Good. If anything in this book helps me to slaughter Texans more proficiently for the greater glory of the Mexican Empire and our Lord, I will let you know.”
       Of Note: Catholic missionaries and a great prophet spread the faith up the California coast. Also, did that Irish scout just wind up trapped in a forest in Mississippi?
   - scene_number: "7"
     scene_title: 7
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene07.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene07.jpg
     narration:
       "Abraham Lincoln reads his classified briefing from CIC William Westmoreland:
       “There has been some concerning and frankly surprising blow-back from Operation
@@ -79,7 +79,7 @@ scenes:
       like a callow politician. At least, that was the plan."
   - scene_number: "8"
     scene_title: 8
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene08.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene08.jpg
     narration:
       "Jose Rizal concentrates the efforts of his people and what you could
       charitably call his armed forces to the City of Cebu and environs; his play for
@@ -90,7 +90,7 @@ scenes:
       We know in our bones how to fight wars good.”"
   - scene_number: "9"
     scene_title: 9
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene09.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene09.jpg
     narration:
       The Inuit start to colonize the Alaskan peninsula. They are a broad-minded
       people, and in one of their oldest traditions, the citizens of newly founded Kingait
@@ -99,7 +99,7 @@ scenes:
       from her igloo.
   - scene_number: "10"
     scene_title: 10
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene10.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene10.jpg
     narration:
       "When word reached Ivvavik about the Sioux settlement of Sichangu, what
       had been a cold war suddenly got very hot. A great number of Inuit nobles argued
@@ -113,7 +113,7 @@ scenes:
       Inuit would not be content to continue a cold war against the Sioux forever."
   - scene_number: "11"
     scene_title: 11
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene11.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene11.jpg
     narration:
       "With Castro settled and growing, the Chilean grasp on Patagonia tightened.
       Eva Peron instantly regretted listening to her advisors and sending those colonists
@@ -127,7 +127,7 @@ scenes:
       – that’s the one we saw in Part 4 - still has yet to settle."
   - scene_number: "12"
     scene_title: 12
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene12.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene12.jpg
     narration:
       "Having secured their eastern border as best they can, the Brazilians
       start to populate their rich Atlantic coast. \nOf Note: Inuit explorers deep in
@@ -136,7 +136,7 @@ scenes:
       up die. The rest of them lose a lot of weight and look fab."
   - scene_number: "13"
     scene_title: 13
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene13.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene13.jpg
     narration: |-
       Tragedy! King Leonidas dies in combat on the outskirts of Lodz! Leonidas the younger, fighting in the forests between Cumae and Tegea, takes the reigns of both the Spartan government and military and quickly makes peace with Rome.
       He knows full well Cumae could have been taken if only his father hadn’t been so rash. And if only that flower had not so moved him... He explains this temporary peace to the Oligarchs as a way to ensure a greater victory against more important foes. But in his heart, he knows the truth.
@@ -144,7 +144,7 @@ scenes:
       Of Note: British triremes out of London raid Cologne!
   - scene_number: "14"
     scene_title: 14
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene14.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene14.jpg
     narration:
       "The Black Sea and the formidable nation of Armenia. They are prepared
       to bring their faith by force into the lands of the heathens. The only problem
@@ -152,13 +152,13 @@ scenes:
       caucuses and beyond. \nOf Note: The Ayyubid navy. Will it ever sail through Dvin?"
   - scene_number: "15"
     scene_title: 15
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene15.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene15.jpg
     narration: |-
       Iceland settles Newfoundland. Does this make them the first colonizer of another continent? The Hawaiians and Sri Lankans have something of a claim to this honor as well, but then you get into this question of what island chain belongs to what continental shelf, and that whole area is just a real geologist’s sh*t show.
       Of Note: Poland denounces Germany. You bet they do. Also, the Zulu denounce the Ashanti.
   - scene_number: "16"
     scene_title: 16
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene16.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene16.jpg
     narration:
       "President Juárez sends carrier parrot after carrier parrot to General
       Santa Ana on the ramparts around Austin pleading, “why, now that Operation Phagocytosis
@@ -174,7 +174,7 @@ scenes:
       Mississippi!"
   - scene_number: "17"
     scene_title: 17
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene17.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene17.jpg
     narration:
       "Both spies were consummate professionals and had worked well together
       over the last year, quietly coordinating their respective nation’s joint sneak
@@ -191,7 +191,7 @@ scenes:
       to wall off Hudson Bay."
   - scene_number: "18"
     scene_title: 18
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene18.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene18.jpg
     narration:
       "“So what? So they build this other Leningrad? Let them build. Let them
       grow. We will grow, too. We will grow fat. On good food and Armenian wine. We
@@ -200,7 +200,7 @@ scenes:
       make them remember.” \nOf Note: Finnish expansion eastward."
   - scene_number: "19"
     scene_title: 19
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene19.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene19.jpg
     narration:
       "To: His Excellency Harun al-Rashid \nFrom: Just A Simple Lawyer Who
       wants to help the Empire\nRe: Possible Big Settlement! Your Excellency! \nI don’t
@@ -217,7 +217,7 @@ scenes:
       horn of Africa becomes Arabic."
   - scene_number: "20"
     scene_title: 20
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene20.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene20.jpg
     narration:
       "“So wait. Why didn’t we found Yeji on the coast?” \n“Because that’s
       where they put their city. F*ck those guys.” \nOf Note: Mali spreads her forces
@@ -225,7 +225,7 @@ scenes:
       Ashanti navy moves north."
   - scene_number: "21"
     scene_title: 21
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene21.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene21.jpg
     narration:
       "After reading an inspiring book from China, Meiji finally gives his
       eager Daimyos the word. A week later, rising out of the ocean to threaten mainland
@@ -235,7 +235,7 @@ scenes:
       on the coast."
   - scene_number: "22"
     scene_title: 22
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene22.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene22.jpg
     narration:
       I’ll tell ya, if I had to choose one of these civs to actually live in?
       Hands down Hawaii. Yeah, of course they’re not going to win, but so what? They
@@ -244,7 +244,7 @@ scenes:
       just snagged Cabo! Spring Break, y’alls!!!
   - scene_number: "23"
     scene_title: 23
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene23.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene23.jpg
     narration:
       "The men and women of Peron’s court could finally breath a sigh of relief.
       Yes, they were entering into risky times with this war against the Inca, but Argentina
@@ -255,14 +255,14 @@ scenes:
       good thing. In dating."
   - scene_number: "24"
     scene_title: 24
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene24.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene24.jpg
     narration:
       The Australians are really pumping out the settlers and populating their
       lush eastern coast. The Kimberly, the Maori and the Australians all race north
       into the Coral Sea.
   - scene_number: "25"
     scene_title: 25
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene25.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene25.jpg
     narration:
       "Ché Bông Nga’s heroic resistance inspires Champa men and women from
       all over the countryside to march north to Vijaya with their hunting bows. \nThe
@@ -270,7 +270,7 @@ scenes:
       the advice of not a wise man, but simply a stubborn and prideful one."
   - scene_number: "26"
     scene_title: 26
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene26.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene26.jpg
     narration:
       "Good Lord! The Earth reels as though it will spin off its very axis!
       The Timurids, a thousand miles away from Vietnam and with two neutral nations
@@ -279,7 +279,7 @@ scenes:
       of Vietnam! \nOf Note: The Chinese declare war on Vietnam."
   - scene_number: "27"
     scene_title: 27
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene27.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene27.jpg
     narration:
       "Mao, having put his full faith in The Guy Who Won All Those Wars, waits
       anxiously as operation Great Leap Forward commences. Chinese forces fall simultaneously
@@ -291,7 +291,7 @@ scenes:
       the command. \nOf Note: The Mongolians continue to nibble away at Tibet."
   - scene_number: "28"
     scene_title: 28
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene28.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene28.jpg
     narration:
       "As the Trungs feared, Anawrahta seems to back away from his promises
       to well and truly join the fight against the Champa. He builds the Colossus and
@@ -299,7 +299,7 @@ scenes:
       Mandalay Bay?"
   - scene_number: "29"
     scene_title: 29
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene29.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene29.jpg
     narration:
       "Having secured another port on the Indian Ocean and having cut off Tibet
       from the sea, the Mughals see no need for further bloodshed. For now. \nGiáp holds
@@ -308,7 +308,7 @@ scenes:
       city of Chonqing. \nOf Note: Nothing explodes in Tianjin."
   - scene_number: "30"
     scene_title: 30
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene30.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene30.jpg
     narration:
       "Lincoln’s security detail stops him in Philadelphia. The situation in
       Baltimore has deteriorated too much to allow him to continue. He’s locked down
@@ -318,7 +318,7 @@ scenes:
       because they’re Texans."
   - scene_number: "31"
     scene_title: 31
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene31.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene31.jpg
     narration:
       "Lincoln gets a report from his spymaster: “Meeting in Auyuittiq concluded.
       Our Mexican asset assured our man that Juárez is fighting Texas with everything
@@ -327,19 +327,19 @@ scenes:
       they let on.” \nNothing further from Westmoreland. It’s likely he’s KIA."
   - scene_number: "32"
     scene_title: 32
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene32.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene32.jpg
     narration:
       The Mongolians make peace with Tibet, and Mali buries the hatchet with
       the Ashanti. The Drumroll war is over – part of the 2645 B.C. ‘Wave of Peace’.
   - scene_number: "33"
     scene_title: 33
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene33.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene33.jpg
     narration:
       As the Tibetans and Mongolians go back to their corners, the Wave of
       Peace keeps waving – the Germans give up their fight against the Romans.
   - scene_number: "34"
     scene_title: 34
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene34.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene34.jpg
     narration:
       "Caesar sets up a fortress east of Cumae, all but cutting Sparta off
       from its German front. Leonidas the younger, happy he can concentrate on one enemy
@@ -348,7 +348,7 @@ scenes:
       The raid against Cologne appears to have been a one-off thing."
   - scene_number: "35"
     scene_title: 35
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene35.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene35.jpg
     narration:
       "The Black Prince did not like to have his strategic decisions questioned.
       He liked even less to have those decisions countermanded. Especially by a woman.
@@ -362,13 +362,13 @@ scenes:
       York was now wide open to the French. The French."
   - scene_number: "36"
     scene_title: 36
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene36.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene36.jpg
     narration:
       The Inuit pop out settlers faster than the Australians and fill in all
       of Alaska faster than you can say, ‘mush.’
   - scene_number: "37"
     scene_title: 37
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene37.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene37.jpg
     narration:
       "Mirwais Hotak convinces Tibet, already reeling from a lost war that
       just ended, to enter into a crusade with him against the Burmese. \nThe Trungs
@@ -376,7 +376,7 @@ scenes:
       over the edge and out of the Burmese war."
   - scene_number: "38"
     scene_title: 38
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene38.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene38.jpg
     narration:
       "“Baltimore has fallen, sir.” \nLincoln stared out the second story window
       of Independence Hall. It was as if the air had been sucked out of the room. He
@@ -385,11 +385,11 @@ scenes:
       for at least a day or two, Mr. President.” \nOf Note: Hanging Gardens of Canada."
   - scene_number: "39"
     scene_title: 39
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene39.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene39.jpg
     narration: "Just how Icelandic people like it: cold as a witch’s tit."
   - scene_number: "40"
     scene_title: 40
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene40.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene40.jpg
     narration:
       "General Spartacus finally learns the reason for his king’s subdued response
       to Sioux settlements on the Hudson Bay. He had taken a page out of Lincoln’s book,
@@ -402,7 +402,7 @@ scenes:
       snag the Parthenon"
   - scene_number: "41"
     scene_title: 41
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene41.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene41.jpg
     narration:
       Look, I don’t want to take sides here, but I got to ask -- how can we
       sleep when Leningrad was burning? How can we dance when the turns keep turning?
@@ -410,14 +410,14 @@ scenes:
       back.
   - scene_number: "42"
     scene_title: 42
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene42.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene42.jpg
     narration:
       "The Yakutia, great sleeping bear of the Siberian wilderness, continue
       to spread both east and west. \nLook at that army. Why have they not steam rolled
       the Mongolians?"
   - scene_number: "43"
     scene_title: 43
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene43.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene43.jpg
     narration:
       General The Guy Who Won All Those Wars decides too late to concentrate
       all his forces on Hoa Lu. Giáp Sends a stream of reinforcements north while a
@@ -425,7 +425,7 @@ scenes:
       garrison fights valiantly, but it’s all over except for the tears.
   - scene_number: "44"
     scene_title: 44
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene44.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene44.jpg
     narration:
       "The Trungs’ were right about their chicken-hearted Burmese allies who
       drop out of the war on the Champa, but it scarcely matters. They were also right
@@ -434,7 +434,7 @@ scenes:
       \nOf Note: I’m pretty sure we are seeing the first swordsman here."
   - scene_number: "45"
     scene_title: 45
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene45.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene45.jpg
     narration:
       "“He what? He backed his archers away from siege range? Why did he do
       this?” demanded President Juárez. \n“Your Excellency, we ... we are not sure why.
@@ -445,14 +445,14 @@ scenes:
       you know, they can’t, like, choose. Which one to shoot. First.”"
   - scene_number: "46"
     scene_title: 46
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene46.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene46.jpg
     narration:
       The Incan slingers wade into the fight around Machu. Fortaleza looks
       very vulnerable. General Galtieri commits to an assault against Machu across pastureland,
       through the bulk of Pachacuti’s forces.
   - scene_number: "47"
     scene_title: 47
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene47.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene47.jpg
     narration:
       "The Ethiopian spy spoke patiently but insistently to the Zulu warrior,
       “Yes, at first glance I grant you that Nobamba does looks like a dagger pointed
@@ -467,7 +467,7 @@ scenes:
       you consider this.” \nOf Note: Looks like the Boers are going for Madagascar."
   - scene_number: "48"
     scene_title: 48
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene48.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene48.jpg
     narration:
       "With geography on their side, the Polish can hold off the Spartans without
       exposing themselves to the Soviets or the Germans. Leonidas the younger is grateful
@@ -477,7 +477,7 @@ scenes:
       archers shoot arrows across the water at one another."
   - scene_number: "49"
     scene_title: 49
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene49.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene49.jpg
     narration:
       The Black Prince watches the tree line. A decimated band of Portuguese
       warriors staggers out into the clearing and runs for the walls of the city. The
@@ -486,14 +486,14 @@ scenes:
       of Hastings.
   - scene_number: "50"
     scene_title: 50
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene50.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene50.jpg
     narration:
       The Icelandic Colonies flourish. I mean, I would never live there, but
       it’s very pretty. Or I’ve heard it’s pretty. Anyways, they have a bit of a navy
       now too.
   - scene_number: "51"
     scene_title: 51
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene51.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene51.jpg
     narration:
       "Chonqing falls. Tianjin looks vulnerable. The Guy Who Won All Those
       Wars’ offensive around Hoa Lu utterly deteriorates. \nMao, not wanting to appear
@@ -505,7 +505,7 @@ scenes:
       land purchases seems like not such a bad call."
   - scene_number: "52"
     scene_title: 52
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene52.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene52.jpg
     narration:
       After the fall of Vijaya, Ché Bông Nga sues for peace. Giáp, an admirer
       of Ché Bông Nga’s courage, advises the Trungs to accept this offer. Vijaya is
@@ -513,13 +513,13 @@ scenes:
       and China must be concentrated on.
   - scene_number: "53"
     scene_title: 53
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene53.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene53.jpg
     narration:
       Jose Rizal continues to build up his forces. The Champa lick their wounds
       and look across the sea for expansion opportunities.
   - scene_number: "54"
     scene_title: 54
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene54.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene54.jpg
     narration:
       "Sichangu becomes the locus of the combined Inuit-Blackfoot eastern front.
       Spartacus knows that they can cut off Sioux the smaller Sioux settlements in and
@@ -527,13 +527,13 @@ scenes:
       to the besieged city are slowed considerably by Blackfoot sappers around Itazipcho."
   - scene_number: "55"
     scene_title: 55
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene55.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene55.jpg
     narration:
       The Blackfoot come on strong around the Rockies, perhaps making a move
       to encircle Mdewakantonwan, where most of the Sioux forces are concentrated.
   - scene_number: "56"
     scene_title: 56
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene56.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene56.jpg
     narration:
       Leonidas the younger knows calling off the war with Poland will make
       the Oligarchs lose faith in him. There’s nothing worse for a Spartan than walking
@@ -542,14 +542,14 @@ scenes:
       Generals and nobles, “we shall head east.
   - scene_number: "57"
     scene_title: 57
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene57.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene57.jpg
     narration:
       "That Irish scout is still stuck in the back woods of Mississippi. Insert
       hillbilly moonshine/Irish people drinking joke here. \nOf Note: Philadelphia is
       now under Texan threat."
   - scene_number: "58"
     scene_title: 58
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene58.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene58.jpg
     narration:
       "Arrr, the Caribbean slowly goes black, me hearties. And finally now,
       we have ships to sail upon and plunder with. Our rum helps bashful pirates couple
@@ -559,7 +559,7 @@ scenes:
       his plan into action."
   - scene_number: "59"
     scene_title: 59
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene59.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene59.jpg
     narration:
       "Having given up entirely on the war against the Vietnamese, Mao’s general
       starts a war with the now much stronger Mongolians over a nearby (and clearly
@@ -573,7 +573,7 @@ scenes:
       huh?” \nMao recalls his general, bans his book, and sends him away for re-education."
   - scene_number: "60"
     scene_title: 60
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene60.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene60.jpg
     narration:
       "Leonidas the younger could talk to Hitler. Hitler was a lot like Leonidas
       the younger’s father and he knew just what to say to get Hitler to propose peace
@@ -589,7 +589,7 @@ scenes:
       about the flower.\nOf Note: Siberian CF coming!"
   - scene_number: "61"
     scene_title: 61
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene61.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene61.jpg
     narration:
       "Mao was ready to face total defeat; even at the hands of the Koreans
       if that were his fate. No matter what, he would fight on to the bitter end.\nAnd
@@ -604,32 +604,32 @@ scenes:
       it would be enough. Maybe... \nOf Note: The cut off and undefended Chinese colonies."
   - scene_number: "62"
     scene_title: 62
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene62.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene62.jpg
     narration:
       Top Pop. Some of the usual suspects. I was not expecting to see Texas
       in there. I suppose getting liquored up at the rodeo really does help foment reproduction.
   - scene_number: "63"
     scene_title: 63
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene63.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene63.jpg
     narration:
       Zulus still dead last here. Not to be crude, but please get f*cking,
       Zulu people! I want to see you implement your Impis! Surprise low pop peoples?
       Mexico and Mongolia.
   - scene_number: "64"
     scene_title: 64
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene64.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene64.jpg
     narration:
       "These folks are the ones to watch. Of Note: Looks like Eva never settled
       that settler"
   - scene_number: "65"
     scene_title: 65
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene65.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene65.jpg
     narration:
       Rome dodged a bullet this time. Maybe they will make something out of
       this opportunity?
   - scene_number: "66"
     scene_title: 66
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene66.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene66.jpg
     narration:
       "Not too many surprises here, either. But this is still the best part
       of the game for my money – even with some of the bigger players cementing their
@@ -637,23 +637,23 @@ scenes:
       are the days of high adventure!"
   - scene_number: "67"
     scene_title: 67
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene67.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene67.jpg
     narration:
       Well, okay, Rome and Carthage, that’s not going to happen. But still.
       Adventure!
   - scene_number: "68"
     scene_title: 68
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene68.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene68.jpg
     narration:
       A lot of folks in the production top ten are throwing that production
       against each other right now in big, smart wars.
   - scene_number: "69"
     scene_title: 69
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene69.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene69.jpg
     narration: Judaism still kicking alms and taking souls.
   - scene_number: "70"
     scene_title: 70
-    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene70.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/mark2-part5-scene70.jpg
     narration:
       "Judaism is going wide into Europe and Asia, but it’s getting no love
       in Africa. Meanwhile, Catholicism is slowly creeping south and quickly sprinting

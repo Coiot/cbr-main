@@ -8,14 +8,14 @@ release_date: June 19, 2019
 audio_narration: https://youtu.be/9k12RnkdadI
 fullvideo: https://www.youtube.com/watch?v=g3ioO5J8Mts
 date: 2019-06-19T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg?format=webp&quality=80
-thumbnail: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
+thumbnail: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
 prev:
 next: /albums/s1/episode2/
 scenes:
   - scene_number: "01"
     scene_title: Opening Crawl
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene01.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene01.jpg
     narration:
       "<p>A surprise to be sure, but a welcome one. This is Coiot, your host
       for the first Episode of Season 1 of CBRX. On behalf of all Blue Cassette, we
@@ -27,7 +27,7 @@ scenes:
     reporter: "<strong>Captain Morgan</strong>: Your captain here, wishing you lot a good time!"
   - scene_number: "02"
     scene_title: OC of the Week
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene02.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene02.jpg
     narration:
       "<p>OC of this Week goes to TopHat. Here we can see the dastardly Pedro
       the II scheme over his plans for CBRX. Pedro might have painted the submarine
@@ -40,7 +40,7 @@ scenes:
       CDN caching time.</p>"
   - scene_number: "03"
     scene_title: Erlen‘s Tile Accurate Map
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene03.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene03.jpg
     narration:
       "<p>Erlen has a new updated tile accurate map for everyone. This time,
       he has painstakingly gone and placed ever river on the map to better help us locate
@@ -50,7 +50,7 @@ scenes:
       Cut videos and albums.</p>"
   - scene_number: "04"
     scene_title: Patreon + Ko-fi
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene04.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene04.jpg
     narration:
       <p>Many in the community are already aware of our <a href="https://www.patreon.com/civbr"
       title="Blue Cassette‘s Patreon Donation Page">Patreon Page</a>, which we‘ve setup
@@ -71,7 +71,7 @@ scenes:
       each week.</p>
   - scene_number: "05"
     scene_title: Power Rankings Episode 0
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene05.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene05.jpg
     narration:
       '<p>The Kazakhs remain the undisputed #1 choice for the Power Ranking
       (PR) team. Just by looking at the setup, it is easy to see why. We‘ll get to the
@@ -81,7 +81,7 @@ scenes:
       the screenshots.</p>'
   - scene_number: "06"
     scene_title: From the Depths, Brazil comes Forth
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene06.jpg
     narration:
       <p>Here we go. On to the first screenshot. All the screenshots from this
       episode, and some of the next up to T50, are all actually recorded from my own
@@ -111,7 +111,7 @@ scenes:
       the shadows of these mountains.</p>
   - scene_number: "07"
     scene_title: Chillin‘ with the Nords
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene07.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene07.jpg
     narration:
       "<p>Let's cycle through our lineup. Starting off is Ragnar (Vikings)
       and Eadni (Sami) which are Scandinavian region representatives. As Yago has denounced
@@ -122,7 +122,7 @@ scenes:
       them and Muscovy. </p>"
   - scene_number: "08"
     scene_title: Reindeer Vistas
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene08.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene08.jpg
     narration:
       "<p>Bombogor (Evenks) knows most of the community will be overlooking
       the Evenks. This space of mostly tundra on the upper edge of Siberia is all too-often
@@ -131,7 +131,7 @@ scenes:
       be sure to not forget about them.</p>"
   - scene_number: "09"
     scene_title: Bering Straits
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene09.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene09.jpg
     narration:
       "<p>Yup‘ik are commonly compared with past Mk2 contestants the Inuit.
       However, Apaanugpak is not Ekeuhnick, even though both are legendary figures.
@@ -141,7 +141,7 @@ scenes:
       away, settle cities, and provide a unique arctic luxury if they do so. </p>"
   - scene_number: "10"
     scene_title: Remainers
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene10.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene10.jpg
     narration:
       "<p>Our British Isles representatives are Illiam Dhone (Manx) and Robert
       the Bruce (Scotland). Robert the Bruce has transcended to Civ6, but returns here
@@ -151,7 +151,7 @@ scenes:
       the better positioned Scotland. </p>"
   - scene_number: "11"
     scene_title: Nur-Sultan
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene11.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene11.jpg
     narration:
       "<p>Shame about the recent name change, but here we have the glorious
       city of <strong>Astana</strong>, ruled over be Ablai Khan of the Kazakhs. Everyone
@@ -166,9 +166,9 @@ scenes:
       have seen multiple tests know that the Khamug will be raiding in all directions
       and can obtain big-boi status relatively quickly. A fine civ to be a fan of if
       you are not already decided. </p>"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene12.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene12.jpg
   - scene_title: Raven Mischief
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene13.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene13.jpg
     narration:
       "<p>Now here are the undisputed top-tier (no bias, I swear, really).
       The Haida led by Koyah. Former Buccaneer aficionados (like me) will find a lot
@@ -188,10 +188,10 @@ scenes:
       and stable position, but test runs tend to leave the Métis trapped in their comfort
       zone. A safe civ to bet on to survive long into the game. Although they have a
       strong rivalry with the Apache, so conflict is not something they avoid altogether.</p>"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene14.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene14.jpg
   - scene_number: "15"
     scene_title: "Overlooking Lake Ontario "
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene15.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene15.jpg
     narration:
       "<p>For an even more intense North American rivalry, here are Lunar's
       Canada and Chrisy's modified Iroquois. Two civs this close were always going to
@@ -203,7 +203,7 @@ scenes:
       a top contender.</p>"
   - scene_number: "16"
     scene_title: Europa League
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene16.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene16.jpg
     narration:
       "<p>Look at all this rightful HRE clay. Well it would be, but SabyZ's
       Czech Republic lead by Vaclav Havel stands in the way. Czechia is a fan favorite
@@ -230,9 +230,9 @@ scenes:
       a regional power, and the mod's creator JFD has packed it with uniques that would
       allow Muscovy to really shine in a BR. For some reason though they are always
       middle of the pack contenders, but don't sleep on them. </p>"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene17.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene17.jpg
   - scene_number: "18"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene18.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene18.jpg
     narration:
       "<p>Another Khan, but this great unifier Tokhtamysh, fearsome ruler over
       Tartar lands. Him and his civ's name Golden Horde (GH) are perhaps the most notable
@@ -244,7 +244,7 @@ scenes:
       the negative reception.</p>"
     scene_title: Tartar Sauce
   - scene_number: "19"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene19.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene19.jpg
     narration:
       "<p>Even though the Qing are centered better in the next screenshot,
       let‘s talk about these three together. The three Chinese representatives, the
@@ -264,7 +264,7 @@ scenes:
       they control the defeated original capitals.</p>"
     scene_title: Romance of the Three Kingdoms?
   - scene_number: "20"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene20.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene20.jpg
     narration:
       "<p>Senshidenshi's Joseon lead by Seonjo is our Korean representative.
       Seonjo brings with him many military focused uniques, with an emphasis on naval
@@ -276,7 +276,7 @@ scenes:
       like a rather big underestimation for the Koreans once again.</p>"
     scene_title: Shell Shocked
   - scene_number: "21"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene21.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene21.jpg
     narration:
       "<p>Shikoku is our Japanese representative and are lead by Sakamoto Ryoma.
       This civ comes from Japanese civ specialist Homusubi, but their pedigree does
@@ -288,7 +288,7 @@ scenes:
     scene_title: The Four Countries
   - scene_number: "22"
     scene_title: "Geronimo! "
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene22.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene22.jpg
     narration:
       "<p>Uighur_Caesar's Apache are lead by the famous Geronimo. Their uniques
       give them good bonuses when raiding and pillaging, and past AI games show that
@@ -298,7 +298,7 @@ scenes:
       the PR team places them in the top 10.</p>"
   - scene_number: "23"
     scene_title: Rags to Riches
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene23.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene23.jpg
     narration:
       "<p>Poverty Point on the face of it, has everything to be an entertaining
       civ, but whose AI more often than not leads to disappointment. The open land in
@@ -319,10 +319,10 @@ scenes:
       is not much confidence in Venice given their crowded starting location, and very
       lackluster performances in test runs. Time could prove all the haters wrong though,
       and some fans might revel in that hope. </p>"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene24.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene24.jpg
   - scene_number: "25"
     scene_title: Turkish Delight
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene25.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene25.jpg
     narration:
       "<p>The Ottomans, lead by Mehmed II, is another JFD entry to the lineup,
       and a change in their starting location to Bosporus. Like other JFD civs in X1,
@@ -333,7 +333,7 @@ scenes:
       in a new shade of green. </p>"
   - scene_number: "26"
     scene_title: Greco-India
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene26.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene26.jpg
     narration:
       "<p>TarcisioCM's Parthia lead by Mithridates I is a mid-game optimized
       civ that wants to obtain as many horses as possible to spam their two unique units.
@@ -341,7 +341,7 @@ scenes:
       southern neighbor. But Parthia is still a very solid civ that can hold its own
       against the more favored Kazakhs and take the opportunities presented to them.</p>"
   - scene_number: "27"
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene27.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene27.jpg
     narration:
       "<p>Prithvi Narayan (Nepal) and Indira Gandhi (India) are another sure-fire
       rivalry that will decide how this part of the map will be colored. Both civs seem
@@ -354,7 +354,7 @@ scenes:
     scene_title: Mountains and Valleys
   - scene_number: "28"
     scene_title: Delicate Flowers
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene28.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene28.jpg
     narration:
       "<p>One of the two only pure vanilla civs in the game, the Aztecs already
       have fans with a year's worth of notoriety behind them for being shit-posting
@@ -365,7 +365,7 @@ scenes:
       to in-game performance.</p>"
   - scene_number: "29"
     scene_title: Saint among the Princes, the Prince among the Saints
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene29.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene29.jpg
     narration:
       "<p>Abdelkader (Algeria) is a curious civ in that it is one of hte least
       inspiring choices in the whole region, but it has found its way into the BR. DJSHenninger
@@ -383,7 +383,7 @@ scenes:
       majority of Europe painted in their colors.</p>"
   - scene_number: "30"
     scene_title: Lion of the Desert
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene30.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene30.jpg
     narration:
       "<p>Omar Mukhtar (Libya) is Jmangelo's pride and joy, and was easily
       voted into Season 1. Libya is another citadel spamming Maghreb representative
@@ -394,7 +394,7 @@ scenes:
       and will have to wait for rare opportunities to expand beyond the coastline. </p>"
   - scene_number: "31"
     scene_title: Hex Tiled Labyrinth
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene31.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene31.jpg
     narration:
       "<p>Minoa, lead by Minos, is another wild card that if it was not contained
       to this one-tile island start and crowded region would surely be in the top 10
@@ -405,7 +405,7 @@ scenes:
       nearby Nubia does not like strangers on their river. </p>"
   - scene_number: "32"
     scene_title: Opposite the Rivers
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene32.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene32.jpg
     narration:
       "<p>Firebug's Palmyra lead by Zenobia already has plenty of fans in the
       community, and their start is just right to ensure they can build up to take the
@@ -420,7 +420,7 @@ scenes:
       underdog.</p>"
   - scene_number: "33"
     scene_title: "Taun-who? "
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene33.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene33.jpg
     narration:
       "<p>For those who wanted war elephants, well Bayinnaung (Taungoo) is
       all to happy to oblige. EmeraldRange's Taungoo might not even be registered in
@@ -435,7 +435,7 @@ scenes:
       get there, this civ will never be short of troops.</p>"
   - scene_number: "34"
     scene_title: Pure Junk
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene34.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene34.jpg
     narration:
       "<p>Scissor's second civ in Season 1, the Canton Pirates are lead by
       Ching Shih, and given their name, have attracted a number of Buccaneer fans ever
@@ -446,7 +446,7 @@ scenes:
       the coastline first before they terrorize the ocean.</p>"
   - scene_number: "35"
     scene_title: Refugee Crisis
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene35.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene35.jpg
     narration:
       '<p>Leugi''s Haiti, lead by Toussaint Louverture, is the receiving end
       of most of the jokes and disaffection given their starting location and unbelievably
@@ -462,7 +462,7 @@ scenes:
       further apart in their chances to succeed.</p>'
   - scene_number: "36"
     scene_title: Rich Vanilla
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene36.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene36.jpg
     narration:
       "<p>Our second and last vanilla civ is the Songhai. Between them and
       the Aztecs, the Songhai have the better odds, and they have all of West Africa
@@ -476,7 +476,7 @@ scenes:
       Libya or Algeria to swoop in. </p>"
   - scene_number: "37"
     scene_title: River Ransom
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene37.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene37.jpg
     narration:
       "<p>Piye (Nubia) likes to build pyramids and archers. Not much else I
       can tell you about her. For me they are the early game jerks of the game because
@@ -486,7 +486,7 @@ scenes:
       but one that will be safe and happy in mediocracy. </p>"
   - scene_number: "38"
     scene_title: Desert Folklore
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene38.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene38.jpg
     narration:
       "<p>Saif bin Sultan (Oman) and Gudit (Beta Israel) are not in the most
       enviable of tiles, but will do well of establishing their own niches. Oman is
@@ -500,7 +500,7 @@ scenes:
       opposed to taking the initiative.</p>"
   - scene_number: "39"
     scene_title: Peasant Overlords
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene39.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene39.jpg
     narration:
       "<p>The Maratha are our south Indian representatives and start the game
       immediately with a safe and clear position. All of their uniques come in the latter
@@ -512,7 +512,7 @@ scenes:
       leftovers.</p>"
   - scene_number: "40"
     scene_title: Oh My!
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene40.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene40.jpg
     narration:
       "<p>Cardboard‘s Sulu lead by Jamalul Kiram II are the highest ranked
       one-tile island civ, and even without knowing their strengths, a look at this
@@ -525,7 +525,7 @@ scenes:
       a religion.</p>"
   - scene_number: "41"
     scene_title: Jungle Fortress
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene41.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene41.jpg
     narration:
       "<p>Anetü (Kuikuro) might have more options than Haiti, but this is an
       AI who prefers to be passive despite every opportunity to be a strong regional
@@ -537,7 +537,7 @@ scenes:
       survive along Northeastern Brazil, but the odds are against them.</p>"
   - scene_number: "42"
     scene_title: Icon says it All
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene42.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene42.jpg
     narration:
       "<p>Benin occupy the space the Ashanti did in Mark 2, but this is a civ
       that loves to declare war any chance it gets. They tend to forward settle civs
@@ -551,7 +551,7 @@ scenes:
       over, they gain a very strong defensive network.</p>"
   - scene_number: "43"
     scene_title: Green Machine
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene43.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene43.jpg
     narration:
       "<p>Gedemo's Papua is heavily favored by the PR team with its top 20
       ranking, and like the Sulu, start with embarkment so all of this territory is
@@ -560,7 +560,7 @@ scenes:
       Papua cities in northern Australia before too long.</p>"
   - scene_number: "44"
     scene_title: 6:36 PM
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene44.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene44.jpg
     narration:
       "<p>When is Tonga Time? Probably in the early late game, when Tonga‘s
       modern era bonuses push this civ into overdrive. ExplosiveWatermelon's Tonga is
@@ -571,7 +571,7 @@ scenes:
       Or perhaps eaten by New Zealand (again).</p>"
   - scene_number: "45"
     scene_title: Probably Aliens
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene45.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene45.jpg
     narration:
       "<p>The Nazca are lead by Cahuachi, and like Benin, might be associated
       with the past edition's regional competitor‘s from their similar location. Nazca
@@ -581,7 +581,7 @@ scenes:
       a surprising upset in the region, but it will take a fair amount of luck.</p>"
   - scene_number: "46"
     scene_title: At last we can have our Revenge
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene46.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene46.jpg
     narration:
       "<p>Nzinga returns to the CBR, this time leading the more appropriate
       civilization Ndongo, rather than Kongo. Unlike before, Nzinga this time comes
@@ -592,7 +592,7 @@ scenes:
       looking to support dominant civs.</p>"
   - scene_number: "47"
     scene_title: Time to Move It
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene47.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene47.jpg
     narration:
       "<p>Ranavalona I leads Madagascar (Imerina in-game) and by just looking
       at the geography seems destined to occupy this corner of the map and not much
@@ -601,7 +601,7 @@ scenes:
       trade all across the rim of the Indian Ocean.</p>"
   - scene_number: "48"
     scene_title: The Red Chief
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene48.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene48.jpg
     narration:
       "<p>Gambu Ganuurru is our Aboriginal Australian representative this Season
       and is the direct competitor with Australia for most of the continent. The Murri
@@ -612,7 +612,7 @@ scenes:
       optimistic, Murri fans should be cautious.</p>"
   - scene_number: "49"
     scene_title: Eternally Nerf‘d
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene49.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene49.jpg
     narration:
       "<p>Technostar‘s Uruguay has been debated since the first AI games it
       appeared in. This is a civ that even without their bonuses do perform well given
@@ -624,7 +624,7 @@ scenes:
       every 30 or so turns, as each one give Uruguay quite a different personality.</p>"
   - scene_number: "50"
     scene_title: What could have Been
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene50.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene50.jpg
     narration:
       "<p>The late Bob Hawke (Australia) was still alive while the game was
       being recorded, but his spirit has moved on and his AI counterpart stands to live
@@ -638,7 +638,7 @@ scenes:
       from Mark 2.</p>"
   - scene_number: "51"
     scene_title: Actually Aliens
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene51.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene51.jpg
     narration:
       "<p>And finally, to Grant‘s Selk‘nam, which is the most odd of civs,
       and definitely the strangest of Season 1. Their leader Xo'on Uhan-Té is as mysterious
@@ -651,7 +651,7 @@ scenes:
       go even to the opposite pole to Greenland for some bizarre reason.</p>"
   - scene_number: "52"
     scene_title: On to the Show
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene52.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene52.jpg
     narration:
       "<p>We are now past introductions and the competition has begun. We even
       went past T3, but this is because the civs just moved a couple of units around
@@ -661,28 +661,28 @@ scenes:
       embarkment buff to move its settler onto South Island.</p>"
   - scene_number: "53"
     scene_title: Black and Gold
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene53.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene53.jpg
     narration:
       "<p>The Goths make a statement and settle Gothiscandza next to GH's capital.
       Scandalouz, to be sure. Horde on the other hand move into the safe Caucasus mountains
       with Sarai Berke.</p>"
   - scene_number: "54"
     scene_title: Gorkhas
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene54.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene54.jpg
     narration:
       "<p>The Gorkhas have a mighty reputation, and the city of Gorkha is planted
       right at Indira‘s doorstep. Nepal could have settled in literally any other direction
       but has gone with the risky play.</p>"
   - scene_number: "55"
     scene_title: To the Hills
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene55.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene55.jpg
     narration:
       "<p>A pair of safe settles for Nubia and Beta Israel. Nubia does not
       want any trouble and look to leave enough space for another city further south
       along the Nile in the future.</p>"
   - scene_number: "56"
     scene_title: Along the Coasts
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene56.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene56.jpg
     narration:
       "<p>Both Scandinavians settle their second cities along the coasts. The
       Viking's Ribe looks to be a good settle, but the Sami's Guovdageaidnu looks to
@@ -690,7 +690,7 @@ scenes:
       tiles at the start.</p>"
   - scene_number: "57"
     scene_title: Asking for Trouble
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene57.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene57.jpg
     narration:
       "<p>The Qin forward settle Xia with Yongcheng, and quickly move all their
       troops to protect it. The Xia settler does not seem to mind and will be placing
@@ -698,41 +698,41 @@ scenes:
       one for Xia.</p>"
   - scene_number: "58"
     scene_title: Oof!
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene58.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene58.jpg
     narration:
       "<p>Canada doing as it pleases, and settles Montréal all the way over
       in southern Lake Michigan. Not the most advisable of starts, but at least the
       Iroquois will not be too bothered about it.</p>"
   - scene_number: "59"
     scene_title: Look at the Clock
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene59.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene59.jpg
     narration:
       "<p>Tonga settles early, which is always a cause of celebration. This
       is a good sign of things to come from the sometimes comatose civ.</p>"
   - scene_number: "60"
     scene_title: Coloradoes
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene60.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene60.jpg
     narration:
       "<p>Uruguay switches to the Colorado party, and gains a one time boost
       in Science and a temporary production bonus in their cities. On screen is a shot
       of the South Georgia islands, for reasons unknown (Ask Lime).</p>"
   - scene_number: "61"
     scene_title: 3B
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene61.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene61.jpg
     narration:
       "<p>Burano, Brno, and Bursa all settled away from danger and all three
       civs are in a good start. Venice in particular looks set to prevent anyone from
       the continent from moving onto the Italian peninsula.</p>"
   - scene_number: "62"
     scene_title: Princes of Persia
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene62.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene62.jpg
     narration:
       "<p>Our two Persian civs both settle to their respective eastern directions,
       but Hamadan looks quite vulnerable in the open plains. However, I suppose any
       settle looks dangerous for the Seljuqs.</p>"
   - scene_number: "63"
     scene_title: Announcing ScoutCon 3440 BCE
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene63.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene63.jpg
     narration:
       "<p>It would not be a BR without scouts secretly rendezvousing above
       the Siberian arctic circle. Whatever mysterious power is here, only scouts and
@@ -740,27 +740,27 @@ scenes:
       get an intro screenshot).</p>"
   - scene_number: "64"
     scene_title: Ice Sheet Flow
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene64.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene64.jpg
     narration:
       "<p>The Yup‘ik do not waste time, and have three cities already by T14.
       This bodes well for a civ that often waits to settle. Although, this seems to
       have come at the expense of any accompanying military units.</p>"
   - scene_number: "65"
     scene_title: Golden
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene65.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene65.jpg
     narration:
       "<p>T20 and already we here in the Sub have entered a Golden Age. Mini-Pedro
       sure knows how to keep the good times going.</p>"
   - scene_number: "66"
     scene_title: Too Ambitious
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene66.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene66.jpg
     narration:
       "<p>Songhai settles even closer to Benin with Djenné and Ewuare(Benin)
       has already sent troops to greet the new arrivals. This is not the way to play
       with Benin around.</p>"
   - scene_number: "67"
     scene_title: Same Old Eastern Europe
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene67.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene67.jpg
     narration:
       "<p>Our three Mark 3 picks seem to be doing well for themselves. Prussia
       in particular has the making of a good core area already. Goths have decided to
@@ -768,21 +768,21 @@ scenes:
       has not dedicated as much in military, this seems to be best choice for them.</p>"
   - scene_number: "68"
     scene_title: Bam!
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene68.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene68.jpg
     narration:
       "<p>Askia (Songhai) is not satisfied just yet, and settles a fourth city
       further to the West with Bamako. Benin is starting its war machine and already
       has enough troops to take Songhai's early city lead away.</p>"
   - scene_number: "69"
     scene_title: European Caliphate
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene69.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene69.jpg
     narration:
       "<p>The Moors move into France, and given the lack of settlements in
       the area, this is a good early start for them. The Moors are favorites to win
       in Europe, and they are making good early moves.</p>"
   - scene_number: "70"
     scene_title: Straight Forward
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene70.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene70.jpg
     narration:
       "<p>Havel (Czechia) settles again in what appears to be a dagger pointed
       at the Ottomans. It might look bold, but given the lack of troops and the distance
@@ -790,14 +790,14 @@ scenes:
       might be green before too long.</p>"
   - scene_number: "71"
     scene_title: Better Together
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene71.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene71.jpg
     narration:
       "<p>Maratha settles northwards, while India goes West again. Allahbad
       looks very isolated here, and just offscreen in the North is Parthia. Indira has
       at least invested in a sizable military to accompany their settlements.</p>"
   - scene_number: "72"
     scene_title: Braving the Jungles
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene72.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene72.jpg
     narration:
       "<p>Ndongo and Zimbabwe settle away from the Jungles, but Zimbabwe's
       Dhlo-Dhlo does not appear to be so protected by the thick vegetation before too
@@ -805,7 +805,7 @@ scenes:
       settler northwards to another river as well.</p>"
   - scene_number: "73"
     scene_title: World‘s Greatest Cities
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene73.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene73.jpg
     narration:
       "<p>At the Info Slides already (yes). Now no moaning, everyone knows
       the civs take at least 30 turns to do much of anything, so we'll have to confirm
@@ -815,7 +815,7 @@ scenes:
       the others. Sulu, Yup‘ik, and Haiti also sport good early capital cities.</p>"
   - scene_number: "74"
     scene_title: Pantheons
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene74.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene74.jpg
     narration:
       "<p>A quick look at some of the Patheons. The civs that have reached
       here are a good indication of some of the religions to expect the next episode,
@@ -825,14 +825,14 @@ scenes:
       who was the civ responsible.</p>"
   - scene_number: "75"
     scene_title: Pantheons (continued)
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene75.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene75.jpg
     narration:
       "<p>A few more names to look through, and more speculation. I cannot
       say this episode who are the final religion founders, but some of these names
       should give you confidence.</p>"
   - scene_number: "76"
     scene_title: The Light of the World
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene76.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene76.jpg
     narration:
       "<p>No surprise, it is Libya which establishes Sunni so early on in the
       game. Sunni will have an early start, as it usually does. As keen observers will
@@ -840,7 +840,7 @@ scenes:
       be filled by Episode 3. </p>"
   - scene_number: "77"
     scene_title: Now this is Podracing!
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene77.jpg?format=webp&quality=80
+    slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene77.jpg
     narration:
       "<p>Now we could not leave the first episode without some juicy drama,
       right? Given we have most of the game already recorded, it would be silly ending

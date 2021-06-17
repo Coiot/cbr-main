@@ -7,39 +7,39 @@ release_date: 'February 17, 2016'
 audio_narration: https://youtu.be/6wFaytgwIiY
 edition: Mk2
 date: 2016-02-17T00:00:00.000Z 
-image: https://cdn.civbattleroyale.tv/mark2-part35-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/mark2-part35-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene01.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene01.jpg
   narration: |-
     Salutations, and welcome to another sterling episode of the Civilization Battle Royale! This week you‘ve got me again, Lacsirax Ariscal, streamer, cartographer and token woman. Last time I narrated the CBR, three civs were bloodily eliminated. Let‘s see if the same thing happens again - like last time, I will be narrating blind, without having read through the slides first.
     If you‘re reading this on /r/civ and you somehow DON‘T know about /r/civbattleroyale by now, come join us! It‘s far more than a discussion board, it‘s a thriving community full of OC, contests, side-games and general friendliness.
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene02.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene02.jpg
   narration: First up is our map with friendly additions like City names and the like
     by well... yours truly! Credit to /u/SylonL for an amazing base to work with.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene03.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene03.jpg
   narration: Next up we have a map with regards to what Civilizations make up our
     endangered list, and what Civs are the proverbial top dogs. /u/AlbinosRideDinos
     gets the credit for this one!
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene04.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene04.jpg
   narration: |-
     Now for something we haven‘t really featured before, but really have ought to - lordberric‘s Info Table run by /u/lordberric and /u/bluesox! This table has a vast wealth of knowledge from Unique Abilities, Military Technologies, Faith and Religion and my favourite slide the Bloodthirstyness tally! You can find all the information in the link below. Oh, and special thanks to /u/patkellyrh who excrutiatingly extracts all the InfoAddict data from the game database files when summoned!
     https://docs.google.com/spreadsheets/d/1Ay05q6DAQyccuO_ZB7_3IO6C2NvDwnpnwfQMG4T04gA/edit#gid=262017952
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene05.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene05.jpg
   narration: Finally, here‘s whose on top of the Power Rankings for now - The Boers.
     Read the Power Rankings of all 47 remaining Civilizations! http://imgur.com/a/XfOlk/layout/horizontal
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene06.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene06.jpg
   narration: After all these frivolities today, we dive right into the action. And
     unusually for this part of the world, it is indeed action, as Yakutia finally
     conquer Hiroshima! But the good fortune for the Snoryaks will be but fleeting
@@ -48,13 +48,13 @@ scenes:
     sun again.
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene07.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene07.jpg
   narration: |-
     Now we head to Europe, where the Buccaneers are making short work of Portugal‘s defenses. Lisbon has started to take damage and Maria‘s last remaining fleet is stationed in the Mediterranean, far from the action. If the Buccaneers do capture Lisbon - and bar a sudden peace treaty, it‘s looking incredibly likely - it will be the first cross-continental capital capture. That‘s big news.
     Also note Snorway‘s rather impressive fleet watching the action. Err, isn‘t there something else you should be doing right now?
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene08.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene08.jpg
   narration: The Inuit White Walkers claim their first casualty, and it‘s Sichangu,
     the ex-Sioux city Canada just seized from the Blackfoot. Oohenupa will surely
     be the next to go. But unless the Inuit have open borders with the Blackfoot -
@@ -63,7 +63,7 @@ scenes:
     idea as it seemed.
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene09.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene09.jpg
   narration: BAD NEWS FOR TIBET, AS SIBIR READY THE WAR MACHINE AND... um... where‘s
     the Sibirian war machine? Anyone? Guys? It looks like Kuchum Khan is somewhat
     overstretching himself, as on this front there looks to be around ten workers
@@ -72,7 +72,7 @@ scenes:
     that would shake things up.
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene10.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene10.jpg
   narration: Mexico and Texas declare war, but sadly not on each other. Instead, they
     tag-team Lincoln‘s dwindling Union. With Mexico miles away and Texas preoccupied
     by pirates, I don‘t think this will trouble Honest Abe too much. Instead, I‘d
@@ -82,7 +82,7 @@ scenes:
     but they don‘t appear to be on their death bed quite yet.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene11.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene11.jpg
   narration: Oh boy. Here we go again. Teaming up with Finland (Kekkonen seems to
     be all about the tagteaming today, being Kuchum‘s buddy against Tibet too), Carthage
     declare war on the Ayyubids for the umpteenth time. Their last war - the Bilbais
@@ -95,13 +95,13 @@ scenes:
     talking about - there‘s a reason they only have four cities.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene12.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene12.jpg
   narration: As predicted, Hiroshima is easily recaptured by Japan. And judging by
     the state of Yakutia‘s forces, I think it will be a long time before we set eyes
     on this area again.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene13.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene13.jpg
   narration: 'At the end of last part, Sibir was in control of Kharkov, and it doesn‘t
     look like that‘s going to change any time soon. Far from being the ever-flipping
     pendulum that is Morelia (current status: Sibirian grey), Kharkov is firmly defended,
@@ -112,7 +112,7 @@ scenes:
     of a threat - where has their army gone, exactly?'
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene14.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene14.jpg
   narration: Sichangu turns red again. Canada controls Hudson Bay, so any land attack
     from the Inuit can be countered by a naval retaliation. I was excited for this
     war, but now it seems like it could turn into a never-ending flip war for two
@@ -123,13 +123,13 @@ scenes:
     stalemate to occur.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene15.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene15.jpg
   narration: |-
     Morocco fought for Braga (well, they took it undefended from a mystified Kongo), and they‘re not letting it go that easily. With Portugal‘s navy destroyed by the Buccaneers, Ahmad of Morocco rather easily sails right back into his Hispanic harbour. I‘m sure that Portugal‘s land army will have something to say about that, but it‘s a symbolic gesture if nothing else. Don‘t count Morocco out yet - they have an embarked army on the way to Iberia, and Lisbon is already looking very weak...
     Also, Babylon‘s submarines appears to have been officially renamed the S.S. Observer. Huh.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene16.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene16.jpg
   narration: I have no idea what Canada did to garner that many votes, but Ottawa
     will host the next World Congress. Take note, /r/CBRModelWorldCongress. Their
     core isn‘t looking too shabby - there‘s a lot of spare artillery hanging around
@@ -137,7 +137,7 @@ scenes:
     and focus on rebuilding for the possible Inuit threat.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene17.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene17.jpg
   narration: One of the bets being contested on the CBR Gambling thread is about the
     potential fate of Waipahu. Its fate seems no clearer here than it did at the outset
     of the war; it‘s been somewhat damaged by Mexican forces, but Hawaii has brought
@@ -145,20 +145,20 @@ scenes:
     push for Merida. It‘s all to play for in Bajaloha.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene18.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene18.jpg
   narration: |-
     England denounces the Boers. Yeah, let‘s see how that goes for you. Speaking of the Boers, it‘s interesting to note that the majority of their army is concentrated in the west - either they really trust Ethiopia or they‘re planning something. Mali, be frightened - Kruger‘s sporting landships now.
     Meanwhile, Carthage have started to engage the Ayyyyyubids. North African wars have, in this universe, always been a slog, so I don‘t expect to see much progress for some time.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene19.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene19.jpg
   narration: Poor Mao. He‘s clung on for so long, and I predicted Genghis would make
     peace after taking Tabriz. But it looks like it is not meant to be - for once,
     there are muskets and pikes stationed outside Shanghai. You can‘t defend with
     luck and lunacy forever. This might be the last shot of a living Mao.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene20.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene20.jpg
   narration: Do my eyes deceive me? A city... in the Amazon basin... flipping?? It
     appears Argentina managed to capture Machu while we weren‘t looking, with the
     Incas now having taken it back. This is truly a momentous occasion. Whatsmore,
@@ -168,7 +168,7 @@ scenes:
     I‘m excited.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene21.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene21.jpg
   narration: Israel constructs its first UI, despite it being unlocked at Economics...
     oh, don‘t tell me you only just got economics, David? Anyway, the kibbutz can
     only be built on farms and gives a healthy bonus to its food output, as well as
@@ -177,7 +177,7 @@ scenes:
     southwest. Come on David! Shock us for once!
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene22.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene22.jpg
   narration: The Sri Lanka-Afghanistan war is finally heating up again and... hm...
     this seems familiar. Last time this happened Mazar-i-Sharif flipped like crazy
     before settling in the original owner Afghanistan‘s hands. This time Sri Lanka‘s
@@ -186,7 +186,7 @@ scenes:
     make short work of the Sri Lankan offensive. The outcome currently seems unclear.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene23.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene23.jpg
   narration: It‘s been a long time since Kyoto‘s last flip, but that looks to soon
     be rectified as Korea‘s only visible turtle ship is stationed right ouside the
     weakened city. How much longer can Australia trust on their rather small Japanese
@@ -196,7 +196,7 @@ scenes:
     say, not in the slightest.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene24.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene24.jpg
   narration: Canada heeds my advice and makes peace with America, scoring Boston in
     the peace deal! This keeps America safe from Texas, and grants Canada a useful
     springboard for when the time comes to invade the fragile nation. America are
@@ -205,7 +205,7 @@ scenes:
     least they‘re the only nation in the Americas to boast a carpet!
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene25.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene25.jpg
   narration: As Waipahu takes damage from the Mexican fleet stationed in the Gulf
     of California, Hawaii bests Mexico in the Pacific Ocean to the west. This is still
     a pretty even playing field, and it could still go either way; Waipahu will probably
@@ -217,13 +217,13 @@ scenes:
     blasphemous heathen founders.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene26.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene26.jpg
   narration: Well, Carthage may have the tech. And the numbers. But Hannibal‘s famous
     ‘human-like‘ AI seems to be failing him, as no Ayyubid cities have taken a lick
     of damage yet. Maybe it‘s the lack of elephants...
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene27.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene27.jpg
   narration: Speaking of cities that inexplicably undamaged... Kufah and Khurasan
     remain firmly healthy despite there being zero defenses outside Kufah. Navally
     Ethiopia have fallen far behind in tech, so capturing Kufah seems to be the only
@@ -232,7 +232,7 @@ scenes:
     side.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene28.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene28.jpg
   narration: Sadly it doesn‘t look like Morocco are going to be able to pull off another
     legendary capital snipe, as the Buccaneers are on the verge of taking Lisbon,
     although a crossbowman and a rifleman might be enough for Portugal to reclaim
@@ -241,7 +241,7 @@ scenes:
     of that war this part. I wonder how they‘re doing?
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene29.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene29.jpg
   narration: Here we can see three very different armies; the Incas have just entered
     the Industrial Era, still pitifully boasting muskets and crossbows. Argentina
     are a step up, with rifles and gatling guns, but it is Brazil‘s Great War Infantry
@@ -249,13 +249,13 @@ scenes:
     into Machu though, as the city stays in Pachacuti‘s outdated hands.
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene30.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene30.jpg
   narration: |-
     Apparently it‘s a cross-faith crusade that‘s occurring, as Burma, the home of Buddhism, also declares war on Israel. The Jews can‘t catch a break. Ayyubids next, perhaps?
     In terms of Southeast Asia, Vietnam are still scary and everyone else still isn‘t. Champa‘s capital would be stomped by the Trung Sisters, and as soon as they get artillery they could make short work of Burma too. Still, that‘s rather becoming a recurring theme. When they get artillery. It‘s a serious hole in their otherwise advanced tech. If Vietnam want to stay contenders, they need to get a hold of those bad boys sooner rather than later.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene31.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene31.jpg
   narration: Hawaii make peace with Israel as Iceland declares war on them... why
     is it only ever irrelevant neighbours with Israel? Meanwhile, Shanghai‘s days
     are numbered. There‘s a pikeman that could feasibly retake the city when the inevitable
@@ -263,7 +263,7 @@ scenes:
     F keys...
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene32.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene32.jpg
   narration: Whoever did the write-up for Armenia in the Power Rankings (Nevikcrn,
     I think) worried that Sibir would take Yerventashat straight from the Soviets
     and give Armenia a very threatening new neighbour. They were right, and it doesn‘t
@@ -275,7 +275,7 @@ scenes:
     largest cities - Moscow.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene33.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene33.jpg
   narration: YAR HAR FIDDLE DEE DEE. Lisbon is the first capital city on Eurasia to
     fall to an American. It won‘t stay that way for long, however; I‘d be shocked
     if Portugal didn‘t recapture both Lisbon and Braga on their next turn. But if
@@ -284,7 +284,7 @@ scenes:
     for the other European nations...
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene34.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene34.jpg
   narration: Lest we forget, there‘s another war involving Portugal going on... actually,
     we may as well forget it, as Sparta sure have. They took all their units to Rome
     only to absent-mindedly leave them there, facing the Portuguese bombardment with
@@ -294,7 +294,7 @@ scenes:
     with Sweden and they‘d be toast.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene35.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene35.jpg
   narration: The tide of the war is turning, and it looks like Waipahu will come out
     unscathed. With Mexico‘s navy evaporating, Hawaii are free to do as they please,
     surrounding the almost indefensible Merida as expected. Juarez (Mexico) does have
@@ -303,7 +303,7 @@ scenes:
     happens when you assume their blissed-out nature makes them an easy target...
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene36.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene36.jpg
   narration: The US enters the Modern Era, which, for context, puts him a whole era
     ahead of the Incas. It‘s not particularly advanced for North America, though with
     a similar level of military tech to Canada it‘s not to be sniffed at. In fact,
@@ -314,14 +314,14 @@ scenes:
     of constant war.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene37.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene37.jpg
   narration: We‘re getting closer to a relevant Israel war... Hannibal of Carthage
     clearly reckons he can tear through the Ayyubids and clear out Israel easily,
     but the battlefields beg to differ, as Carthage‘s rifles are still inexplicably
     yet to get a shot through to Cairo or Aswan. Surely it‘s only a matter of time?
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene38.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene38.jpg
   narration: There we go! Israel find themselves at war with Armenia as the first
     war in the Middle East for centuries breaks out. It‘s fair to say the technology
     of both combatants is pretty lackluster, although Armenia does boast cannons.
@@ -329,14 +329,14 @@ scenes:
     airtime to be honest. Perhaps Persia could join in for added excitement.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene39.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene39.jpg
   narration: Both ‘Grads‘ fall, with Stalingrad looking unrecapturable and Leningrad
     looking unholdable (neither of those are words, are they?) Stalin and Kuchum‘s
     armies are both running out, though - as I‘ve said before, I don‘t think Sibir
     will be able to make much more progress than they already have done.
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene40.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene40.jpg
   narration: Finally! A shot of Scandinavia, and things are as bloody as I expected,
     with Oslo on the verge of falling to Sweden‘s unique units. Snorway‘s home army
     is still moderately strong, and it will take time for Sweden to clear them out;
@@ -345,7 +345,7 @@ scenes:
     and Tonsberg are doomed.
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene41.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene41.jpg
   narration: It‘s a major plot twist in Bajaloha as the Hawaiian navy sent to bother
     Merida is completely rebuffed while a Mexican caravel appears from nowhere right
     outside Waipahu! Suddenly Mexico seem very much to be on the front foot again.
@@ -353,21 +353,21 @@ scenes:
     to the east ripe for the taking...
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene42.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene42.jpg
   narration: We all know the plots don‘t mean anything. We all know Agent Em makes
     for way better OC than intel. And yet, you still have to be a little bit excited
     by the thought of Finland marching through Russia, eliminating the Soviet Union
     once and for all. I guess we‘ll have to wait and see.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene43.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene43.jpg
   narration: Well, there‘s worse things to be wrong about; Yakutia does manage to
     recapture Hiroshima fairly quickly. Again, it will fall right back, but with Tygyn
     Darkhan (Yakutia) now sporting battleships, we might be seeing that city flipping
     more often here on in...
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene44.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene44.jpg
   narration: As Burma settle some inactive conflicts (no city giveaways this time),
     Brazil and Argentina still bear down on Machu with a lot of gatling guns and not
     very many melee units. How long has that Great Engineer been in Machu? I swear
@@ -375,7 +375,7 @@ scenes:
     on...
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene45.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene45.jpg
   narration: Gran Colombiarrr is basically undefended, although fat chance Brazil
     or the Incas are about to declare war - their coastal cities would be gone in
     minutes judging by that Buccaneer navy. Clearly the main focus of this screenshot,
@@ -383,7 +383,7 @@ scenes:
     nice to see some AI competence, isn‘t it?
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene46.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene46.jpg
   narration: With Sri Lanka‘s navy looking unweakened, it seems very likely that Mazar-i-Sharif
     is on the verge of falling. A severe lack of - you guessed it - melee units in
     Afghanistan might see the city stay Sri Lankan for some time. The big question,
@@ -394,13 +394,13 @@ scenes:
     like they could hit great heights is long gone, sadly.
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene47.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene47.jpg
   narration: |-
     As half the world is engulfed in a mysterious grey mist, Oslo falls to Sweden! They also appear to be getting their powerful fleet through the straits around Denmark, so it could be curtains for Snorway soon. But there‘ll be a bloody battle for Oslo before any of that happpens - there‘s no way those riflemen won‘t retake the city.
     TPangs note: I got excited and took the picture quickly, but sure- grey mist is now canon I guess?
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene48.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene48.jpg
   narration: "Bahahahaha! I was right about Tibet! A combined airforce of 12 planes
     will probably keep the Tyumen offensive in check, but it speaks worlds that Tibet
     - a nation which has just been ripped in half by Vietnam - is able to besiege
@@ -410,19 +410,19 @@ scenes:
     goner. Oh well. One for one?"
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene49.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene49.jpg
   narration: Oslo is, naturally, immediately recaptured. Norway also declare war on
     the Union - maybe that taskforce navy near Portugal could casually snipe a city?
     That would be something to see.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene50.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene50.jpg
   narration: |-
     The currently unannexed East Boer Provinces hit the Industrial Era. I‘m not kidding; as soon as Kruger wants these cities they‘re his. In the meantime, Mansa Musa of Mali could maybe amuse himself with a holiday in Morocco. Kumasi is looking juicy, and over near Tomboctou - where Mansa Musa somehow managed to find a cannon - the Moroccan core looks absolutely undefended. But I‘ll be surprised if Mali ever declare war again.
     While it‘s in shot, I want to talk about Mampong. You know, the city that Morocco gave away to Ethiopia a couple of episodes ago. Many here laughed. Morocco worked so hard for that city, and now they give it to a distant nation in a peace treaty? Preposterous, I heard you cry. And you‘re wrong - it was genius. As long as Ahmad had that city, he risked the very real threat of a war with the Boers, who since conquering Kongo now bordered the colony. A war with the Boers would surely lose him the Ashanti capital of Kumasi too, and maybe even his incredibly populous settlement of Sale on Cabo Verde. Give it to Ethiopia and the risk was eliminated - they lose the malus for having close borders and, in general, Kruger‘s terrifying army would be more likely to look to a closer neighbour. Overall I think it was a fantastic move. But that‘s just my thoughts. Back to regular proceedings!
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene51.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene51.jpg
   narration: Finland! How could you?! No matter, I think Mao has more things on his
     plate than a possible Finnish offensive. Finland still sport the best tech in
     the region, although their army could be bigger. Still, if they did make good
@@ -432,21 +432,21 @@ scenes:
     one little DoW, Kekkonen...
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene52.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene52.jpg
   narration: Well, it was fun while it lasted, but the tables have turned in Tibet,
     with Bamda now lightly threatened by Sibir, thanks in no small part to their airforce.
     I‘m not yet convinced they‘ll take Bamda, though, and you‘d imagine by now Sibir
     would have five more cities under their belt. You know what to do, Genghis...
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene53.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene53.jpg
   narration: The Waipahu War rages on, still as unpredictable as before. The caravel
     that was poised to seize the city is gone, but a regiment of Rurales (Mexico‘s
     riflemen replacement) looms instead, eyeing up the battered city. Another Hawaiian
     fleet encircles Merida. It‘s close. Very close.
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene54.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene54.jpg
   narration: In the war between pirates and cowboys, it looks like pirates are winning
     - but only because Texas have recruited a load onto their side. Texas have held
     off the Buccaneers effortlessly, and if there‘s one city you‘d tip to start taking
@@ -455,7 +455,7 @@ scenes:
     have to try harder if they want to crack the Texan shell.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene55.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene55.jpg
   narration: Oohenupa, the city I said would fall about 50 slides ago... falls. The
     Inuit are also fielding regular old infantry, the first I‘ve seen outside Korea.
     It won‘t help them make headway into the Canadian mainland, which is still defended
@@ -465,7 +465,7 @@ scenes:
     that moment!
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene56.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene56.jpg
   narration: Hiroshima stays Yakutian as the mysterious ‘T d Takatora‘ (he‘s probably
     just embarassed to admit he‘s called Todd) fails to stop Kanazawa being damaged
     by Snoryak bombers. Still, the Yaks are going to need a closer navy if they want
@@ -473,20 +473,20 @@ scenes:
     successor Todd Takatora is pretty safe in his position.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene57.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene57.jpg
   narration: Kyoto falls! To a... er... gatling gun? Whatever, Korea waited far too
     long to retake Kyoto and now Australia‘s defence corps have come out in droves.
     There‘s only so much submarines can do. Which, in this case, is almost nothing.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene58.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene58.jpg
   narration: |-
     Sri Lanka, are you kidding me? You couldn‘t have waited, like, one more turn to make peace? Mazar-i-Sharif was yours!
     On screen, we can see the Mughal Empire, plotted against by Kekkonen‘s Finland, rather futilely. I still think the Stalin idea was your best one so far, Urho. Mazar-i-Sharif is sure to flip soon, and Susa has started taking damage too, for what it‘s worth. This would also be a great opportunity for the Mughals to strike, with Balkh looking fairly obtainable.
     Hidden in the sidebar among irrelevant peace treaties, it transpires that Morocco and Portugal have made peace - with Morocco retaining Braga. Sigh. I‘d just removed the label saying ‘Maria‘s Folly‘, too.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene59.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene59.jpg
   narration: Over in Europe, Sparta have finally started damaging Rome, years after
     the siege first commenced. A musketman should make the job easier, though I‘m
     still very concerned they haven‘t even got the tech for lancers, never mind riflemen.
@@ -494,7 +494,7 @@ scenes:
     also in this screenshot, and haven‘t been mentioned yet, so yeah. France.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene60.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene60.jpg
   narration: Waipahu has fallen! And it‘s safe to say Hawaii looks absolutely broken.
     Mexico has valiantly defended their homeland while claiming the forward settle
     that was so rightfully theirs. Their gatling gun spam also looks more like artillery
@@ -502,7 +502,7 @@ scenes:
     too excited, but I think the age of Mexico could be around the corner.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene61.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene61.jpg
   narration: Sichangu and Oohenupa flip. Canada‘s open borders with the Blackfoot
     (and the Inuit‘s lack thereof) is really helping them in this war, although the
     Inuit tech level is not to be sniffed at. If the Inuit can get their destroyers
@@ -511,13 +511,13 @@ scenes:
     grace, though?
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene62.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene62.jpg
   narration: The war isn‘t over yet! Hawaii‘s second wave comes, and resecures Waipahu.
     But with well placed artillery on the Mexican shore, and a Rurales regiment ready
     and waiting, I think Hawaii‘s successes will be short-lived.
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene63.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene63.jpg
   narration: If you‘d been eagle-eyed last time we saw Tibet (or you‘re just keeping
     constant note of the minimap), you‘d have noticed Urgench had fallen. And now
     two more cities are feeling the heat, with Bamda and Nyingchi‘s current health
@@ -527,7 +527,7 @@ scenes:
     well, something I guess.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene64.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene64.jpg
   narration: The thing about Sibir is every shot they seem to be running out of steam
     and every time they take it just a little bit further. The so-called ‘pendulum‘
     of Morelia is now safely Sibirian, and Ufa is their latest conquest, having held
@@ -537,7 +537,7 @@ scenes:
     his artillery knuckle down on Moscow. Why did I never doubt you?
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene65.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene65.jpg
   narration: As Canada enter the modern era - behind the US! - and flip Sichangu,
     Mexico retake Waipahu. That city was on 24 population before! I don‘t want to
     say this is the last time it will flip, but Hawaii certainly look spent. The only
@@ -545,21 +545,21 @@ scenes:
     answer - Austin. For good, this time.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene66.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene66.jpg
   narration: Preferably, a two-way war against Texas with these guys, Canada, who
     as I mentioned before, have entered the Modern Era. They‘re looking pretty unshaken
     from their various wars, with a strong core and a none-too-shabby army. I‘d call
     them a top 10 nation!
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene67.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene67.jpg
   narration: 'Lisbon is Portuguese again, but even the most ardent Portugal supporter
     would be hard-pressed to see them keeping it for any meaningful amount of time.
     Best case scenario: they keep it for long enough that the rifleman can duck out
     of the city and get ready to snipe it again.'
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene68.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene68.jpg
   narration: Perhaps I over-hyped the Armenia-Israel war, in retrospect. Certainly
     very little has happened except the two outdated armies locking horns and wasting
     ammo. Well, crossbow bolts, in the case of Israel. In the background, a war of
@@ -567,7 +567,7 @@ scenes:
     war.
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene69.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene69.jpg
   narration: In the blink of an eye, Shanghai falls and is recaptured! Things are
     getting tense for the last few Mao supporters now. If they can just hold off until
     Genghis runs out melee units... yes, that‘ll do the job... One nation clearly
@@ -577,14 +577,14 @@ scenes:
     I apologise.
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene70.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene70.jpg
   narration: And South Asia is at war once again! Let‘s see if a city can actually
     flip this time! Akbar of the Mughals doesn‘t exactly have battleships, but his
     navy is far more advanced than Burma‘s galleass carpet. Can he break through and
     threaten Rangoon and Pathein?
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene71.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene71.jpg
   narration: That rifleman didn‘t escape in time. Lisbon is now firmly under the control
     of the pirates. The chances of them making any more progress (with two pikemen)
     are non-existent, so where next? Marrakesh looks very unprotected... Morgan‘s
@@ -594,21 +594,21 @@ scenes:
     - Lisbon‘s fall has proven nowhere is safe.
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene72.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene72.jpg
   narration: 'Two of this part‘s least relevant civs declare war on the widely agreed
     kings of irrelevance, Israel. Chances of this affecting the current stalemate
     with Armenia: 0. Armenia really have to bring their cannons forward if they want
     to make progress; Hebron could feasibly be captured.'
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene73.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene73.jpg
   narration: As the Inuit flip THOSE two cities in the background, Em and Semiramis
     relocate. From Helsinki and Carthage to Rubibi and Pretoria... let‘s see what
     (most likely incorrect) things Jandamarra of Kimberley and Kruger of the Boers
     have been plotting...
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene74.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part35-scene74.jpg
   narration: |-
     ...next part, as that‘s it for today. No infoaddict sadly, so we‘re left with the religion map. Australia and South America are well on their way to being indoctrinated by Buddhism and Catholicism, respectively. Speaking of which, we saw nothing of Australia or Chile this part. Very little of the Boers either. And former enemies Kimberley and the Maori didn‘t get so much as a look-in. We‘ll have to see how they‘re doing next week.
     Now for a bit of minimap hunting. Inuit are in control of the flipping Arctic cities, Hawaii retain control of Waipahu... and Sibir capture Bamda! I wasn‘t expecting that. They also keep all of their Soviet conquests from this part. Shanghai clings on to life.

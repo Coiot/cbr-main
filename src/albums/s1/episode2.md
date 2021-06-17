@@ -12,13 +12,13 @@ audio_narration: 'https://youtu.be/CbiqeWjvEfI'
 fullvideo: 'https://www.youtube.com/watch?v=B2Zx_EFvqww'
 edition: S1
 date: 2019-06-26T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg
 prev: /albums/s1/episode1/
 next: /albums/s1/episode3/
 scenes:
 - scene_number: "1"
   scene_title: Ahoy!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene01.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene01.jpg
   narration: "<p>Would you believe it? It’s Part 2 of the CBRX already! It seems like
     only last week when we were gifted with the first part of this new season, and
     while it certainly whetted the appetite, things are about to get spicy and substantial.
@@ -27,7 +27,7 @@ scenes:
     stuck in.</p><p>Coiot‘s note: This episode's cover comes to us through the fine talents of Jru, who makes a sudden reappearance on the sub. Warm Greetings.</p>"
 - scene_number: "2"
   scene_title: OC of the Week
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene02.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene02.jpg
   narration: "<p>This week saw the first issue of the Observer Observer, the #1 source
     of information for Babylonians everywhere. Hats off to HandaNauka for this curious
     look into the world of the shivering watchers, waiting for their sub to be delivered.
@@ -39,11 +39,11 @@ scenes:
   narration: '<p>Our first map of the week is DerErlenKonig’s tile-accurate map, which clearly shows a number of civs sitting pretty on their first two cities alone. Here’s hoping we see more civs grow outward this part, joining the likes of Songhai, Selk’nam and Zimbabwe. For a more detailed look in this style make sure to check out DEK’s variants, which include a better look at the terrain of the Cylinder, here: <a href="https://imgur.com/a/kee4XNe">Map Album</a></p><p>Coiot‘s note: Experimenting with presenting a gif animation through Erlen’s many variations. You can still click on the album above for a still of each.</p>'
 - scene_number: "4"
   scene_title: DJjablonsky Map
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene04.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene04.jpg
   narration: '<p>For a more stylised look at the world, check out DJjablonsky’s map too, complete with civ names in case you’re still getting your Qins and Qings muddled. And a quick shout-out to the Google map that I’ve been updating too, which already features some fantastic city lore from the wonderful /u/wthrudoin: <a href="https://drive.google.com/open?id=1gzIX9l90n26EVACnXCbp6sYwpeBnH2dw&usp=sharing">City Google Map</a></p>'
 - scene_number: "5"
   scene_title: Power Rankings Leader
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene05.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene05.jpg
   narration: "<p>With a lacklustre start from the Kazakhs, who led the PRs in Part
     0, we awarded pole position to Zimbabwe this time round. Not only did they found
     four cities to nearby Ndongo’s two, they came top in this week’s production rankings,
@@ -51,7 +51,7 @@ scenes:
     eye on them this part. Speaking of which, that’s quite enough waffle...</p>"
 - scene_number: "6"
   scene_title: Home on the Prairie
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene06.jpg
   narration: "<p>We start in the Canadian prairies, where the Métis (pronounced Matey)
     have churned out three cities and have two more settlers on the go. They’re all
     fairly conservative settles—no wild provocative expansions yet. But with the
@@ -61,7 +61,7 @@ scenes:
     of Artemis? Both are useful!</p>"
 - scene_number: "7"
   scene_title: Heroes of Legend
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene07.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene07.jpg
   narration: "<p>In Central Asia, Mithridates of Persia has enrolled one of the cylinder’s
     first Great Generals, though we’re not sure of his name—it is the Ancient Era,
     I guess no one’s writing history down yet. He’s already got a fine army behind
@@ -71,7 +71,7 @@ scenes:
     India’s cheeky chokepoint city Allahabad seems to have done the trick already.</p>"
 - scene_number: '08'
   scene_title: The War of Niagara Falls
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene08.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene08.jpg
   narration: "<p>Canada link their disparate second settle of Montréal with a more
     reasonable Toronto, and are immediately punished by an Iroquois invasion. Mr King
     will have to stave off one of the largest armies of the ancient world, but I’ve
@@ -80,7 +80,7 @@ scenes:
     a side.</p>"
 - scene_number: '09'
   scene_title: Pink v Purple
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene09.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene09.jpg
   narration: "<p>But that’s not the only war this turn brings, as Nepal make good
     on the promise of an aggressive forward settle with an even more aggressive declaration
     of war. India has been neglecting their military, but might be able to stave off
@@ -92,7 +92,7 @@ scenes:
     played and filmed, but from next part onwards it gets fixed, so fret not!</p>"
 - scene_number: "10"
   scene_title: A Truly Blessed Image
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene10.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene10.jpg
   narration: "<p>Well this is something. Lowest-ranked Haiti, who usually struggle
     to settle outside their tiny home island, have only gone and plonked a city on
     Venezuela’s doorstep! It’s actually a nice settle too, surrounded by rivers and
@@ -103,7 +103,7 @@ scenes:
     he was distracted. That’s a pretty charitable reading, though.</p>"
 - scene_number: "11"
   scene_title: Chauchillin’
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene11.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene11.jpg
   narration: "<p>The Nazca tend to play protective and conservative, so the Temple
     of Artemis should come in handy for them, with that growth bonus and ranged unit
     production buff. There’s a settler on the verge of staking a claim on the Amazon,
@@ -112,7 +112,7 @@ scenes:
     to hold onto it.</p>"
 - scene_number: "12"
   scene_title: Yongcheng & Yangcheng
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene12.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene12.jpg
   narration: "<p>It’s a tale of two cities as the Qin attackers around Yongcheng encroach
     on the Xia capital Yangcheng. In fact, it’s the first city we’ve seen take damage
     in CBRX history. Both Chinas have recently settled another city to the south,
@@ -122,7 +122,7 @@ scenes:
     focus on reinforcing their core first, but who am I to argue with a Khan?</p>"
 - scene_number: "13"
   scene_title: Target Practice
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene13.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene13.jpg
   narration: "<p>We also see Delhi take damage—a troublesome sight for Indira and
     her ministers, but they look more equipped to deal with the damage than Xia. It
     helps that Nepal’s archers are apparently engaged in training exercises in the
@@ -131,7 +131,7 @@ scenes:
     settler, they may stay this small for some time.</p>"
 - scene_number: "14"
   scene_title: The Peaceful Provinces
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene14.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene14.jpg
   narration: "<p>Our first shot this part of PR leaders Zimbabwe, and they’ve added
     a fifth city to their empire, the first contender to do so. The stats tell us
     they do have an army, but it’s nowhere to be seen here—perhaps it’s marching
@@ -140,7 +140,7 @@ scenes:
     seeing a more evenly fielded army from them in the future.</p>"
 - scene_number: "15"
   scene_title: How Syr Daryou?!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene15.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene15.jpg
   narration: "<p>From our current #1s to our previous champs, the Kazakhs, who had
     a timid Part 1. They seem to be overcompensating this part, with two new cities
     already—one of these, Almaty, placed frighteningly close to Parthia’s Hecatompylos
@@ -151,7 +151,7 @@ scenes:
     smarting?</p>"
 - scene_number: "16"
   scene_title: Feeling Nile-hilistic.
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene16.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene16.jpg
   narration: "<p>Minoa face a somewhat predictable war from Nubia, who are themselves
     still lacking a third city or settler. They’ve started mass producing their unique
     archer replacement though, which gains extra movement when near a river. You know,
@@ -162,7 +162,7 @@ scenes:
     Cyrenaica, whistling awkwardly.</p>"
 - scene_number: "17"
   scene_title: Friday I’m At War
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene17.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene17.jpg
   narration: "<p>Presumably Alaric of the Goths took one look at the unprotected,
     feeble and easily accessible lands of Muscovy and figured it wasn’t nearly enough
     of a challenge. No, Alaric only plays Guitar Hero on expert and he only goes to
@@ -172,7 +172,7 @@ scenes:
     hope Tokhtamysh likes The Cure...</p>"
 - scene_number: "18"
   scene_title: Toussaint Gonayiv It To Ya
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene18.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene18.jpg
   narration: "<p>The Kuikuro are notorious forest fortresses; they can build improvements
     without chopping down the surrounding woods, meaning they preserve those stellar
     defence bonuses for most of the game. Still, it looks like Venezuela are sending
@@ -181,7 +181,7 @@ scenes:
     on Estaquería for the name of their new Amazonian paradise.</p>"
 - scene_number: "19"
   scene_title: O Halloo Nyn Ghooie!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene19.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene19.jpg
   narration: "<p>Well, what do you know, my favourite civ in the game! No, not that
     one… and, no not the one in Scandinavia either… it’s the Isle of Man, of course!
     We Menn and Womenn are hardy people, possibly even foolhardy for thinking we can
@@ -193,7 +193,7 @@ scenes:
     Vikings look to populate their home-fjords a little more.</p>"
 - scene_number: "20"
   scene_title: Two Turtles
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene20.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene20.jpg
   narration: "<p>Now we have two civs apparently allergic to third cities. It’s not
     surprising in the case of Poverty Point, who tend to like playing tall. Their
     army’s on the move north, though the destination is currently unclear. It’s more
@@ -203,7 +203,7 @@ scenes:
     progressed any further.</p>"
 - scene_number: "21"
   scene_title: Fights at Phaistos
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene21.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene21.jpg
   narration: "<p>One war that’s progressing just fine is Nubia’s attack on Phaistos
    —indeed, we could be about to witness the first city capture of the game, in
     Part 2 no less! Fortunately for Minoa, Nubia haven’t yet built a navy, on account
@@ -212,7 +212,7 @@ scenes:
     Libya stop whistling and settle Derna.</p>"
 - scene_number: "22"
   scene_title: The Sleepy South
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene22.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene22.jpg
   narration: "<p>The other pale blue civ who were destined for great things only to
     disappoint in Part 1, it’s Uruguay! As with the Kazakhs they’ve started to make
     good on their copious amounts of space and have squeezed another city out, with
@@ -222,7 +222,7 @@ scenes:
     way from home.</p>"
 - scene_number: "23"
   scene_title: A Fearsome Pharos
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene23.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene23.jpg
   narration: "<p>Speaking of Uruguay, that exclamation mark tells us they’ve just
     changed party, from Colorados to Blancos. That will give them healthy bonuses
     to production and military, as well as a more aggressive AI. Approach with caution.</p><p>Back
@@ -235,7 +235,7 @@ scenes:
     not be conquering anything as it stands.</p>"
 - scene_number: "24"
   scene_title: Yin and Yangcheng
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene24.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene24.jpg
   narration: "<p>Yangcheng is the first capital to fall to the red, but Xia might
     have found a lifeline—they seem to have dispatched all the nearby warriors,
     leaving Qin Shi Huang’s nearest melee unit a few turns away. On the other hand,
@@ -245,7 +245,7 @@ scenes:
     the Xia while they’re down, or do they have a juicier, greyer target?</p>"
 - scene_number: "25"
   scene_title: It’s a Cat-Ostrav-e!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene25.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene25.jpg
   narration: "<p>The PR team ranked the Czech Republic 12th this week. I ranked them
     8th. One ranker put them 3rd! Yet now they look desperate, with no army to speak
     of and the Ottomans glaring down on the city of Ostrava… Yes, that’s an Ottoman
@@ -256,7 +256,7 @@ scenes:
     a deal with Czechia?</p>"
 - scene_number: "26"
   scene_title: Aztec Shamera
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene26.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene26.jpg
   narration: "<p>The Aztecs have their vanilla unique unit, the Jaguar Warrior, but
     are otherwise looking pretty dismal, settling a conservative third city that seems
     designed to be as unthreatening as possible. It’s a wasted opportunity, as the
@@ -265,7 +265,7 @@ scenes:
     Poverty Point look like they want to settle anywhere.</p>"
 - scene_number: "27"
   scene_title: The First Fall of Many
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene27.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene27.jpg
   narration: "<p>What’s that sound? Is that the screams of thousands of innocents
     watching their homes being burnt to a crisp for the first time in history? I think
     it is! Nubia capture Phaistos, nabbing the coveted trophy for First City Capture.
@@ -276,7 +276,7 @@ scenes:
     enough. Eagle-eyed viewers will see Palmyra finally field another settler.</p>"
 - scene_number: "28"
   scene_title: Gobekli Tepid
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene28.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene28.jpg
   narration: "<p>By now some of you may have noticed the two unfamiliar pictures in
     the notifications bar. The CBRX has around 20 brand new custom wonders added to
     the mix, courtesy of Pouakai. The first of the pair is Gobekli Tepe, an archaeological
@@ -286,7 +286,7 @@ scenes:
     Oh. Well, at least they have another settler on the go.</p>"
 - scene_number: "29"
   scene_title: Can You Barbeque Rice?
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene29.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene29.jpg
   narration: "<p>The second wonder here is considerably more useful; the Banaue Rice
     Terraces, found in our world’s Philippines, gives +1 food to all hill tiles in
     the city it was constructed. It’s Australia who have built that one, and presuming
@@ -297,7 +297,7 @@ scenes:
     (ha) as soon as possible.</p>"
 - scene_number: "30"
   scene_title: Library of Heaven
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene30.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene30.jpg
   narration: "<p>Another turn, another wonder, this one a lot more familiar; the Qing
     have built the Great Library in Beijing. They’re already cultural powerhouses
     thanks to their uniques, so a science bonus on top of that is very natty. It can’t
@@ -308,7 +308,7 @@ scenes:
     an underdog in this competition, but so far Seonjo’s not put a foot wrong.</p>"
 - scene_number: "31"
   scene_title: Putting Havel in Czech
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene31.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene31.jpg
   narration: "<p>Striking on a moment of weakness, both German-speaking civs declare
     war on Havel’s Czech Republic, with HRE even founding Augsburg a short distance
     from Prague to prepare. Granted, neither they nor Prussia look too committed to
@@ -319,7 +319,7 @@ scenes:
     side; Palmyra has declared war on the Ottomans.</p>"
 - scene_number: "32"
   scene_title: Goths Don’t Cry
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene32.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene32.jpg
   narration: "<p>The Goths descend on Sarai Batu, scratching the city walls, though
     Tokhtamysh by now has summoned together a decent collection of archers ready to
     give their lives for their capital. But Alaric, the absolute madman, has an elicit
@@ -330,7 +330,7 @@ scenes:
     sweat off their foreheads and toasting their close shave.</p>"
 - scene_number: "33"
   scene_title: I Went to Cordoba Couple of Months Ago, It’s Nice
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene33.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene33.jpg
   narration: "<p>Have all these wars and wonders worn you out? Take a breather with
     Algeria, whose sole contribution to the game thus far is the weirdly named city
     of Mascara. Abdelkader’s eyes are surely on FLEEK. To the north, the Moors have
@@ -338,7 +338,7 @@ scenes:
     5. I honestly don’t understand why, but currently they at least seem pretty carefree.</p>"
 - scene_number: "34"
   scene_title: Drake Can’t Save You This Time
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene34.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene34.jpg
   narration: "<p>It’s all kicking off in the sidebar, but let’s focus on what’s in
     front of us at the moment: Canada. If the Iroquois ever mounted a serious attack
     on them, it’s evaporated. But what’s that in Indiana, a Poverty Point army? And
@@ -351,7 +351,7 @@ scenes:
     caught off-guard.</p>"
 - scene_number: "35"
   scene_title: Yin and Shang?
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene35.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene35.jpg
   narration: "<p>Yangcheng has fallen! I repeat, Yangcheng has fallen! It’s only turn
     39 but our first capital is already down—whatsmore, there’s no way Xia are taking
     that back any time soon. Did I say Xia? Because I of course mean Shang, as the
@@ -368,7 +368,7 @@ scenes:
     for kicking us off.</p>"
 - scene_number: "36"
   scene_title: Fighting the Real Fight
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene36.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene36.jpg
   narration: "<p>India and Nepal wisely agree to stop their futile fistfight with
     immediate effect. No, they should band together to focus on the real threat -
     those dastardly Marathi. The newly built city of Sangameshwar will be a tough
@@ -377,7 +377,7 @@ scenes:
     if Taungoo get there first.</p>"
 - scene_number: "37"
   scene_title: The Not-So-Narrow Sea
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene37.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene37.jpg
   narration: "<p>A lone scouting mission sent from Toussaint L’Ouverture looks out
     at the giant blue expanse that marks the edge of the known world. Are they imagining
     it, or do they see islands in the distance? One day, Haiti. One day you’ll be
@@ -386,7 +386,7 @@ scenes:
     eliminated by Part 10. One of the two.</p>"
 - scene_number: "38"
   scene_title: Heulugi-Hit Me!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene38.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene38.jpg
   narration: "<p>They’re safe for the time being, anyway, as Chavez turns his ire
     to the Kuikuro instead. While most of Anetü’s army is made up of scouts (shouldn’t
     they be scouting?), he has started producing the Kuikuro UU, the Huka-Huka. They
@@ -399,7 +399,7 @@ scenes:
     dent them just yet. Meanwhile, Gonayiv actually has a garrison now.</p>"
 - scene_number: "39"
   scene_title: Perthectly Peaceful
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene39.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene39.jpg
   narration: "<p>There’s still plenty of unclaimed land on the Cylinder, and perhaps
     one of the last places to be settled will be the scorching outback of Western
     Australia. Papua are having a think about it, sending a scout to map the coastline.
@@ -408,7 +408,7 @@ scenes:
     nations. But let’s see if they can get off New Guinea first, eh?</p>"
 - scene_number: "40"
   scene_title: Sleepy South America
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene40.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene40.jpg
   narration: "<p>Uruguay and Nazca are currently enjoying a cushy trading relationship,
     but attempts to extend the free market further south might be scuppered by the
     newest Uruguayan settler, which is wandering squarely in the direction of the
@@ -417,14 +417,14 @@ scenes:
     from Uruguay, but they’re still looking very comfortable.</p>"
 - scene_number: "41"
   scene_title: An Unforgiving Ocean
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene41.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene41.jpg
   narration: "<p>A Kiwi scout has also sailed to the edge of their known world and
     looked out over the endless blue. Any islands they see are but mirages. New Zealand
     will have to expand in other directions—either land a commanding presence on
     the Australian continent, or pay Tonga a visit.</p>"
 - scene_number: "42"
   scene_title: Cold Cartography
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene42.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene42.jpg
   narration: "<p>How many of these scouts do you recognise? There are some here who
     are very far from home indeed, all keen to produce the best map of frigid Siberia
     the Cylinder has ever seen. I guess frozen oceans are all the rage at the moment.
@@ -435,7 +435,7 @@ scenes:
     main Reddit post.</p>"
 - scene_number: "43"
   scene_title: Eadni Enters
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene43.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene43.jpg
   narration: "<p>The Sami place a beautiful city at the strategic crossroads of St
     Petersburg… well, this one’s got the less memorable name of Divtasvuodna, but
     you get my point. It’s a very tasty forward settle that’s already annoyed Frederick
@@ -444,7 +444,7 @@ scenes:
     base for the highest-ranked Euro to wreak havoc on her home continent.</p>"
 - scene_number: "44"
   scene_title: Scouting Out Xinjiang
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene44.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene44.jpg
   narration: "<p>Even in this early stage of the game, there aren’t many regions of
     Eurasia that no civ has dared to settle yet, but the Tarim Basin is one of them.
     Only a few scouts have even approached the desolate desert, one of the least hospitable
@@ -452,7 +452,7 @@ scenes:
     filled with megapolises soon enough.</p>"
 - scene_number: "45"
   scene_title: 'Just to Make It Very Clear: Qing are Yellow, Qin are Blue'
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene45.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene45.jpg
   narration: "<p>Qing may not have been expansive as we expected, but they’ve definitely
     been cultivating a tasty army, and thankfully for the underprotected Koreans they’ve
     gone for the easiest pickings on the planet, the Xia… Shang, I mean Shang. It’s
@@ -461,7 +461,7 @@ scenes:
     an elimination in Part TWO?! I wouldn’t count it out!</p>"
 - scene_number: "46"
   scene_title: A Muddled Mediterranean
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene46.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene46.jpg
   narration: "<p>Minoa attempt to force access into Phaistos’ harbour, but with their
     archer now gone it’s going to get a lot harder. They do settle Malia in Greece,
     but I have to ask, why that spot of all places? It’s nearly surrounded by coastal
@@ -472,7 +472,7 @@ scenes:
     a settler hanging around Suez. Come on Nubia! Do the thing!</p>"
 - scene_number: "47"
   scene_title: A Messy Mesopotamia
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene47.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene47.jpg
   narration: "<p>Oman continue their unexpected wide play with a settlement on the
     Euphrates, Nakhal. If the Seljuks had bothered to send an army to protect Rey,
     this move would have seemed suicidal, but currently I’d put more money on Palmyra
@@ -481,7 +481,7 @@ scenes:
     that get to?</p>"
 - scene_number: "48"
   scene_title: Algeesus!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene48.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene48.jpg
   narration: "<p>Algeria burst onto the world scene with probably the most brazen
     settle we’ve seen so far! Constantine is a stone’s throw from Gao, the Songhai
     capital, and Abdelkader’s even sending another settler south as we speak. Askia
@@ -490,7 +490,7 @@ scenes:
     with this egregious insult just yet.</p>"
 - scene_number: "49"
   scene_title: Quirky Kuikuro
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene49.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene49.jpg
   narration: "<p>Okay Anetü, I know I said you and your Kuikuro brethren had nothing
     to fear from Venezuela’s rather meagre attack. But I didn’t mean you were safe
     to send a settler onto the front lines with just a Huka-Huka to protect him. You
@@ -500,7 +500,7 @@ scenes:
     to wait yet, guys, I think it’s unlocked at Plastics.</p>"
 - scene_number: "50"
   scene_title: A Lovely Shot of the Great Australian Bight
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene50.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene50.jpg
   narration: "<p>You know how I warned earlier there’d be a couple of weird angles
     this Part? Yeah… you’ll have to squint at the corner for this one. But it’s big
     news, as the Murri declare war on Australia, which shouldn’t be a huge surprise
@@ -510,7 +510,7 @@ scenes:
     doors of the city, and more to come.</p>"
 - scene_number: "51"
   scene_title: Who Makes This List, UNESCO? Lonely Cylinder?
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene51.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene51.jpg
   narration: "<p>Gobekli Tepe must be working wonders for the Sulu Tourism Board,
     as their capital Bauang is rated the greatest city on the Cylinder. In fact a
     lot of island cities appear here; I guess even in this parallel universe people
@@ -519,7 +519,7 @@ scenes:
     of Man.</p>"
 - scene_number: "52"
   scene_title: Liturgy of Abdelkader
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene52.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene52.jpg
   narration: "<p>Of all the civs to found religion #2, it’s only Algeria, which has
     quickly become one of the most interesting nations around. Even stranger, that
     means both religions founded thus far have their holy cities on the north coast
@@ -530,7 +530,7 @@ scenes:
     of success? Let’s peek at the beliefs.</p>"
 - scene_number: "53"
   scene_title: Healing Hands
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene53.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene53.jpg
   narration: "<p>The first one’s certainly handy: faith healers, which provides a
     huge healing bonus to units near friendly cities. Maybe Algeria shouldn’t spread
     that religion too far after all! Of the pantheons we haven’t seen before, the
@@ -538,21 +538,21 @@ scenes:
     PLEASE don’t quote me on that.</p>"
 - scene_number: "54"
   scene_title: Old Gods and the New
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene54.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene54.jpg
   narration: "<p>We’ve seen the Sunni beliefs before, but we do see some new pantheons
     here. Look out for some Beta Israeli wonders with that buffed Monument to the
     Gods belief, while the Lighthouse bonus of Ocean’s Bounty is a nice early buff
     for Madagascar.</p>"
 - scene_number: "55"
   scene_title: One Step Closer to Voodoo
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene55.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene55.jpg
   narration: "<p>The other Nestorian belief is a little underwhelming, given the AI’s
     usual approach to gold. The Iroquois predictably pick up the forest-friendly pantheon,
     while Haiti win the prize for best-named pantheon, even as the bonus is almost
     entirely useless.</p>"
 - scene_number: "56"
   scene_title: Yup, That’s Yup’ik
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene56.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene56.jpg
   narration: "<p>We picked a great time to look at religious beliefs, missing out
     on seeing a powerful enhancer belief by one turn. Meanwhile, the Yup’ik almost
     guarantee they’ll pick one up with the construction of the faith-happy Stonehenge.
@@ -563,7 +563,7 @@ scenes:
     and we should be calling them the Yupiit. But I won’t lose sleep over it.</p>"
 - scene_number: "57"
   scene_title: Quad-Cities
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene57.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene57.jpg
   narration: "<p>One scene and four brand new cities—we’re being spoiled. From top
     to bottom: Alaric find a sunny shore on the Black Sea that feels Just Like Heaven,
     and founds Oium. Whether the Goths can cling on to this city is unclear—the
@@ -577,7 +577,7 @@ scenes:
     base for the wars to come.</p>"
 - scene_number: "58"
   scene_title: The Two Persias
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene58.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene58.jpg
   narration: "<p>That’s not the only peril the Seljuqs face this turn, as Mithridates
     sends the Parthian army squarely at Hamadan. Alp Arslan’s defending forces are
     nothing to sniff at, but it’s safe to say Parthia have the upper hand for now.
@@ -586,7 +586,7 @@ scenes:
     and Ablai Khan are best friends forever. We’ll see.</p>"
 - scene_number: "59"
   scene_title: Yue’re Safe For Now
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene59.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene59.jpg
   narration: "<p>Canton slipped a lot in the rankings this week, but it’s still worth
     saying there’s a big old space between them and the other Chinas, and they've
     yet time to fill in the gap—well, if the Khamugs don’t fill it first. Ching
@@ -598,7 +598,7 @@ scenes:
     also exciting to see someone be eviscerated so decisively in the second part!</p>"
 - scene_number: "60"
   scene_title: Sahara Slapfight, Pt. 1
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene60.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene60.jpg
   narration: "<p>Algeria’s recent antics have earned two declarations of war; one
     from the land they blatantly forced their way into, and in this scene, one from
     the original religious dons of Africa. That said, Mukhtar’s Libya don’t look prepared
@@ -607,14 +607,14 @@ scenes:
     wonders under construction… this isn’t a promising start.</p>"
 - scene_number: "61"
   scene_title: Sahara Slapfight, Pt. 2
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene61.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene61.jpg
   narration: "<p>The story is similar down south, with Songhai yet to produce an army
     worthy of taking on Constantine, or the newer settle of Tlemcen. Algeria might
     somehow get away with this one. God, and to think I insinuated they were boring
     a few scenes ago—they’ve really come into their own these past few centuries.</p>"
 - scene_number: "62"
   scene_title: I’ll Tell You Who’s Hanua-BAD
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene62.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene62.jpg
   narration: "<p>Christ, now this is disastrous. I had high hopes for Papua coming
     into this, and they’re well and truly dashed now. Not only have they yet to build
     a settler, they’ve missed out on settling even their home island, with Sulu sneaking
@@ -623,7 +623,7 @@ scenes:
     a stab at Perth, but it’s safe to say nothing’s going to come of it.</p>"
 - scene_number: "63"
   scene_title: Zzzimbabwe
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene63.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene63.jpg
   narration: "<p>Nyatsimba Mutota builds the Pyramids, further beautifying the bountiful,
     oh-so-peaceful lands of Zimbabwe. It’s not an especially useful wonder, but it’s
     at least a sign their production is top-notch—and I’ll take those signs where
@@ -632,7 +632,7 @@ scenes:
     threat Nzinga poses right now, as Zimbabwe is looking ever more glass than cannon.</p>"
 - scene_number: "64"
   scene_title: Feisty Phaistos
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene64.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene64.jpg
   narration: "<p>Yeah!! Minoa!! Phaistos is retaken, signalling a golden age for the
     brave and valiant Minoan people, enshrining the heroes who recaptured the city
     forever and- ah, who am I kidding, it’s turning Nubian again next turn. That Nubian
@@ -644,7 +644,7 @@ scenes:
     to ask. Off-screen, Alaric’s war with the Golden Horde ends in, um, Disintegration.</p>"
 - scene_number: "65"
   scene_title: Plz Stop
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene65.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene65.jpg
   narration: "<p>Well, Prussia’s army turned up. And whaddya know, they captured Plzen
     just like that. No, I’m not crying, it’s just… humid. At least Prague is still
     unscathed, with the HRE completely unengaged in the Czech bonanza. Somewhere in
@@ -660,7 +660,7 @@ scenes:
     same thing.</p>"
 - scene_number: "66"
   scene_title: Hamadarn
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene66.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene66.jpg
   narration: "<p>Ooh, I was right about the Seljuqs nabbing their religion now! Phew,
     that’s a weight off my back for sure. The weight is still firmly on the backs
     of the Seljuqs, however, who see their city of Hamadan assaulted by Parthia. Curiously,
@@ -669,7 +669,7 @@ scenes:
     Mithridates and Parthia.</p>"
 - scene_number: "67"
   scene_title: Canal? Canal?!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene67.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene67.jpg
   narration: "<p>Well, Phaistos falling is hardly a shock, so let’s look at the positives
     instead: Nubia have left the Suez area and sent their settler towards the Sahara
     Desert instead. Wait, that also sounds like a negative. Let me try again… Minoa
@@ -680,7 +680,7 @@ scenes:
     still be cut up about Phaistos.</p>"
 - scene_number: "68"
   scene_title: First Point to Poverty
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene68.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene68.jpg
   narration: "<p>Gosh, Poverty Point successfully capture Montréal! I have to say,
     as much as I like this civ, I had little faith in them to pull this off, but it’s
     Tahera who takes the first city in the Americas. Not only that, it looks like
@@ -693,7 +693,7 @@ scenes:
     Hey Riel, that’s OUR job!</p>"
 - scene_number: "69"
   scene_title: YOWCHeng!
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene69.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene69.jpg
   narration: "<p>Because I’m never allowed to be happy for more than a scene at a
     time, we cut to China and—wow. The Xia/Shang are just being blown to pieces.
     It’s almost embarrassing. Yin, their new dynastic capital, falls to the Qing effortlessly.
@@ -705,7 +705,7 @@ scenes:
     of Qing’s, and Jamukha Khan could sacrifice Barlas for a shot on Beijing and Mukden.</p>"
 - scene_number: "70"
   scene_title: Konstant Pain
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene70.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene70.jpg
   narration: "<p>Did you remember Palmyra were at war with the Ottomans? Don’t worry,
     neither did they. But you should remember that Czechia were being invaded by the
     latter, and Mehmed II is pretty close to making headway on Ostrava, tearing down
@@ -715,7 +715,7 @@ scenes:
     Mehmed hasn’t noticed him yet.</p>"
 - scene_number: "71"
   scene_title: Boiling Point
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene71.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene71.jpg
   narration: "<p>While Nepalese scouts sweat their hair off in Hejaz, the Mesopotamian
     nations squint at each other menacingly. This pot’s about to boil, I’m sure of
     it, especially if that Seljuk settler further salts the stew with another cheeky
@@ -725,7 +725,7 @@ scenes:
     instead.</p>"
 - scene_number: "72"
   scene_title: Pays Yourselves
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene72.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene72.jpg
   narration: "<p>Oof, take that! We saw Uruguay were headed south for their next settle,
     but take a gander at the minimap (uh, maybe on the next slide when the cursor’s
     out of the way) and you’ll see Paysandú is placed very forcefully on the Selk’nam’s
@@ -736,7 +736,7 @@ scenes:
     any time soon.</p>"
 - scene_number: "73"
   scene_title: Dubious Firsts
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene73.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene73.jpg
   narration: "<p>Hamadan continues to take damage, but the Seljuqs have conjured some
     archers out of nowhere, so hope is not yet lost. Elsewhere, we see another first
     for the Cylinder—the first irrelevant wars. It wouldn’t be a huge AI game if
@@ -751,7 +751,7 @@ scenes:
     squandered the advantage they held over Maratha at the start of this war.</p>"
 - scene_number: "74"
   scene_title: Blissful by Baikal
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene74.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene74.jpg
   narration: "<p>Scout-Con is being hosted by the Evenks this part (I’m thinking it
     will probably cycle between them and the Nenets on a part-by-part basis). I don’t
     see any guests from the Americas just yet, but it’s only a matter of time before
@@ -764,7 +764,7 @@ scenes:
     this part, who knows where they could end up? The North Pole? The Moon?</p>"
 - scene_number: "75"
   scene_title: Second Point to Canada
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene75.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene75.jpg
   narration: "<p>Alas, Poverty Point might have bitten off more than they can chew,
     as their army around Toronto has dissolved. Oh well, they still made a solid gain
     from this war, and in even better news for them it appears the Apache army hanging
@@ -774,7 +774,7 @@ scenes:
     (which was always an ambitious settle anyway) build another settler in their capital.</p>"
 - scene_number: "76"
   scene_title: A Strange Status Quo
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene76.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene76.jpg
   narration: "<p>The only real action visible in this scene is Ostrava continuing
     to be hammered right at the bottom there, but if I think too much about that it’ll
     get humid again, so let’s focus on these new settles instead. I say new, but I
@@ -787,7 +787,7 @@ scenes:
     seem at any current risk either.</p>"
 - scene_number: "77"
   scene_title: And Then There Were Boats
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene77.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene77.jpg
   narration: "<p>Hang on, where did all that come from? No one on the Cylinder seems
     to have built a convincing navy yet—no one except Sakamoto Ryoma, that is. Shikoku
     also boast a newish city in Nakamura (well, we actually spotted it last part)
@@ -796,7 +796,7 @@ scenes:
     so hopefully they get a chance to use this newfound power soon.</p>"
 - scene_number: "78"
   scene_title: Only Parth of the Problem
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene78.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene78.jpg
   narration: "<p>The Parthians capture Hamadan! There’s no way Alp Arslan’s getting
     that one back, either—not with two new declarations of war headed his way from
     both Oman and Palmyra. Last time we checked in, Oman didn’t have much in the way
@@ -806,7 +806,7 @@ scenes:
     into the Himalayas.</p>"
 - scene_number: "79"
   scene_title: Sigh… Can’tal
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene79.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene79.jpg
   narration: "<p>The war for Phaistos is well and truly over; there aren’t any Minoan
     triremes left at all, and that lone warrior making landfall in the Nile Delta
     has as much a chance of capturing a city as transforming into a Giant Death Robot.
@@ -818,7 +818,7 @@ scenes:
     to found the Suez Canal! Can’t you do anything right, Nubia?!</p>"
 - scene_number: "80"
   scene_title: Ocea-nah
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene80.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene80.jpg
   narration: "<p>Murri and Australia put a kibosh on their uneventful war, which doesn’t
     seem to have left either nation much worse for wear. Murri could do to expand
     quickly, but without any settlers on the go I’m not hopeful. New Zealand sit unmenacingly to
@@ -828,7 +828,7 @@ scenes:
     turns.</p>"
 - scene_number: "81"
   scene_title: Britain Bleeds
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene81.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene81.jpg
   narration: "<p>Now, this is more like it! Scotland and the Manx’s war comes even
     sooner than expected. But honestly, despite the fact Scotland declared it, there’s
     no immediate front-runner; with Mann now having two cities up and running in England,
@@ -847,7 +847,7 @@ scenes:
     do the maths.</p>"
 - scene_number: "82"
   scene_title: Terror del Fuego
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene82.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene82.jpg
   narration: "<p>Time for a better look at that dastardly forward settle from Uruguay,
     and a better shot of the Selk’nam world in general. Another civ that were quick
     to four cities, and another civ who now seem reticent to expand further. But they
@@ -864,7 +864,7 @@ scenes:
     for Czechia, and honestly, a decision that could well come back to bite Mehmed.</p>"
 - scene_number: "83"
   scene_title: Soarin’ Past Sauran
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene83.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene83.jpg
   narration: "<p>I know the last thing of interest here is a new religion, but I am
     honour-bound to tell you that the Qing have founded Confucianism in Beijing. Got
     that? Good. Now looky here! The Kazakhs go to war with the Nenets, and I’m sure
@@ -875,7 +875,7 @@ scenes:
     now, but I think Nyar’yana Marq could potentially be in big trouble.</p>"
 - scene_number: "84"
   scene_title: The 1590s All Over Again
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene84.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene84.jpg
   narration: "<p>In the other exciting war this turn, Shikoku actually use that huge
     navy they’re sporting and assault Korea! I did think Pyongyang was looking awfully
     exposed, and it’s hard to see Seonjo holding onto it for long. And unlike most
@@ -887,7 +887,7 @@ scenes:
     onto life.</p>"
 - scene_number: "85"
   scene_title: Can the Sahara Desert Really ‘Heat Up’?
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene85.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene85.jpg
   narration: "<p>Things have heated up in the Sahel, with a sudden and huge Songhai
     army descending on Constantine. Barring any sudden peace treaty, the city is history
    —and Askia might drag Tlemcen down with it for good measure. We can see injured
@@ -895,7 +895,7 @@ scenes:
     on the other up there.</p>"
 - scene_number: "86"
   scene_title: Yes We Canal
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene86.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene86.jpg
   narration: "<p>Another religion? The last one on my list is the Yup’ik, who predictably
     took a religion after building Stonehenge earlier this part. A religion called…
     good luck Dawkinzz… Angakkunngurniq. An-gak-kun-ngur-niq. I’m sure it’s easier
@@ -909,7 +909,7 @@ scenes:
     being non-existent is reassuring for now.</p>"
 - scene_number: "87"
   scene_title: No Way, Nokugu
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene87.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene87.jpg
   narration: "<p>You’ve got to be kidding me… The Kuikuro keep their settler alive
     long enough to found a city right in the midst of Venezuela’s vast armies. Actually,
     said army seems to have retreated, but unless they signed Open Borders I think
@@ -920,7 +920,7 @@ scenes:
     hard enough for a naval assault.</p>"
 - scene_number: "88"
   scene_title: A Relaxing Wind-Down
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene88.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/season1-episode2-scene88.jpg
   narration: "<p>We close today’s proceedings with a scene of jolly Tonga, who currently
     seem happy to fulfil the same role Hawaii took last time around. They do manage
     a third city in Mu’a, and if you squint you’ll see a Sulu Proa (a faster trireme

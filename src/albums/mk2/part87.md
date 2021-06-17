@@ -7,11 +7,11 @@ release_date: 'October 10, 2017'
 audio_narration: https://youtu.be/gvRGfIERU6c
 edition: Mk2
 date: 2017-10-10T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene01.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene01.jpg
   narration: Hello from sunny England, and welcome back for part 87 of the Civ Battle
     Royale! It’s Lacsirax Ariscal here, power ranker, hasbeen cartographer, and third-time
     narrator of the Battle Royale. The first part I narrated was called Triple-Kill,
@@ -23,7 +23,7 @@ scenes:
     knowledge of anime. Yep.
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene02.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene02.jpg
   narration: DerErlenkonig brings the beautiful Tile-Accurate Map, showing the true
     scale of Finland’s plummet from glory, Urho’s once expansive empire now no more
     than a Sweden-Sibir sandwich and a few of his characteristic exclaves. Check out
@@ -34,7 +34,7 @@ scenes:
     it down in the comments.
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene03.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene03.jpg
   narration: 'If you missed the Power Rankings this week, you missed a big one, as
     the Boers fell from #1 for the first time in fourteen parts. It’s the Inuit who
     grace the top spot this week, thanks to their efficient counter-invasion of Australia’s
@@ -44,7 +44,7 @@ scenes:
     see if any of that transpires as we enter Part 87!'
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene04.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene04.jpg
   narration: 'Now here’s an unexpected sight! No, I haven’t scribbled all over this
     image, that complete mess of green is actually an account of every single Declaration
     of Friendship made thus far. While functionally these don’t mean a lot, they can
@@ -57,7 +57,7 @@ scenes:
     to the more eagle-eyed.'
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene05.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene05.jpg
   narration: While we’re at it, let’s examine some research agreements. Most of the
     fully advanced nations have understandably abstained from these frivolities, but
     the Boers are being incredibly generous, offering their hyper-advanced science
@@ -66,7 +66,7 @@ scenes:
     on producing units, however outdated. For the time being, I can’t say I disagree.
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene06.jpg
   narration: Our first real shot of the show! Ingolfur’s Iceland are apparently already
     hankering to continue their conflict with Finland, with new recruit Ur-ziguruma
     presumably taking the hint from the five planes stationed in Constantinople. It’s
@@ -77,7 +77,7 @@ scenes:
     tour. I wonder what music in the hyper-futuristic Cylinder sounds like?
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene07.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene07.jpg
   narration: It’s clear that Sweden still haven’t run out of steam; the amount of
     troops in this shot alone are more than enough to rip through the Finnish cities
     we can see here. Bear in mind Kuopio was conquered just this turn, and already
@@ -86,7 +86,7 @@ scenes:
     the Kola Peninsula, is the last city that Finland founded still under their control.
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene08.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene08.jpg
   narration: 'Here’s New Finland then: a small strip of formerly Soviet land separating
     Sweden from Sibir. I wouldn’t expect this buffer zone to last. So what will Sibir
     make of their new western border? While they immediately seem to have less of
@@ -97,7 +97,7 @@ scenes:
     army spring up soon.'
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene09.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene09.jpg
   narration: Hardcore Finn fans should only be so sad. It’s very unlikely they’ll
     be spirited from the whole Cylinder, what with their multitude of exclaves. The
     most protected of these is, ironically, on Sweden’s doorstep, but the sheer amount
@@ -105,7 +105,7 @@ scenes:
     close. Well, it wouldn’t be the Battle Royale without peacekeepers!
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene10.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene10.jpg
   narration: Is Britanny the commerce capital of the world? York has more customs
     houses than I’d know what to do with. From someone who lives there, it’s like
     the exact opposite of real life Yorkshire. Putting aside Iceland’s comfy finances,
@@ -115,7 +115,7 @@ scenes:
     you down from the other.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene11.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene11.jpg
   narration: Here’s the Boers’ Blemish, the last remaining vestiges of a once extensive
     Buccaneer colony, and the site of some of the most horrific nuclear devastation
     this Cylinder has ever seen. Of course, the days of nuclear warfare appear to
@@ -129,7 +129,7 @@ scenes:
     others don’t is very telling.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene12.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene12.jpg
   narration: Meanwhile, drifting a few thousand miles from the more militarized areas
     of the Boer Ryk, a French galleass has been banished to a small patch of coast,
     unable to sail in the deep ocean, and presumably unable to sail through Boer naval
@@ -139,7 +139,7 @@ scenes:
     once again, this time probably for eternity.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene13.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene13.jpg
   narration: Ah, the Sibir-Vietnam War. At this point, it’s like an old friend. An
     old, dependable friend. An old, dependable friend who’s starting to get a bit
     boring. I’ve long considered Vietnam a favourite to win, but my faith in them
@@ -152,14 +152,14 @@ scenes:
     Organic Infantry.
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene14.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene14.jpg
   narration: Sibir also retain Nishapur; ordinarily I’d say Vietnam should take it
     back this turn, but the way this war has been going for them, I’m not sure I can
     commit to that statement. They do, however, have more than enough troops to ensure
     that Nishapur will be their only loss on this front for the foreseeable future.
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene15.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene15.jpg
   narration: A useful open borders with erstwhile rival Finland has let Kuchum Khan
     funnel a decent contingency of BioTroopers into the area around Bamda, but again,
     capturing Nagchukha would be an incredible feat as the table currently stands.
@@ -167,7 +167,7 @@ scenes:
     be one of Finland’s last cities in a few turns.
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene16.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene16.jpg
   narration: Our first shot this part of the Sibirian homelands shows that things
     are, unfortunately for Sibir, largely the same story as the parts before. It appears
     that even their annexed cities are failing to pump out units at a decent enough
@@ -176,7 +176,7 @@ scenes:
     hardly a problem anymore. It’s an uneasy safety, but it’s something.
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene17.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene17.jpg
   narration: 'One of the few places left on the Cylinder where carpets remain the
     norm, the Inuit territories. The current #1s are fielding easily the most impressive
     land army outside of the pokey Australian continent, but that’s not to say their
@@ -186,7 +186,7 @@ scenes:
     nation.'
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene18.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene18.jpg
   narration: Vietnam’s carpet isn’t looking so bad, for what it’s worth – compared
     to adversary Sibir, the Trung Sisters have a veritable horde. Meanwhile the wilfully
     atheistic enclave Tibet faces yet another ineffectual declaration of war, this
@@ -197,7 +197,7 @@ scenes:
     is more trouble than it’s worth.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene19.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene19.jpg
   narration: Apparently realising that a Finnish invasion is a lost cause, Ingolfur
     reshuffles his plans and looks to his tasty Swedish neighbour. Iceland’s most
     memorable moment from the CBR thus far was their devastating invasion of Ireland
@@ -205,7 +205,7 @@ scenes:
     not too farfetched to imagine a similar strategy being employed again.
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene20.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene20.jpg
   narration: Pedro II shares his continent with just one other civilization now, the
     enduring Buccaneers. While Morgan no longer controls any cities that Pedro founded,
     it’s obvious that the Brazilian emperor has Boliviarian ambitions for his nation.
@@ -216,7 +216,7 @@ scenes:
     being converted into circuses.
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene21.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene21.jpg
   narration: Another turn, another city for Gustavus’ northern lions. This time it’s
     Kharkov, and having reached the Sibirian border at last, there’s virtually no
     way for Urho to even attempt to reconquer the city. Sweden have wrangled open
@@ -224,7 +224,7 @@ scenes:
     on their good side, rather than continue their march east.
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene22.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene22.jpg
   narration: There are no border changes down the Ukraine way, though Leningrad is
     Sweden’s next target. Antioch, down in Crimea, is a much more difficult proposition,
     what with there only being one access point from land. Without a Black Sea navy,
@@ -232,7 +232,7 @@ scenes:
     not – it would probably only take one bombing raid, after all.
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene23.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene23.jpg
   narration: Vietnam again pushes on Carrolltown, though they’ll need more than one
     melee unit to take the Caspian stronghold. Another weakness of theirs is their
     terrible air force; in this shot there are zero Vietnamese planes, and five in
@@ -242,7 +242,7 @@ scenes:
     south.
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene24.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene24.jpg
   narration: But never mind mountains, as an equally impassable obstacle is suddenly
     materialising. Australia, whose continent has long been full to the brim with
     their troops, has started to send their spare soldiers to the area around Bamda,
@@ -251,7 +251,7 @@ scenes:
     Ozzie buffer zones.
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene25.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene25.jpg
   narration: I left my contact lenses on a train last week (and, incidentally, my
     laptop), so you’ll forgive me for not being able to make heads nor tails of this
     slide. The Boers are top in score, of course, and the Inuit are second – but who’s
@@ -259,7 +259,7 @@ scenes:
     for sure – Babylon’s last. Our power is more subtle, of course.
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene26.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene26.jpg
   narration: If Korea supporters weren’t embarrassed already, they should be now –
     Mongolia’s army has overflowed into Korea’s territory, and not even slightly,
     with troops all the way down to the Vietnamese border. Sejong’s newfound aversion
@@ -272,7 +272,7 @@ scenes:
     while they still can.
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene27.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene27.jpg
   narration: A rare look at Jandamarra’s new home. Kimberley’s capital relocated to
     Wulungarra from Makassar in the hiatus. On the face of it, this Antarctic archipelago
     looks unthreatened – but a war with Australia would likely see the Great Wobbegong
@@ -280,7 +280,7 @@ scenes:
     cities the friendlier way – trade monopolies.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene28.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene28.jpg
   narration: We’d doubted Sejong for too long, and Sejong reacted. Seeing the influx
     of Australian peacekeepers, Korea has set their sights on the Finnish exclave
     of Turfan before the city is completely protected. Mongolia really missed out
@@ -290,7 +290,7 @@ scenes:
     Academy for Non-Violent Intervention.
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene29.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene29.jpg
   narration: COULD SRI LANKA TAKE DOWN VIETNAM??? Er, probably not. Even less likely,
     Tibet, on whom Sri Lanka have just joined the coalition. Note the Australian troops
     cropping up here too, though there’s less free space for them to fill in Sri Lanka.
@@ -301,13 +301,13 @@ scenes:
     where it’s held.
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene30.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene30.jpg
   narration: Jyvaskyla falls, and with it, the Finnish dream. Now every single city
     they hold was originally founded by their enemies. But maybe that’s what Finland
     was always about? Anyway, you hardly need me to point out the fate of Stalingrad.
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene31.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene31.jpg
   narration: 'No change again on the southern battlefields, though it’s increasingly
     clear Sweden are ignoring the Finnish airbase of Antioch, focussing on the more
     accessible Leningrad, which AI madness notwithstanding, will fall next turn. The
@@ -315,7 +315,7 @@ scenes:
     going to chase Finland down exclave by exclave?'
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene32.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene32.jpg
   narration: Having brought Gyumri and Artashat back online, Vietnam currently look
     quite cosy in the Middle East. With such a mess of borders, even if some of them
     are with such insignificant nations as Armenia and, well, Finland, it helps to
@@ -325,7 +325,7 @@ scenes:
     up Tiridates’ nation in one.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene33.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene33.jpg
   narration: A couple of little factbook slides for you now. First we see falling
     stars Korea, whose outstanding science far outstrips their culture, being only
     11th in terms of social policies enacted. Having only the eighth largest military
@@ -334,7 +334,7 @@ scenes:
     people clearly aren’t happy with their ailing leader, dubbing him Sejong the Terrible.
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene34.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene34.jpg
   narration: Another, more justifiably “Terrible” leader, Parakramabahu leads a blisteringly
     mediocre Sri Lanka. It’s a little in-joke among the Power Rankers that despite
     all our disagreements on the powerful and indeed less powerful nations, we always
@@ -342,7 +342,7 @@ scenes:
     sheer amount of 14s and 15s you can see in this slide.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene35.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene35.jpg
   narration: Parkes’ peacekeepers have spread even further afield, now clogging up
     the mountain passes to Nishapur. This one could actually work in Vietnam’s favour,
     as that spot was often taken by a rogue Sibirian unit taking out Vietnam’s melee
@@ -351,7 +351,7 @@ scenes:
     that I will be confounded next turn, and the turn after.
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene36.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene36.jpg
   narration: Bamda, on the other hand, is now almost certainly a lost cause. Parkes
     is clearly making a very early play for the 2018 Nobel Peace Prize. The Trungs
     would do well to cut their losses and focus on defending the hills outside Nagchukha
@@ -361,7 +361,7 @@ scenes:
     sweeping up Sri Lanka and Armenia, or…
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene37.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene37.jpg
   narration: DEFENDING AGAINST THE TERRIFYING BOER RYK. Oh yes, your eyes are not
     deceiving you. Kruger has declared war on the Trung Sisters, in a war that will
     surely shake the Cylinder to its core. Already Basra and Jericho are taking damage
@@ -374,18 +374,18 @@ scenes:
     most unlikely superpowers. It’s time for them to prove it.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene38.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene38.jpg
   narration: The raw stats are certainly in Kruger’s favour, ranking first in every
     category that counts except, crucially, army size – that mantle is held by Australia.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene39.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene39.jpg
   narration: Hell, you wanna know more about the Boers? How about the fact they have
     the greatest faith output, greatest tourism output AND the most wonders? Oh yeah,
     and you thought they were just a brutish military power.
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene40.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene40.jpg
   narration: Vietnam are hardly shabby, with a military force at about 2/3 the size
     of the Boers, though defending a smaller area. They also have a very good industry
     and a remarkable treasury, so it shouldn’t take them too long to get more soldiers
@@ -393,12 +393,12 @@ scenes:
     95.
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene41.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene41.jpg
   narration: They’re also not really prioritising tourism. Maybe, just maybe, that’s
     not such a bad thing.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene42.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene42.jpg
   narration: Well, it wouldn’t be a major war without a quick look at the fronts.
     Vietnam has never commanded a navy in the Arabian Sea, but the Boers’ is almost
     entirely made up of carriers, so it’s not a huge disadvantage. With that having
@@ -407,7 +407,7 @@ scenes:
     the latter.
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene43.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene43.jpg
   narration: That said, Vietnam hasn’t been completely slacking in Western Asia, and
     their Iranian army – presumably originally intended for Sibir – is close enough
     to build a significant front line before the Boers can advance uncontested too
@@ -416,7 +416,7 @@ scenes:
     Vietnam’s favour, however brief that window might be.
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene44.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene44.jpg
   narration: Both armies have open borders with Finland, and one of the first great
     clashes of this war may well happen outside Hebron. It’s this area where Vietnam
     have the most obvious upper hand, with the forces outside Tigranocerta and Varna
@@ -426,7 +426,7 @@ scenes:
     newest conquests will be very bloody indeed.
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene45.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene45.jpg
   narration: That war is certainly the only one I want to watch now, but we mustn’t
     ignore the rest of the Cylinder. A once great power is still being torn apart,
     after all. Stalingrad, Finland’s last northern settlement, will fall next turn.
@@ -436,14 +436,14 @@ scenes:
     now might not be the best time after all.
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene46.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene46.jpg
   narration: Speaking of which, that war still hasn’t ended, and the Trung Sisters
     are presumably more than a little annoyed that their pointless conflict had actually
     started to turn in their favour. Carrolltown looks a little more vulnerable, and
     Nishapur has actually flipped, though now rests once again in Kuchum Khan’s hands.
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene47.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene47.jpg
   narration: Nishapur flipping has scattered the Australian troops further afield
     into the old Timurid lands. Vietnam are in a very precarious position here; the
     troops sitting in Central Asia would be far better used elsewhere, but they can’t
@@ -452,7 +452,7 @@ scenes:
     asking for an incredibly steep price.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene48.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene48.jpg
   narration: In East Asia, to a war I’d honestly forgotten had broken out this part,
     and it’s looking like Korea will take Turfan after all. It’s reassuring to see
     they do have some land forces, and while they’ll certainly conquer the feeble
@@ -463,7 +463,7 @@ scenes:
     off the cards, barring a moment of insanity.
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene49.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene49.jpg
   narration: If official occupation doesn’t work out, you can always try Putin-style,
     right? Australia and Brazil have immediately signed open borders following their
     recently settled war, and Australian forces decorate Brazilian Chile. As bad as
@@ -474,7 +474,7 @@ scenes:
     territories.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene50.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene50.jpg
   narration: The recent declaration of war against Vietnam was apparently all it took
     for the northern Boers to raise arms, and while they hardly have a carpet, Kruger’s
     forces once again look like the threat they’ve long been considered to be. That
@@ -489,13 +489,13 @@ scenes:
     waits.
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene51.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene51.jpg
   narration: 'Armenia, aware that their chances of a domination victory are, well,
     slim, are focussing on what really matters: art, literature and music. Well, and
     infantry. But that’s just for defence, okay?'
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene52.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene52.jpg
   narration: Brazil, in a valued moment of peace, turns their sights to the World’s
     Fair, eager to host it in their glorious capital of Rio de Janeiro. For the most
     part though they’re wisely focussing on scientists, eager to make up the technology
@@ -503,38 +503,38 @@ scenes:
     the inevitable.
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene53.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene53.jpg
   narration: The densest city in the world, megapolis Kaneohe is still growing! And
     they’re also producing science like nobody’s business. There are worse places
     to live than peaceful Hawaii, certainly – though I imagine the queues for cash
     machines are very long.
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene54.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene54.jpg
   narration: Iceland too are focussing on their science game, wisely building the
     National College in their capital. You can’t quite walk to Ireland on carriers
     alone, but there’s only a one tile gap.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene55.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene55.jpg
   narration: Eminent mathematician Pythagoras takes time out of trigonometry to count
     the world’s spare change. As seen earlier, Kruger and the Trungs lead the pack,
     but it’s interesting to see Kuchum so high up. What’s he spending that treasury
     on, exactly? Well, I guess nothing.
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene56.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene56.jpg
   narration: A brutalised Finland don’t actually fall that much further behind than
     their usurpers Sweden. Elsewhere, this list is hardly a crushing surprise.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene57.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene57.jpg
   narration: Babylonians, living in the utopian society that we do, have no need for
     nor even notion of material wealth – and apparently neither do the Yakutians.
     Either that, or they’re dirt poor. Take your pick.
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene58.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene58.jpg
   narration: The World’s Fair is held in the punishingly cold city of Ivvavik, presumably
     to the ire of the Boers, who stayed home in their blisteringly sunny private continent.
     It was a safe investment for a currently peaceful Inuit, as it was for third place
@@ -543,7 +543,7 @@ scenes:
     was presumably too busy planning his super-secret strategies.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene59.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene59.jpg
   narration: Just a moment ago, the rankers were discussing where the nicest place
     to live in the Cylinder might be. Madagascar was suggested, as was San Antonio
     (a Texan-cum-Inuit city situated at IRL St. Louis). I still think it’s Iceland,
@@ -555,13 +555,13 @@ scenes:
     carrier scouting the very north of the Greenland Sea.
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene60.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene60.jpg
   narration: Stalingrad has fallen, leaving only a useless contingent of Finnish cybersubs
     left patrolling the White Sea. The war here is well and truly over. Gustavus should
     be very proud; this has been almost too easy.
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene61.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene61.jpg
   narration: 'Down south the success story continues; Ufa has fallen out of nowhere,
     and Antioch looks very prone to following it. With Antioch being Finland’s new
     capital, we can infer that Leningrad has fallen too. By my counts, that leaves
@@ -572,7 +572,7 @@ scenes:
     It’s been a very quick, very sharp fall for a nation I once ranked #1.'
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene62.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene62.jpg
   narration: Back to what we’ve all been waiting for, and we can see that Vietnam
     have indeed swooped in to defend Arabia, with Jericho standing tall. Interestingly,
     in an inversion of usual proceedings, the Boers are threatening the walls of Jericho
@@ -585,7 +585,7 @@ scenes:
     to be a lot less painful for Kruger.
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene63.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene63.jpg
   narration: First blood does go to the Boers as they seize Basra, which has all but
     been abandoned by the Trungs. But they do rally an impressive force around Najran,
     keeping the city relatively safe for the time being. Both sides have a lot to
@@ -596,21 +596,21 @@ scenes:
     most fearsome foe on the Cylinder using more traditional methods.
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene64.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene64.jpg
   narration: They have to pull out of this war as fast as possible, though – even
     as, ironically, they are able to put the heat on Kuchum Khan, sending two melee
     units to the gates of Carrolltown. Sibir, for what it’s worth, are starting to
     look spent.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene65.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene65.jpg
   narration: Indeed, Vietnam haven’t made a net loss of cities this turn, regaining
     Nishapur and holding it this time. Sibirian BioTroopers may march straight back
     into the settlement, but at least for now Vietnam is defending the mountains,
     not desperately hurtling themselves up them.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene66.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene66.jpg
   narration: Bamda continues to be surrounded by Australian troops but there is now
     a way through for an enterprising young tank, should the Trungs give the order.
     This is all small fry now – none of this matters if Kruger breaks their Arab army
@@ -618,7 +618,7 @@ scenes:
     to fight now for generations.
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene67.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene67.jpg
   narration: As I hinted earlier, Turfan has fallen to Sejong. Korea has been disappointing
     since the hiatus, so it’s reassuring to see that their first conflict has been
     short, sensible and successful. But they really should get working on that land
@@ -626,7 +626,7 @@ scenes:
     their kingdom that they won’t even have room for a hwacha.
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene68.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene68.jpg
   narration: 'Western Europe, a land that has long been ravaged by constant conflict,
     has been relatively peaceful the past few decades, thanks to the Nordic hegemony.
     And indeed, despite rumours that Iceland were to backstab Sweden at their finest
@@ -639,7 +639,7 @@ scenes:
     other words, strange troop movements like these often point to surprise wars.'
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene69.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene69.jpg
   narration: Despite both of the iciest nations on the Cylinder fielding full naval
     carpets, it’s clear Ekeuhnick’s would tear the Icelandic carrier fleet to shreds
     in mere turns, such is the technological disparity. That said, Iceland and the
@@ -648,7 +648,7 @@ scenes:
     gone – perhaps Ethiopia?
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene70.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene70.jpg
   narration: 'On the antipodal side of the world, Kimberley engineers continue work
     on a modern armor, presumably one that can float. Who do you think will own this
     city next? Kruger? Parkes? Or will Jandamarra really use this capital to launch
@@ -656,7 +656,7 @@ scenes:
     brilliant colours? Spoiler: no.'
 - scene_number: "71"
   scene_title: 71
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene71.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene71.jpg
   narration: 'It’s been a fearsome part. Let’s remember everything that happened:
     Finland was systemically absorbed by Sweden (and sucker-punched by Korea for good
     measure). Tibet continued to draw ire from nations too not-Vietnamese to do anything
@@ -668,29 +668,29 @@ scenes:
     at war with?'
 - scene_number: "72"
   scene_title: 72
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene72.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene72.jpg
   narration: We saw the treasury standings just a few slides ago, and things remain
     entirely the same. It’s interesting the Boers decided to invade Vietnam when nearby
     Iceland appear the far easier foe from stats alone.
 - scene_number: "73"
   scene_title: 73
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene73.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene73.jpg
   narration: The Yaks continue to starve, while the Babylonians continue to transcend.
 - scene_number: "74"
   scene_title: 74
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene74.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene74.jpg
   narration: The Boers, with a religion now under their belt, are by far producing
     the most faith, with Brazil the only superpower not making it a priority (although
     3,600 is still an insane amount for what is ostensibly the 25th turn of the game!)
 - scene_number: "75"
   scene_title: 75
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene75.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene75.jpg
   narration: Would you believe it? Yakutia actually beat Hawaii at something as they
     scrape behind a pitifully low Sri Lanka. Tibet remain top of the rump states despite
     their apparent aversion to religion.
 - scene_number: "76"
   scene_title: 76
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene76.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene76.jpg
   narration: Wow, a juicy military graph for me to squint at and hardly be able to
     discern! Even I can see the obvious things on here though – while Australia’s
     military might is plateauing, the Boers and Inuit continue to chase each other
@@ -699,7 +699,7 @@ scenes:
     in a total war for the entire time.
 - scene_number: "77"
   scene_title: 77
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene77.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene77.jpg
   narration: We come finally to religion, of which we apparently will only ever have
     five. While none of the religions have spread outside their homelands yet (remember
     that Catholicism was adopted by Yerevan on the turn of its founding thanks to
@@ -710,7 +710,7 @@ scenes:
     looks to follow the great Party Pope’s faith in terms of cultural relevance.
 - scene_number: "78"
   scene_title: 78
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene78.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part87-scene78.jpg
   narration: Finally the religion map, which shows us nothing we didn’t already know.
     And that’s all from me. Thanks for reading, thanks for continuing to follow this
     mad adventure, and thanks to anyone who’s been writing excellent prose for the

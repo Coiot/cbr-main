@@ -7,11 +7,11 @@ release_date: 'October 07, 2015'
 audio_narration: https://youtu.be/Fmiv_wlI3tY
 edition: Mk2
 date: 2015-10-07T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part16-scene06.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/mark2-part16-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: 1
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene01.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene01.jpg
   narration: "Hellooo Fellow Armchair Generals and other bloodthirsty fans who love
     the sight of dead empires and razed cities, and of course the glory of seeing
     all but one of the 61 civilizations fight each other for supremacy on the most
@@ -25,12 +25,12 @@ scenes:
     as we left off)."
 - scene_number: "2"
   scene_title: 2
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene02.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene02.jpg
   narration: Another iteration of the animated gif map by /u/kittke based off of the
     amazing cartographic skills of /u/SylonL!
 - scene_number: "3"
   scene_title: 3
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene03.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene03.jpg
   narration: "Our brave Babylon recruit Em who is secretly working deep in the underground
     rooms of the Kremlin has found out that a drunk Stalin after having 6 bottles
     of Vodka ordered his troops to go on vacation in South-East Asia. \nTo do this
@@ -46,7 +46,7 @@ scenes:
     you are correct, there is one just by the capital. Wow... NEXT!"
 - scene_number: "4"
   scene_title: 4
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene04.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene04.jpg
   narration: "It seems that with the brilliant and cunning help of Fyodar Ushakov
     the Carthagians should easily be able to clear out Antium without loosing a single
     ship! Because that was actually true. Fyodar was Russia‘s most illustrious Naval
@@ -63,13 +63,13 @@ scenes:
     pick!"
 - scene_number: "5"
   scene_title: 5
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene05.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene05.jpg
   narration: |-
     England has a made Peace with Ireland! Big news! Now Elizabeth will have to complement being just purely England and not (most of) Wales and Cornwell too! Big victory for Ireland too, they didn‘t do much on the northern front and they lost plenty of units but taking Nottingham enables a great edge on England and further squizes that little turtle back into his shell. And now she will have to deal with a channel owned by France, herself and Ireland and the sea route through to Hastings means passing through one tile owned by Ireland unless you go overland a bit. Also, York is almost empty of units defending. Come on Napoleon...
     And while this happens, Hitler can go blitzkrieg through Northern France, take back his beloved Cologne and sweep through France in 3 weeks thus help in easing the Lebensraum crisis because seriously... It‘s getting really crowded now. Meanwhile on the other side of the planet, Japan and Mongolia declare their love for eachother. But this is Battle Royale so this doesn‘t mean much unless they plan to work together in overthrowing their Babylonian watchers.
 - scene_number: "6"
   scene_title: 6
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene06.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene06.jpg
   narration: In revenge for loosing past wars to the Ayyyyyy‘s Ethiopa has taken revenge
     by building 3 citadels all the way up to Baalbek and Aswan. Whether or not this
     was here before i don‘t know but at least Haile‘s (Ethiopia) anger is somewhat
@@ -79,7 +79,7 @@ scenes:
     at first, but he should stop doing god know‘s what and build UNITS!!!
 - scene_number: "7"
   scene_title: 7
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene07.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene07.jpg
   narration: "Buccaneer triremes hold off against Mayan ships but something else mysteriously
     looms. Polynesian warriors are marching in great numbers throughout Latin America,
     or more importantly the Mayans. If the Bucs or Texas continue fighting (haha not
@@ -92,7 +92,7 @@ scenes:
     and emplacements across the countryside?! Anyone?!"
 - scene_number: '08'
   scene_title: 8
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene08.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene08.jpg
   narration: "Jandamarra (Kimberley) decided to prove to Henry Parkes (Australia)
     just how cool he was at DOW‘ing people and asserting military superiority. Problem
     is is that he mistook the Indonesians for Timurids. Henry Parkes was quick to
@@ -105,7 +105,7 @@ scenes:
     to a former minister for women and ‘captain caller‘ who shall not be named."
 - scene_number: '09'
   scene_title: 9
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene09.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene09.jpg
   narration: "The city of Bundaberg in all it‘s glory! The settlers have always been
     quite intrigued by the Maoi rocks that would have belong to Polynesia but who
     have never actually visited the island! Plus the island should rightfully and
@@ -123,34 +123,34 @@ scenes:
     more violence."
 - scene_number: "10"
   scene_title: 10
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene10.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene10.jpg
   narration: Another incite into the dark continent. I can see why Babylonians always
     say ‘hmpf‘ and walk away. Nothing much happening other than some of those Polynesians
     moving further south wanting to experience the jungles of Cambodia infamous for
     their rum running hideouts by Buccaneers hiding from Brazilians and Incan patrols.
 - scene_number: "11"
   scene_title: 11
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene11.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene11.jpg
   narration: |-
     And boom! There goes the Second War of Really Tight Mountain Passes! The Timid Timurids already have the upper hand but this is a 1 tile passage. All Armenia needs to do is pull a ‘300‘ with ranged units behind and just fight. This might result into a lawsuit between Sparta and Armenia but Tridates just needs to worry a little more about his fleet in the Caspian more I think.
     Not having control of it would enable Amphibious landings by the Timurids which could be disastrous if left unchecked and if enough units land.
 - scene_number: "12"
   scene_title: 12
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene12.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene12.jpg
   narration: ScoutCon 1360 is going well. However attendance does feel a little less
     as Finish and Mongolian scouts leave citing boredness and yet again Israeli hosting.
     It should also be noted that the once unbeatable Yakutian carpet is also thinning
     out.
 - scene_number: "13"
   scene_title: 13
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene13.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene13.jpg
   narration: And boom second DOW! But let‘s hope that Mirwais Hotak is more prepared.
     If he learnt his lesson last time then Afghanistan will certainly become the graveyard
     of the Timurid empire or at least just a city or 2. I‘m loving these actually
     relevant wars! Aren‘t you guys?
 - scene_number: "14"
   scene_title: 14
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene14.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene14.jpg
   narration: "Ferdinand Magellan is now looking at helping out the Icelandish a bit
     now! He will personally lead an Icelandic expedition to the Orient in search of
     a western trade route for Iceland to follow. \nWhether the mutinies start to get
@@ -162,7 +162,7 @@ scenes:
     year 1360BCE is not when Terminator is released :("
 - scene_number: "15"
   scene_title: 15
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene15.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene15.jpg
   narration: Aha! Here is what we have been waiting for! Texan troops have regrouped
     and are charging at Mexico city! Austin angered so many people Mexico is dead
     meat! If Texas can surround the city with shear strength and attack with shear
@@ -174,7 +174,7 @@ scenes:
     left coinciding with the Mexicans?!) So many conspiracies!
 - scene_number: "16"
   scene_title: 16
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene16.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene16.jpg
   narration: "Ouchie ouch Ashanti ain‘t having a nice day today at all! Kongo just
     took Atebubu, with two cities left Tutu is fucked. But I can‘t stop noticing Kumasi.
     Did the Kongo go in, attack and just leave? \nAccording to the latest war map
@@ -186,7 +186,7 @@ scenes:
     was good while it lasted."
 - scene_number: "17"
   scene_title: 17
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene17.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene17.jpg
   narration: Enlightened Brazilians from across the empire all celebrate a new era
     in world history! Perhaps this era will turn the dark continent into a great centre
     of culture, art and science! But in the meantime, a large convoy of Argentine
@@ -195,7 +195,7 @@ scenes:
     movie directors.
 - scene_number: "18"
   scene_title: 18
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene18.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene18.jpg
   narration: Brazil takes back! But will it last? Or more importantly, will they even
     capture Cartagena? Again more fight scenes for Henry Morgan! Brazil loves those
     beautiful stalemates so much! Even if Pedro succeeds, it won‘t last long. Buccaneer
@@ -203,7 +203,7 @@ scenes:
     all.
 - scene_number: "19"
   scene_title: 19
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene19.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene19.jpg
   narration: "Whoah wait a minute? Sparta retook Antium? Looking back I guess Admiral
     Feyodar Ushakov was a genius! So much so that he must of taken the city without
     the Babylonians noticing! Damnit TPang! I feel like a detective doing detective
@@ -212,13 +212,13 @@ scenes:
     ABOUT THESE GLORIOUS EVENTS!!! I blame the satellites."
 - scene_number: "20"
   scene_title: 20
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene20.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene20.jpg
   narration: IN BREAKING NEWS! AFTER A LONG TIME OF SEVERAL DECADES SINCE LAST STUPID
     WAR, YAKUTIA HAS DECLARED WAR ON... The Timurids? ... Sigh. When will an actual
     war occur :(
 - scene_number: "21"
   scene_title: 21
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene21.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene21.jpg
   narration: "The Last Legion! Starring a real genuine Roman Legion mixed with a pair
     of Balistas hiding from Spartan dominince in Anatolia! \nUnsurprisingly, inspired
     Babylons have watched it making the movie a major box office success on board
@@ -229,7 +229,7 @@ scenes:
     about the movements of these brave fighters! What will happen I  dare ask?"
 - scene_number: "22"
   scene_title: 22
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene22.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene22.jpg
   narration: "Tridates ain‘t doing well out in the Caspian sea which is very bad news
     indeed but Armenian troops line the coast watching out. Meanwhile Timid Timurid
     pikemen are at the gates to Bukhara so watch out! Also I thought Yakutia just
@@ -240,7 +240,7 @@ scenes:
     for revealing private information and blasphemy. Please carry on.‘"
 - scene_number: "23"
   scene_title: 23
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene23.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene23.jpg
   narration: "And just like Leningrad and that battle that people are starting to
     forget, the Sioux resettle their old city of Itazipcho again. Meanwhile Henry
     Morgan invited Eva Peron over to Port Royal and despite her defiance to being
@@ -252,7 +252,7 @@ scenes:
     Argentina."
 - scene_number: "24"
   scene_title: 24
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene24.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene24.jpg
   narration: "Texas has made peace with the Inuit. There might have been a chance
     that the Inuit go through Blackfoot territory to fight Texas but it didn‘t happen.
     Also these wars must mean Sam Houston is considered a warmonger which is stupid.
@@ -270,7 +270,7 @@ scenes:
     Come on Sam Houston! I believe in you! WE ALL DO!!!"
 - scene_number: "25"
   scene_title: 25
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene25.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene25.jpg
   narration: "The Grand Wobbegong Armada has taken Quezon! This opens up attack to
     mainland Phillipines and Butuan! Taking Butuan would open the front lines even
     more for the Aussies and will really tear them up. While there is a big threat
@@ -283,7 +283,7 @@ scenes:
     public opinion to suit my evil sinister needs for our glorious nation, so... maybe?"
 - scene_number: "26"
   scene_title: 26
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene26.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene26.jpg
   narration: Whoah ok! Lazy Portugal maybe no more? Sneaky Maria sniping the prize!
     Might not last long but it shows the war spirit that is Maria and her stupid political
     decisions that contribute an enormous amount to Babylonian comedy and media. It
@@ -293,7 +293,7 @@ scenes:
     Empire just like what Rome did to all of it‘s provinces. Oh the irony!
 - scene_number: "27"
   scene_title: 27
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene27.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene27.jpg
   narration: A very detailed account from Recruit Em‘s about Stalin‘s plans for Socialism
     In One Country and how it is going! Almost a secret plot every 2 turns! Man, Em
     really is good! Either that or Stalin is onto us and is feeding us lies. Godamnit
@@ -304,7 +304,7 @@ scenes:
     in those secret tunnels and rooms! Fascinating.
 - scene_number: "28"
   scene_title: 28
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene28.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene28.jpg
   narration: Phillipine forces in a surprising twist recapture Quezon and slightly
     push back the Australians. But not for long. While we might need to say goodbye
     to that poor Caravel slight northwards the Aussies have an enormous backlog of
@@ -316,7 +316,7 @@ scenes:
     on this war!
 - scene_number: "29"
   scene_title: 29
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene29.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene29.jpg
   narration: "A nice look at the frozen people up north. A relatively strong expansive
     empire with surprisingly good core cities (for these frozen lands) and a strong
     navy can only mean good things for these people. Although I can‘t stop noting
@@ -331,7 +331,7 @@ scenes:
     their entire city list."
 - scene_number: "30"
   scene_title: 30
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene30.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene30.jpg
   narration: "A very nice detailed image of Australia and the Kimberley along the
     border that will make the power rankers happy. The Kimberley also fittingly hire
     a Portuguese Navigator by the name of Henry to guide them in their age of discovery.
@@ -344,13 +344,13 @@ scenes:
     Kimberley does have a fairly formidable navy."
 - scene_number: "31"
   scene_title: 31
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene31.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene31.jpg
   narration: |-
     In the far reach of the south pacific Australian settlers set sail seeking a new life in the hopes of aiding in the growth and eventual snowball that is Australia. As a nation that slowly encroaches eastward towards the dark continent, settling cities along the way and building warships at breakneck speeds, one must wonder who in South America can catch up to this naval giant and carve a city in a part of the South Pacific for themselves.
     “Rule, Australia! Rule the waves! Aussies never will be slaves.” Elizabeth was considering a lawsuit because of this but promised that she will wait until she gets Ship of the lines which might take a little while for her. Oh and yeah, Quezon is ours again. Flipping won‘t last long... trust me, I think. We all remember Bilma don‘t we all.
 - scene_number: "32"
   scene_title: 32
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene32.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene32.jpg
   narration: Peace has been achieved! While Mexico was probably not going to turn
     the tables just yet if not at all Texas despite gaining Puebla will have to recover
     for a long time. Their army didn‘t take the greatest beating, but loosing your
@@ -361,7 +361,7 @@ scenes:
     Mexico hit Texas where it hurt most.
 - scene_number: "33"
   scene_title: 33
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene33.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene33.jpg
   narration: "Hmmm not many carpet units in northern Indonesia, maybe Gajah Mada knows
     who‘s the real threat. The city of Geelong is also relatively undefended and easy
     pickings and the frigate over there is taking a beating but the fact that it is
@@ -380,7 +380,7 @@ scenes:
     /r/Civbattleroyaleconspiracy so much to discuss about! I must see if this exists!"
 - scene_number: "34"
   scene_title: 34
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene34.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene34.jpg
   narration: While on shore leave in Hawaii in two different cities, A yakut Caravel
     and an Australian caravel meet. The captains agree to meet ashore and share luxuries
     at Hilo and try to avoid the huddled masses of many millions of polynesians on
@@ -396,7 +396,7 @@ scenes:
     and also leaves port destined for this ‘island‘.
 - scene_number: "35"
   scene_title: 35
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene35.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene35.jpg
   narration: "Oh hello little children, I see you and Poland still have a couple spearman
     running about AND WARRIORS?!? Not good children. Upgrade them at once and then
     you may resume your little game of war. But speaking of Hitler, he is one littler
@@ -408,7 +408,7 @@ scenes:
     Beside Lebensraum needs to be fixed up right?"
 - scene_number: "36"
   scene_title: 36
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene36.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene36.jpg
   narration: A nice kinda beautiful shot of the remains of England in actual England.
     Just 2 little stale cities reap for taking! Also note the brand new Pretty well
     placed Citadel in Wales? That is just one of many more cruel territorial annexations
@@ -417,7 +417,7 @@ scenes:
     the British cause. No wait... Just English now of course.
 - scene_number: "37"
   scene_title: 37
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene37.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene37.jpg
   narration: The Trung Sisters have entered the Renaissance! And with that a new era
     of feeding back Mao cities and reminding Tibet who the real empire is, begins!
     Vietnam is also the intersection of 3 different religion; Shinto, Buddhism, Akkatt-U
@@ -426,7 +426,7 @@ scenes:
     all happening in Vietnam.
 - scene_number: "38"
   scene_title: 38
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene38.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene38.jpg
   narration: Well,Paul Kruger just reminded himself that he had a declare war button
     on the leader screen and was curious and pressed it. This one has only supply
     line for Kruger and this could break him if Saladin is smart. One a single tile
@@ -436,7 +436,7 @@ scenes:
     army at Dire Dawa so if there is actual fighting it will be interesting.
 - scene_number: "39"
   scene_title: 39
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene39.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene39.jpg
   narration: Aha! Another face shows up! Mansa Musa pulls the diplomatic middle finger
     but forgot he had two really annoying cities bordering Saladin. Good job Mali!
     Saladin of course graciously accepts this double free city offer. Meanwhile Kongo
@@ -445,18 +445,18 @@ scenes:
     Stalin has also entered the Renaissance too.
 - scene_number: "40"
   scene_title: 40
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene40.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene40.jpg
   narration: Sibir has graciously accepted the free city of Zaranj by taking it by
     pure military force while Atilla‘s horse archers look on. The Huns have also died
     down in fighting now as well. Atilla is busy sleeping despite the cries of war.
 - scene_number: "41"
   scene_title: 41
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene41.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene41.jpg
   narration: It seems like Afghan forces are marching around the mountains of Lahor
     under fire to take the city! This could fit in for a movie very niceley indeed.
 - scene_number: "42"
   scene_title: 42
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene42.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene42.jpg
   narration: "The Grand Wobbegong Armada regroups and holds off Rizal while Quezon
     is under fire on the ground. Which is troubling. The Trung Sisters have gotten
     so tired of Rizal and his wars that they join in on the gangbang moving their
@@ -465,26 +465,26 @@ scenes:
     defintely have a field day on the power rankings."
 - scene_number: "43"
   scene_title: 43
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene43.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene43.jpg
   narration: Nothing to see here. Just some crossbows and Brazilians. And a mexican
     tireme in the Atlantic who must of crossing Nassau or went around the cape. Boring!
     NEXT!
 - scene_number: "44"
   scene_title: 44
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene44.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene44.jpg
   narration: Aha! Begun the Aluetian Islands Campaign! The Japanese fleet is sailing
     for Sikutsipmaik with no Blackfoot in sight to oppose. Looks like the Inuit will
     do all the hard work for their ‘friend‘. Oh and England denounced Ireland, anybody
     suprised? Anyone?
 - scene_number: "45"
   scene_title: 45
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene45.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene45.jpg
   narration: Kamehamhahahaha has taken advantage of the Australians and Yakutians
     and their cool stuff to enter the Renaissance! Sneaky bugger! Oh well, those privateers
     do send an eery message of whose the boss in these oceans.
 - scene_number: "46"
   scene_title: 46
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene46.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene46.jpg
   narration: "In a shocking twist Hitler kissed and made up with King David. Seens
     like David‘s plan on converting Hitler will massively change the course of politics
     in the Clusterduck that is Europe. At least the greatest war in known history
@@ -493,68 +493,68 @@ scenes:
     Finifest Destiny on and unsuspecting Stalin."
 - scene_number: "47"
   scene_title: 47
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene47.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene47.jpg
   narration: Still a massive battle at Antium raging on through the fading lights
     of darkness. A single dead Portugese tireme stands at the cities of Rome shouting
     insults before about to be sunken. Maria‘s great strategy is certainly paying
     off.
 - scene_number: "48"
   scene_title: 48
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene48.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene48.jpg
   narration: The daring assault on Busan is mediocre at best. Vietnam has sent a large
     task force north to suppress their loud northerly neighbor Chairman Meow and the
     embarked units at Busan, like the Portugese tireme won‘t stand long against the
     onslaught.
 - scene_number: "49"
   scene_title: 49
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene49.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene49.jpg
   narration: Sikutsipmaik is just about to fall to Meiji thus opening up the front
     lines a bit. Inuit forces are busy chilling in Alaska, oblious to the Japanese
     to the south. At least it isn‘t them falling first, they hated those cities being
     there anyway.
 - scene_number: "50"
   scene_title: 50
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene50.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene50.jpg
   narration: Atilla has also signed another important peace treaty with the Maori‘s
     because Atilla just couldn‘t handle it at all. Also interesting placement of naval
     units Australia. this could get interesting real fast. Snowballing just yet?
 - scene_number: "51"
   scene_title: 51
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene51.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene51.jpg
   narration: Australians settle further east angering the Maori‘s with bitter resentment.
     Man these one tile islands are such great contributions to any empire the size
     of glorious Australia.
 - scene_number: "52"
   scene_title: 52
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene52.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene52.jpg
   narration: A little look at the Falkland islands, Eva Peron has always hated Chile
     for doing this, same as Elizabeth. Why so angry guys? It‘s just a small really
     cool island with cool wildlife! Also that Chilean star is kinda annoying as it
     sorta looks like a capital city icon.
 - scene_number: "53"
   scene_title: 53
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene53.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene53.jpg
   narration: WOW! Lahor looks sure to be taken very soon. Just move that trebuchet
     ouch and knight in quickly!!! Probably by far the hardest city to take in game.
     It‘s like the Crown from Planetside 2. Sibirian Cavalry are also marching throughout
     many parts of Timur right now too.
 - scene_number: "54"
   scene_title: 54
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene54.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene54.jpg
   narration: Saladin is having breakfast while he awaits the news of Kwilu‘s capture.
     Mansa Musa is rage quitting at his stupidity and his officers are all disapointed,
     at least Carthage has open borders i guess but too late now to save Kwilu‘s inevitable
     fate. Kongo Dia Nlaza might also get taken which will still make Africa look ugly.
 - scene_number: "55"
   scene_title: 55
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene55.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene55.jpg
   narration: Slight peek at Canada and Lester B Pearson but not much else here other
     than Ice, more Ice and Tundra. Oh look Finish scouts, these guys are also busy
     looking for nice places to settle if it were ever even feasibly possible. I may
     be mistaken however, those could be Texans looking to defect, who knows?
 - scene_number: "56"
   scene_title: 56
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene56.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene56.jpg
   narration: And there we go! First phase of Aleutian Islands campaign complete. Blackfoot
     reinforcements still nowhere to be seen and the Inuit seems busy going in circles
     to much following the Arctic winds and waves but not to where they are needed.
@@ -562,19 +562,19 @@ scenes:
     lost.
 - scene_number: "57"
   scene_title: 57
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene57.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene57.jpg
   narration: As predicted Chairman Meow is failing horribly at Busan while Korean
     Turtle ships laugh their asses off watching. Vietnam‘s Anti-China task force is
     moving steadily northwards and Tibet has a brilliant chance for Hoa Lu. Tibet
     can into empire?
 - scene_number: "58"
   scene_title: 58
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene58.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene58.jpg
   narration: More irrellevent wars! Yeah keep them coming. It isn‘t like they go anyway
     other than how Braga turned out.
 - scene_number: "59"
   scene_title: 59
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene59.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene59.jpg
   narration: Look! An actual War! Shaka got so damn bored of having Impi‘s doin‘ nothing
     that he DOW on Kongo alonside Haile Selassie. But unless Boers accept open borders
     then Shaka will have to squiz his men through 1 tile to attack Nkuna so good luck!
@@ -582,7 +582,7 @@ scenes:
     at all indeed!
 - scene_number: "60"
   scene_title: 60
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene60.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene60.jpg
   narration: Is... Augustus Ceasar still alive? Is he?!?! Did he survive that fall
     into that pit by Leonidas I and was rescued by The Last Legion and evacuated to
     Anatolia?! Stalin must know about this! He must! No other way! In any case the
@@ -592,57 +592,57 @@ scenes:
     time!
 - scene_number: "61"
   scene_title: 61
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene61.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene61.jpg
   narration: Australia makin‘ all the babies. Texas is recovering so nevermind what
     I said ealier! And the Boers are again rising upwards!
 - scene_number: "62"
   scene_title: 62
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene62.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene62.jpg
   narration: These people are all gonna fall anyway eventually. My best wishes Byzantine.
     You let your brother die to the same foe who took your capital!
 - scene_number: "63"
   scene_title: 63
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene63.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene63.jpg
   narration: HIGHEST IN TECH YET AGAIN!!! Interesting seeing that Afghanistan is rising
     up rapidly, Lahor hasn‘t yet fallen but tech wise Mirwais is doing great!
 - scene_number: "64"
   scene_title: 64
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene64.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene64.jpg
   narration: RIP guys. I wish you luck in future endeavours. All of these civs also
     are relatively tiny in land area and/or turtles. England isn‘t there however.
 - scene_number: "65"
   scene_title: 65
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene65.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene65.jpg
   narration: AGAIN?! Ok no objection there! He are about 25% stronger than Yakutia
     so yeah... Holy Shit. Nice job Hawaii btw.
 - scene_number: "66"
   scene_title: 66
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene66.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene66.jpg
   narration: Apparently the Ashanti have the combined military manpower than that
     to the Babylonian nuclear submarine... Well if this were real life that‘s amazing
     and all but that still is embarrassing. The Huns, England and the Phillipines
     (again) are here
 - scene_number: "67"
   scene_title: 67
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene67.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene67.jpg
   narration: GLORIOUS INUIT STRONK AND BIG. Australia is just settling 1 tile islands.
     Inuit are actually settling land now which is an important point to make. Sibir
     is also growing too.
 - scene_number: "68"
   scene_title: 68
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene68.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene68.jpg
   narration: Same list, same fates. These guys are the absolute turtle turtlers of
     them all. Small, squishy and just really really small.
 - scene_number: "69"
   scene_title: 69
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene69.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene69.jpg
   narration: And Religions! Judaism is still rapidly growing and has all of western
     Europe for itself with most followers and most cities. Also note the poor Ayyyyyuuuuubid‘s
     Islam has been abolish literally. No cities but dedicated followers keeping it
     alive in many parts of the Ayyyyyyubid‘s lands.
 - scene_number: "70"
   scene_title: 70
-  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene70.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/mark2-part16-scene70.jpg
   narration: |-
     And even more importantly, the map!! Catholicsm is snowballing through Canada and Inuit and is on the verge EDGE of spreading and having all of South America to itself! So that will be awesome. Eastern Orthodoxy has all of Africa to itself. And the Australian continent begins converting to Buddhism!! Indonesia first, then Kimberley, Australia and of course little turtle Maori.
     OK! That‘s it! Phew. I have been constantly writing, editing, revising, rewriting and thinking for the past 4 hours straight and am barely 10 minutes now to the deadline of it getting uploaded! As a result this might be delayed so I deeply apologise but I am pretty proud of the 6,000 words I was able to write in such hurriedness and panic. (I just got notified to write this at about 1:30 AM AEST technically this morning right now haha. Please feel free for constructive criticism and such. I worked hard ensuring this wouldn‘t be a massive disaster and ugly to read. I had to rush it in the end thus the less amount of writing near the end but still good quality. Again thank you! I am /u/Professor-Reddit signing off! Thanks!!

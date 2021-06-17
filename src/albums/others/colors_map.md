@@ -7,7 +7,7 @@ audio_narration: https://youtu.be/FvPvWBAtey0
 fullvideo:
 edition: S1
 date: 2020-07-21T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg?format=webp&quality=80
+image: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg
 prcast:
 scenes:
 - scene_number: 01
@@ -72,11 +72,11 @@ scenes:
   narration: "<p>Last on the color changes list is a very recent change. The Taiping Heavenly Kingdom and the Chukchi in tests were not contrasting well enough with each other, resulting in confusion. An easy color flip for the Taiping Heavenly Kingdom solves the conflict.</p>"
 - scene_number: 16
   scene_title: "Hex Map"
-  slide_url: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/S2_Hexes_Map.jpg
   narration: "<p>Here is an overall view of how the colors compare with each other across the map. There may not be the most expectional variety, but the contrasts work well enough together and the team was able to keep changes at a minimum and close to the original colorschemes wherever possible. Expect to love how these colors will paint the in-game map in the near future.</p>"
 - scene_number: 17
   scene_title: "In-Game Map"
-  slide_url: https://cdn.civbattleroyale.tv/S2_Map.jpg?format=webp&quality=80
+  slide_url: https://cdn.civbattleroyale.tv/S2_Map.jpg
   narration: "<p>Lime: Our new map is 120 by 80, note that this means we have shrunk the map a little bit to help with turn times and stability. To do so, with the wonderful help of FionaDanger/Lungora, we've shrunk both the Atlantic and Pacific Oceans, while simultaneously reducing the size of the Arctic, with the intention of reducing random unit spam and battles in the far northern reaches of the world. Obviously, shrinking the two major oceans on the cylinder requires the land in the middle to be compacted as well, so Greenland, the area near the Bering Strait and the Pacific Ocean islands have all either been shrunk appropriately or removed. In addition to those changes, Southeast Asia and Hawaii have been slightly expanded to better accommodate the civs that will be starting there (Laos, Vietnam and Hawai'i). This is a tactic we have employed in the past (see: Nazca) to great success at keeping the game balanced. Finally, North Africa and Western Australia were made more habitable, since civs in those regions were significantly underperforming due to the swathes of desert.</p>
 
   <p>Lunar has then placed resources around the map. Our approach here was to provide every civ with somewhat of a strategic start, with early game resources immediately available near their capital and then more late game resources available farther away from their capital. Then, unique luxuries are also roughly equally distributed for each civilization.</p>
