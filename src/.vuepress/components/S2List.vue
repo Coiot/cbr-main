@@ -75,8 +75,41 @@
       </div>
       <div class="arc">
         <div class="arc-header">
+          <h2>Memento Mori</h2>
+          <span>Arc Two</span>
+          <p>54 competitors remain.</p>
+        </div>
+        <article class="arc-list">
+          <router-link
+            :to="post.path"
+            tag="div"
+            v-for="(post, index) in albums"
+            v-if="index > 5 && index < 10"
+            :key="post.title"
+            :tabindex="0"
+          >
+            <div class="list">
+              <p>
+                {{ post.frontmatter.title }}
+                <span>{{ post.frontmatter.edition }}</span>
+              </p>
+
+              <p>
+                {{ post.frontmatter.narrated_by }}
+                <span
+                  >Starting Turn:
+                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                  {{ post.frontmatter.release_date }}</span
+                >
+              </p>
+            </div>
+          </router-link>
+        </article>
+      </div>
+      <div class="arc">
+        <div class="arc-header">
           <h2>Chronicle Continues</h2>
-          <span>Arc One</span>
+          <span>Arc Three</span>
           <p>61 competitors remain.</p>
         </div>
         <article class="arc-list">
@@ -84,7 +117,7 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 5 && index < 37"
+            v-if="index > 9 && index < 37"
             :key="post.title"
             :tabindex="0"
           >
