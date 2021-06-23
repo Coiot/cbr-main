@@ -77,7 +77,7 @@
         <div class="arc-header">
           <h2>Memento Mori</h2>
           <span>Arc Two</span>
-          <p>54 competitors remain.</p>
+          <p>61 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
@@ -110,7 +110,7 @@
         <div class="arc-header">
           <h2>Chronicle Continues</h2>
           <span>Arc Three</span>
-          <p>61 competitors remain.</p>
+          <p>54 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
