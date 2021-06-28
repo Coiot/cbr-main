@@ -15,7 +15,7 @@ Hello everyone, welcome to the Civ Battle Royale (**CBR**). The Civ Battle Royal
 
 The Civ Battle Royale is its own niche in the Civilization community; it attracts people from different cultural and technical backgrounds to add their own interpretations and input to jointly create an emergent narrative for the actions of the show’s AI competitors.
 
-Today the Civ Battle Royale is hosted here on its own website but still has a discussion home here on [our subreddit](https://old.reddit.com/r/civbattleroyale/). The show is run by members of **Blue Cassette**: Coiot, Dawkinzz, Limaeus, ReonMonterus, Lunar Needle.
+Today the Civ Battle Royale is hosted here on its own website but still has a discussion home here on [our subreddit](https://old.reddit.com/r/civbattleroyale/). The show is run by members of **Blue Cassette**: Coiot, Dawkinzz, Limaeus, Reon Monterus, Lunar Needle.
 
 ## Release Schedule
 
