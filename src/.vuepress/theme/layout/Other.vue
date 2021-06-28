@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="archive">
+    <div class="page">
 
       <Content custom />
 
@@ -28,11 +28,10 @@ export default {
 <style lang="stylus">
 @import '../styles/config.styl';
 
-.archive {
-  padding: 1rem 1rem 0;
-  max-width: 70ch;
-  margin: 0px auto;
-  word-break: keep-all;
+.page {
+  padding: 0 1rem 0;
+  max-width: 100%h;
+  margin: 0 auto;
 
   .footer {
     padding: 2.5rem;

@@ -29,7 +29,7 @@ export default {
   computed: {
     albums() {
       return this.$site.pages
-        .filter((x) => x.path.startsWith("/albums") && !x.frontmatter.exclude)
+        .filter((x) => x.path.startsWith("/archive") && !x.frontmatter.exclude)
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         );

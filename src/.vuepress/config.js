@@ -19,6 +19,7 @@ module.exports = {
   dest: "./public",
   themeConfig: {
     nav: [
+      { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
       { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
       {

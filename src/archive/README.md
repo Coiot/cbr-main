@@ -1,5 +1,6 @@
 ---
 title: Archive
+exclude: true
 ---
 
-<ArchiveList :pages="$site.pages" />
+<BlogPostList />

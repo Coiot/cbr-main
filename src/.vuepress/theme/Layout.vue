@@ -16,15 +16,13 @@
 
     <PR v-if="$page.frontmatter.pr" />
 
-    <div class="custom-layout" v-else-if="$page.frontmatter.layout">
+    <div v-else-if="$page.frontmatter.layout">
       <component :is="$page.frontmatter.layout" />
     </div>
 
     <Home v-else-if="$page.frontmatter.home" />
 
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot name="page-top" slot="top" />
-      <slot name="page-bottom" slot="bottom" />
+    <Page v-else>
     </Page>
 
     <script type="application/javascript" src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
@@ -46,6 +44,7 @@ import Albums from "./layout/Albums.vue";
 import PR from "./layout/PR.vue";
 import Home from "./layout/Home.vue";
 import Page from "./layout/Page.vue";
+import Other from "./layout/Other.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
@@ -67,6 +66,7 @@ export default {
     PR,
     Home,
     Page,
+    Other,
     Sidebar,
     Navbar,
     VueperSlides,
