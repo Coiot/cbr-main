@@ -6,7 +6,7 @@ release_date: June 30, 2021
 starting_turn: 311
 audio_narration:
 fullvideo:
-edition: X1
+edition: S2
 date: 2021-06-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode11-scene06.jpg
 prcast:

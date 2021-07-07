@@ -14,7 +14,7 @@ scenes:
   - scene_number: 01
     scene_title: "Nice To See You, To See You..."
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene01.jpg
-    narration: "<p>Heya everyone, welcome to episode seven of the Civilization Battle Royale X Mark Two! I hope you’re having a wonderful day wherever you are, it’s currently lovely here. I’m u/SkiesOvercast, formerly known as Lordie, a resident power ranker and occasional modder but most importantly, I’ll be narrating you through the next thirty turns on the cylinder. We were left on quite a cliffhanger, with a few spicy wars breaking out, so expect an exciting, all-thrills, many-frills action ride, replete with obscure references from yours truly. With that said, let’s go.</p>"
+    narration: "<p>Heya everyone, welcome to episode seven of the Civilization Battle Royale X Season Two! I hope you’re having a wonderful day wherever you are, it’s currently lovely here. I’m u/SkiesOvercast, formerly known as Lordie, a resident power ranker and occasional modder but most importantly, I’ll be narrating you through the next thirty turns on the cylinder. We were left on quite a cliffhanger, with a few spicy wars breaking out, so expect an exciting, all-thrills, many-frills action ride, replete with obscure references from yours truly. With that said, let’s go.</p>"
   - scene_number: 02
     scene_title: "Getting Heavy"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode7-scene02.jpg
