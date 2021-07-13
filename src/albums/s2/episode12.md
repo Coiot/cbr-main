@@ -19,13 +19,13 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode12-scene02.jpg
   narration: "<p>Like clockwork, Vihreaa has brought us another of his tile-accurate maps. Take a good look at this and commit it to memory, cuz the cylinder will be looking a helluva lot different by the end of the episode.</p>"
 - scene_number: 03
-  scene_title: "Here we have another comic from Malacca’s creator and number 1 stan, Orange. This one features some brand new innovative technology, adding a little bit of animation."
+  scene_title: "The sultanate of Malacca in a central position"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode12-scene03.gif
-  narration: "<p></p>"
+  narration: "<p>Here we have another comic from Malacca’s creator and number 1 stan, Orange. This one features some brand new innovative technology, adding a little bit of animation.</p>"
 - scene_number: 04
-  scene_title: "Coiot: Round of applause to all the donators and subscribers this week. We‘re still needing donations to procced with Season 3 and every amount helps. Ko-Fi allowed us <a href='https://ko-fi.com/coiot/tiers'>early access to membership tiers</a> which allows us to have subscriptions with rewards for as little as $1. If you're a fan of the show and want to support more content, please do consider making a contribution to our goal."
+  scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode12-scene04.jpg
-  narration: "<p></p>"
+  narration: "<p>Coiot: Round of applause to all the donators and subscribers this week. We‘re still needing donations to procced with Season 3 and every amount helps. Ko-Fi allowed us <a href='https://ko-fi.com/coiot/tiers'>early access to membership tiers</a> which allows us to have subscriptions with rewards for as little as $1. If you're a fan of the show and want to support more content, please do consider making a contribution to our goal.</p>"
 - scene_number: 05
   scene_title: "The Boys in Blue"
   slide_url: https://cdn.civbattleroyale.tv/season2-pr11-scene54.jpg
