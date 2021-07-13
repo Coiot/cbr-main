@@ -1,5 +1,5 @@
 ---
-title: "What’s the Big Idea?"
+title: "Episode 11: What’s the Big Idea?"
 narrated_by: "FortVectortude"
 description: "Ideologies, invasions, and ineptitude? Oh my!"
 release_date: June 30, 2021
