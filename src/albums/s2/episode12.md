@@ -1,5 +1,5 @@
 ---
-title: "Episode 12: Echos of Askia"
+title: "Episode 12: Echoes of Askia"
 narrated_by: "Arilasqueto"
 description: "Old powers go up in flames and new ones rise from the ashes."
 release_date: July 14, 2021
