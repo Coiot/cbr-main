@@ -6,6 +6,7 @@ release_date: July 16, 2021
 audio_narration:
 fullvideo:
 edition: T1
+starting_turn: 01
 date: 2021-07-26T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/trajan-part1-scene01.jpg
 prcast:
