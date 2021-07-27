@@ -7,7 +7,7 @@ release_date: January 9, 2018
 audio_narration: https://youtu.be/sw-97P1lDV0
 edition: Mk2
 date: 2018-01-09T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg?crop=smart&width=1137&height=559&format=webp&nearlossless=1
+image: https://cdn.civbattleroyale.tv/mark2-part100-scene06.jpg
 scenes:
 - scene_number: "1"
   scene_title: 1

@@ -5,6 +5,7 @@ description: "Old powers go up in flames and new ones rise from the ashes."
 release_date: July 14, 2021
 audio_narration:
 fullvideo:
+starting_turn: 341
 edition: S2
 date: 2021-07-13T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode12-scene06.jpg
