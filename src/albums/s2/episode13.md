@@ -14,7 +14,7 @@ scenes:
 - scene_number: 01
   scene_title: "World Conquest"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene01.jpg
-  narration: "<p>Hi! I’ve been a fan of AI games ever since the first Battle Royale, but this is only the second time I’ve had the opportunity to narrate it! I have about 10,000 hours on Civ 3, so the hexagons are a bit of a mind-bender, but with the seventeen spreadsheets narrators get access to, I should be okay. Last part was pretty exciting, with the Ptolemies cut in half by a newly-aggressive Nigeria; Marajoara reducing Gran Colombia to a smattering of cities; Chola suddenly becoming a decent naval civ on the doorstep of the most-decent-est naval civ, Malacca; Yuan being carved up; and the Vandals establishing a sizeable North American presence. What will happen this episode? Stay tuned, and find out.</p>"
+  narration: "<p>Hi! I’ve been a fan of AI games ever since the first Battle Royale, but this is only the second time I’ve had the opportunity to narrate it! I have about 10,000 hours on Civ 3, so the hexagons are a bit of a mind-bender, but with the seventeen spreadsheets narrators get access to, I should be okay. Last episode was pretty exciting, with the Ptolemies cut in half by a newly-aggressive Nigeria; Marajoara reducing Gran Colombia to a smattering of cities; Chola suddenly becoming a decent naval civ on the doorstep of the most-decent-est naval civ, Malacca; Yuan being carved up; and the Vandals establishing a sizeable North American presence. What will happen this episode? Stay tuned, and find out.</p>"
 - scene_number: 02
   scene_title: "Vihreaa strikes again"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene02.jpg
@@ -30,7 +30,7 @@ scenes:
 - scene_number: 05
   scene_title: "Blue and gold is the colour of a sea-based champion"
   slide_url: https://cdn.civbattleroyale.tv/season2-pr12-scene54.jpg
-  narration: "<p>I’m going to talk about a Civ that deserves to be at the top. They’ve taken on two front-runners on different sides of their empire despite a weak land army, they have a great colour scheme, and they’re based in Asia. Those of you yelling out Bhutan - thank you - but Malacca is the number one, both in my heart and in the Power Rankers’ view. I honestly don’t think it’s possible to beat Malacca, though there are a couple of rising superpowers that we’ll be discussing in this episode that, given five or ten parts, might seek to topple Malacca.</p>"
+  narration: "<p>I’m going to talk about a Civ that deserves to be at the top. They’ve taken on two front-runners on different sides of their empire despite a weak land army, they have a great colour scheme, and they’re based in Asia. Those of you yelling out Bhutan - thank you - but Malacca is the number one, both in my heart and in the Power Rankers’ view. I honestly don’t think it’s possible to beat Malacca, though there are a couple of rising superpowers that we’ll be discussing in this episode that, given five or ten epsiodes, might seek to topple Malacca.</p>"
 - scene_number: 06
   scene_title: "One Yuan to Rule Them All"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene06.jpg
@@ -46,11 +46,11 @@ scenes:
 - scene_number: 09
   scene_title: "All oceans are the Malaccan Straits"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene09.jpg
-  narration: "<p>The Jong Admiral gazes over his armada. He had heard once of a mighty ruler who built so many ships they could walk from port to port. Well, Adjongmiral had accomplished that, and now was in the process of tacking on strips of iron to the sides of the boat to prevent wear and tear as the boats rock gently side-by-side. </p><p></p><p>Last part saw a resurgent Chola flex their navy, and a war between the Gold-and-Blue and Gold-and-Black is surely coming to see who takes the medal. Pakse you would think would fall first, but Malacca have no land army to speak of. Even the weakened Laos have enough troops to do something with, though getting from Sai Gon to the contiguous Laosian empire is impossible thanks to the citadel south of Ha Noi.</p>"
+  narration: "<p>The Jong Admiral gazes over his armada. He had heard once of a mighty ruler who built so many ships they could walk from port to port. Well, Adjongmiral had accomplished that, and now was in the process of tacking on strips of iron to the sides of the boat to prevent wear and tear as the boats rock gently side-by-side. </p><p></p><p>Last episode saw a resurgent Chola flex their navy, and a war between the Gold-and-Blue and Gold-and-Black is surely coming to see who takes the medal. Pakse you would think would fall first, but Malacca have no land army to speak of. Even the weakened Laos have enough troops to do something with, though getting from Sai Gon to the contiguous Laosian empire is impossible thanks to the citadel south of Ha Noi.</p>"
 - scene_number: 10
   scene_title: "Maracaib-Oh-No"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene10.jpg
-  narration: "<p>Gran Colombia - reduced to simply ‘Colombia’ last part and nowadays referred to as Poco Colombia, is on its last legs in the old capital of the eliminated Peru-Bolivia. Marajoaran troops are not flooding in, but the two field guns are taking enough pot shots to deal damage.</p>"
+  narration: "<p>Gran Colombia - reduced to simply ‘Colombia’ last episode and nowadays referred to as Poco Colombia, is on its last legs in the old capital of the eliminated Peru-Bolivia. Marajoaran troops are not flooding in, but the two field guns are taking enough pot shots to deal damage.</p>"
 - scene_number: 11
   scene_title: "Getting DEIC-ey"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene11.jpg
@@ -70,7 +70,7 @@ scenes:
 - scene_number: 15
   scene_title: "Naval-gazing"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene15.jpg
-  narration: "<p>There’s a glaring mistake in this picture. Can you spot it? That’s right, the Two Sicilies navy is looking rather like One Sicilies as the patch of empty sea expands around Memphis. Frustratingly too, they have open borders with Blue Egypt, so-called for feeling blue after the powerful, technologically-advanced Nigerian army run rampant through their lands last part.</p><p></p><p>Yet for Two Sicilies’ naval might diminishing, they could still demolish any city in the vicinity. </p><p></p><p>Kurdish troops advance an inch in Jerusalem’s territories, and they take the rest of the day off to drink tea.</p>"
+  narration: "<p>There’s a glaring mistake in this picture. Can you spot it? That’s right, the Two Sicilies navy is looking rather like One Sicilies as the patch of empty sea expands around Memphis. Frustratingly too, they have open borders with Blue Egypt, so-called for feeling blue after the powerful, technologically-advanced Nigerian army run rampant through their lands last episode.</p><p></p><p>Yet for Two Sicilies’ naval might diminishing, they could still demolish any city in the vicinity. </p><p></p><p>Kurdish troops advance an inch in Jerusalem’s territories, and they take the rest of the day off to drink tea.</p>"
 - scene_number: 16
   scene_title: "Trade war"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene16.jpg
@@ -282,15 +282,15 @@ scenes:
 - scene_number: 68
   scene_title: "Effective AA"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene68.jpg
-  narration: "<p>Kidal, a city that took Burkino Faso nearly ten parts to capture, is captured by the Vandals within one part. They can finally built that road from their capital to their main naval ports. I still feel Two Sicilies could take Hippo Regius fairly easily.</p><p></p><p>Aghat is under siege from cavalrymen and looks set to fall.</p><p></p><p>A Nigerian anti-aircraft gun has clearly been doing a fantastic job as there’s no aircraft in Europe nor Africa! That might be because no-one’s research that tech except Malacca.</p>"
+  narration: "<p>Kidal, a city that took Burkino Faso nearly ten episodes to capture, is captured by the Vandals within one episode. They can finally built that road from their capital to their main naval ports. I still feel Two Sicilies could take Hippo Regius fairly easily.</p><p></p><p>Aghat is under siege from cavalrymen and looks set to fall.</p><p></p><p>A Nigerian anti-aircraft gun has clearly been doing a fantastic job as there’s no aircraft in Europe nor Africa! That might be because no-one’s research that tech except Malacca.</p>"
 - scene_number: 69
   scene_title: "Essen-ce of Victory"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene69.jpg
-  narration: "<p>Gjakove has fallen to the Germans, though the strong melee-heavy Two Sicilies navy and army are everywhere.</p><p></p><p>German production is frightening, as last part they had no land army to speak of - and now advanced troops can be found everywhere. Just one more upgrade left until the Stormtroopers come into play - and then Germany will be scary.</p>"
+  narration: "<p>Gjakove has fallen to the Germans, though the strong melee-heavy Two Sicilies navy and army are everywhere.</p><p></p><p>German production is frightening, as last episodes they had no land army to speak of - and now advanced troops can be found everywhere. Just one more upgrade left until the Stormtroopers come into play - and then Germany will be scary.</p>"
 - scene_number: 70
   scene_title: "Sine of the times"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene70.jpg
-  narration: "<p>In the region where Two Sicilies are actually quite strong, another city falls. Jerusalem is a serious potential capture this part, I think. </p><p></p><p>For its small size, Kosovo has a good army, sporting riflemen in decent numbers.</p><p></p><p>The Kurds look on, worried at who their neighbours will be next episode.</p>"
+  narration: "<p>In the region where Two Sicilies are actually quite strong, another city falls. Jerusalem is a serious potential capture this episode, I think. </p><p></p><p>For its small size, Kosovo has a good army, sporting riflemen in decent numbers.</p><p></p><p>The Kurds look on, worried at who their neighbours will be next episode.</p>"
 - scene_number: 71
   scene_title: "Mississippi Claims North Pole; Citizens Order Iced Tea To Celebrate"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene71.jpg
@@ -318,7 +318,7 @@ scenes:
 - scene_number: 77
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene77.jpg
-  narration: "<p>Smirkishes in the Indian Ocean looking surprisingly even, actually. Therefore, it’s bad news for both sides rather than just one. </p><p></p><p>We can just about spot the Cholan colony they took earlier in the part, showing how close the superpowers are across the ocean.</p><p></p><p>Paraguay take up Autocracy, too. It’s becoming really dominant, now.</p>"
+  narration: "<p>Smirkishes in the Indian Ocean looking surprisingly even, actually. Therefore, it’s bad news for both sides rather than just one. </p><p></p><p>We can just about spot the Cholan colony they took earlier in the episode, showing how close the superpowers are across the ocean.</p><p></p><p>Paraguay take up Autocracy, too. It’s becoming really dominant, now.</p>"
 - scene_number: 78
   scene_title: "Boatcon 1968"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene78.jpg
@@ -350,7 +350,7 @@ scenes:
 - scene_number: 85
   scene_title: "Wuhu Most Prudish City In Malacca, Poll Says"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene85.jpg
-  narration: "<p>A nice clear shot of the Malaccan offshore holdings that they took from Taiping a few parts back. That navy would trounce anyone on the cylinder if used right.</p><p></p><p>A war with Chukchi would clear up that city to the east and would be legendary to watch.</p>"
+  narration: "<p>A nice clear shot of the Malaccan offshore holdings that they took from Taiping a few episodes back. That navy would trounce anyone on the cylinder if used right.</p><p></p><p>A war with Chukchi would clear up that city to the east and would be legendary to watch.</p>"
 - scene_number: 86
   scene_title: "Vandals Against Vandalism"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene86.jpg
@@ -398,7 +398,7 @@ scenes:
 - scene_number: 97
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene97.jpg
-  narration: "<p>Relative calm in this part of Mapuchean territories, as we get a shot of Puren, their capital. Marajoaran troops loiter without doing anything damaging.</p>"
+  narration: "<p>Relative calm in this episode of Mapuchean territories, as we get a shot of Puren, their capital. Marajoaran troops loiter without doing anything damaging.</p>"
 - scene_number: 98
   scene_title: "Defense: Shangdu, Shangdon’t"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene98.jpg
@@ -422,7 +422,7 @@ scenes:
 - scene_number: 103
   scene_title: "Hawaii Seeks High After Low"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene103.jpg
-  narration: "<p>It’s taken all part, but Makasser is close to falling. Hilo finally got some melee units close enough and frequently enough. Their new two-city empire will have no expansion opportunities but might eke out a wealthy existence playing trade ships between Kulin and Malacca.</p>"
+  narration: "<p>It’s taken all episode, but Makasser is close to falling. Hilo finally got some melee units close enough and frequently enough. Their new two-city empire will have no expansion opportunities but might eke out a wealthy existence playing trade ships between Kulin and Malacca.</p>"
 - scene_number: 104
   scene_title: "Our New Battleground"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene104.jpg
@@ -430,5 +430,9 @@ scenes:
 - scene_number: 105
   scene_title: "Thanks for reading!"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene105.jpg
-  narration: "<p>And to round off the part, Ibn Battuta thinks Awolowo of Nigerian is quite nice. But I think you, dear reader, are the most wonderful, for making your way through this part.</p><p></p><p>Nigeria pump out the wonders with their tech lead proving useful. Surprisingly, only one wonder was built this part, by Malacca. </p><p></p><p>Here’s a quick recap of the part:</p>"
+  narration: "<p>And to round off the episode, Ibn Battuta thinks Awolowo of Nigerian is quite nice. But I think you, dear reader, are the most wonderful, for making your way through this episode.</p><p></p><p>Nigeria pump out the wonders with their tech lead proving useful. Surprisingly, only one wonder was built this episode, by Malacca. </p><p></p><p>Here’s a quick recap of the episode:</p><p>Gran Colombia are snuffed out</p>
+<p>Tongva reel under Malaccan invasion</p>
+<p>Two Sicilies struggle against Germany but take Jerusalem (see the minimap)</p>
+<p>And most importantly, Bhutan declare war on Punjab and have yet to lose a city.
+</p>"
 ---
