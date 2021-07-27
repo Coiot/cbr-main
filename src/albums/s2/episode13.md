@@ -26,10 +26,10 @@ scenes:
 - scene_number: 04
   scene_title: "Ko-Fi"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene04.jpg
-  narration: "<p>...on how to chip in for the submarine’s coffee-fueled department running the show.</p>"
+  narration: "<p>...on how to chip in for the submarine’s coffee-fueled department running the show.</p><p>Coiot: Thank you to all the donators so far this season! If you can spare an extra $1, please do consdier helping us make Season 3 a reality. If even 4% of the community can subscribe we'll be well on our way (currently only at .25%).</p>"
 - scene_number: 05
   scene_title: "Blue and gold is the colour of a sea-based champion"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr12-scene54.jpg
   narration: "<p>I’m going to talk about a Civ that deserves to be at the top. They’ve taken on two front-runners on different sides of their empire despite a weak land army, they have a great colour scheme, and they’re based in Asia. Those of you yelling out Bhutan - thank you - but Malacca is the number one, both in my heart and in the Power Rankers’ view. I honestly don’t think it’s possible to beat Malacca, though there are a couple of rising superpowers that we’ll be discussing in this episode that, given five or ten parts, might seek to topple Malacca.</p>"
 - scene_number: 06
   scene_title: "One Yuan to Rule Them All"
