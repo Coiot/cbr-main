@@ -26,14 +26,14 @@
     </Page>
 
     <script type="application/javascript" src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script type="application/javascript">
-  kofiWidgetOverlay.draw('coiot', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support CBRX',
-    'floating-chat.donateButton.background-color': '#fcbf47',
-    'floating-chat.donateButton.text-color': '#323842'
-  });
-</script>
+    <script type="application/javascript">
+      kofiWidgetOverlay.draw('coiot', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support CBRX',
+        'floating-chat.donateButton.background-color': '#fcbf47',
+        'floating-chat.donateButton.text-color': '#323842'
+      });
+    </script>
   </div>
 </template>
 
