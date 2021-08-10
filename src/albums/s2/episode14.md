@@ -1,11 +1,12 @@
 ---
-title: "Charges of the Light Brigades"
+title: "Episode 14: Charges of the Light Brigades"
 narrated_by: "MidwestRandomNumbers"
-description: "Abstract:"
-release_date:
+description: "Almost every Civ simultaneously decides that cavalry units are great at capturing cities. Or maybe they decided this a while ago and I never noticed, wouldn’t surprise me."
+release_date: August 11, 2021
 audio_narration:
 fullvideo:
-edition: X1
+starting_turn: 401
+edition: S2
 date: 2021-08-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode14-scene06.jpg
 prcast:
