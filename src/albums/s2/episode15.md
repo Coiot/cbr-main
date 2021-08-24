@@ -258,7 +258,7 @@ scenes:
 - scene_number: 62
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene62.jpg
-  narration: "<p>Wiltwyck and Keitvis Hoek fall to the Marajoara boat-warriors. As P'kuee enters the city of Wiltwyck, she sees "WILTWYCK MAN WUZ HERE" written on every wall. Her advisor informs her this is one of Geneseric’s traditions, known as “Vandal-ism”</p>"
+  narration: "<p>Wiltwyck and Keitvis Hoek fall to the Marajoara boat-warriors. As P'kuee enters the city of Wiltwyck, she sees “WILTWYCK MAN WUZ HERE” written on every wall. Her advisor informs her this is one of Geneseric’s traditions, known as “Vandal-ism”</p>"
 - scene_number: 63
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene63.jpg
