@@ -1,5 +1,5 @@
 ---
-title: "Blood in the Water"
+title: "Episode 15: Blood in the Water"
 narrated_by: "Penguin"
 description: "As the game heats up, powers go to wars across oceans, and weaker civs get picked off by those around them."
 release_date: August 25, 2021
@@ -25,7 +25,7 @@ scenes:
   narration: "<p>Our other piece of OC this week is a comic made by Paraguay_Stonks, summarizing the er… contributions of Zaire to the attack on the Ptolemies.</p>"
 - scene_number: 04
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode14-scene04.jpg
   narration: "<p>Hey look, it’s me! And a bunch of other donors to the CBRX Ko-Fi. If you have the money and want to support the game, feel free to donate!</p>"
 - scene_number: 05
   scene_title: ""
