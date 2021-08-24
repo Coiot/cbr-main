@@ -29,7 +29,7 @@ scenes:
   narration: "<p>Hey look, it’s me! And a bunch of other donors to the CBRX Ko-Fi. If you have the money and want to support the game, feel free to donate!</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-pr14-scene52.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr14-scene52.jpg
   narration: "<p>Our #1 ranked civ isn’t Malacca anymore, it’s now Nigeria. After nearly demolishing both the Ptolemies and Burkina Faso in the last few episodes, Nigeria is clearly one of the most powerful civs in the game. </p>"
 - scene_number: 06
   scene_title: ""
