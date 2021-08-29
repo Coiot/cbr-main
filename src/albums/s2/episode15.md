@@ -7,7 +7,7 @@ audio_narration:
 fullvideo:
 starting_turn: 431
 edition: S2
-date: 2021-08-24T00:00:00.000Z
+date: 2021-08-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene06.jpg
 prcast:
 scenes:
