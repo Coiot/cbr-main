@@ -5,6 +5,7 @@ description: "21 Trajans enter, only 1 can form the Roman Empire."
 release_date: August 29, 2021
 audio_narration:
 fullvideo:
+starting_turn: 101
 edition: T1
 date: 2021-08-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/trajan-part2-scene01.jpg
