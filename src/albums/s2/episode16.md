@@ -462,7 +462,7 @@ scenes:
 - scene_number: 113
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene113.jpg
-  narration: "<p>One day... Hetu Ala will fall... and on that day... Everyone will mutter "Oh thank goodness Yuan have finally croaked!"</p>"
+  narration: "<p>One day... Hetu Ala will fall... and on that day... Everyone will mutter “Oh thank goodness Yuan have finally croaked!”</p>"
 - scene_number: 114
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene114.jpg
