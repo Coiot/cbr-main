@@ -5,6 +5,7 @@ description: "A conflicting tale of fortunes big and barren begins to unravel. O
 release_date: September 3, 2021
 audio_narration:
 fullvideo:
+starting_turn: 01
 edition: G1
 date: 2021-09-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season1-chapter1-scene03.jpg
