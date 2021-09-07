@@ -266,7 +266,7 @@ scenes:
 - scene_number: 64
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene64.jpg
-  narration: "<p>Good news! The operation is a success! Bad news! Their own city Grand Village got nuked! Antonio has had enough of Thanadelthur’s nonsense and is ready to return the radioactive favour. You know the old saying "You play with fire, you're going to get burned"? Antonio's message is pretty similar; "You play with nukes, you're going to get nuked"!</p>"
+  narration: "<p>Good news! The operation is a success! Bad news! Their own city Grand Village got nuked! Antonio has had enough of Thanadelthur’s nonsense and is ready to return the radioactive favour. You know the old saying “You play with fire, you're going to get burned?” Antonio's message is pretty similar; ”You play with nukes, you're going to get nuked!”</p>"
 - scene_number: 65
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene65.jpg
@@ -354,7 +354,7 @@ scenes:
 - scene_number: 86
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene86.jpg
-  narration: "<p>The Republic of Amata continues to hold strong against the Malaccan planes flying above the city of Amata. With Malacca's refusal to attack the land units surrounding the city (so they can send a few of their own land units ashore), it seems that we will continue to see Tjilipi's rumped civilization for the foreseeable futur-whoa, hold your horses, folks. Is that... A Kulin Paratrooper attacking Milyirrtjarra?</p><p></p><p>https://www.youtube.com/watch?v=kkDMz2ml0gw</p><p>["Oh no!" - Knuckles The Echidna (Sonic Adventure)]</p>"
+  narration: "<p>The Republic of Amata continues to hold strong against the Malaccan planes flying above the city of Amata. With Malacca's refusal to attack the land units surrounding the city (so they can send a few of their own land units ashore), it seems that we will continue to see Tjilipi's rumped civilization for the foreseeable futur-whoa, hold your horses, folks. Is that... A Kulin Paratrooper attacking Milyirrtjarra?</p><p></p><p>https://www.youtube.com/watch?v=kkDMz2ml0gw</p><p>[“Oh no!” - Knuckles The Echidna (Sonic Adventure)]</p>"
 - scene_number: 87
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene87.jpg
@@ -406,7 +406,7 @@ scenes:
 - scene_number: 99
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene99.jpg
-  narration: "<p>PARG GOING TO SPACE, BOIS! LIFTOUT! CHOO-CHOO! PARGCHAMP! PARGCHAMP! PARGCHAMP! PARGCHAMP! IT'S THE ONLY THING THEY HAVE DONE ALL EPISODE, BUT IT'S AT LEAST SOMETHING! *Cough*USSR*Cough*</p><p></p><p>Speaking of which, let's laugh at Barak and Lenin for wasting so much production that they could've used elsewhere on this project only to miss out on the top prize.</p><p></p><p>https://www.youtube.com/watch?v=rX7wtNOkuHo</p><p>["Ha Ha!" - Nelson Muntz (The Simpsons)]</p>"
+  narration: "<p>PARG GOING TO SPACE, BOIS! LIFTOUT! CHOO-CHOO! PARGCHAMP! PARGCHAMP! PARGCHAMP! PARGCHAMP! IT'S THE ONLY THING THEY HAVE DONE ALL EPISODE, BUT IT'S AT LEAST SOMETHING! *Cough*USSR*Cough*</p><p></p><p>Speaking of which, let's laugh at Barak and Lenin for wasting so much production that they could've used elsewhere on this project only to miss out on the top prize.</p><p></p><p>https://www.youtube.com/watch?v=rX7wtNOkuHo</p><p>[“Ha Ha!” - Nelson Muntz (The Simpsons)]</p>"
 - scene_number: 100
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene100.jpg
@@ -486,7 +486,7 @@ scenes:
 - scene_number: 119
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene119.jpg
-  narration: "<p>Stockholm falls once again alongside Sundvall and it doesn't look like they have the strength to take either of them back. Sweden have been rumped to just two cities, and Uzbekistan looks more than able to take Lund.</p><p></p><p>And for those of you confused about earlier going "Um, how do we know Perm chose Freedom?", the upper left corner should make it clear to you. Between Saint Stephen's and Great Perm's icons, there is a small icon of a torch. This shows that Great Perm has indeed chosen Freedom! Congrats to them! Your reward will be dying at the hands of the Uzbek very soon!</p>"
+  narration: "<p>Stockholm falls once again alongside Sundvall and it doesn't look like they have the strength to take either of them back. Sweden have been rumped to just two cities, and Uzbekistan looks more than able to take Lund.</p><p></p><p>And for those of you confused about earlier going “Um, how do we know Perm chose Freedom?”, the upper left corner should make it clear to you. Between Saint Stephen's and Great Perm's icons, there is a small icon of a torch. This shows that Great Perm has indeed chosen Freedom! Congrats to them! Your reward will be dying at the hands of the Uzbek very soon!</p>"
 - scene_number: 120
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene120.jpg
