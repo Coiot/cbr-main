@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode15-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene01.jpg
   narration: "<p>The time has come once more to catch up on the latest episode of CBRX Season 2! Your (main) host for this evening (or afternoon, night, morning, whatever) is I, Bulletproof_Cookie, and I promise you that there will be many hijinks going on for the next 40 turns!</p><p></p><p>N.B.: A notable portion of this episode was narrated by ItsTruckMonth, so any slides narrated by them will be credited as such.</p>"
 - scene_number: 02
   scene_title: ""
@@ -25,7 +25,7 @@ scenes:
   narration: "<p>Alright, here’s the real Episode 15 Map! Take a good look, because some civilizations will be noticeably bigger/smaller by the end of this episode!</p>"
 - scene_number: 04
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode14-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode14-scene04.jpg
   narration: "<p>A big thanks to everyone who has donated to the CBRX Ko-Fi. Your support is greatly appreciated and keeps the Babylonian sub running.</p>"
 - scene_number: 05
   scene_title: ""
