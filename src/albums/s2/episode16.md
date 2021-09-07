@@ -374,7 +374,7 @@ scenes:
 - scene_number: 91
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene91.jpg
-  narration: "<p>"Hopeless Tank to Doomed Bazooka, I repeat, Hopeless Tank to Doomed Bazooka, I'M IN! I've entered Marajoaran territory, Coordinates two tiles down from Curuxis. Commencing Operation Stealth Swipe.. OH GOD! THERE IS SO MANY ARTILLERY! WHY IS THERE SO MANY ARTILLERY! I-I'M SURROUNDED BY THEM! HELP! I NEED BACKUP! I REPEAT! I NEED BAC"-</p><p></p><p>TRANSMISSION INTERRUPTED</p>"
+  narration: "<p>“Hopeless Tank to Doomed Bazooka, I repeat, Hopeless Tank to Doomed Bazooka, I'M IN! I've entered Marajoaran territory, Coordinates two tiles down from Curuxis. Commencing Operation Stealth Swipe.. OH GOD! THERE IS SO MANY ARTILLERY! WHY IS THERE SO MANY ARTILLERY! I-I'M SURROUNDED BY THEM! HELP! I NEED BACKUP! I REPEAT! I NEED BAC”-</p><p></p><p>TRANSMISSION INTERRUPTED</p>"
 - scene_number: 92
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene92.jpg
