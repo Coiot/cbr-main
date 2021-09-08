@@ -514,5 +514,12 @@ scenes:
 - scene_number: 126
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene126.jpg
-  narration: "<p>And thus we have come to an end of another action-packed episode, with our last slide showcasing the unification of Australia under the rule of William Barak.</p><p></p><p>To recap this episode’s most significant events;</p><p></p><p>This has been Bulletproof_Cookie (and ItsTruckMonth), and I bid you good day.</p>"
+  narration: "<p>And thus we have come to an end of another action-packed episode, with our last slide showcasing the unification of Australia under the rule of William Barak.</p><p></p><p>To recap this episode’s most significant events;</p><p>A three-way dance off in North America results in the introduction of nuclear weapons to the battlefield. Mississippi suffers the most despite being the only one of the three not to be nuked.</p>
+  <p>Uzbekistan colonises most of Sweden to gain a foothold in Europe.</p>
+  <p>The Kulin have unified the island of Australia with the extremely swift death of the Republic of Amata.</p>
+  <p>Palmares survives elimination from Paraguay thanks to a peace offering from the Olmecs.</p>
+  <p>The Chola are at war with Zanzibar and Punjab.</p>
+  <p>Great Perm becomes FREE PERM.</p>
+  <p>PARG can into space.</p>
+  </p><p>This has been Bulletproof_Cookie (and ItsTruckMonth), and I bid you good day.</p>"
 ---
