@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Introductions"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode1-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter1-scene01.jpg
   narration: "<p>Hello everyone, my name is ExplosiveWatermelon, and welcome back to the Civ Grand Royale! In the last Chapter, we were introduced to our cast and the opening moves have already decided some of these unwitting players’ fates. Let’s take a look. </p>"
 - scene_number: 02
   scene_title: "Shang"
