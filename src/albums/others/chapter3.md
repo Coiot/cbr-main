@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Introductions"
-  slide_url: https://cdn.civbattleroyale.tv/season1-chapter3-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter1-scene01.jpg
   narration: "<p>Hello again, everyone! Today we’re a day late because of personal scheduling conflicts. As such, I’m gonna try and make this a quality part that we can all enjoy. If you’re new here, welcome! Don’t forget to shout us out on twitter using the #CivGrandRoyale or #OneMoreTurn hashtags!</p>"
 - scene_number: 02
   scene_title: "Where the Sho don’t Shone"
