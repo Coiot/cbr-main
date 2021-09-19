@@ -7,7 +7,7 @@ audio_narration:
 fullvideo:
 edition: G1
 date: 2021-09-18T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/eason1-chapter3-scene06.jpg
+image: https://cdn.civbattleroyale.tv/season1-chapter3-scene02.jpg
 prcast:
 scenes:
 - scene_number: 01
