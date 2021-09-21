@@ -1,19 +1,19 @@
 ---
 title: "Episode 16: A Grande Intervention"
-narrated_by: "Bulletproof Cookie"
+narrated_by: "Bulletproof Cookie & ItsTruckMonth"
 description: "The affairs of nations big and small are interrupted by the ambitions of their fellow states. The actions taken today will forever alter the course of the cylinder."
 release_date: September 08, 2021
 starting_turn: 481
 audio_narration:
 fullvideo:
-edition: X1
+edition: S2
 date: 2021-09-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene06.jpg
 prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode15-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode16-scene01.jpg
   narration: "<p>The time has come once more to catch up on the latest episode of CBRX Season 2! Your (main) host for this evening (or afternoon, night, morning, whatever) is I, Bulletproof_Cookie, and I promise you that there will be many hijinks going on for the next 40 turns!</p><p></p><p>N.B.: A notable portion of this episode was narrated by ItsTruckMonth, so any slides narrated by them will be credited as such.</p>"
 - scene_number: 02
   scene_title: ""
