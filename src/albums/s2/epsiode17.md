@@ -29,7 +29,7 @@ scenes:
   narration: "<p>As always, a big thanks to the Ko-Fi supporters who help keep the blood of freshly modded civs flowing! Your help is always appreciated, even if it’s just a pretty penny!</p>"
 - scene_number: 05
   scene_title: "*Tjilpi has been Ejected*"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode17-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr16-scene01.jpg
   narration: "<p>No more Among Us references I swear.</p><p></p><p>Continuing from last episode we’re no longer covering the current numero uno, but highlighting the 11 rank plummet Tjilpi took on his way to the sub last episode! You’ve been quite the whack civ this whole season, but that doesn’t mean you weren’t entertaining as hell to watch. Godspeed.</p>"
 - scene_number: 06
   scene_title: "Trouble in Paradise"
