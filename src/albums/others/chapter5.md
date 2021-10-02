@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Do you even read these titles?"
-  slide_url: https://cdn.civbattleroyale.tv/season1-chapter5-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter1-scene01.jpg
   narration: "<p>Hello friends! Welcome back to the Civ Grand Royale. In the last episode we saw some empires fall from grace while others took leaps and bounds towards victory. In particular, the devastating collapse of the Almohads has piqued my personal interest. How shall the world cope when faced with the collapse of a civilization? Let’s find out.</p>"
 - scene_number: 02
   scene_title: "Lion of Africa"
