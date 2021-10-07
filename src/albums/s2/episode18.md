@@ -29,7 +29,7 @@ scenes:
   narration: "<p>As always, thank you to the Ko-Fi supporters for keeping this and future projects going. </p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/season1-pr17-scene46.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr17-scene46.jpg
   narration: "<p>Nigeria is still on first place, while the biggest change in rankings was Japan falling by 16 places to become eliminated. I’ll let Coiot decide which one of these we’ll have for the slide. </p><p></p><p>On with the show.</p><p>Coiot: I went with Nigera, because the content in this image will be relevant this episode.</p>"
 - scene_number: 06
   scene_title: "Overflow"
