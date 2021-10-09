@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Previously..."
-  slide_url: https://cdn.civbattleroyale.tv/season1-chapter6-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter1-scene01.jpg
   narration: "<p>Welcome back! My name is /u/ExplosiveWatermelon and I make civs like I make bad decisions-</p><p></p><p>Quite a few in a short amount of time.</p><p></p><p>Last we left off, 3 Civilizations got eliminated: The Almohads, New England, and Pomerania. Of the three, the Almohads were probably the biggest surprise from when we started off, given that they were a pretty decent civ in all performances. However, AI games combine a number of factors, and this just wasn’t their day.</p><p></p><p>Sierra Leone was also getting eaten by Sokoto, before Sokoto itself got eaten by Luba. Let’s take a look, shall we?</p>"
 - scene_number: 02
   scene_title: "PR Leader"
