@@ -3,15 +3,19 @@
     <div>
       <div class="edition-list">
         <div class="list" @click="clickedEdition = 'S2List'">
-          <span>Season Two</span>
+          <span>CBRX Season Two</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'S1List'">
-          <span>Season One</span>
+          <span>CBRX Season One</span>
+        </div>
+
+         <div class="list" @click="clickedEdition = 'G1List'">
+          <span>CGR Season One</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'Mk2List'">
-          <span>Mark Two</span>
+          <span>CBR Mark Two</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'PRList'">

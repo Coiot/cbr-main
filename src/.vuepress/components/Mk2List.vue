@@ -36,7 +36,7 @@
       <h1>Cycle One</h1>
       <div class="arc">
         <div class="arc-header">
-          <h2>Dawn of Civilization</h2>
+          <h2>Mayham</h2>
           <span>Arc One</span>
           <p>61 competitors remain.</p>
         </div>

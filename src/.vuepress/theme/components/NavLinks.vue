@@ -10,13 +10,16 @@
     <div class="nav-links">
       <ul class="edition-links">
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s2/">Season Two</a>
+          <a href="https://civbattleroyale.tv/albums/s2/">CBRX Season Two</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s1/">Season One</a>
+          <a href="https://civbattleroyale.tv/albums/s1/">CBRX Season One</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/mk2/">Mark Two</a>
+          <a href="https://civbattleroyale.tv/albums/s1/">CGR Season One</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://civbattleroyale.tv/albums/mk2/">CBR Mark Two</a>
         </li>
         <li class="nav-item">
           <a href="https://civbattleroyale.tv/albums/pr/">Power Rankings</a>
