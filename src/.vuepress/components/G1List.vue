@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="album-list">
       <div class="header">
-        <h1>Civ Grand Royale Season One</h1>
+        <h1>Season One</h1>
         <span>September 3, 2021 – Present</span>
       </div>
       <router-link
@@ -66,7 +66,7 @@ export default {
     albums() {
       return this.$site.pages
         .filter(
-          (x) => x.path.startsWith("/albums/others") && !x.frontmatter.exclude
+          (x) => x.path.startsWith("/albums/g1") && !x.frontmatter.exclude
         )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
