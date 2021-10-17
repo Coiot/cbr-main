@@ -22,3 +22,11 @@
   for = "/*.webp"
   [headers.values]
     Cache-Control = "public, max-age=2260000"
+
+[[redirects]]
+  from = "/old-path"
+  to = "/new-path"
+  status = 301
+  force = false
+  query = {path = ":path"}
+  conditions = {Language = ["en","es"], Country = ["US"]}
