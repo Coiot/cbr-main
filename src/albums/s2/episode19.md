@@ -1,6 +1,6 @@
 ---
 title: "Episode 19: Blunders and Boomsticks"
-narrated_by: "Msurdej"
+narrated_by: "Msurdej / Mr. Hobo"
 description: "As civilizations battle for supremacy, one civ will make an error that could cost them the game."
 release_date: October 20, 2021
 audio_narration:
@@ -15,16 +15,16 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene01.jpg
   narration: "<p>Hello everybody. Msurdej here, and I’ll be your guide to this week’s episode of the Civ Battle Royale. I’ve been a Power Ranker for several years now (starting all the way back in Mk2), and have narrated several parts as well. I’ve been lucky to get some eliminations in my two prior parts, and am hoping to go 3 for 3. Considering how bloody the cylinder’s been though, I like my odds.</p>"
 - scene_number: 02
-  scene_title: ""
+  scene_title: "Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene02.jpg
   narration: "<p>Here’s the tile-accurate map by Vihreaa. But don’t go memorizing it, a few key things will change in this part.</p>"
 - scene_number: 03
-  scene_title: ""
+  scene_title: "OC:"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene03.jpg
   narration: "<p>This week's piece of art comes from u/Aaron_Lecon, who brilliantly displays the conversation between Skynet and the leader of Marajoara, just before the tide of battle began to turn.</p>"
 - scene_number: 04
   scene_title: "Ko-Fi Supporters"
-  slide_url: https://cdn.civbattleroyale.tv/season1-episode17-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode17-scene04.jpg
   narration: "<p>Shout out to the Ko-Fi supporters for keeping this game and future projects going.</p>"
 - scene_number: 05
   scene_title: "Power Rankings"
@@ -37,7 +37,7 @@ scenes:
 - scene_number: 07
   scene_title: "Meanwhile, in the North"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene07.jpg
-  narration: "<p>Back in North America, the Dene are bombing Clatsop. While the city is in red, it will be safe for now, as the peacekeepers will prevent Dene forces from getting near the city. Mandukahi has large reserves in Tongva land though, which could be used against Thanadelthur if his army doesn’t let up.</p>"
+  narration: "<p>Back in North America, the Dene are bombing Clatsop. While the city is in red, it will be safe for now, as the peacekeepers will prevent Dene forces from getting near the city. Mandukahi has large reserves in Tongva land though, which could be used against Thanadelthur if her army doesn’t let up.</p>"
 - scene_number: 08
   scene_title: "Himalayan  hightops"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene08.jpg
@@ -77,7 +77,7 @@ scenes:
 - scene_number: 17
   scene_title: "PARG War: Part 2"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene17.jpg
-  narration: "<p>After last part’s humiliating defeat to the Northern Yuan, Kolchak turns his attention southward, towards Punjab. Bhera is a sore spot on the map, an exclave that is lightly defended and out of the way. Capturing it should be an easy feat for the PARG, with their tanks and bombers and PARGchamps. </p>"
+  narration: "<p>After last part’s humiliating defeat to the Northern Yuan, Punjab decides to take a shot at Kolchak. Bhera is a sore spot on the map, an exclave that is lightly defended and out of the way. Capturing it should be an easy feat for the PARG, with their tanks and bombers and PARGchamps. </p>"
 - scene_number: 18
   scene_title: "Halfway there"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene18.jpg
@@ -209,7 +209,7 @@ scenes:
 - scene_number: 50
   scene_title: "And the East"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene50.jpg
-  narration: "<p>Kolchak certainly isn’t playing around. Another nuke has been dropped onto Northern Yuan, this time in Zalantun. Mandukhai’s cities have certainly taken a beating, but he shows no signs of giving in.</p>"
+  narration: "<p>Kolchak certainly isn’t playing around. Another nuke has been dropped onto Northern Yuan, this time in Zalantun. Mandukhai’s cities have certainly taken a beating, but she shows no signs of giving in.</p>"
 - scene_number: 51
   scene_title: "Peace never lasts"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene51.jpg
@@ -253,11 +253,11 @@ scenes:
 - scene_number: 61
   scene_title: "Tongva Time is running out"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene61.jpg
-  narration: "<p>Tongva continues to struggle against the onslaught of the Dene. Thanadelthur  captures another city, and continues to push the Tongva back into the sea. Meanwhile, Rio Grande forces have pushed Palux into the black. The only question now is whether or not they will capture it.</p>"
+  narration: "<p>Tongva continues to struggle against the onslaught of the Dene. Thanadelthur captures another city, and continues to push the Tongva back into the sea. Meanwhile, Rio Grande forces have pushed Palux into the black. The only question now is whether or not they will capture it.</p>"
 - scene_number: 62
   scene_title: "Nigerian Core"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene62.jpg
-  narration: "<p>Look at Nigeria. They just completed another wonder, Sky City, which gives bonuses to Vertical Farms, and a free Vertical Farm in the city it was built in.  In celebration they declare war on the Tongva, though this won’t amount to much.</p>"
+  narration: "<p>Look at Nigeria. They just completed another wonder, Sky City, which gives bonuses to Vertical Farms, and a free Vertical Farm in the city it was built in. In celebration they watch Tongva declare war on Palmares, though this won’t amount to much.</p>"
 - scene_number: 63
   scene_title: "Back in the USSR"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene63.jpg
@@ -269,7 +269,7 @@ scenes:
 - scene_number: 65
   scene_title: "Peace in the East"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene65.jpg
-  narration: "<p> With a battered Eastern front, Kolchak decides it’s time to cut his losses. Peace is made between him and Northern Yuan, marking another defeat for PARG. Mandukahi has reclaimed all but one of his cities PARG took so long ago. Despite the sheer amount of nukes dropped on him, Northern Yuan is undoubtedly the winner of this war.</p>"
+  narration: "<p> With a battered Eastern front, Kolchak decides it’s time to cut his losses. Peace is made between him and Northern Yuan, marking another defeat for PARG. Mandukahi has reclaimed all but one of her cities PARG took so long ago. Despite the sheer amount of nukes dropped on them, Northern Yuan is undoubtedly the winner of this war.</p>"
 - scene_number: 66
   scene_title: "Stay a while, and Listen"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene66.jpg
@@ -361,7 +361,7 @@ scenes:
 - scene_number: 88
   scene_title: "Mandukhai Project"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene88.jpg
-  narration: "<p>After years of being nuked, the scientists in Northern Yuan have reverse engineered the bombs that decimated their population. Will Mandukahi use them as cavalierly as his opponents have?</p>"
+  narration: "<p>After years of being nuked, the scientists in Northern Yuan have reverse engineered the bombs that decimated their population. Will Mandukahi use them as cavalierly as her opponents have?</p>"
 - scene_number: 89
   scene_title: "Where beer does flow"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene89.jpg
@@ -393,7 +393,7 @@ scenes:
 - scene_number: 96
   scene_title: "Dances with Dene"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene96.jpg
-  narration: "<p>Dene forces clash inside Chinese Malacca, but the paratroopers are fighting a losing battle, Mansur Shah  can pick off these troublesome troops, and will most likely not worry about his cities being attacked.North of Hanoi, a lone Teuton Pikemen stands alone, a stranger in a strange land. Much like the Ashanti Pikemen before him, he remains, a relic of a bygone place and time.</p>"
+  narration: "<p>Dene forces clash inside Chinese Malacca, but the paratroopers are fighting a losing battle, Mansur Shah  can pick off these troublesome troops, and will most likely not worry about his cities being attacked.North of Hanoi, a lone Teuton Pikemen stands alone, a stranger in a strange land. Much like the Ashanti Pikemen before him, he remains a relic of a bygone place and time.</p>"
 - scene_number: 97
   scene_title: "Baja Battle"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode19-scene97.jpg
