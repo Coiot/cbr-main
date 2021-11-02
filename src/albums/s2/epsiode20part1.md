@@ -49,7 +49,7 @@ scenes:
 - scene_number: 10
   scene_title: "In Force"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene10.jpg
-  narration: "<p>The Cylinder had another navally-oriented southern Pacific frontrunner civ beyond Malacca, the Kulin. Australia was standing room only right now; flush to the brim with hybrid drones and parajumpers. A naval landing would be a bloodbath for the invader, even ignoring the Kulin air and naval forces.</p><p></p><p>Just outside the continent, in the city of Hilo, Lilikuwani made a stand, one not of arms but of morals. Denouncing the fascistic bloodlust of her neighbors, she incorporated Permisian ideas of liberal democracy, of citizen election, government by and for the people. A missive came in from the USSR. It reads only, “How well did this go for Perm?” Lilikuwani nodded solemnly, and returned to her work.</p>"
+  narration: "<p>The Cylinder had another navally-oriented southern Pacific frontrunner civ beyond Malacca, the Kulin. Australia was standing room only right now; flush to the brim with hybrid drones and parajumpers. A naval landing would be a bloodbath for the invader, even ignoring the Kulin air and naval forces.</p><p></p><p>Just outside the continent, in the city of Hilo, Liliuokalani made a stand, one not of arms but of morals. Denouncing the fascistic bloodlust of her neighbors, she incorporated Permisian ideas of liberal democracy, of citizen election, government by and for the people. A missive came in from the USSR. It reads only, “How well did this go for Perm?” Liliuokalani nodded solemnly, and returned to her work.</p>"
 - scene_number: 11
   scene_title: "A Death in Spain"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene11.jpg
