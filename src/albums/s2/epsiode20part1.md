@@ -19,9 +19,9 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene02.jpg
   narration: "<p>As is tradition, here’s your Vihrean map of the Cylinder. Notable changes since last episode: fewer colors, more corpses.</p>"
 - scene_number: 03
-  scene_title: ""
+  scene_title: "The One Foe the Olmecs Could Conquer"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene03.jpg
-  narration: "<p></p>"
+  narration: "<p>Today’s OC comes from Seamang’s Olmec v. Jamaica video, which like most of the civ duels, I recommend if for nothing other than the factor of getting a better head for how competent some of these AI can be when they don’t have to work with reality-based starts.</p>"
 - scene_number: 04
   scene_title: "Hands That Feed"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode17-scene04.jpg
@@ -341,7 +341,7 @@ scenes:
 - scene_number: 83
   scene_title: "It’ll Work This Time, Promise"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene83.jpg
-  narration: "<p>Jumbi, emboldened by the Gallic failure to take his home, decided to pick back up the torch of freedom that Alexander once held, that Lili'uokalani took up in turn. As far as he was concerned, this could not kill him, for he died long ago when the Vandals broke his capital. He had been dead for centuries. Now, in this moment, he lived again.</p>"
+  narration: "<p>Jumbi, emboldened by the Gallic failure to take his home, decided to pick back up the torch of freedom that Stephen once held, that Lili'uokalani took up in turn. As far as he was concerned, this could not kill him, for he died long ago when the Vandals broke his capital. He had been dead for centuries. Now, in this moment, he lived again.</p>"
 - scene_number: 84
   scene_title: "A LISA Fangame"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene84.jpg
