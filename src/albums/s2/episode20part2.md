@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part2-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene01.jpg
   narration: "<p>Welcome back to the Civ Battle Royale Xtra, episode 20.3. I’m still BloodyAltima, and I’m still narrating, so without further ado, let’s get back to the synthetic warcrimes we left off on. </p>"
 - scene_number: 02
   scene_title: "Putting on the Blitz"
