@@ -2,7 +2,7 @@
 title: "Episode 20 – Part 2: The Widening Gulf"
 narrated_by: "bloodyaltima"
 description: ""
-release_date:
+release_date: November 11, 2021
 audio_narration:
 fullvideo:
 starting_turn: 801
