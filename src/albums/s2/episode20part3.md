@@ -4,7 +4,7 @@ narrated_by: "Bulletproof_Cookie"
 description: "At a time of struggle for some, the sound of musical instruments hope to soothe the souls of those whose lives were tragically affected by the instruments of war."
 release_date: November 17, 20021
 audio_narration:
-starting_turn: "90(0)1";
+starting_turn: "90(0)1"
 fullvideo:
 edition: S2
 date: 2021-11-16T00:00:00.000Z
