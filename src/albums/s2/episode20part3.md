@@ -62,7 +62,7 @@ scenes:
 - scene_number: 13
   scene_title: "You’re Either Nexus Or Against Us"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene13.jpg
-  narration: "<p>Jerusalem falls to the might of several Zaire Nexus units. A second music band is on tour in Sine. Reports from attendees indicate that they opened the concert with "We Are One".</p>"
+  narration: "<p>Jerusalem falls to the might of several Zaire Nexus units. A second music band is on tour in Sine. Reports from attendees indicate that they opened the concert with “We Are One”.</p>"
 - scene_number: 14
   scene_title: "CBRXT Takeover Herakleopolis"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene14.jpg
@@ -130,7 +130,7 @@ scenes:
 - scene_number: 30
   scene_title: "ENACT: Embargo: Embargos"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene30.jpg
-  narration: "<p>Within the midst of a long and frustrating war with Ferdinand, Wilhem proposes another embargo, this time against Lesotho. The United Nations reject the proposal because everyone is fed up with all the embargo proposals the Kaiser has thrown around all game, resulting in a lot of shouting between the roundtable of leaders. As the meeting comes to a close, Wilhem warns them that "one day, democracy will fail us all, and when that day comes, we will not all be pointing fingers at one another, but rather guns at all of our throats."</p>"
+  narration: "<p>Within the midst of a long and frustrating war with Ferdinand, Wilhem proposes another embargo, this time against Lesotho. The United Nations reject the proposal because everyone is fed up with all the embargo proposals the Kaiser has thrown around all game, resulting in a lot of shouting between the roundtable of leaders. As the meeting comes to a close, Wilhem warns them that “one day, democracy will fail us all, and when that day comes, we will not all be pointing fingers at one another, but rather guns at all of our throats.”</p>"
 - scene_number: 31
   scene_title: "Kosovo Does Nothing This Part"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene31.jpg
@@ -138,7 +138,7 @@ scenes:
 - scene_number: 32
   scene_title: "Bombs? You Want It? It’s Yours!"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene32.jpg
-  narration: "<p>Wilhelm hears the response, rolls his eyes, turns to his highest ranking commanders, and utters "Arlight, let nuclear rain fall onto the mediterranean shores!"</p><p></p><p>And that was when Ferdinand's people learned to stop worrying and love the bomb. Well, the ones killed by the blasts and radiation poisoning, at least. The German citizens reacted positively to the usage of nuclear arms which ushered in a new Golden Age for Germany.</p><p></p><p>Also, don't get your hopes up, lads. That declaration from Lesotho against Yuan doesn't lead to anything.</p>"
+  narration: "<p>Wilhelm hears the response, rolls his eyes, turns to his highest ranking commanders, and utters “Arlight, let nuclear rain fall onto the mediterranean shores!”</p><p></p><p>And that was when Ferdinand's people learned to stop worrying and love the bomb. Well, the ones killed by the blasts and radiation poisoning, at least. The German citizens reacted positively to the usage of nuclear arms which ushered in a new Golden Age for Germany.</p><p></p><p>Also, don't get your hopes up, lads. That declaration from Lesotho against Yuan doesn't lead to anything.</p>"
 - scene_number: 33
   scene_title: "The Man Who Put The MAN In Germany"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene33.jpg
@@ -146,7 +146,7 @@ scenes:
 - scene_number: 34
   scene_title: "When Two Becomes Three"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene34.jpg
-  narration: "<p>And I presume that was when Ferdinand finally surrendered Salerno, Campobasso and yes, Herakleopolis. What you see in this slide is all that remains of the "Three Sicilian States". Their chances of surviving the impending storm may have just faded away.</p>"
+  narration: "<p>And I presume that was when Ferdinand finally surrendered Salerno, Campobasso and yes, Herakleopolis. What you see in this slide is all that remains of the “Three Sicilian States.” Their chances of surviving the impending storm may have just faded away.</p>"
 - scene_number: 35
   scene_title: "An Open Invitation"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene35.jpg
@@ -166,11 +166,11 @@ scenes:
 - scene_number: 39
   scene_title: "OM NOM NOM NOM"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene39.jpg
-  narration: "<p>Moments away from their final city Akranes falling, Kristjan Eldjarn boards an escape vessel with one of his three remaining musicians (the other two are to be decoys to help his escape), and requests the musician to play him one last song. When asked what kind of song, he simply replied "dealer's choice".</p><p></p><p>Home is behind</p><p>The world ahead</p><p>And there are many paths to tread</p><p>Through shadow</p><p>To the edge of night</p><p>Until the stars are all alight</p><p></p><p>Mist and shadow</p><p>Cloud and shade</p><p>All shall fade</p><p>All shall...</p>"
+  narration: "<p>Moments away from their final city Akranes falling, Kristjan Eldjarn boards an escape vessel with one of his three remaining musicians (the other two are to be decoys to help his escape), and requests the musician to play him one last song. When asked what kind of song, he simply replied “dealer's choice.”</p><p></p><p>Home is behind</p><p>The world ahead</p><p>And there are many paths to tread</p><p>Through shadow</p><p>To the edge of night</p><p>Until the stars are all alight</p><p></p><p>Mist and shadow</p><p>Cloud and shade</p><p>All shall fade</p><p>All shall...</p>"
 - scene_number: 40
   scene_title: "Intertwined Fates"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene40.jpg
-  narration: "<p>... Fade...</p><p></p><p>With the sixth and final Icelandic city in his hands, Wilhelm ordered for another eulogy to be made in the hopes that his mother doesn't yell at him like last time.</p><p></p><p>A civ with low expectations heading into Season 2, much like their mk2 counterpart, Iceland showed a lot of potential early on, taking advantage of the poor performances of the Welsh and Neutrals to establish settlements in Scotland and Canada. If he had played his cards right, Kristjan could have expanded further into North America or claimed the entirety of the British Isles. The opportunity to replicate his predecessor's success and become a major player was wasted with the unsuccessful conquests of New Netherlands and the Neutral Nation. They eventually got kicked out of North America by Mississippi and the Vandals and the British Isles by Germany. From there, the withering Icelandic empire stagnated to the point where they were unable to progress any further scientifically. While most of the remaining world had embraced the technology of the future, Iceland was still figuring out the Industrial Revolution until they were at last put out of their misery.</p><p></p><p>The boat carrying Eldjarn and the musician eventually passed a group of icy mountains to reach an unfamiliar submarine. As they were guided onto the sub, Eldjarn was informed by Pedro to follow him, where he was reintroduced to Karl. When Pedro was asked byKristjan why the Brazilian wanted him to see Karl, Pedro replied "the two of you remind me of two great leaders that I once knew".</p><p></p><p>F.</p><p></p><p>FUN FACT: With this album technically being a part of the same episode as the previous two albums, this marks the second time where Sweden and Iceland were both eliminated together!</p>"
+  narration: "<p>... Fade...</p><p></p><p>With the sixth and final Icelandic city in his hands, Wilhelm ordered for another eulogy to be made in the hopes that his mother doesn't yell at him like last time.</p><p></p><p>A civ with low expectations heading into Season 2, much like their mk2 counterpart, Iceland showed a lot of potential early on, taking advantage of the poor performances of the Welsh and Neutrals to establish settlements in Scotland and Canada. If he had played his cards right, Kristjan could have expanded further into North America or claimed the entirety of the British Isles. The opportunity to replicate his predecessor's success and become a major player was wasted with the unsuccessful conquests of New Netherlands and the Neutral Nation. They eventually got kicked out of North America by Mississippi and the Vandals and the British Isles by Germany. From there, the withering Icelandic empire stagnated to the point where they were unable to progress any further scientifically. While most of the remaining world had embraced the technology of the future, Iceland was still figuring out the Industrial Revolution until they were at last put out of their misery.</p><p></p><p>The boat carrying Eldjarn and the musician eventually passed a group of icy mountains to reach an unfamiliar submarine. As they were guided onto the sub, Eldjarn was informed by Pedro to follow him, where he was reintroduced to Karl. When Pedro was asked byKristjan why the Brazilian wanted him to see Karl, Pedro replied “the two of you remind me of two great leaders that I once knew.”</p><p></p><p>F.</p><p></p><p>FUN FACT: With this album technically being a part of the same episode as the previous two albums, this marks the second time where Sweden and Iceland were both eliminated together!</p>"
 - scene_number: 41
   scene_title: "Everyone Has The Biggest Brain"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene41.jpg
