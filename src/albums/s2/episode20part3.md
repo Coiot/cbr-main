@@ -13,7 +13,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part3-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode20-part1-scene01.jpg
   narration: "<p>Welcome back for the third and final part of Episode 20 of Season 2 of the Civ Battle Royale X. I'm not BloodyAltima! This is Bulletproof_Cookie ready to narrate the next 50 slides.</p><p></p><p>Yes, 50 slides. If it has not already become apparent already, the game has started to slow to a crawl due to the advanced state of the game. A big reason behind this is unit overflow causing newly built units to spawn on random unoccupied titles on the cylinder resulting in wars reaching to a stalemate where troops can't move around, advance into enemy territory or take cities. As such, the next 200 turns have been condensed down to the aforementioned number of slides. Otherwise, we would have 30-40 slides of nothing of interest happening and trust me, you don't want that. This was a big reason why Episode 20 was supposed to be an overview of 400 turns, but it turned out there was enough to warrant splitting the episode into multiple parts.</p><p></p><p>ALL THAT SAID, that doesn't mean there aren't some noteworthy incidents going on, so let's get on with it!</p>"
 - scene_number: 02
   scene_title: "The Front Line"
