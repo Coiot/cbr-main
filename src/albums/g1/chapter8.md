@@ -25,7 +25,7 @@ scenes:
 - scene_number: 04
   scene_title: "Bichos Ain't Shit"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee04.jpg
-  narration: "<p>And now, some events you've never seen before! We're taking a look now at a long, thin, coastline-hugging nation in South America— by which I mean, of course, the United Fruit Company. Sam Zemurray has just sailed into Camutins on a trireme, thus capturing the nigh-undefended Marajoara capital. The Marajoara queen P'kuee retreats to Bichos. Her new capital is somewhat insulated from the UFC, thanks to a one-two punch of forests and bordergore; however, P'kuee will have to hope that "being hard to reach" is a sufficient strategy, because her second line of defense is one (1) trebuchet.</p>"
+  narration: "<p>And now, some events you've never seen before! We're taking a look now at a long, thin, coastline-hugging nation in South America— by which I mean, of course, the United Fruit Company. Sam Zemurray has just sailed into Camutins on a trireme, thus capturing the nigh-undefended Marajoara capital. The Marajoara queen P'kuee retreats to Bichos. Her new capital is somewhat insulated from the UFC, thanks to a one-two punch of forests and bordergore; however, P'kuee will have to hope that “being hard to reach” is a sufficient strategy, because her second line of defense is one (1) trebuchet.</p>"
 - scene_number: 05
   scene_title: "It's a Nice Place to Chill"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee05.jpg
@@ -35,7 +35,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee06.jpg
   narration: "<p>Wenshan, the final city of the long-suffering Shu Han, is down into the red... however, Rouran still haven't brought any melee units to the front lines. It's not for lack of supply— the Nirun-Huaishao corridor shows a whole line of them— but, for some reason, Yujiulu Mugulu has decided to keep them close to his chest. C'mon, man... we can all tell that you want to eliminate Shu Han. Just be honest about it and start knocking heads.</p>"
 - scene_number: 07
-  scene_title: "They Said "Come to Brazil"... So We Did"
+  scene_title: "They Said “Come to Brazil”... So We Did"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee07.jpg
   narration: "<p>The Omagua have a good track record when it comes to war against Brazil; for proof of that, just look at Salvador and São Paulo, both of which are now flying the Omagua eel banner. However, it seems like Payoreva wants to make this track record even better, as he's just declared a resumption of hostilities against the Brazilians! Based on the arrangement of the Omagua forces, it looks like they're bearing down on Lula's capital in Brasília; however, knowing the AI's attention span, I wouldn't be surprised if part of the Omagua army peeled off to harass Rio de Janeiro instead.</p>"
 - scene_number: 08
@@ -57,7 +57,7 @@ scenes:
 - scene_number: 12
   scene_title: "You Wouldn't Download a Boat"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee12.jpg
-  narration: "<p>The Illyrians' last attempt at ground warfare was successful— they walked out of it with Budapest, a hotly contested capital. However, Teuta seems to have become bored of this whole "land" thing, and instead dedicates her time to mass-producing the Lembos. This unique trireme is weak on its own, but becomes stronger near others of its kind, so enemies of the Illyrians would be wise to stay out of the Adriatic!</p><p></p><p>It's not like any of them are out there trying to get INTO the Adriatic. But, well... every bit of deterrence helps, I guess.</p>"
+  narration: "<p>The Illyrians' last attempt at ground warfare was successful— they walked out of it with Budapest, a hotly contested capital. However, Teuta seems to have become bored of this whole “land” thing, and instead dedicates her time to mass-producing the Lembos. This unique trireme is weak on its own, but becomes stronger near others of its kind, so enemies of the Illyrians would be wise to stay out of the Adriatic!</p><p></p><p>It's not like any of them are out there trying to get INTO the Adriatic. But, well... every bit of deterrence helps, I guess.</p>"
 - scene_number: 13
   scene_title: "I've Got Tiger Blood"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee13.jpg
@@ -97,7 +97,7 @@ scenes:
 - scene_number: 22
   scene_title: "The Carnival Isn't Over Yet"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee22.jpg
-  narration: "<p>After a few drinks, Lula leaves the general's side, having mustered up the courage to speak to Payoreva directly. He demands a peace deal, and the Omagua leader accepts it, saying "Why not? We've already got your capital, after all."</p>"
+  narration: "<p>After a few drinks, Lula leaves the general's side, having mustered up the courage to speak to Payoreva directly. He demands a peace deal, and the Omagua leader accepts it, saying “Why not? We've already got your capital, after all.”</p>"
 - scene_number: 23
   scene_title: "No Lyon Down on the Job"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee23.jpg
@@ -105,7 +105,7 @@ scenes:
 - scene_number: 24
   scene_title: "Time to Fight in the Shade"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee24.jpg
-  narration: "<p>Mwibele continues to hold out against Lesotho's attack... but, suddenly, the sound of footsteps can be heard in the northeast. "I've practiced enough!" Gbudwe declares. "It's time that these crossbows see the battlefield." Suffice it to say: I don't envy Luba's position right now.</p>"
+  narration: "<p>Mwibele continues to hold out against Lesotho's attack... but, suddenly, the sound of footsteps can be heard in the northeast. “I've practiced enough!” Gbudwe declares. “It's time that these crossbows see the battlefield.” Suffice it to say: I don't envy Luba's position right now.</p>"
 - scene_number: 25
   scene_title: "Just Doing Some Surveying"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee25.jpg
@@ -169,7 +169,7 @@ scenes:
 - scene_number: 40
   scene_title: "Playing on Island Time"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee40.jpg
-  narration: "<p>What's the bigger embarrassment— the Ngarrindjeri letting Siam settle right in their heartland, or New Zealand not even bothering to settle South Island after 182 turns? Either way, it's clear that Oceania's roster of civs is not letting the whole "battle royale" idea stress them out, and is instead taking a relaxed approach to the game.</p>"
+  narration: "<p>What's the bigger embarrassment— the Ngarrindjeri letting Siam settle right in their heartland, or New Zealand not even bothering to settle South Island after 182 turns? Either way, it's clear that Oceania's roster of civs is not letting the whole “battle royale” idea stress them out, and is instead taking a relaxed approach to the game.</p>"
 - scene_number: 41
   scene_title: "Snoryaks? Rappers? Or Something Else Entirely?"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee41.jpg
@@ -241,7 +241,7 @@ scenes:
 - scene_number: 58
   scene_title: "Yekaterin Burnt"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee58.jpg
-  narration: "<p>And we've got an elimination! Makhnovist forces storm into Yekaterinburg, where they find the Empress Elisabeth and guillotine her for that whole "being a monarch" thing. Russia is eliminated in 53rd place.</p><p></p><p>Although the Power Rankers had early doubts about Russia, Elisabeth pleasantly surprised us by dealing the finishing blow to Pomerania. However, as happens so often, that finishing blow turned out to do more harm than good— the elimination gave Russia a big ol' diplomatic penalty. The Eastern Finns quickly moved in to conquer the Russian heartland, while Makhnovia swung up from the south to take the rest of Elisabeth's empire. So goes the bloody food chain of war.</p>"
+  narration: "<p>And we've got an elimination! Makhnovist forces storm into Yekaterinburg, where they find the Empress Elisabeth and guillotine her for that whole “being a monarch” thing. Russia is eliminated in 53rd place.</p><p></p><p>Although the Power Rankers had early doubts about Russia, Elisabeth pleasantly surprised us by dealing the finishing blow to Pomerania. However, as happens so often, that finishing blow turned out to do more harm than good— the elimination gave Russia a big ol' diplomatic penalty. The Eastern Finns quickly moved in to conquer the Russian heartland, while Makhnovia swung up from the south to take the rest of Elisabeth's empire. So goes the bloody food chain of war.</p>"
 - scene_number: 59
   scene_title: "The "Reverse Cambyses" Maneuver"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee59.jpg
