@@ -243,7 +243,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee58.jpg
   narration: "<p>And we've got an elimination! Makhnovist forces storm into Yekaterinburg, where they find the Empress Elisabeth and guillotine her for that whole “being a monarch” thing. Russia is eliminated in 53rd place.</p><p></p><p>Although the Power Rankers had early doubts about Russia, Elisabeth pleasantly surprised us by dealing the finishing blow to Pomerania. However, as happens so often, that finishing blow turned out to do more harm than good— the elimination gave Russia a big ol' diplomatic penalty. The Eastern Finns quickly moved in to conquer the Russian heartland, while Makhnovia swung up from the south to take the rest of Elisabeth's empire. So goes the bloody food chain of war.</p>"
 - scene_number: 59
-  scene_title: "The "Reverse Cambyses" Maneuver"
+  scene_title: "The “Reverse Cambyses” Maneuver"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter8-scenee59.jpg
   narration: "<p>Remember this war out in Mesopotamia? Well, it's been pretty quiet so far— Yemen blew some holes in Isfahan, but only managed to bring it down to half its health. However, while this was happening, Tutankhamun was moving more and more units across the Sinai. There's now a sizable Egyptian army marching on the weakened Isfahan, aiming to realize the New Kingdom dream of northeasterly expansion.</p>"
 - scene_number: 60
