@@ -133,7 +133,7 @@ scenes:
 - scene_number: 31
   scene_title: "The Rise of Houston"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene31.jpg
-  narration: "<p>Corpus Christie falls to Texas in an, honestly, kind of stunning upset. This defense should have been an absolute breeze for Brigham!</p><p>"Fine, I'll send units. But only, like, five." – Brigham Young, probably.</p><p>Also, in the corner, the surprisingly eventful war between Omagua and France finally comes to an end.</p>"
+  narration: "<p>Corpus Christie falls to Texas in an, honestly, kind of stunning upset. This defense should have been an absolute breeze for Brigham!</p><p>“Fine, I'll send units. But only, like, five.” – Brigham Young, probably.</p><p>Also, in the corner, the surprisingly eventful war between Omagua and France finally comes to an end.</p>"
 - scene_number: 32
   scene_title: "Oopsala"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene32.jpg
@@ -157,7 +157,7 @@ scenes:
 - scene_number: 37
   scene_title: "The Cowboy Prince"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene37.jpg
-  narration: "<p>"I told you five units was enough. Are you happy now?" – Brigham Young, probably.</p><p>Deseret recaptures Corpus Christie from Prince Houston with the absolute bare minimum amount of effort possible. Despite the tech advantage, Prince Houston (he's a prince, I think that's silly) still has more than enough units in the general vicinity to flip the city back.</p><p></p>"
+  narration: "<p>“I told you five units was enough. Are you happy now?” – Brigham Young, probably.</p><p>Deseret recaptures Corpus Christie from Prince Houston with the absolute bare minimum amount of effort possible. Despite the tech advantage, Prince Houston (he's a prince, I think that's silly) still has more than enough units in the general vicinity to flip the city back.</p><p></p>"
 - scene_number: 38
   scene_title: "Baegum, more like Bae’s gone"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene38.jpg
@@ -185,7 +185,7 @@ scenes:
 - scene_number: 44
   scene_title: "The Last Cowboy"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene44.jpg
-  narration: "<p>"What do you mean, five units was not enough?!" – Brigham Young, probably.</p><p>Prince Houston flips Corpus Christie back to his empire with a sneaky musketman. Deseret will no doubt flip it back pretty soon.</p><p></p>"
+  narration: "<p>“What do you mean, five units was not enough?!” – Brigham Young, probably.</p><p>Prince Houston flips Corpus Christie back to his empire with a sneaky musketman. Deseret will no doubt flip it back pretty soon.</p><p></p>"
 - scene_number: 45
   scene_title: "Did you know Atil literally translates to “Big River”?"
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter9-scene45.jpg
