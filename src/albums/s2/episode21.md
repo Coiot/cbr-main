@@ -29,7 +29,7 @@ scenes:
   narration: "<p>Coiot: As always thank you to all the supporters who have directly contributed to this season’s continuation and beyond. Truly thankful for each and every donation, it is greatly appreciated. </p>"
 - scene_number: 05
   scene_title: "Finn It to Win It"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode21-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr20-scene15.jpg
   narration: "<p>They may not be the true focus of this episode, as the Cylinder’s serious powers jostle for supremacy. But 21 is Finland’s highest ever ranking. For them, this is the big time. Can they keep that forward momentum when all around them descends into mayhem? It’s unlikely, but then, Finland sticking around to Episode 21 wasn’t hugely likely either.</p>"
 - scene_number: 06
   scene_title: "Calm Before"
