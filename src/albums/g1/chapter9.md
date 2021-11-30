@@ -2,7 +2,7 @@
 title: "Chapter 9: The Capital King and the Cowboy Prince"
 narrated_by: "Era"
 description: ""
-release_date:
+release_date: November 26, 2021
 audio_narration:
 fullvideo:
 edition: G1
