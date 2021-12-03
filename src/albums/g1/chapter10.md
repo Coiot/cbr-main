@@ -253,5 +253,9 @@ scenes:
 - scene_number: 61
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season1-chapter10-scene61.jpg
-  narration: "<p>Just below that, we see New France, Omagua, Egypt, the Yakuts, Guaycuru, and …….the Azande. Trust me these rankings would be very, VERY different if AI and tactical prowess were factored.</p><p></p><p></p><p></p><p></p><p>And now we get a look at who the big losers of this game are: Brazil, the Bunuba, Mixtecs, Srivijaya, Marajoara, and the “cream of the crap,” Ur.</p><p></p><p>And with that I’ll be signing off today. A slower bit of an episode in my opinion but some nice entertaining bits nevertheless. It’s been ya boi, ITSTRUCKMONTH, signing off!</p>"
+  narration: "<p>Just below that, we see New France, Omagua, Egypt, the Yakuts, Guaycuru, and …….the Azande. Trust me these rankings would be very, VERY different if AI and tactical prowess were factored.</p>"
+- scene_number: 62
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter10-scene62.jpg
+  narration: "<p>And now we get a look at who the big losers of this game are: Brazil, the Bunuba, Mixtecs, Srivijaya, Marajoara, and the “cream of the crap,” Ur.</p><p></p><p>And with that I’ll be signing off today. A slower bit of an episode in my opinion but some nice entertaining bits nevertheless. It’s been ya boi, ITSTRUCKMONTH, signing off!</p>"
 ---
