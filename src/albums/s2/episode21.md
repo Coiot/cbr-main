@@ -1,5 +1,5 @@
 ---
-title: "Episode 21"
+title: "Episode 21: Matters of Life and Death"
 narrated_by: "LacsiraxAriscal"
 description: ""
 release_date: December 1, 2021
