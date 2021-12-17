@@ -2,7 +2,7 @@
 title: "Chapter 11: Growing Pains (and I Don’t Just Mean Liberalism)"
 narrated_by: "Weasel Man"
 description: ""
-release_date:
+release_date: December 10, 2021
 audio_narration:
 fullvideo:
 edition: G1
