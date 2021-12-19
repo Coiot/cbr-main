@@ -12,7 +12,7 @@ prcast:
 scenes:
 - scene_number: 01
   scene_title: "Uhh is this how it goes?"
-  slide_url: https://cdn.civbattleroyale.tv/season1-chapter12-scene01.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season1-chapter1-scene01.jpg
   narration: "<p>Testing, testing, ayo its JDT1706 here, back about with a new part of the Civ Grand Royale! Its an honour to be here, so lets skip the formalities and get straight into the action!</p>"
 - scene_number: 02
   scene_title: "Sultana of Swings"
