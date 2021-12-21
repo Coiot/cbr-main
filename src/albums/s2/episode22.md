@@ -25,7 +25,7 @@ scenes:
 - scene_number: 04
   scene_title: "Donation Station"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode22-scene04.jpg
-  narration: "<p>As always, a massive thanks to all of the CBR’s supporters on Ko-Fi for making all of this possible! For those unaware, Cycle 2 is currently being run on a computer purchased with the Ko-Fi money, so it’s 100% true that your donations make a difference.</p>"
+  narration: "<p>As always, a massive thanks to all of the CBR’s supporters on Ko-Fi for making all of this possible! For those unaware, Cycle 2 is currently being run on a computer purchased with the Ko-Fi money, so it’s 100% true that your donations make a difference.</p><p>Coiot: We could not have done it without everyone's help! It's been a really tiresome and stressfull development period to get to final production, but we got through it. Once again a reminder that every contribution has an impact, and we'll be able to offer more from within the game for the remainder of this season (and hopefully even more in the next).</p>"
 - scene_number: 05
   scene_title: "PRajoara"
   slide_url: https://cdn.civbattleroyale.tv/season2-pr21-scene27.jpg
