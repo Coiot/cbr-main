@@ -13,7 +13,7 @@ scenes:
 - scene_number: 01
   scene_title: "Could You Classify the CBR as a Bicycle?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode22-scene01.jpg
-  narration: "<p>Hello and welcome to Episode 22 of the CBRX Season 2! I’m u/daXfactorz, also known as NopeCopter, and I’m incredibly honored to be bringing you the first episode of Season 2 Cycle 2 today. It’s been a chaotic two weeks, but thanks to the hard work of the Blue Cassette team, we’re still on schedule. But enough about that - let’s get on to the OC slides!</p>"
+  narration: "<p>Hello and welcome to Episode 22 of the CBRX Season 2! I’m u/daXfactorz, also known as NopeCopter, and I’m incredibly honored to be bringing you the first episode of Season 2 Cycle 2 today. It’s been a chaotic three weeks, but thanks to the hard work of the Blue Cassette team, we’re still on schedule. But enough about that - let’s get on to the OC slides!</p>"
 - scene_number: 02
   scene_title: "The Last Time You’ll Ever See the Cycle 1 Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode22-scene02.jpg
