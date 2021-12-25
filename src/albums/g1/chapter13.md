@@ -1,5 +1,5 @@
 ---
-title: "Chapter 3: The Bitch is Back"
+title: "Chapter 13: The Bitch is Back"
 narrated_by: "ExplosiveWatermelon"
 description: "Normally I keep with the theme for the abstract here, but since release day is Christmas Eve, I’m just gonna wish you a Happy Holidays! Today we’re gonna Step Into Christmas as I’ve prepared a lyrical episode for you. Let’s get going."
 release_date: December 24, 2021
