@@ -28,7 +28,7 @@ scenes:
   narration: "<p>Once again a huge thank you to all of our lovely donators we couldn’t keep this going without you. Without further ado, take it away Arilasqueto.</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode23-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr22-scene04.jpg
   narration: "<p>I’m writing this on Sunday night and the PRs haven’t come out yet, so I’m gonna assume this is Kosovo after their stupendous rise to glory last episode.</p><p></p><p>Editor's note: They did not! </p>"
 - scene_number: 06
   scene_title: "It’s about Rise, It’s about Power"
