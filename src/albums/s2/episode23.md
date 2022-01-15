@@ -2,7 +2,7 @@
 title: "Episode 23: All About Lenin"
 narrated_by: "Arc Five Narrators"
 description: ""
-release_date: January 7, 2021
+release_date: January 7, 2022
 audio_narration:
 fullvideo:
 edition: S2

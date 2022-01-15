@@ -2,7 +2,7 @@
 title: "Episode 2: Shuffleboard"
 narrated_by: "Coiot"
 description: ""
-release_date: Jan 5, 2021
+release_date: Jan 5, 2022
 audio_narration:
 fullvideo:
 pr: RG1
