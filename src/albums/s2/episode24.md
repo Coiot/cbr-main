@@ -17,7 +17,7 @@ scenes:
 - scene_number: 02
   scene_title: "Vihreaan Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene02.jpg
-  narration: "<p>It’s been quite an honor to have the maps I make each week become a mainstay for every album in the CBR, and as usual, I have provided the map for last part. We see the growing and waning power of all the states across the cylinder, and this part may not see all of the civs here survive to the next map.</p>"
+  narration: "<p>It’s been quite an honor to have the maps I make each week become a mainstay for every album in the CBR, and as usual, I have provided the map for last episode. We see the growing and waning power of all the states across the cylinder, and this episode may not see all of the civs here survive to the next map.</p>"
 - scene_number: 03
   scene_title: "*Shudders*"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene03.jpg
@@ -33,7 +33,7 @@ scenes:
 - scene_number: 06
   scene_title: "Gods and Kings"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene06.jpg
-  narration: "<p>Our first content slide of the part brings us to the Government Overview screen, showing us the types of governments all of the different civs in the cylinder have. I’m not sure as to the differences between all of the government types, but there is certainly a wide spread, with republics, monarchies, tribes, and more just on this slide.</p>"
+  narration: "<p>Our first content slide of the episode brings us to the Government Overview screen, showing us the types of governments all of the different civs in the cylinder have. I’m not sure as to the differences between all of the government types, but there is certainly a wide spread, with republics, monarchies, tribes, and more just on this slide.</p>"
 - scene_number: 07
   scene_title: "Government 101"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene07.jpg
@@ -57,7 +57,7 @@ scenes:
 - scene_number: 12
   scene_title: "Native Warfare"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene12.jpg
-  narration: "<p>The war between the Dene and NN continues into this part, with both of NN’s border cities sustaining damage. With both being relatively bottlenecked, NN isn’t having much trouble defending them. Both nations still have a relatively sizeable base of troops to support them, so this war will likely last for a while yet.</p>"
+  narration: "<p>The war between the Dene and NN continues into this episode, with both of NN’s border cities sustaining damage. With both being relatively bottlenecked, NN isn’t having much trouble defending them. Both nations still have a relatively sizeable base of troops to support them, so this war will likely last for a while yet.</p>"
 - scene_number: 13
   scene_title: "Southern Strategy"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene13.jpg
@@ -409,7 +409,7 @@ scenes:
 - scene_number: 100
   scene_title: "WHAT?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene100.jpg
-  narration: "<p>ZAIRE, in a stroke of diplomatic genius, somehow has managed to make peace with the two nations that have conquered 90% of their country over the course of the last several parts. With only a sliver of defense left in their final city, they sign peace treaties with both nations, securing their survival for at least the immediate future. </p>"
+  narration: "<p>ZAIRE, in a stroke of diplomatic genius, somehow has managed to make peace with the two nations that have conquered 90% of their country over the course of the last several episodes. With only a sliver of defense left in their final city, they sign peace treaties with both nations, securing their survival for at least the immediate future. </p>"
 - scene_number: 101
   scene_title: "The Great War in the North, continued"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene101.jpg
@@ -437,5 +437,5 @@ scenes:
 - scene_number: 107
   scene_title: "Religion Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene107.jpg
-  narration: "<p>The religious map for this episode shows us the consolidating regions of religion in the world, with major areas being Africa, South Asia, along with religions from major powers in the Americas and Australia.</p><p>With that, we wrap up this 24th episode of the CBRX2. It’s been an honor to narrate, and certainly a lot of words! Heres to the next part coming soon!</p>"
+  narration: "<p>The religious map for this episode shows us the consolidating regions of religion in the world, with major areas being Africa, South Asia, along with religions from major powers in the Americas and Australia.</p><p>With that, we wrap up this 24th episode of the CBRX2. It’s been an honor to narrate, and certainly a lot of words! Heres to the next episode coming soon!</p>"
 ---
