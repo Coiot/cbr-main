@@ -117,10 +117,7 @@ img {
 
   .post {
     width: 100%;
-  }
-
-  .post + .post {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 }
 </style>
