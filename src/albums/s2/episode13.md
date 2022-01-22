@@ -10,6 +10,8 @@ edition: S2
 date: 2021-07-27T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode13-scene06.jpg
 prcast:
+prev: /albums/s2/episode12/
+next: /albums/s2/episode14/
 scenes:
 - scene_number: 01
   scene_title: "World Conquest"

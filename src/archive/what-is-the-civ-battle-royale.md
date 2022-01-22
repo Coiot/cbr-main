@@ -2,7 +2,7 @@
 title: "What is the Civ Battle Royale?"
 narrated_by: "Coiot"
 description: "The Civ Battle Royale (CBR) is a bi-weekly online show of a massive 61 AI-only epic running Civilization V. No human intervention in the show as a several months long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable route to victory."
-footer: "© 2021 Blue Cassette"
+footer: "© 2022 Blue Cassette"
 date: 2021-06-28T00:00:00.000Z
 layout: Page
 image: https://cdn.discordapp.com/attachments/367369543376568322/590607288377802782/CBR_Logo.png

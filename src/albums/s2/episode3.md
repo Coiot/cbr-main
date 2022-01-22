@@ -10,6 +10,8 @@ edition: S2
 date: 2021-03-09T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode3-scene06.jpg
 prcast:
+prev: /albums/s2/episode2/
+next: /albums/s2/episode4/
 scenes:
   - scene_number: 01
     scene_title: "This is your captain speaking"

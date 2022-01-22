@@ -10,6 +10,8 @@ edition: S2
 date: 2021-06-02T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode9-scene06.jpg
 prcast:
+  prev: /albums/s2/episode8/
+  next: /albums/s2/episode10/
 scenes:
   - scene_number: 01
     scene_title: "An Introduction to Part 9"
