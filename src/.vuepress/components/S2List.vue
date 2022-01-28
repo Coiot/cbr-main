@@ -150,7 +150,7 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 15 && index < 23"
+            v-if="index > 14 && index < 23"
             :key="post.title"
             :tabindex="0"
           >
