@@ -10,6 +10,8 @@ edition: S2
 date: 2021-03-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode4-scene06.jpg
 prcast:
+prev: /albums/s2/episode2/
+next: /albums/s2/episode5/
 scenes:
   - scene_number: 01
     scene_title: "Rok is back. Tell a friend."

@@ -11,7 +11,7 @@ date: 2021-02-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode2-scene07.jpg
 prcast:
 prev: /albums/s2/episode1/
-next:
+next: /albums/s2/episode3/
 scenes:
   - scene_number: 01
     scene_title: "Introductions out of the Way"

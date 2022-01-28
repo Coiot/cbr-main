@@ -10,6 +10,8 @@ edition: S2
 date: 2021-05-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode8-scene06.jpg
 prcast:
+prev: /albums/s2/episode7/
+next: /albums/s2/episode9/
 scenes:
   - scene_number: 01
     scene_title: "hey ;)"

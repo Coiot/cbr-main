@@ -10,6 +10,8 @@ starting_turn: 151
 date: 2021-04-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode6-scene06.jpg
 prcast:
+prev: /albums/s2/episode5/
+next: /albums/s2/episode7/
 scenes:
   - scene_number: 01
     scene_title: "Here we go again"

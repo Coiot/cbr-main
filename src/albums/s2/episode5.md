@@ -10,6 +10,8 @@ starting_turn: 121
 date: 2021-04-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode5-scene06.jpg
 prcast:
+prev: /albums/s2/episode4/
+next: /albums/s2/episode6/
 scenes:
   - scene_number: 01
     scene_title: "Orange you glad I’m back?"

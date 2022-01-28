@@ -10,7 +10,7 @@
           <span>CBRX Season One</span>
         </div>
 
-         <div class="list" @click="clickedEdition = 'G1List'">
+        <div class="list" @click="clickedEdition = 'G1List'">
           <span>CGR Season One</span>
         </div>
 
@@ -81,6 +81,10 @@ export default {
 }
 
 @media (max-width: 799px) {
+  .list span {
+    font-size: 0.9rem;
+  }
+
   .edition-list {
     display: none;
   }
