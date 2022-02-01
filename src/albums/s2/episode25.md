@@ -1,5 +1,5 @@
 ---
-title: "Episode 25"
+title: "Episode 25: Song of Chukchi Ice and Malaccan Fire"
 narrated_by: "Rosay"
 description: ""
 release_date: February 2, 2022
