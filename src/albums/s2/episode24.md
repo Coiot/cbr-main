@@ -14,7 +14,7 @@ next:
 scenes:
   - scene_number: 01
     scene_title: "Let’s dive back into the action!"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode23-scene01.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene01.jpg
     narration: "<p>Hello ladies, gentlemen, non-binaries, and all those in between to our 24th episode of the CBRX 2! I have the privileged honor of narrating this wonderful and momentous episode for all of your enjoyment. I must warn you, there will be joy, there will be heartbreak, there will be betrayal, but that’s all part of the package when we all come here every other week to watch AI’s try to conquer the planet!</p>"
   - scene_number: 02
     scene_title: "Vihreaan Map"

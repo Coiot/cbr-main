@@ -28,7 +28,7 @@ scenes:
   narration: "<p>Once again, thank you to all of the lovelies that have financially supported the second cycle, we wouldn't be here without it.</p>"
 - scene_number: 05
   scene_title: "Marach to the top"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode25-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr24-scene21.jpg
   narration: "<p>Marajoara continues to be the top place civ according to the power rankers (me included) and it's hard to argue considering all of the successful civs in the past that have come out of the region, which mind you Marajoara controls entirely. </p><p></p><p>With all that out of the way, let's jump in and watch some AIs throw hands!</p>"
 - scene_number: 06
   scene_title: "Wacky ideologies"
