@@ -368,10 +368,10 @@ scenes:
   narration: "<p>All 3 cities on the front line flip yet again. I will note that the Vandals have landed cannons and cuirassiers, which are not really the best at protecting cities from land but at least it’s better than nothing. Also, in case you forgot about it, this part the Vandals were not just at war with science turtle Marajoara and science god Nigeria, they were also trying to invade regular-turtle Gauls. We unfortunately do not get to see how well the Vandals are doing vs Bibracte but we can probably assume poorly since it isn’t shown.</p>"
 - scene_number: 91
   scene_title: "Malacca core"
-  slide_url: https://cdn.civbattleroyale.tv/cbrz-season2-episode27-91.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrz-season2-episode27-92.jpg
   narration: "<p>If when you first saw this slide, you immediately thought “oh no, not another episode that ends with a Malacca/Kulin war”, well have no fear, this time, for the first time in cycle 2, Malacca and the Kulin are ending a part at peace. This slide we merely get to see Malacca’s new gains, as well as notice that they are yet again completely full of jongs. The Kulin should use this peace as an opportunity to clean out the undefended colonies from the Pacific like they did last time, instead of messing around with whatever they’re doing in Africa.</p><p></p>"
 - scene_number: 92
   scene_title: "Concluding remarks"
-  slide_url: https://cdn.civbattleroyale.tv/cbrz-season2-episode27-92.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrz-season2-episode27-91.jpg
   narration: "<p>The final slide of the episode is a view of the Dene core, which is pretty much unchanged since the start of the episode. </p><p></p><p>Over the course of these 25 turns, we saw yet another Malacca vs Kulin war, the Vandals fighting 3 civs at once with a couple of relatively useless allies, and of course the complete obliteration of Northern Yuan. Tune in in 2 weeks time to see what happens in episode 28.</p>"
 ---
