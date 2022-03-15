@@ -15,9 +15,9 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode27-scene01.jpg
   narration: "<p>Leeeeeeeeeeeeeeeeeeeeeeeeeet’s get ready to rumbleeeeeeeeeeeeeeeeeeeeee! Howdy folks, it’s me, ItsTruckMonth, back for another narration. I assume some of y’all remember me from my introduction last part but here's a small recap: been around since X1, resident shitposter, yada-yada and all that. It’s been a small bit since I last narrated, and I’m glad I can come back for yet another narration for (in my opinion) the most exciting season yet!</p><p></p><p>Alright enough of that introduction stuff. Let’s get down to yet another episode of the Civ Battle Royale: X2 (Cycle 2)!</p>"
 - scene_number: 02
-  scene_title: "Sleeping In"
+  scene_title: "Ya Snooze, Ya Lose"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode28-scene02.jpg
-  narration: ""
+  narration: "u/Orangechrisy delivers yet another great weekly comic detailing the lore behind our first part that DOESN’T end with Kulin and Malacca at war. Will this streak keep up, or will we be back to our usual slapstick? Let’s find out later, shall we?"
 - scene_number: 03
   scene_title: "Dead Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode28-scene03.jpg
