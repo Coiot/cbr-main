@@ -257,7 +257,7 @@ scenes:
 - scene_number: 62
   scene_title: "Buried underneath the sand"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene62.jpg
-  narration: "<p>Awolowo's cavalry frenzy doesn't seem to have had its intended effect of scaring king Genseric. While most of the Nigerian army has perished while trying to secure the coast of North Africa, fresh Vandal troops are still streaming into the sand dunes of the Sahara. Cirta has already been recaptured, and Catina is next on the menu. In his palace outside of Hippo Regius, Genseric entertains himself with a private concert by Jackie Wilson, who sings his latest blues hit: 'Your Loot Keeps Lifting Me Higher'. He leans back and takes a bite out of his sandwich. "Everything according to keikaku."</p>"
+  narration: "<p>Awolowo's cavalry frenzy doesn't seem to have had its intended effect of scaring king Genseric. While most of the Nigerian army has perished while trying to secure the coast of North Africa, fresh Vandal troops are still streaming into the sand dunes of the Sahara. Cirta has already been recaptured, and Catina is next on the menu. In his palace outside of Hippo Regius, Genseric entertains himself with a private concert by Jackie Wilson, who sings his latest blues hit: 'Your Loot Keeps Lifting Me Higher'. He leans back and takes a bite out of his sandwich. “Everything according to keikaku.”</p>"
 - scene_number: 63
   scene_title: "Jong & old"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene63.jpg
