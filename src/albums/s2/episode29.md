@@ -181,7 +181,7 @@ scenes:
 - scene_number: 43
   scene_title: "The promise of vacation"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene43.jpg
-  narration: "<p>A Nigerian cavalry commander slams his horse into the gates of Catina. "We're almost there, boys! Just a little more horsepower! Make Babalawo proud!" Awolowo, hearing the positive tidings from the frontlines, orders for a lovely holiday resort to be constructed for his men, so they can do a bit of relaxing at the beach once all the fighting is over. It’s totally not a dystopian totalitarian megaproject or anything.</p>"
+  narration: "<p>A Nigerian cavalry commander slams his horse into the gates of Catina. “We're almost there, boys! Just a little more horsepower! Make Babalawo proud!” Awolowo, hearing the positive tidings from the frontlines, orders for a lovely holiday resort to be constructed for his men, so they can do a bit of relaxing at the beach once all the fighting is over. It’s totally not a dystopian totalitarian megaproject or anything.</p>"
 - scene_number: 44
   scene_title: "Clash of ideologies"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene44.jpg
@@ -273,7 +273,7 @@ scenes:
 - scene_number: 66
   scene_title: "Shrewd salesman"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene66.jpg
-  narration: "<p>In Berlin, Kaiser Wilhelm watches in awe, as renowned fruit merchant Steve Jobs presents his wares. "This apple is very compact: Small, yet full of flavor. Its size allows it to perfectly fit inside your pocket. And look at that skin: You won't find such a shining red anywhere else, not even on the bloody battlefields of North Africa." Wilhelm claps enthusiastically. "What a fantastic product, mister Jobs. Never have I seen such fine apples in my life, you've truly outdone yourself this time. Servants, call in the chef! From now on, my royal tongue shall only tolerate these refined fruits, even if they do cost four times the regular market price!"</p>"
+  narration: "<p>In Berlin, Kaiser Wilhelm watches in awe, as renowned fruit merchant Steve Jobs presents his wares. “This apple is very compact: Small, yet full of flavor. Its size allows it to perfectly fit inside your pocket. And look at that skin: You won't find such a shining red anywhere else, not even on the bloody battlefields of North Africa.” Wilhelm claps enthusiastically. “What a fantastic product, mister Jobs. Never have I seen such fine apples in my life, you've truly outdone yourself this time. Servants, call in the chef! From now on, my royal tongue shall only tolerate these refined fruits, even if they do cost four times the regular market price!”</p>"
 - scene_number: 67
   scene_title: "Stranded deep"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene67.jpg
@@ -373,7 +373,7 @@ scenes:
 - scene_number: 91
   scene_title: "Scare tactics"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene91.jpg
-  narration: "<p>Lawtiliwadlin plants his mighty spear in the ground in front of the High Priestess. "I'm tired of this endless back and forth, so I've come to negotiate. How about you just give me your empire, and nobody gets hurt. How does that sound?" Thanadelthur looks down at the ground, trembling in the presence of the man before her.  "Actually… all of it is a little much. Would you maybe be satisfied with half of it?" The Chukchi warlord grunts in displeasure, but ultimately gives in: "I don’t have time for this. Fine, half it is. But heed my words: War will certainly come to your lands again. Your people will never be able to sleep soundly again, knowing that the Dene empire has gone from a powerful bear to a helpless fawn, a prey item to the nations of the world. Go then, back to your people, prepare yourselves for the inevitable." The Dene councilors shiver at the words of the mighty Chukchi. Thanadelthur starts tearing up. She knows he speaks the truth. The Dene people’s best days are in the past.</p>"
+  narration: "<p>Lawtiliwadlin plants his mighty spear in the ground in front of the High Priestess. “I'm tired of this endless back and forth, so I've come to negotiate. How about you just give me your empire, and nobody gets hurt. How does that sound?” Thanadelthur looks down at the ground, trembling in the presence of the man before her.  “Actually… all of it is a little much. Would you maybe be satisfied with half of it?” The Chukchi warlord grunts in displeasure, but ultimately gives in: “I don’t have time for this. Fine, half it is. But heed my words: War will certainly come to your lands again. Your people will never be able to sleep soundly again, knowing that the Dene empire has gone from a powerful bear to a helpless fawn, a prey item to the nations of the world. Go then, back to your people, prepare yourselves for the inevitable.” The Dene councilors shiver at the words of the mighty Chukchi. Thanadelthur starts tearing up. She knows he speaks the truth. The Dene people’s best days are in the past.</p>"
 - scene_number: 92
   scene_title: "How the mighty have fallen"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode29-scene92.jpg
