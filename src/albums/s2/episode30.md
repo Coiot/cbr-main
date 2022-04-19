@@ -1,5 +1,5 @@
 ---
-title: "“African Scramble”, or “The Darkened Continent”, or “Dial L for Lesotho”, or “Amazon Prime Shipping”, or “Vandalized!” (or “The Part with Five Names”)"
+title: "”African Scramble,” or “The Darkened Continent,” or “Dial L for Lesotho,” or “Amazon Prime Shipping,” or “Vandalized!” (or “The Epsiode with Five Names”)"
 narrated_by: "NopeCopter"
 description: "Devastating wars continue to heat up the cylinder as the stage begins to be set for the endgame. Things go about how you’d expect them to, except for when they don’t."
 release_date: April 20, 2022
