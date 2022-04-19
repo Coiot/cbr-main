@@ -210,7 +210,7 @@
         <div class="arc-header">
           <h2>Saga Continues</h2>
           <span>Arc Six</span>
-          <p>22 competitors remain.</p>
+          <p>16 competitors remain.</p>
         </div>
         <article class="arc-list">
           <router-link
