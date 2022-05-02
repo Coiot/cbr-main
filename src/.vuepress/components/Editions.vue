@@ -10,10 +10,6 @@
           <span>CBRX Season One</span>
         </div>
 
-        <div class="list" @click="clickedEdition = 'G1List'">
-          <span>CGR Season One</span>
-        </div>
-
         <div class="list" @click="clickedEdition = 'Mk2List'">
           <span>CBR Mark Two</span>
         </div>
