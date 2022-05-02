@@ -16,9 +16,6 @@
           <a href="https://civbattleroyale.tv/albums/s1/">CBRX Season One</a>
         </li>
         <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/g1/">CGR Season One</a>
-        </li>
-        <li class="nav-item">
           <a href="https://civbattleroyale.tv/albums/mk2/">CBR Mark Two</a>
         </li>
         <li class="nav-item">

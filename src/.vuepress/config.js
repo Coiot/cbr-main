@@ -22,11 +22,11 @@ module.exports = {
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
       { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
+      { text: "Discord", link: "https://discord.gg/565JwaMsuQ" },
       {
         text: "Youtube",
         link: "https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ",
       },
-      { text: "Twitch", link: "https://www.twitch.tv/civbattleroyale" },
     ],
     logo: "/cbr_logo_color.svg",
     docsDir: "src",
@@ -54,7 +54,14 @@ module.exports = {
     ],
   ],
   head: [
-    ["link", { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" }],
+    [
+      "link",
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png",
+      },
+    ],
     ["link", { rel: "icon", sizes: "32x32", href: "/favicon-32x32.png" }],
     ["link", { rel: "icon", sizes: "16x16", href: "/favicon-16x16.png" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
