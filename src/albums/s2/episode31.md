@@ -2,10 +2,10 @@
 title: "Episode 31: These Tides Bring Strange Loyalties"
 narrated_by: "BloodyAltima"
 description: "The ocean bleeds great powers dry, as massive naval forces clash across the cylinder."
-release_date:
+release_date: May 04, 2022
 audio_narration:
 fullvideo:
-edition: X1
+edition: S2
 date: 2022-05-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode31-scene06.jpg
 prcast:
