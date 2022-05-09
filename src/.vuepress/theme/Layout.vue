@@ -57,7 +57,7 @@ import "vueperslides/dist/vueperslides.css";
 Vue.use(VueLazyload, {
   observer: true,
   observerOptions: {
-    rootMargin: "2000px",
+    rootMargin: "3000px",
     threshold: 0.0,
   },
 });
