@@ -28,7 +28,7 @@ scenes:
   narration: "<p>We now take a moment to give a shout out to all the lovely Ko-Fi supporters that help make the CBR possible! </p>"
 - scene_number: 05
   scene_title: "Top Of the Pops"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode32-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season2-pr31-scene13.jpg
   narration: "<p>We gaze upon our current PR leader… the kings of cool, welcome the Chukchi! If you glance at their empire, they have everything you can ever want to succeed. A powerful army, good stats, and a recent evisceration of your closest foe. Will they keep the throne though? Lets find out!</p>"
 - scene_number: 06
   scene_title: "Past The Urals"
