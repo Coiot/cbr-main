@@ -21,10 +21,10 @@ scenes:
 - scene_number: 03
   scene_title: "Washed FR"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode32-scene03.jpg
-  narration: "<p>Next up, we bring up a cartoon by u/</p>"
+  narration: "<p>Next up, we bring up a cartoon by u/yaampa. Things looking pretty sombre for our once big powers, but sitting in the sidelines is not so bad compared to the devastaion that is about to come soon.</p>"
 - scene_number: 04
   scene_title: "Koffie?"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode32-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode31-scene04.jpg
   narration: "<p>We now take a moment to give a shout out to all the lovely Ko-Fi supporters that help make the CBR possible! </p>"
 - scene_number: 05
   scene_title: "Top Of the Pops"
