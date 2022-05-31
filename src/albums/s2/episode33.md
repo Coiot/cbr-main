@@ -1,6 +1,6 @@
 ---
-title: "Episode 33: On The Eve of Catacylism"
-narrated_by: "Group"
+title: "Episode 33: On The Eve of Cataclysm"
+narrated_by: "ItsTruckMonth, Vihreaa, Msurdej / Mr. Hobo"
 description: ""
 release_date: June 1, 2022
 audio_narration:
