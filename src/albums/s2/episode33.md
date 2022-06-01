@@ -13,7 +13,7 @@ scenes:
   - scene_number: 01
     scene_title: "A part of epic proportions!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene01.jpg
-    narration: "<p>Hello all and welcome to the thirty third installment of our beloved Civ Battle Royale X, Season Two! You’re all in for an action packed episode, with big winners, and even bigger losers! With such an eventful episode, we’ve split up the narration between 3 members of the community. ItsTruckMonth will be narrating the first third of the episode, Msurdej will cover the middle portion of the part, and yours truly, Vihreaa, will be narrating the final third! Strap in and prepare yourselves, for this is the final part before we kick the game into total war!</p>"
+    narration: "<p>Hello all and welcome to the thirty third installment of our beloved Civ Battle Royale X, Season Two! You’re all in for an action packed episode, with big winners, and even bigger losers! With such an eventful episode, we’ve split up the narration between 3 members of the community. ItsTruckMonth will be narrating the first third of the episode, Msurdej will cover the middle portion of the episode, and yours truly, Vihreaa, will be narrating the final third! Strap in and prepare yourselves, for this is the final episode before we kick the game into total war!</p>"
   - scene_number: 02
     scene_title: "How to fight Naval Wars Good"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene02.jpg
@@ -21,7 +21,7 @@ scenes:
   - scene_number: 03
     scene_title: "Malacca in the Middle, the end"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene03.jpg
-    narration: "<p>u/Orangechrisy posts what might be the final Malacca in the Middle, a short comic released for each part that has become a mainstay on the sub, providing a comedic comic about the adventures of Malacca.</p>"
+    narration: "<p>u/Orangechrisy posts what might be the final Malacca in the Middle, a short comic released for each release that has become a mainstay on the sub, providing a comedic comic about the adventures of Malacca.</p>"
   - scene_number: 04
     scene_title: "Malacca on the Bottom"
     slide_url: https://cdn.civbattleroyale.tv/season2-pr32-scene01.jpg
@@ -29,7 +29,7 @@ scenes:
   - scene_number: 05
     scene_title: "Leeeeeeet’s Get Ready to Ruuuuumbleeeee!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene05.jpg
-    narration: "<p>Good Afternoon (or Morning, or Evening wherever you are), fellas. I, ItsTruckMonth, will be narrating this first section of what could be an explosive as hell part! </p><p></p><p>We start off with the Marajoara assault on everyone’s favorite Mediterranean pirates, with P’kuee making landfall on the Iberian peninsula. Every Vandal city surrounding it is deep in the black. Things are not looking good for Genseric. </p>"
+    narration: "<p>Good Afternoon (or Morning, or Evening wherever you are), fellas. I, ItsTruckMonth, will be narrating this first section of what could be an explosive as hell episode! </p><p></p><p>We start off with the Marajoara assault on everyone’s favorite Mediterranean pirates, with P’kuee making landfall on the Iberian peninsula. Every Vandal city surrounding it is deep in the black. Things are not looking good for Genseric. </p>"
   - scene_number: 06
     scene_title: "Vaga-Bound Vagabonds."
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene06.jpg
@@ -129,7 +129,7 @@ scenes:
   - scene_number: 30
     scene_title: "When their Bones in the Ocean Forever Will Be…"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene30.jpg
-    narration: "<p>The Soviets make peace with the Vandals, and as you can see at the bottom, Peje remains in red hands. The Vandals have officially been eliminated at 11th place (*cries*)</p><p></p><p>The Vandals are probably X2’s Merriam-Webster dictionary definition of an underdog. They were the 3rd worst civ per the Part 0 rankings, even worse than the Tuareg (remember them, neither did I MOVING ON). They did pretty decently for the first bit of the game, until they started trademaxxing, with the Vandals glitching out and receiving stupid amounts of traders. Fueled by certified drip, they became X2’s Buccaneers, settling the Caribbean and even rumping (and eventually killing) the New Netherlands. From then they would stagnate for a bit, and even lose some territory from Total War, but would still move into Cycle 2 with a good hand. They started C2 with a gamble: using their unique unit to settle undefended cities and establish a solid mediterranean core. This gambit paid off, with them trapping Nigeria and even rumping the former science giant, becoming a frontrunner yet again to win. Though it wouldn’t last, as Marajoara’s snowballing led to the Vandal’s demise. </p><p></p><p>Genseric, you may have blundered at the very end, but you come out as one of the great unexpected rulers, a true legend. Keep that chin up king, your crown is slipping.</p>"
+    narration: "<p>The Soviets make peace with the Vandals, and as you can see at the bottom, Peje remains in red hands. The Vandals have officially been eliminated at 11th place (*cries*)</p><p></p><p>The Vandals are probably X2’s Merriam-Webster dictionary definition of an underdog. They were the 3rd worst civ per the Episode 0 rankings, even worse than the Tuareg (remember them, neither did I MOVING ON). They did pretty decently for the first bit of the game, until they started trademaxxing, with the Vandals glitching out and receiving stupid amounts of traders. Fueled by certified drip, they became X2’s Buccaneers, settling the Caribbean and even rumping (and eventually killing) the New Netherlands. From then they would stagnate for a bit, and even lose some territory from Total War, but would still move into Cycle 2 with a good hand. They started C2 with a gamble: using their unique unit to settle undefended cities and establish a solid mediterranean core. This gambit paid off, with them trapping Nigeria and even rumping the former science giant, becoming a frontrunner yet again to win. Though it wouldn’t last, as Marajoara’s snowballing led to the Vandal’s demise. </p><p></p><p>Genseric, you may have blundered at the very end, but you come out as one of the great unexpected rulers, a true legend. Keep that chin up king, your crown is slipping.</p>"
   - scene_number: 31
     scene_title: "P’kuee did Nothing Wrong"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene31.jpg
@@ -217,7 +217,7 @@ scenes:
   - scene_number: 52
     scene_title: "A New Challenger Approaches!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene52.jpg
-    narration: "<p>Hello everyone!  Msurdej here, picking the second portion of this crazy part.Kulin and Punjab continue to trade cities in the Indian subcontinent, Cholapuram and Gajanwala trading holders. I can expect flipping to continue here for several more turns, as the Punjab still has many forces, and the Kulin keep bringing their forces in.</p>"
+    narration: "<p>Hello everyone!  Msurdej here, picking the second portion of this crazy episode. Kulin and Punjab continue to trade cities in the Indian subcontinent, Cholapuram and Gajanwala trading holders. I can expect flipping to continue here for several more turns, as the Punjab still has many forces, and the Kulin keep bringing their forces in.</p>"
   - scene_number: 53
     scene_title: "Flip Flap"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene53.jpg
@@ -309,7 +309,7 @@ scenes:
   - scene_number: 75
     scene_title: "And then there were 9"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene75.jpg
-    narration: "<p>We take a halfway break in this part to show you just who is left, and how many cities they have. At the top are The Chukchi and The Marajoara, with a noticeable gap between them and the third place USSR. Then Lesotho and Kulin, followed by the pile the scattered Rio Grande, the tiny Dene, and the city states of PARG and the Gauls.</p>"
+    narration: "<p>We take a halfway break in this episode to show you just who is left, and how many cities they have. At the top are The Chukchi and The Marajoara, with a noticeable gap between them and the third place USSR. Then Lesotho and Kulin, followed by the pile the scattered Rio Grande, the tiny Dene, and the city states of PARG and the Gauls.</p>"
   - scene_number: 76
     scene_title: "A Glorious View"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene76.jpg
@@ -405,7 +405,7 @@ scenes:
   - scene_number: 99
     scene_title: "Mr. Lenin, tear down these walls!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene99.jpg
-    narration: "<p>Lenin may have retaken Hamburg for the moment, but Marajoara seems poised to take it back at any moment. Danzig has already fallen to P’kuee, and she seems ready to grab even more land from the Soviets. But for now, I’ll have the last narrator of the part take over and show you how it ends.</p>"
+    narration: "<p>Lenin may have retaken Hamburg for the moment, but Marajoara seems poised to take it back at any moment. Danzig has already fallen to P’kuee, and she seems ready to grab even more land from the Soviets. But for now, I’ll have the last narrator of the episode take over and show you how it ends.</p>"
   - scene_number: 100
     scene_title: "De"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene100.jpg
@@ -601,5 +601,5 @@ scenes:
   - scene_number: 148
     scene_title: "Let there be total war!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene148.jpg
-    narration: "<p>Our last slide of the part begins TOTAL WAR! Every civ on the cylinder is at war with every other civ, and perma war is one. According to Lunar, this will be the war to end all wars, and only one empire will emerge, becoming sole and absolute victor of the CBRX, season 2.</p>"
+    narration: "<p>Our last slide of the episode begins TOTAL WAR! Every civ on the cylinder is at war with every other civ, and perma war is one. According to Lunar, this will be the war to end all wars, and only one empire will emerge, becoming sole and absolute victor of the CBRX, season 2.</p>"
 ---
