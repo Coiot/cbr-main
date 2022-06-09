@@ -6,9 +6,9 @@ starting_turn: '457'
 release_date: 'March 23, 2016'
 audio_narration: https://youtu.be/_ttp_PnlAJY
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-03-23T00:00:00.000Z 
+prev: /albums/mk2/part44/
+next: /albums/mk2/part46/
+date: 2016-03-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part45-scene06.jpg
 scenes:
 - scene_number: "1"

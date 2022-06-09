@@ -6,9 +6,9 @@ starting_turn: '509'
 release_date: 'April 10, 2016'
 audio_narration: https://youtu.be/n_S9kqj7fis
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-04-10T00:00:00.000Z 
+prev: /albums/mk2/part49/
+next: /albums/mk2/part51/
+date: 2016-04-10T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part50-scene06.jpg
 scenes:
 - scene_number: "1"

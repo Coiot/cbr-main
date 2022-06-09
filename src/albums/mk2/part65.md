@@ -6,9 +6,9 @@ starting_turn: '680'
 release_date: 'July 17, 2016'
 audio_narration: https://youtu.be/tnLu5HLnNuc
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-07-17T00:00:00.000Z 
+prev: /albums/mk2/part64/
+next: /albums/mk2/part66/
+date: 2016-07-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part65-scene06.jpg
 scenes:
 - scene_number: "1"

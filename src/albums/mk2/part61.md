@@ -6,9 +6,9 @@ starting_turn: '644'
 release_date: 'June 21, 2016'
 audio_narration: https://youtu.be/qvXnfNfgpaI
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-06-21T00:00:00.000Z 
+prev: /albums/mk2/part60/
+next: /albums/mk2/part02/
+date: 2016-06-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part61-scene06.jpg
 scenes:
 - scene_number: "1"

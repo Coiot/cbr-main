@@ -6,9 +6,9 @@ starting_turn: '719'
 release_date: 'August 24, 2016'
 audio_narration: https://youtu.be/yAU190sC8RU
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-08-24T00:00:00.000Z 
+prev: /albums/mk2/part70/
+next: /albums/mk2/part72/
+date: 2016-08-24T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part71-scene06.jpg
 scenes:
 - scene_number: "1"

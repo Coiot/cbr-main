@@ -6,9 +6,9 @@ starting_turn: '413'
 release_date: 'March 07, 2016'
 audio_narration: https://youtu.be/lUQNCUgR2WA
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2016-03-07T00:00:00.000Z 
+prev: /albums/mk2/part39/
+next: /albums/mk2/part41/
+date: 2016-03-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part40-scene06.jpg
 scenes:
 - scene_number: "1"
