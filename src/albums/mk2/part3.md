@@ -5,9 +5,11 @@ description: "First blood is drawn as conflicts erupt in Europe and West Africa.
 starting_turn: "46"
 release_date: "August 17, 2015"
 audio_narration: https://youtu.be/41ia0HeP5uk
-edition: Mk2
+edition: mk2
 date: 2015-08-17T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part3-scene06.jpg
+prev: /albums/mk2/part2/
+next: /albums/mk2/part4/
 scenes:
   - scene_number: "1"
     scene_title: 1

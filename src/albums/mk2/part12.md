@@ -5,7 +5,9 @@ description: 'More merchants join the war effort as attacks on Rome and the Phil
 starting_turn: '176'
 release_date: 'September 23, 2015'
 audio_narration: https://youtu.be/ExOEANKtkhE
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part11/
+next: /albums/mk2/part13/
 date: 2015-09-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part12-scene06.jpg
 scenes:

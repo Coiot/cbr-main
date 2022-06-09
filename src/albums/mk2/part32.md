@@ -5,7 +5,9 @@ description: 'After a brief interlude, everyone’s favorite AI game is back!'
 starting_turn: '330'
 release_date: 'January 25, 2016'
 audio_narration: https://youtu.be/az5tAXrZPiE
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part31/
+next: /albums/mk2/part33/
 date: 2016-01-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part32-scene06.jpg
 scenes:

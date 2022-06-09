@@ -5,7 +5,9 @@ description: ''
 starting_turn: '878'
 release_date: 'December 12, 2017'
 audio_narration: https://youtu.be/ldiB6CdBUvU
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2017-12-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part96-scene06.jpg
 scenes:

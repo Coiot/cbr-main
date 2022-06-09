@@ -5,7 +5,9 @@ description: 'A cryptic statement gives some Civs inspiration (or confusion), wh
 starting_turn: '221'
 release_date: 'October 11, 2015'
 audio_narration: https://youtu.be/VVDt28I5bko
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part16/
+next: /albums/mk2/part18/
 date: 2015-10-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part17-scene06.jpg
 scenes:

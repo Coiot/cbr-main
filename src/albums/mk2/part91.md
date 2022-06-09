@@ -5,7 +5,9 @@ description: 'The trumpets circle around the fallen. The war between the Boers a
 starting_turn: '842'
 release_date: 'November 7, 2017'
 audio_narration: https://youtu.be/K5EqbCoS1qc
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2017-11-07T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part91-scene06.jpg
 scenes:

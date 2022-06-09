@@ -5,7 +5,9 @@ description: ''
 starting_turn: '373'
 release_date: 'Februaru 21, 2016'
 audio_narration: https://youtu.be/6aM0PEaqm6Q
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-02-21T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part36-scene06.jpg
 scenes:

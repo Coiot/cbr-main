@@ -5,8 +5,10 @@ description: ''
 starting_turn: '288'
 release_date: 'November 15, 2015'
 audio_narration: https://youtu.be/TGCHZHSCO-4
-edition: Mk2
-date: 2015-11-15T00:00:00.000Z 
+edition: mk2
+prev: /albums/mk2/part25/
+next: /albums/mk2/part27/
+date: 2015-11-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part26-scene06.jpg
 scenes:
 - scene_number: "1"

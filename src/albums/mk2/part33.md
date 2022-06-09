@@ -5,7 +5,9 @@ description: 'A flight of angels come to singe these leaders to thy rest.'
 starting_turn: '341'
 release_date: 'February 04, 2016'
 audio_narration: https://youtu.be/O64vCUk5qec
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part32/
+next: /albums/mk2/part34/
 date: 2016-02-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part33-scene06.jpg
 scenes:

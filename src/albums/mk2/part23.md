@@ -5,7 +5,9 @@ description: 'War is hell! Superiorities are reaffirmed and more Civs are pushed
 starting_turn: '264'
 release_date: 'November 01, 2015'
 audio_narration: https://youtu.be/QShQhEnK2ko
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part22/
+next: /albums/mk2/part24/
 date: 2015-11-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part23-scene06.jpg
 scenes:

@@ -5,7 +5,9 @@ description: ''
 starting_turn: '881'
 release_date: 'March 13, 2018'
 audio_narration: https://youtu.be/l1nP0SqScuQ
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2018-03-13T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part109-scene06.jpg
 scenes:

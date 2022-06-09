@@ -5,7 +5,9 @@ description: 'As we close a great story with another Civ being put to rest, Afri
 starting_turn: '229'
 release_date: 'October 14, 2015'
 audio_narration: https://youtu.be/uArj0eKp5kM
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part17/
+next: /albums/mk2/part19/
 date: 2015-10-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part18-scene06.jpg
 scenes:

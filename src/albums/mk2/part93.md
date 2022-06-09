@@ -5,7 +5,9 @@ description: ''
 starting_turn: '854'
 release_date: 'November 21, 2017'
 audio_narration: https://youtu.be/81UPPGO0cpg
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2017-11-21T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part93-scene06.jpg
 scenes:

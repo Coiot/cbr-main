@@ -5,9 +5,11 @@ description: "The stage is set for a new clash of historical titans."
 starting_turn: "01"
 release_date: "August 11, 2015"
 audio_narration: https://youtu.be/ZBA_U5aV65E
-edition: Mk2
+edition: mk2
 date: 2015-08-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part1-scene06.jpg
+prev:
+next: /albums/mk2/part2/
 scenes:
   - scene_number: "1"
     scene_title: 1

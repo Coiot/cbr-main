@@ -5,7 +5,9 @@ description: 'The map wildly shifts in color as armies sweep through nuclear was
 starting_turn: '772'
 release_date: 'Oct 12, 2016'
 audio_narration: https://youtu.be/t557AP2OGLw
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-10-12T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part80-scene06.jpg
 scenes:

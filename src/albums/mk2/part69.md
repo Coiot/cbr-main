@@ -5,7 +5,9 @@ description:
 starting_turn: '710'
 release_date: 'August 17, 2016'
 audio_narration: https://youtu.be/0IuRPhcXJ8Q
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-08-17T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part69-scene06.jpg
 scenes:

@@ -5,7 +5,9 @@ description: 'The Boerg prove restless and the lords of the sea take to the wave
 starting_turn: '765'
 release_date: 'Oct 09, 2016'
 audio_narration: https://youtu.be/ZMRcHCOgFKQ
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-10-09T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part79-scene06.jpg
 scenes:

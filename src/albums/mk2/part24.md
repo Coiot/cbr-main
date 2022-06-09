@@ -5,7 +5,9 @@ description: 'In this cold themed part we see the might of the Ice Sheet Fleet a
 starting_turn: '271'
 release_date: 'November 04, 2015'
 audio_narration: https://youtu.be/H75-G_Zh80s
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part23/
+next: /albums/mk2/part25/
 date: 2015-11-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part24-scene06.jpg
 scenes:

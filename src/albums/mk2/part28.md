@@ -5,7 +5,9 @@ description: 'When one dead civ isn’t enough!'
 starting_turn: '299'
 release_date: 'November 23, 2015'
 audio_narration: https://youtu.be/hAt1SBRX5BA
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part27/
+next: /albums/mk2/part29/
 date: 2015-11-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part28-scene06.jpg
 scenes:

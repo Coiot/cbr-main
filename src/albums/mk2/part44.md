@@ -5,7 +5,9 @@ description: ''
 starting_turn: '449'
 release_date: 'March 20, 2016'
 audio_narration: https://youtu.be/GfiZstA771o
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-03-20T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part44-scene06.jpg
 scenes:

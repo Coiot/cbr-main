@@ -5,7 +5,9 @@ description: 'Look at those cute tiny Civs, there they go, denouncing, planning 
 starting_turn: '250'
 release_date: 'October 25, 2015'
 audio_narration: https://youtu.be/_1CWfDoCUjE
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part20/
+next: /albums/mk2/par22/
 date: 2015-10-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part21-scene06.jpg
 scenes:

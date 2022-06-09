@@ -5,7 +5,9 @@ description: ''
 starting_turn: '381'
 release_date: 'February 24, 2016'
 audio_narration: https://youtu.be/jkqpCqwqdD0
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-02-24T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part37-scene06.jpg
 scenes:

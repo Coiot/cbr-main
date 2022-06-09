@@ -5,7 +5,9 @@ description: ''
 starting_turn: '1013'
 release_date: 'Feburary 13, 2018'
 audio_narration: https://youtu.be/JA-nhkeF0_A
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2018-02-13T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part105-scene06.jpg
 scenes:

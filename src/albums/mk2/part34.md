@@ -5,7 +5,9 @@ description: ''
 starting_turn: '354'
 release_date: 'February 12, 2016'
 audio_narration: https://youtu.be/uil-R3P22-Q
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-02-12T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part34-scene06.jpg
 scenes:

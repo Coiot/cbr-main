@@ -5,7 +5,9 @@ description: 'After being up in the air for 11 months, the struggle resumes once
 starting_turn: '801'
 release_date: 'September 20th, 2017'
 audio_narration: https://youtu.be/J3UOaZ-edkQ
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2017-09-20T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part84-scene06.jpg
 scenes:

@@ -5,7 +5,9 @@ description: 'Hype in all corners of the cylinder! The trenches in Europe are dr
 starting_turn: '848'
 release_date: 'November 14, 2017'
 audio_narration: https://youtu.be/uYkj78AZPK0
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2017-11-14T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part92-scene06.jpg
 scenes:

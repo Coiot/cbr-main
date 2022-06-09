@@ -5,7 +5,9 @@ description: 'One final last stand before stampeding bisons as elsewhere the mig
 starting_turn: '782'
 release_date: 'Oct 16, 2016'
 audio_narration: https://youtu.be/IcOch_HKunU
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-10-16T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part81-scene06.jpg
 scenes:

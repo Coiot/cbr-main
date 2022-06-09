@@ -5,7 +5,9 @@ description: 'In a whirlwind of naval battles, one civ decides its time to make 
 starting_turn: '305'
 release_date: 'November 29, 2015'
 audio_narration: https://youtu.be/l1CZhQX5hTE
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part28/
+next: /albums/mk2/part30/
 date: 2015-11-29T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part29-scene06.jpg
 scenes:

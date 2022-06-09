@@ -5,7 +5,9 @@ description: ''
 starting_turn: '674'
 release_date: 'July 10, 2016'
 audio_narration: https://youtu.be/zn_Do2_VpU0
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-07-10T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part64-scene06.jpg
 scenes:

@@ -5,7 +5,9 @@ description: ''
 starting_turn: '760'
 release_date: 'October 02, 2016'
 audio_narration: https://youtu.be/XB_AXAAY8FM
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-10-02T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part78-scene06.jpg
 scenes:

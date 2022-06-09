@@ -5,7 +5,9 @@ description: "The pressure cooker in northern Europe explodes in all directions 
 starting_turn: "84"
 release_date: "August 25, 2015"
 audio_narration: https://youtu.be/mxNtZfQAJIM
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part4/
+next: /albums/mk2/part6/
 date: 2015-08-25T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part5-scene06.jpg
 scenes:

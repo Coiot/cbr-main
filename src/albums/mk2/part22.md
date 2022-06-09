@@ -5,7 +5,9 @@ description: 'The Australian superpower makes another strong and insane move… 
 starting_turn: '256'
 release_date: 'October 28, 2015'
 audio_narration: https://youtu.be/-sMWf3lTEJ8
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part21/
+next: /albums/mk2/part23/
 date: 2015-10-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part22-scene06.jpg
 scenes:

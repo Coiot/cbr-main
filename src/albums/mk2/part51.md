@@ -5,7 +5,9 @@ description: ''
 starting_turn: '522'
 release_date: 'April 13, 20166'
 audio_narration: https://youtu.be/vvFT0rn0LWo
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-04-13T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part51-scene06.jpg
 scenes:

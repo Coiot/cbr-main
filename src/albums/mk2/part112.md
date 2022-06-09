@@ -5,7 +5,9 @@ description: ''
 starting_turn: '918'
 release_date: 'April 03, 2018'
 audio_narration: https://youtu.be/SCZ6ahR-BNA
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2018-04-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part112-scene06.jpg
 scenes:

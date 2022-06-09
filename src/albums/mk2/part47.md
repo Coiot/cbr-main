@@ -5,7 +5,9 @@ description: ''
 starting_turn: '479'
 release_date: 'March 30, 206'
 audio_narration: https://youtu.be/eLCn0Vgq61I
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-03-30T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part47-scene06.jpg
 scenes:

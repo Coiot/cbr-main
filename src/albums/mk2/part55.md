@@ -5,7 +5,9 @@ description: ''
 starting_turn: '576'
 release_date: 'May 11, 2016'
 audio_narration: https://youtu.be/z3QgVtpQxgU
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2016-05-11T00:00:00.000Z 
 image: https://cdn.civbattleroyale.tv/mark2-part55-scene06.jpg
 scenes:

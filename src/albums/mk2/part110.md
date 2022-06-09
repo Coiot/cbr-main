@@ -5,7 +5,9 @@ description: ''
 starting_turn: '896'
 release_date: 'March 20, 2018'
 audio_narration: https://youtu.be/TOaN_MQW1D0
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part1/
+next: /albums/mk2/part3/
 date: 2018-03-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part110-scene06.jpg
 scenes:

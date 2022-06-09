@@ -5,7 +5,9 @@ description: 'A notable Civ truly shows its worth with great skill in war, tech 
 starting_turn: '243'
 release_date: 'October 21, 2015'
 audio_narration: https://youtu.be/JU-lX-_TCdk
-edition: Mk2
+edition: mk2
+prev: /albums/mk2/part19/
+next: /albums/mk2/part21/
 date: 2015-10-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part20-scene06.jpg
 scenes:
