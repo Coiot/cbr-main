@@ -6,8 +6,8 @@ starting_turn: "97"
 release_date: "August 30, 2015"
 audio_narration: https://youtu.be/o23KakENiWU
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
+prev: /albums/mk2/part5/
+next: /albums/mk2/part7/
 date: 2015-08-30T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part6-scene06.jpg
 scenes:
