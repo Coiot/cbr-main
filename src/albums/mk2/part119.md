@@ -6,8 +6,8 @@ starting_turn: '944'
 release_date: 'May 22, 2018'
 audio_narration: https://youtu.be/_yVQ3TDBIyA
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
+prev: /albums/mk2/part118/
+next: /albums/mk2/part120/
 date: 2018-05-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part119-scene06.jpg
 scenes:

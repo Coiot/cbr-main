@@ -6,9 +6,9 @@ starting_turn: '871'
 release_date: 'December 5th, 2017'
 audio_narration: https://youtu.be/qTbDz45l1TQ
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2017-12-05T00:00:00.000Z 
+prev: /albums/mk2/part94/
+next: /albums/mk2/part96/
+date: 2017-12-05T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part95-scene06.jpg
 scenes:
 - scene_number: "1"

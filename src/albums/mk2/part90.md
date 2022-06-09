@@ -6,9 +6,9 @@ starting_turn: '836'
 release_date: 'October 31, 2017'
 audio_narration: https://youtu.be/80zuQxeesmg
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
-date: 2017-10-31T00:00:00.000Z 
+prev: /albums/mk2/part89/
+next: /albums/mk2/part91/
+date: 2017-10-31T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part90-scene06.jpg
 scenes:
 - scene_number: "1"

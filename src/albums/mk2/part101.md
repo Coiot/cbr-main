@@ -6,8 +6,8 @@ starting_turn: '954'
 release_date: 'January 16, 2018'
 audio_narration: https://youtu.be/6_VhddGmko0
 edition: mk2
-prev: /albums/mk2/part1/
-next: /albums/mk2/part3/
+prev: /albums/mk2/part100/
+next: /albums/mk2/part102/
 date: 2018-01-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part101-scene06.jpg
 scenes:
