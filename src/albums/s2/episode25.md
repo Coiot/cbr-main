@@ -6,6 +6,8 @@ release_date: February 2, 2022
 audio_narration:
 fullvideo:
 edition: S2
+prev: /albums/s2/episode24/
+next: /albums/s2/episode26/
 date: 2022-02-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode25-scene06.jpg
 prcast:

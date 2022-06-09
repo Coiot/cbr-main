@@ -6,6 +6,8 @@ release_date: April 20, 2022
 audio_narration:
 fullvideo:
 edition: S2
+prev: /albums/s2/episode29/
+next: /albums/s2/episode31/
 date: 2022-04-19T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode30-scene06.jpg
 prcast:

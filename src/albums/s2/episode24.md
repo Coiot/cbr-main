@@ -10,7 +10,7 @@ date: 2022-01-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode24-scene06.jpg
 prcast:
 prev: /albums/s2/episode23/
-next:
+next: /albums/s2/episode25/
 scenes:
   - scene_number: 01
     scene_title: "Let’s dive back into the action!"

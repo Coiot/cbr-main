@@ -6,6 +6,8 @@ release_date: March 1, 2022
 audio_narration:
 fullvideo:
 edition: S2
+prev: /albums/s2/episode26/
+next: /albums/s2/episode28/
 date: 2022-03-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrz-season2-episode27-06.jpg
 prcast:

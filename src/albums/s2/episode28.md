@@ -6,6 +6,8 @@ release_date: March 16, 2022
 audio_narration:
 fullvideo:
 edition: S2
+prev: /albums/s2/episode27/
+next: /albums/s2/episode29/
 date: 2022-03-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode28-scene06.jpg
 prcast:
