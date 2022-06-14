@@ -2,7 +2,7 @@
 title: "Episode 34: It All Returns To Nothing"
 narrated_by: "Orange"
 description: "Giants fight, others crumble, I flee from the impending doom of nexuses. The penultimate episode of CBRX2 is filled with struggle and strife as we step ever closer to a victor."
-release_date:
+release_date: June 15, 2022
 audio_narration:
 fullvideo:
 edition: S2
