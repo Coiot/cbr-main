@@ -18,11 +18,11 @@ scenes:
     narration: "<p>Hello all and welcome to the thirty third installment of our beloved Civ Battle Royale X, Season Two! You’re all in for an action packed episode, with big winners, and even bigger losers! With such an eventful episode, we’ve split up the narration between 3 members of the community. ItsTruckMonth will be narrating the first third of the episode, Msurdej will cover the middle portion of the episode, and yours truly, Vihreaa, will be narrating the final third! Strap in and prepare yourselves, for this is the final episode before we kick the game into total war!</p>"
   - scene_number: 02
     scene_title: "How to fight Naval Wars Good"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene02.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene03.jpg
     narration: "<p>Resident statistics genius Random Strategy posted a rather entertaining but helpful infographic for how many Jongs are required to take out each of the different naval units in the game. As the technology gets better, Malacca is gonna need quite a lot of Jongs to attain victory.</p><p></p>"
   - scene_number: 03
     scene_title: "Malacca in the Middle, the end"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene03.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode33-scene02.jpg
     narration: "<p>u/Orangechrisy posts what might be the final Malacca in the Middle, a short comic released for each release that has become a mainstay on the sub, providing a comedic comic about the adventures of Malacca.</p>"
   - scene_number: 04
     scene_title: "Malacca on the Bottom"

@@ -6,6 +6,8 @@ release_date: June 15, 2022
 audio_narration:
 fullvideo:
 edition: S2
+prev: /albums/s2/episode33/
+next: /albums/s2/episode35/
 date: 2022-06-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season2-episode34-scene06.jpg
 prcast:
