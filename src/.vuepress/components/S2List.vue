@@ -3,7 +3,7 @@
     <div class="album-list">
       <div class="header">
         <h1>Season Two</h1>
-        <span>February 10, 2021 – Present </span>
+        <span>February 10, 2021 – June 19, 2022 </span>
       </div>
       <router-link
         :to="post.path"
@@ -175,7 +175,7 @@
       <h1>Cycle Two</h1>
       <div class="arc">
         <div class="arc-header">
-          <h2>Phoenix: Reborn to Die</h2>
+          <h2>Reborn to Die</h2>
           <span>Arc Five</span>
           <p>22 competitors remain.</p>
         </div>
@@ -206,9 +206,9 @@
           </router-link>
         </article>
       </div>
-       <div class="arc">
+      <div class="arc">
         <div class="arc-header">
-          <h2>Saga Continues</h2>
+          <h2>Low Mountains, High Tides</h2>
           <span>Arc Six</span>
           <p>16 competitors remain.</p>
         </div>
@@ -217,7 +217,40 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 28 && index < 38"
+            v-if="index > 28 && index < 33"
+            :key="post.title"
+            :tabindex="0"
+          >
+            <div class="list">
+              <p>
+                {{ post.frontmatter.title }}
+                <span>{{ post.frontmatter.edition }}</span>
+              </p>
+
+              <p>
+                {{ post.frontmatter.narrated_by }}
+                <span
+                  >Starting Turn:
+                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
+                  {{ post.frontmatter.release_date }}</span
+                >
+              </p>
+            </div>
+          </router-link>
+        </article>
+      </div>
+      <div class="arc">
+        <div class="arc-header">
+          <h2>Queen's Gambit</h2>
+          <span>Arc Seven</span>
+          <p>13 competitors remain.</p>
+        </div>
+        <article class="arc-list">
+          <router-link
+            :to="post.path"
+            tag="div"
+            v-for="(post, index) in albums"
+            v-if="index > 32 && index < 40"
             :key="post.title"
             :tabindex="0"
           >
