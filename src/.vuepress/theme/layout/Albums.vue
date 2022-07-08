@@ -367,17 +367,17 @@ button {
   line-height: 1.5;
   color: #fff;
   text-shadow: 2px 2px #083832;
-  background-color: darken($accentColor, 25%);
+  background-color: #d20083;
   border: 1px solid #000;
   border-radius: 10px;
-  box-shadow: $accentColor 0px 4px 20px -10px;
+  box-shadow: #d20083 0px 5px 25px -10px;
   padding: 0.3em 0.8em 0.42em;
   margin: 0.8em 0 1.3em;
   transition: all 0.2s ease-in-out;
 }
 
 button:hover {
-  background-color: darken($accentColor, 35%);
+  background-color: darken(#d20083, 35%);
   transform: scale(1.005);
   cursor: pointer;
 }
