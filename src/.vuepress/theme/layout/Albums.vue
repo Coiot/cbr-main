@@ -371,7 +371,7 @@ button {
   border: 1px solid #000;
   border-radius: 10px;
   box-shadow: #d20083 0px 5px 25px -10px;
-  padding: 0.3em 0.8em 0.42em;
+  padding: 0.3em 1em 0.42em;
   margin: 0.8em 0 1.3em;
   transition: all 0.2s ease-in-out;
 }
