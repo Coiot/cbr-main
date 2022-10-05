@@ -174,6 +174,16 @@ export default {
 };
 </script>
 
+<script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+<script>
+kofiWidgetOverlay.draw("coiot", {
+  type: "floating-chat",
+  "floating-chat.donateButton.text": "Donate",
+  "floating-chat.donateButton.background-color": "#fcbf47",
+  "floating-chat.donateButton.text-color": "#323842",
+});
+</script>
+
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
 <style>
