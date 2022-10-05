@@ -20,7 +20,7 @@ scenes:
     narration: "<p>The newly expanded PR team has been hard at work the days preceding this episode and when the dust settled, Rio dela Plata is the competitor tipped to perform the best this season. Now it is of course far to early for certainty, but you have several civs in the top ten spots that occupy your usual geographically favored locations. Time will tell which meet expectations, which will flop, and which will make you smile far into the future. </p>"
   - scene_number: 03
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season2-episode31-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene03.jpg
     narration: "<p>Thank you once again to donators that kept up their pledges throughout the Summer break. It is a great help to keep the website running and there are bonuses for even one-time donators to the show. If you got an extra $1 lying around, we could really use it!  </p>"
   - scene_number: 04
     scene_title: ""
