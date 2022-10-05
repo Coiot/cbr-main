@@ -24,14 +24,11 @@
 
     <Page v-else> </Page>
 
-    <script
-      type="application/javascript"
-      src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"
-    ></script>
-    <script type="application/javascript">
+    <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+    <script>
       kofiWidgetOverlay.draw("coiot", {
         type: "floating-chat",
-        "floating-chat.donateButton.text": "Support CBRX",
+        "floating-chat.donateButton.text": "Support",
         "floating-chat.donateButton.background-color": "#fcbf47",
         "floating-chat.donateButton.text-color": "#323842",
       });
