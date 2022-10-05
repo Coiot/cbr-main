@@ -69,7 +69,7 @@ scenes:
   - scene_number: 15
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene15.jpg
-    narration: "<p>On the other side of the steppes are Tuva, the Goturks, and Qocho. Tuva and Goturks are destined to be immediate rivals. If you’re looking for competitors with high potential, I would pick one of these two to go the distance. Qocho on the other hand has a different outlook. With an unenviable starting location between potential juggernauts, Qocho has to make big plays happen fast to remain in contention beyond a few episodes. </p>"
+    narration: "<p>On the other side of the steppes are Tuva, the Gokturks, and Qocho. Tuva and Gokturks are destined to be immediate rivals. If you’re looking for competitors with high potential, I would pick one of these two to go the distance. Qocho on the other hand has a different outlook. With an unenviable starting location between potential juggernauts, Qocho has to make big plays happen fast to remain in contention beyond a few episodes. </p>"
   - scene_number: 16
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene16.jpg
@@ -93,7 +93,7 @@ scenes:
   - scene_number: 21
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene21.jpg
-    narration: "<p>Below are Jakarta, Timor-Leste, and the long awaited Yolngu. No disguising the fact that Timor-Leste has the worst starting location this season, being in a small island close to two competitors with naval biases. Yolngu has a large stretch of Australia to themselves, but Jakarta might decide to take some of their turf as soon as they dust off Timor-Leste. </p>"
+    narration: "<p>Below are Indonesia, Timor-Leste, and the long awaited Yolngu. No disguising the fact that Timor-Leste has the worst starting location this season, being in a small island close to two competitors with naval biases. Yolngu has a large stretch of Australia to themselves, but Indonesia might decide to take some of their turf as soon as they dust off Timor-Leste. </p>"
   - scene_number: 22
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene22.jpg
@@ -157,7 +157,7 @@ scenes:
   - scene_number: 37
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene37.jpg
-    narration: "<p>Heartwarming to see Timor-Leste settle away in safety as Jakarta looks to Sumarta and the Yolngu with the city of Milingimbi. </p>"
+    narration: "<p>Heartwarming to see Timor-Leste settle away in safety as Indonesia looks to Sumarta and the Yolngu with the city of Milingimbi. </p>"
   - scene_number: 38
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene38.jpg
@@ -201,11 +201,11 @@ scenes:
   - scene_number: 48
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene48.jpg
-    narration: "<p>The one civ with all the land at their disposable decides to settle an adjacent mountain city in the Urals. It’s a strong defensible settlement I suppose, and having both sides of the Urals seems responsible, but feel they should have been more bold.  </p>"
+    narration: "<p>The one civ with all the land at their disposal decides to settle an adjacent mountain city in the Urals. It’s a strong defensible settlement I suppose, and having both sides of the Urals seems responsible, but feel they should have been more bold.  </p>"
   - scene_number: 49
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene49.jpg
-    narration: "<p>Chile does not pull off a Chile and goes into Patagonia. Credit to them this is the best they can do to not be suffocated though the city looks awfully venerable. </p>"
+    narration: "<p>Chile does not pull off a Chile and goes into Patagonia. Credit to them this is the best they can do to not be suffocated though the city looks awfully vulnerable. </p>"
   - scene_number: 50
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene50.jpg
@@ -261,7 +261,7 @@ scenes:
   - scene_number: 63
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene63.jpg
-    narration: "<p>The Goturks found the religion of Tengriism and have a settler ready to go. </p>"
+    narration: "<p>The Gokturks found the religion of Tengriism and have a settler ready to go. </p>"
   - scene_number: 64
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene64.jpg
@@ -317,7 +317,7 @@ scenes:
   - scene_number: 77
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene77.jpg
-    narration: "<p>Goturks settle a third city as Maurice of Nassu enlists with North Korea in preparation of any future campaigns. </p>"
+    narration: "<p>Gokturks settle a third city as Maurice of Nassu enlists with North Korea in preparation of any future campaigns. </p>"
   - scene_number: 78
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene78.jpg
