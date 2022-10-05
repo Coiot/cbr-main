@@ -349,5 +349,5 @@ scenes:
   - scene_number: 85
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene85.jpg
-    narration: "<p>We bring the first episode of the season to a close with a shot of the crowding western North America. The Arapaho have seized more bison as part of the national inventory as the Cree finally look to expand. We’ll catch everyone back here on CBR.tv next week. This episode was a bit lengthier than what we should expect moving forward given the initial intros, so expect faster reads this season. If you would like to narrate an episode, be sure to sign-up on the sub. </p>"
+    narration: "<p>We bring the first episode of the season to a close with a shot of the crowding western North America. The Arapaho have seized more bison as part of the collectized inventory as the Cree look to expand southwards. We’ll catch everyone back here on CBR.tv next week. This episode was a bit lengthier than what we should expect moving forward given the initial intros, so expect faster reads this season. If you would like to narrate an episode, be sure to sign-up on the sub. </p>"
 ---
