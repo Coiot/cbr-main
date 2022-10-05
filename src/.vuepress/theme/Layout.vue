@@ -28,7 +28,7 @@
     <script>
       kofiWidgetOverlay.draw("coiot", {
         type: "floating-chat",
-        "floating-chat.donateButton.text": "Support",
+        "floating-chat.donateButton.text": "Donate",
         "floating-chat.donateButton.background-color": "#fcbf47",
         "floating-chat.donateButton.text-color": "#323842",
       });

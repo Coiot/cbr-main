@@ -1,5 +1,5 @@
 ---
-title: "Episode 1: Third Times the Charm"
+title: "Episode 1: Third Time's the Charm"
 narrated_by: "Coiot"
 description: ""
 release_date: October 5, 2022
@@ -21,7 +21,7 @@ scenes:
   - scene_number: 03
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene03.jpg
-    narration: "<p>Thank you once again to donators that kept up their pledges throughout the Summer break. It is a great help to keep the website running and there are bonuses for even one-time donators to the show. If you got an extra $1 lying around, we could really use it!  </p>"
+    narration: "<p>Thank you once again to donators that kept up their pledges throughout the Summer break. It is a great help to keep the website running and there are <a href='https://ko-fi.com/coiot/tiers'>bonuses for even one-time donators to the show</a>. If you got an extra $1 lying around, we could really use it!  </p>"
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode1-scene04.jpg
