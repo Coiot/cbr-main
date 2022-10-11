@@ -28,11 +28,11 @@ scenes:
     narration: "<p>Zanthor</p><p></p><p>This part went about as well as we could have hoped for the Anglo-Dutch, with them even moving above their Norse rivals. The problem being of course, they’re still the Anglo-Dutch. Their second settle was ok, but Brandenburg is looking just as angry and active as we all thought. On the upside though, that anger is probably going to be directed at someone else first. Anglo-Norse and Yugoslavia both gifted Brandenburg with near-free cities, and they’ll probably eat those first, before turning on the Anglo-Dutch. So enjoy your Gaellic vacation King Billy, who knows how long it will last.  </p>"
   - scene_number: 05
     scene_title: "Philippines"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr1-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr1-scene06.jpg
     narration: "<p>Cloudberg</p><p></p><p>Intrigued by Emilio Aguinaldo’s bold decision to found his second city on the mainland next to Cambodia, we’ve decided to bump the Philippines up a few spots, but don’t take this to be a glowing endorsement of their chances. In fact, I’m not sure the Philippines would have risen at all had other civs not performed even worse and thus fallen below them. If anything, their choice of second city may be more of a negative for Cambodia than a positive for the Philippines.</p>"
   - scene_number: 06
     scene_title: "Timor-Leste"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr1-scene06.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr1-scene05.jpg
     narration: "<p>Leman</p><p></p><p>Not last!! Timor-Leste did the absolute bare minimum by founding its second city in a reasonable spot and not getting invaded, and that’s worth a couple spots for sure. And he grabbed a religion! I’m not sure what beliefs he picked but with Arianism founded, things are looking up for Xanana! (But only like four places up.</p>"
   - scene_number: 07
     scene_title: "Botswana"
