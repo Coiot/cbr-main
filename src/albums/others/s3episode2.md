@@ -17,11 +17,11 @@ scenes:
   - scene_number: 02
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene02.jpg
-    narration: "<p>Coming in full release</p>"
+    narration: "<p>Coming in full release.</p>"
   - scene_number: 03
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene03.jpg
-    narration: "<p>Coming in full release</p>"
+    narration: "<p>Coming in full release.</p>"
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene04.jpg
