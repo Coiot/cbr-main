@@ -17,11 +17,11 @@ scenes:
   - scene_number: 02
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene02.jpg
-    narration: "<p>Coming soon.</p>"
+    narration: "<p>Orangechrisy this week just before the release of the episode with fresh propoaganda coming to a pasture near you.</p>"
   - scene_number: 03
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene03.jpg
-    narration: "<p>Coming soon.</p>"
+    narration: "<p>Vihreaa mixing it up with a new map style. Hope to see a very colorful display in short time.</p>"
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene04.jpg
