@@ -240,11 +240,11 @@ scenes:
     narration: "<p>Msurdej:  Eeking into the top 5, Poundmaker has a lot of things going for him. In a world where having 3 cities is a sign of competence, Pundemaker has 4. He’s also sporting the highest production, and a strong army to boot. The only issue is they aren’t sending that army to their war with the Arapaho. So while Poundmaker is doing very good, he could be doing better.</p>"
   - scene_number: 58
     scene_title: "Lithuania"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr2-scene58.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr2-scene59.jpg
     narration: "<p>Cloudberg:</p><p></p><p>Lithuania catapults itself into the top five this episode as confidence in Brandenburg falls and Gedeminas’s neighbors continue to stagnate. Lithuania now has four cities, while the Kyivan Rus’ and Vladimir still only have two, and with plenty of space in Scandinavia and northern Russia, the sky’s the limit in terms of expansion. Lithuania also has a decent military to back it up. So for the moment, the rankers think that Lithuania is now the favorite to win Europe.</p>"
   - scene_number: 59
     scene_title: "Arapaho"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr2-scene59.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr2-scene58.jpg
     narration: "<p>CelestialDalek:Arapaho gets the 3rd spot for one reason: Pretty Nose has a pretty nice amount of 5 cities. She is at war with the Cree to the north of her, but luckily they haven’t sent much military to attack. Arapaho also has a free 6th city in the form of the Comanche capital, and a weakened Modoc to her west. They just need to not stagnate.</p>"
   - scene_number: 60
     scene_title: "Tuva"
