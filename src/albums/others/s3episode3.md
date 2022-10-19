@@ -113,7 +113,7 @@ scenes:
   - scene_number: 26
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode3-scene26.jpg
-    narration: "<p>Our first shot of Australia in this part reveals that the Wiradjuri won the race to Uluru…to the surprise of absolutely no one. The Yolngu are quickly being hemmed out of the continent, and will likely be contained to the northern coast unless they start expanding soon.</p>"
+    narration: "<p>Our first shot of Australia in this episode reveals that the Wiradjuri won the race to Uluru…to the surprise of absolutely no one. The Yolngu are quickly being hemmed out of the continent, and will likely be contained to the northern coast unless they start expanding soon.</p>"
   - scene_number: 27
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode3-scene27.jpg
@@ -317,5 +317,5 @@ scenes:
   - scene_number: 77
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode3-scene77.jpg
-    narration: "<p>We bring this part to a close with another look at the progress of the Kokang invasion of Cambodia. It seems to be going in favor of Kokang, who now has an additional two settlers about to find new land to claim.</p><p></p><p>A wide variety of scouts watch the siege of Siem Reap from a safe distance. It doesn’t matter who they are or where they come from—Cambodian, Bengali, Göktürk, Lithuanian, Massagetaen, Tuvan, North Korean, Permian—all fear the invaders that may someday reach them and their homes. In a way, this is the reality of common ground that keeps Scout Con going, no matter where or when it happens.</p><p></p><p>Thank you for joining me on this episode filled with expansion, invasion, migration, and other nonsense. See you next week for another exciting episode of CBRX Season 3!</p>"
+    narration: "<p>We bring this episode to a close with another look at the progress of the Kokang invasion of Cambodia. It seems to be going in favor of Kokang, who now has an additional two settlers about to find new land to claim.</p><p></p><p>A wide variety of scouts watch the siege of Siem Reap from a safe distance. It doesn’t matter who they are or where they come from—Cambodian, Bengali, Göktürk, Lithuanian, Massagetaen, Tuvan, North Korean, Permian—all fear the invaders that may someday reach them and their homes. In a way, this is the reality of common ground that keeps Scout Con going, no matter where or when it happens.</p><p></p><p>Thank you for joining me on this episode filled with expansion, invasion, migration, and other nonsense. See you next week for another exciting episode of CBRX Season 3!</p>"
 ---
