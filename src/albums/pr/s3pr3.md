@@ -228,11 +228,11 @@ scenes:
     narration: "<p>Cloudberg:</p><p></p><p>A couple episodes ago, no one would have predicted that Egypt would be in the top ten, but here we are. Akhenaten is in this fight to win it, founding four cities from the Mediterranean to Nubia, spamming his UU, and launching a massive invasion of Assyria, which looks likely to result in the capture of Assur. With Chad and Uganda simultaneously underperforming, Egypt is in an even better position to dominate the region. The only question is whether they can knock down the Normans before they cement their control over North Africa—a big id, given that Akhenaten’s army is currently in Mesopotamia.</p>"
   - scene_number: 55
     scene_title: "Lithuania"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr3-scene55.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr3-scene56.jpg
     narration: "<p>CelestialDalek:</p><p></p><p>Lithuania is in a good position. Brandenburg, while still a force to be reckoned with, is hemmed in. A decent invasion could snap Vladimir like a twig. And do the Anglo-Norse even matter? Lithuania has plenty of settling space: Scandinavia, towards the Permians, wherever the hell the Comanche settler is going. And if there’s one thing I know from personal experience, Lithuania loves to churn out settlers. There’s only one way to go from here: up (except for down or staying put).</p>"
   - scene_number: 56
     scene_title: "Yugoslavia"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr3-scene56.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr3-scene55.jpg
     narration: "<p>JDT</p><p></p><p>Yugoslavia surges up the power rankings as people realize that they’re the closest thing to a European superpower. And when you look at their current position, it's not hard to see why. 5 cities? A good military? Good stats? And unlike the other two civs with a similar position in Europe, no massive corners? Sign me right up baby, Hej Slaveni! Of course, that very interesting shape is prudent for occasional assaults, but the alps exist to prevent northern excursions and the great Yugoslav defense force exist to protect the south. If Tito keeps this up, we may be seeing a true pan-slavic empire… or perhaps even further beyond</p>"
   - scene_number: 57
     scene_title: "Cree"
