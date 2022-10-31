@@ -128,23 +128,23 @@ scenes:
     narration: "<p>Leman:</p><p></p><p>It’s really unfortunate that Mali is spending most of its time throwing piles of units at Tetouan instead of building settlers, but luckily, unlike some other civs throwing units at a wall, at least Mali has a bunch of room to continue settling. Hopefully they get there before Chad decides to start playing the game.</p>"
   - scene_number: 30
     scene_title: "Massagetae"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene30.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene31.jpg
     narration: "<p>CelestialDalek:Tomyris </p>"
   - scene_number: 31
     scene_title: "Chile"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene31.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene32.jpg
     narration: "<p>Emu:</p><p></p><p>Chile really didn't get much of anything done this part, more just played the wandering settler game and continued to chill. Their neighbors didn't do much either though (excepting Inca), so this doesn't really count against them too much. They are still on three cities despite having room for more, which is a tad concerning at this point. The silver river failing to flow is still the dream situation it's always been though, and all the talent on the continent is up north. All in all, Allende heads up a solid mid-tier.</p>"
   - scene_number: 32
     scene_title: "Central America"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene32.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene33.jpg
     narration: "<p>Msurdej: </p><p></p><p>Don’t let the rank rise fool you, Central America had a rough part. Mohave moving into Mexico means that Morazon now has closer competition from both north and south. Unless we see some rapid expansion coming out of Central America, expect to see Morazon dropping during the next few parts.</p>"
   - scene_number: 33
     scene_title: "Ireland"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene33.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene34.jpg
     narration: "<p>Leman:</p><p>Not an exciting part out of Ireland this week. They did enhance their religion, so that’s good. Nobody’s filled in the isles yet, so that’s also good. Honestly, as long as they keep moving forward and Brandenburg doesn’t send a settler their way, I’m happy putting Ireland in the middle of the pack.</p>"
   - scene_number: 34
     scene_title: "Timor-Leste"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene34.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene30.jpg
     narration: "<p>CelestialDalek:Take to the streets! Tell your friends! After climbing slowly, Timor-Leste has taken a huge leap in the rankings up to 28th! They have plenty of production, a sizable navy, and three cities! They aren’t in any wars, but they have the potential to do things. For Timor, that’s a fucking miracle. Perhaps they don’t deserve too much hype, they don’t seem to have another settler out. Is this an overcorrection? I don’t think so. Unlike some civs (Tetouan), Timor-Leste doesn’t have the original Kilwa AI. They have a navy for days, population for weeks, and production for months. All they need is a war before you can start spamming #TimorSweep.</p>"
   - scene_number: 35
     scene_title: "Maori"
