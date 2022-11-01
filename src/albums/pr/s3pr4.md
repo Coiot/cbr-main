@@ -32,7 +32,7 @@ scenes:
     narration: "<p>Altima</p><p></p><p>In what is either the worst mistake of their life or their one last chance at relevance, the Comanche in alliance with Vermont have declared war upon FDR, seeking to unmanifest America’s destiny. They will probably fail, but the effort is fun all the same. </p><p></p><p>Pros: They only have one city to attack, and America will have a bitch of a time reinforcing it. </p><p></p><p>Cons: The hellaciously rough terrain means that the Comanche will have a similarly rough time attacking the city in the first place. Warriors have a rough time against 20 DEF cities, though spearmen do better. The Comanche will also themselves have a hard time getting reinforcements to the front line once casualties start piling.</p><p></p><p>They could win. They do have the numbers to do so if they really knuckle down on it. They could also very easily fail and just waste even more time on one city, and even if they win, they’ll still be a complete runt. Still, can’t count them out yet I guess.</p>"
   - scene_number: 06
     scene_title: "Khazaria"
-    slide_url: https://cdn.civbattleroyale.tv/season3-pr4-scene.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr3-scene19.jpg
     narration: "<p>Leman:</p><p></p><p>Well, that’s not great. Vladmir declares war on Khazaria right as Khazaria sends its entire army to go attack Massagetae! It’s a comedy of errors for Bulan that results in a 15 point drop for the Khazars. It would be a miracle if they came out of this without losing a city.</p>"
   - scene_number: 07
     scene_title: "Philippines"
