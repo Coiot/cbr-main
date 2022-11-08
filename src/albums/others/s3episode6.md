@@ -13,7 +13,7 @@ scenes:
   - scene_number: 01
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene01.jpg
-    narration: "<p>Hello, one and all! It is I, PorkBean, professional lurker and intrepid author of countless obscure Civ 5 mods. Despite a handful of my civs having made it into CBRs over the years, can you believe this is the first time I’ve ever narrated an episode?</p><p></p><p>Strap yourself in for a wild one, as tensions on the cylinder are reaching a boiling point. Devastating wars, catastrophic peaces, enormous coalitions… there’s a lot to unpack in this part, so I’ll do my best to guide you through it. Here we go!</p>"
+    narration: "<p>Hello, one and all! It is I, PorkBean, professional lurker and intrepid author of countless obscure Civ 5 mods. Despite a handful of my civs having made it into CBRs over the years, can you believe this is the first time I’ve ever narrated an episode?</p><p></p><p>Strap yourself in for a wild one, as tensions on the cylinder are reaching a boiling point. Devastating wars, catastrophic peaces, enormous coalitions… there’s a lot to unpack in this episode, so I’ll do my best to guide you through it. Here we go!</p>"
   - scene_number: 02
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene02.jpg
@@ -21,7 +21,7 @@ scenes:
   - scene_number: 03
     scene_title: "Pour One Out"
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene03.jpg
-    narration: "<p>And our OC for the week is also a map from /u/SeroSedSero, documenting the seafaring adventures of Comanche’s legendary party of settlers. Though they met a tragic end in the previous part, the memory of their fearless expedition will inspire settlers from across the cylinder for centuries to come.</p>"
+    narration: "<p>And our OC for the week is also a map from /u/SeroSedSero, documenting the seafaring adventures of Comanche’s legendary party of settlers. Though they met a tragic end in the previous episode, the memory of their fearless expedition will inspire settlers from across the cylinder for centuries to come.</p>"
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene04.jpg
@@ -253,7 +253,7 @@ scenes:
   - scene_number: 61
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene61.jpg
-    narration: "<p>Greenland seems to have barely moved their units an inch since their declaration of war against Vermont. They have a decent fleet and could definitely cause headaches for Ethan Allen if they tried, but it seems like the New World is content to let the Old have most of the action for this part.</p>"
+    narration: "<p>Greenland seems to have barely moved their units an inch since their declaration of war against Vermont. They have a decent fleet and could definitely cause headaches for Ethan Allen if they tried, but it seems like the New World is content to let the Old have most of the action for this episode.</p>"
   - scene_number: 62
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene62.jpg
@@ -273,7 +273,7 @@ scenes:
   - scene_number: 66
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene66.jpg
-    narration: "<p>Canute’s Scandinavian strategy backfires spectacularly, with his navy disintegrating and this part’s second capital capture going to Fredrick-William. Freddie wasn’t even really trying, too, as all this time he’s been pumping out more settlers to send up to Scandinavia.</p><p></p><p>This is unrecoverable for the Anglo-Norse, who have been reduced to a non-contiguous rump state with nearly no army and no options for expansion. The best they can hope for is that Brandenburg doesn’t plan to go any further for now.</p>"
+    narration: "<p>Canute’s Scandinavian strategy backfires spectacularly, with his navy disintegrating and this episode’s second capital capture going to Fredrick-William. Freddie wasn’t even really trying, too, as all this time he’s been pumping out more settlers to send up to Scandinavia.</p><p></p><p>This is unrecoverable for the Anglo-Norse, who have been reduced to a non-contiguous rump state with nearly no army and no options for expansion. The best they can hope for is that Brandenburg doesn’t plan to go any further for now.</p>"
   - scene_number: 67
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene67.jpg
@@ -357,9 +357,9 @@ scenes:
   - scene_number: 87
     scene_title: "The Khazarian Miracle"
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene87.jpg
-    narration: "<p>In a truly shocking turn of events, Balanjar, the Doomed City, is back up to near-full health, still in Khazarian hands. The Permian offensive seems to have collapsed and while there are still units around, they’re mainly horsemen with a penalty vs cities that can be easily dispatched by Bulan’s spearmen. Marc Antony appears to be dead or at least reassigned elsewhere, so samurai police captain Okita Soji is called up to take charge of the Permian front lines.</p><p></p><p>I seriously expected to be eulogising Khazaria this part, or at least to be mourning their reduction to true rump status. Considering the state they began this episode in, I can’t help but be impressed. Well done, Bulan. Respect.</p>"
+    narration: "<p>In a truly shocking turn of events, Balanjar, the Doomed City, is back up to near-full health, still in Khazarian hands. The Permian offensive seems to have collapsed and while there are still units around, they’re mainly horsemen with a penalty vs cities that can be easily dispatched by Bulan’s spearmen. Marc Antony appears to be dead or at least reassigned elsewhere, so samurai police captain Okita Soji is called up to take charge of the Permian front lines.</p><p></p><p>I seriously expected to be eulogising Khazaria this episode, or at least to be mourning their reduction to true rump status. Considering the state they began this episode in, I can’t help but be impressed. Well done, Bulan. Respect.</p>"
   - scene_number: 88
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season1-episode6-scene88.jpg
-    narration: "<p>We end this part with a shot of the Lithuanian core. A ton happened in this part including the first elimination, the fall of the Anglo-Norse, and what could be the beginning of the end for Egypt.</p><p></p><p>I’ve been PorkBean, and thanks for joining me on this episode of CBRX3. See you next time!</p>"
+    narration: "<p>We end this episode with a shot of the Lithuanian core. A ton happened in this episode including the first elimination, the fall of the Anglo-Norse, and what could be the beginning of the end for Egypt.</p><p></p><p>I’ve been PorkBean, and thanks for joining me on this episode of CBRX3. See you next time!</p>"
 ---
