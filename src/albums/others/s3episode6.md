@@ -24,7 +24,7 @@ scenes:
     narration: "<p>And our OC for the week is also a map from /u/SeroSedSero, documenting the seafaring adventures of Comanche’s legendary party of settlers. Though they met a tragic end in the previous episode, the memory of their fearless expedition will inspire settlers from across the cylinder for centuries to come.</p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/season1-episode4-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode6-scene04.jpg
     narration: "<p>Thanks to all supporters for your generous donations on Ko-fi. Regular, direct injections of caffeine are what has kept the CBR steaming along all this time.</p>"
   - scene_number: 05
     scene_title: ""
