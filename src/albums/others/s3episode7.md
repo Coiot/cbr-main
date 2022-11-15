@@ -193,27 +193,27 @@ scenes:
   - scene_number: 46
     scene_title: "Brandenburg stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene46.jpg
-    narration: "<p>Oh shit, it’s the world factbook tab of the info-addict. I couldn’t think of a way to make these slides more interesting, so, uhh, either someone else will fill in for this and the next 5 slides, or DocIto is gonna have to improv this. </p>"
+    narration: "<p>Oh shit, it’s the world factbook tab of the info-addict. I couldn’t think of a way to make these slides more interesting, so, uhh DocIto is gonna have to improv this.</p>"
   - scene_number: 47
     scene_title: "Bengal stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene47.jpg
-    narration: "<p></p>"
+    narration: "<p>DocIdo: Bengal might not be among the most socially advanced civs, but who cares? If they can't conquer you they'll just buy you out!</p>"
   - scene_number: 48
     scene_title: "Han stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene48.jpg
-    narration: "<p></p>"
+    narration: "<p>DocIdo: Han...exists, with solid if unremarkable rankings in most areas at the moment.</p>"
   - scene_number: 49
     scene_title: "Arapaho stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene49.jpg
-    narration: "<p></p>"
+    narration: "<p>DocIdo: The Arapaho are a dour and backwards lot, prone to small family units and minimal population density. Cant say I blame them - after all, who wants to live next to a bunch of ignorant sourpusses?</p>"
   - scene_number: 50
     scene_title: "Gokturk stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene50.jpg
-    narration: "<p></p>"
+    narration: "<p>DocIdo: The Gokturk army is far and away the showpiece of their society, and they have the deficit spending to prove it.</p>"
   - scene_number: 51
     scene_title: "Kayapó stats"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene51.jpg
-    narration: "<p></p>"
+    narration: "<p>DocIdo: Deep in the heart of Amazonia, the swarm slumbers in their golden hive. Pray you do not awaken them. It is said their wise men have peered into the heart of the universe and bear knowledge of things beyond our mortal ken.</p>"
   - scene_number: 52
     scene_title: "Rumble in the Jungle (and Mountains, I guess)"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene52.jpg
