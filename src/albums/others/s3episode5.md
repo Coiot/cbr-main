@@ -9,8 +9,8 @@ edition: S3
 date: 2022-11-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode5-scene06.jpg
 prcast:
-prev: /albums/others/s2episode4/
-next: /albums/others/s2episode6/
+prev: /albums/others/s3episode4/
+next: /albums/others/s3episode6/
 scenes:
   - scene_number: 01
     scene_title: "Guess who’s back? Back again?"
