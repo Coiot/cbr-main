@@ -253,7 +253,7 @@ scenes:
   - scene_number: 61
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode9-scene61.jpg
-    narration: "<p>Seems like we have a special canon appearance in this slide!</p><p></p><p>Ahmad Shah Durrani serves as one of Afghanistan’s great generals, which is very fitting considering he is the founder of the Durrani Empire, the basis of modern Afghanistan. With Afghanistan currently looking as impressive if not possibly bigger than the Durrani Empire, only time will tell how far Durrani can take his empire.</p>"
+    narration: "<p>Seems like we have a special canon appearance in this slide!</p><p></p><p>Ahmad Shah Durrani serves as one of Afghanistan’s great generals, which is very fitting considering he is the founder of the Durrani Empire, the basis of modern Afghanistan. With Afghanistan currently looking as impressive if not possibly bigger than the Durrani Empire, only time will tell how far Durrani can take his empire.</p><p>Coiot Note: Ahmad Shah Durrani literally being the manager-player subbing himself in. Neat that his name randomly got selected by his own civ.</p>"
   - scene_number: 62
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode9-scene62.jpg
