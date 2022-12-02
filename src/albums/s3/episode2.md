@@ -9,6 +9,8 @@ edition: S3
 date: 2022-10-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene06.jpg
 prcast:
+prev: /albums/others/epsiode1/
+next: /albums/others/s3episode3/
 scenes:
   - scene_number: 01
     scene_title: ""
@@ -17,11 +19,11 @@ scenes:
   - scene_number: 02
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene02.jpg
-    narration: "<p>Coming in full release</p>"
+    narration: "<p>Orangechrisy this week just before the release of the episode with fresh propoaganda coming to a pasture near you.</p>"
   - scene_number: 03
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene03.jpg
-    narration: "<p>Coming in full release</p>"
+    narration: "<p>Vihreaa mixing it up with a new map style. Hope to see a very colorful display in short time.</p>"
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene04.jpg
@@ -300,21 +302,17 @@ scenes:
     narration: "<p>I lied, there are more religions. Still can’t found any.</p>"
   - scene_number: 73
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene73.jpg
-    narration: "<p>This slide got repeated.</p>"
-  - scene_number: 74
-    scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene74.jpg
     narration: "<p>Here are some more religious benefits! Engaging. Judge and Avenger might be something to boost Vladimir. It probably won’t. </p>"
-  - scene_number: 75
+  - scene_number: 74
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene75.jpg
     narration: "<p>There it is, the nationalism animals. Also known as bald eagles in America, or Mike Wozniak’s queuing creature in Britain.</p>"
-  - scene_number: 76
+  - scene_number: 75
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene76.jpg
     narration: "<p>Turkey has a lot of beliefs. Why are all the atheist civs so religious? </p>"
-  - scene_number: 77
+  - scene_number: 76
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode2-scene77.jpg
     narration: "<p>Qocho can make Mandirs now! This will be very helpful in fighting off the Permians, for sure.</p><p></p><p>Thank you for reading! I hope my narration was exciting. If it was not, feel free to let me know what to change. If it was, feel free to let me know what to change. Thanks, and see you next time I narrate an episode (let me know what to change as you’ll be seeing me again soon!)</p>"
