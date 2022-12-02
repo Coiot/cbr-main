@@ -2,16 +2,20 @@
   <transition name="fade">
     <div>
       <div class="edition-list">
+        <div class="list" @click="clickedEdition = 'S3List'">
+          <span>CBRX Season 3</span>
+        </div>
+
         <div class="list" @click="clickedEdition = 'S2List'">
-          <span>CBRX Season Two</span>
+          <span>CBRX Season 2</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'S1List'">
-          <span>CBRX Season One</span>
+          <span>CBRX Season 1</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'Mk2List'">
-          <span>CBR Mark Two</span>
+          <span>CBR Mark 2</span>
         </div>
 
         <div class="list" @click="clickedEdition = 'PRList'">
@@ -28,16 +32,16 @@
 </template>
 
 <script>
-import S2List from "./S2List.vue";
+import S3List from "./S3List.vue";
 
 export default {
   data() {
     return {
-      clickedEdition: S2List,
+      clickedEdition: S3List,
     };
   },
   components: {
-    S2List,
+    S3List,
   },
   computed: {},
 };

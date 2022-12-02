@@ -9,8 +9,8 @@ edition: S3
 date: 2022-11-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode7-scene06.jpg
 prcast:
-prev: /albums/others/s3episode6/
-next: /albums/others/s3episode8/
+prev: /albums/s3/episode6/
+next: /albums/s3/episode8/
 scenes:
   - scene_number: 01
     scene_title: "Greetings"
