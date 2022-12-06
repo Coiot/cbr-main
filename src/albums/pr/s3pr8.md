@@ -1,5 +1,5 @@
 ---
-title: "Power Rankings: Episode 6"
+title: "Power Rankings: Episode 8"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! They’re rankings of power! (But only as of the instant of the end of the previous episode, as these are not meant to be future predictions!) Power Rankings!"
 release_date: November 29, 2022
