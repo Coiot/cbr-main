@@ -24,7 +24,7 @@ scenes:
     narration: "<p>Coiot: As expected, Orange releases just in time with the weekly comic. This week she reminds us that the Duck Dyansty is in trouble, and perhaps should not be playing games like Duck Duck Goose with the Cree around.</p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode12-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode09-scene04.jpg
     narration: "<p>Thank you to these esteemed patrons for supporting the running of Civ Battle Royale. I still don’t know why Lacs is funding making her own computer, but maybe her money goes to keeping the Tuvalu domain registration up. I’m not the financial manager here.</p>"
   - scene_number: 05
     scene_title: ""
