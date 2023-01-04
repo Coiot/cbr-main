@@ -28,7 +28,7 @@ scenes:
     narration: "<p>Everyday is Donation Appreciation Day when you ignore what the calendar says! These lovely peeps not only help keep the show running, but also enable the CBRX team to do cool stuff- such as run the CBR website!</p>"
   - scene_number: 05
     scene_title: "Top of the Pops"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode13-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr12-scene59.jpg
     narration: "<p>It’s ya boi, Donduk “the Cooler” Kuular, once again at the top of the PRs. Tuva’s already established a powerful presence in only a dozen episodes- let’s just hope they’re as successful as they are entertaining.</p>"
   - scene_number: 06
     scene_title: "Sei it ain’t so!"
