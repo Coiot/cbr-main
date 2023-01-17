@@ -1,7 +1,7 @@
 ---
 title: "Episode 15: I’ll Drink To Your Death"
 narrated_by: "JDT & Thy"
-description: "Are you ready to send your army on an expedition into your neighbors lands without declaring war? Are you ready to look death in the eye? Do both in this episode of C B R X3!"
+description: "Are you ready to send your army on an expedition into your neighbors lands without declaring war? Are you ready to look death in the eye? Do both in this episode of CBR X3!"
 release_date: January 18, 2022
 audio_narration:
 fullvideo:
@@ -24,7 +24,7 @@ scenes:
     narration: "<p>And now, onto the now nearly mandatory lay of the land by Vihreaa!</p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode14-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode13-scene04.jpg
     narration: "<p>Ko-ko-ko-ko Ko Fi! Thanks for the wonderful support y’all! Feel free to donate to Coiot to help keep the game going on!</p>"
   - scene_number: 05
     scene_title: ""
