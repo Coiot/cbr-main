@@ -1,6 +1,6 @@
 ---
 title: "Episode 15: I’ll Drink To Your Death"
-narrated_by: "JDT"
+narrated_by: "JDT & Thy"
 description: "Are you ready to send your army on an expedition into your neighbors lands without declaring war? Are you ready to look death in the eye? Do both in this episode of C B R X3!"
 release_date: January 18, 2022
 audio_narration:
@@ -29,7 +29,7 @@ scenes:
   - scene_number: 05
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season3-pr14-scene58.jpg
-    narration: "<p>None of the big dips in PR this part were particularly interesting, so you get to see Tuva again, potentially for the last time for a while as Turkey continues to catch up. Even this part it was up to one ranker to decide who of the two would be #1.</p>"
+    narration: "<p>None of the big dips in PR the previous episode were particularly interesting, so you get to see Tuva again, potentially for the last time for a while as Turkey continues to catch up. Even this week it was up to one ranker to decide who of the two would be #1.</p>"
   - scene_number: 06
     scene_title: "Tiger Fight"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene06.jpg
@@ -41,7 +41,7 @@ scenes:
   - scene_number: 08
     scene_title: "The Partly Wong"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene08.jpg
-    narration: "<p>We take a gander to the land down under, where women glow and men thunder. Where early on we complained about Wiradjuri’s lack of interest in settling most of Australia, they’ve gotten their act together a bit in recent parts. Still, it feels delayed, as Maori has a considerable swathe of some of the best land available ‘round these parts. And the worst part is, the Wiradjuri AI seems to be entirely incompetent when it comes to war, so I’m not holding my breath for a success story here. </p>"
+    narration: "<p>We take a gander to the land down under, where women glow and men thunder. Where early on we complained about Wiradjuri’s lack of interest in settling most of Australia, they’ve gotten their act together a bit in recent episodes. Still, it feels delayed, as Maori has a considerable swathe of some of the best land available ‘round these parts. And the worst part is, the Wiradjuri AI seems to be entirely incompetent when it comes to war, so I’m not holding my breath for a success story here. </p>"
   - scene_number: 09
     scene_title: "Incan Roads"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene09.jpg
@@ -93,7 +93,7 @@ scenes:
   - scene_number: 21
     scene_title: "Those Sweets Are Pretty Addicting"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene21.jpg
-    narration: "<p>We witness the easternmost edges of the mighty Afghan empire. A stalwart top 5 contender for the last several parts, the Afghans have swiftly settled the Tibetan plateau, creating small, defensible, but somewhat poorly growing cities. Milton S. Hershey, taking it upon himself to cheer these poor fools up, is currently en route to Sheberbagan, to potentially taste a rich, dark, drink that the locals have been using to stay warm in the dark winters, made of poppy seeds of course. </p>"
+    narration: "<p>We witness the easternmost edges of the mighty Afghan empire. A stalwart top 5 contender for the last several episodes, the Afghans have swiftly settled the Tibetan plateau, creating small, defensible, but somewhat poorly growing cities. Milton S. Hershey, taking it upon himself to cheer these poor fools up, is currently en route to Sheberbagan, to potentially taste a rich, dark, drink that the locals have been using to stay warm in the dark winters, made of poppy seeds of course. </p>"
   - scene_number: 22
     scene_title: "A Crusade Inbound?"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene22.jpg
@@ -109,7 +109,7 @@ scenes:
   - scene_number: 25
     scene_title: "Stately Company"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene25.jpg
-    narration: "<p>We take a look at the lands of Vladimir. Lacs is highlighting the Prince’s Retinue UU, but I’m pretty sure we already saw this unit last part, so I won’t tire you with a repeat. Personally I quite like the look of Vladimir, it’s just a dang shame it’s stuck between Lithuania, Permians, and Turkey, all top 15 contenders, if not even top 10 contenders. We’re still trying to figure out if the Permians deserve a spot in the top 10 or not. (Spoiler: they probably don’t.)</p>"
+    narration: "<p>We take a look at the lands of Vladimir. Lacs is highlighting the Prince’s Retinue UU, but I’m pretty sure we already saw this unit last episode, so I won’t tire you with a repeat. Personally I quite like the look of Vladimir, it’s just a dang shame it’s stuck between Lithuania, Permians, and Turkey, all top 15 contenders, if not even top 10 contenders. We’re still trying to figure out if the Permians deserve a spot in the top 10 or not. (Spoiler: they probably don’t.)</p>"
   - scene_number: 26
     scene_title: "Readying A Viking Funeral"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene26.jpg
@@ -349,7 +349,7 @@ scenes:
   - scene_number: 85
     scene_title: "Impressive, Most Impressive"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene85.jpg
-    narration: "<p>These Freedom FighterTM are doing more to Arapaho than Central America ever will, mark my words. If only Arapaho’s army wasn’t loitering in Cree lands, their capital wouldn’t be currently damaged by literal rebel scum. And here I thought Tuva was the most humiliated civ of the part. </p>"
+    narration: "<p>These Freedom FighterTM are doing more to Arapaho than Central America ever will, mark my words. If only Arapaho’s army wasn’t loitering in Cree lands, their capital wouldn’t be currently damaged by literal rebel scum. And here I thought Tuva was the most humiliated civ of the episode.</p>"
   - scene_number: 86
     scene_title: "Bunker Down"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene86.jpg
@@ -389,5 +389,5 @@ scenes:
   - scene_number: 95
     scene_title: "Grossdeustchland"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode15-scene95.jpg
-    narration: "<p>We end off our part with a view on the Brandenburger Reich’s ever-expanding northern colony. In another world, the Anglo-Norse held a cross-sea empire, but it seems like Fredrick Wilhelm is adamant in fulfilling that vision himself in this one. The new frigid colony of Helsberg is settled on the Isles, a Hell for anyone to live in. Meanwhile, the more-desirable city of Braunsberg is situated smack dab in the middle of Northern Ireland, helping recreate a real life conflict in game. Will Michael finally decide enough is enough? Find out more next time, on CBRXS3!</p>"
+    narration: "<p>We end off our episode with a view on the Brandenburger Reich’s ever-expanding northern colony. In another world, the Anglo-Norse held a cross-sea empire, but it seems like Fredrick Wilhelm is adamant in fulfilling that vision himself in this one. The new frigid colony of Helsberg is settled on the Isles, a Hell for anyone to live in. Meanwhile, the more-desirable city of Braunsberg is situated smack dab in the middle of Northern Ireland, helping recreate a real life conflict in game. Will Michael finally decide enough is enough? Find out more next time, on CBRXS3!</p>"
 ---
