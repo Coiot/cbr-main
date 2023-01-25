@@ -2,7 +2,7 @@
 title: "Episode 15: I’ll Drink To Your Death"
 narrated_by: "JDT & Thy"
 description: "Are you ready to send your army on an expedition into your neighbors lands without declaring war? Are you ready to look death in the eye? Do both in this episode of CBR X3!"
-release_date: January 18, 2022
+release_date: January 18, 2023
 audio_narration:
 fullvideo:
 edition: S3
