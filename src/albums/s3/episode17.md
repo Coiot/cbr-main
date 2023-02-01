@@ -24,11 +24,11 @@ scenes:
     narration: "<p>Muisca squishes Tegucigalpa in American Dreams, putting Central America in their place. No dreams for you, Morazon.</p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode17-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode13-scene04.jpg
     narration: "<p>Thanks as always to our backers on Ko-Fi. The CBR is a huge undertaking for all involved and it’s great that people enjoy it enough to support it like this.</p>"
   - scene_number: 05
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode17-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season3-pr16-scene57.jpg
     narration: "<p>Turkey holds their top spot in the Power Rankings, though Leman notes that Kayapo has surged ahead of them in terms of science. Turkey is the one with an army, however, so for now they seem to be in a comfortable position.</p>"
   - scene_number: 06
     scene_title: ""
