@@ -6,7 +6,7 @@ release_date: February 01, 2023
 audio_narration:
 fullvideo:
 edition: S3
-date: 2023-01-31T00:00:00.000Z
+date: 2023-02-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode17-scene06.jpg
 prcast:
 scenes:
