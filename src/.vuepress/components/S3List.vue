@@ -117,40 +117,7 @@
             :to="post.path"
             tag="div"
             v-for="(post, index) in albums"
-            v-if="index > 10 && index < 16"
-            :key="post.title"
-            :tabindex="0"
-          >
-            <div class="list">
-              <p>
-                {{ post.frontmatter.title }}
-                <span>{{ post.frontmatter.edition }}</span>
-              </p>
-
-              <p>
-                {{ post.frontmatter.narrated_by }}
-                <span
-                  >Starting Turn:
-                  {{ post.frontmatter.starting_turn }}&emsp;Release Date:
-                  {{ post.frontmatter.release_date }}</span
-                >
-              </p>
-            </div>
-          </router-link>
-        </article>
-      </section>
-      <section class="arc">
-        <div class="arc-header">
-          <h2>Saga Continues</h2>
-          <span>Arc Four</span>
-          <p>58 competitors remain.</p>
-        </div>
-        <article class="arc-list">
-          <router-link
-            :to="post.path"
-            tag="div"
-            v-for="(post, index) in albums"
-            v-if="index > 14 && index < 18"
+            v-if="index > 11 && index < 18"
             :key="post.title"
             :tabindex="0"
           >
