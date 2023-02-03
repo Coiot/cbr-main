@@ -9,6 +9,8 @@ edition: S3
 date: 2022-12-20T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode12-scene06.jpg
 prcast:
+prev: /albums/s3/episode11/
+next: /albums/s3/episode13/
 scenes:
   - scene_number: 01
     scene_title: ""

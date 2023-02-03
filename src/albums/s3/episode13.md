@@ -9,6 +9,8 @@ edition: S3
 date: 2023-01-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode13-scene06.jpg
 prcast:
+prev: /albums/s3/episode12/
+next: /albums/s3/episode14/
 scenes:
   - scene_number: 01
     scene_title: "Happy New Year!"

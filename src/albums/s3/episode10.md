@@ -9,6 +9,8 @@ edition: S3
 date: 2022-12-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode10-scene06.jpg
 prcast:
+prev: /albums/s3/episode9/
+next: /albums/s3/episode11/
 scenes:
   - scene_number: 01
     scene_title: "Opening Credits"
