@@ -65,7 +65,6 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 3px 0 0 #ffbf46;
-  margin-bottom: 2.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }

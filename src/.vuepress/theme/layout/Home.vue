@@ -70,7 +70,7 @@ export default {
 		justify-content: flex-between;
 		gap: 2rem;
 		padding: 0;
-		margin: 0;
+		margin-block-end: 3rem;
 
 		h1 {
 			margin-block-start: 0;
@@ -185,6 +185,10 @@ export default {
 
 @media (max-width: $MQMobile) {
   .home {
+		.home-content {
+			flex-direction: column;
+		}
+
     .features {
       flex-direction: column;
     }
