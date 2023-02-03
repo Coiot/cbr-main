@@ -19,16 +19,8 @@ Today the Civ Battle Royale is hosted here on its own website but still has a di
 
 ## Release Schedule
 
-Episodes of the Civ Battle Royale are released every two weeks at 12AM UTC time. You can [convert midnight UTC time to your local time](http://time.unitarium.com/utc/0) to make sure you’re always here to catch the discussion. Alternatively, you can [follow our Ko-Fi page](https://ko-fi.com/coiot) to stay informed with weekly summary emails for any important content and announcements you may have missed, or you can also subscribe to our [RSS Feed](https://www.reddit.com/r/civbattleroyale.rss) to get notified as soon as new posts are submitted.
+Episodes of the Civ Battle Royale are released every week at 12AM UTC time. You can [convert midnight UTC time to your local time](http://time.unitarium.com/utc/0) to make sure you’re always here to catch the discussion. Alternatively, you can [follow our Ko-Fi page](https://ko-fi.com/coiot) to stay informed with weekly summary emails for any important content and announcements you may have missed, or you can also subscribe to our [RSS Feed](https://www.reddit.com/r/civbattleroyale.rss) to get notified as soon as new posts are submitted.
 
 ## Donations
 
 We welcome [donations in our Ko-Fi page](https://ko-fi.com/coiot) to support the show. The Civ Battle Royale runs on no ads, no affiliates, no promotional content, no website trackers, and no compromises that turn viewers’ data into someone else’s product. We’re here to enjoy the show together and generous optional donations run everything as contributions continually go to upgrades to the viewing experience. Donators are rewarded with some exclusive access and bonuses, but the show is free for everyone.
-
-## Important Links
-
-[Youtube Audio Narrations](https://youtu.be/9k12RnkdadI)
-
-[S2 Info Megathread](https://www.reddit.com/r/civbattleroyale/comments/o9c6ld/cbrx_season_2_megathread_info_kiosk/)
-
-[S2 Credits](https://www.reddit.com/r/civbattleroyale/wiki/s2-credits)
