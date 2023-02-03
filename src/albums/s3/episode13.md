@@ -3,7 +3,7 @@ title: "Episode 13: You Only Live Twice, Agent S"
 narrated_by: "ExplosiveWatermelon"
 description: "As our war game enters the new year, we get a peek through the eyes of history into the Civ Battle Royale."
 release_date: Janurary 4, 2023
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=z1DVqRY3Nc4&t=2503s
 fullvideo:
 edition: S3
 date: 2023-01-03T00:00:00.000Z

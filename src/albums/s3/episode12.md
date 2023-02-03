@@ -3,7 +3,7 @@ title: "Episode 12: The Best Defense Is Doing Literally Nothing"
 narrated_by: "CelestialDalek"
 description: "The story of two wonder-obsessed leaders, two military dictators, and a smorgasbord of other characters."
 release_date: December 21, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=G9MsARvoP7Y
 fullvideo:
 edition: S3
 date: 2022-12-20T00:00:00.000Z

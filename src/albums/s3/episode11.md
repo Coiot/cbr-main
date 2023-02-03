@@ -3,7 +3,7 @@ title: "Episode 11: A Steppe Too Far"
 narrated_by: "NopeCopter"
 description: "Battles rage for the fates of entire continents as great powers seek to stay ahead and underdogs scramble to bring themselves back to relevance."
 release_date: December 14, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=5uYbXEReH_0
 fullvideo:
 edition: S3
 date: 2022-12-13T00:00:00.000Z

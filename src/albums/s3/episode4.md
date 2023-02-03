@@ -3,7 +3,7 @@ title: "Episode 4: Who Wants to Be a Conqueror?"
 narrated_by: "LeonardoDaSquishy"
 description: "Many a leader starts to have ambitions of city capturing… but not everyone gets what they want."
 release_date: October 26, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=vZUsNyZGhwQ
 fullvideo:
 edition: S3
 date: 2022-10-25T00:00:00.000Z

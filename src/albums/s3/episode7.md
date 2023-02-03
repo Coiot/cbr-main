@@ -3,7 +3,7 @@ title: "Episode 7: Ash in the Sand and Ships on the Waves"
 narrated_by: "Anarcho Balkan"
 description: "As Civilizations continue to develop, wars rage on every continent"
 release_date: November 16, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=fbCTRI00Qjs
 fullvideo:
 edition: S3
 date: 2022-11-15T00:00:00.000Z

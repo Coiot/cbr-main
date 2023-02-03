@@ -3,7 +3,7 @@ title: "Power Rankings: Episode 4"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! They’re rankings of power! (But only as of the instant of the end of the previous episode, as these are not meant to be future predictions!) Power Rankings!"
 release_date: November 1, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=PXIVh0kTm0w
 fullvideo:
 pr: S3
 date: 2022-10-31T00:00:00.000Z

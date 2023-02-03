@@ -3,7 +3,7 @@ title: "Episode 9: Wars of Words, Warriors, and Wacky Wiles"
 narrated_by: "ItsTruckMonth"
 description: "Wars are fought with words and warriors, as the AI makes the most mind-boggling decisions, as is tradition."
 release_date: December 1, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=e_jq8lGYlJQ&t=1473s
 fullvideo:
 edition: S3
 date: 2022-11-30T00:00:00.000Z

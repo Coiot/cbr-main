@@ -3,7 +3,7 @@ title: "Episode 8: Letters from Far-Flung Places"
 narrated_by: "Admiral Cloudberg"
 description: ""
 release_date: November 23, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=bJYloIHr2Qo&t=2131s
 fullvideo:
 edition: S3
 date: 2022-11-22T00:00:00.000Z

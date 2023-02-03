@@ -3,7 +3,7 @@ title: "Episode 17: Flips and Failures"
 narrated_by: "PorkBean"
 description: "Key cities exchange hands time and time again, while faltering civs lay the groundwork for their own demise."
 release_date: February 01, 2023
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=Cnz6ffe1MrA
 fullvideo:
 edition: S3
 date: 2023-02-01T00:00:00.000Z

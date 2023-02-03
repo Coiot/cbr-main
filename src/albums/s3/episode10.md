@@ -3,7 +3,7 @@ title: "Episode 10: A Thousand Galloping Hooves"
 narrated_by: "SeroSedSerio"
 description: "In which Tomyris gets a lesson on the power of friendship, Xanana and Suharto go for a night on the town, and the North America gang finds out that Iron Jacket is haunting Pretty Nose’s garden."
 release_date: December 7, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=0Ddwc08wpwY
 fullvideo:
 edition: S3
 date: 2022-12-06T00:00:00.000Z

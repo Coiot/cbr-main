@@ -3,7 +3,7 @@ title: "Power Rankings: Episode 7"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! They’re rankings of power! (But only as of the instant of the end of the previous episode, as these are not meant to be future predictions!) Power Rankings!"
 release_date: November 21, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=QrP_cOHHsDI
 fullvideo:
 pr: S2
 date: 2022-11-21T00:00:00.000Z

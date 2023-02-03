@@ -3,7 +3,7 @@ title: "Episode 14: Furthermore, Kilwa Must Be Destroyed"
 narrated_by: "ECH"
 description: "It’s M-M-Medieval Madness across the Cylinder, as we enjoy an episode full of new conflict, new people, new cities and new… memes?"
 release_date: January 11, 2023
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=FDR6iCodXQU
 fullvideo:
 edition: S3
 date: 2023-01-10T00:00:00.000Z

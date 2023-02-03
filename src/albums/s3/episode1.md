@@ -3,7 +3,7 @@ title: "Episode 1: Third Time's the Charm"
 narrated_by: "Coiot"
 description: ""
 release_date: October 5, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=0bCAnJsbjcQ&t=1196s
 fullvideo:
 edition: S3
 date: 2022-10-04T00:00:00.000Z

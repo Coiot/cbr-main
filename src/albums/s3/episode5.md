@@ -3,7 +3,7 @@ title: "Episode 5: The Realm of the Mad Gods"
 narrated_by: "Orange"
 description: "The gods seek tribute through blood, and not everyone is strong enough to take the blood of others. Much glory shall come to those that succeed."
 release_date: November 2, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=Coc4vcMomCI
 fullvideo:
 edition: S3
 date: 2022-11-01T00:00:00.000Z

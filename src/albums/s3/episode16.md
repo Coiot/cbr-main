@@ -3,7 +3,7 @@ title: "Episode 16: Throw the dice and let’s see which head will roll"
 narrated_by: "ThyReformer"
 description: "Across the cylinder, civs develop new naval tech, active warzones become prime real estate, and the strong prey on the weak."
 release_date: January 25, 2023
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=gTXyod_rIl8&t=11s
 fullvideo:
 edition: S3
 date: 2023-01-24T00:00:00.000Z

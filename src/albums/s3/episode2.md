@@ -3,7 +3,7 @@ title: "Episode 2: Please Read The Art of War"
 narrated_by: "CelestialDalek"
 description: "Will the Philippines do something? Does Castile castill exist? Will civs learn how to take cities?"
 release_date: October 12, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=ljW2dxg6ATY&t=346s
 fullvideo:
 edition: S3
 date: 2022-10-11T00:00:00.000Z

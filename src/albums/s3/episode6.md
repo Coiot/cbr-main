@@ -3,7 +3,7 @@ title: "Episode 6: Coalitions of Chaos"
 narrated_by: "PorkBean"
 description: "Tensions rise on the cylinder as war declarations come thick and fast, but actually navigating the terrain in the direction of their opponents proves ever tricky for some of our contenders. Let the cities fall, by pen or by sword."
 release_date: November 9, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=Vc4RYi2VSeg&t=3s
 fullvideo:
 edition: S3
 date: 2022-11-08T00:00:00.000Z

@@ -3,7 +3,7 @@ title: "Episode 3: Old Habits Die Hard"
 narrated_by: "Captain Bohemian"
 description: "As war begins to spread across the cylinder, civs begin their rise to glory…or fall from grace. And there’s a lot of scouting going on."
 release_date: October 19, 2022
-audio_narration:
+audio_narration: https://www.youtube.com/watch?v=Wf-hAR6dsw8
 fullvideo:
 edition: S3
 date: 2022-10-18T00:00:00.000Z
