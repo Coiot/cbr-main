@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
     <div class="page">
-
       <Content custom />
 
       <div class="footer" v-if="data.footer">{{ data.footer }}</div>
@@ -34,10 +33,11 @@ export default {
   margin: 0 auto;
 
   .footer {
-    padding: 2.5rem;
-    border-top: 2px solid $borderColor;
-    text-align: center;
     color: lighten($textColor, 25%);
+    text-align: center;
+    border-top: 2px solid $borderColor;
+    padding: 1.5rem 2.5rem 2.5rem;
+    margin-inline-start: 5rem;
   }
 }
 </style>

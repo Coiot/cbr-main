@@ -316,6 +316,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 5rem;
   font-size: 1.2rem;
 }
 
@@ -449,7 +450,7 @@ img:hover {
 .narrations {
   font-size: 1.3rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.25;
   text-shadow: 2px 2px #08201d;
   padding: 0;
   margin: 0;
@@ -473,6 +474,7 @@ img:hover {
     font-size: 0.9rem;
     margin-top: 1rem;
     flex-flow: row wrap;
+    gap: 1rem;
   }
 
   .albumInfo {
