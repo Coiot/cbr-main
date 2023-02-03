@@ -12,17 +12,14 @@
             href="https://www.reddit.com/r/civbattleroyale/comments/xoafnn/cbrx_season_3_megathread/"
             class="list"
           >
-            S3 Megathread
-          </a>
-          <a href="https://ko-fi.com/coiot" class="list"> Ko-Fi Donations </a>
-          <a
-            href="https://civbattleroyale.tv/archive/what-is-the-civ-battle-royale/"
-            class="list"
-          >
             New? Join the Show
           </a>
+          <a href="https://ko-fi.com/coiot" class="list"> Ko-Fi Donations </a>
           <a href="https://www.youtube.com/@docido3976" class="list">
-            Audio Narrations
+            Episode Audio Narrations
+          </a>
+          <a href="https://www.youtube.com/@cchassey" class="list">
+            PR Audio Narrations
           </a>
         </div>
       </section>
@@ -61,7 +58,7 @@ export default {
 
 .home {
   padding: 3rem 1rem 0;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0px auto;
 
 	.home-content {
