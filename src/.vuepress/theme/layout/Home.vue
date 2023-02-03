@@ -1,28 +1,33 @@
 <template>
   <transition name="fade">
     <div class="home">
-      <div class="hero">
-        <img
-          v-if="data.heroImage"
-          :src="$withBase(data.heroImage)"
-          alt="hero"
-        />
-
-        <!-- <p class="action" v-if="data.actionText && data.actionLink">
-        <NavLink class="action-button" :item="actionLink" />
-      </p>
-        </div>-->
-
-        <!-- <!-- <div class="features" v-if="data.features && data.features.length">
-      <div class="feature" v-for="(feature, index) in data.features" :key="index">
-        <h2>{{ feature.title }}</h2>
-        <p>{{ feature.details }}</p>
-        </div>-->
-        <!-- <h1>{{ data.heroText || $title }}</h1> -->
-      </div>
-
+      <section class="home-content">
+        <HomeAlbums />
+        <div class="link-column">
+          <PRListHome />
+          <a href="https://civbattleroyale.tv/albums/pr/" class="list">
+            Past Power Rankings
+          </a>
+          <a
+            href="https://www.reddit.com/r/civbattleroyale/comments/xoafnn/cbrx_season_3_megathread/"
+            class="list"
+          >
+            S3 Megathread
+          </a>
+          <a href="https://ko-fi.com/coiot" class="list"> Ko-Fi Donations </a>
+          <a
+            href="https://civbattleroyale.tv/archive/what-is-the-civ-battle-royale/"
+            class="list"
+          >
+            New? Join the Show
+          </a>
+          <a href="https://www.youtube.com/@docido3976" class="list">
+            Audio Narrations
+          </a>
+        </div>
+      </section>
+      <HomeAlbums2 />
       <Content custom />
-
       <div class="footer" v-if="data.footer">{{ data.footer }}</div>
     </div>
   </transition>
@@ -55,9 +60,22 @@ export default {
 @import '../styles/config.styl';
 
 .home {
-  padding: 1.5rem 1rem 0;
+  padding: 3rem 1rem 0;
   max-width: 1100px;
   margin: 0px auto;
+
+	.home-content {
+		width: 100%;
+		display: flex;
+		justify-content: flex-between;
+		gap: 2rem;
+		padding: 0;
+		margin: 0;
+
+		h1 {
+			margin-block-start: 0;
+		}
+	}
 
   .hero {
     text-align: center;
@@ -116,18 +134,45 @@ export default {
     flex-basis: 30%;
     max-width: 30%;
 
-    h2 {
+    /* h2 {
       font-size: 1.4rem;
       font-weight: 500;
       border-bottom: none;
       padding-bottom: 0;
       color: lighten($textColor, 10%);
-    }
+    } */
 
     p {
       color: lighten($textColor, 25%);
     }
   }
+
+	.link-column {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.list {
+		width: 100%;
+		color: #fff;
+		font-size: 1.1rem;
+		font-weight: 800;
+		text-align: center;
+		text-shadow: 1px 2px #083832;
+		background-color: #202020;
+		border: 1px double #fff;
+		box-shadow: -4px 4px 0 0 #ffbf46;
+		padding: 1em 0;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.list:hover {
+		box-shadow: 0 6px 2px 0 rgba(8, 56, 50, 0.3);
+		transform: scale(1.01);
+	}
 
   .footer {
     color: lighten($textColor, 25%);

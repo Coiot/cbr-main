@@ -9,7 +9,7 @@ image: https://cdn.discordapp.com/attachments/367369543376568322/590607288377802
 heroImage: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene01.jpg
 ---
 
-## What is the Civ Battle Royale?
+# What is the Civ Battle Royale?
 
 Hello everyone, welcome to the Civ Battle Royale (**CBR**). The Civ Battle Royale is a bi-weekly online show of a massive 61 AI-only epic running Civilization V. No human intervention in the show as a several months long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable route to victory.
 

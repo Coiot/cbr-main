@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
     <section>
-      <h2>Recent Episodes</h2>
       <div class="album-list">
         <router-link
           :to="post.path"
@@ -33,12 +32,12 @@ export default {
     albums() {
       return this.$site.pages
         .filter(
-          (x) => x.path.startsWith("/albums/s3") && !x.frontmatter.exclude
+          (x) => x.path.startsWith("/albums/pr") && !x.frontmatter.exclude
         )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
         )
-        .slice(1, 5);
+        .slice(0, 1);
     },
   },
 };
@@ -53,16 +52,16 @@ h2 {
 }
 
 .album-list {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin: 0.5em 0 3em;
+  margin: 5.5rem 0 1rem;
 }
 
 .post {
   display: flex;
   flex-direction: column;
-  width: 23%;
+  width: 100%;
   max-height: 40vh;
   background-size: cover;
   background-position: center;

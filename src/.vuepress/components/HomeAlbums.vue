@@ -2,12 +2,10 @@
   <transition name="fade">
     <div class="album-list">
       <h1>Latest Release</h1>
-
       <router-link
         :to="post.path"
         tag="div"
         v-for="(post, index) in albums"
-        v-if="index < 1"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
@@ -34,10 +32,13 @@ export default {
   computed: {
     albums() {
       return this.$site.pages
-        .filter((x) => x.path.startsWith("/albums") && !x.frontmatter.exclude)
+        .filter(
+          (x) => x.path.startsWith("/albums/s3") && !x.frontmatter.exclude
+        )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        );
+        )
+        .slice(0, 1);
     },
   },
 };
@@ -51,6 +52,8 @@ h1 {
 }
 
 .album-list {
+  min-width: 75%;
+  width: 100%;
   margin: 0;
 }
 
