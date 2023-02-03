@@ -37,7 +37,7 @@ export default {
     text-align: center;
     border-top: 2px solid $borderColor;
     padding: 1.5rem 2.5rem 2.5rem;
-    margin-inline-start: 5rem;
+    margin-block-start: 5rem;
   }
 }
 </style>
