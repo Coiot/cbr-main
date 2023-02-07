@@ -52,7 +52,7 @@ h1 {
 }
 
 .album-list {
-  min-width: 75%;
+  min-width: 74%;
   width: 100%;
   margin: 0;
 }

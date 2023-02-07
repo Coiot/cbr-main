@@ -154,14 +154,14 @@ export default {
 	.list {
 		width: 100%;
 		color: #fff;
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		font-weight: 800;
 		text-align: center;
 		text-shadow: 1px 2px #083832;
 		background-color: #202020;
 		border: 1px double #fff;
 		box-shadow: -4px 4px 0 0 #ffbf46;
-		padding: 1em 0;
+		padding: 1.2em 0;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
 	}
@@ -176,7 +176,7 @@ export default {
     text-align: center;
     border-top: 2px solid $borderColor;
     padding: 1.5rem 2.5rem 2.5rem;
-    margin-block-start: 5rem;
+    margin-block-start: 3rem;
   }
 }
 
