@@ -161,7 +161,7 @@ export default {
 		background-color: #202020;
 		border: 1px double #fff;
 		box-shadow: -4px 4px 0 0 #ffbf46;
-		padding: 1.2em 0;
+		padding: 1.1em 0;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
 	}

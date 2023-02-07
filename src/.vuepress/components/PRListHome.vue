@@ -16,7 +16,9 @@
             <p>Latest Power Rankings</p>
             <p v-else>{{ post.frontmatter.pr }}</p>
             <span>{{ post.frontmatter.title }}</span>
-            <span>Release Date: {{ post.frontmatter.release_date }}</span>
+            <span style="margin-block-start: 0.25rem"
+              >Release Date: {{ post.frontmatter.release_date }}</span
+            >
           </div>
         </router-link>
       </div>
@@ -53,7 +55,7 @@ h2 {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 5.5rem 0 1rem;
+  margin: 5.5rem 0 0;
 }
 
 .post {
