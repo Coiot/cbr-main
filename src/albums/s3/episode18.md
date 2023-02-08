@@ -147,7 +147,7 @@ scenes:
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode18-scene34.jpg
     narration: "<p>With Essipit and Mimkumlis firmly secured, the Cree are proceeding further westward, trying to find the best way to attack Xwalkw. The Kwakwaka’wakw defenses are pretty thin on the ground here; it seems like Willie is just relying on Alaska’s naturally defensive geography.</p>"
   - scene_number: 35
-    scene_title: "All"
+    scene_title: "All Han(ds) on Deck"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode18-scene35.jpg
     narration: "<p>The sheer numbers of the Han army have overwhelmed the Ming’s Shenji Musketeers! Nanjing has fallen!</p><p></p><p>Yongle has a handful of land units still around, but with his closest melee units taking substantial damage, I don’t think he has great odds of retaking his capital. The Ming’s back might be broken.</p>"
   - scene_number: 36
