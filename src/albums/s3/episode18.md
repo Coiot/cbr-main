@@ -9,6 +9,8 @@ edition: S3
 date: 2023-02-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode18-scene06.jpg
 prcast:
+prev: /albums/s3/episode17/
+next:
 scenes:
   - scene_number: 01
     scene_title: "Welcome to Episode 18!"
