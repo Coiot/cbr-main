@@ -8,6 +8,8 @@ fullvideo:
 edition: S3
 date: 2023-02-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode19-scene06.jpg
+prev: /albums/s3/episode18/
+next: /albums/s3/episode20/
 prcast:
 scenes:
 - scene_number: 01
