@@ -10,7 +10,7 @@ date: 2023-03-07T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode21-scene06.jpg
 prcast:
 prev: /albums/s3/episode20/
-next:
+next: /albums/s3/episode22/
 scenes:
     - scene_number: 01
       scene_title: "Hello There!"
@@ -26,11 +26,11 @@ scenes:
       narration: "<p>Here is u/SeroSedSerio’s depiction of Central America retaking Guatemala City. </p>"
     - scene_number: 04
       scene_title: "A List of Beautiful People"
-      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode21-scene04.jpg
+      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode20-scene04.jpg
       narration: "<p>Look at all these wonderful people. Absolutely gorgeous, well oiled, individuals. I mean, uh, they keep this community well oiled…</p><p>For real though, thank you to all who keep the gears turning for the CBR. Members receive fun perks and additional privileges. </p>"
     - scene_number: 05
       scene_title: "Green with Envy?"
-      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode21-scene05.jpg
+      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-pr20-scene06.jpg
       narration: "<p>No, I don’t even like Vermont. Or at least I didn’t. I guess my feelings are very mixed on Vermont now. It’s kinda like that one stranger you meet on a team building exercise or at summer camp and you become buds with them during that trip. But only from that trip. Afterwards you don’t really talk to them and you wonder if you were actually friends or just friends via circumstance. That’s me and Vermont now. </p>"
     - scene_number: 06
       scene_title: "Copy/Paste"

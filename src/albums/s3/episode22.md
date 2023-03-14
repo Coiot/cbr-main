@@ -9,6 +9,8 @@ edition: S3
 date: 2023-03-14T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode22-scene06.jpg
 prcast:
+prev: /albums/s3/episode21/
+next:
 scenes:
     - scene_number: 01
       scene_title: "Greetings"
@@ -24,7 +26,7 @@ scenes:
       narration: "<p>By the time I’m typing this (11th March), there is no OC, but since Orange is always there with her American Dreams series, I’m thinking of already calling it here that that’s gonna be on the slide and that it’s very good, as it always is. Really looking forward to what she has for us this week. </p><p></p><p>EDIT (14th March): She delivered. Mohave is approaching menacingly towards Central America. Also congrats to the Pacific Ocean for coming as an bisexual!</p>"
     - scene_number: 04
       scene_title: "Thank you for the donations"
-      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode21-scene04.jpg
+      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode20-scene04.jpg
       narration: "<p>And here’s our Ko-Fi donators appreciation slide. The average member of the CBR community is amazing, but the people on screen right now are even more so. This project and future ones like this wouldn’t exist without you guys. Thank you. </p>"
     - scene_number: 05
       scene_title: "PRs"
