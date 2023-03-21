@@ -163,7 +163,7 @@ scenes:
     - scene_number: 38
       scene_title: ""
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode23-scene38.jpg
-      narration: "<p>Yeah so Mori fans can rest a bit easy as the Gokturks aren’t putting in any sort of effort into their assault. Hell there hasn’t even been any sort of damage to Mori cities.</p><p></p><p>Mori’s time will come eventually, just not this part.</p>"
+      narration: "<p>Yeah so Mori fans can rest a bit easy as the Gokturks aren’t putting in any sort of effort into their assault. Hell there hasn’t even been any sort of damage to Mori cities.</p><p></p><p>Mori’s time will come eventually, just not this episode.</p>"
     - scene_number: 39
       scene_title: ""
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode23-scene39.jpg
