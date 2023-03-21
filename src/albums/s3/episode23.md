@@ -30,7 +30,7 @@ scenes:
       narration: "<p>As always, a thank you to our Ko-Fi supporters who keep this show running. Remember that donating just a bit can get you some cool perks, such as early releases, directors cuts, and more!</p><p></p><p>Gib more money, pls.</p>"
     - scene_number: 05
       scene_title: ""
-      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode23-scene05.jpg
+      slide_url: https://cdn.civbattleroyale.tv/season3-pr22-scene09.jpg
       narration: "<p>Nothing special about Uganda’s change in the rankings. Just wanted to share JDT’s take on Africa’s resident rump since this shit had me rolling for 5 minutes at the very least.</p>"
     - scene_number: 06
       scene_title: ""
