@@ -23,7 +23,7 @@ scenes:
     - scene_number: 03
       scene_title: "Stats - Winners and Losers"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode24-scene03.jpg
-      narration: "<p>I’m not personally a stats person. I base a lot of my judgements on Civilization strength with what I can see from their performance in-game and some personal assumptions. That said, even if you’re not a numbers nerd, I think the Stats Sheet is a wonderful contribution to the game that really gets into the heart of how and why civilizations act the way they do. If you haven’t checked it out, I recommend giving it a glance before making your predictions for future episodes. ; )</p>"
+      narration: "<p>I’m not personally a stats person. I base a lot of my judgements on Civilization strength with what I can see from their performance in-game and some personal assumptions. That said, even if you’re not a numbers nerd, I think the <a href='https://docs.google.com/spreadsheets/d/1vlx0YvT-6jqS78yxpGuP4RibkA5K09kCCv1UClSSPe8/edit#gid=115710568'>Stats Sheet</a> is a wonderful contribution to the game that really gets into the heart of how and why civilizations act the way they do. If you haven’t checked it out, I recommend giving it a glance before making your predictions for future episodes. ; )</p>"
     - scene_number: 04
       scene_title: "Praise be!"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode20-scene04.jpg
