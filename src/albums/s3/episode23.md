@@ -10,7 +10,7 @@ date: 2023-03-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode23-scene06.jpg
 prcast:
 prev: /albums/s3/episode22/
-next:
+next: /albums/s3/episode24/
 scenes:
     - scene_number: 01
       scene_title: ""
