@@ -185,11 +185,11 @@ scenes:
     - scene_number: 44
       scene_title: "The Virgin Chad vs. the Chad Angola"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene44.jpg
-      narration: "<p>“Masaka!”, in Japanese, is an exclamation meaning something like “surely not!” or “how dare they!”, and so it is perhaps an ironic name for a city on the Chadian frontline, suddenly threatened by Angola. I guess the previous meaningless war declarations might have given us a clue, but this is still big. Chad is roughly level with Angola in tech terms, but is utterly outclassed in both military and production and is sort of surrounded thanks to the Benguela salient. Also, that tech parity doesn’t actually mean much if they can’t upgrade their carpet, and as of the start of the part, Deby’s empire is losing hundreds of gold per turn while Angola is comfortably in the black. Advantage Angola, but you never know with these civs, I guess.</p>"
+      narration: "<p>“Masaka!”, in Japanese, is an exclamation meaning something like “surely not!” or “how dare they!”, and so it is perhaps an ironic name for a city on the Chadian frontline, suddenly threatened by Angola. I guess the previous meaningless war declarations might have given us a clue, but this is still big. Chad is roughly level with Angola in tech terms, but is utterly outclassed in both military and production and is sort of surrounded thanks to the Benguela salient. Also, that tech parity doesn’t actually mean much if they can’t upgrade their carpet, and as of the start of the episode, Deby’s empire is losing hundreds of gold per turn while Angola is comfortably in the black. Advantage Angola, but you never know with these civs, I guess.</p>"
     - scene_number: 45
       scene_title: "The Continuation of Austria by Other Means"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene45.jpg
-      narration: "<p>Tito, please don’t let this happen. After Yugoslavia’s epic war against Brandenburg for the last couple of parts, they appear to be surrendering in silence, allowing their land to fill up with Prussian peacekeepers while neglecting their own economy - while not as bad as Chad by any means, they are only just about breaking even, which probably explains all the riflemen they still have lying around. Here’s hoping the souffle does, for once, rise twice.</p>"
+      narration: "<p>Tito, please don’t let this happen. After Yugoslavia’s epic war against Brandenburg for the last couple of episodes, they appear to be surrendering in silence, allowing their land to fill up with Prussian peacekeepers while neglecting their own economy - while not as bad as Chad by any means, they are only just about breaking even, which probably explains all the riflemen they still have lying around. Here’s hoping the souffle does, for once, rise twice.</p>"
     - scene_number: 46
       scene_title: "Nut Cracked, Sledgehammer Returning to Duty"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene46.jpg
@@ -333,7 +333,7 @@ scenes:
     - scene_number: 81
       scene_title: "The Age of the Country at Gore"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene81.jpg
-      narration: "<p>We now take a look at the section of the cylinder which, since last part, I have taken to calling the Land of the Rising Schadenfreude. All the civs on the archipelago have reinforced their colonies pretty well, even the Mohave, who have 20 planes stationed on Honshu alone. Our last remaining stooge is still sitting in Tajihi-Sarugake, hoping, perhaps ironically, that nobody notices his existence. Anton Reicha, an influential Czech-French classical composer and friend of Beethoven, is perhaps a fitting choice of Great Person for a silent civ, as he never published anything and was only recognised for his avant-garde musical ideas after his death.</p>"
+      narration: "<p>We now take a look at the section of the cylinder which, since last episode, I have taken to calling the Land of the Rising Schadenfreude. All the civs on the archipelago have reinforced their colonies pretty well, even the Mohave, who have 20 planes stationed on Honshu alone. Our last remaining stooge is still sitting in Tajihi-Sarugake, hoping, perhaps ironically, that nobody notices his existence. Anton Reicha, an influential Czech-French classical composer and friend of Beethoven, is perhaps a fitting choice of Great Person for a silent civ, as he never published anything and was only recognised for his avant-garde musical ideas after his death.</p>"
     - scene_number: 82
       scene_title: "IRELAAAAAAND FOREVEEEEEEER!"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene82.jpg
@@ -345,7 +345,7 @@ scenes:
     - scene_number: 84
       scene_title: "Ka Mate, Ka Mate"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene84.jpg
-      narration: "<p>As Tasmania becomes the latest territory to start rebuilding and paratroopers come within steps of the Wiradjuri capital, yet another Timorese naval detachment casually makes its way over to New Zealand, taking a city and severely threatening one or even two others. At this rate, the Timorese may be in danger of doubling their already impressive empire within a single part. All must cower. Except possibly Ataturk.</p>"
+      narration: "<p>As Tasmania becomes the latest territory to start rebuilding and paratroopers come within steps of the Wiradjuri capital, yet another Timorese naval detachment casually makes its way over to New Zealand, taking a city and severely threatening one or even two others. At this rate, the Timorese may be in danger of doubling their already impressive empire within a single episode. All must cower. Except possibly Ataturk.</p>"
     - scene_number: 85
       scene_title: "The B, Of Course, Flies Anyway"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene85.jpg
@@ -373,7 +373,7 @@ scenes:
     - scene_number: 91
       scene_title: "Wahluu Pinball"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene91.jpg
-      narration: "<p>We’ve been waiting for it all episode, and it’s finally happened - Wahluu, the Wiradjuri capital, has fallen to the Timorese, with their last continental possession of Djirrildhuray soon to follow. Things aren’t looking too different in New Zealand, with Te Tokanganui already in the yellow. The Mohave settler has portalled across the ocean, still waiting for Gusmao to explore his pyro side, but no such luck yet. That he has avoided happiness problems from all this is impressive in itself: he had a relatively low 71 happiness at the start of this part, compared to Ataturk’s 326.</p>"
+      narration: "<p>We’ve been waiting for it all episode, and it’s finally happened - Wahluu, the Wiradjuri capital, has fallen to the Timorese, with their last continental possession of Djirrildhuray soon to follow. Things aren’t looking too different in New Zealand, with Te Tokanganui already in the yellow. The Mohave settler has portalled across the ocean, still waiting for Gusmao to explore his pyro side, but no such luck yet. That he has avoided happiness problems from all this is impressive in itself: he had a relatively low 71 happiness at the start of this episode, compared to Ataturk’s 326.</p>"
     - scene_number: 92
       scene_title: "The Penpenultimate One"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene92.jpg
@@ -385,5 +385,5 @@ scenes:
     - scene_number: 94
       scene_title: "You could Make a Religion Out of This"
       slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene94.jpg
-      narration: "<p>We end this episode with a look at the religion slide. Frankly, the only thing notable here is how little it has changed since the last we saw of it, in part 27 if you feel like checking. No religion has gained or lost more than one city since then. All things in perfect balance; Pretty Nose would be pleased.</p><p></p><p>And with that, this part of the Civ Battle Royale comes to an end. This has been Homusubi, and it has been a pleasure as always. I may have got here late, but I am certainly looking forward to seeing what happens next. Until next time, stay perfectly weird everyone, ‘tis far better than being normal.</p>"
+      narration: "<p>We end this episode with a look at the religion slide. Frankly, the only thing notable here is how little it has changed since the last we saw of it, in Episode 27 if you feel like checking. No religion has gained or lost more than one city since then. All things in perfect balance; Pretty Nose would be pleased.</p><p></p><p>And with that, this episode of the Civ Battle Royale comes to an end. This has been Homusubi, and it has been a pleasure as always. I may have got here late, but I am certainly looking forward to seeing what happens next. Until next time, stay perfectly weird everyone, ‘tis far better than being normal.</p>"
 ---
