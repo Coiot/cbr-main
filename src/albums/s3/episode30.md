@@ -9,6 +9,8 @@ edition: S3
 date: 2023-05-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode30-scene06.jpg
 prcast:
+prev: /albums/s3/episode29/
+next: /albums/s3/episode31/
 scenes:
     - scene_number: 01
       scene_title: "Insert Meta-Title Here"

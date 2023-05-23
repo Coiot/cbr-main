@@ -10,7 +10,7 @@ date: 2023-03-28T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode24-scene06.jpg
 prcast:
 prev: /albums/s3/episode23/
-next:
+next: /albums/s3/episode25/
 scenes:
     - scene_number: 01
       scene_title: "Narrator? I hardly know ‘er!"

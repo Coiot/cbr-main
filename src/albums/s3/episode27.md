@@ -9,6 +9,8 @@ edition: S3
 date: 2023-04-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode27-scene06.jpg
 prcast:
+prev: /albums/s3/episode26/
+next: /albums/s3/episode28/
 scenes:
     - scene_number: 01
       scene_title: "Welcome Aboard"
