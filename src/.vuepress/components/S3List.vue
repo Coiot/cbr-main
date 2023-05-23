@@ -65,10 +65,7 @@
 							<p>
 								{{ post.frontmatter.narrated_by }}
 								<span
-									>Starting Turn:
-									{{
-										post.frontmatter.starting_turn
-									}}&emsp;Release Date:
+									>Release Date:
 									{{ post.frontmatter.release_date }}</span
 								>
 							</p>
@@ -100,10 +97,7 @@
 							<p>
 								{{ post.frontmatter.narrated_by }}
 								<span
-									>Starting Turn:
-									{{
-										post.frontmatter.starting_turn
-									}}&emsp;Release Date:
+									>Release Date:
 									{{ post.frontmatter.release_date }}</span
 								>
 							</p>
@@ -135,10 +129,7 @@
 							<p>
 								{{ post.frontmatter.narrated_by }}
 								<span
-									>Starting Turn:
-									{{
-										post.frontmatter.starting_turn
-									}}&emsp;Release Date:
+									>Release Date:
 									{{ post.frontmatter.release_date }}</span
 								>
 							</p>
@@ -157,7 +148,7 @@
 						:to="post.path"
 						tag="div"
 						v-for="(post, index) in albums"
-						v-if="index > 18 && index < 30"
+						v-if="index > 17 && index < 30"
 						:key="post.title"
 						:tabindex="0"
 					>
@@ -170,10 +161,7 @@
 							<p>
 								{{ post.frontmatter.narrated_by }}
 								<span
-									>Starting Turn:
-									{{
-										post.frontmatter.starting_turn
-									}}&emsp;Release Date:
+									>Release Date:
 									{{ post.frontmatter.release_date }}</span
 								>
 							</p>
