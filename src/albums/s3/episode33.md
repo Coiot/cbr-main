@@ -9,6 +9,8 @@ edition: S3
 date: 2023-06-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene06.jpg
 prcast:
+prev: /albums/s3/episode32/
+next: /albums/s3/episode34/
 scenes:
     - scene_number: 01
       scene_title: "Warm Welcome"

@@ -10,7 +10,7 @@ date: 2023-05-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode31-scene06.jpg
 prcast:
 prev: /albums/s3/episode30/
-next: /albums/s3/episode33/
+next: /albums/s3/episode32/
 scenes:
     - scene_number: 01
       scene_title: "Fresh Episode, Fresh Meat"
