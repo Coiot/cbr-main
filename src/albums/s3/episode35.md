@@ -26,11 +26,11 @@ scenes:
       narration: "<p>Wow Orange you did really good on this comic that you haven’t drawn yet as of writing this slide. Great work. Love the idea of doing a comic about the Wiradjuri troops in Arapaho. </p><p></p><p>Anyways note to self for later: Draw comic about the Wiradjuri troops in Arapaho…</p>"
     - scene_number: 04
       scene_title: "Shoutout to… the Gays!"
-      slide_url: https://cdn.civbattleroyale.tv/season3-pr34-scene18.jpg
+      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene04.jpg
       narration: "<p>It’s Pride Month and you know what that means! </p><p></p><p>(Lacs is trans, give her money or else, forfeit all possessions to Lacs) </p><p></p><p>(Or give me money I’m also queer af and could use the money) </p>"
     - scene_number: 05
       scene_title: "Shoutout to… the Gay!"
-      slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode35-scene05.jpg
+      slide_url: https://cdn.civbattleroyale.tv/season3-pr34-scene18.jpg
       narration: "<p>Yes I’m just putting Kokang’s slide here because gay. I could put the Inca who snagged first finally but no, I want this about the Yang herself. She was a lesbian and also had some genderqueer stuff going on. There was a recent book released about her which is pretty cool, I still need to read it. </p>"
     - scene_number: 06
       scene_title: "Time for the Action!"
