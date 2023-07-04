@@ -10,7 +10,7 @@ date: 2023-06-27T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode35-scene06.jpg
 prcast:
 prev: /albums/s3/episode34/
-next:
+next: /albums/s3/episode36/
 scenes:
     - scene_number: 01
       scene_title: "Oh Nyo The Catgirl Is Back!"
