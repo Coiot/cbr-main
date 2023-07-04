@@ -239,7 +239,7 @@ scenes:
 - scene_number: 57
   scene_title: "Iberian Peninsula"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode36-scene57.jpg
-  narration: "<p>The Normans, or at least what remains of them. What can you say about a civ like them? They’ve been everywhere, done everything, and now stand at death’s doorstep, with their last hurrah being the elimination of Lithuania earlier this episode. Still, they were one of my early favorites, and for good reason. There’s no chance of these guys winning, but hey- it was fun while it lasted, and that’s better than most.\</p><p></p><p>Reminder that Castille is technically still alive.</p>"
+  narration: "<p>The Normans, or at least what remains of them. What can you say about a civ like them? They’ve been everywhere, done everything, and now stand at death’s doorstep, with their last hurrah being the elimination of Lithuania earlier this episode. Still, they were one of my early favorites, and for good reason. There’s no chance of these guys winning, but hey- it was fun while it lasted, and that’s better than most.</p><p>Reminder that Castille is technically still alive.</p>"
 - scene_number: 58
   scene_title: "France"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode36-scene58.jpg
