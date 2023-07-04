@@ -2,7 +2,7 @@
 title: "Episode 36: A Song of Dice and Fire"
 narrated_by: "ExplosiveWatermelon"
 description: "World domination is coming, and it all lies in the roll of a dice. Welcome back to the CivBattleRoyale."
-release_date:
+release_date: July 04, 2023
 audio_narration:
 fullvideo:
 edition: S3
