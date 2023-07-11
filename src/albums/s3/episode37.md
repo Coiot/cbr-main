@@ -2,7 +2,7 @@
 title: "Episode 37: Doomsday"
 narrated_by: "Vihreaa"
 description: "The world has been convulsed by war. Many great and powerful civilizations have fallen, but you have survived - until now. Total War has been declared, and billions across the planet will die."
-release_date:
+release_date: July 12, 2023
 audio_narration:
 fullvideo:
 edition: S3
