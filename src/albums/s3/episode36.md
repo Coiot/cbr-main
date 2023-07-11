@@ -10,7 +10,7 @@ date: 2023-07-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode36-scene06.jpg
 prcast:
 prev: /albums/s3/episode35/
-next:
+next: /albums/s3/episode37/
 scenes:
 - scene_number: 01
   scene_title: "I read on Kotaku it’s better than Civ 5 with the Brave New World Expansion Pack"
