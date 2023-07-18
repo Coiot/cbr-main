@@ -9,6 +9,8 @@ edition: S3
 date: 2023-07-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode38-scene06.jpg
 prcast:
+prev: /albums/s3/episode37/
+next:
 scenes:
 - scene_number: 01
   scene_title: "Welcome"

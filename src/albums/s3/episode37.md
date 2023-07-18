@@ -10,7 +10,7 @@ date: 2023-07-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode37-scene06.jpg
 prcast:
 prev: /albums/s3/episode36/
-next:
+next: /albums/s3/episode38/
 scenes:
 - scene_number: 01
   scene_title: "War were declared?"
