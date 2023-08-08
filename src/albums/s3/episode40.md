@@ -336,15 +336,15 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene82.jpg
   narration: "<p>Speaking of minor powers holding their ground, Mali has managed to completely eliminate the Turkish counter-offensive in the Sahara, recapturing Pristina, Benguela, and even Moundou in the process. There are no Turkish units anywhere in this shot, while Mali’s carpet is still looking fairly impressive relative to their competition. Further south, Mali is also organizing a counter-attack on Malanje, and while the Timorese Bio-Titans are significantly stronger than Mali’s Power Armor Infantry, they’re also horribly outnumbered. Mali certainly isn’t in the same league as their opponents here, but they’ve certainly proven that one of the most enduring rules of the CBR still holds true: never underestimate an African underdog.</p>"
 - scene_number: 83
-  scene_title: ""
+  scene_title: "Rotating About the Tsaxis"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene83.jpg
   narration: "<p>The Arapaho have finally taken Tsaxis, reducing the Gokturks to only two cities… neither of which are currently in any real danger. Instead, the Arapaho forces seem to be preparing to retake Ongi from the Mohave. The city is still guarded quite well by a squadron of Biotroopers, but will they stand a chance against the mighty Nexus? Only time will tell. Further south, meanwhile, Afghanistan is tearing into Chenxian, and Hamhung has been bombed almost into nonexistence.</p>"
 - scene_number: 84
-  scene_title: ""
+  scene_title: "Nar Le Flip"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene84.jpg
   narration: "<p>Avi Mota has done it! They’ve retaken Nar Le, securing their original second city from the Tuvan invaders and bringing themselves up to a ridiculous seven cities! It’s not like they’re even close to being done, either - Chorasmia is already taking damage, and there are plenty of Mohave Biotroopers left. Call me crazy, but I don’t think we’ve seen Avi Mota peak just yet.</p>"
 - scene_number: 85
-  scene_title: ""
+  scene_title: "To Be Continued"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene85.jpg
   narration: "<p>Unfortunately, we’ll have to wait until next episode to see the continuation of Avi Mota’s rampage, because we’re ending this episode with a shot of a minor Mohave L. The Pacific island city of Qapotaq-Iv’auve, not far from the new Mohave capital of Avi Hamoka, has fallen to a lone Timorese Biotrooper. There aren’t many units out here, and Timor-Leste doesn’t seem likely to make any further gains in this region any time soon, but it’s still a fairly unsettling sign of things to come if the Mohave don’t step up their defenses around these islands. Inca Hawaii is also looking quite terrifying.</p><p></p><p>That’s all for tonight’s episode! Thank you for reading, and be sure to tune in next time as Total War continues to shift the balance of power throughout the cylinder. Until then, though, I’ve been u/daXfactorz or NopeCopter, and thanks for reading. (Oh, and if you look at the minimap, you’ll notice that Great Ming is in fact still alive. Have fun, Power Rankers!)</p>"
 ---
