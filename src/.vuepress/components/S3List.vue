@@ -42,11 +42,11 @@
 
 			<h1>Cycle One</h1>
 			<div class="arc">
-				<!-- <div class="arc-header">
-					<h2>Rising Flags</h2>
+				<div class="arc-header">
+					<!-- <h2>Rising Flags</h2>
 					<span>Arc One</span>
-					<p>61 competitors remain.</p>
-				</div> -->
+					<p>61 competitors remain.</p> -->
+				</div>
 				<article class="arc-list">
 					<router-link
 						:to="post.path"

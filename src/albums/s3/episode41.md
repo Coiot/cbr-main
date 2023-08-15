@@ -284,11 +284,11 @@ scenes:
 - scene_number: 69
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene69.jpg
-  narration: "<p>Mohave move more of their army toward Kyzyl, proving that the crab bucket analogy is correct again. Irataba wants to ensure that if they lose, they’re doing as much damage as possible. But to what ends? Oxus is definitely gone, and Izhma is undefended as Afghan units crash towards Avi Mota. It would be so cool if they could hold and expand even more, but it seems unlikely…</p>"
+  narration: "<p>When I see stuff like this, I remember why peace must sometimes be declared, as eventually cities require too much combat power to be defeated. I’m just thankful that there’s no plane spam deleting these units like against the Moors in S2C2. Let’s cross our fingers and hope the AI doesn't know that planes can attack units. Haha!</p>"
 - scene_number: 70
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene70.jpg
-  narration: "<p>When I see stuff like this, I remember why peace must sometimes be declared, as eventually cities require too much combat power to be defeated. I’m just thankful that there’s no plane spam deleting these units like against the Moors in S2C2. Let’s cross our fingers and hope the AI doesn't know that planes can attack units. Haha!</p>"
+  narration: "<p>Mohave move more of their army toward Kyzyl, proving that the crab bucket analogy is correct again. Irataba wants to ensure that if they lose, they’re doing as much damage as possible. But to what ends? Oxus is definitely gone, and Izhma is undefended as Afghan units crash towards Avi Mota. It would be so cool if they could hold and expand even more, but it seems unlikely…</p>"
 - scene_number: 71
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene71.jpg
@@ -296,11 +296,11 @@ scenes:
 - scene_number: 72
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene72.jpg
-  narration: "<p>Yep, I don’t think that’s going to work, Mohave. Moving all your units which should be sacking Shagonar in favor of defending your core, but you do you. Also, the Hague is back in Anglo-Dutch control. Also, -look- at all those FW improvements in Turkish lands. +4 to +5 food on all of those improvements from the Hydroponic Domes and river access. Turkey is going to win peacetime unless it’s short.</p>"
+  narration: "<p>Hoo boy, did Mohave get lucky. Their only opponent is an overstretched Turkey who’s adjacent to all of Old World’s greatest empires and thus needs to spread out it’s limited units over a wide area. Let’s just hope those Future World improvements go online for Irataba soon!</p>"
 - scene_number: 73
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene73.jpg
-  narration: "<p>Hoo boy, did Mohave get lucky. Their only opponent is an overstretched Turkey who’s adjacent to all of Old World’s greatest empires and thus needs to spread out it’s limited units over a wide area. Let’s just hope those Future World improvements go online for Irataba soon!</p>"
+  narration: "<p>Yep, I don’t think that’s going to work, Mohave. Moving all your units which should be sacking Shagonar in favor of defending your core, but you do you. Also, the Hague is back in Anglo-Dutch control. Also, -look- at all those FW improvements in Turkish lands. +4 to +5 food on all of those improvements from the Hydroponic Domes and river access. Turkey is going to win peacetime unless it’s short.</p>"
 - scene_number: 74
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode41-scene74.jpg
