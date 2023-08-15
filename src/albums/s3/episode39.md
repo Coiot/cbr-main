@@ -10,7 +10,7 @@ date: 2023-08-01T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode39-scene06.jpg
 prcast:
 prev: /albums/s3/episode38/
-next:
+next: /albums/s3/episode40/
 scenes:
 - scene_number: 01
   scene_title: "The Baby Goat is Back"

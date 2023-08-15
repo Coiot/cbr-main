@@ -6,6 +6,8 @@ release_date: August 09, 2023
 edition: S3
 date: 2023-08-08T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene06.jpg
+prev: /albums/s3/episode39/
+next: /albums/s3/episode41/
 scenes:
 - scene_number: 01
   scene_title: "Start Here"
@@ -21,7 +23,7 @@ scenes:
   narration: "<p>And here we have the latest in the long-running series of wonderful comics by u/Orangechrisy! The Arapaho truly are a terrifying force… will they finally break down the Inca tonight? Or will the South American superpower hold them off for another episode?</p>"
 - scene_number: 04
   scene_title: "A Drink to your Health and Wealth"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode40-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene04.jpg
   narration: "<p>As always, a massive thank-you to everyone who makes this show possible by donating on Ko-Fi! Running a game of this scale just wouldn’t be feasible without your support.</p>"
 - scene_number: 05
   scene_title: "Finally, Some Good PR"
