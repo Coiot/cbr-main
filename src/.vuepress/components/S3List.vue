@@ -42,17 +42,17 @@
 
 			<h1>Cycle One</h1>
 			<div class="arc">
-				<div class="arc-header">
+				<!-- <div class="arc-header">
 					<h2>Rising Flags</h2>
 					<span>Arc One</span>
 					<p>61 competitors remain.</p>
-				</div>
+				</div> -->
 				<article class="arc-list">
 					<router-link
 						:to="post.path"
 						tag="div"
 						v-for="(post, index) in albums"
-						v-if="index > 0 && index < 7"
+						v-if="index > 0 && index < 50"
 						:key="post.title"
 						:tabindex="0"
 					>
@@ -73,102 +73,6 @@
 					</router-link>
 				</article>
 			</div>
-			<section class="arc">
-				<div class="arc-header">
-					<h2>Saga Continues</h2>
-					<span>Arc Two</span>
-					<p>60 competitors remain.</p>
-				</div>
-				<article class="arc-list">
-					<router-link
-						:to="post.path"
-						tag="div"
-						v-for="(post, index) in albums"
-						v-if="index > 6 && index < 12"
-						:key="post.title"
-						:tabindex="0"
-					>
-						<div class="list">
-							<p>
-								{{ post.frontmatter.title }}
-								<span>{{ post.frontmatter.edition }}</span>
-							</p>
-
-							<p>
-								{{ post.frontmatter.narrated_by }}
-								<span
-									>Release Date:
-									{{ post.frontmatter.release_date }}</span
-								>
-							</p>
-						</div>
-					</router-link>
-				</article>
-			</section>
-			<section class="arc">
-				<div class="arc-header">
-					<h2>Saga Continues</h2>
-					<span>Arc Three</span>
-					<p>59 competitors remain.</p>
-				</div>
-				<article class="arc-list">
-					<router-link
-						:to="post.path"
-						tag="div"
-						v-for="(post, index) in albums"
-						v-if="index > 11 && index < 18"
-						:key="post.title"
-						:tabindex="0"
-					>
-						<div class="list">
-							<p>
-								{{ post.frontmatter.title }}
-								<span>{{ post.frontmatter.edition }}</span>
-							</p>
-
-							<p>
-								{{ post.frontmatter.narrated_by }}
-								<span
-									>Release Date:
-									{{ post.frontmatter.release_date }}</span
-								>
-							</p>
-						</div>
-					</router-link>
-				</article>
-			</section>
-			<section class="arc">
-				<div class="arc-header">
-					<h2>Saga Continues</h2>
-					<span>Arc Four</span>
-					<p>59 competitors remain.</p>
-				</div>
-				<article class="arc-list">
-					<router-link
-						:to="post.path"
-						tag="div"
-						v-for="(post, index) in albums"
-						v-if="index > 17 && index < 30"
-						:key="post.title"
-						:tabindex="0"
-					>
-						<div class="list">
-							<p>
-								{{ post.frontmatter.title }}
-								<span>{{ post.frontmatter.edition }}</span>
-							</p>
-
-							<p>
-								{{ post.frontmatter.narrated_by }}
-								<span
-									>Release Date:
-									{{ post.frontmatter.release_date }}</span
-								>
-							</p>
-						</div>
-					</router-link>
-				</article>
-			</section>
 		</div>
 	</transition>
 </template>
