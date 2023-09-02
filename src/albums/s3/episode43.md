@@ -23,11 +23,11 @@ scenes:
   narration: "<p>Here we have another installment of the best weekly comic series, by none other than the magnanimous U/Orangechrisy. The short Avi Motan empire is one of the most memorable, yet confusing parts of the CBRX3, and indeed the CBR as a whole. The offshoot city state, which at one point even controlled a capital, is unbelievable, even to Irataba himself.</p>"
 - scene_number: 04
   scene_title: "Patrons"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode43-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene04.jpg
   narration: "<p>Thank you to all the patrons of the Civ Battle Royale! Like the patrons of the Renaissance era, who sponsored the works of Michaelangelo and Da Vinci, you support the best works of art and culture the modern world has to offer.</p>"
 - scene_number: 05
   scene_title: "Trouble For Timor"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode43-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season3-pr42-scene14.jpg
   narration: "<p>Timor Leste is by and large, the biggest upset in the history of the CBR, as well as my favorite. Even in the second stage of total war they maintain the #2 spot. Nobody expected anything of them, but they are providing a good show for the bloodthirsty crowd on the sub.</p>"
 - scene_number: 06
   scene_title: "The Battle of Hamhung, Pt1"
