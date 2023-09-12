@@ -1,8 +1,8 @@
 ---
 title: "Episode 44: Raoni’s Revenge"
 narrated_by: "Emu Spy"
-description: "Abstract:"
-release_date:
+description: ""
+release_date: September 13, 2023
 edition: S3
 date: 2023-09-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene06.jpg
