@@ -27,7 +27,7 @@ scenes:
   narration: "<p>By the divine reincarnation of Sitting Bull! What’s this!? Why yes, it’s our wonderful contributors who have made this show possible! We thank you for your continued support- it really does make an impact. If you’re not able to pay a continued subscription, don’t worry, Ko-Fi supports individual payments- so, if you enjoyed this episode, slide maybe $5 into the donation bin with a note that say “The radiant ExplosiveWatermelon inspired me to give this tithe to our CBR overlords. Blessed be!”</p>"
 - scene_number: 05
   scene_title: "Castile"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season3-pr43-scene05.jpg
   narration: "<p>We’ve entered an endless recursion of time</p>"
 - scene_number: 06
   scene_title: "Bioshock"
