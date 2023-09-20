@@ -18,17 +18,17 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene02.jpg
   narration: "<p>I don’t know if this counts as cheating, but hey- the newly released Khoshuts civ under Güshi Khan was by one of the CBR showrunners (the very wonderful Coiot) and I. Figured I’d shout it out, especially because I’m very happy with the final product and I always love to hear from people who enjoy my work.</p>"
 - scene_number: 03
-  scene_title: "Vihreaan Map"
+  scene_title: "American Dreams"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene03.jpg
-  narration: "<p></p>"
+  narration: "<p>Time has shifted in favor of the Gokturks, who have been brought back to life! What repercussions will this have??? Probably very little. Ah well.</p>"
 - scene_number: 04
   scene_title: "Shut up and take my money"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene04.jpg
   narration: "<p>By the divine reincarnation of Sitting Bull! What’s this!? Why yes, it’s our wonderful contributors who have made this show possible! We thank you for your continued support- it really does make an impact. If you’re not able to pay a continued subscription, don’t worry, Ko-Fi supports individual payments- so, if you enjoyed this episode, slide maybe $5 into the donation bin with a note that say “The radiant ExplosiveWatermelon inspired me to give this tithe to our CBR overlords. Blessed be!”</p>"
 - scene_number: 05
-  scene_title: ""
+  scene_title: "Castile"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene05.jpg
-  narration: "<p></p>"
+  narration: "<p>We’ve entered an endless recursion of time</p>"
 - scene_number: 06
   scene_title: "Bioshock"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene06.jpg
