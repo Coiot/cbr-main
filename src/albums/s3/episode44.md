@@ -7,12 +7,12 @@ edition: S3
 date: 2023-09-12T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene06.jpg
 prev: /albums/s3/episode43/
-next:
+next: /albums/s3/episode45/
 scenes:
 - scene_number: 01
   scene_title: "Introduction"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene01.jpg
-  narration: "<p>Hey gamers, Emu here, PR extraordinaire and person who’s been waffling about eventually doing a narration all this season ordinaire, popping in to watch our second-to-last part pre-rebuild. I would say a slow part calls for a creative narration, but I haven’t actually read the part yet so I’m not sure if that applies here. </p>"
+  narration: "<p>Hey gamers, Emu here, PR extraordinaire and person who’s been waffling about eventually doing a narration all this season ordinaire, popping in to watch our second-to-last episode pre-rebuild. I would say a slow episode calls for a creative narration, but I haven’t actually read the episode yet so I’m not sure if that applies here. </p>"
 - scene_number: 02
   scene_title: "Doom for Gaochang"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene02.jpg
@@ -44,7 +44,7 @@ scenes:
 - scene_number: 09
   scene_title: "Isn’t there someone you forgot to ask?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene09.jpg
-  narration: "<p>In the desolation of old Mohave Mexico, there are no winners. That one city whose name is too covered in blood to read is about to flip, but there’s no real possibility the conquest lasts. A few parts ago this front was down in old Central America, but that doesn’t really matter to anyone except the Incan propaganda department. Timor and Afghanistan want out. We have a different opinion.</p>"
+  narration: "<p>In the desolation of old Mohave Mexico, there are no winners. That one city whose name is too covered in blood to read is about to flip, but there’s no real possibility the conquest lasts. A few episodes ago this front was down in old Central America, but that doesn’t really matter to anyone except the Incan propaganda department. Timor and Afghanistan want out. We have a different opinion.</p>"
 - scene_number: 10
   scene_title: "It keeps happening"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene10.jpg
@@ -60,7 +60,7 @@ scenes:
 - scene_number: 13
   scene_title: "Smothering Maneuver"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene13.jpg
-  narration: "<p>The Siege of Oranienburg enters its third or fourth part, and despite having had the city completely surrounded that whole time, Turkey still has a strong grasp on the little salient they snuck into Sweden in the last round of TW.</p>"
+  narration: "<p>The Siege of Oranienburg enters its third or fourth episode, and despite having had the city completely surrounded that whole time, Turkey still has a strong grasp on the little salient they snuck into Sweden in the last round of TW.</p>"
 - scene_number: 14
   scene_title: "#1 buddy cop flick of summer 2312"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene14.jpg
@@ -116,7 +116,7 @@ scenes:
 - scene_number: 27
   scene_title: "Neither does Yemen"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene27.jpg
-  narration: "<p>After getting pushed out of the Horn of Africa earlier this part, Al-Sulayhi decides that the fact that she’s not in range of fighting for Sana’a anymore doesn’t really matter and continues to throw the youth of Madagascar at a very old conquest.</p>"
+  narration: "<p>After getting pushed out of the Horn of Africa earlier this episode, Al-Sulayhi decides that the fact that she’s not in range of fighting for Sana’a anymore doesn’t really matter and continues to throw the youth of Madagascar at a very old conquest.</p>"
 - scene_number: 28
   scene_title: "Pandya does though"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene28.jpg
@@ -138,9 +138,9 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene32.jpg
   narration: "<p>I don’t think Durrani is losing much sleep about it though, he’s more focused on his troops flowing through the once-impenetrable mountain passes</p>"
 - scene_number: 33
-  scene_title: "Only took what, 6 parts?"
+  scene_title: "Only took what, 6 episodes?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene33.jpg
-  narration: "<p>Oh fuck it finally happened. I think I’m going to be sick. The Gokturks’ story is mostly composed of being second fiddle to Tuva. It didn’t look like this was going to be the case at first, with their strong Northwest Asia start landing them 4th in the Part 0 rankings. This didn’t last though, by part 5 they’d dropped out of the top 20 entirely thanks to an unsuccessful war with Han and an ascendant Tuva. Nevertheless, they kept going, and a strong performance in the next dozen parts propelled them all the way back to the top 5, but from there they failed to capitalize and their tech deficit eventually left them boxed in by Tuva. That’s not to say they were completely inactive in the interim, though. They ventured south against Ainu and Mori, and their weakness was the avenue Irataba needed to establish Mohave Japan. Their most notable achievement as of late is having exactly zero military but still not dying to Arapaho for several dozen turns.</p>"
+  narration: "<p>Oh fuck it finally happened. I think I’m going to be sick. The Gokturks’ story is mostly composed of being second fiddle to Tuva. It didn’t look like this was going to be the case at first, with their strong Northwest Asia start landing them 4th in the Episode 0 rankings. This didn’t last though, by episode 5 they’d dropped out of the top 20 entirely thanks to an unsuccessful war with Han and an ascendant Tuva. Nevertheless, they kept going, and a strong performance in the next dozen episodes propelled them all the way back to the top 5, but from there they failed to capitalize and their tech deficit eventually left them boxed in by Tuva. That’s not to say they were completely inactive in the interim, though. They ventured south against Ainu and Mori, and their weakness was the avenue Irataba needed to establish Mohave Japan. Their most notable achievement as of late is having exactly zero military but still not dying to Arapaho for several dozen turns.</p>"
 - scene_number: 34
   scene_title: "Newest Caledonia"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene34.jpg
@@ -224,7 +224,7 @@ scenes:
 - scene_number: 54
   scene_title: "Just please stop"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene54.jpg
-  narration: "<p>What is it this part with sieges that go nowhere? It’s worse than nothing happening at all. Massive death is only entertaining if it has some actual result. Maybe we should have just let Raoni play simcity.</p>"
+  narration: "<p>What is it this episode with sieges that go nowhere? It’s worse than nothing happening at all. Massive death is only entertaining if it has some actual result. Maybe we should have just let Raoni play simcity.</p>"
 - scene_number: 55
   scene_title: "Prepare yourselves"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene55.jpg
@@ -236,7 +236,7 @@ scenes:
 - scene_number: 57
   scene_title: "All back to normal"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene57.jpg
-  narration: "<p>I- Huh? Who liberated these guys? I don’t see any units nearby except Nexuses, so let’s get ready for round 2 of Gaochang not dying. Honestly this is probably the best thing that has happened this part. Also, Mohave takes back North Honshu, restoring us to the status quo in the region after so much pain. I’m sure Kayapo is behind this somehow.</p>"
+  narration: "<p>I- Huh? Who liberated these guys? I don’t see any units nearby except Nexuses, so let’s get ready for round 2 of Gaochang not dying. Honestly this is probably the best thing that has happened this episode. Also, Mohave takes back North Honshu, restoring us to the status quo in the region after so much pain. I’m sure Kayapo is behind this somehow.</p>"
 - scene_number: 58
   scene_title: "Same as it ever was"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene58.jpg
@@ -248,7 +248,7 @@ scenes:
 - scene_number: 60
   scene_title: "Look where my hand was"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene60.jpg
-  narration: "<p>With a flash and a shockwave over the Siberian steppe, nukes return to the cylinder in force after a small flareup last part. This is probably the worst thing that could happen to the average Cylinder citizen right now, Wasn’t the war bad enough? Raoni’s determination grows.</p>"
+  narration: "<p>With a flash and a shockwave over the Siberian steppe, nukes return to the cylinder in force after a small flareup last season3-pr44-scene. This is probably the worst thing that could happen to the average Cylinder citizen right now, Wasn’t the war bad enough? Raoni’s determination grows.</p>"
 - scene_number: 61
   scene_title: "Fun’s over"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene61.jpg
@@ -296,7 +296,7 @@ scenes:
 - scene_number: 72
   scene_title: "Oh wait that might actually be bad"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene72.jpg
-  narration: "<p>Arapaho makes their first breakthrough in several parts, securing two entire Mohave cities on Honshu. This is what passes for conquest in a world where peace has finally begun to blossom after 5,000 years of constant wanton destruction. But for now, there is still war, just without victory. Raoni tells himself that it has to get worse before it can get better. If things were really as he thought they were, he might even be right.</p>"
+  narration: "<p>Arapaho makes their first breakthrough in several episodes, securing two entire Mohave cities on Honshu. This is what passes for conquest in a world where peace has finally begun to blossom after 5,000 years of constant wanton destruction. But for now, there is still war, just without victory. Raoni tells himself that it has to get worse before it can get better. If things were really as he thought they were, he might even be right.</p>"
 - scene_number: 73
   scene_title: "Back where we started"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode44-scene73.jpg

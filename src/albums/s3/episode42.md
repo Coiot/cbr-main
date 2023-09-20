@@ -10,7 +10,7 @@ scenes:
 - scene_number: 01
   scene_title: "The Great General Assembly"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene01.jpg
-  narration: "<p>Hello and welcome to Episode 42 of CBRX3! I am GameboyColor here to narrate our first part post-Total War. Please be sure to keep hands and feet inside the vehicle at all times, and be sure to buckle up, we’ve got a lot of slides to get through today. </p>"
+  narration: "<p>Hello and welcome to Episode 42 of CBRX3! I am GameboyColor here to narrate our first episode post-Total War. Please be sure to keep hands and feet inside the vehicle at all times, and be sure to buckle up, we’ve got a lot of slides to get through today. </p>"
 - scene_number: 02
   scene_title: "Vihreaa’s Spectacular Map"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene02.jpg
@@ -26,11 +26,11 @@ scenes:
 - scene_number: 05
   scene_title: "Castille’s Benefit"
   slide_url: https://cdn.civbattleroyale.tv/season3-pr41-scene08.jpg
-  narration: "<p>Looking at the power rankings for the last part, our queen Isabella has jumped up 3 places! Isabella truly has made the most savvy move we’ve ever seen from a bottom tier power in CBR history, and hijinks like these are part of what makes CBR CBR. Isabella is my mad queen, and nobody can convince me to change my mind.</p>"
+  narration: "<p>Looking at the power rankings for the last episode, our queen Isabella has jumped up 3 places! Isabella truly has made the most savvy move we’ve ever seen from a bottom tier power in CBR history, and hijinks like these are part of what makes CBR CBR. Isabella is my mad queen, and nobody can convince me to change my mind.</p>"
 - scene_number: 06
   scene_title: "Winter Offensive"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene06.jpg
-  narration: "<p>As we open this part Turkish Biotroopers advance through the northern reaches of the Siberian tundra towards Tuva’s provisional capital at Mugur-Aksy. </p><p>The Tuvan navy in what I believe is Lake Baikal is too weak to provide a roadblock for any future Turkish forces, meaning this entire Tuvan region lies undefended.</p>"
+  narration: "<p>As we open this episode Turkish Biotroopers advance through the northern reaches of the Siberian tundra towards Tuva’s provisional capital at Mugur-Aksy. </p><p>The Tuvan navy in what I believe is Lake Baikal is too weak to provide a roadblock for any future Turkish forces, meaning this entire Tuvan region lies undefended.</p>"
 - scene_number: 07
   scene_title: "Avi Mota Deconstructed"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene07.jpg
@@ -42,7 +42,7 @@ scenes:
 - scene_number: 09
   scene_title: "Happiness: What is it good for?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene09.jpg
-  narration: "<p>Yemen is no longer unhappy, as they sat on a neutral 0 happiness at the end of last part! Either the conditions in Aden were so bad the whole empire became unhappy in aggregate, or the rest of Yemen really really hated the Adenites. Whatever the case, after last episode’s devastating flipfest dropped the city from 54 to just 4 pops, Yemen’s chances of launching a successful counterattack for Sana’a are resting 6 feet under alongside the rest of Aden.</p>"
+  narration: "<p>Yemen is no longer unhappy, as they sat on a neutral 0 happiness at the end of last episode! Either the conditions in Aden were so bad the whole empire became unhappy in aggregate, or the rest of Yemen really really hated the Adenites. Whatever the case, after last episode’s devastating flipfest dropped the city from 54 to just 4 pops, Yemen’s chances of launching a successful counterattack for Sana’a are resting 6 feet under alongside the rest of Aden.</p>"
 - scene_number: 10
   scene_title: "Melting"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene10.jpg
@@ -58,7 +58,7 @@ scenes:
 - scene_number: 13
   scene_title: "The Bigger They Are, The Harder They Fall"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene13.jpg
-  narration: "<p>And so it is that Tuva perishes in 16th place. Tuva’s very promising early game earned them many supporters, however they never managed to overcome a strange aversion to science and poor land that resulted in their military falling egregiously behind the times. Even so, their absolutely massive military was filled with bodies, slowing the Turkish advance through their sheer quantity alone through multiple parts of Total War, while at the same time conquering eastward to buy themselves more time. In the end, they just couldn’t make up that deficit. F </p>"
+  narration: "<p>And so it is that Tuva perishes in 16th place. Tuva’s very promising early game earned them many supporters, however they never managed to overcome a strange aversion to science and poor land that resulted in their military falling egregiously behind the times. Even so, their absolutely massive military was filled with bodies, slowing the Turkish advance through their sheer quantity alone through multiple episodes of Total War, while at the same time conquering eastward to buy themselves more time. In the end, they just couldn’t make up that deficit. F </p>"
 - scene_number: 14
   scene_title: "With Bated Breath"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene14.jpg
@@ -182,7 +182,7 @@ scenes:
 - scene_number: 44
   scene_title: "A United Korea"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene44.jpg
-  narration: "<p>A few parts ago it would not only have been impossible to believe that Afghanistan would kill Han, but it would have been even more impossible to believe that Afghanistan would be beating former top-ranked Mohave. </p><p></p><p>Looking to the future, the sub’s observers can only wonder if Afghanistan has the capacity to continue to surprise, or if they are rapidly approaching the final wall.</p>"
+  narration: "<p>A few episodes ago it would not only have been impossible to believe that Afghanistan would kill Han, but it would have been even more impossible to believe that Afghanistan would be beating former top-ranked Mohave. </p><p></p><p>Looking to the future, the sub’s observers can only wonder if Afghanistan has the capacity to continue to surprise, or if they are rapidly approaching the final wall.</p>"
 - scene_number: 45
   scene_title: "Cleaning Crew"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene45.jpg
