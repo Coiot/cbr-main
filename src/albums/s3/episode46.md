@@ -1,5 +1,5 @@
 ---
-title: "Epiosde 36: Drenched in the Blood of the Dispossessed"
+title: "Episode 36: Drenched in the Blood of the Dispossessed"
 narrated_by: "Orangechrisy"
 description: "The remake is here, and with it the cylinder burns anew with the fires of life, and the fires of death."
 release_date: OCtober 4, 2023
