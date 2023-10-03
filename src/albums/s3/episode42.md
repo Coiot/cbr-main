@@ -5,6 +5,8 @@ description: ""
 release_date: August 23, 2023
 edition: S3
 date: 2023-08-22T00:00:00.000Z
+prev: /albums/s3/episode41/
+next: /albums/s3/episode43/
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode42-scene06.jpg
 scenes:
 - scene_number: 01

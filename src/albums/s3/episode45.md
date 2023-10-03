@@ -6,7 +6,7 @@ release_date: September 20, 2023
 edition: S3
 date: 2023-09-19T00:00:00.000Z
 prev: /albums/s3/episode44/
-next:
+next: /albums/s3/episode46/
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode45-scene06.jpg
 scenes:
 - scene_number: 01
