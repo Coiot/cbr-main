@@ -23,7 +23,7 @@ scenes:
   narration: "<p>Me? Putting my own comic as one of the OC’s? Unheard of. I would never. You can’t pin this on me, I-I’m innocent, I didn’t do it! Please you have to believe me…! Ah fuck it’s the cops, they won’t catch me this time!</p>"
 - scene_number: 04
   scene_title: "So Fly"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode46-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode33-scene04.jpg
   narration: "<p>Okay apparently I did use “so fly” as a rhyme for the Ko-Fi slide when I did Episode 5, but like that was ages ago so no one else remembers it so I should be safe to get away with it, right? Yeah. Anyways thanks to these people for donating to help make it easier to run the game! </p>"
 - scene_number: 05
   scene_title: "The Height of the Andes"
