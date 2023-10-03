@@ -27,7 +27,7 @@ scenes:
   narration: "<p>Okay apparently I did use “so fly” as a rhyme for the Ko-Fi slide when I did Episode 5, but like that was ages ago so no one else remembers it so I should be safe to get away with it, right? Yeah. Anyways thanks to these people for donating to help make it easier to run the game! </p>"
 - scene_number: 05
   scene_title: "The Height of the Andes"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode46-scene05.jpg
+  slide_url: https://cdn.civbattleroyale.tv/season3-pr45-scene12.jpg
   narration: "<p>The Incans seem to be the number one pick going into the remake, and well they sure seem to be in a strong position. So good job rankers, give yourself a pat on the back for this one. *Pats self* </p>"
 - scene_number: 06
   scene_title: "The Iron Queen"
