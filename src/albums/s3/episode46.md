@@ -2,7 +2,7 @@
 title: "Episode 36: Drenched in the Blood of the Dispossessed"
 narrated_by: "Orangechrisy"
 description: "The remake is here, and with it the cylinder burns anew with the fires of life, and the fires of death."
-release_date: OCtober 4, 2023
+release_date: October 4, 2023
 edition: S3
 date: 2023-10-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode46-scene06.jpg
