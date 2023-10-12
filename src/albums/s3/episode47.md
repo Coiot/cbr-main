@@ -438,7 +438,7 @@ scenes:
 - scene_number: 108
   scene_title: "Epilogue II"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode47-scene108.jpg
-  narration: "<p>Nebuchadnezzar had heard enough! He didn't disrupt Isabella's speech, but he knew that she and her people knew too much! Stealing important babylonian secrets and tech and using it to prolong her reign? And somehow her people retained the knowledge of this intel even after the remake? It was evident that he must act now! She could be a threat to the Civ Battle Royale as we know it! Neb accessed the IGE (In Game Editor) control panel, navigated the menus, targeted the city of Burgos and, without hesitation, selected and confirmed to delete the city.</p>"
+  narration: "<p>Nebuchadnezzar had heard enough! He didn't disrupt Isabella's speech, but he knew that she and her people knew too much! Stealing important babylonian secrets and tech and using it to prolong her reign? And somehow her people retained the knowledge of this intel even after the remake? It was evident that he must act now! She could be a threat to the Civ Battle Royale as we know it! Neb accessed the IGE (In Game Editor) control panel, navigated the menus, targeted the city of Burgos and, without hesitation, selected and confirmed to delete the city.</p><p>Coiot's Note: Lacs actually just removed the ice and the city was instantly swarmed by the surronding units.</p>"
 - scene_number: 109
   scene_title: "Epilogue III"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode47-scene109.jpg
