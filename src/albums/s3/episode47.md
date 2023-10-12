@@ -88,7 +88,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode47-scene20.jpg
   narration: "<p>Timor-Leste flexes its might by stepping up to all its enemies and re-securing several settlements, but it's looking like a breakthrough is coming in South America as Cusco, the Incan Capital, is being bombarded. There is no melee unit next to the city but Tupac won't be able to keep up the necessary manpower to fend off the inevitable invasion of his headquarters.</p>"
 - scene_number: 21
-  scene_title: "You Ruined The =28 Congo, Chenxian"
+  scene_title: "You Ruined The +28 Congo, Chenxian"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season3-episode47-scene21.jpg
   narration: "<p>Ahmad Shah Durrani rallies the remnants of his empire to not give up. The orders are given to move east and control Pyongyang and Hinoyama.</p><p></p><p>The Turkish workforce mentioned earlier are moving farther away from home and are mindlessly approaching the borders of Timor-Leste.</p>"
 - scene_number: 22
