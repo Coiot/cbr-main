@@ -6,6 +6,8 @@ release_date: October 12, 2023
 edition: S3
 date: 2023-10-11T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode47-scene06.jpg
+prev: /albums/s3/episode46/
+next:
 scenes:
 - scene_number: 01
   scene_title: "The End Is Here"

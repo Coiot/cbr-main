@@ -7,7 +7,7 @@ edition: S3
 date: 2023-10-03T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season3-episode46-scene06.jpg
 prev: /albums/s3/episode45/
-next:
+next: /albums/s3/episode47/
 scenes:
 - scene_number: 01
   scene_title: "Most of this was written while listening to Eve’s new song Flower Storm you should check it out the music video is so good"
