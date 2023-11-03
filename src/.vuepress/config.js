@@ -23,10 +23,10 @@ module.exports = {
       { text: "Albums", link: "/albums/" },
       { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
       { text: "Discord", link: "https://discord.gg/565JwaMsuQ" },
-      {
-        text: "Youtube",
-        link: "https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ",
-      },
+      // {
+      //   text: "Youtube",
+      //   link: "https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ",
+      // },
     ],
     logo: "/cbr_logo_color.svg",
     docsDir: "src",
