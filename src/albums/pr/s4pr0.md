@@ -210,7 +210,7 @@ scenes:
 - scene_number: 51
   scene_title: "Kazan"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr0-scene51.jpg
-  narration: "<p>Shaggy:</p><p></p><p>Möxämmädämin leäds Käzän this seäsön, cöming in just öutside the töp 10 in the initiäl ränkings. When he isn't thröwing umläuts ön literälly every pössible "ä" and "ö" ön the cylinder, Möxämmädämin cän be föund träining his Därughär Cönscripts, ä UU thät cän ättäck twice when ön ä tile next to änöther Därughär Cönscript älöng with the ädded bönus öf nöt häving än irön requirement. Käzän häs ä tön öf späce tö settle initiälly withöut mäny öther civs thät will be göing för eventuäl Käzän länd. Gööd luck, Mäster öf Umläuts Möxämmädämin, mäy yöur gäme be less spötty thän this writeup.</p>"
+  narration: "<p>Shaggy:</p><p></p><p>Möxämmädämin leäds Käzän this seäsön, cöming in just öutside the töp 10 in the initiäl ränkings. When he isn't thröwing umläuts ön literälly every pössible “ä” and “ö” ön the cylinder, Möxämmädämin cän be föund träining his Därughär Cönscripts, ä UU thät cän ättäck twice when ön ä tile next to änöther Därughär Cönscript älöng with the ädded bönus öf nöt häving än irön requirement. Käzän häs ä tön öf späce tö settle initiälly withöut mäny öther civs thät will be göing för eventuäl Käzän länd. Gööd luck, Mäster öf Umläuts Möxämmädämin, mäy yöur gäme be less spötty thän this writeup.</p>"
 - scene_number: 52
   scene_title: "Nivkh"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr0-scene52.jpg
