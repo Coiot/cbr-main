@@ -2,7 +2,7 @@
 title: "Power Rankings: Episode 0"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! The rankings…of power! Dun dun dunnnn!"
-release_date: March 18, 204
+release_date: March 18, 2024
 pr: S4
 date: 2024-03-18T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/season4-pr0-scene01.jpeg
@@ -134,7 +134,7 @@ scenes:
 - scene_number: 32
   scene_title: "Palawa"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr0-scene32.jpeg
-  narration: "<p>JMAn:</p><p></p><p>Palawa is in a unique situation compared to most island civilizations. Most island civilizations have one of two obstacles: </p><p></p><p>Palawa has both a lot of land to capitalize on and very few civs that can feasibly crowd them out. Even CBRX3 winning underdog darling Timor-Leste had a hard start, where Palawa has the fertile east coast of Australia and all of Aotearoa available to them.</p><p></p><p>What makes Palawa especially interesting in the early game is the ability to gain research towards technologies that they are behind on when pillaging tile improvements and trade routes. Glazing over the fact that this also makes the pillaging unit stronger, being able to reliably play catch up when on the offensive is extremely powerful. The Noongar will likely be building many tile improvements in the Outback, as desert civs are wont to build farms in such environments. Although the Noongar UTI will likely slow down Palawa’s utilization of their unique ability, we can expect Palawa to at the very least to be a dark horse in this Battle Royale. Despite being widely disagreed upon in the PR team, keeping an eye on this civ is a good idea.</p>"
+  narration: "<p>JMAn:</p><p></p><p>Palawa is in a unique situation compared to most island civilizations. Most island civilizations have one of two obstacles: </p><p>1) They have a lot of room, but not a lot of land to capitalize on</p><p>2) They have a lot of land to capitalize on, but there are too many civs ready to crowd them out.</p><p>Palawa has both a lot of land to capitalize on and very few civs that can feasibly crowd them out. Even CBRX3 winning underdog darling Timor-Leste had a hard start, where Palawa has the fertile east coast of Australia and all of Aotearoa available to them.</p><p></p><p>What makes Palawa especially interesting in the early game is the ability to gain research towards technologies that they are behind on when pillaging tile improvements and trade routes. Glazing over the fact that this also makes the pillaging unit stronger, being able to reliably play catch up when on the offensive is extremely powerful. The Noongar will likely be building many tile improvements in the Outback, as desert civs are wont to build farms in such environments. Although the Noongar UTI will likely slow down Palawa’s utilization of their unique ability, we can expect Palawa to at the very least to be a dark horse in this Battle Royale. Despite being widely disagreed upon in the PR team, keeping an eye on this civ is a good idea.</p>"
 - scene_number: 33
   scene_title: "Kalmyks"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr0-scene33.jpeg
