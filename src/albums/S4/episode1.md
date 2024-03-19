@@ -11,11 +11,11 @@ next:
 scenes:
 - scene_number: 01
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene01.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene01.jpg
   narration: "<p>Happy Wednesday the 20th! Welcome back ladies and lads to the Civilization Battle Royale. We start off Season 4 following a stunning conclusion to Season 3 and what we hope was not a prolonged wait as we began to prepare what we hope is the best game yet. While it was not the most tiring development period, we still inevitably came across our fair share of headaches and hair pulling bugs that tested our patience. We are now on the other side of that struggle and are very happy to bring you all the most optimized and bug-free experience. </p><p></p><p>Special shoutout to Arilasqueto, who prepared for a new set of portraits for all the competitors. As the season continues, we’ll have each eliminated civ dimmed out until only one remains.  </p>"
 - scene_number: 02
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene02.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene02.jpg
   narration: "<p>FionaDanger / Lungora starts us off with the first map of the season with a stunning tile-accurate map including all the competitors’ starting location as well as a neat tribal designation to denote the starting game government status. Looking forward to seeing the map evolve and get filled out as empires rise and fall.</p>"
 - scene_number: 03
   scene_title: ""
@@ -23,11 +23,11 @@ scenes:
   narration: "<p>ECH has been running a popularity poll for this season’s competitors in the weeks leading up to today's release, culminating in one big final overall combined sheet. It is interesting to see who is getting all the attention and who is being looked past. Judging from the list, I expect much drama in the months ahead. </p>"
 - scene_number: 04
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene04.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene04.jpg
   narration: "<p>Thank you all for your continued support throughout the years, especially during our production downtime between seasons. Each donation goes directly to making the show better as we continue to make improvements and always make sure you have the best viewing experience by using the most widespread CDN for the images and never delivering any ads or even website trackers. It is always 100% CBR here and everyone who contributes each month or only every once in a while I express sincere gratitude to you all. </p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr0-scene61.jpeg
   narration: "<p>The Power Rankers deliberated for a long time as we are going into no doubt the most balanced and well distributed roster we’ve had, but one civ is favored above the others —the Selkups. The Selkups enjoy the usual ranking boost being in the middle of Siberia, but this time around there is some competition in the northern regions of Eurasia that might not keep them as #1 for long. I don’t know how the team will rank in the episodes to come, but I expect fluctuations in ranks to come readily.</p>"
 - scene_number: 06
   scene_title: ""
