@@ -30,6 +30,7 @@
           <span>Others</span>
         </div>
       </div>
+
       <component :is="clickedEdition"></component>
     </div>
   </transition>
