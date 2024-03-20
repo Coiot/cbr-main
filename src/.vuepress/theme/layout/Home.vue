@@ -1,55 +1,58 @@
 <template>
-  <transition name="fade">
-    <div class="home">
-      <section class="home-content">
-        <HomeAlbums />
-        <div class="link-column">
-          <PRListHome />
-          <a href="https://civbattleroyale.tv/albums/pr/" class="list">
-            Past Power Rankings
-          </a>
-          <a
-            href="https://www.reddit.com/r/civbattleroyale/comments/xoafnn/cbrx_season_3_megathread/"
-            class="list"
-          >
-            New? Join the Show
-          </a>
-          <a href="https://ko-fi.com/coiot" class="list"> Ko-Fi Donations </a>
-          <a href="https://www.youtube.com/@docido3976" class="list">
-            Episode Audio Narrations
-          </a>
-          <a href="https://www.youtube.com/@cchassey" class="list">
-            PR Audio Narrations
-          </a>
-        </div>
-      </section>
-      <HomeAlbums2 />
-      <Content custom />
-      <div class="footer" v-if="data.footer">{{ data.footer }}</div>
-    </div>
-  </transition>
+	<transition name="fade">
+		<div class="home">
+			<section class="home-content">
+				<HomeAlbums />
+				<div class="link-column">
+					<PRListHome />
+					<a
+						href="https://civbattleroyale.tv/albums/pr/"
+						class="list">
+						Past Power Rankings
+					</a>
+					<a
+						href="https://www.reddit.com/r/civbattleroyale/comments/xoafnn/cbrx_season_3_megathread/"
+						class="list">
+						New? Join the Show
+					</a>
+					<a href="https://ko-fi.com/coiot" class="list">
+						Ko-Fi Donations
+					</a>
+					<a href="https://www.youtube.com/@docido3976" class="list">
+						Episode Audio Narrations
+					</a>
+					<a href="https://www.youtube.com/@cchassey" class="list">
+						PR Audio Narrations
+					</a>
+				</div>
+			</section>
+			<HomeAlbums2 />
+			<Content custom />
+			<div class="footer" v-if="data.footer">{{ data.footer }}</div>
+		</div>
+	</transition>
 </template>
 
 <script>
 import NavLink from "../components/NavLink.vue";
 
 export default {
-  components: {
-    NavLink,
-  },
+	components: {
+		NavLink,
+	},
 
-  computed: {
-    data() {
-      return this.$page.frontmatter;
-    },
+	computed: {
+		data() {
+			return this.$page.frontmatter;
+		},
 
-    actionLink() {
-      return {
-        link: this.data.actionLink,
-        text: this.data.actionText,
-      };
-    },
-  },
+		actionLink() {
+			return {
+				link: this.data.actionLink,
+				text: this.data.actionText,
+			};
+		},
+	},
 };
 </script>
 
