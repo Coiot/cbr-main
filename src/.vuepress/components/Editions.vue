@@ -48,7 +48,7 @@ export default {
     S4List,
   },
   computed: {},
-};
+}
 </script>
 
 <style scoped>
