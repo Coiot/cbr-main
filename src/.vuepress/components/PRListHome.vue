@@ -5,7 +5,7 @@
 				<router-link
 					:to="post.path"
 					tag="div"
-					v-for="post in albums"
+					v-for="(post, index) in albums"
 					:key="post.title"
 					class="post"
 					:tabindex="0">
