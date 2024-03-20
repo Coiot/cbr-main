@@ -397,7 +397,7 @@ export default {
 				.filter((x) => x.path.startsWith("/albums/s4") && !x.frontmatter.exclude)
 				.sort(
 					(b, a) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-				);
+				)
 		},
 	},
 };
