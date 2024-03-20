@@ -30,7 +30,7 @@ module.exports = {
     ],
     logo: "/cbr_logo_color.svg",
     docsDir: "src",
-    serviceWorker: false,
+    serviceWorker: true,
   },
   plugins: [
     "vuepress-plugin-janitor",
