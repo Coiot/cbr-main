@@ -13,7 +13,7 @@
 
 					<div class="album-info">
 						<p>Latest Power Rankings</p>
-						<p v-else>{{ post.frontmatter.pr }}</p>
+						<!-- <p v-else>{{ post.frontmatter.pr }}</p> -->
 						<span>{{ post.frontmatter.title }}</span>
 						<span style="margin-block-start: 0.25rem"
 							>Release Date:
