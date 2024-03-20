@@ -2,8 +2,8 @@
 	<transition name="fade">
 		<div class="album-list">
 			<div class="header">
-				<h1>Season Three</h1>
-				<span>October 05, 2022 – October 12, 2023 </span>
+				<h1>Season Four</h1>
+				<span>March 20, 2024 – Present </span>
 			</div>
 			<router-link
 				:to="post.path"
@@ -40,7 +40,7 @@
         </li>
       </ul> -->
 
-			<h1>Cycle One</h1>
+			<!-- <h1>Cycle One</h1> -->
 			<div class="arc">
 				<div class="arc-header">
 					<!-- <h2>Rising Flags</h2>
@@ -79,7 +79,7 @@
 
 <script>
 export default {
-	name: "Season Three",
+	name: "Season Four",
 	data() {
 		return {
 			civs: [
@@ -396,7 +396,7 @@ export default {
 			return this.$site.pages
 				.filter(
 					(x) =>
-						x.path.startsWith("/albums/s3") &&
+						x.path.startsWith("/albums/s4") &&
 						!x.frontmatter.exclude
 				)
 				.sort(

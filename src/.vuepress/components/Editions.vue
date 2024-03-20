@@ -2,6 +2,10 @@
   <transition name="fade">
     <div>
       <div class="edition-list">
+        <div class="list" @click="clickedEdition = 'S4List'">
+          <span>CBRX Season 4</span>
+        </div>
+
         <div class="list" @click="clickedEdition = 'S3List'">
           <span>CBRX Season 3</span>
         </div>
@@ -32,16 +36,16 @@
 </template>
 
 <script>
-import S3List from "./S3List.vue";
+import S4List from "./S4List.vue";
 
 export default {
   data() {
     return {
-      clickedEdition: S3List,
+      clickedEdition: S4List,
     };
   },
   components: {
-    S3List,
+    S4List,
   },
   computed: {},
 };
