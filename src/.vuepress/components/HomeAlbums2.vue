@@ -33,7 +33,8 @@ export default {
 			return this.$site.pages
 				.filter(
 					(x) =>
-						(x.path.startsWith("/albums/s4") && !x.frontmatter.exclude
+						x.path.startsWith("/albums/s4") &&
+						!x.frontmatter.exclude
 				)
 				.sort(
 					(a, b) =>
