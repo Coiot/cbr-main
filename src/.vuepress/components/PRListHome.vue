@@ -35,9 +35,7 @@ export default {
 				  (x) => x.path.startsWith("/albums/pr") && !x.frontmatter.exclude
 				)
 				.sort(
-					(a, b) =>
-						new Date(b.frontmatter.date) -
-						new Date(a.frontmatter.date)
+					(a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
 				)
 				.slice(0, 1);
 		},
