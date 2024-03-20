@@ -38,7 +38,7 @@ export default {
 				.sort(
 					(a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
 				)
-				.slice(1, 5);
+				.slice(1, 5)
 		},
 	},
 };
