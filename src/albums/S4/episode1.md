@@ -136,7 +136,7 @@ scenes:
 - scene_number: 32
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene32.jpeg
-  narration: "<p>In the eastern Caribbean we have Tiano led by Agüeybaná II. The Tiano come into the competition as the strongest island civ in the region since the Buccaneers. That is admittedly a low bar given the performances from others since then, so you’ll have to believe me when I state that Tiano will be a threat for all civs who settle along the coasts.   </p>"
+  narration: "<p>In the eastern Caribbean we have Taíno led by Agüeybaná II. The Taíno come into the competition as the strongest island civ in the region since the Buccaneers. That is admittedly a low bar given the performances from others since then, so you’ll have to believe me when I state that Taíno will be a threat for all civs who settle along the coasts.   </p>"
 - scene_number: 33
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene33.jpeg
@@ -244,7 +244,7 @@ scenes:
 - scene_number: 59
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene59.jpeg
-  narration: "<p>Tiano settle the island of Hispaniola with Cubao. Tiano usually command the Caribbean uncontested in our test runs so this is bare the course. Floridas however are a little settlement shy as they bulk up the capital of Fernandina and even sport a spearman but no second city just yet.  </p>"
+  narration: "<p>Taíno settle the island of Hispaniola with Cubao. Taíno usually command the Caribbean uncontested in our test runs so this is bare the course. Floridas however are a little settlement shy as they bulk up the capital of Fernandina and even sport a spearman but no second city just yet.  </p>"
 - scene_number: 60
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene60.jpeg
@@ -292,7 +292,7 @@ scenes:
 - scene_number: 71
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene71.jpeg
-  narration: "<p>Tiano, having been beaten to the typical islander beliefs, chose from amongst the remaining pantheons Oral Tradition. This means no early bonuses for Tiano as this belief gambles on a more long term religious strategy that hopefully pays off for them. </p>"
+  narration: "<p>Taíno, having been beaten to the typical islander beliefs, chose from amongst the remaining pantheons Oral Tradition. This means no early bonuses for Taíno as this belief gambles on a more long term religious strategy that hopefully pays off for them. </p>"
 - scene_number: 72
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene72.jpeg
