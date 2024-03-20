@@ -10,6 +10,9 @@
     <div class="nav-links">
       <ul class="edition-links">
         <li class="nav-item">
+          <a href="https://civbattleroyale.tv/albums/s4/">CBRX Season 4</a>
+        </li>
+        <li class="nav-item">
           <a href="https://civbattleroyale.tv/albums/s3/">CBRX Season 3</a>
         </li>
         <li class="nav-item">
