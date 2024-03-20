@@ -320,11 +320,11 @@ scenes:
 - scene_number: 78
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene78.jpeg
-  narration: "<p>Likewise there is an early alliance war in Europe aimed at punishing Burgundy for stretching itself thin within troops. The Visigoths are very well equipped to swipe all of Burgundy away, though the distance between them presents a considerable logistical challenge. The same is even more pronounced for Rome which cannot field  </p>"
+  narration: "<p>Likewise there is an early alliance war in Europe aimed at punishing Burgundy for stretching itself thin within troops. The Visigoths are very well equipped to swipe all of Burgundy away, though the distance between them presents a considerable logistical challenge. The same is even more pronounced for Rome which cannot field an army of the same size and has a few obstacles in the way.</p>"
 - scene_number: 79
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene79.jpeg
-  narration: "<p>The Afsharids finish construction of Stonehenge in Meknes hoping to also become a religious powerhouse. They should also rush to claim the Rock of Gibraltar just up north for the Food and Gold bonus before the Visigoths do. </p>"
+  narration: "<p>The Alaouites finish construction of Stonehenge in Meknes hoping to also become a religious powerhouse. They should also rush to claim the Rock of Gibraltar just up north for the Food and Gold bonus before the Visigoths do. </p>"
 - scene_number: 80
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode1-scene80.jpeg
