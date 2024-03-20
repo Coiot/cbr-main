@@ -33,7 +33,7 @@ export default {
     albums() {
       return this.$site.pages
         .filter(
-          (x) => x.path.startsWith("/albums/s4") || x.path.startsWith("/albums/s3") && !x.frontmatter.exclude
+          (x) => x.path.startsWith("/albums/s4") && !x.frontmatter.exclude
         )
         .sort(
           (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
