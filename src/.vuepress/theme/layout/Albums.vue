@@ -1,264 +1,297 @@
 <template>
-  <transition name="fade">
-    <div class="blog">
-      <div class="page-nav" v-if="prev || next">
-        <p class="nextprev">
-          <span v-if="prev" class="prev">
-            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev"
-              >← {{ prev.title || prev.path }}</router-link
-            >
-          </span>
+	<transition name="fade">
+		<div class="blog">
+			<div class="page-nav" v-if="prev || next">
+				<p class="nextprev">
+					<span v-if="prev" class="prev">
+						<router-link
+							v-if="prev"
+							class="prev"
+							:to="$page.frontmatter.prev"
+							>← {{ prev.title || prev.path }}</router-link
+						>
+					</span>
 
-          <span v-if="next" class="next">
-            <router-link v-if="next" :to="$page.frontmatter.next"
-              >{{ next.title || next.path }} →</router-link
-            >
-          </span>
-        </p>
-      </div>
+					<span v-if="next" class="next">
+						<router-link v-if="next" :to="$page.frontmatter.next"
+							>{{ next.title || next.path }} →</router-link
+						>
+					</span>
+				</p>
+			</div>
 
-      <h1 class>
-        {{ $page.frontmatter.title }}
-        <span>– {{ $page.frontmatter.edition }}</span>
-      </h1>
+			<h1 class>
+				{{ $page.frontmatter.title }}
+				<span>– {{ $page.frontmatter.edition }}</span>
+			</h1>
 
-      <div class="albumInfo">
-        <div class="column" tabindex="0">
-          <Label class="label">Release Date:</Label>
-          <p>
-            <span class="value">{{ $page.frontmatter.release_date }}</span>
-          </p>
-        </div>
+			<div class="albumInfo">
+				<div class="column" tabindex="0">
+					<Label class="label">Release Date:</Label>
+					<p>
+						<span class="value">{{
+							$page.frontmatter.release_date
+						}}</span>
+					</p>
+				</div>
 
-        <div class="column" tabindex="0">
-          <Label class="label">Narrated by:</Label>
-          <p>
-            <span class="value">{{ $page.frontmatter.narrated_by }}</span>
-          </p>
-        </div>
+				<div class="column" tabindex="0">
+					<Label class="label">Narrated by:</Label>
+					<p>
+						<span class="value">{{
+							$page.frontmatter.narrated_by
+						}}</span>
+					</p>
+				</div>
 
-        <div v-if="$page.frontmatter.starting_turn" class="column" tabindex="0">
-          <Label class="label">Starting Turn:</Label>
-          <p>
-            <span class="value">{{ $page.frontmatter.starting_turn }}</span>
-          </p>
-        </div>
+				<div
+					v-if="$page.frontmatter.starting_turn"
+					class="column"
+					tabindex="0">
+					<Label class="label">Starting Turn:</Label>
+					<p>
+						<span class="value">{{
+							$page.frontmatter.starting_turn
+						}}</span>
+					</p>
+				</div>
 
-        <div
-          v-if="$page.frontmatter.audio_narration"
-          class="column"
-          tabindex="0"
-        >
-          <Label class="label">Video:</Label>
-          <p>
-            <span class="value">
-              <a
-                :href="$page.frontmatter.audio_narration"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Audio Narration</a
-              >
-            </span>
-          </p>
-          <p v-if="$page.frontmatter.fullvideo">
-            <span class="value">
-              <a
-                :href="$page.frontmatter.fullvideo"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Full In-Game Turns</a
-              >
-            </span>
-          </p>
-        </div>
-      </div>
+				<div
+					v-if="$page.frontmatter.audio_narration"
+					class="column"
+					tabindex="0">
+					<Label class="label">Video:</Label>
+					<p>
+						<span class="value">
+							<a
+								:href="$page.frontmatter.audio_narration"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Audio Narration</a
+							>
+						</span>
+					</p>
+					<p v-if="$page.frontmatter.fullvideo">
+						<span class="value">
+							<a
+								:href="$page.frontmatter.fullvideo"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Full In-Game Turns</a
+							>
+						</span>
+					</p>
+				</div>
+			</div>
 
-      <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
-      <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">
-        {{ $page.frontmatter.description }}
-      </p>
+			<h2 class="scenenumber" v-if="$page.frontmatter.description">
+				Abstract
+			</h2>
+			<p
+				class="abstract"
+				tabindex="0"
+				v-if="$page.frontmatter.description">
+				{{ $page.frontmatter.description }}
+			</p>
 
-      <button class="button" @click="isToggle = !isToggle">
-        <span v-if="isToggle === true">Toggle Vertical Mode</span>
-        <span v-if="isToggle === false">Toggle Horizontal Mode</span>
-      </button>
+			<button class="button" @click="isToggle = !isToggle">
+				<span v-if="isToggle === true">Toggle Vertical Mode</span>
+				<span v-if="isToggle === false">Toggle Horizontal Mode</span>
+			</button>
 
-      <div v-if="isToggle === true">
-        <vueper-slides
-          ref="vueperslides2"
-          @slide="
-            $refs.vueperslides1 &&
-              $refs.vueperslides1.goToSlide($event.currentSlide.index, {
-                emit: false,
-              })
-          "
-          :slide-ratio="1 / 8"
-          :dragging-distance="10"
-          :visible-slides="8"
-          fixed-height="80px"
-          :arrows="false"
-          :bullets="false"
-          class="first"
-          style="margin-bottom: 1rem"
-        >
-          <vueper-slide
-            v-for="(scene, index) in $page.frontmatter.scenes"
-            :image="scene.slide_url"
-            :key="scene.number"
-            @keyup.left="previous()"
-            @keyup.right="next()"
-            @click.native="
-              $refs.vueperslides1 && $refs.vueperslides1.goToSlide(index)
-            "
-            style="margin: 0 0.2rem"
-          ></vueper-slide>
-        </vueper-slides>
-        <vueper-slides
-          ref="vueperslides1"
-          @slide="
-            $refs.vueperslides2 &&
-              $refs.vueperslides2.goToSlide($event.currentSlide.index, {
-                emit: false,
-              })
-          "
-          :slide-content-outside="'bottom'"
-          arrows-inside
-          :bullets="true"
-          :slide-ratio="9 / 16"
-          fractions
-          :touchable="false"
-          class="medium"
-          :transition-speed="900"
-          style="background-size: contain"
-        >
-          <vueper-slide
-            v-for="scene in $page.frontmatter.scenes"
-            :image="scene.slide_url"
-            :key="scene.number"
-            :title="scene.scene_title"
-            :content="scene.narration"
-            :class="{ civdeathBorder: scene.death }"
-          >
-            <template v-slot:content>
-              <article class="h-narration" style="flex-direction: column">
-                <h3 v-if="scene.scene_number == scene.scene_title">
-                  {{ scene.scene_number }}
-                </h3>
-                <h3 v-else-if="scene.scene_title">
-                  {{ scene.scene_number }}: {{ scene.scene_title }}
-                </h3>
-                <h3 v-else>{{ scene.scene_number }}</h3>
-                <p class="narrations" v-html="scene.narration" tabindex="0"></p>
-                <p
-                  class="narrations"
-                  v-if="scene.reporter"
-                  v-html="scene.reporter"
-                  tabindex="0"
-                  v-bind:class="{ reporter: scene.reporter }"
-                ></p>
-              </article>
-            </template>
-          </vueper-slide>
-        </vueper-slides>
-      </div>
-      <div v-if="isToggle === false">
-        <section class="scenes">
-          <article
-            class="medium"
-            v-for="scene in $page.frontmatter.scenes"
-            :key="scene.number"
-          >
-            <img
-              v-lazy="scene.slide_url"
-              tabindex="0"
-              alt="CBR In-Game Screenshot"
-              v-bind:class="{ civdeathImage: scene.death }"
-            />
-            <div class="text" v-bind:class="{ civdeathBorder: scene.death }">
-              <h3 v-if="scene.scene_number == scene.scene_title">
-                {{ scene.scene_number }}
-              </h3>
-              <h3 v-else-if="scene.scene_title">
-                {{ scene.scene_number }}: {{ scene.scene_title }}
-              </h3>
-              <h3 v-else>{{ scene.scene_number }}</h3>
+			<div v-if="isToggle === true">
+				<vueper-slides
+					ref="vueperslides2"
+					@slide="
+						$refs.vueperslides1 &&
+							$refs.vueperslides1.goToSlide(
+								$event.currentSlide.index,
+								{
+									emit: false,
+								}
+							)
+					"
+					:slide-ratio="1 / 8"
+					:dragging-distance="10"
+					:visible-slides="8"
+					fixed-height="80px"
+					:arrows="false"
+					:bullets="false"
+					class="first"
+					style="margin-bottom: 1rem">
+					<vueper-slide
+						v-for="(scene, index) in $page.frontmatter.scenes"
+						:image="scene.slide_url"
+						:key="scene.number"
+						@keyup.left="previous()"
+						@keyup.right="next()"
+						@click.native="
+							$refs.vueperslides1 &&
+								$refs.vueperslides1.goToSlide(index)
+						"
+						style="margin: 0 0.2rem"></vueper-slide>
+				</vueper-slides>
+				<vueper-slides
+					ref="vueperslides1"
+					@slide="
+						$refs.vueperslides2 &&
+							$refs.vueperslides2.goToSlide(
+								$event.currentSlide.index,
+								{
+									emit: false,
+								}
+							)
+					"
+					:slide-content-outside="'bottom'"
+					arrows-inside
+					:bullets="true"
+					:slide-ratio="9 / 16"
+					fractions
+					:touchable="false"
+					class="medium"
+					:transition-speed="900"
+					style="background-size: contain">
+					<vueper-slide
+						v-for="scene in $page.frontmatter.scenes"
+						:image="scene.slide_url"
+						:key="scene.number"
+						:title="scene.scene_title"
+						:content="scene.narration"
+						:class="{ civdeathBorder: scene.death }">
+						<template v-slot:content>
+							<article
+								class="h-narration"
+								style="flex-direction: column">
+								<h3
+									v-if="
+										scene.scene_number == scene.scene_title
+									">
+									{{ scene.scene_number }}
+								</h3>
+								<h3 v-else-if="scene.scene_title">
+									{{ scene.scene_number }}:
+									{{ scene.scene_title }}
+								</h3>
+								<h3 v-else>{{ scene.scene_number }}</h3>
+								<p
+									class="narrations"
+									v-html="scene.narration"
+									tabindex="0"></p>
+								<p
+									class="narrations"
+									v-if="scene.reporter"
+									v-html="scene.reporter"
+									tabindex="0"
+									v-bind:class="{
+										reporter: scene.reporter,
+									}"></p>
+							</article>
+						</template>
+					</vueper-slide>
+				</vueper-slides>
+			</div>
+			<div v-if="isToggle === false">
+				<section class="scenes">
+					<article
+						class="medium"
+						v-for="scene in $page.frontmatter.scenes"
+						:key="scene.number">
+						<img
+							v-lazy="scene.slide_url"
+							tabindex="0"
+							alt="CBR In-Game Screenshot"
+							v-bind:class="{ civdeathImage: scene.death }" />
+						<div
+							class="text"
+							v-bind:class="{ civdeathBorder: scene.death }">
+							<h3 v-if="scene.scene_number == scene.scene_title">
+								{{ scene.scene_number }}
+							</h3>
+							<h3 v-else-if="scene.scene_title">
+								{{ scene.scene_number }}:
+								{{ scene.scene_title }}
+							</h3>
+							<h3 v-else>{{ scene.scene_number }}</h3>
 
-              <div
-                class="narrations"
-                v-html="scene.narration"
-                tabindex="0"
-              ></div>
-              <div
-                class="narrations"
-                v-if="scene.reporter"
-                v-html="scene.reporter"
-                tabindex="0"
-                v-bind:class="{ reporter: scene.reporter }"
-              ></div>
-            </div>
-          </article>
-        </section>
+							<div
+								class="narrations"
+								v-html="scene.narration"
+								tabindex="0"></div>
+							<div
+								class="narrations"
+								v-if="scene.reporter"
+								v-html="scene.reporter"
+								tabindex="0"
+								v-bind:class="{
+									reporter: scene.reporter,
+								}"></div>
+						</div>
+					</article>
+				</section>
 
-        <Content class="custom" />
-      </div>
+				<Content class="custom" />
+			</div>
 
-      <div class="page-nav" v-if="prev || next">
-        <p class="nextprev">
-          <span v-if="prev" class="prev">
-            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev"
-              >← {{ prev.title || prev.path }}</router-link
-            >
-          </span>
+			<div class="page-nav" v-if="prev || next">
+				<p class="nextprev">
+					<span v-if="prev" class="prev">
+						<router-link
+							v-if="prev"
+							class="prev"
+							:to="$page.frontmatter.prev"
+							>← {{ prev.title || prev.path }}</router-link
+						>
+					</span>
 
-          <span v-if="next" class="next">
-            <router-link v-if="next" :to="$page.frontmatter.next"
-              >{{ next.title || next.path }} &ensp;→</router-link
-            >
-          </span>
-        </p>
-      </div>
-    </div>
-  </transition>
+					<span v-if="next" class="next">
+						<router-link v-if="next" :to="$page.frontmatter.next"
+							>{{ next.title || next.path }} &ensp;→</router-link
+						>
+					</span>
+				</p>
+			</div>
+		</div>
+	</transition>
 </template>
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
 export default {
-  name: "Albums",
-  data() {
-    return {
-      isToggle: false,
-    };
-  },
-  components: {
-    VueperSlides,
-    VueperSlide,
-  },
-  computed: {
-    prev() {
-      const prev = this.$page.frontmatter.prev;
-      if (prev === false) {
-        return;
-      } else if (prev) {
-        return resolvePage(this.$site.pages, prev, this.$route.path);
-      }
-      // else {
-      //   return resolvePrev(this.$page, this.sidebarItems);
-      // }
-    },
-    next() {
-      const next = this.$page.frontmatter.next;
-      if (next === false) {
-        return;
-      } else if (next) {
-        return resolvePage(this.$site.pages, next, this.$route.path);
-      }
-      // else {
-      //   return resolveNext(this.$page, this.sidebarItems);
-      // }
-    },
-  },
+	name: "Albums",
+	data() {
+		return {
+			isToggle: false,
+		};
+	},
+	components: {
+		VueperSlides,
+		VueperSlide,
+	},
+	computed: {
+		prev() {
+			const prev = this.$page.frontmatter.prev;
+			if (prev === false) {
+				return;
+			} else if (prev) {
+				return resolvePage(this.$site.pages, prev, this.$route.path);
+			}
+			// else {
+			//   return resolvePrev(this.$page, this.sidebarItems);
+			// }
+		},
+		next() {
+			const next = this.$page.frontmatter.next;
+			if (next === false) {
+				return;
+			} else if (next) {
+				return resolvePage(this.$site.pages, next, this.$route.path);
+			}
+			// else {
+			//   return resolveNext(this.$page, this.sidebarItems);
+			// }
+		},
+	},
 };
 
 // function resolvePrev(page, items) {
