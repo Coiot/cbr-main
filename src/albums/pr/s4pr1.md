@@ -18,7 +18,7 @@ scenes:
 - scene_number: 03
   scene_title: "Finns"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene03.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"Are the Finns finished or just Finnish?"</p><p>"Ehhhhhhh, we'll see. People seem really excited with how Ume-Sami and Latvia are starting out and the Finns are doing the whole 'slow European civ' thing that usually ends in an early exit. Next caller!"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?”</p><p>“Are the Finns finished or just Finnish?”</p><p>“Ehhhhhhh, we'll see. People seem really excited with how Ume-Sami and Latvia are starting out and the Finns are doing the whole 'slow European civ' thing that usually ends in an early exit. Next caller!”</p>"
 - scene_number: 04
   scene_title: "Shawnee"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene04.jpeg
@@ -114,7 +114,7 @@ scenes:
 - scene_number: 27
   scene_title: "Osage"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene27.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"What's going on with Osage?"</p><p>"Not much, no rank change, North America is still celebrating Settlefest. Next caller!"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?”</p><p>“What's going on with Osage?’</p><p>“Not much, no rank change, North America is still celebrating Settlefest. Next caller!’</p>"
 - scene_number: 28
   scene_title: "Dai Viet"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene28.jpeg
@@ -122,7 +122,7 @@ scenes:
 - scene_number: 29
   scene_title: "Ndongo"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene29.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"Why are the Ndongo haters jumping around?"</p><p>"Inefficient settling and some lagging stats. Next caller!"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>”CBRX Hotline, how can I help you?’</p><p>“Why are the Ndongo haters jumping around?’</p><p>“Inefficient settling and some lagging stats. Next caller!’</p>"
 - scene_number: 30
   scene_title: "Tiwanaku"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene30.jpeg
@@ -150,7 +150,7 @@ scenes:
 - scene_number: 36
   scene_title: "Visigoths"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene36.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"Is it true that Part 1 rank velocities are sustainable?"</p><p>"Oh you sweet summer child. Next caller!"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?’</p><p>“Is it true that Part 1 rank velocities are sustainable?”</p><p>“Oh you sweet summer child. Next caller!”</p>"
 - scene_number: 37
   scene_title: "Bora Bora"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene37.jpeg
@@ -178,7 +178,7 @@ scenes:
 - scene_number: 43
   scene_title: "Mogadishu"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene43.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?" </p><p>"Mogchamp?" </p><p>"Mogchamp"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?“ </p><p>“Mogchamp?” </p><p>“Mogchamp”</p>"
 - scene_number: 44
   scene_title: "Kazakhstan"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene44.jpeg
@@ -186,7 +186,7 @@ scenes:
 - scene_number: 45
   scene_title: "Noongar"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene45.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"Is it high Noongar yetgar?"</p><p>"No, check back later in a few centuries when Noongar is big enough to have a sustainable standoff on Australia. Next caller!"</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?”</p><p>“Is it high Noongar yetgar?”</p><p>“No, check back later in a few centuries when Noongar is big enough to have a sustainable standoff on Australia. Next caller!”</p>"
 - scene_number: 46
   scene_title: "Wahgi"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene46.jpeg
@@ -242,7 +242,7 @@ scenes:
 - scene_number: 59
   scene_title: "Selkups"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene59.jpeg
-  narration: "<p>Shaggy: </p><p></p><p>"CBRX Hotline, how can I help you?"</p><p>"I'm planning a fishing trip for a little weekend getaway, any suggestions?"</p><p>"Well I hear the Selkups are keeping a good stock in their neck of the woods and have continued to have a strong showing early on. Let's see how the season progresses, though. Next caller! Oh wait, the lines are empty."</p>"
+  narration: "<p>Shaggy: </p><p></p><p>“CBRX Hotline, how can I help you?”</p><p>“I'm planning a fishing trip for a little weekend getaway, any suggestions?”</p><p>“Well I hear the Selkups are keeping a good stock in their neck of the woods and have continued to have a strong showing early on. Let's see how the season progresses, though. Next caller! Oh wait, the lines are empty.”</p>"
 - scene_number: 60
   scene_title: "Seneca"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr1-scene60.jpeg
