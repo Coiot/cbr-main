@@ -16,9 +16,9 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode2-scene02.jpeg
   narration: "<p>Thank you to /u/SiegeSquirrel42 for bringing attention to the fact that we accidentally put two versions of the same civ into the game. Whoops. We shall remedy this in the future by executing Coiot. The king is dead, long live the king.</p>"
 - scene_number: 03
-  scene_title: "The Shit Pit"
+  scene_title: "Pacific Pals"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode2-scene03.jpeg
-  narration: "<p>/u/daXFactor</p>"
+  narration: "<p>Coiot: orangechrisy once again this season brings us her weekly comic! This time around, the focus will be on the civs touching the Pacific. It will be as spicy as the Ring of Fire./p>"
 - scene_number: 04
   scene_title: "Beloved Donators"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode2-scene04.jpg
