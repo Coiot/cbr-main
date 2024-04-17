@@ -79,10 +79,6 @@ scenes:
   scene_title: "It’s Not Bon! It’s Never Bon!"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene18.jpeg
   narration: "<p>The Khoshuts have, in the midst of their settling spree, taken the time to get the religion of Bön in Dam. Presumably we will see the beliefs soon. Anyways Khoshuts have two settlers still in their lands, Harappa is finally getting another settler out and it’s looking to block Khoshut expansion west, and Dai Viet has a settler far too west for it to settle, they’ll need to figure something else out there. Honestly I’m quite rooting for the Khoshuts to do well, maybe if they can get an army out and go take that city in Bengal they can break out of the Himalayas. </p>"
-- scene_number: 19
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene19.jpeg
-  narration: "<p></p>"
 - scene_number: 20
   scene_title: "Blergh!"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene20.jpeg
@@ -314,7 +310,7 @@ scenes:
 - scene_number: 77
   scene_title: "IT’S HIIIIIIIIIGH NOON"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene77.jpeg
-  narration: "<p>YES THIS IS WHAT WE’VE BEEN WAITING FOR! THE AUSTRALIAN DEATHMATCH, THE NO HOLDS BARRED SMACKDOWN OF THE CENTURY! On one side of the continent we have Yagan’s Noongar, here with a hefty force of mostly consisting of archers and Gidjiboryls, which replace the spearman and cost no movement to pillage, along with doubling stolen civilians, they have Maytim already surrounded. In the other corner is the Tarenorerer’s Palawa, down on land but up on the sea, Tarenorerer is gonna want to play safely so that his superior production can kick off, and he’s also gonna want to get that settler to safety QUICK otherwise that’s just two civilians for Noongar. This is certainly a battle for the ages folks. </p>"
+  narration: "<p>YES THIS IS WHAT WE’VE BEEN WAITING FOR! THE AUSTRALIAN DEATHMATCH, THE NO HOLDS BARRED SMACKDOWN OF THE CENTURY! On one side of the continent we have Yagan’s Noongar, here with a hefty force of mostly consisting of archers and Gidjiboryls, which replace the spearman and cost no movement to pillage, along with doubling stolen civilians, they have Maytim already surrounded. In the other corner is the Tarenorerer’s Palawa, down on land but up on the sea, Tarenorerer is gonna want to play safely so that her superior production can kick off, and her’s also gonna want to get that settler to safety QUICK otherwise that’s just two civilians for Noongar. This is certainly a battle for the ages folks. </p>"
 - scene_number: 78
   scene_title: "You Okay Patrick?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene78.jpeg
