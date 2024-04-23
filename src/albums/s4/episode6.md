@@ -13,8 +13,8 @@ scenes:
   narration: "<p>Willkommen, bienvenue, welcome, im CBR, au CBR, to CBR! It’s time for another journey to the Cylinder to check in on our favourite goofballs and their horrifying cycle of bloodsport and murder. When we left off last week, conflict had erupted in Australia, the Oirats were infighting, and South America was boring (I know, I know, tell us something we don’t know).This is LacsiraxAriscal, aka Lacs, aka your showrunner and former chief power ranker, narrating this episode while simultaneously watching the CBR tick by in real time. We’re almost up to t800, so as ever it’ll be a bit of a headfuck to teleport a few millennia back in time. But before we get to the action, it’s time to check in with all our regular weekly shenanigans.</p>"
 - scene_number: 02
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode6-scene02.jpeg
-  narration: "<p>[this slide reserved for if there’s a map?]</p>"
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode6-scene02.png
+  narration: "<p>ExplosiveWatermelon (whose tireless coding is a huge reason as to why this game is running at all) is embarking on a project to draw all of the X4 leaders. I particularly like this take on murderer and house-arrest enthusiast Elizabeth Bathory. Really captures a certain je ne sais quoi. I think it’s the mouth fulla canines that does it.</p>"
 - scene_number: 03
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode6-scene03.jpeg
