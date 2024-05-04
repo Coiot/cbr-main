@@ -2,7 +2,7 @@
 title: "Episode 6: Shifting Sands"
 narrated_by: "LacsiraxAriscal"
 description: ""
-release_date:
+release_date: April 24, 2024
 edition: S4
 date: 2024-04-23T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season4-episode6-scene06.jpeg
