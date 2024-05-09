@@ -9,7 +9,7 @@ image: https://cdn.civbattleroyale.tv/cbrx-season4-episode7-scene06.jpeg
 scenes:
 - scene_number: 01
   scene_title: "[Insert Previously-Unused Welcome Here]"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode7-scene01.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode7-scene01.jpg
   narration: "<p>Hello to all who dare enter the wacky, wild fields of the CBR! Welcome to Episode 7 of this already great CBR. We’ve seen early empires rise and fall, and civilizations once written off staging a Qarmback out of nowhere. What will this newest installment bring? We shall see…</p><p></p><p>If anyone’s wondering about the title, it’s a reference to Hamlet. Not that I’ve ever read Hamlet, I’ve just heard the saying a lot before to reference the beginning of a war or conflict. </p>"
 - scene_number: 02
   scene_title: "The Return of The Map"
