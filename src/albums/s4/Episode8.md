@@ -21,7 +21,7 @@ scenes:
   narration: "<p>Paige: Now, for this week’s OC, is Orangechrisy’s Pacific Pals comic, commenting on the nature of the Shang war, & Zheng’s all too common fate of invading Vietnam. It’s always lovely to see what our girlfriend comes up with for these every week. Personally, we have a soft spot for Ikko-Ikki, though Zheng is finding itself in a strong position this game.</p>"
 - scene_number: 04
   scene_title: "Like What You See? Support the team on Ko-Fi!"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode8-scene04.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene04.jpeg
   narration: "<p>Caitlyn: Anyone who has followed CivBattleRoyale knows how deeply the team loves this project, & it has been going on for long enough that it was a part of our childhood. Unfortunately, not everything can run off of passion alone, if you have anything to spare, please, support the team here & help CBRX keep running! </p>"
 - scene_number: 05
   scene_title: "War on All Fronts"
