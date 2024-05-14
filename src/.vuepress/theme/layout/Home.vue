@@ -50,7 +50,7 @@ export default {
 			return {
 				link: this.data.actionLink,
 				text: this.data.actionText,
-			}
+			};
 		},
 	},
 };
