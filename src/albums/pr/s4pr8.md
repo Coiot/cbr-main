@@ -26,7 +26,7 @@ scenes:
 - scene_number: 05
   scene_title: "Finns"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr8-scene05.jpeg
-  narration: "<p>Msurdej:  </p><p></p><p>The Finns did nothing this partTheir chances still smell like a fartThey go up a rankDespite that they stankSo to talk of them more isn’t smart</p>"
+  narration: "<p>Msurdej:  </p><p></p><p>The Finns did nothing this part</p><p>Their chances still smell like a fart</p><p>They go up a rank</p><p>Despite that they stank</p><p>So to talk of them more isn’t smart</p>"
 - scene_number: 06
   scene_title: "Eswatini"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr8-scene06.jpeg

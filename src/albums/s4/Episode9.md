@@ -2,7 +2,7 @@
 title: "Episode 9: The New Millennium"
 narrated_by: "PorkBean"
 description: "As dawn breaks in the Common Era, battles become  all-out wars as ferocious sieges lay ruin to cities all across the cylinder. Rivals are made into enemies in this exciting installment of the CBRX4."
-release_date: May 21, 2024
+release_date: May 22, 2024
 edition: S4
 date: 2024-05-21T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season4-episode9-scene06.jpeg
