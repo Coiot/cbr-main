@@ -34,7 +34,7 @@ scenes:
 - scene_number: 07
   scene_title: "Finns"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr9-scene07.jpeg
-  narration: "<p>Msurdej:  </p><p></p><p>The Finns are still the stanksThey haven’t unlocked banks   But they made a new cityAnd Sami’s going shitty  So they end up gaining two ranks</p>"
+  narration: "<p>Msurdej:  </p><p></p><p>The Finns are still the stanks</p><p>They haven’t unlocked banks</p><p>But they made a new city</p><p>And Sami’s going shitty</p><p>So they end up gaining two ranks</p>"
 - scene_number: 08
   scene_title: "Alaouites"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr9-scene08.jpeg
