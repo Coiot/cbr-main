@@ -9,7 +9,7 @@ image: https://cdn.civbattleroyale.tv/cbrx-season4-episode10-scene06.jpeg
 scenes:
 - scene_number: 01
   scene_title: "And you may ask yourself: How did I get here?"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode10-scene01.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode10-scene01.jpg
   narration: "<p>My name is Pobby</p><p>I’m narratin’ the episode</p><p>Thanks for support</p><p>But this is how we start</p><p></p><p>Hello all, I’m Argyle/Poblano/something else. I’ve been on hiatus from CBR watchin’ since Mk.2 Traumatized longtime viewers might remember me from such specialties as “The haiku episode.” I’ll forgive you if you repressed the memory.</p>"
 - scene_number: 02
   scene_title: ""
@@ -21,11 +21,11 @@ scenes:
   narration: "<p>The cylinder has turned and left me here</p><p>Just where I was before</p><p></p><p>Thank you u/Sonicfan0511 for the map!!</p>"
 - scene_number: 04
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode10-scene04.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene04.jpeg
   narration: "<p>I'm pretty sure this is where you give the people who run the Royale money. i like those people, give them money.</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr9-scene60.jpeg
   narration: "<p>These power rankings are from last week, meaning they're about as informative about the current episode as my narration will be.</p>"
 - scene_number: 06
   scene_title: "fun fact: salé is french for salt"
