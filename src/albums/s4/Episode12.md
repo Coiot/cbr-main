@@ -21,11 +21,11 @@ scenes:
   narration: "<p>Last episode, Maguindanao got dogpiled. Usually, these dogpiles don’t involve too many relevant war declarations, but Maguindanao has managed to end up with three relevant wars: Wahgi, Zheng, and Noongar. Siam is here too, technically available to send the occasional trireme over to say “I’m helping!”, but let’s be realistic, nobody’s counting them here. Anyway, the comic’s by Orangechrisy. </p>"
 - scene_number: 04
   scene_title: "I love Coiot ♥️"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode12-scene04.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode5-scene04.jpeg
   narration: "<p>Thank you to those who support CBRX monetarily. </p>"
 - scene_number: 05
   scene_title: "Magnificent Maguindanao"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode12-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr11-scene13.jpeg
   narration: "<p>The advantage of being a ranker myself, I can just peep WIP versions. To keep the theme, I’m going to showcase the biggest fall in the PRs: Maguindanao. </p>"
 - scene_number: 06
   scene_title: "Faith won’t silence the dogs of war"
