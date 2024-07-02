@@ -25,7 +25,7 @@ scenes:
   narration: "<p>Thanks to everyone who support the CBRX on Ko-Fi! It wouldn’t be the same without you. </p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode14-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr13-scene14.jpeg
   narration: "<p>We get a look at the PR’s opinions on Burgundy, who suffered the biggest rank loss this week, given their three front war. Will they survive this episode unscathed? You’ll just have to wait and see!</p>"
 - scene_number: 06
   scene_title: "(Good) Hope can’t be shared"
