@@ -31,15 +31,6 @@
 			<div class="footer" v-if="data.footer">{{ data.footer }}</div>
 		</div>
 	</transition>
-  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-  <script>
-    kofiWidgetOverlay.draw('coiot', {
-      'type': 'floating-chat',
-      'floating-chat.donateButton.text': 'Support Us',
-      'floating-chat.donateButton.background-color': '#fcbf47',
-      'floating-chat.donateButton.text-color': '#323842'
-    });
-  </script>
 </template>
 
 <script>
