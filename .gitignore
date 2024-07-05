@@ -3,7 +3,8 @@
 node_modules
 .cache/
 # Build directory
-/public
+/public/albums
+/public/assets
 .DS_Store
 yarn-error.log
 package-lock.json
