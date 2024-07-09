@@ -25,7 +25,7 @@ scenes:
   narration: "<p>As per usual, a massive shoutout to our Ko-Fi supporters! Your generosity is what keeps this show going!</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode15-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr14-scene44.jpeg
   narration: "<p>Our PR slide for the week shows Shang’s rapid fall from grace, slipping from 4th to 17th in the span of an episode! Will Shang be able to recover from these losses? Only one way to find out!</p>"
 - scene_number: 06
   scene_title: ""
