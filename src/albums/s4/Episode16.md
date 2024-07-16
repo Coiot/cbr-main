@@ -1,8 +1,8 @@
 ---
-title: "Episode16: The Tripoints of Torturous Torpidity"
+title: "Episode 16: The Tripoints of Torturous Torpidity"
 narrated_by: "CelestialDalek"
 description: "In which we learn that nobody likes serial killers, Latvians, or military firefighters"
-release_date: July 16, 2024
+release_date: July 17, 2024
 edition: S4
 date: 2024-07-16T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/cbrx-season4-episode16-scene06.jpeg
