@@ -11,7 +11,7 @@
 						Past Power Rankings
 					</a>
 					<a
-						href="https://www.reddit.com/r/civbattleroyale/comments/xoafnn/cbrx_season_3_megathread/"
+						href="https://www.reddit.com/r/civbattleroyale/comments/1bdeygu/cbrx_season_4_megathread/"
 						class="list">
 						New? Join the Show
 					</a>
