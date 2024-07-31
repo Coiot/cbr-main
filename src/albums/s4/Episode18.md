@@ -22,7 +22,7 @@ scenes:
   - scene_number: 04
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode18-scene04.jpg
-    narration: "<p>Thank you, Ko-Fi supporters, for allowing this brilliant community and narrative to exist.</p>"
+    narration: "<p>Thank you, Ko-Fi supporters, for allowing this brilliant community and narrative to exist.</p><p>Coiot: We welcome this week QuantumBotany and PonderousHajj to the board as new supporters of the show! And DocIdo pointedly noticed with his edited slide last week that even though I did the shoutout for Semiconscious I did not upload the correct graphic... so you get a second mention again, n.n</p>"
   - scene_number: 05
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/season4-pr17-scene47.jpeg
