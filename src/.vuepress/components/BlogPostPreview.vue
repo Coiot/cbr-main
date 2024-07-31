@@ -1,38 +1,37 @@
 <script>
 export default {
-  name: 'BlogPostPreview',
+  name: "BlogPostPreview",
   props: {
     item: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     formatPublishDate() {
-      const dateFormat = new Date(this.item.frontmatter.date)
+      const dateFormat = new Date(this.item.frontmatter.date);
       const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
 
-      return dateFormat.toLocaleDateString('en-US', options)
-    }
-  }
-}
+      return dateFormat.toLocaleDateString("en-US", options);
+    },
+  },
+};
 </script>
 
 <template>
-<section class="scenes">
-  <p>{{ abstract }}</p>
-  <div class="medium" v-for="scene in scenes">
-    <h3>{{ scene.scene_number }}</h3>
-    <h2>{{ scene.scene_title }}</h2>
-    <img :src="scene.slide_url">
-    <div v-html="scene.narration"></div>
-    </li>
-  </div>
-</section>
+  <section class="scenes">
+    <p>{{ abstract }}</p>
+    <div class="medium" v-for="scene in scenes">
+      <h3>{{ scene.scene_number }}</h3>
+      <h2>{{ scene.scene_title }}</h2>
+      <img :src="scene.slide_url" />
+      <div v-html="scene.narration"></div>
+    </div>
+  </section>
 </template>
 
 <style scoped>
