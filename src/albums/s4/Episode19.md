@@ -22,7 +22,7 @@ scenes:
 - scene_number: 04
   scene_title: "Filthy Acts For A Reasonable Price"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode19-scene04.jpg
-  narration: "<p>The names of those who gave Coiot money</p><p>Are honoured here, thanks honeys!</p>"
+  narration: "<p>The names of those who gave Coiot money</p><p>Are honoured here, thanks honeys!</p><p></p><p>Coiot: I’ll do anything for a dime</p><p>And so he did, and now he’s doing fine</p><p>Welcome musslememory and the rest</p><p>For your contributions, we are truly blessed</p>"
 - scene_number: 05
   scene_title: "Mystery Meat"
   slide_url: https://cdn.civbattleroyale.tv/season4-pr18-scene34.jpeg
