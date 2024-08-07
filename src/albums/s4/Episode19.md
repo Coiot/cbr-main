@@ -1,7 +1,7 @@
 ---
-title: "Check The Rhyme"
+title: "Episode 19: Check The Rhyme"
 narrated_by: "JDT"
-description: "An action packed-part? Imparted in rhyme? Is that even possible? Find out in time!"
+description: "An action packed-episode? Imparted in rhyme? Is that even possible? Find out in time!"
 release_date: August 06, 2024
 edition: S4
 date: 2024-08-06T00:00:00.000Z
