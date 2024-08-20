@@ -9,7 +9,7 @@ image: https://cdn.civbattleroyale.tv/cbrx-season4-episode20-scene06.jpeg
 scenes:
   - scene_number: 01
     scene_title: "Look Alive, Sunshine"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode20-scene01.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode20-scene01.jpg
     narration: "<p>Hello all, and welcome back to Civ Battle Royale X Season 4! I’m your host for today, u/SiegeSquirrel42 (better known as SiegeSquirrel61 on Discord), and I’ll be taking you through whatever thrills and spills our little virtual world has to offer us this week, with a side of rambling anecdotes and probably biased quasi-lore.</p><p></p><p>I started following the CBR around halfway through Mk2 - genuinely no memory of how I found it. This community’s been a very important part of my life for years now, and so I’ve always felt as though I ought to give back to it, in a way. That and I just thought narrating would be fun. (Which it is! I highly recommend it.)</p>"
   - scene_number: 02
     scene_title: "Previously On"
@@ -21,7 +21,7 @@ scenes:
     narration: "<p>u/daXFactorZ (who us Discord-ians (not to be confused with Discordians) know as NopeCopter) gives an important reminder. You see, one of England’s UUs, the Chevauchee (a Knight replacement), resets the production progress of cities whose territory it enters. Which, if you’ll pardon my saying so, is busted. But like, in the same way the Qarmatians’ UA is busted - i.e. in a really cool way.</p><p></p><p>To make matters worse for Burgundy, England’s other UU, the Longbowman, replaces the Crossbowman. In other words, this current late medieval/early Enlightenment world means Henry’s pretty much throwing every line of code his civ’s got at Charles. But tech is fleeting - today’s cutting edge could very well be obsolete next week. Better make it count.</p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode19-scene04.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode19-scene04.jpg
     narration: "<p>As always, much thanks to everyone who supports the CBR via Coiot’s Ko-fi.</p>"
   - scene_number: 05
     scene_title: "Time Keeps On Slipping, Slipping, Slipping, Into the Future…"
