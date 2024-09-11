@@ -1,5 +1,5 @@
 ---
-title: "Scams, slams, and damns!"
+title: "Episode 21: Scams, slams, and damns!"
 narrated_by: "PlatonOfGlaucon4"
 description: "Ongoing conflicts, and re-emerging rivalries take center stage in this week's action packed installment of the CBRX4."
 release_date: August 27, 2024

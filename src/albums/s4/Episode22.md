@@ -1,5 +1,5 @@
 ---
-title: "Abandonment of Peace"
+title: "Episode 22: Abandonment of Peace"
 narrated_by: "Rhoze"
 description: "The flames of war burn ever brighter in this week’s exciting episode of the CBRX Season 4."
 release_date: September 03, 2024
