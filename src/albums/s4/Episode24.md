@@ -48,7 +48,7 @@ scenes:
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode24-scene10.jpeg
     narration: "<p>Huyustus begs Maria for peace so he can focus on the Dutch hordes, she graciously accepts, confusion in her eyes about why the clearly superior Tiwanaku leader is wanting peace so badly. Well, she can’t complain. </p><p></p><p>Anyways PLEASE BORA ATTACK TEHUELCHE!</p>"
   - scene_number: 11
-    scene_title: "<a href='https://youtu.be/U0TXIXTzJEY?t=222'>Golden Wind</a>"
+    scene_title_html: "<a href='https://youtu.be/U0TXIXTzJEY?t=222'>Golden Wind</a>"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode24-scene11.jpeg
     narration: "<p>While engaged in war, Palawa decides to build the fairly useless wonder of Torre Del Oro, which provides +1 culture, +2 Great Merchant Points, +50% increased range of naval trade routes in the city, and +3 gold for both parties of said trade routes. Well I guess this will let them maybe reach into East Africa or India for trade routes? Idk, still useless.</p>"
   - scene_number: 12
