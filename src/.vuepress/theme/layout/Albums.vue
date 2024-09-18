@@ -185,6 +185,10 @@
               <h3 v-if="scene.scene_number == scene.scene_title">
                 {{ scene.scene_number }}
               </h3>
+              <h3 v-else-if="scene.scene_title_html">
+                {{ scene.scene_number }}:
+                <span v-html="scene.scene_title_html"></span>
+              </h3>
               <h3 v-else-if="scene.scene_title">
                 {{ scene.scene_number }}:
                 {{ scene.scene_title }}
