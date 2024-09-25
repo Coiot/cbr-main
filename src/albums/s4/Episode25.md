@@ -1,5 +1,5 @@
 ---
-title: "Great People, Great Titles, Great Heartache"
+title: "Episode 25: Great People, Great Titles, Great Heartache"
 narrated_by: "Bulletproof Cookie"
 description: "Strained and worn out are the ropes of yesteryear, that a force larger than they have ever tested may finally snap them apart."
 release_date: September 25, 2024
