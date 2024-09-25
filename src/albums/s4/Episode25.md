@@ -17,7 +17,7 @@ scenes:
     narration: "<p>If you need a refresher on the current state of the cylinder, look no further than the weekly maps provided by cartographer Sonicfan0511. Those blobs of color will only grow bigger (or smaller, or scrubbed off the face of the earth) over time.</p>"
   - scene_number: 03
     scene_title: "Almost Halfway Through The Tech tree"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode25-scene03.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode25-scene03.jpg
     narration: "<p>The differences in the number of technologies is becoming noticeably clear as daylight the more advanced the game becomes. As we can see in the CBRX S4 Info Sheet, the Wahgi are currently technologically superior to all other players. They recently discovered Archeology and are now researching Biology.</p>"
   - scene_number: 04
     scene_title: "We Don’t Drink Tea, Only Ko-Fi"
