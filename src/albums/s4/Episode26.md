@@ -21,11 +21,11 @@ scenes:
     narration: "<p>Our OC of the week is yet another installment of Orange/Kit’s ongoing civball comic series, Pacific Pals. In this installment, we focus on Bora-Bora, the best Pacific Island civ we’ve had in any royale thus far. They’re so good, Puni is confident they’ll be able to take on Tiwanaku and Palawa simultaneously. Will he be proven right or wrong this episode? Read (or watch/listen if you’re on the audio-narration) to find out. </p>"
   - scene_number: 04
     scene_title: "Danke schön"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode26-scene04.jpg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode19-scene04.jpg
     narration: "<p>Thank you to all of our Ko-Fi donors for making past seasons, this season and hopefully future seasons possible</p>"
   - scene_number: 05
     scene_title: "Power Rankings"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode26-scene05.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode26-scene05.jpg
     narration: "<p>Goguryeo retains the number 1 spot in the power rankings this week, but our focus is on an entirely different civ. Bora-Bora jumps up 4 spots to reach 6th place, a new record for our Pacific pirates. Boraboraboraboraboraboraboraboraboraboraboraboraboraboraborabora…</p><p></p><p>Anyway, without any further delay, into the action we go!</p>"
   - scene_number: 06
     scene_title: "BORABORABORABORABORABORA"
