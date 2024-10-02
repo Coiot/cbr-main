@@ -25,11 +25,11 @@ scenes:
     narration: "<p>Thank you to all of our Ko-Fi donors for making past seasons, this season and hopefully future seasons possible</p>"
   - scene_number: 05
     scene_title: "Power Rankings"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode26-scene05.jpg
+    slide_url: https://cdn.civbattleroyale.tv/season4-pr25-scene48.jpeg
     narration: "<p>Goguryeo retains the number 1 spot in the power rankings this week, but our focus is on an entirely different civ. Bora-Bora jumps up 4 spots to reach 6th place, a new record for our Pacific pirates. Boraboraboraboraboraboraboraboraboraboraboraboraboraboraborabora…</p><p></p><p>Anyway, without any further delay, into the action we go!</p>"
   - scene_number: 06
     scene_title: "BORABORABORABORABORABORA"
-    slide_url: https://cdn.civbattleroyale.tv/season4-pr25-scene48.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode19-scene06.jpeg
     narration: "<p>In our first action slide of the episode, what action there is. </p><p></p><p>Bora-Bora had just captured Ichabamba, though the city is very easily flippable, due to nearby Tiwanaku units and extremely low health. </p><p></p><p>Over south, Bora-Bora has also started dealing damage to Alegrete. A substantial Tiwanaku force has come to defend it, but it’s both outnumbered and outteched by the Bora-Borans. </p><p></p><p>Up north, Ecuador appears to be charging ineffectively at Lukurmata and Ojjo. </p><p></p><p>Just like last time, Bora-Bora is the more competent contributor to an anti-Tiwanaku coalition. Who woulda thunk. And, I remind you, Bora-Bora is actively making things harder for themselves by going to war with Palawa simultaneously. And they’re still at an advantage. C’mon Bora-Bora. Earn your spot as my new fav civ.</p>"
   - scene_number: 07
     scene_title: "Aotearoan waves"
