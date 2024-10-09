@@ -1,7 +1,7 @@
 ---
 title: "Episode 27: How to Disappear Completely"
 narrated_by: "Poblano"
-description: "Another part narrated by Poblano is unreadable, but the action is undeniable, and there are some fun surprises along the way."
+description: "Another episode narrated by Poblano is unreadable, but the action is undeniable, and there are some fun surprises along the way."
 release_date: October 08, 2024
 edition: S4
 date: 2024-10-08T00:00:00.000Z
@@ -10,11 +10,11 @@ scenes:
   - scene_number: 01
     scene_title: "4 dudes in front of a blue background"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene01.jpg
-    narration: "<p>My name is poblano, I’m writing the part</p><p>Thanks for joining us, but this is starting now</p><p>Come sit next to me, pour yourself some tea</p><p>Just like Coiot made when he couldn’t find sleep</p><p></p><p>Welcome to cbrx s4 episode 24. I hope you’re prepared for an unforgettable luncheon.</p>"
+    narration: "<p>My name is poblano, I’m writing the part</p><p>Thanks for joining us, but this is starting now</p><p>Come sit next to me, pour yourself some tea</p><p>Just like Coiot made when he couldn’t find sleep</p><p></p><p>Welcome to cbrx s4 episode 24. I hope you’re prepared for an unforgettable luncheon.</p><p>[the narrator who called it a part has been sacked]</p>"
   - scene_number: 02
     scene_title: "They fly now"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene02.jpeg
-    narration: "<p>I want a girl who will make OC for no one else</p><p>When I’m writing the part, she puts pacific pals on the sub</p><p>When i’m writing the part, she never leaves the house</p><p>I want a girl who will make OC for no one else</p><p></p><p>Thank you Orange for this hilarious pacific pals comic. I don’t know what I’d do without you. Probably skip this slide, idk.</p>"
+    narration: "<p>I want a girl who will make OC for no one else</p><p>When I’m writing the part, she puts pacific pals on the sub</p><p>When i’m writing the episode, she never leaves the house</p><p>I want a girl who will make OC for no one else</p><p></p><p>Thank you Orange for this hilarious pacific pals comic. I don’t know what I’d do without you. Probably skip this slide, idk.</p><p>[the narrator who replaced the narrator has been sacked]</p>"
   - scene_number: 03
     scene_title: "The world has turned and left me here"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene03.jpeg
@@ -22,7 +22,7 @@ scenes:
   - scene_number: 04
     scene_title: "Buddy Holly"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene04.jpg
-    narration: "<p>What’s with these homies, donating their money?</p><p>Why do they gotta fund?</p><p>What did we ever do for these guys[and gals and non-binary pals]</p><p>That made them so generous?</p><p></p><p>Thank you supporters for your unbelievable aid in keeping this thing going! CBR will never die, thanks to you[note: your funding may not prevent the impending nuclear apocalypse, in which case CBR may die. Sorry about that, but you knew about that possibility when you decided to support CBR.]</p>"
+    narration: "<p>What’s with these homies, donating their money?</p><p>Why do they gotta fund?</p><p>What did we ever do for these guys[and gals and non-binary pals]</p><p>That made them so generous?</p><p></p><p>Thank you supporters for your unbelievable aid in keeping this thing going! CBR will never die, thanks to you[note: your funding may not prevent the impending nuclear apocalypse, in which case CBR may die. Sorry about that, but you knew about that possibility when you decided to support CBR.]</p><p>Coiot: We welcome back Bartok to the screen as our latest donator, having supported continually throughout Season 2 and 3. ☺️</p>"
   - scene_number: 05
     scene_title: "Undone"
     slide_url: https://cdn.civbattleroyale.tv/season4-pr26-scene04.jpeg
@@ -30,17 +30,17 @@ scenes:
   - scene_number: 06
     scene_title: "Surf Wax South America"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene06.jpeg
-    narration: "<p>The sea is foaming like a bottle of beer,The Bora-Bora wave is coming but Tiwanaku ain’t got no fearAnd now the actual part begins. Yeah those Tiwanaku antarctic cities may be fucked. There aren’t enough units here to take both, but with Bora-Bora in position Piquillacta should fall like Omo before it.</p>"
+    narration: "<p>The sea is foaming like a bottle of beer,The Bora-Bora wave is coming but Tiwanaku ain’t got no fearAnd now the actual episode begins. Yeah those Tiwanaku antarctic cities may be fucked. There aren’t enough units here to take both, but with Bora-Bora in position Piquillacta should fall like Omo before it.</p>"
   - scene_number: 07
     scene_title: "Say it ain’t so"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene07.jpeg
-    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like part 15, part 27</p><p>The Shang are drowning in the flood</p><p> </p><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
+    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like episode 15, episode 27</p><p>The Shang are drowning in the flood</p><p> </p><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
   - scene_number: 08
     scene_title: "I write these stupid words"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene08.jpeg
     narration: "<p>In Yelbuga, I feel safe</p><p>No one cares about KazanAn irrelevant peace with Royal Hungary lets us see Kazan. Yikes.</p>"
   - scene_number: 09
-    scene_title: "A part in free verse"
+    scene_title: "An episode in free verse"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene09.jpeg
     narration: "<p>Let’s go away for a while</p><p>You and I, to a Selkup grassland</p><p>Where they speak no word Oirat</p><p>But we conquer their land anyway</p><p></p><p>Yeah, the Selkups are boned. Dzungars have their unique lancers, which upgrade to cavalry and can push enemy units back. That makes it hard to maintain a defense, which in turn allows the Dzungars to set up this absurd number of cannons. </p>"
   - scene_number: 10
@@ -86,7 +86,7 @@ scenes:
   - scene_number: 20
     scene_title: "Thank god thats over"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene20.jpeg
-    narration: "<p>Yesterday I went outside</p><p>With my momma’s mason jar</p><p>Caught a big great war bomber</p><p>When I woke up today</p><p>Looked in on my narration</p><p>She had weezered all away</p><p>No more lyrics in your part</p><p></p><p>I’m pretty sure this is the first plane seen in the part. As you may have known, planes are like, really pretty good for war. Also, more relevant to the action at the moment, Bora Bora gives a suicidal try at taking the Palawa city of Wilcawain</p>"
+    narration: "<p>Yesterday I went outside</p><p>With my momma’s mason jar</p><p>Caught a big great war bomber</p><p>When I woke up today</p><p>Looked in on my narration</p><p>She had weezered all away</p><p>No more lyrics in your episode</p><p></p><p>I’m pretty sure this is the first plane seen in the episode. As you may have known, planes are like, really pretty good for war. Also, more relevant to the action at the moment, Bora Bora gives a suicidal try at taking the Palawa city of Wilcawain</p>"
   - scene_number: 21
     scene_title: "Sing a song of Singapore"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene21.jpeg
@@ -178,7 +178,7 @@ scenes:
   - scene_number: 43
     scene_title: "It’s Prorover"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene43.jpeg
-    narration: "<p>There’s the banger wonder. God I love Prora, its about 5000 times better than the Kremlin. The Wahgi started the part with about 8 happiness, which would be perilously close to the negative if they started conquering. Prora, with its happiness per social policy, will have more than doubled their net happiness. Notre Dame who?</p>"
+    narration: "<p>There’s the banger wonder. God I love Prora, its about 5000 times better than the Kremlin. The Wahgi started the episode with about 8 happiness, which would be perilously close to the negative if they started conquering. Prora, with its happiness per social policy, will have more than doubled their net happiness. Notre Dame who?</p>"
   - scene_number: 44
     scene_title: "It’s Tiwanakover"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene44.jpeg
@@ -210,7 +210,7 @@ scenes:
   - scene_number: 51
     scene_title: "It’s Palawover"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene51.jpeg
-    narration: "<p>Palawa, despite the fact that it has seemed like they would outscale Noongar for the past 27 parts, has largely stagnated. Nevertheless, they declare that they are, in fact, the champions.</p>"
+    narration: "<p>Palawa, despite the fact that it has seemed like they would outscale Noongar for the past 27 episodes, has largely stagnated. Nevertheless, they declare that they are, in fact, the champions.</p>"
   - scene_number: 52
     scene_title: "It’s- ah fuck, that would be my first repeat. It’s Poblanover."
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene52.jpeg
@@ -330,7 +330,7 @@ scenes:
   - scene_number: 81
     scene_title: "We few, we happy few, we band of brothers."
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene81.jpeg
-    narration: "<p>Dijon drops to zero health. It will be over next turn, but will we see it before the part ends? One can only hope.</p>"
+    narration: "<p>Dijon drops to zero health. It will be over next turn, but will we see it before the episode ends? One can only hope.</p>"
   - scene_number: 82
     scene_title: "Damn, these lakes ARE pretty great"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene82.jpeg
@@ -354,7 +354,7 @@ scenes:
   - scene_number: 87
     scene_title: "Too late"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene87.jpeg
-    narration: "<p>The Selkups have, 80 slides into the part proper, finally committed to defending Almaty, Astana, and Al’myak. Unfortunately, they decided to do so after having already lost all three cities. After decades of failing to conquer anything, the Dzungar Khanate is finally ascendant. Fear the horde.</p>"
+    narration: "<p>The Selkups have, 80 slides into the episode proper, finally committed to defending Almaty, Astana, and Al’myak. Unfortunately, they decided to do so after having already lost all three cities. After decades of failing to conquer anything, the Dzungar Khanate is finally ascendant. Fear the horde.</p>"
   - scene_number: 88
     scene_title: "Palawautocracy"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene88.jpeg
@@ -362,5 +362,5 @@ scenes:
   - scene_number: 89
     scene_title: "So long, and thanks for all the Weezer"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene89.jpeg
-    narration: "<p>In our final slide, the Pueblo have made peace with Goguryeo. On the bright side, they didn’t give away any stupid cities in the peace deal. On the dark side, it seems their osage offensive(™) has completely stalemated.</p><p></p><p>That’s it for this part. Thank you for suffering through my narration, I had moderate amounts of fun writing it. Please, tip your waiters, eat healthy, destroy Carthage, participate in the discord collective alt history, listen to Live Through This - Hole, do your homework, don’t join the French foreign legion, and take your estrogen/testosterone(as needed). </p>"
+    narration: "<p>In our final slide, the Pueblo have made peace with Goguryeo. On the bright side, they didn’t give away any stupid cities in the peace deal. On the dark side, it seems their osage offensive(™) has completely stalemated.</p><p></p><p>That’s it for this episode. Thank you for suffering through my narration, I had moderate amounts of fun writing it. Please, tip your waiters, eat healthy, destroy Carthage, participate in the discord collective alt history, listen to Live Through This - Hole, do your homework, don’t join the French foreign legion, and take your estrogen/testosterone(as needed). </p>"
 ---
