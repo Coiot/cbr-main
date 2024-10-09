@@ -10,11 +10,11 @@ scenes:
   - scene_number: 01
     scene_title: "4 dudes in front of a blue background"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene01.jpg
-    narration: "<p>My name is poblano, I’m writing the part</p><p>Thanks for joining us, but this is starting now</p><p>Come sit next to me, pour yourself some tea</p><p>Just like Coiot made when he couldn’t find sleep</p><p></p><p>Welcome to cbrx s4 episode 24. I hope you’re prepared for an unforgettable luncheon.</p><p>[the narrator who called it a part has been sacked]</p>"
+    narration: "<p>My name is poblano, I’m writing the part</p><p>Thanks for joining us, but this is starting now</p><p>Come sit next to me, pour yourself some tea</p><p>Just like Coiot made when he couldn’t find sleep</p><br/><p>Welcome to cbrx s4 episode 24. I hope you’re prepared for an unforgettable luncheon.</p><p>[the narrator who called it a part has been sacked]</p>"
   - scene_number: 02
     scene_title: "They fly now"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene02.jpeg
-    narration: "<p>I want a girl who will make OC for no one else</p><p>When I’m writing the part, she puts pacific pals on the sub</p><p>When i’m writing the episode, she never leaves the house</p><p>I want a girl who will make OC for no one else</p><p></p><p>Thank you Orange for this hilarious pacific pals comic. I don’t know what I’d do without you. Probably skip this slide, idk.</p><p>[the narrator who replaced the narrator has been sacked]</p>"
+    narration: "<p>I want a girl who will make OC for no one else</p><p>When I’m writing the part, she puts pacific pals on the sub</p><p>When i’m writing the episode, she never leaves the house</p><p>I want a girl who will make OC for no one else</p><br/><p>Thank you Orange for this hilarious pacific pals comic. I don’t know what I’d do without you. Probably skip this slide, idk.</p><p>[the narrator who replaced the narrator has been sacked]</p>"
   - scene_number: 03
     scene_title: "The world has turned and left me here"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene03.jpeg
@@ -34,7 +34,7 @@ scenes:
   - scene_number: 07
     scene_title: "Say it ain’t so"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene07.jpeg
-    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like episode 15, episode 27</p><p>The Shang are drowning in the flood</p><p></p><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
+    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like episode 15, episode 27</p><p>The Shang are drowning in the flood</p><br/><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
   - scene_number: 08
     scene_title: "I write these stupid words"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene08.jpeg
@@ -54,7 +54,7 @@ scenes:
   - scene_number: 12
     scene_title: "GetchNivkh"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene12.jpeg
-    narration: "<p>I can’t believe</p><p>What Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><p></p><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
+    narration: "<p>I can’t believe</p><p>What Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><p></p><br/><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
   - scene_number: 13
     scene_title: "This wonder sucks lmao"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene13.jpeg
