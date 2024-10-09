@@ -30,7 +30,7 @@ scenes:
   - scene_number: 06
     scene_title: "Surf Wax South America"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene06.jpeg
-    narration: "<p>The sea is foaming like a bottle of beer,The Bora-Bora wave is coming but Tiwanaku ain’t got no fearAnd now the actual episode begins. Yeah those Tiwanaku antarctic cities may be fucked. There aren’t enough units here to take both, but with Bora-Bora in position Piquillacta should fall like Omo before it.</p>"
+    narration: "<p>The sea is foaming like a bottle of beer,</p><p>The Bora-Bora wave is coming but Tiwanaku ain’t got no fear</p><br/><p>And now the actual episode begins. Yeah those Tiwanaku antarctic cities may be fucked. There aren’t enough units here to take both, but with Bora-Bora in position Piquillacta should fall like Omo before it.</p>"
   - scene_number: 07
     scene_title: "Say it ain’t so"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene07.jpeg
@@ -58,7 +58,7 @@ scenes:
   - scene_number: 13
     scene_title: "This wonder sucks lmao"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene13.jpeg
-    narration: "<p>No there is no other wonderNo there is no other wonderI can’t have any other wonderThough I would, now I never could with orderFaroe continues its wondersluttiness by building the Kremlin. Boy this wonder sucks in vanilla civ 5. Prora and SoL are so much better.</p>"
+    narration: "<p>No there is no other wonder</p><p>No there is no other wonder</p><p>I can’t have any other wonder</p><p>Though I would, now I never could with order</p><br/><p>Faroe continues its wondersluttiness by building the Kremlin. Boy this wonder sucks in vanilla civ 5. Prora and SoL are so much better.</p>"
   - scene_number: 14
     scene_title: "Someone else will look this up"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene14.jpeg
