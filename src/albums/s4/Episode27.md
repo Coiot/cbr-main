@@ -54,7 +54,7 @@ scenes:
   - scene_number: 12
     scene_title: "GetchNivkh"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene12.jpeg
-    narration: "<p>I can’t believeWhat Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><p></p><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
+    narration: "<p>I can’t believe</p><p>What Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><p></p><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
   - scene_number: 13
     scene_title: "This wonder sucks lmao"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene13.jpeg
