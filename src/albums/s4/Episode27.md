@@ -42,19 +42,19 @@ scenes:
   - scene_number: 09
     scene_title: "An episode in free verse"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene09.jpeg
-    narration: "<p>Let’s go away for a while</p><p>You and I, to a Selkup grassland</p><p>Where they speak no word Oirat</p><p>But we conquer their land anyway</p><p></p><p>Yeah, the Selkups are boned. Dzungars have their unique lancers, which upgrade to cavalry and can push enemy units back. That makes it hard to maintain a defense, which in turn allows the Dzungars to set up this absurd number of cannons. </p>"
+    narration: "<p>Let’s go away for a while</p><p>You and I, to a Selkup grassland</p><p>Where they speak no word Oirat</p><p>But we conquer their land anyway</p><br/><p>Yeah, the Selkups are boned. Dzungars have their unique lancers, which upgrade to cavalry and can push enemy units back. That makes it hard to maintain a defense, which in turn allows the Dzungars to set up this absurd number of cannons. </p>"
   - scene_number: 10
     scene_title: "It’s not Palawover."
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene10.jpeg
-    narration: "<p>Nipaluna, we see what it meansSend out units, cuirassers</p><p>But when we peace, it’s all been erased</p><p>And so it seems, only in dreams</p><p></p><p>Noongar and Palawa peace out. Fuck.</p>"
+    narration: "<p>Nipaluna, we see what it meansSend out units, cuirassers</p><p>But when we peace, it’s all been erased</p><p>And so it seems, only in dreams</p><br/><p>Noongar and Palawa peace out. Fuck.</p>"
   - scene_number: 11
     scene_title: "Nothing to do here"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene11.jpeg
-    narration: "<p>I’m tired, so tired</p><p>I’m tired of autocrats (so tired)</p><p>Sami so thin</p><p>The Finns could win</p><p></p><p>A man can dream, right? The Finns have just been biding their time this whole game, and they’ll break out any second now. Any second now. Just like the Atlanta Braves offense.</p>"
+    narration: "<p>I’m tired, so tired</p><p>I’m tired of autocrats (so tired)</p><p>Sami so thin</p><p>The Finns could win</p><br/><p>A man can dream, right? The Finns have just been biding their time this whole game, and they’ll break out any second now. Any second now. Just like the Atlanta Braves offense.</p>"
   - scene_number: 12
     scene_title: "GetchNivkh"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene12.jpeg
-    narration: "<p>I can’t believe</p><p>What Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><p></p><br/><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
+    narration: "<p>I can’t believe</p><p>What Goguryeo’s done to Shang</p><p>What Daji did to her citizens</p><p>Goguryeo’s done to her</p><br/><p>Zheng declares an irrelevant war on the Nivkh. Oh, and Daji recaptures her capital. I hear she’s going to celebrate by bathing in wine.</p>"
   - scene_number: 13
     scene_title: "This wonder sucks lmao"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene13.jpeg
@@ -62,31 +62,31 @@ scenes:
   - scene_number: 14
     scene_title: "Someone else will look this up"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene14.jpeg
-    narration: "<p>Why bother? It’s gonna bore you</p><p>It’s gonna kill when you research it</p><p>This wonder I haven’t seen before</p><p>I won’t look it up anymore</p><p></p><p>I’m like, 90% sure this wonder probably just has some great work of art slots. Probably a great artist point too. Good job wahgi, i’m sure this was a great use of your capital’s very limited production.You know what, I checked anyway and I was basically right to not care. Free golden age and +50% GP generation in the city. That’s like. Mildly useful. </p>"
+    narration: "<p>Why bother? It’s gonna bore you</p><p>It’s gonna kill when you research it</p><p>This wonder I haven’t seen before</p><p>I won’t look it up anymore</p><br/><p>I’m like, 90% sure this wonder probably just has some great work of art slots. Probably a great artist point too. Good job wahgi, i’m sure this was a great use of your capital’s very limited production.You know what, I checked anyway and I was basically right to not care. Free golden age and +50% GP generation in the city. That’s like. Mildly useful. </p>"
   - scene_number: 15
     scene_title: "Least Creepy Pinkerton Song"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene15.jpeg
-    narration: "<p>Why are you so far away from me?</p><p>I need help and you’re way across Csejte</p><p>I could never conquer you, I think it would be wrong</p><p>I’ve got your city, you’ve got my peace</p><p></p><p>Lmfao hungary what the fuck. Hungary peaces out with Bavaria and gives away a city not in any danger. I’m excited to see this when the borders update, fingers crossed its cut off from Bavaria entirely.</p>"
+    narration: "<p>Why are you so far away from me?</p><p>I need help and you’re way across Csejte</p><p>I could never conquer you, I think it would be wrong</p><p>I’ve got your city, you’ve got my peace</p><br/><p>Lmfao hungary what the fuck. Hungary peaces out with Bavaria and gives away a city not in any danger. I’m excited to see this when the borders update, fingers crossed its cut off from Bavaria entirely.</p>"
   - scene_number: 16
     scene_title: "semmit nem emlékszem"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene16.jpeg
-    narration: "<p>And I don’t wanna be a old woman anymore</p><p>It’s been a turn or two since I was out in the war</p><p>Taking booty, kidnapping kids in the night</p><p>It’s time I got back to the murdering life</p><p></p><p>Hey, but don’t worry Hungary fans. She has her UU. It’s not over.</p><p></p>"
+    narration: "<p>And I don’t wanna be a old woman anymore</p><p>It’s been a turn or two since I was out in the war</p><p>Taking booty, kidnapping kids in the night</p><p>It’s time I got back to the murdering life</p><br/><p>Hey, but don’t worry Hungary fans. She has her UU. It’s not over.</p>"
   - scene_number: 17
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene17.jpeg
-    narration: "<p>I asked you to go a Greenland city</p><p>You said you’d never heard of Tyror (How cool is that?)</p><p>How cool is that? So I went to your land</p><p>And built a settler</p><p>Faroe is settling some of the last possible city spots on the cylinder. I’m sure this will help their happiness problems. If they didn’t have those issues, I’d say this kind of makes sense. Faroe’s UB, when built, gives cities two free sheep resources. That means there will be a tiny bit of food here, which is enough for a deity AI.</p><p></p><p></p>"
+    narration: "<p>I asked you to go a Greenland city</p><p>You said you’d never heard of Tyror (How cool is that?)</p><p>How cool is that? So I went to your land</p><p>And built a settler</p><br/><p>Faroe is settling some of the last possible city spots on the cylinder. I’m sure this will help their happiness problems. If they didn’t have those issues, I’d say this kind of makes sense. Faroe’s UB, when built, gives cities two free sheep resources. That means there will be a tiny bit of food here, which is enough for a deity AI.</p>"
   - scene_number: 18
     scene_title: "Fun fact the girl in this song wasn’t even gay, rivers is just dumb"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene18.jpeg
-    narration: "<p>I’m dumb, Yuanjunmiao</p><p>I thought I had finally won</p><p>We were good, as peaced out in my mind</p><p>But peaced out in my mind’s no good</p><p>Oh, Yuanjunmiao in yellow</p><p>Let me know the truth, let me know the truth</p><p></p><p>Yeah, Daji takes back Zhaoje again. With Goguryeo cannons in range, it’s sure to fall again. But this flip fest is now threatening more than just Zhaoje. Yuanjunmiao is now deep in the yellow.</p>"
+    narration: "<p>I’m dumb, Yuanjunmiao</p><p>I thought I had finally won</p><p>We were good, as peaced out in my mind</p><p>But peaced out in my mind’s no good</p><p>Oh, Yuanjunmiao in yellow</p><p>Let me know the truth, let me know the truth</p><br/><p>Yeah, Daji takes back Zhaoje again. With Goguryeo cannons in range, it’s sure to fall again. But this flip fest is now threatening more than just Zhaoje. Yuanjunmiao is now deep in the yellow.</p>"
   - scene_number: 19
     scene_title: "This one’s a stretch"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene19.jpeg
-    narration: "<p>I’m shaking at your touch, your cannons are way too much</p><p>Dzungar, I think Astana’s falling to you</p><p>I’d do bout anything to keep Almaty alive</p><p>Or maybe I would rather settle peace with you</p><p>[Kickass guitar solo]</p><p></p><p>Astana falls to the Dzungar hordes, cutting off Almaty completely from reinforcement. Al’myak doesn’t look safe either. Cities starting with As or Al, beware the hordes. Cities starting with Ak, illusion of safety.</p><p></p>"
+    narration: "<p>I’m shaking at your touch, your cannons are way too much</p><p>Dzungar, I think Astana’s falling to you</p><p>I’d do bout anything to keep Almaty alive</p><p>Or maybe I would rather settle peace with you</p><p>[Kickass guitar solo]</p><br/><p>Astana falls to the Dzungar hordes, cutting off Almaty completely from reinforcement. Al’myak doesn’t look safe either. Cities starting with As or Al, beware the hordes. Cities starting with Ak, illusion of safety.</p>"
   - scene_number: 20
     scene_title: "Thank god thats over"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene20.jpeg
-    narration: "<p>Yesterday I went outside</p><p>With my momma’s mason jar</p><p>Caught a big great war bomber</p><p>When I woke up today</p><p>Looked in on my narration</p><p>She had weezered all away</p><p>No more lyrics in your episode</p><p></p><p>I’m pretty sure this is the first plane seen in the episode. As you may have known, planes are like, really pretty good for war. Also, more relevant to the action at the moment, Bora Bora gives a suicidal try at taking the Palawa city of Wilcawain</p>"
+    narration: "<p>Yesterday I went outside</p><p>With my momma’s mason jar</p><p>Caught a big great war bomber</p><p>When I woke up today</p><p>Looked in on my narration</p><p>She had weezered all away</p><p>No more lyrics in your episode</p><br/><p>I’m pretty sure this is the first plane seen in the episode. As you may have known, planes are like, really pretty good for war. Also, more relevant to the action at the moment, Bora Bora gives a suicidal try at taking the Palawa city of Wilcawain</p>"
   - scene_number: 21
     scene_title: "Sing a song of Singapore"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene21.jpeg
