@@ -222,7 +222,7 @@ scenes:
   - scene_number: 54
     scene_title: "Once more unto the Breach"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene54.jpeg
-    narration: "<p>Burgundy’s forces continue to dwindle in the face of the inevitable English victory. There are just 8 Burgundian military units in this image. For God, King, and Harry!</p><p></p><p>I love Henry V. I wrote an essay on Shakespeare’s play about him. https://pastebin.com/LrcrtPyY Yeah it’s nerdy as fuck to post that, but you’re watching civ AIs fight each other. Deal with it.</p>"
+    narration: "<p>Burgundy’s forces continue to dwindle in the face of the inevitable English victory. There are just 8 Burgundian military units in this image. For God, King, and Harry!</p><p></p><p>I love Henry V. I wrote an essay on Shakespeare’s play about him. <a href='https://pastebin.com/LrcrtPyY'>https://pastebin.com/LrcrtPyY</a> Yeah it’s nerdy as fuck to post that, but you’re watching civ AIs fight each other. Deal with it.</p>"
   - scene_number: 55
     scene_title: "Frigates are good, y’all"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene55.jpeg
