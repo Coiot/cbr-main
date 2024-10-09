@@ -34,11 +34,11 @@ scenes:
   - scene_number: 07
     scene_title: "Say it ain’t so"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene07.jpeg
-    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like episode 15, episode 27</p><p>The Shang are drowning in the flood</p><p> </p><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
+    narration: "<p>Dear daddy, I write you</p><p>In spite of years of silence</p><p>You’ve cleaned up, found Jesus</p><p>Things are good, or so I hearThis city, of Daji’’s </p><p>Awakens ancient feelings</p><p>Like episode 15, episode 27</p><p>The Shang are drowning in the flood</p><p></p><p>A Chinese Dynasty? Losing to Goguryeo? Are we sure this is the Shang and not the Sui? The Shang capital is in Goguryeo’s hands.</p>"
   - scene_number: 08
     scene_title: "I write these stupid words"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene08.jpeg
-    narration: "<p>In Yelbuga, I feel safe</p><p>No one cares about KazanAn irrelevant peace with Royal Hungary lets us see Kazan. Yikes.</p>"
+    narration: "<p>In Yelbuga, I feel safe</p><p>No one cares about Kazan</p><br/><p>An irrelevant peace with Royal Hungary lets us see Kazan. Yikes.</p>"
   - scene_number: 09
     scene_title: "An episode in free verse"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene09.jpeg
