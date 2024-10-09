@@ -18,15 +18,15 @@ scenes:
   - scene_number: 03
     scene_title: "The world has turned and left me here"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene03.jpeg
-    narration: "<p>The cylinder has turned and left me here</p><p>Just where I was before Bora-Bora appeared</p><p>And in Rio Grande’s place, an empty space</p><p>Has filled the void, behind Bento’s face</p><p></p><p>Thank you Sonicfan0511 for the map!!!!!! Your efforts are so appreciated. We love to see England’s slow takeover of the entire map.</p>"
+    narration: "<p>The cylinder has turned and left me here</p><p>Just where I was before Bora-Bora appeared</p><p>And in Rio Grande’s place, an empty space</p><p>Has filled the void, behind Bento’s face</p><br/><p>Thank you Sonicfan0511 for the map!!!!!! Your efforts are so appreciated. We love to see England’s slow takeover of the entire map.</p>"
   - scene_number: 04
     scene_title: "Buddy Holly"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene04.jpg
-    narration: "<p>What’s with these homies, donating their money?</p><p>Why do they gotta fund?</p><p>What did we ever do for these guys[and gals and non-binary pals]</p><p>That made them so generous?</p><p></p><p>Thank you supporters for your unbelievable aid in keeping this thing going! CBR will never die, thanks to you[note: your funding may not prevent the impending nuclear apocalypse, in which case CBR may die. Sorry about that, but you knew about that possibility when you decided to support CBR.]</p><p>Coiot: We welcome back Bartok to the screen as our latest donator, having supported continually throughout Season 2 and 3. ☺️</p>"
+    narration: "<p>What’s with these homies, donating their money?</p><p>Why do they gotta fund?</p><p>What did we ever do for these guys[and gals and non-binary pals]</p><p>That made them so generous?</p><br/><p>Thank you supporters for your unbelievable aid in keeping this thing going! CBR will never die, thanks to you[note: your funding may not prevent the impending nuclear apocalypse, in which case CBR may die. Sorry about that, but you knew about that possibility when you decided to support CBR.]</p><p>Coiot: We welcome back Bartok to the screen as our latest donator, having supported continually throughout Season 2 and 3. ☺️</p>"
   - scene_number: 05
     scene_title: "Undone"
     slide_url: https://cdn.civbattleroyale.tv/season4-pr26-scene04.jpeg
-    narration: "<p>If you want to destroy Burgundy,</p><p>Hold this longbow as I draw the string(as I draw the string)</p><p>Watch them unravel, they’ll soon be ended</p><p>Dying in Dijon, dying in Dijon, they’ve come undone</p><p></p><p>The Hundred Years war is finally ending. It lasted what, 8 millenia longer than real life? Will this victory be enough to make England a contender, or is it too little, too late? </p>"
+    narration: "<p>If you want to destroy Burgundy,</p><p>Hold this longbow as I draw the string(as I draw the string)</p><p>Watch them unravel, they’ll soon be ended</p><p>Dying in Dijon, dying in Dijon, they’ve come undone</p><br/><p>The Hundred Years war is finally ending. It lasted what, 8 millenia longer than real life? Will this victory be enough to make England a contender, or is it too little, too late? </p>"
   - scene_number: 06
     scene_title: "Surf Wax South America"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode27-scene06.jpeg
