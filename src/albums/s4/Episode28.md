@@ -17,7 +17,7 @@ scenes:
     narration: "<p>Our first OC is, as ever, our fantastic community map. I echo my sentiments from my last narration: that I’d like this map even more if it didn’t insist on depicting Makhnovia’s borders so realistically; but overall it is a laudable effort, and a great help to us all in understanding the geo-politics of the game.</p><p></p>"
   - scene_number: 03
     scene_title: "Updated Leovigild civball u/Sonicfan0511"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode28-scene03.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode28-scene03.png
     narration: "<p>To make a change this week I’m highlighting the updated Leovigild civball. I’m assuming the fungus on his head is some kind of parasitic organism native to Asturica that is compelling him to send wave after wave of his own men to die whilst utterly failing to recapture the city and its mind control mushrooms.</p><p> </p>"
   - scene_number: 04
     scene_title: "Ko-Fi Kings town. (I promise there are no more wrestling jokes in this episode)"
