@@ -1,6 +1,6 @@
 ---
 title: "Episode 29: The Dictator Plague"
-narrated_by: "LynnWinn"
+narrated_by: "Rhoze"
 description: "Civilizations crumble and ideologies align in this week’s episode of the CBR."
 release_date: October 29, 2024
 edition: S4
