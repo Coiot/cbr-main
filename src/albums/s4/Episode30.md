@@ -25,7 +25,7 @@ scenes:
     narration: "<p>And of course, where would we ever be without our ever faithful Ko-Fi sponsors! Thank you for helping run the CBR project!</p>"
   - scene_number: 05
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode30-scene05.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/season4-pr29-scene26.jpeg
     narration: "<p>Hot off the PR presses, we see our greatest riser in the PR ranks in the form of the Nivkh. An unexpected grower, their statlines have been consistently nothing short of impressive, catapulting them into contention with mid tier powers</p>"
   - scene_number: 06
     scene_title: "A Stake Through The Heart"
