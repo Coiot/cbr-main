@@ -21,7 +21,7 @@ scenes:
     narration: "<p>L: Using my power of favoritism, this week’s OC pick is Orangechrisy’s Pacific Pals post, False Alarm. I didn’t think you could mess up a war against Ikko-Ikki at this point in the game, but if any civ will make such a mistake, it would be Zheng.</p>"
   - scene_number: 04
     scene_title: "Your regularly scheduled ad read"
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode329-scene04.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode29-scene04.jpeg
     narration: "<p>L: Thank you all who have helped support this project, it means so much to the team behind it, & those who have been following since their childhood, such as us. Let’s keep this project alive as long as possible. If you have some money to spare, feel free to send some to the Blue Cassette team.</p>"
   - scene_number: 05
     scene_title: "Biggest Loser"
