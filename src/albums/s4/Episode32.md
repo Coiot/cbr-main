@@ -9,7 +9,7 @@ image: https://cdn.civbattleroyale.tv/cbrx-season4-episode32-scene06.jpeg
 scenes:
   - scene_number: 01
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode32-scene01.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode32-scene01.jpg
     narration: "<p>Hello everyone and welcome to the Civilization Battle Royale, episode 32! I’m HypnosEye, who narrated an episode some months back, and I’m glad to embark again on that adventure with you today. Many exciting things will happen on our journey: dead people coming back to life, men fighting ghosts, planes in the ocean, surprise scares and unexpected reliefs…let’s start.</p>"
   - scene_number: 02
     scene_title: ""
@@ -21,7 +21,7 @@ scenes:
     narration: "<p>The OC for today, as often, is the new installment of Orangechrisy’s Pacific Pals. Wahgi sure is scary. </p>"
   - scene_number: 04
     scene_title: ""
-    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode29-scene04.jpeg
+    slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode29-scene04.jpg
     narration: "<p>As always, thanks to all the Ko-Fi sponsors for your continued support! You’re the fuel that has kept this project going for many years now. </p>"
   - scene_number: 05
     scene_title: ""
