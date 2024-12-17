@@ -1,6 +1,6 @@
 ---
 title: 'Part 28: MULTIKILL'
-narrated_by: 'ProletariatCossack'
+narrated_by: 'LacsiraxAriscal'
 description: 'When one dead civ isn’t enough!'
 starting_turn: '299'
 release_date: 'November 23, 2015'
