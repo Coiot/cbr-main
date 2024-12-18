@@ -14,7 +14,7 @@ scenes:
   - scene_number: 02
     scene_title: ""
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode36-scene02.jpeg
-    narration: "<p></p>"
+    narration: "<p>Another Civball comic from Anarkitty. Very exciting. Its tough living in Wahgi’s shadow, but some civs seem to manage.</p>"
   - scene_number: 03
     scene_title: "The Map!!!!!!! Yay!"
     slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode36-scene03.jpeg
