@@ -1,5 +1,5 @@
 ---
-title: "Power Rankings: Episode 5"
+title: "Power Rankings: Episode 6"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! The rankings…of power! Dun dun dunnnn!"
 release_date: May 04, 2024

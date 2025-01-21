@@ -1,5 +1,5 @@
 ---
-title: "Keep appeasing the Divines"
+title: "Episode 12: Keep appeasing the Divines"
 narrated_by: "ThyReformer"
 description: "Empires court collapse, while some thrive in chaos."
 release_date: June 19, 2024
