@@ -1,5 +1,5 @@
 ---
-title: "Sunsets in Samara"
+title: "Episode 40: Sunsets in Samara"
 narrated_by: "Semiconscious"
 description: "As more and more civilizations begin sending peacekeepers across the map, chaos and order fight a constant battle: do the strong eliminate the weak, or do the weak get one last opportunity to shine?"
 release_date: January 21, 2025
