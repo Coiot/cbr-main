@@ -25,7 +25,7 @@ scenes:
   narration: "<p>But first, the CBRX is brought to you by: Ko-fi! Support the CBRX for a dollar or more!</p>"
 - scene_number: 05
   scene_title: "Zombie Zenith Zest"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season4-pr40-scene07.jpeg
   narration: "<p>Highlighted from last episode’s Power Rankings is the Zombie Shang who rize a whopping five places as they climb through the tired and tested method of staying very still and being revived unfairly late. The magnitude of this change highlights how many civs fell out of Total War contention last episode, as well as the dire state of affairs for the Dzungars who got ranked one below the Shang at 23</p>"
 - scene_number: 06
   scene_title: "Ili Ills Incoming"
