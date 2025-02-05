@@ -94,35 +94,35 @@ scenes:
 - scene_number: 22
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene22.jpeg
-  narration: "<p>Khoshut generals begin to turn on one another. A civil war looms.</p>"
+  narration: "<p>The tides of war shift once more as Mogadishu launches a daring naval invasion against Singapore, attempting to break their stranglehold on the eastern seas. However, Singapore’s fleet is prepared, and the battle descends into a brutal war of attrition on the high seas.</p>"
 - scene_number: 23
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene23.jpeg
-  narration: "<p>Mogadishu’s navy strikes back, reclaiming lost territory. The tide of war is changing once more.</p>"
+  narration: "<p>The Dzungars, sensing weakness, strike deep into Osage territory, attempting to seize their heartland in a swift assault. The Osage, though outnumbered, mount a fierce defense, turning their river valleys into death traps for the invaders.</p>"
 - scene_number: 24
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene24.jpeg
-  narration: "<p>New Holland, battered but unbroken, has secured a critical victory. Their fate is no longer in others’ hands.</p>"
+  narration: "<p>Meanwhile, Wahgi forces launch a surprise attack on New Holland’s western frontier, hoping to cripple their industrial heartland. The Dutch, however, prove resilient, and the battle turns into a grinding war of attrition.</p>"
 - scene_number: 25
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene25.jpeg
-  narration: "<p>Ndongo’s forces march further than ever before, carving out an empire worthy of legend.</p>"
+  narration: "<p>Selkups and Faroes, former allies, turn against each other in a desperate struggle for dominance in the frozen north. As winter sets in, their forces are locked in an unforgiving stalemate, with neither side willing to yield.</p>"
 - scene_number: 26
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene26.jpeg
-  narration: "<p>The Osage, having overextended, now face their own undoing. The war they started may be the war that ends them.</p>"
+  narration: "<p>Ndongo, having consolidated power in the south, turns its attention toward Sierra Leone, seeking to eliminate their longtime rival once and for all. A massive siege begins, with Sierra Leone’s capital surrounded by overwhelming force.</p>"
 - scene_number: 27
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene27.jpeg
-  narration: "<p>The Selkups, against all odds, have outlasted their foes. Winter is their greatest ally.</p>"
+  narration: "<p>In a stunning reversal, Khoshuts break their uneasy truce with the Bora Bora forces and storm their island strongholds. The once-peaceful archipelago is engulfed in flames as Khoshut warriors fight their way through narrow jungle passes.</p>"
 - scene_number: 28
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene28.jpeg
-  narration: "<p>Sierra Leone fights to the last man. Their banner still flies, but for how much longer?</p>"
+  narration: "<p>Singapore, battered from its naval war with Mogadishu, turns inward, fortifying its core cities. The leadership debates whether to continue fighting or seek allies in the growing chaos. Meanwhile, Yellowknives expand their reach, absorbing smaller remnants of fallen civilizations.</p>"
 - scene_number: 29
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene29.jpeg
-  narration: "<p>Singapore finally makes its move. A desperate offensive, but a necessary one.</p>"
+  narration: "<p>As the battle for Sierra Leone’s capital rages on, reinforcements from the Dzungars arrive unexpectedly. Instead of aiding the defenders, they attack, seeking to claim the city for themselves. Sierra Leone is now besieged on all sides.</p>"
 - scene_number: 30
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene30.jpeg
@@ -130,23 +130,23 @@ scenes:
 - scene_number: 31
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene31.jpeg
-  narration: "<p>The Yellowknives have no intention of stopping. The world will know their name.</p>"
+  narration: "<p>Mogadishu, unable to break through Singapore’s naval defenses, launches a desperate land offensive instead. The move backfires as their supply lines stretch too thin, leaving them vulnerable to counterattacks from an unexpected coalition of Khoshuts and Bora Bora survivors.</p>"
 - scene_number: 32
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene32.jpeg
-  narration: "<p>The Faroes make one final gamble. Win or lose, they will not go quietly.</p>"
+  narration: "<p>Osage forces make a final stand against the Dzungars, but their lines are breaking. With reinforcements unlikely, they retreat into the forests, hoping to wage a guerrilla war. Meanwhile, the Dzungars turn their sights toward the rapidly expanding Yellowknives empire.</p>"
 - scene_number: 33
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene33.jpeg
-  narration: "<p>The world teeters on the brink. Empires are toppling, and only the strongest will remain.</p>"
+  narration: "<p>The great empires are now reduced to their strongest factions. Singapore, Ndongo, New Holland, and Yellowknives stand among the last true powers, while the remaining civilizations either fall in line or face destruction. The world is heading for its final, climactic showdown.</p>"
 - scene_number: 34
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene34.jpeg
-  narration: "<p></p>"
+  narration: "<p>The final alliances are crumbling as desperation takes hold. Singapore and Mogadishu launch a coordinated strike against Ndongo, hoping to eliminate a powerful contender. But Ndongo is prepared, countering with devastating force and pushing their attackers back. The battlefield is becoming a graveyard of fallen empires.</p>"
 - scene_number: 35
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene35.jpeg
-  narration: "<p></p>"
+  narration: "<p>As the war rages on, the tides turn against the Selkups. Their remaining forces are driven into the icy wastes, leaving them vulnerable to a swift and brutal end. Meanwhile, New Holland and Yellowknives engage in a brutal clash, neither willing to give an inch. The world is on the brink of its final reckoning.</p>"
 - scene_number: 36
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene36.jpeg
