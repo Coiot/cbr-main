@@ -10,31 +10,31 @@ scenes:
 - scene_number: 01
   scene_title: "The Calm Before the Storm"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene01.jpeg
-  narration: "<p>Coiot: I was going to do a narration for these slides since the website script requires some text to be present. It has been a few rough work days which left me no time... so enjoy this dumb AI generated slop instead.</p><p>For decades, the world has been at peace, but tensions simmer beneath the surface. In the heart of the Pacific, Bora Bora expands its influence, while the Dzungars sharpen their cavalry for what seems like an inevitable conflict.</p>"
+  narration: "<p>Coiot: I was going to do a narration for these slides since the website script requires some text to be present. It has been a few rough work days which left me no time... so enjoy this dumb AI generated slop instead.</p><p>For decades, the world has been at peace, but tensions simmer beneath the surface. Across the oceans, the islanders of Bora Bora and Singapore flourish, their navies dominating the seas. Meanwhile, Mogadishu thrives as a coastal power, its merchants growing wealthy through commerce and diplomacy</p>"
 - scene_number: 02
   scene_title: "The Rising Threat"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene02.jpeg
-  narration: "<p>The Khoshuts, nestled between giants, secretly form a defensive pact with Mogadishu. Trade agreements are signed, but both sides know that ink dries faster than trust.</p>"
+  narration: "<p>The Yellowknives carve their place in the north, their warriors hardened by the tundra. To the south, New Holland builds vast trade networks, while Ndongo establishes a mighty kingdom in the heart of the continent. The Khoshuts, nestled between giants, secretly form a defensive pact with Mogadishu. Trade agreements are signed, but both sides know that ink dries faster than trust.</p>"
 - scene_number: 03
   scene_title: "New Holland’s Gamble"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene03.jpeg
-  narration: "<p>New Holland sends explorers deep into Ndongo lands, offering advanced weaponry in exchange for access to key rivers. The Ndongo queen listens, but her warriors remain skeptical.</p>"
+  narration: "<p>The first battles erupt as New Holland and the Yellowknives contest the fertile lands between their growing empires. What begins as a series of border skirmishes soon escalates into full-scale war. New Holland sends explorers deep into Ndongo lands, offering advanced weaponry in exchange for access to key rivers. The Ndongo queen listens, but her warriors remain skeptical.</p>"
 - scene_number: 04
   scene_title: "Osage’s Secret Plans"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene04.jpeg
-  narration: "<p>In the shadowed halls of Osage’s capital, emissaries from Selkups and Sierra Leone whisper of a coming storm. An alliance is proposed, but the price may be too steep.</p>"
+  narration: "<p>In the mountains, the Wahgi stand resilient, their warriors defending their territory against all who would seek to claim it. The Osage expand through river valleys, their people forging a stronghold in the heartland. In the shadowed halls of Osage’s capital, emissaries from Selkups and Sierra Leone whisper of a coming storm. An alliance is proposed, but the price may be too steep.</p>"
 - scene_number: 05
   scene_title: "Singapore's Bold Move"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene05.jpeg
-  narration: "<p>Singapore, ever the merchant king, brokers a deal between Wahgi and the Yellowknives. But peace is a fragile thing, and greed an ever-hungry beast.</p>"
+  narration: "<p>Meanwhile, Mogadishu and Singapore eye each other warily, their naval dominance challenged by rival fleets. The trade routes that once united them now spark tension, as each seeks to control the flow of goods and power. Singapore, ever the merchant king, brokers a deal between Wahgi and the Yellowknives. But peace is a fragile thing, and greed an ever-hungry beast.</p>"
 - scene_number: 06
   scene_title: "Faroes on the Defensive"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene06.jpeg
-  narration: "<p>The Faroes prepare for war as whispers of invasion reach their icy shores. A fleet is built, but will it be enough?</p>"
+  narration: "<p>The Faroes prepare for war as whispers of invasion reach their icy shores. A fleet is built, but will it be enough? Ndongo, seeing an opportunity, expands aggressively, its armies marching toward Sierra Leone. The smaller kingdom prepares to defend itself, but it is clear that they stand little chance alone.</p>"
 - scene_number: 07
   scene_title: "A Broken Treaty"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene07.jpeg
-  narration: "<p>The Dzungars, true to their warrior nature, break a truce with the Khoshuts and march toward their capital. The first battle of the war has begun.</p>"
+  narration: "<p>To the west, the Dzungars and Khoshuts, once nomadic horsemen, carve out powerful empires. Their cavalry storms across the plains, overwhelming lesser foes and establishing dominance over the steppe. The Dzungars, true to their warrior nature, break a truce with the Khoshuts and march toward their capital. The first battle of the war has begun.</p>"
 - scene_number: 08
   scene_title: "Mogadishu Strikes Back"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene08.jpeg
@@ -46,11 +46,11 @@ scenes:
 - scene_number: 10
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene10.jpeg
-  narration: "<p>Mogadishu’s navy intercepts an invasion force. The battle rages across the waves, but victory is uncertain.</p>"
+  narration: "<p>The first great war begins. The Yellowknives and New Holland clash in brutal battles, neither willing to surrender. Singapore and Mogadishu engage in fierce naval duels, their fleets battling for control of the seas. Mogadishu’s navy intercepts an invasion force. The battle rages across the waves, but victory is uncertain.</p>"
 - scene_number: 11
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene11.jpeg
-  narration: "<p>New Holland’s militias are outgunned but not outmatched. Against all odds, they hold their ground, but for how long?</p>"
+  narration: "<p>Ndongo’s armies sweep through Sierra Leone, but resistance is stronger than expected. The besieged kingdom fights with desperation, refusing to be erased from history without a struggle.</p>"
 - scene_number: 12
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene12.jpeg
@@ -62,11 +62,11 @@ scenes:
 - scene_number: 14
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene14.jpeg
-  narration: "<p></p>"
+  narration: "<p>The balance of power shifts as Ndongo’s forces finally breach the walls of Sierra Leone’s capital. The kingdom falls, its survivors scattering into the wilderness. Ndongo solidifies its control over the region.</p>"
 - scene_number: 15
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene15.jpeg
-  narration: "<p>The Selkups brace for invasion. Their warriors, clad in furs and armed with iron, prepare to defend their frozen homeland.</p>"
+  narration: "<p>The Selkups and Faroes, once peaceful, now find themselves dragged into conflict. Their lands, rich in resources, are too valuable to remain untouched. The frozen north becomes a battleground. The Selkups brace for invasion. Their warriors, clad in furs and armed with iron, prepare to defend their frozen homeland.</p>"
 - scene_number: 16
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene16.jpeg
@@ -74,7 +74,7 @@ scenes:
 - scene_number: 17
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene17.jpeg
-  narration: "<p>Singapore’s defenses hold strong, but cracks are beginning to show. Can wealth alone stop an army?</p>"
+  narration: "<p>On the seas, Singapore gains the upper hand against Mogadishu, securing dominance over key trade routes. With newfound power, they look toward expansion, setting their sights on the scattered islands of Bora Bora.</p>"
 - scene_number: 18
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene18.jpeg
