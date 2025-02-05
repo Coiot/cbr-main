@@ -10,7 +10,7 @@ scenes:
 - scene_number: 01
   scene_title: "The Calm Before the Storm"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene01.jpeg
-  narration: "<p>Coiot: I was going to do a narration for these slides since the website script requires some text to be present. It has been a few rough work days which left me no time... so enjoy this dumb AI generated slop instead.</p><p>For decades, the world has been at peace, but tensions simmer beneath the surface. Across the oceans, the islanders of Bora Bora and Singapore flourish, their navies dominating the seas. Meanwhile, Mogadishu thrives as a coastal power, its merchants growing wealthy through commerce and diplomacy</p>"
+  narration: "<p>Coiot: I was going to do a narration for these slides so they would not be empty but it has been a few rough work days which left me no time... so instead of an empty slideshow enjoy this completely unrelated dumb AI generated slop instead.</p><p>For decades, the world has been at peace, but tensions simmer beneath the surface. Across the oceans, the islanders of Bora Bora and Singapore flourish, their navies dominating the seas. Meanwhile, Mogadishu thrives as a coastal power, its merchants growing wealthy through commerce and diplomacy</p>"
 - scene_number: 02
   scene_title: "The Rising Threat"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode41.5-scene02.jpeg
