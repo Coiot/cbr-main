@@ -21,7 +21,7 @@ scenes:
   narration: "<p>Once again, the OC I chose for this week was the last pre-TW installation of Kit’s Pacific Pals series, this time showing the bad-comedy-turned-painful-tragedy of Noongar. So close to achieving their royale-long ambition... but too little too late. Total War has come. </p><p></p><p>Also, shoutout to Quantum Botany’s North America map, which might’ve actually landed as the OC of the week had they not chosen the wrong name for Wahgi’s Central American possession. It’s either the Province of Betrayal or the Territory of Betrayal, thank you very much. But yeah, that error aside, check it out on the sub or the discord too if you haven’t already. </p>"
 - scene_number: 04
   scene_title: "Thank"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode42-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode37-scene04.jpg
   narration: "<p>A big thank you to everyone on screen right now for their donations. You make CBRX possible and we wouldn't be enjoying this amazing series without you!</p>"
 - scene_number: 05
   scene_title: "Power Rankings"
