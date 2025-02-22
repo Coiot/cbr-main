@@ -566,7 +566,7 @@ scenes:
 - scene_number: 140
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode43-scene139.jpeg
-  narration: "<p>We can see that the Yellowknives have taken Monterrey, but haven't pushed south to destroy the last of the Betrayal Province. They've instead left that job to New Holland, who's siegeing San Antonio.</p>"
+  narration: "<p>We can see that the Yellowknives have taken Monterrey, but haven't pushed south to destroy the last of the Betrayal Province. They've instead left that job to New Holland, who's siegeing San Antonio.</p>"
 - scene_number: 141
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode43-scene140.jpeg
