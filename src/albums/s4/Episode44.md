@@ -99,10 +99,6 @@ scenes:
   scene_title: "im posting this to r/Hoi4 and getting 50,000 upvotes"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode44-scene23.jpeg
   narration: "<p>The Selkups' capital falls to Gogurt, and they;ve cut off Hsia completely. They probably don’t need to turn every single unit involved in the pincer attack towards Hsia but like fine I guess, leave your new conquests less defended, it’s not like the Selkups can do anything about it. From previous slides it seems the Selkups are much more interested in fighting their weaker neighbors to the west than to defend their own lands. Or maybe they’ve just gone fishing and haven’t come back.</p>"
-- scene_number: 24
-  scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode44-scene24.jpeg
-  narration: "<p></p>"
 - scene_number: 25
   scene_title: "It’s Fuckin’ Minjing"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode44-scene25.jpeg
