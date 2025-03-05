@@ -21,7 +21,7 @@ scenes:
   narration: "<p>And also take a moment to appreciate this meme also by Orangechrisy detailing the very fun and not at all infuriating ranged-unit-only sieges last episode. Not too long and very funny.</p><p></p><p>Unlike Hsia</p>"
 - scene_number: 04
   scene_title: "Web Prayer"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-epsiode37-scene04.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode37-scene04.jpg
   narration: "<p>As always, a massive thank you to all of the Ko-Fi donators who make this show possible. Your support does more than you could ever know.</p>"
 - scene_number: 05
   scene_title: "Who Knows"
