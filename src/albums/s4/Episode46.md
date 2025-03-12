@@ -17,7 +17,7 @@ scenes:
   narration: "<p>My first OC to highlight is actually a series of new OC to keep the community company in the interim between seasons. The Great Game is a game hosted on Youtube by Kazia that is directly inspired by the CBR with a few tiny adjustments to our formula that might shake things up. There are a few innovations therein that we might see next season here as well. I consume our own show almost entirely through the audio on Youtube, so audio folks in particular may enjoy. <a href='https://www.youtube.com/@RajaKazia'>Go over to her Youtube channel</a> to catch up on the releases so far. </p>"
 - scene_number: 03
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode46-scene03.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode46-scene03.jpg
   narration: "<p>I adore written OC on the sub, and SiegeSquirrel42 concludes their short series to coincide with the end of the season. Outside of the narrators, written OC tends to influence the lores of season and is greatly appreciated by myself and others. </p>"
 - scene_number: 04
   scene_title: ""
