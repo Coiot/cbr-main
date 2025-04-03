@@ -74,7 +74,7 @@ scenes:
 - scene_number: 17
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode46-scene17.jpeg
-  narration: "<p>The Maldives flip back to New Holland after a strong Ndongo foray into India. Despite a few Ndongo Sentinel units being seen on screen that can temporarily wrestle away any city in the vicinity, Ndongo’s power projection onto the Indian Ocean is still hampered by rouge Dutch warships and the remnants of Singapore (and Eswatini I guess, ha!l).  </p>"
+  narration: "<p>The Maldives flip back to New Holland after a strong Ndongo foray into India. Despite a few Ndongo Sentinel units being seen on screen that can temporarily wrestle away any city in the vicinity, Ndongo’s power projection onto the Indian Ocean is still hampered by rogue Dutch warships and the remnants of Singapore (and Eswatini I guess, ha!l).  </p>"
 - scene_number: 19
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-episode46-scene19.jpeg
