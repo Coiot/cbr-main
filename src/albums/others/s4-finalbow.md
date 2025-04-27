@@ -1,7 +1,7 @@
 ---
 title: "Season 4 Final Bow"
 narrated_by: "Power-Rankers"
-description: "Power Rankings! The rankings…of power! Dun dun dunnnn!"
+description: "With season 4 having concluded, we take a look back at all 61 civs and decide where we think they REALLY deserved to finish."
 release_date: April 26, 2025
 pr: S4
 date: 2025-04-26T00:00:00.000Z
