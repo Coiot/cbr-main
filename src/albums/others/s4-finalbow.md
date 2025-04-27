@@ -1,5 +1,5 @@
 ---
-title: "Power Rankings: Episode 46"
+title: "Season 4 Final Bow"
 narrated_by: "Power-Rankers"
 description: "Power Rankings! The rankings…of power! Dun dun dunnnn!"
 release_date: April 26, 2025
