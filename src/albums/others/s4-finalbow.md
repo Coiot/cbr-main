@@ -5,250 +5,250 @@ description: "With season 4 having concluded, we take a look back at all 61 civs
 release_date: April 26, 2025
 pr: S4
 date: 2025-04-26T00:00:00.000Z
-image: https://cdn.civbattleroyale.tv/season4-pr46-scene01.jpeg
+image: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene01.jpeg
 scenes:
 - scene_number: 01
   scene_title: "Shawnee"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene01.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene01.jpeg
   narration: "<p>Leman:</p><p></p><p>Well, Shawnee sucked. We all knew they were gonna suck. It's hard to be the American civ that starts in the middle of it all. Shawnee was a civ that didn’t open Liberty or Tradition, got quickly boxed in and rushed down without the strength, bonuses, or moxie to fight against all their neighbors. Even though they were a patent failure, Shawnee at least got to sit in the sub for a second or two when they grabbed that city from Mexico. They promptly died, I know, but dying right after your finest moment turned out to be something of a theme this cbr. </p>"
 - scene_number: 02
   scene_title: "Rio Grande"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene02.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene02.jpeg
   narration: "<p>JDT: </p><p></p><p>Sometimes there are just civs that live doing nothing and die doing nothing. Rio Grande slots into that niche pretty well. In retrospect, they are eerily similar to another cool civ that was just absolutely hammered by neighbouring powers notably stronger than they were - X3 Brazil. Both came into the royale with very solid mid-tier projections, being seen as nations with decent past results and decent AI who are hampered by being hemmed in by bigger fish. Both proceeded to buttfumble the chances they had by not settling well early, which was further devastated by game-ruining wars with a much stronger neighbour up north. While it did take a while for them to die, they were on the backfoot from the start, getting pummeled by New Holland, Tiwanaku and even Bora Bora. Really, their biggest contribution is acting as an engine for two of the games most memorable powers in Tiwanaku and Bora. Maybe next time we can get the cowboy, and not the cow. </p>"
 - scene_number: 03
   scene_title: "Rozvi"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene03.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene03.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>The Rozvi were a civ that filled an unappreciated role in the epic that was X4 - that of an early-game conqueror struck down for their bloodthirstiness, someone to establish the stakes and then quickly get snuffed out. They had their one cool moment, and then spent the rest of the game rotting - a really unfortunate fate for such a cool civ (I’m not biased trust me). I suppose it’s not all bad, their one cool moment was still more than what some other civs achieved, but there’s a reason they’re third-to-last on the rankings - one city capture doesn’t make up for all the time spent as a rump state.</p>"
 - scene_number: 04
   scene_title: "Mamluks"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene04.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene04.jpeg
   narration: "<p>Cloudy:</p><p></p><p>The Mamluks originally finished in a dismal 52nd, but we decided that still wasn’t bad enough and dropped them to 58th. They tried a little bit at the start but then they got absolutely destroyed and deserved it.</p>"
 - scene_number: 05
   scene_title: "Visigoths"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene05.jpeg
   narration: "<p>Reformer: Visigoths are possibly the worst civ to survive to the top half of civs. All you need to see is the -34 on the slide. They barely deserve a mention. To match their non-existent presence in the game. Let’s hope next season’s Iberia is a bit more lively. </p>"
 - scene_number: 06
   scene_title: "Crow"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene06.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene06.jpeg
   narration: "<p>ECH:</p><p></p><p>Oh, Crow. Your leader has such a cool IRL history, it actually quite saddens me that this is where you end up but it’s hard to justify any higher, truly. I suppose we can all be glad you had one slight bright spot in the early episodes - that one counter-invasion that looked set to take down the Yellowknives - that may give some folks satisfaction that you have potential. Not here though, Joe Medicine Crow.</p>"
 - scene_number: 07
   scene_title: "Finns"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene07.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene07.jpeg
   narration: "<p>Cloudy:</p><p></p><p>Hahahahaha. Oh dear. The Finns did nothing all season, never captured a city, and wrote themselves out of the game through sheer laziness. With only 5 cities to their name, they would have died quickly if someone remembered that they existed, so we’ve dropped them a whopping 22 places. </p>"
 - scene_number: 08
   scene_title: "Florida"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene08.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene08.jpeg
   narration: "<p>Orange:</p><p></p><p>Florida stays here at the bottom, they really did not do much in the royale and kinda just waited for their defeat. What I find more interesting is that they feel like they had more presence than this because they got eliminated in part 26. It feels like they did more than they actually did, but MacGregor’s greatest scam was making us think he’d be more crazy than he was.</p>"
 - scene_number: 09
   scene_title: "Dai Viet"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene09.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene09.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>Vietnam in the CBR has always been a land of extremes. On the one hand, you have Mk. 2’s Vietnam, one of the mightiest and most iconic civs in series history, seizing Southeast Asia and southern China and then tearing west all the way to the gates of the Middle East. Then, on the other hand, you have X2’s Vietnam, maybe the shittiest civ in series history, who did practically nothing of note whatsoever. Dai Viet unfortunately leaned more towards the latter end of the spectrum - they were a defensive and religious powerhouse, sure, but they never fought a good war in their entire history and they crumbled as soon as their natural defenses faltered. They died in 54th, and that’s about where they deserved to land. At least the holy wars were fun.</p>"
 - scene_number: 10
   scene_title: "Tehuelche"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene10.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene10.jpeg
   narration: "<p>ECH:</p><p></p><p>Maria did bad. Honestly, to my mind, a real F tier performance overall, bottom 5 even (although clearly my peers are a tad more generous). Here’s the thing, everyone recognises that the Southern Cone of South America is a fairly difficult starting region, with mediocre terrain, slow movement and a tendency to get boxed in by civs to the north that start stronger and can block off the hills to get further up. The thing is, the Tehuelche had the capacity to surpass these barriers, plenty of land and a failed neighbour in Rio Grande they could have taken advantage of. Instead, the Tehuelche settled slowly and were shockingly bad at building up the cities they did build; in the CBR the quiet lynchpin of victory is infrastructure, developing your land and thus having great stats. Look at the Afsharids or eventual winner Goguryeo for the opposite of Tehuelche, who had bare lands and 7 science by the end of episode 2. Bora-Bora showing up and clowning on them was the perfect lesson ender, and I think Tehuelche should be grateful for 52nd here.</p>"
 - scene_number: 11
   scene_title: "Royal Hungary"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene11.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene11.jpeg
   narration: "<p>CelestialDalek:</p><p></p><p>Royal Hungary’s life was disappointing. They started out with a quick and dirty war against Bavaria where they took Regensburg, making up for their tepid settling pace. Unfortunately, it didn’t help enough. After the initial war, they stagnated, while Latvia and Bavaria quickly boxed them in. The walls were closing in on them when Latvia took Komarom. The walls closed in on them when a nasty coalition war led to them losing half of their remaining cities. It looked like they had some more hope when they and Latvia teamed up on Bavaria. But it wasn’t enough. It never was. Bathory tried a lot of things, but never committed hard enough. She was more focused on a long-distance relationship with Daji. At long last, the two serial killers are together in the Babyloanian submarine, making out and killing their servants for shits and giggles. I think that’s all that she wanted, really. </p>"
 - scene_number: 12
   scene_title: "Alaouites"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene12.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene12.jpeg
   narration: "<p>Reformer: Well, I’ll be real, it was a pretty pathetic attempt. At this point I’m not sure Morocco is that great of a TSL. Back in mk2 Morocco did do better, but it’s a nominal improvement. I don’t remember if Morocco was coastal, but for Alaouites being unable to improve sea resources is a pretty big malus. The region doesn’t exactly lend itself to food richness. Now we do know that food-poor regions can produce strong contestants (e.g. Tiwanaku), but I have to imagine that more often than not, this is a serious setback. Sure, it saved them from naval invasions a few times, but I’m not sure the prize is worth the cost here. Maybe we should just give a Tunis TSL a chance again…but I really like the Almohads…agonizing. Let’s hope one of these guys can walk in the Vandals’ footsteps, because Alaouites certainly wasn’t it. </p>"
 - scene_number: 13
   scene_title: "Maguindanao"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene13.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene13.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>The Philippines are a truly cursed region in the CBR, seemingly destined never to have a successful contender. Maguindanao was admittedly created in part to try and break that curse, with their militaristic biases and strong position that miraculously worked much better in the CBR than it did in any of my test games. Unfortunately, it’s not called a curse because it produces the expected outcome. Like Mk. 2’s Philippines before them, Maguindanao was reduced from a genuine contender to an early grave by constant, relentless invasions from all sides. Admittedly, with an overperforming Singapore on one side and the Wahgi on the other, maybe Maguindanao never truly stood a chance to begin with. But it’s clear from their highest highs that 60th was far, far too low a rank for Maguindanao. 49th still isn’t impressive by any means, of course, but hopefully this 11-rank jump better reflects just how hard Mag fought.</p>"
 - scene_number: 14
   scene_title: "Kalmyks"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene14.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene14.jpeg
   narration: "<p>Cloudy:</p><p></p><p>The Kalmyks may have finished 39th, but we think 48th is more appropriate for the civ that was first to lose its capital, miraculously got it back, lost their second city, and then never recovered. They spent most of the game as an irrelevant rump and gave away some of the few cities they already had to civs like Bukhara. They might have ended up even lower in the final bow if they hadn’t posthumously won our hearts by spawning back in every turn during total war due to an unexpected quirk of their unique ability, making them nearly impossible to kill.</p>"
 - scene_number: 15
   scene_title: "Harappa"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene15.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene15.jpeg
   narration: "<p>Leman:</p><p></p><p>Harappa shows that even if you have a strong early game economy, if you do not settle, you don’t build any army, you’re just going to slowly get ground down by your neighbors. Being killed off by the Khoshuts was just embarrassing. However, for that strong economy, and that slight bit of potential Harappa showed in the early game, they get this sizeable bump in the final bow. Also I like them.</p>"
 - scene_number: 16
   scene_title: "Seneca"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene16.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene16.jpeg
   narration: "<p>Leman:</p><p></p><p>Seneca ended up leaving me with a positive impression in my mind, because of how scrappy and tenacious they ended up being, but make no mistake, they did a bad job. This is the civ we put in second place at the start of the game and here they are rounding out the bottom quartile. Because despite all their antics, they did a bad job.</p>"
 - scene_number: 17
   scene_title: "Kazakhstan"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene17.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene17.jpeg
   narration: "<p>Orange:</p><p></p><p>Not gonna lie I looked at this and thought “what the fuck did Kazakhstan do why are they 45th?” But apparently they had an actual empire for a bit going up the urals and into the arctic, so that was neat. They then got their shit rocked by the Selkups.</p>"
 - scene_number: 18
   scene_title: "Makhnovia"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene18.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene18.jpeg
   narration: "<p>Cloudy:</p><p></p><p>Makhnovia died right about where we felt they should. They struggled for most of the game but they had at least a little bit of spark to them, a fleeting demonstration of life and grit and spirit. Too bad they made a lot of really bad decisions and it was all for nothing. At least they fought until the end.</p>"
 - scene_number: 19
   scene_title: "Burgundy"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene19.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene19.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>Burgundy was a civilization that, in a just world, would have been a regional power. They settled well, fought well, and managed the nightmarish scenario of constant coalition wars about as well as they could have. If not for one mistake, not pushing England off the mainland, perhaps they could have even gotten away with it. Instead, the cheap tactics of their neighbors brought them down before their time. Burgundy sees a healthy raise in their final score because, yeah, from an objective standpoint they spent most of the game in a MUCH better position than any of their neighbors, they played the game well, and they only died as early as they did because their neighbors wouldn’t lay off them. So long, and thanks for making the Hundred Years’ War an actually entertaining regional rivalry.</p>"
 - scene_number: 20
   scene_title: "Eswatini"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene20.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene20.jpeg
   narration: "<p>Cloudy:</p><p></p><p>Eswatini ended up pretty much where they deserved—not in the bottom-most bottom tier, but in the next tier above that, the chronic no-hopers. Their game was far from uneventful—they fought in many wars, settled Madagascar, and defended heroically against numerous neighbors—but they had a bad habit of giving away cities in peace treaties and hemorrhaging outlying cities to civs they could have beaten, starting from episode 2 when they lost their second city to Rozvi. Later, they kept making impressions on us by getting repeatedly liberated and refusing to stay dead. But sadly for them, most of those impressions were pretty bad.</p>"
 - scene_number: 21
   scene_title: "Nivkh"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene21.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene21.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>Heart. Grit. Clutch. Momentum. Wanting It More. These are the five Poblometrics, the truest and most accurate method of measuring a Civ’s odds of success, measuring not what a civ theoretically is but what their true essence is. This method of ranking was first devised as a way to explain how the Nivkh were beating the seemingly-superior Ikko-Ikki, in a way making the Nivkh the icon of the Poblometrics. Which is hilarious, considering how the Nivkh fumbled a chance at relevance so hard. They did admittedly have solid stats, and most of their failures came from their unfortunate position between Goguryeo and the Thule, but they only even ended up in that mess because they failed to take completely undefended Goguryeo lands. Most of their game was just a respectable but ultimately fruitless struggle for survival. In the high 40s they go.</p>"
 - scene_number: 22
   scene_title: "Taino"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene22.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene22.jpeg
   narration: "<p>Reformer: </p><p></p><p>Taino is the second-best Caribbean civ we’ve had. Yyyeah. I mean the competition is Jamaica and Haiti. Which ain’t much. But also Buccs! So you know what the region can do when the stars align. Unfortunately for the civs that came after the Buccs, it seems that the stars will only align once. In this context of incredibly abysmal performance, Taino’s run is pretty alright. I mean, they lived till 28th! That’s gotta be worth something. They didn’t do much besides live long and maintain respectable tech, but hey, baby steps, baby steps. At this rate, we’ll have a top ten power out of Caribbean in like…a few years. Something to look forward to!</p>"
 - scene_number: 23
   scene_title: "Qarmatians"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene23.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene23.jpeg
   narration: "<p>Orange:</p><p></p><p>The Qarmatians had a fun life, they absolutely sucked except for a few sparse moments of ecstasy, and an incredible number of revives. They started out failing to settle at all, then pulled out a huge win against the Afsharids then followed it up with a few more nice captures, before going back to doing jack shit until they got eliminated. Then the real fun happened as they got revived an incredible number of times and no I’m not going to count how many, but it’s a lot, maybe the most we’ve ever had.</p>"
 - scene_number: 24
   scene_title: "Vijayanagara"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene24.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene24.jpeg
   narration: "<p>Reformer: </p><p></p><p>I feel very vindicated by Vijayanagara’s performance, and further by what seems like will be a very meagre legacy. I was assured they would do well, and look how that went! Disappointment, disappointment, disappointment.There was a brief period where they were kind of gaming, but it was brief indeed. At most they were impressive when defending, but it’s not hard to defend when the terrain is rough and the approaches are limited. They made South India into their prison and then cherished it like it was something worth celebrating. Let’s hope we’ll get a good South Indian contestant next season. </p>"
 - scene_number: 25
   scene_title: "Ecuador"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene25.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene25.jpeg
   narration: "<p>JDT: </p><p></p><p>Ecuador is one of the civs ever. They aren’t the most egregiously boring civ. But to call them exciting is a gross mischaracterization. Hemmed into Northern South America, Ecuador never really got a chance to shine due to the Amazon and the strong settlements of their neighbours. All they really wound up doing was developing at a leisurely pace whilst building an army, the perennial mid tier. Wars with New Holland and Mexico both failed to create any expected gains thanks to jungle terrain and their own incompetence. Eventually, however, Ecuador did something that such notable nothingburgers like Kurdistan and the Finns failed to do - they took a city. Granted, it's the worst city capture of all time, requiring multiple parts to take Lukurmata from a collapsing Tiwanaku and eventually failing to finish the job, leaving Bora Bora and New Holland to scramble for the remains. But hey, that fumble prevents them from being the most forgettable civ of all time, because at least they have a failure people will remember them for. Also, when they got swept by Mexico, that was at least a pretty exciting part, so I gotta give em that. </p>"
 - scene_number: 26
   scene_title: "Bavaria"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene26.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene26.jpeg
   narration: "<p>Reformer: </p><p></p><p>Bavaria was a pretty cool civ in like the first five episodes. Or something like that. Being cool for one eighth of a season doesn’t net you much sympathy, so down they go. 36th seems more apt. Though personally I would’ve put them even lower, somewhere in the 40s. </p><p></p><p>Now that I think about it, Bavaria essentially had gifted child syndrome. That’s rough buddy.</p>"
 - scene_number: 27
   scene_title: "Dzungars"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene27.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene27.jpeg
   narration: "<p>Reformer: </p><p></p><p>Yeah sure they lived pretty long, but so what? The most memorable part of Dzungars was fielding an outdated army the whole game, followed by failing to cripple Selkups, followed by failing to cripple Khoshuts. Awful things to remember a civ by. Ah, early on they looked…well, mildly promising! I never held much hope for these guys, I’ll be real. But my hope for them was never zero. It would’ve been such a cool reversal. Snatching victory from the jaws of defeat. But naaahhh had to be a gremlin. That’s what really unites the three Oirats of the season. They were all just fucking around. I think that’s worth respecting. </p>"
 - scene_number: 28
   scene_title: "Mongolia"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene28.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene28.jpeg
   narration: "<p>ECH:</p><p></p><p>In a very rare case for a Final Bow, Mongolia has ended up in the same rank they died in, huh! What’s up with that? Well, I can speculate that they were a prototypical ‘fine’ civ. They had some cool moments surpassing ‘fine’ - like their adoption of Freedom and the pushbacks against Shang - alongside some mediocre moments like the initial losses to Shang that dented their average, but the usual perception of Mongolia was ‘fine’. They settled fine, had fine enough stats, had a fine spattering of fans but rarely outright hype, and died in a fine, semi-heroic but ultimately irrelevant last stand to the season winner. As such, why deviate from the rank they died in, it’s already a fine enough place to put them!</p>"
 - scene_number: 29
   scene_title: "Siam"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene29.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene29.jpeg
   narration: "<p>JDT: </p><p></p><p>Siam could’ve been so much more man. They had such a glowing and fun set of test performances and such a cool unique line. They played their early game to a tee, settling excellently and building a good tech turtle. Then they just kinda did nothing for a while. It was frustrating. By the time they realized they had to actually do things to win the game, it was too little too late. They were too lethargic when attacking the remnants of Vietnam, were thoroughly outscaled by Singapore and Zheng, and failed to capitalize on the failures of India’s clown trio. Really, when Singapore came knocking, it was no surprise they folded. What was surprising was that their final death came at the hands of Gogurt and Wahgi, the first symptom of the global projection that defined the endgame. I really wanted to like Rama. But he didn’t give me enough reasons to like him. </p>"
 - scene_number: 30
   scene_title: "Bukhara"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene30.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene30.jpeg
   narration: "<p>Reformer: </p><p></p><p>Bukhara was one of my favorites. Not to begin with, though. I voted for Khiva or something, and notably I was and still am a massive Afsharid fan. But they had so much grit, heart, clutch, and wanting it more. How could you not love these spicy lil guys? Always showing off bigger civs like it was no big deal. Central Asia can be proud, Bukhara did the region well. It’s a rough TSL to pull off, as we’ve seen. Siberia is just next door, the Himalayas are impregnable, and civs from the south are often hard to contend with too. The neighborhood certainly doesn’t help. Mostly flat terrain with tough neighbors…yikes. Makes Bukhara all that much more impressive. Kudos to them. </p>"
 - scene_number: 31
   scene_title: "Ume-Sami"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene31.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene31.jpeg
   narration: "<p>CelestialDalek:</p><p></p><p>High Ume-Sami is incredibly generous. They might not have been Visigoth levels of useless, but they were pretty much invisible the entire game. Just how useless? Their second city capture was during total war. The entire game, they looked like a mid-tier contender, able to take on the Finns, but they never did. They lost one war to the Faroes, gave up, and ate shit until they died of shit poisoning. We ranked them fairly high consistently because we thought that they’d wake up somewhere, somehow, and do something. But they never did. They skipped work every day of their life and then retired. Fuck you, Ume-Sami, for getting our hopes up that you’d paint the map in your beautiful colors. I regret ranking them 39th, because they deserved lower and I didn’t remember just how fucking useless they were until I started writing this. </p>"
 - scene_number: 32
   scene_title: "Khoshuts"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene32.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene32.jpeg
   narration: "<p>CelestialDalek:</p><p></p><p>The Khoshuts deserved better. They looked like they were doing mediocre in the very beginning, until an utterly moronic peace deal led to them ceding the unthreatened city of Lhasa to the Dzungars and making their empire into a bizarre snake-like creature. Then, for a while, they did absolutely nothing. </p><p></p><p>Until they killed Harappa. </p><p></p><p>All of Harappa’s neighbors were ganging up on them, but by some miracle the Khoshuts came out of the coalition war with ALL of Harappa’s cities. This didn’t make them a major power by any means, but they were respectable. They became even more respectable by fending off a coalition war and retaking Lhasa. But then, the Afsharids came, and ate their empire in one gulp.</p><p></p><p>The Khoshuts played quite well after their initial diplomatic blunder. In the end, that diplomatic blunder probably wouldn’t have helped much. They were never a frontrunner: Harappa was so small that their complete capture turned the Khoshuts only into a mid-tier power. It’s fitting that they’re pretty much right at the middle.</p>"
 - scene_number: 33
   scene_title: "Kanem-Bornu"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene33.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene33.jpeg
   narration: "<p>Reformer: </p><p></p><p>Kanem-Bornu belongs to that caste of most respectable civs: the caste of underdogs that punched above their weightclass. For the vast majority of their existence they were fighting statistically superior foes, and without fail, they triumphed. The most staggering of these triumphs was against Saba-D’mt, of course - the promised child of Africa, with everything given to them on a silver platter. Kanem humiliated them twice, if memory serves. Of course, Kanem did eventually die, but it was a life well lived, full of underdog adventures. What more could you hope for?</p>"
 - scene_number: 34
   scene_title: "Noongar"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene34.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene34.jpeg
   narration: "<p>Orange:</p><p></p><p>Noongar got shafted, it’s gotta be said. They were shafted nearly the entire game, sadly often of their own accord. They were in constant struggle the whole time and I feel sorry for them. And you know what the total war hurt them most, Palawa should’ve died before them, they got shafted there too. But within all the shafting, their own inability to break out brings them down here to the low 20s.</p>"
 - scene_number: 35
   scene_title: "Kazan"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene35.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene35.jpeg
   narration: "<p>Reformer: </p><p></p><p>Kazan is harder to judge. I suppose, then, it makes sense that they more or less keep their middling position just above 30. Kazan got off to a middling start, peaked when Kazakhstan collapsed, and then continued on a middling trajectory. Most people, including rankers, probably remember them for that brief time in the spotlight, and so they get to stay in the top half of civs, even if just by their average rank they should probably be lower.</p>"
 - scene_number: 36
   scene_title: "Saba D’mt"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene36.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene36.jpeg
   narration: "<p>JDT: </p><p></p><p>Saba is weird. At the very start of the game, we saw them fall to the valleys of last place, wrought by their inactive settling and the Mamluks forward settling them in Sudan. But then something incredible happened. Buoyed by Mogadishu’s massive trade routes, Saba entered their first golden age, supercharging their production and growth from bottom feeders to the best in the cylinder. With this immense production spike, they built a strong empire, bloodying the Mamluks and Kanem Bornu and rising to become one of Africa’s big three thanks to the retention of a pretty good statline. Unfortunately, pretty good was all we ever got of them. </p><p></p><p>Scraps with Ndongo, Sierra Leone and Pontus went nowhere, while their “pretty good” stats began to look increasingly dismal thanks to their neighbours simply outscaling them. Meanwhile, their whipping boy of Mogadishu managed to somehow recover from perpetual mediocrity and build a very advanced statline for themselves going into the endgame. Follow this up with continued stalled wars, and you got a recipe for a downfall, brought expressly at the hands of Mogadishu and Sierra Leone. As other PRs have stated before, they went from zero to hero back to zero again. </p>"
 - scene_number: 37
   scene_title: "Ikko-Ikki"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene37.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene37.jpeg
   narration: "<p>Reformer: </p><p></p><p>As far as Japanese civs go, Ikko was pretty cool. Early aggression against Shang brought excitement to East Asia. They kept up alright in tech. But somewhere along the way, they turned into a sycophant, a Goguryeo minion, serving the interests of a foreign power. Where did it all go wrong. Regardless of what Ikko could’ve done differently, being a toady will be their long-term legacy. Not a great legacy, that, but I suppose there is worse. </p>"
 - scene_number: 38
   scene_title: "Tiwanaku"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene38.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene38.jpeg
   narration: "<p>Reformer: </p><p></p><p>Tiwanaku’s legacy is an interesting one. They built a respectable early game empire, and we were all preaching to the choir, predicting that Tiwanaku would be one of the big dogs for a long, long time. All they really needed to do was clip New Holland’s wings and hold against a Bora-Bora naval assault. Unfortunately, they did neither. It is a classic case of a strong civ not taking advantage of their strengths, but arguably taken to the extreme. Tiwanaku had everything and lost everything. And somehow, there were MULTIPLE examples of this in x4. Shang and Pueblo come to mind. And frankly, this kind of rise and fall is my favorite kind of arc. It shows just how dynamic the game is- and that we’re moving in the right direction with the gameplay modifications.</p>"
 - scene_number: 39
   scene_title: "Mogadishu"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene39.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene39.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>Admittedly, Mogadishu was a bit of a dodged bullet with how insane their uniques are in a vacuum, not that it made their initial sleepy playstyle any less frustrating given the potential we all knew they had. But what should have been a performance worthy of the 40s was saved by Mogadishu’s incredibly active and scrappy later performance, picking off enemies all across the map and even putting up a good fight in the midst of Total War. Admittedly they still didn’t really achieve nearly enough to warrant their initial placement of 15th, mostly picking off bottom feeders and throwing hands with Saba-D’mt to little effect, but they were still entertaining and they had a nice little Indian Ocean empire by the end of it all.</p>"
 - scene_number: 40
   scene_title: "Shang"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene40.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene40.jpeg
   narration: "<p>Lasqueto:</p><p></p><p>Ahh Shang my beloved. One of the most catastrophic throws of the season and yet I can’t help but love them for it. Civs that fail are a dime a dozen, but there’s something to be said for the ones that go out of their way to self immolate. They really looked like they had something going for them; they peaked in 1st before enjoying a comfortable run in the top 10. Then Daji just decided to tank her entire run by murdering all her civilians and throwing every city deep into resistance. Can’t say it wasn’t historically accurate, but instead of bringing on the Zhou dynasty it brought on Goguryeo. I can’t help but wonder what the alternate timeline would’ve been. You could argue her collapse was what let Goguryeo go on to win it all. They were already big, but maybe the lack of competition was what helped them. Obviously I would’ve loved to see Shang stay alive and kick more ass, but it wasn’t to be.</p>"
 - scene_number: 41
   scene_title: "Pueblo"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene41.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene41.jpeg
   narration: "<p>Cloudy:</p><p></p><p>Pueblo scores the third largest rank change of any civ in the final bow, and the second highest rise, off the backs of a strong early to mid game performance that ended so fast we weren’t totally sure what even happened. But during the time they were around, the Pueblo were seen as a strong contender, standing at the top of North America for quite a while and reaching #2 overall in episodes 9 and 13. They might have been re-ranked even higher for the final bow if not for the fact that they made mistakes that contributed to their premature undoing, including their failure to capitalize on weak neighbors over whom they had a massive military advantage. Still, they were impressive while they lasted.</p>"
 - scene_number: 42
   scene_title: "England"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene42.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene42.jpeg
   narration: "<p>Reformer: </p><p></p><p>England is first and foremost remembered as a brave civ. A bulwark against the villainous Faroes, those harbingers of winter. England was successful against the lousy civs of mainland Europe, but their efforts were still in vain. England well and truly died before they deserved to, and were outlived by many of the aforementioned lousy mainlanders. But England’s accomplishments were of course greater than the combined accomplishments of the likes of Visigoths, Burgundy, and Bavaria. Hence their ascension all the way to 20th. Nothing to sneeze at. I still wish things could’ve been different, but we’ll have to make do with what we’ve got. </p>"
 - scene_number: 43
   scene_title: "Osage"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene43.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene43.jpeg
   narration: "<p>Reformer: </p><p></p><p>Osage was rather similar to England - punching above their weightclass and impressing the observers. They met a similar end as well, crushed under the heel of the king of the region. But what Osage has over England is wild shenanigans. Osage units dispersed across the cylinder, infiltrating random cities and spreading chaos wherever they could. Osage had already won over many hearts with their grit, but these chaotic shenanigans sealed the deal - and the rankers were certainly not unaffected. And so they keep their final rank of 19, which is very respectable indeed. </p>"
 - scene_number: 44
   scene_title: "Pontus"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene44.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene44.jpeg
   narration: "<p>Reformer: </p><p></p><p>Pontus didn’t really match the hype. They didn’t do badly by any means, but like, if you had to recall what they did in this game, I think you’d have a tough time. Or, most people would, anyway. They fought Makhno a few times. Eventually they got a city out of it. They fought Royal Hungary once or twice, notably losing the first time around. They fought Qarms twice- lost the first time, crushed them the second time. And then, Total War, of course. It’s been rehashed to death, but I’ll mention it one more time. Pontus’ UA will be the ONE thing we’ll remember about Pontus, because they did NOTHING ELSE OF NOTE. That’s not a great thing to be remembered for. Unless you hated Wahgi like I did. In which case WOOOO LET’S GO PONTUS IT’S ALL ABOUT THE PONTUS.</p>"
 - scene_number: 45
   scene_title: "Thule"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene45.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene45.jpeg
   narration: "<p>Leman:</p><p></p><p>There were so many civs this go around that spent a decent chunk of time in the top tier and then were cut down by the heavy hitters far before we expected. Thule was one of those and their strength is represented in this sizable ten place jump from their actual finish. They were a size I liked a lot but were hampered a lot by geography and one of their two expansion paths turning into complete juggernauts. That being said they played a good game, built a great economy and were a solid addition to the game.</p>"
 - scene_number: 46
   scene_title: "Palawa"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene46.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene46.jpeg
   narration: "<p>Leman:</p><p></p><p>Look I get it. Palawa was the worst Australian winner and the only civ to win the continent without ever coming close to uniting it. And I know we don’t really like civs who settle well and do nothing for the whole game. But I would like to say that even though they did do all that, it's not entirely their fault that they were a naval power with only land expansion options. I mean it’s a little their fault. But still despite all that they finished in the top ten, they had some impressive defense against Wahgi and Singapore in the final episodes, and that’s enough for 16th place.</p>"
 - scene_number: 47
   scene_title: "Rome"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene47.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene47.jpeg
   narration: "<p>Orange:</p><p></p><p>Rome was probably the best Italian civ we’ve had, and that’s pretty cool. They almost united the Med, they invaded into North Africa, they were overall pretty cool. I uh, don’t really know what else I can say about them. They could’ve done better but they didn’t, but they did pretty good for where they were, so that’s something I guess. They did pretty well.</p>"
 - scene_number: 48
   scene_title: "Zheng"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene48.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene48.jpeg
   narration: "<p>Reformer: </p><p></p><p>Honestly, at 14, Zheng is probably a fair bit overrated. They had a great early game, and a pretty good midgame, but then stagnated so hard that there’s not even anything to mention for 300-ish turns. That’s a crazy amount of time to spend sitting around doing nothing, so it surprises me to see them this high. But the rankers have spoken. Part of it, I’m sure, is the fact that there’s not a lot of civs that deserve this spot any more than Zheng does. Zheng impressed us and then kept it all together for a respectably long time. When I put it more charitably like so, their rank up here makes more sense. Not like I’m displeased, I loved Zheng. Glad to see them get love in the final bow. </p>"
 - scene_number: 49
   scene_title: "Mexico"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene49.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene49.jpeg
   narration: "<p>Reformer: </p><p></p><p>Mexico might just be the best Central American civ we’ve ever had. My memory’s not good enough to say that with absolute certainty. But I’m preeetty sure. This nets them a respectable place in the top 15, a sizable jump from where they died. Their struggles against hard-hitting top dogs like Pueblo, Yellowknives, and New Holland have been burnt into the memories of the observers. The persistence required to build the Mexican Empire cannot be understated. And perishing at the hands of the Wahgi made them a martyr, too. So close to glory… </p>"
 - scene_number: 50
   scene_title: "Latvia"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene50.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene50.jpeg
   narration: "<p>ECH:</p><p></p><p>Latvia jumps one spot out of unlucky 13th to 12th, signifying that their place in the top 15 wasn’t just some lucky dodging, but a fitting place for an impressive civ. Some may have forgotten Latvia being ranked 56th in Part 0, but they worked hard to prove themselves as one of the more competent minds we’ve seen out of the eastern half of Europe, punctuated by a doggedness in the face of hardy opposition that’s very praiseworthy. Underpinning all of this was an astounding ability to build up grand cities, which in turn produced top of the line stats from a smaller empire, a trait most European contenders next season should learn from, given the typical lesser space there.</p><p></p><p>Honestly, you probably could concoct a narrative of Latvia’s journey that makes it sound unimpressive, one where they’re just a decent settler with meh stats that mostly went against rumps and ultimately lost when put against true powers, and perhaps the capability to do that is a sign this civ doesn’t quite make the top 10, but that’s a pretty malicious framing and not one a civ this scrappy deserves, in my view.</p>"
 - scene_number: 51
   scene_title: "Afhsarids"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene51.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene51.jpeg
   narration: "<p>Leman:</p><p></p><p>The Afsharids had a wonderful arc this season that kind of epitomizes why I loved this season so much. There were so many ups and downs with this civ that culminated in an impressive finish and a wonderful legacy. They started with some solid settling, early bullying of their neighbors, before dropping cities to Qarmatians and slumbering for a while, only to wake up and entirely and completely eviscerate the Khoshuts in a way nobody had really expected. Then they spent a few episodes being active before being too overwhelmed by Wahgi troops to do anything. We counted them out again, thinking that all those Wahgi troops would hallow them out and leave them for dead but they didn’t. Afsharids managed to just barely hold on, and claim a top ten spot. Then they were revived and still continued to be active being one of the only revived civs I’ve ever seen to ever GAIN cities. What a wild ride. </p>"
 - scene_number: 52
   scene_title: "Sierra Leone"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene52.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene52.jpeg
   narration: "<p>Leman:</p><p></p><p>Sierra Leone was a little bit of a late bloomer, and, like the Afsharids, has a storied history filled with ups and downs and downs and ups. A strong start bullying the Alaouites parlayed into a sleepy midgame only to then transition to an explosive back third of the pre-Total War episodes, where Sierra Leone took on Kanem-Bornu, Saba D’mt and Rome in quick succession making quick work of all three of them. It was the unrelenting march of Faroe Islands coupled with Pontus’ unique ability that eventually did them in, but despite their spectacular collapse at the end of the game Sierra Leone played wonderfully.</p>"
 - scene_number: 53
   scene_title: "Bora-Bora"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene53.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene53.jpeg
   narration: "<p>Orange:</p><p></p><p>TAKEN TOO SOON THE BORA SHOULD NEVER HAVE DIED WHAT A MAGNIFICENT CIV THEY WERE FUCKIN BEAUTIFUL AND I LOVE THEM. Like you don’t understand they were a home grown Polynesian civ that did a far off settle right at the beginning and turned that into an empire and it’s hard to get better than that. Now I know I was a super supporter from the start, but Bora-Bora really did win over nearly everyone with their antics, and they did so well. It was an utter shame that Wahgi, who sucked at war and just did a bunch of settling before doing nothing for ages, was the one who beat Bora solely through an insane tech lead and an endless amount of units despite their incompetence and Bora’s prowess. The highest popularity in NopeCopter’s poll by far is just proof of their greatness. Love you Bora-Bora, thank you.</p>"
 - scene_number: 54
   scene_title: "Selkups"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene54.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene54.jpeg
   narration: "<p>Orange:</p><p></p><p>The Selkups were a slow growing power, almost the ideal Siberian civ, and they did super well with it. It took all the way to total war for their slow growth to show itself as not being fast enough, as their lack of tech doomed them. But they were a constant domineering threat for the whole game otherwise.</p>"
 - scene_number: 55
   scene_title: "Ndongo"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene55.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene55.jpeg
   narration: "<p>NopeCopter: </p><p></p><p>Ndongo was… a truly bizarre existence. Both created and voted in pretty much as a joke, their status for 90% of the game as a lazy mid-tier just sort of existing at the bottom of the map did not go over well with anybody, and really should have doomed them to forgettable mid-tier status. But HOLY SHIT, that Total War run. Perhaps the greatest Total War run in history, relative to their position before Total War at least. It’s easy to overlook Ndongo’s performance in those last six episodes because they got lucky and didn’t end up living to the end, but make no mistake: this civ with 16 cities and a dream managed to QUADRUPLE the size of their empire DURING TOTAL WAR, not only holding off but often actively winning against Sierra Leone, Singapore, the Faroes, and even (until Sudden Death) Goguryeo. They basically united a continent by decolonizing it. These fuckers punched a hole clean through the eternal number-two civ, up through the Mediterranean, while also holding off the game’s eventual winner. And make no mistake - without those XCOMs, they would have kept holding the line, and we have the no-XCOM runs to prove it. They do still drop two spots because, yeah, they really didn’t achieve much for 90% of the game whereas a couple other civs were top-tier powers throughout the game, but Ndongo built their fortunes at the end of the world and made the mightiest civs on the cylinder look like a bunch of fools. And as the civ that got me to start actually modding in the first place, I couldn’t be happier for them. Hopefully this was a satisfying end to Nzinga’s three-act character arc.</p>"
 - scene_number: 56
   scene_title: "Singapore"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene56.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene56.jpeg
   narration: "<p>ECH:</p><p></p><p>Another civ that ranks here at the same place they were eliminated, although it’s a tad more impressive when scratching at the Top 5. Let me state my bias, Singapore was my target of cheer from the start, hell, before the start considering my campaigning for them in voting. I’m a modern history and politics junkie with a fascination for Lee Kuan Yew’s story, so I’ve been rooting for Singapore’s inclusion every season, even with the knowledge that they’re a relatively low aggression economy civ with a bad reputation in games, just for the fun of seeing this modern city state go up against conquerors. I can’t have asked for a much better result, as Singapore really showed how a fairly tall gameplay strategy can work, beelining the naval techs they needed to hold their own in Southeast Asia and even for a moment dominate the Indian Ocean. After Timor-Leste’s victory, their turnaround from being judged 61st in Part 0 may be less unique, but it shouldn’t be undervalued. Godspeed, LKY.</p>"
 - scene_number: 57
   scene_title: "New Holland"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene57.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene57.jpeg
   narration: "<p>Leman:</p><p></p><p>We’re getting into the titans of this game. New Holland I think got a bit of a bad rap throughout this game. They were often criticised for being sleepy, for being incapable of taking open goals.  I disagree. I think New Holland played a masterful game. I think they took action when they needed to, expanded their empire by taking the easy wins when they were presented, and grew through meticulous, methodical elimination of their rivals at the most opportune times. Then in Total War, they were the only one of the final four with the Wahgi horde at their gates, and they swatted Wahgi out of South America with apparent ease. Between total war and the fall of Tiwanaku, New Holland never walked into a war they were not sure they would win, clearly earning their moniker, the Reaper of the Americas. </p>"
 - scene_number: 58
   scene_title: "Wahgi"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene58.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene58.jpeg
   narration: "<p>CelestialDalek:</p><p></p><p>In this world, you’re either a Boraliever or a Wahgigafan. Thus, there are fewer civs more polarizing than the Wahgi. Everything that can be said about them has already been said. After the invasion of Bora, they were absolute titans - eating Puni’s massive empire turned them into a seemingly unstoppable superpower. </p><p>But there was one thing that could stop them dead in their tracks: debt. Humiliating amounts of debt. They carpeted far too early, and even after their own lands were covered, they kept going. It started by losing about 900 gold per turn. Then, after a few episodes, 4000. Then 6000. Then 14000. </p><p></p><p>The episode before Total War, they were losing 109,174 gold per turn. </p><p></p><p>Their debt dropped their effective science to zero. They could no longer research techs. They were carpeting the globe, but with outdated units. Even though they had a military score in the millions, they were the definition of a paper tiger. After their initial gains in Total War, they lost 50 cities the next episode. They’d exhausted all their units, and that was basically it. Somehow, they’d cheated the system, but it came back to bite. The largest military the CBR has ever seen was, at the end, its own undoing. </p><p></p><p>They were hated by many, loved by some, and imploded catastrophically, but there’s little doubt that they were the most influential civ on the course of the game, perhaps even more influential than the eventual winner. </p>"
 - scene_number: 59
   scene_title: "Yellowknives"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene59.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene59.jpeg
   narration: "<p>Cloudy:</p><p></p><p>We haven’t moved the Yellowknives relative to their actual final rank, because they deserved what they got... and what they got was the entire continent of North America. They fought hard for it, springing back from having the smallest army in the world to brutally dismantle foes who had hopes just as high as theirs. They still held most of their continent when the game ended, cementing their legacy once and for all. We have little to add; their final placement spoke for itself.</p>"
 - scene_number: 60
   scene_title: "Faroe Islands"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene60.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene60.jpeg
   narration: "<p>ECH:</p><p></p><p>What is even left to say about the Faroes’ performance. There was never a point during this season where they didn’t feel on top of things, even for the span of episodes they chose to just sit on their laurels. They’d be in the running for most consistently dominant civ in CBR history if they weren’t sitting next to an equally consistent and continually more active season winner. They were second 15 times throughout the 46 episodes, not to mention their 17 times in first place, including a legendary run from Episodes 4 to 14. They weren’t popular for how they did it, but a silver was earned.</p>"
 - scene_number: 61
   scene_title: "Goguryeo"
-  slide_url: https://cdn.civbattleroyale.tv/season4-pr46-scene61.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season4-final-bow-scene61.jpeg
   narration: "<p>Reformer: </p><p></p><p>Brazil blanketed the world in units, suffocating all resistance. Moors were an underdog in the endgame and had to fight tooth and nail to defeat the likes of Kazakhs and Iroquois. Chukchi came from nowhere with a steel chair to win, to everyone’s surprise. Timor-Leste was ranked dead last initially, and clawed their way from that pit to win regardless. </p><p></p><p>So, what did Goguryeo do? Well, Goguryeo…played the game. They played a solid, consistent, reliable game. A linear rise to power, with setbacks coldly calculated out of way. It is the least spectacular way to win, and I fear Goguryeo will be the least memorable winner once some time has passed. Not that it wouldn’t be sort-of deserved, but I have to feel bad for the guy who does everything right and doesn’t get the respect that is due. SURELY the guy who played a flawless game deserves the highest accolades. But the truth is that we naturally gravitate towards the more exciting stories. The triumphant underdog will always get more love. </p><p></p><p>The unfortunate truth is that in the hall of fame, Goguryeo might as well be the wallpaper.</p>"
 ---
