@@ -723,7 +723,7 @@ export default {
         },
         {
           name: "Tibet",
-          leader: "Songsten Gampo",
+          leader: "Songtsen Gampo",
           author: "MoreCivilizations",
         },
         {
