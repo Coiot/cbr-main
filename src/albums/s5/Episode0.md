@@ -25,7 +25,7 @@ scenes:
   narration: "<p>A massive thank you to all the donators that have kept up their pledges throughout this longer than expected gap between seasons! I am with full sincerity grateful to everyone that pitches in anything they can.</p><p></p><p>Despite the downtime, we did have random spikes of traffic (cheers to people that re-read past seasons from start to finish, I do notice by the traffic!), and the hosting costs remain, so I am very thankful for everyone that continued to support the show even when there was no new content. All the money goes to the show, with any extra going to either the team or for commissioned artwork like our title screen leader portraits. Please consider contributing to keep the show going for another ten years on!</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode0-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season5-pr0-scene57.jpeg
   narration: "<p>Want to highlight one civ in particular, and for no particular reason, actually. Wow #5, such a blessed number. What a great civ, this. </p>"
 - scene_number: 06
   scene_title: ""
