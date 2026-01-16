@@ -875,6 +875,10 @@ export default {
       if (event.altKey || event.ctrlKey || event.metaKey) {
         return;
       }
+      const key = event.key;
+      if (this.isToggle && (key === "ArrowRight" || key === "ArrowLeft")) {
+        return;
+      }
       const tagName = event.target && event.target.tagName;
       const isInput =
         tagName === "INPUT" ||
@@ -883,7 +887,6 @@ export default {
       if (isInput) {
         return;
       }
-      const key = event.key;
       if (key === "ArrowRight" || key === "j" || key === "J") {
         event.preventDefault();
         this.jumpRelative(1);
