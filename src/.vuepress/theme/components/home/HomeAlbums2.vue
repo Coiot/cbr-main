@@ -4,7 +4,7 @@
       <div class="section-head">
         <h2>Recent Episodes</h2>
         <p class="section-subtitle">
-          Behind? Before catch up from the beginning of a
+          Behind? Catch up from the beginning of a
           <router-link to="/albums">season</router-link>.
         </p>
       </div>

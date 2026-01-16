@@ -27,7 +27,7 @@
                   Released {{ latestEpisode.frontmatter.release_date }}
                 </span>
               </div>
-              <span class="latest-cta">Open Episode</span>
+              <!-- <span class="latest-cta">Open Episode</span> -->
             </router-link>
 
             <PRListHome />
