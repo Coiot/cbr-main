@@ -4,13 +4,13 @@
       <div class="page-nav" v-if="prev || next">
         <p class="nextprev">
           <span v-if="prev" class="prev">
-            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev"
+            <router-link v-if="prev" class="prev" :to="prev.path"
               >← {{ prev.title || prev.path }}</router-link
             >
           </span>
 
           <span v-if="next" class="next">
-            <router-link v-if="next" :to="$page.frontmatter.next"
+            <router-link v-if="next" :to="next.path"
               >{{ next.title || next.path }} →</router-link
             >
           </span>
@@ -188,13 +188,13 @@
       <div class="page-nav" v-if="prev || next">
         <p class="nextprev">
           <span v-if="prev" class="prev">
-            <router-link v-if="prev" class="prev" :to="$page.frontmatter.prev"
+            <router-link v-if="prev" class="prev" :to="prev.path"
               >← {{ prev.title || prev.path }}</router-link
             >
           </span>
 
           <span v-if="next" class="next">
-            <router-link v-if="next" :to="$page.frontmatter.next"
+            <router-link v-if="next" :to="next.path"
               >{{ next.title || next.path }} &ensp;→</router-link
             >
           </span>
@@ -205,8 +205,16 @@
 </template>
 
 <script>
-import { resolvePage, normalize, outboundRE, endingSlashRE } from "../util.js";
+import { normalize } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
+
+const pageDir = (path) => {
+  const normalized = normalize(path).replace(/\/$/, "");
+  const parts = normalized.split("/");
+  parts.pop();
+  return parts.join("/") || "/";
+};
+
 export default {
   name: "Albums",
   data() {
@@ -219,27 +227,36 @@ export default {
     VueperSlide,
   },
   computed: {
+    siblingPages() {
+      const dir = pageDir(this.$page.path);
+      return this.$site.pages
+        .filter((page) => {
+          if (page.frontmatter.exclude) {
+            return false;
+          }
+          return pageDir(page.path) === dir;
+        })
+        .sort((a, b) => {
+          const aDate = new Date(a.frontmatter.date || 0);
+          const bDate = new Date(b.frontmatter.date || 0);
+          return aDate - bDate;
+        });
+    },
     prev() {
-      const prev = this.$page.frontmatter.prev;
-      if (prev === false) {
-        return;
-      } else if (prev) {
-        return resolvePage(this.$site.pages, prev, this.$route.path);
+      const index = this.siblingPages.findIndex(
+        (page) => page.path === this.$page.path
+      );
+      if (index > 0) {
+        return this.siblingPages[index - 1];
       }
-      // else {
-      //   return resolvePrev(this.$page, this.sidebarItems);
-      // }
     },
     next() {
-      const next = this.$page.frontmatter.next;
-      if (next === false) {
-        return;
-      } else if (next) {
-        return resolvePage(this.$site.pages, next, this.$route.path);
+      const index = this.siblingPages.findIndex(
+        (page) => page.path === this.$page.path
+      );
+      if (index !== -1 && index < this.siblingPages.length - 1) {
+        return this.siblingPages[index + 1];
       }
-      // else {
-      //   return resolveNext(this.$page, this.sidebarItems);
-      // }
     },
   },
 };

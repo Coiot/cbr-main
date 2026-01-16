@@ -4,7 +4,8 @@
     :to="link"
     v-if="!isExternal(link) && !isXml(link)"
     :exact="exact"
-  >{{ item.text }}</router-link>
+    >{{ item.text }}</router-link
+  >
   <a v-else-if="isXml(link)" :href="link" class="nav-link">{{ item.text }}</a>
   <a
     v-else
@@ -12,11 +13,12 @@
     class="nav-link external"
     :target="isMailto(link) || isTel(link) ? null : '_blank'"
     :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
-  >{{ item.text }}</a>
+    >{{ item.text }}</a
+  >
 </template>
 
 <script>
-import { isExternal, isMailto, isTel, isXml, ensureExt } from "../util";
+import { isExternal, isMailto, isTel, isXml, ensureExt } from "../../util";
 
 export default {
   props: {

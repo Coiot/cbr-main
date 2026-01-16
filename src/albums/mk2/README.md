@@ -7,4 +7,4 @@ image: https://cdn.discordapp.com/attachments/367369543376568322/590607288377802
 layout: "Other"
 ---
 
-<Mk2List />
+<albums-Mk2List />

@@ -23,18 +23,18 @@
     <Home v-else-if="$page.frontmatter.home" />
 
     <Page v-else> </Page>
+    <ClientOnly>
+      <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+      <script>
+        kofiWidgetOverlay.draw("coiot", {
+          type: "floating-chat",
+          "floating-chat.donateButton.text": "Support Us",
+          "floating-chat.donateButton.background-color": "#fcbf47",
+          "floating-chat.donateButton.text-color": "#323842",
+        });
+      </script>
+    </ClientOnly>
   </div>
-  <ClientOnly>
-    <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
-    <script>
-      kofiWidgetOverlay.draw('coiot', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Support Us',
-        'floating-chat.donateButton.background-color': '#fcbf47',
-        'floating-chat.donateButton.text-color': '#323842'
-      });
-    </script>
-  </ClientOnly>
 </template>
 
 <script>
@@ -45,8 +45,8 @@ import PR from "./layout/PR.vue";
 import Home from "./layout/Home.vue";
 import Page from "./layout/Page.vue";
 import Other from "./layout/Other.vue";
-import Navbar from "./components/Navbar.vue";
-import Sidebar from "./components/Sidebar.vue";
+import Navbar from "./components/nav/Navbar.vue";
+import Sidebar from "./components/sidebar/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
 import VueLazyload from "vue-lazyload";
 import { VueperSlides, VueperSlide } from "vueperslides";

@@ -3,22 +3,24 @@
     <div class="page">
       <Content custom />
 
-      <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+      <div class="footer" v-if="footerText">{{ footerText }}</div>
     </div>
   </transition>
 </template>
 
 <script>
-import NavLink from "../components/NavLink.vue";
-
 export default {
-  components: {
-    NavLink,
-  },
-
   computed: {
     data() {
       return this.$page.frontmatter;
+    },
+    footerText() {
+      const footer = this.data && this.data.footer;
+      if (!footer || typeof footer !== "string") {
+        return "";
+      }
+      const year = new Date().getFullYear();
+      return footer.replace(/©\s*\d{4}/, `© ${year}`);
     },
   },
 };

@@ -32,7 +32,7 @@ export default {
   display: block;
   padding: 0;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   height: auto;
   margin: 0 auto 3rem auto;
 }

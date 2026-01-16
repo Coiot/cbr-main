@@ -9,26 +9,8 @@
     </nav>
     <div class="nav-links">
       <ul class="edition-links">
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s4/">CBRX Season 4</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s3/">CBRX Season 3</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s2/">CBRX Season 2</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/s1/">CBRX Season 1</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/mk2/">CBR Mark 2</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/pr/">Power Rankings</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://civbattleroyale.tv/albums/others/">Others</a>
+        <li class="nav-item" v-for="edition in editionLinks" :key="edition.id">
+          <router-link :to="edition.link">{{ edition.label }}</router-link>
         </li>
       </ul>
     </div>
@@ -38,7 +20,8 @@
 <script>
 import DropdownLink from "./DropdownLink.vue";
 import NavLink from "./NavLink.vue";
-import { resolveNavLinkItem } from "../util";
+import { resolveNavLinkItem } from "../../util";
+import { editionNavItems } from "../../../data/editions";
 
 export default {
   components: {
@@ -93,12 +76,20 @@ export default {
         });
       });
     },
+
+    editionLinks() {
+      return editionNavItems.map((edition) => ({
+        id: edition.id,
+        label: edition.navLabel || edition.title,
+        link: edition.pathPrefixes ? edition.pathPrefixes[0] : "/albums/",
+      }));
+    },
   },
 };
 </script>
 
 <style lang="stylus">
-@import '../styles/config.styl';
+@import '../../styles/config.styl';
 
 .nav-links {
   display: inline-block;
@@ -108,7 +99,6 @@ export default {
 
     &:hover {
       color: $accentColor;
-      transform: scale(1.03);
     }
   }
 
@@ -158,6 +148,7 @@ export default {
   }
 
   .nav-item {
+    border-bottom: 3px solid transparent;
     transition: all 0.2s ease-in;
 
     &:hover, &.router-link-active {

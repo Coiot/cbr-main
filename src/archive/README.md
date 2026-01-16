@@ -3,4 +3,4 @@ title: Archive
 exclude: true
 ---
 
-<BlogPostList />
+<archive-BlogPostList />

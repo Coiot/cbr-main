@@ -33,7 +33,7 @@
 
 <script>
 import NavLink from "./NavLink.vue";
-import DropdownTransition from "./DropdownTransition.vue";
+import DropdownTransition from "../shared/DropdownTransition.vue";
 
 export default {
   components: { NavLink, DropdownTransition },
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../styles/config.styl';
+@import '../../styles/config.styl';
 
 .dropdown-wrapper {
   cursor: pointer;
