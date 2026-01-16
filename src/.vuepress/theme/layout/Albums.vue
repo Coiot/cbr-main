@@ -1329,10 +1329,10 @@ export default {
   z-index: 5;
   overflow-x: auto;
   background: #111;
-  padding-block: 0.6rem;
+  padding-block: 0.5rem;
   padding-inline: 0;
   margin-block: 0 2rem;
-  inset-block-start: 0.6rem;
+  inset-block-start: 0;
 }
 
 .timeline-track {
