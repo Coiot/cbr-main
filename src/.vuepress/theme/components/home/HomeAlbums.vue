@@ -3,7 +3,7 @@
     <div class="album-list">
       <div class="section-head">
         <h2>{{ latestHeadline }}</h2>
-        <p class="section-subtitle">The newest episode, ready to watch.</p>
+        <p class="section-subtitle">{{ latestSubtitle }}</p>
       </div>
       <router-link
         :to="post.path"
@@ -62,6 +62,15 @@ export default {
         return `Season ${season} • Latest Episode`;
       }
       return "Latest Release";
+    },
+    latestSubtitle() {
+      const post = this.albums[0];
+      const description =
+        post && post.frontmatter && post.frontmatter.description;
+      if (description && String(description).trim()) {
+        return description;
+      }
+      return "The newest episode, ready to watch.";
     },
   },
 };

@@ -742,7 +742,7 @@ h1 {
   transform: translateY(-1px);
 }
 
-.competitors li:focus {
+.competitors li:focus-visible {
   outline: 2px solid rgba(255, 191, 70, 0.6);
   outline-offset: 4px;
 }

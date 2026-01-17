@@ -1237,6 +1237,11 @@ const s5Competitors = [
     author: "Colonialist Legacies + More Civs",
   },
   {
+    name: "Aures",
+    leader: "Dihya",
+    author: "RawSasquatch",
+  },
+  {
     name: "Bactria",
     leader: "Demetrius I",
     author: "Francesca",
@@ -1252,14 +1257,24 @@ const s5Competitors = [
     author: "Rhoze",
   },
   {
-    name: "Zazzau",
-    leader: "Amina",
-    author: "NopeCopter",
+    name: "Bunuba",
+    leader: "Jandamarra",
+    author: "Senshi",
+  },
+  {
+    name: "Caral",
+    leader: "Capac",
+    author: "Tomatekh",
   },
   {
     name: "Cebu",
     leader: "Humabon",
     author: "Lungora + NopeCopter",
+  },
+  {
+    name: "Chono",
+    leader: "Martin Olleta",
+    author: "Rhoze",
   },
   {
     name: "Circassia",
@@ -1287,9 +1302,54 @@ const s5Competitors = [
     author: "Alga",
   },
   {
+    name: "Guaycuru",
+    leader: "Eso",
+    author: "TopHatPaladin",
+  },
+  {
+    name: "Hanseatic League",
+    leader: "Jurgen Wullenwever",
+    author: "Agla",
+  },
+  {
+    name: "Herero",
+    leader: "Jacob Morenga",
+    author: "TopHatPaladin",
+  },
+  {
+    name: "Hyksos",
+    leader: "Apophis",
+    author: "Francesca",
+  },
+  {
+    name: "Itelmen",
+    leader: "Harchin",
+    author: "Rhoze",
+  },
+  {
     name: "Japan",
     leader: "Toyotomi Hideyoshi",
     author: "Senshi",
+  },
+  {
+    name: "Kalmar Union",
+    leader: "Margarethe I",
+    author: "JFD",
+  },
+  {
+    name: "Karankawa",
+    leader: "Joseph Maria",
+    author: "JakeWalrusWhale",
+  },
+  {
+    name: "Ket",
+    leader: "Olgit",
+    author: "TopHatPaladin",
+  },
+  {
+    name: "Kipchaks",
+    leader: "Togortak",
+    author: "Lungora + NopeCopter",
   },
   {
     name: "Lanfang",
@@ -1307,6 +1367,11 @@ const s5Competitors = [
     author: "DMS",
   },
   {
+    name: "Maravi",
+    leader: "Kolonga Mazula",
+    author: "JakeWalrusWhale",
+  },
+  {
     name: "Mysore",
     leader: "Tipu Sultan",
     author: "More Civs",
@@ -1317,9 +1382,19 @@ const s5Competitors = [
     author: "Senshi",
   },
   {
+    name: "Onondaga",
+    leader: "Tadodaho",
+    author: "Leugi",
+  },
+  {
     name: "Pakistan",
     leader: "Muhammad Ali Jinnah",
     author: "Senshi",
+  },
+  {
+    name: "Papal States",
+    leader: "Julius II",
+    author: "JFD",
   },
   {
     name: "Pegu",
@@ -1332,9 +1407,24 @@ const s5Competitors = [
     author: "More Civs",
   },
   {
+    name: "Pomo",
+    leader: "Essie Parrish",
+    author: "Coiot + Orangechrisy",
+  },
+  {
+    name: "Ponca",
+    leader: "White Eagle",
+    author: "NopeCopter + Rhoze",
+  },
+  {
     name: "Portugal",
     leader: "Joao II",
     author: "Francesca",
+  },
+  {
+    name: "Potiguara",
+    leader: "Felipe Camarao",
+    author: "Rhoze",
   },
   {
     name: "Qara-Khitai",
@@ -1377,6 +1467,11 @@ const s5Competitors = [
     author: "Tematekh",
   },
   {
+    name: "Susquehannock",
+    leader: "Old Sheehays",
+    author: "Lynn",
+  },
+  {
     name: "Tang",
     leader: "Taizong",
     author: "TopHatPaladin",
@@ -1392,114 +1487,9 @@ const s5Competitors = [
     author: "Grant",
   },
   {
-    name: "Aures",
-    leader: "Dihya",
-    author: "RawSasquatch",
-  },
-  {
-    name: "Bunuba",
-    leader: "Jandamarra",
-    author: "Senshi",
-  },
-  {
-    name: "Chono",
-    leader: "Martin Olleta",
-    author: "Rhoze",
-  },
-  {
-    name: "Guaycuru",
-    leader: "Eso",
-    author: "TopHatPaladin",
-  },
-  {
-    name: "Hanseatic League",
-    leader: "Jurgen Wullenwever",
-    author: "Agla",
-  },
-  {
-    name: "Herero",
-    leader: "Jacob Morenga",
-    author: "TopHatPaladin",
-  },
-  {
-    name: "Hyksos",
-    leader: "Apophis",
-    author: "Francesca",
-  },
-  {
-    name: "Itelmen",
-    leader: "Harchin",
-    author: "Rhoze",
-  },
-  {
-    name: "Kalmar Union",
-    leader: "Margarethe I",
-    author: "JFD",
-  },
-  {
-    name: "Karankawa",
-    leader: "Joseph Maria",
-    author: "JakeWalrusWhale",
-  },
-  {
-    name: "Ket",
-    leader: "Olgit",
-    author: "TopHatPaladin",
-  },
-  {
-    name: "Kipchaks",
-    leader: "Togortak",
-    author: "Lungora + NopeCopter",
-  },
-  {
-    name: "Maravi",
-    leader: "Kolonga Mazula",
-    author: "JakeWalrusWhale",
-  },
-  {
-    name: "Onondaga",
-    leader: "Tadodaho",
-    author: "Leugi",
-  },
-  {
-    name: "Papal States",
-    leader: "Julius II",
-    author: "JFD",
-  },
-  {
-    name: "Pomo",
-    leader: "Essie Parrish",
-    author: "Coiot + Orangechrisy",
-  },
-  {
-    name: "Ponca",
-    leader: "White Eagle",
-    author: "NopeCopter + Rhoze",
-  },
-  {
-    name: "Potiguara",
-    leader: "Felipe Camarao",
-    author: "Rhoze",
-  },
-  {
-    name: "Susquehannock",
-    leader: "Old Sheehays",
-    author: "Lynn",
-  },
-  {
     name: "Tlingit",
     leader: "Sheiyksh I",
     author: "Colonialist Legacies + Firebug",
-  },
-  {
-    name: "Xavante",
-    leader: "Apoena",
-    author: "RawSasquatch",
-  },
-  {
-    name: "Yanomami",
-    leader: "Davi Kopenawa",
-    author: "More Civs",
   },
   {
     name: "Umhaill",
@@ -1527,14 +1517,24 @@ const s5Competitors = [
     author: "Lasqueto + NopeCopter",
   },
   {
+    name: "Xavante",
+    leader: "Apoena",
+    author: "RawSasquatch",
+  },
+  {
+    name: "Yanomami",
+    leader: "Davi Kopenawa",
+    author: "More Civs",
+  },
+  {
     name: "Yunnan",
     leader: "Long Yun",
     author: "Senshi",
   },
   {
-    name: "Caral",
-    leader: "Capac",
-    author: "Tomatekh",
+    name: "Zazzau",
+    leader: "Amina",
+    author: "NopeCopter",
   },
 ];
 
@@ -1892,7 +1892,11 @@ export const editions = [
     sections: [
       {
         title: "Cycle One",
-        arcs: [{ range: [1, 50] }],
+        arcs: [{ range: [1, 45] }],
+      },
+      {
+        title: "Cycle Two",
+        arcs: [{ range: [45, 50] }],
       },
     ],
   },
@@ -1986,7 +1990,7 @@ export const editions = [
         arcs: [
           {
             title: "Time Reset",
-            label: "Arc #",
+            label: "Arc Two",
             note: "33 competitors remain.",
             range: [37, 54],
           },
