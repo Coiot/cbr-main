@@ -26,6 +26,7 @@
 
       <Page v-else> </Page>
     </main>
+
     <ClientOnly>
       <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
       <script>
