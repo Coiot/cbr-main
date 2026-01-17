@@ -362,7 +362,14 @@ export default {
     }
 
     .suggestions {
-      right: 0;
+      position: fixed;
+      left: 0.75rem;
+      right: 0.75rem;
+      width: auto;
+      max-width: calc(100vw - 1.5rem);
+      box-sizing: border-box;
+      transform: none;
+      top: calc(var(--navbar-height, 2.25rem) + 0.4rem);
     }
   }
 }
@@ -370,7 +377,7 @@ export default {
 @media (max-width: $MQMobileNarrow) {
   .search-box {
     .suggestions {
-      width: calc(100vw - 4rem);
+      width: auto;
     }
 
     input:focus {

@@ -118,14 +118,17 @@
 
       <div v-if="hasScenes" class="scene-timeline">
         <div
+          ref="timelineTrack"
           class="timeline-track"
           :style="{ '--progress': timelineProgress + '%' }"
+          @keydown="handleTimelineKeydown"
         >
           <button
             v-for="(scene, index) in sceneTimeline"
             :key="scene.key"
             type="button"
             class="timeline-dot"
+            :tabindex="index === activeSceneIndex ? 0 : -1"
             :class="{
               active: index === activeSceneIndex,
               completed: index < activeSceneIndex,
@@ -462,6 +465,8 @@ export default {
       lastSeenScene: null,
       activeSceneIndex: 0,
       copiedScene: null,
+      timelineFocusEnabled: false,
+      timelineFocusTimeoutId: null,
     };
   },
   components: {
@@ -657,6 +662,63 @@ export default {
       }
       this.scrollToScene(index);
     },
+    focusTimelineDot(index) {
+      this.$nextTick(() => {
+        const track = this.$refs.timelineTrack;
+        if (!track) {
+          return;
+        }
+        const dots = Array.from(track.querySelectorAll(".timeline-dot"));
+        const target = dots[index];
+        if (target && typeof target.focus === "function") {
+          target.focus({ preventScroll: true });
+        }
+      });
+    },
+    handleTimelineKeydown(event) {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(event.key)) {
+        return;
+      }
+      const track = this.$refs.timelineTrack;
+      if (!track) {
+        return;
+      }
+      const dots = Array.from(track.querySelectorAll(".timeline-dot"));
+      if (!dots.length) {
+        return;
+      }
+      const targetIndex = dots.indexOf(event.target);
+      const currentIndex =
+        targetIndex >= 0 ? targetIndex : this.activeSceneIndex || 0;
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowLeft") {
+        nextIndex = Math.max(0, currentIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        nextIndex = Math.min(dots.length - 1, currentIndex + 1);
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = dots.length - 1;
+      }
+      if (nextIndex === currentIndex) {
+        return;
+      }
+      event.preventDefault();
+      this.enableTimelineFocus();
+      this.jumpToIndex(nextIndex);
+      this.focusTimelineDot(nextIndex);
+    },
+    enableTimelineFocus() {
+      this.timelineFocusEnabled = true;
+      if (this.timelineFocusTimeoutId) {
+        clearTimeout(this.timelineFocusTimeoutId);
+      }
+      this.timelineFocusTimeoutId = setTimeout(() => {
+        this.timelineFocusEnabled = false;
+        this.timelineFocusTimeoutId = null;
+      }, 1500);
+    },
     setActiveScene(index) {
       if (!this.sceneCount) {
         return;
@@ -664,6 +726,17 @@ export default {
       const safeIndex = Math.min(Math.max(index, 0), this.sceneCount - 1);
       this.activeSceneIndex = safeIndex;
       this.saveResumeScene(safeIndex + 1);
+      this.syncTimelineFocus(safeIndex);
+    },
+    syncTimelineFocus(index) {
+      const track = this.$refs.timelineTrack;
+      if (!track) {
+        return;
+      }
+      if (!this.timelineFocusEnabled) {
+        return;
+      }
+      this.focusTimelineDot(index);
     },
     sceneAnchor(index) {
       return `scene-${index + 1}`;
@@ -889,11 +962,13 @@ export default {
       }
       if (key === "ArrowRight" || key === "j" || key === "J") {
         event.preventDefault();
+        this.enableTimelineFocus();
         this.jumpRelative(1);
         return;
       }
       if (key === "ArrowLeft" || key === "k" || key === "K") {
         event.preventDefault();
+        this.enableTimelineFocus();
         this.jumpRelative(-1);
         return;
       }
@@ -1499,6 +1574,24 @@ export default {
   margin: 0;
   max-height: 9.7rem;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 191, 70, 0.7) rgba(255, 255, 255, 0.08);
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+.h-narration p::-webkit-scrollbar {
+  width: 8px;
+}
+
+.h-narration p::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.h-narration p::-webkit-scrollbar-thumb {
+  background: rgba(255, 191, 70, 0.7);
+  border-radius: 999px;
 }
 
 .scenes {
@@ -1602,10 +1695,14 @@ h2 {
 
   .nav-card {
     text-align: left;
+    gap: 0.2rem;
+    padding-block: 0.6rem 0.7rem;
+    padding-inline: 0.9rem;
+    border-radius: 0 0 12px 12px;
   }
 
   .nav-card.next {
-    padding-right: 1.3rem;
+    padding-right: 0.9rem;
   }
 
   .nav-card.next .nav-arrow {
@@ -1613,7 +1710,7 @@ h2 {
   }
 
   .nav-card.prev {
-    padding-left: 1.3rem;
+    padding-left: 0.9rem;
   }
 
   .nav-card.prev .nav-arrow {
@@ -1624,6 +1721,15 @@ h2 {
     width: 1.8rem;
     height: 1.8rem;
     display: none;
+  }
+
+  .nav-kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-title {
+    font-size: 0.95rem;
   }
 
   .albumInfo {

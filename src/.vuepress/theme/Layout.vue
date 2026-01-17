@@ -5,6 +5,7 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
@@ -12,17 +13,19 @@
       <slot name="sidebar-bottom" slot="bottom" />
     </Sidebar>
 
-    <Albums v-if="$page.frontmatter.edition" />
+    <main id="main-content" tabindex="-1">
+      <Albums v-if="$page.frontmatter.edition" />
 
-    <PR v-if="$page.frontmatter.pr" />
+      <PR v-if="$page.frontmatter.pr" />
 
-    <div v-else-if="$page.frontmatter.layout">
-      <component :is="$page.frontmatter.layout" />
-    </div>
+      <div v-else-if="$page.frontmatter.layout">
+        <component :is="$page.frontmatter.layout" />
+      </div>
 
-    <Home v-else-if="$page.frontmatter.home" />
+      <Home v-else-if="$page.frontmatter.home" />
 
-    <Page v-else> </Page>
+      <Page v-else> </Page>
+    </main>
     <ClientOnly>
       <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
       <script>
@@ -178,6 +181,33 @@ export default {
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="./styles/theme.styl" lang="stylus"></style>
 <style>
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 2000;
+  color: #ffbf46;
+  background: #1a1a1a;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .slide-wrapper {
   display: flex;
   -webkit-box-orient: vertical;

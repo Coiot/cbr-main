@@ -1,7 +1,12 @@
 <template>
   <transition name="fade">
     <div>
-      <div class="edition-list" role="tablist" aria-label="Edition selector">
+      <div
+        ref="editionList"
+        class="edition-list"
+        role="tablist"
+        aria-label="Edition selector"
+      >
         <div v-for="edition in navEditions" :key="edition.id" class="list">
           <button
             type="button"
@@ -44,6 +49,7 @@ export default {
   },
   mounted() {
     this.syncFromRoute();
+    this.scrollToActiveEdition();
     if (typeof window !== "undefined") {
       window.addEventListener("popstate", this.syncFromRoute);
     }
@@ -65,6 +71,7 @@ export default {
         return;
       }
       this.clickedEdition = nextId;
+      this.scrollToActiveEdition();
       if (this.$route && this.$router) {
         const query = Object.assign({}, this.$route.query, {
           edition: nextId,
@@ -87,6 +94,7 @@ export default {
       const nextId = this.normalizeEditionId(routeEdition);
       if (nextId && nextId !== this.clickedEdition) {
         this.clickedEdition = nextId;
+        this.scrollToActiveEdition();
       }
       if (routeEdition && nextId && routeEdition !== nextId && this.$router) {
         const query = Object.assign({}, this.$route.query, {
@@ -94,6 +102,22 @@ export default {
         });
         this.$router.replace({ query }).catch(() => {});
       }
+    },
+    scrollToActiveEdition() {
+      this.$nextTick(() => {
+        const container = this.$refs.editionList;
+        if (!container) {
+          return;
+        }
+        const active = container.querySelector(".list-button.active");
+        if (active && typeof active.scrollIntoView === "function") {
+          active.scrollIntoView({
+            block: "nearest",
+            inline: "center",
+            behavior: "smooth",
+          });
+        }
+      });
     },
   },
 };
@@ -108,7 +132,7 @@ export default {
   border: 1px solid #f2d28a;
   border-radius: 999px;
   padding: 0.45rem 0.6rem;
-  margin: 1em auto 2.4rem;
+  margin: 1em auto 0;
   width: calc(100% - 4rem);
   max-width: 90vw;
   overflow-x: auto;

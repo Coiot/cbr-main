@@ -7,12 +7,10 @@
       </div>
       <router-link
         :to="post.path"
-        tag="div"
         v-for="(post, index) in albums"
         :key="post.title"
         class="post"
         :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
-        :tabindex="0"
         :aria-label="`${post.frontmatter.title} ${
           post.frontmatter.edition || ''
         }`"
@@ -98,6 +96,9 @@ h2 {
 
 .post {
   position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
   min-height: 520px;
   width: 100%;
   height: 70vh;

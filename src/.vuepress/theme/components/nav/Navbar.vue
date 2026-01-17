@@ -67,6 +67,7 @@
                 <span class="bookmark-title">{{ bookmark.title }}</span>
                 <span class="bookmark-meta">
                   <span v-if="bookmark.edition">{{ bookmark.edition }}</span>
+                  <span v-else-if="bookmark.pr">{{ bookmark.pr }}</span>
                   <span>Scene {{ bookmark.scene }}</span>
                 </span>
               </router-link>
@@ -132,7 +133,7 @@
             <h4>About CivBattleRoyale</h4>
             <p class="community-description">
               A community-driven Civilization computer-only game with narrated
-              episodes, power rankings, and deep lore across multiple seasons.
+              episodes, power rankings, and goofy lore across multiple seasons.
             </p>
           </div>
         </div>
@@ -273,17 +274,21 @@ export default {
         const page = this.$site.pages.find((p) => p.path === path);
         const title = (page && (page.frontmatter.title || page.title)) || path;
         const edition = page && page.frontmatter && page.frontmatter.edition;
+        const pr = page && page.frontmatter && page.frontmatter.pr;
         items.push({
           key,
           path,
           scene,
           title,
           edition,
+          pr,
         });
       }
       items.sort((a, b) => {
-        if (a.edition && b.edition && a.edition !== b.edition) {
-          return a.edition.localeCompare(b.edition);
+        const aGroup = a.edition || a.pr;
+        const bGroup = b.edition || b.pr;
+        if (aGroup && bGroup && aGroup !== bGroup) {
+          return aGroup.localeCompare(bGroup);
         }
         return a.title.localeCompare(b.title);
       });
@@ -628,6 +633,24 @@ $navbar-horizontal-padding = 1.4rem;
     .logo {
       height: 3.2rem;
       min-width: 3rem;
+    }
+
+    .bookmark-dropdown {
+      position: fixed;
+      top: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+      inset-inline-start: 20%;
+      inset-inline-end: auto;
+      width: min(95vw, 20rem);
+      max-width: 95vw;
+      min-width: 0;
+      transform: translateX(-75%);
+      box-sizing: border-box;
+    }
+
+    .help-dropdown {
+      width: min(95vw, 19rem) !important;
+      max-width: 95vw;
+
     }
   }
 }

@@ -81,7 +81,10 @@ export default {
       return editionNavItems.map((edition) => ({
         id: edition.id,
         label: edition.navLabel || edition.title,
-        link: edition.pathPrefixes ? edition.pathPrefixes[0] : "/albums/",
+        link: {
+          path: "/albums/",
+          query: { edition: edition.id },
+        },
       }));
     },
   },

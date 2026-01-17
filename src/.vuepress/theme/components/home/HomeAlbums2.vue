@@ -11,11 +11,9 @@
       <div class="album-list">
         <router-link
           :to="post.path"
-          tag="div"
           v-for="(post, index) in albums"
           :key="post.title"
           class="post"
-          :tabindex="0"
           :aria-label="`${post.frontmatter.title} ${
             post.frontmatter.edition || ''
           }`"
@@ -92,6 +90,8 @@ h2 {
 .post {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
   background: #fff;
   border: 1px solid #f0d79b;

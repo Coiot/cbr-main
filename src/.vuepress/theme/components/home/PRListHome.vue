@@ -4,11 +4,9 @@
       <div class="album-list">
         <router-link
           :to="post.path"
-          tag="div"
           v-for="(post, index) in albums"
           :key="post.title"
           class="post"
-          :tabindex="0"
         >
           <img :src="post.frontmatter.image" />
 
@@ -65,6 +63,8 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background: #fff;
