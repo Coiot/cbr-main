@@ -8,7 +8,8 @@
         </p> -->
         <h2 class="title-map-title">Season 5 Community Tile Map</h2>
         <p class="tile-map-subtitle tile-map-subtitle-hint">
-          Drag to pan. Click a tile to view details.
+          Drag to pan. Click a tile to view details. Does not save yet, but can
+          play around with the tools.
         </p>
       </div>
       <div class="tile-map-controls">
