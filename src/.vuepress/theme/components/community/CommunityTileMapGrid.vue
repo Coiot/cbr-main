@@ -189,6 +189,20 @@
                 class="tile-city-capital"
                 :d="capitalCityPath"
               />
+              <circle
+                v-if="tile.unit && scale > 1 && !unitIsCivilian(tile)"
+                class="tile-unit-marker tile-unit-marker-combat"
+                :r="unitMarkerRadius"
+                cx="0"
+                cy="0"
+                :style="unitMarkerStyle(tile)"
+              />
+              <polygon
+                v-if="tile.unit && scale > 1 && unitIsCivilian(tile)"
+                class="tile-unit-marker tile-unit-marker-civilian"
+                :points="unitTrianglePoints"
+                :style="unitMarkerStyle(tile)"
+              />
             </g>
             <g
               v-if="hoveredTile"
@@ -425,6 +439,7 @@
                 Brush: click-drag to paint ownership.
               </div>
             </div>
+
             <div
               v-if="selectedTile && selectedTile.city"
               class="tile-edit-group"
@@ -500,7 +515,6 @@
               class="tile-edit-group"
             >
               <label class="tile-edit-label tile-edit-label-inline">
-                City Status
                 <span class="tile-edit-checkbox-inline">
                   <input
                     type="checkbox"
@@ -593,6 +607,52 @@
                 >
                   Clear
                 </button>
+              </div>
+            </div>
+            <div class="tile-edit-group">
+              <label class="tile-edit-label" for="tile-unit-input">Unit</label>
+              <div class="tile-edit-row">
+                <input
+                  id="tile-unit-input"
+                  class="tile-edit-input"
+                  type="text"
+                  list="tile-unit-options"
+                  placeholder="Search unit..."
+                  v-model="editUnitType"
+                />
+                <datalist id="tile-unit-options">
+                  <option
+                    v-for="unit in unitOptions"
+                    :key="`unit-${unit.name}`"
+                    :value="unit.name"
+                    :label="`${unit.name} (${unit.role})`"
+                  ></option>
+                </datalist>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="applyUnitEdit"
+                >
+                  Set
+                </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="clearUnitEdit"
+                >
+                  Clear
+                </button>
+              </div>
+              <div class="tile-edit-row">
+                <input
+                  id="tile-unit-owner-input"
+                  class="tile-edit-input"
+                  type="text"
+                  list="tile-owner-options"
+                  placeholder="Unit owner..."
+                  v-model="editUnitOwnerName"
+                  :style="ownerInputStyle(editUnitOwnerName)"
+                />
               </div>
             </div>
             <p class="tile-edit-hint">
@@ -812,6 +872,7 @@ function normalizeOwnerKey(value) {
 }
 
 const OWNER_COLOR_MAP = {
+  [normalizeOwnerKey("Babylon")]: { primary: "#244353", secondary: "#d4f9ff" },
   [normalizeOwnerKey("Zazzau")]: { primary: "#d1e7d2", secondary: "#165e44" },
   [normalizeOwnerKey("Yunnan")]: { primary: "#750224", secondary: "#baac87" },
   [normalizeOwnerKey("Yanomami")]: { primary: "#a44345", secondary: "#e4d1c4" },
@@ -1000,6 +1061,66 @@ const WONDER_COLORS = {
   kilimanjaro: "#78909c",
   "solomons-mines": "#ffb74d",
 };
+const BASE_UNITS = [
+  { name: "Settler", role: "civilian" },
+  { name: "Worker", role: "civilian" },
+  { name: "Warrior", role: "combat" },
+  { name: "Scout", role: "combat" },
+  { name: "Archer", role: "combat" },
+  { name: "Spearman", role: "combat" },
+  { name: "Chariot Archer", role: "combat" },
+  { name: "Swordsman", role: "combat" },
+  { name: "Horseman", role: "combat" },
+  { name: "Catapult", role: "combat" },
+  { name: "Knight", role: "combat" },
+  { name: "Crossbowman", role: "combat" },
+  { name: "Pikeman", role: "combat" },
+  { name: "Trebuchet", role: "combat" },
+  { name: "Longswordsman", role: "combat" },
+  { name: "Musketman", role: "combat" },
+  { name: "Cannon", role: "combat" },
+  { name: "Lancer", role: "combat" },
+  { name: "Rifleman", role: "combat" },
+  { name: "Cavalry", role: "combat" },
+  { name: "Infantry", role: "combat" },
+  { name: "Artillery", role: "combat" },
+  { name: "Tank", role: "combat" },
+  { name: "Anti Tank Gun", role: "combat" },
+  { name: "Anti Aircraft Gun", role: "combat" },
+  { name: "Paratrooper", role: "combat" },
+  { name: "Fighter", role: "combat" },
+  { name: "Bomber", role: "combat" },
+  { name: "Atomic Bomb", role: "combat" },
+  { name: "Rocket Artillery", role: "combat" },
+  { name: "Mechanized Infantry", role: "combat" },
+  { name: "Modern Armor", role: "combat" },
+  { name: "Helicopter Gunship", role: "combat" },
+  { name: "Mobile Sam", role: "combat" },
+  { name: "Guided Missile", role: "combat" },
+  { name: "Jet Fighter", role: "combat" },
+  { name: "Stealth Bomber", role: "combat" },
+  { name: "Nuclear Missile", role: "combat" },
+  { name: "Mech", role: "combat" },
+  { name: "Workboat", role: "civilian" },
+  { name: "Trireme", role: "combat" },
+  { name: "Caravel", role: "combat" },
+  { name: "Frigate", role: "combat" },
+  { name: "Ironclad", role: "combat" },
+  { name: "Destroyer", role: "combat" },
+  { name: "Battleship", role: "combat" },
+  { name: "Submarine", role: "combat" },
+  { name: "Carrier", role: "combat" },
+  { name: "Nuclear Submarine", role: "combat" },
+  { name: "Missile Cruiser", role: "combat" },
+  { name: "Artist", role: "civilian" },
+  { name: "Scientist", role: "civilian" },
+  { name: "Merchant", role: "civilian" },
+  { name: "Engineer", role: "civilian" },
+  { name: "Great General", role: "civilian" },
+];
+const BASE_UNIT_IDS = BASE_UNITS.map((unit) =>
+  unit.name.toUpperCase().replace(/[^A-Z0-9]+/g, "_")
+);
 
 export default {
   data() {
@@ -1036,9 +1157,12 @@ export default {
       editCityPuppeted: false,
       editCityOccupied: false,
       editCityResistance: false,
+      editUnitType: "",
+      editUnitOwnerName: "",
       ownerBrushEnabled: false,
       isPaintingOwner: false,
       ownerBrushId: null,
+      nextUnitId: 1,
       terrainLegend: [],
       featureLegend: [],
       wonderLegend: [],
@@ -1142,6 +1266,17 @@ export default {
       return `M 0 ${-size} L ${size} 0 L 0 ${size} L ${-size} 0 Z`;
     },
 
+    unitMarkerRadius() {
+      return this.hexSize * 0.34;
+    },
+
+    unitTrianglePoints() {
+      const size = this.hexSize * 0.56;
+      return `0 ${size * 0.6} ${-size * 0.55} ${-size * 0.4} ${size * 0.55} ${
+        -size * 0.4
+      }`;
+    },
+
     showDecorations() {
       return this.scale >= 0.55;
     },
@@ -1156,6 +1291,10 @@ export default {
 
     ownerOptions() {
       return s5OwnerList;
+    },
+
+    unitOptions() {
+      return BASE_UNITS;
     },
 
     canvasWidth() {
@@ -1344,6 +1483,7 @@ export default {
         improvementColors
       );
       this.tiles = tiles;
+      this.nextUnitId = nextUnitIdFromTiles(tiles);
       this.tileLookup = buildTileLookup(tiles);
       this.ownerColors = ownerColors;
       this.ownerSecondaryColors = buildSecondaryColorMap(ownerColors);
@@ -1712,6 +1852,8 @@ export default {
         });
       }
 
+      // Unit markers render in SVG at higher zoom levels.
+
       const outlineTiles = [];
       if (this.hoveredTile) {
         outlineTiles.push({
@@ -1797,6 +1939,8 @@ export default {
       this.editOriginalOwnerName = ownerNameForId(
         tile ? tile.originalOwner : null
       );
+      this.editUnitType = unitInputValueForTile(tile);
+      this.editUnitOwnerName = unitOwnerInputValueForTile(tile);
       this.editCityReligion =
         tile && tile.city && tile.city.religion ? tile.city.religion : "";
     },
@@ -2037,6 +2181,31 @@ export default {
       return { fill, ...textStrokeStyleForFill(fill) };
     },
 
+    unitMarkerStyle(tile) {
+      if (!tile || !tile.unit) {
+        return null;
+      }
+      const colors = unitMarkerColors(
+        tile.unit.owner,
+        this.ownerColors,
+        this.ownerSecondaryColors
+      );
+      if (!colors) {
+        return null;
+      }
+      return {
+        fill: colors.primary,
+        stroke: colors.secondary,
+      };
+    },
+
+    unitIsCivilian(tile) {
+      if (!tile || !tile.unit) {
+        return false;
+      }
+      return unitRoleFromType(tile.unit.type) === "civilian";
+    },
+
     resourceLabel(tile) {
       if (!tile.resource) {
         return "None";
@@ -2071,7 +2240,9 @@ export default {
       if (!unit) {
         return "None";
       }
-      const owner = Number.isFinite(unit.owner) ? ` (Owner ${unit.owner})` : "";
+      const owner = Number.isFinite(unit.owner)
+        ? ` (${ownerNameForId(unit.owner) || "Unknown"})`
+        : "";
       return `${formatEnumLabel(unit.type || "Unit")}${owner}`;
     },
 
@@ -2157,6 +2328,45 @@ export default {
       this.editOwnerName = ownerNameForId(normalized);
       this.ensureOwnerColors(normalized);
       this.rebuildOwnerBorders();
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    applyUnitEdit() {
+      if (!this.selectedTile) {
+        return;
+      }
+      const unitType = normalizeUnitInput(this.editUnitType);
+      if (!unitType) {
+        return;
+      }
+      const ownerInputId = resolveOwnerInput(this.editUnitOwnerName);
+      const owner = Number.isFinite(ownerInputId)
+        ? ownerInputId
+        : Number.isFinite(this.selectedTile.owner)
+        ? this.selectedTile.owner
+        : null;
+      this.selectedTile.unit = {
+        id: this.nextUnitId,
+        type: unitType,
+        owner,
+      };
+      this.nextUnitId += 1;
+      this.editUnitType = unitLabelFromType(unitType);
+      this.editUnitOwnerName = ownerNameForId(owner);
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    clearUnitEdit() {
+      if (!this.selectedTile) {
+        return;
+      }
+      this.selectedTile.unit = null;
+      this.editUnitType = "";
+      this.editUnitOwnerName = "";
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -3191,6 +3401,79 @@ function formatOwnerOptionLabel(owner, index) {
   return `${owner.name || "Unknown"}${leader}`;
 }
 
+function normalizeUnitInput(value) {
+  if (!value) {
+    return null;
+  }
+  const raw = String(value)
+    .trim()
+    .toUpperCase()
+    .replace(/^UNIT_/, "")
+    .replace(/[^A-Z0-9]+/g, "_");
+  if (!BASE_UNIT_IDS.includes(raw)) {
+    return null;
+  }
+  return `UNIT_${raw}`;
+}
+
+function unitInputValueForTile(tile) {
+  if (!tile || !tile.unit || !tile.unit.type) {
+    return "";
+  }
+  return unitLabelFromType(tile.unit.type);
+}
+
+function unitOwnerInputValueForTile(tile) {
+  if (!tile || !tile.unit || !Number.isFinite(tile.unit.owner)) {
+    return "";
+  }
+  return ownerNameForId(tile.unit.owner);
+}
+
+function unitLabelFromType(type) {
+  const raw = String(type || "")
+    .trim()
+    .toUpperCase()
+    .replace(/^UNIT_/, "")
+    .replace(/[^A-Z0-9]+/g, "_");
+  const index = BASE_UNIT_IDS.indexOf(raw);
+  return index >= 0 ? BASE_UNITS[index].name : raw;
+}
+
+function nextUnitIdFromTiles(tiles) {
+  let maxId = 0;
+  (tiles || []).forEach((tile) => {
+    if (tile && tile.unit && Number.isFinite(tile.unit.id)) {
+      maxId = Math.max(maxId, tile.unit.id);
+    }
+  });
+  return maxId + 1;
+}
+
+function unitRoleFromType(type) {
+  const raw = String(type || "")
+    .trim()
+    .toUpperCase()
+    .replace(/^UNIT_/, "")
+    .replace(/[^A-Z0-9]+/g, "_");
+  const index = BASE_UNIT_IDS.indexOf(raw);
+  return index >= 0 ? BASE_UNITS[index].role : "combat";
+}
+
+function unitMarkerColors(owner, ownerColors, ownerSecondaryColors) {
+  if (!Number.isFinite(owner)) {
+    return null;
+  }
+  const primary = ownerColors ? ownerColors[owner] : null;
+  if (!primary) {
+    return null;
+  }
+  const secondary =
+    (ownerSecondaryColors && ownerSecondaryColors[owner]) ||
+    deriveSecondaryColor(primary);
+  return { primary, secondary };
+}
+
 function resolveOwnerInput(value) {
   if (value === undefined || value === null) {
     return null;
@@ -3763,6 +4046,13 @@ button {
   fill: #fff;
   font-size: 5px;
   font-weight: 700;
+  pointer-events: none;
+}
+
+.tile-unit-marker {
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
   pointer-events: none;
 }
 
