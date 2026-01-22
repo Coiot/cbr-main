@@ -127,7 +127,7 @@ export default {
 .edition-list {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   background-color: #fff;
   border: 1px solid #f2d28a;
   border-radius: 999px;
@@ -164,7 +164,7 @@ export default {
 }
 
 .list-button span {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 800;
   text-shadow: none;
 }
@@ -188,12 +188,13 @@ export default {
 
 @media (max-width: 799px) {
   .list-button span {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .edition-list {
     width: calc(100% - 2rem);
     max-width: 90vw;
+    gap: 0.15rem;
     padding: 0.4rem 0.5rem;
   }
 }

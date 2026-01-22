@@ -125,6 +125,7 @@ h2 {
 .post:hover {
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
+  scale: 1.01;
 }
 
 .hero-overlay {

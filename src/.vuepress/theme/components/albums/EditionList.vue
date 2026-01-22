@@ -703,7 +703,7 @@ h1 {
   font-size: 4rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
-  padding: 0.7em 0 0.1em;
+  padding: 0.75em 0 0.1em;
   margin-top: 0;
 }
 

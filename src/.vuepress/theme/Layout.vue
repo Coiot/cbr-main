@@ -49,6 +49,7 @@ import PR from "./layout/PR.vue";
 import Home from "./layout/Home.vue";
 import Page from "./layout/Page.vue";
 import Other from "./layout/Other.vue";
+import CommunityTileMap from "./layout/CommunityTileMap.vue";
 import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
@@ -71,6 +72,7 @@ export default {
     Home,
     Page,
     Other,
+    CommunityTileMap,
     Sidebar,
     Navbar,
     VueperSlides,

@@ -1,0 +1,30 @@
+export const mapConfig = {
+  viewWidth: 1400,
+  viewHeight: 840,
+  columns: 0,
+  rows: 0,
+  hexSize: 14,
+  sourceUrl: "/community/CBRXMapOct62025_V2.civ5map",
+  baseCacheUrl: "/community/CBRXMapOct62025_V2.base.json",
+  stateCacheUrl: "/community/CBRXMapOct62025_V2.state.json",
+  maxScale: 3,
+};
+
+export const ownerPalette = [
+  "#c03a2b",
+  "#d6a845",
+  "#2e7d32",
+  "#c2185b",
+  "#3f51b5",
+  "#455a64",
+  "#ff6f00",
+  "#00a8a8",
+  "#8e44ad",
+  "#5e35b1",
+  "#16a085",
+  "#2c3e50",
+  "#b71c1c",
+  "#6d4c41",
+  "#00897b",
+  "#5d4037",
+];
