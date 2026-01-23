@@ -147,7 +147,11 @@
                 :style="{ fill: tile.resourceColor }"
               />
               <rect
-                v-if="showDecorations && tile.improvement"
+                v-if="
+                  showDecorations &&
+                  tile.improvement &&
+                  !isCitadelImprovement(tile)
+                "
                 class="tile-improvement"
                 :x="-hexSize * 0.2"
                 :y="hexSize * 0.15"
@@ -156,6 +160,11 @@
                 rx="1.5"
                 ry="1.5"
                 :style="{ fill: tile.improvementColor }"
+              />
+              <polygon
+                v-if="showCitadels && isCitadelImprovement(tile)"
+                class="tile-citadel"
+                :points="citadelStarPoints"
               />
               <path
                 v-if="showDecorations && tile.route"
@@ -299,9 +308,15 @@
               </div>
             </div>
             <div class="tile-info-row">
-              <div class="tile-info-label">Wonder</div>
+              <div class="tile-info-label">Natural Wonder</div>
               <div class="tile-info-value">
                 {{ formatLabel(activeTile.wonder) }}
+              </div>
+            </div>
+            <div v-if="activeTile.city" class="tile-info-row">
+              <div class="tile-info-label">World Wonders</div>
+              <div class="tile-info-value">
+                {{ worldWondersLabel(activeTile.city) }}
               </div>
             </div>
             <div class="tile-info-row">
@@ -610,6 +625,37 @@
                 </button>
               </div>
             </div>
+            <div
+              v-if="selectedTile && selectedTile.city"
+              class="tile-edit-group"
+            >
+              <label class="tile-edit-label" for="tile-city-wonders-input">
+                World Wonders
+              </label>
+              <div class="tile-edit-row">
+                <input
+                  id="tile-city-wonders-input"
+                  class="tile-edit-input"
+                  type="text"
+                  placeholder="Comma-separated..."
+                  v-model="editWorldWonders"
+                />
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="applyWorldWondersEdit"
+                >
+                  Set
+                </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="clearWorldWondersEdit"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
             <div class="tile-edit-group">
               <label class="tile-edit-label" for="tile-unit-input">Unit</label>
               <div class="tile-edit-row">
@@ -655,6 +701,19 @@
                   :style="ownerInputStyle(editUnitOwnerName)"
                 />
               </div>
+            </div>
+            <div v-if="!selectedTile.city" class="tile-edit-group">
+              <label class="tile-edit-label tile-edit-label-inline">
+                <span class="tile-edit-checkbox-inline">
+                  <input
+                    type="checkbox"
+                    v-model="editCitadel"
+                    @change="applyCitadelEdit"
+                    aria-label="Citadel improvement"
+                  />
+                  Citadel Improvement
+                </span>
+              </label>
             </div>
             <p class="tile-edit-hint">
               Editing applies to the selected tile only.
@@ -1154,12 +1213,14 @@ export default {
       editCityValue: null,
       editCityName: "",
       editCityReligion: "",
+      editWorldWonders: "",
       editCityCapital: false,
       editCityPuppeted: false,
       editCityOccupied: false,
       editCityResistance: false,
       editUnitType: "",
       editUnitOwnerName: "",
+      editCitadel: false,
       ownerBrushEnabled: false,
       isPaintingOwner: false,
       ownerBrushId: null,
@@ -1278,12 +1339,22 @@ export default {
       }`;
     },
 
+    citadelStarPoints() {
+      const outer = this.hexSize * 0.5;
+      const inner = outer * 0.65;
+      return buildRegularStarPoints(8, outer, inner);
+    },
+
     showDecorations() {
       return this.scale >= 0.55;
     },
 
     showLabels() {
       return this.scale >= 0.75;
+    },
+
+    showCitadels() {
+      return this.scale > 1;
     },
 
     useTerrainCanvas() {
@@ -1356,6 +1427,10 @@ export default {
         this.editCityReligion = nextTile.city
           ? nextTile.city.religion || ""
           : "";
+        this.editWorldWonders = nextTile.city
+          ? worldWondersInputValue(nextTile.city.worldWonders)
+          : "";
+        this.editCitadel = isCitadelImprovement(nextTile);
         this.editCityCapital = nextTile.city
           ? !!nextTile.city.isCapital
           : false;
@@ -1372,6 +1447,8 @@ export default {
         this.editCityValue = null;
         this.editCityName = "";
         this.editCityReligion = "";
+        this.editWorldWonders = "";
+        this.editCitadel = false;
         this.editCityCapital = false;
         this.editCityPuppeted = false;
         this.editCityOccupied = false;
@@ -2207,6 +2284,10 @@ export default {
       return unitRoleFromType(tile.unit.type) === "civilian";
     },
 
+    isCitadelImprovement(tile) {
+      return isCitadelImprovement(tile);
+    },
+
     resourceLabel(tile) {
       if (!tile.resource) {
         return "None";
@@ -2254,6 +2335,14 @@ export default {
       const name = city.name || "City";
       const capital = city.isCapital ? " • Capital" : "";
       return `${name} (Pop ${city.size || 1})${capital}`;
+    },
+
+    isWorldWonderCity(city) {
+      return isWorldWonderCity(city);
+    },
+
+    worldWondersLabel(city) {
+      return worldWondersLabel(city);
     },
 
     continentLabel(continent) {
@@ -2356,6 +2445,20 @@ export default {
       this.nextUnitId += 1;
       this.editUnitType = unitLabelFromType(unitType);
       this.editUnitOwnerName = ownerNameForId(owner);
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    applyCitadelEdit() {
+      if (!this.selectedTile) {
+        return;
+      }
+      if (this.editCitadel) {
+        setCitadelImprovement(this.selectedTile);
+      } else {
+        clearCitadelImprovement(this.selectedTile);
+      }
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2472,12 +2575,14 @@ export default {
         size: Math.round(population),
         owner: this.selectedTile.owner,
         religion: this.editCityReligion ? this.editCityReligion.trim() : "",
+        worldWonders: worldWondersFromInput(this.editWorldWonders),
         isPuppeted: !!this.editCityPuppeted,
         isOccupied: !!this.editCityOccupied,
         isResistance: !!this.editCityResistance,
         isCustom: true,
         isCapital: !!this.editCityCapital,
       };
+      clearCitadelImprovement(this.selectedTile);
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2498,18 +2603,21 @@ export default {
         : this.selectedTile.city
         ? this.selectedTile.city.size || 1
         : 1;
+      const worldWonders = worldWondersFromInput(this.editWorldWonders);
       this.selectedTile.city = {
         id: this.selectedTile.city ? this.selectedTile.city.id : null,
         name: trimmed,
         size,
         owner: this.selectedTile.owner,
         religion: this.editCityReligion ? this.editCityReligion.trim() : "",
+        worldWonders,
         isPuppeted: !!this.editCityPuppeted,
         isOccupied: !!this.editCityOccupied,
         isResistance: !!this.editCityResistance,
         isCustom: true,
         isCapital: !!this.editCityCapital,
       };
+      clearCitadelImprovement(this.selectedTile);
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2526,6 +2634,7 @@ export default {
       this.selectedTile.city = {
         ...this.selectedTile.city,
         religion,
+        worldWonders: worldWondersFromInput(this.editWorldWonders),
         isPuppeted: !!this.editCityPuppeted,
         isOccupied: !!this.editCityOccupied,
         isResistance: !!this.editCityResistance,
@@ -2558,15 +2667,18 @@ export default {
           size,
           owner: this.selectedTile.owner,
           religion: this.editCityReligion ? this.editCityReligion.trim() : "",
+          worldWonders: worldWondersFromInput(this.editWorldWonders),
           isPuppeted: !!this.editCityPuppeted,
           isOccupied: !!this.editCityOccupied,
           isResistance: !!this.editCityResistance,
           isCustom: true,
           isCapital: true,
         };
+        clearCitadelImprovement(this.selectedTile);
       } else {
         this.selectedTile.city = {
           ...this.selectedTile.city,
+          worldWonders: worldWondersFromInput(this.editWorldWonders),
           isCustom: true,
           isCapital,
         };
@@ -2627,6 +2739,7 @@ export default {
         this.selectedTile.city = {
           ...this.selectedTile.city,
           name: "",
+          worldWonders: worldWondersFromInput(this.editWorldWonders),
           isCustom: true,
           isCapital: !!this.editCityCapital,
         };
@@ -2659,9 +2772,39 @@ export default {
       this.selectedTile.city = {
         ...this.selectedTile.city,
         religion: "",
+        worldWonders: worldWondersFromInput(this.editWorldWonders),
         isCustom: true,
       };
       this.editCityReligion = "";
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    applyWorldWondersEdit() {
+      if (!this.selectedTile || !this.selectedTile.city) {
+        return;
+      }
+      this.selectedTile.city = {
+        ...this.selectedTile.city,
+        worldWonders: worldWondersFromInput(this.editWorldWonders),
+        isCustom: true,
+      };
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    clearWorldWondersEdit() {
+      if (!this.selectedTile || !this.selectedTile.city) {
+        return;
+      }
+      this.editWorldWonders = "";
+      this.selectedTile.city = {
+        ...this.selectedTile.city,
+        worldWonders: [],
+        isCustom: true,
+      };
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2748,6 +2891,26 @@ function buildStarVertices(outerRadius, innerRadius) {
     });
   }
   return vertices;
+}
+
+function buildRegularStarVertices(pointCount, outerRadius, innerRadius) {
+  const vertices = [];
+  const totalPoints = Math.max(2, pointCount) * 2;
+  for (let i = 0; i < totalPoints; i += 1) {
+    const angle = (Math.PI / pointCount) * i - Math.PI / 2;
+    const radius = i % 2 === 0 ? outerRadius : innerRadius;
+    vertices.push({
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+    });
+  }
+  return vertices;
+}
+
+function buildRegularStarPoints(pointCount, outerRadius, innerRadius) {
+  return buildRegularStarVertices(pointCount, outerRadius, innerRadius)
+    .map((point) => `${point.x} ${point.y}`)
+    .join(" ");
 }
 
 function buildLegendItems(list) {
@@ -3197,6 +3360,9 @@ function buildTiles(
               size: city.population || city.size || 1,
               owner: city.owner,
               religion: city.religion || "",
+              worldWonders: Array.isArray(city.worldWonders)
+                ? [...city.worldWonders]
+                : [],
               isPuppeted: !!city.isPuppeted,
               isOccupied: !!city.isOccupied,
               isResistance: !!city.isResistance,
@@ -3357,6 +3523,77 @@ function ownerColorEntryById(ownerId) {
     return null;
   }
   return OWNER_COLOR_MAP[normalizeOwnerKey(entry.name)] || null;
+}
+
+function isWorldWonderName(name) {
+  return String(name || "").trim() === "World Wonder";
+}
+
+function isWorldWonderCity(city) {
+  if (!city) {
+    return false;
+  }
+  return isWorldWonderName(city.name);
+}
+
+function worldWondersFromInput(value) {
+  if (!value) {
+    return [];
+  }
+  const entries = String(value)
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  return Array.from(new Set(entries));
+}
+
+function worldWondersInputValue(value) {
+  if (!Array.isArray(value) || !value.length) {
+    return "";
+  }
+  return value.filter(Boolean).join(", ");
+}
+
+function worldWondersLabel(city) {
+  if (!city || !Array.isArray(city.worldWonders)) {
+    return "None";
+  }
+  return city.worldWonders.length ? city.worldWonders.join(", ") : "None";
+}
+
+function isCitadelImprovement(tile) {
+  if (!tile) {
+    return false;
+  }
+  if (tile.improvementId === "citadel") {
+    return true;
+  }
+  const name = String(tile.improvement || "")
+    .trim()
+    .toUpperCase();
+  return name === "IMPROVEMENT_CITADEL" || name === "CITADEL";
+}
+
+function setCitadelImprovement(tile) {
+  if (!tile) {
+    return;
+  }
+  const name = "IMPROVEMENT_CITADEL";
+  tile.improvement = name;
+  tile.improvementId = "citadel";
+  tile.improvementColor = colorFromString(name, IMPROVEMENT_COLOR_OPTIONS);
+}
+
+function clearCitadelImprovement(tile) {
+  if (!tile) {
+    return;
+  }
+  if (!isCitadelImprovement(tile)) {
+    return;
+  }
+  tile.improvement = null;
+  tile.improvementId = "";
+  tile.improvementColor = null;
 }
 
 function cityLabelColors(tile, ownerColors, ownerSecondaryColors) {
@@ -4015,6 +4252,12 @@ button {
 .tile-route {
   stroke: #f3d18c;
   stroke-width: 1.4;
+}
+
+.tile-citadel {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(0, 0, 0, 0.75);
+  stroke-width: 1.2;
 }
 
 .route-road {
