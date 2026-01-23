@@ -100,19 +100,15 @@
         <div class="scene-jump">
           <label class="jump-label" for="scene-jump">Jump to scene</label>
           <div class="jump-controls">
-            <input
-              id="scene-jump"
-              v-model.number="jumpToScene"
-              type="number"
-              :min="1"
-              :max="sceneCount"
-              @keyup.enter="goToScene"
-            />
+            <select id="scene-jump" v-model.number="jumpToScene">
+              <option v-for="index in sceneCount" :key="index" :value="index">
+                Scene {{ index }}
+              </option>
+            </select>
             <button type="button" class="scene-button" @click="goToScene">
               Go
             </button>
           </div>
-          <span class="scene-count">{{ sceneCount }} scenes</span>
         </div>
       </div>
 
@@ -997,9 +993,6 @@ export default {
         const jumpInput = document.getElementById("scene-jump");
         if (jumpInput && typeof jumpInput.focus === "function") {
           jumpInput.focus();
-          if (typeof jumpInput.select === "function") {
-            jumpInput.select();
-          }
         }
         return;
       }
@@ -1362,7 +1355,7 @@ export default {
   gap: 0.6rem;
 }
 
-.jump-controls input {
+.jump-controls select {
   width: 6.5rem;
   font-size: 1rem;
   color: #fff;
@@ -1370,10 +1363,17 @@ export default {
   border: 1px solid #ffbf46;
   border-radius: 6px;
   padding-block: 0.35rem;
-  padding-inline: 0.6rem;
+  padding-inline: 0.6rem 1.6rem;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #ffbf46 50%),
+    linear-gradient(135deg, #ffbf46 50%, transparent 50%);
+  background-position: calc(100% - 0.9rem) calc(50% - 0.1rem),
+    calc(100% - 0.6rem) calc(50% - 0.1rem);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
 }
 
-.jump-controls input:focus {
+.jump-controls select:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
 }
