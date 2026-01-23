@@ -1129,7 +1129,6 @@ export default {
 .blog {
   text-shadow: 2px 2px #083832;
   margin-block: 2rem;
-  overflow-x: hidden;
 }
 
 .blog h1 {
@@ -1405,6 +1404,7 @@ export default {
 
 .scene-timeline {
   position: sticky;
+  top: 0;
   z-index: 5;
   overflow-x: auto;
   background: #111;
