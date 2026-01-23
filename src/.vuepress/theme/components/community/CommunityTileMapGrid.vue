@@ -2105,8 +2105,8 @@ export default {
         tile && tile.city && tile.city.name ? String(tile.city.name) : "";
       const height = this.cityLabelHeight();
       const badgeDiameter = this.cityLabelBadgeRadius() * 2;
-      const nameWidth = name.length * (height * 0.42);
-      const rightPad = height * 0.5;
+      const nameWidth = name.length * (height * 0.34);
+      const rightPad = height * 0.32;
       return badgeDiameter + this.cityLabelTextGap() + nameWidth + rightPad;
     },
 
