@@ -1762,6 +1762,11 @@ export default {
       }
       this.authChecking = true;
       this.authMessage = "";
+      const { data: sessionData } = await this.supabase.auth.getSession();
+      const accessToken =
+        sessionData && sessionData.session
+          ? sessionData.session.access_token
+          : null;
       const { data, error } = await this.supabase.functions.invoke(
         SUPABASE_CHECK_FUNCTION,
         {
@@ -1769,6 +1774,9 @@ export default {
             map_id: SUPABASE_MAP_ID,
             email: this.authUser.email,
           },
+          headers: accessToken
+            ? { Authorization: `Bearer ${accessToken}` }
+            : undefined,
         }
       );
       this.authChecking = false;
