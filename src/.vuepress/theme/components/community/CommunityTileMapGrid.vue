@@ -6,7 +6,7 @@
         <p class="tile-map-subtitle" v-if="mapDescription">
           {{ mapDescription }}
         </p> -->
-        <h2 class="title-map-title">Season 5 Community Tile Map</h2>
+        <h1 class="title-map-title">Community Tile Map</h1>
         <p class="tile-map-subtitle tile-map-subtitle-hint">
           Drag to pan. Click a tile to view details. Does not save yet, but can
           play around with the tools.
@@ -1728,10 +1728,11 @@ export default {
       }
       this.authLoading = true;
       this.authMessage = "";
+      const redirectBase = `${window.location.origin}${window.location.pathname}`;
       const { error } = await this.supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: window.location.href,
+          emailRedirectTo: redirectBase,
         },
       });
       this.authLoading = false;
