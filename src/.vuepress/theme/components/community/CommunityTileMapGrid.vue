@@ -2094,7 +2094,8 @@ export default {
           map_id: row.map_id,
           tile_key: row.tile_key,
           payload: row.payload,
-          user_id: row.updated_by,
+          edited_by: row.updated_by,
+          edited_at: now,
         }))
       );
     },
