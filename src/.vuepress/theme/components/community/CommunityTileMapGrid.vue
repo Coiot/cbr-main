@@ -1860,7 +1860,7 @@ export default {
       }
       const { data, error } = await this.supabase
         .from(SUPABASE_OVERRIDE_TABLE)
-        .select("col,row,payload")
+        .select("tile_key,payload")
         .eq("map_id", SUPABASE_MAP_ID);
       if (error || !Array.isArray(data)) {
         return;
@@ -1874,7 +1874,11 @@ export default {
       }
       let needsBorderRebuild = false;
       rows.forEach((row) => {
-        const tile = this.tileLookup.get(`${row.col},${row.row}`);
+        const tileKey = row.tile_key || row.tileKey;
+        if (!tileKey) {
+          return;
+        }
+        const tile = this.tileLookup.get(tileKey);
         if (!tile) {
           return;
         }
@@ -2050,8 +2054,7 @@ export default {
       }
       const payload = this.buildTileOverridePayload(tile);
       this.tileSaveQueue.set(tile.key, {
-        col: tile.col,
-        row: tile.row,
+        tile_key: tile.key,
         payload,
       });
       if (this.tileSaveTimer) {
@@ -2070,8 +2073,7 @@ export default {
       const now = new Date().toISOString();
       const rows = Array.from(this.tileSaveQueue.values()).map((entry) => ({
         map_id: SUPABASE_MAP_ID,
-        col: entry.col,
-        row: entry.row,
+        tile_key: entry.tile_key,
         payload: entry.payload,
         updated_at: now,
         updated_by: this.authUser ? this.authUser.id : null,
@@ -2081,7 +2083,7 @@ export default {
       const { error } = await this.supabase
         .from(SUPABASE_OVERRIDE_TABLE)
         .upsert(rows, {
-          onConflict: "map_id,col,row",
+          onConflict: "map_id,tile_key",
         });
       if (error) {
         this.authMessage = "Unable to sync edits. Please try again.";
@@ -2090,8 +2092,7 @@ export default {
       await this.supabase.from(SUPABASE_EDIT_LOG_TABLE).insert(
         rows.map((row) => ({
           map_id: row.map_id,
-          col: row.col,
-          row: row.row,
+          tile_key: row.tile_key,
           payload: row.payload,
           user_id: row.updated_by,
         }))
@@ -2117,7 +2118,11 @@ export default {
             if (!record || !this.tileLookup) {
               return;
             }
-            const tile = this.tileLookup.get(`${record.col},${record.row}`);
+            const tileKey = record.tile_key || record.tileKey;
+            if (!tileKey) {
+              return;
+            }
+            const tile = this.tileLookup.get(tileKey);
             if (!tile) {
               return;
             }
