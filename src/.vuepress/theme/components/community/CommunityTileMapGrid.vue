@@ -13,29 +13,44 @@
         </p>
       </div>
       <div class="tile-map-controls">
-        <span class="tile-map-scale">Zoom: {{ scaleLabel }}</span>
-        <button
-          type="button"
-          class="tile-map-control"
-          @click="zoomOut"
-          aria-label="Zoom out"
-        >
-          -
-        </button>
-        <button
-          type="button"
-          class="tile-map-control"
-          @click="zoomIn"
-          aria-label="Zoom in"
-        >
-          +
-        </button>
-        <button type="button" class="tile-map-control" @click="fitToView">
-          Fit
-        </button>
-        <button type="button" class="tile-map-control" @click="resetView">
-          Reset
-        </button>
+        <div class="tile-map-control-group">
+          <span class="tile-map-control-label">Zoom</span>
+          <div class="tile-map-control-pill">
+            <button
+              type="button"
+              class="tile-map-control tile-map-control-icon"
+              @click="zoomOut"
+              aria-label="Zoom out"
+            >
+              &minus;
+            </button>
+            <span class="tile-map-scale">{{ scaleLabel }}</span>
+            <button
+              type="button"
+              class="tile-map-control tile-map-control-icon"
+              @click="zoomIn"
+              aria-label="Zoom in"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <div class="tile-map-control-group tile-map-control-actions">
+          <button
+            type="button"
+            class="tile-map-control tile-map-control-ghost"
+            @click="fitToView"
+          >
+            Fit
+          </button>
+          <button
+            type="button"
+            class="tile-map-control tile-map-control-ghost"
+            @click="resetView"
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
     <div class="tile-map-body">
@@ -50,6 +65,7 @@
         @pointermove="onPointerMove"
         @pointerup="onPointerUp"
         @pointerleave="onPointerUp"
+        @pointercancel="onPointerUp"
         @keydown="onKeydown"
       >
         <div v-if="isLoading" class="tile-map-loading">Loading map data...</div>
@@ -89,9 +105,9 @@
             >
               <polygon
                 class="tile-hex"
-                :class="terrainClass(tile)"
+                :class="[terrainClass(tile), { 'is-pillaged': tile.pillaged }]"
                 :points="hexPoints"
-                :style="tileStrokeStyle(tile)"
+                :style="tileHexStyle(tile)"
               />
               <polygon
                 v-if="Number.isFinite(tile.owner)"
@@ -173,19 +189,19 @@
                 :d="routePath"
               />
               <path
-                v-if="showUnits && tile.unit"
+                v-if="showUnits && primaryUnit(tile)"
                 class="tile-unit"
                 :d="unitPath"
                 :transform="`translate(${hexSize * 0.3}, ${-hexSize * 0.35})`"
               />
               <text
-                v-if="showUnits && tile.unit && showLabels"
+                v-if="showUnits && primaryUnit(tile) && showLabels"
                 class="tile-unit-label"
                 :x="hexSize * 0.3"
                 :y="-hexSize * 0.35 + 1.5"
                 text-anchor="middle"
               >
-                {{ unitLabel(tile.unit) }}
+                {{ unitLabel(primaryUnit(tile)) }}
               </text>
               <circle
                 v-if="tile.city && !tile.city.isCapital"
@@ -199,19 +215,21 @@
                 class="tile-city-capital"
                 :d="capitalCityPath"
               />
+              <polygon
+                v-if="tile.civilianUnit && scale > 1"
+                class="tile-unit-marker tile-unit-marker-civilian"
+                :points="unitTrianglePoints"
+                :transform="unitMarkerTransform(tile, 'civilian')"
+                :style="unitMarkerStyle(tile.civilianUnit)"
+              />
               <circle
-                v-if="tile.unit && scale > 1 && !unitIsCivilian(tile)"
+                v-if="tile.combatUnit && scale > 1"
                 class="tile-unit-marker tile-unit-marker-combat"
                 :r="unitMarkerRadius"
                 cx="0"
                 cy="0"
-                :style="unitMarkerStyle(tile)"
-              />
-              <polygon
-                v-if="tile.unit && scale > 1 && unitIsCivilian(tile)"
-                class="tile-unit-marker tile-unit-marker-civilian"
-                :points="unitTrianglePoints"
-                :style="unitMarkerStyle(tile)"
+                :transform="unitMarkerTransform(tile, 'combat')"
+                :style="unitMarkerStyle(tile.combatUnit)"
               />
             </g>
             <g
@@ -280,131 +298,161 @@
             </g>
           </svg>
         </div>
-        <!-- <div class="tile-map-hint">Drag to pan.</div> -->
-      </div>
-      <aside class="tile-map-info">
-        <details class="tile-info-card tile-info-accordion" open>
-          <summary class="tile-info-summary">Tile Details</summary>
-          <div class="tile-info-title">
-            {{ activeTile ? tileTitle(activeTile) : "Tile Details" }}
+        <div
+          v-if="hoverTooltipVisible && hoverTooltipTile"
+          ref="tileTooltip"
+          class="tile-map-tooltip"
+          :style="tooltipStyle"
+        >
+          <div class="tile-tooltip-title">
+            {{ tileTitle(hoverTooltipTile) }}
           </div>
-          <div v-if="activeTile" class="tile-info-list">
+          <div class="tile-tooltip-list">
             <div class="tile-info-row">
               <div class="tile-info-label">Terrain</div>
               <div class="tile-info-value">
-                {{ formatLabel(activeTile.terrain) }}
+                {{ formatLabel(hoverTooltipTile.terrain) }}
               </div>
             </div>
             <div class="tile-info-row">
               <div class="tile-info-label">Elevation</div>
               <div class="tile-info-value">
-                {{ elevationLabel(activeTile.elevation) }}
+                {{ elevationLabel(hoverTooltipTile.elevation) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.feature" class="tile-info-row">
               <div class="tile-info-label">Feature</div>
               <div class="tile-info-value">
-                {{ formatLabel(activeTile.feature) }}
+                {{ formatLabel(hoverTooltipTile.feature) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.wonder" class="tile-info-row">
               <div class="tile-info-label">Natural Wonder</div>
               <div class="tile-info-value">
-                {{ formatLabel(activeTile.wonder) }}
+                {{ formatLabel(hoverTooltipTile.wonder) }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div
+              v-if="
+                hoverTooltipTile.city &&
+                Array.isArray(hoverTooltipTile.city.worldWonders) &&
+                hoverTooltipTile.city.worldWonders.length
+              "
+              class="tile-info-row"
+            >
               <div class="tile-info-label">World Wonders</div>
               <div class="tile-info-value">
-                {{ worldWondersLabel(activeTile.city) }}
+                {{ worldWondersLabel(hoverTooltipTile.city) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.resource" class="tile-info-row">
               <div class="tile-info-label">Resource</div>
               <div class="tile-info-value">
-                {{ resourceLabel(activeTile) }}
+                {{ resourceLabel(hoverTooltipTile) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.improvement" class="tile-info-row">
               <div class="tile-info-label">Improvement</div>
               <div class="tile-info-value">
-                {{ formatLabel(activeTile.improvement) }}
+                {{ formatLabel(hoverTooltipTile.improvement) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.route" class="tile-info-row">
               <div class="tile-info-label">Route</div>
               <div class="tile-info-value">
-                {{ routeLabel(activeTile.route) }}
+                {{ routeLabel(hoverTooltipTile.route) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div
+              v-if="Number.isFinite(hoverTooltipTile.owner)"
+              class="tile-info-row"
+            >
               <div class="tile-info-label">Owner</div>
               <div class="tile-info-value">
-                {{ ownerLabel(activeTile.owner) }}
+                {{ ownerLabel(hoverTooltipTile.owner) }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div
+              v-if="
+                hoverTooltipTile.city &&
+                Number.isFinite(hoverTooltipTile.originalOwner)
+              "
+              class="tile-info-row"
+            >
               <div class="tile-info-label">Original Owner</div>
               <div class="tile-info-value">
-                {{ ownerLabel(activeTile.originalOwner) }}
+                {{ ownerLabel(hoverTooltipTile.originalOwner) }}
               </div>
             </div>
-            <div class="tile-info-row">
-              <div class="tile-info-label">Unit</div>
+            <div v-if="hoverTooltipTile.combatUnit" class="tile-info-row">
+              <div class="tile-info-label">Combat Unit</div>
               <div class="tile-info-value">
-                {{ describeUnit(activeTile.unit) }}
+                {{ describeUnit(hoverTooltipTile.combatUnit) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.civilianUnit" class="tile-info-row">
+              <div class="tile-info-label">Civilian Unit</div>
+              <div class="tile-info-value">
+                {{ describeUnit(hoverTooltipTile.civilianUnit) }}
+              </div>
+            </div>
+            <div v-if="hoverTooltipTile.city" class="tile-info-row">
               <div class="tile-info-label">City</div>
               <div class="tile-info-value">
-                {{ describeCity(activeTile.city) }}
+                {{ describeCity(hoverTooltipTile.city) }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div
+              v-if="hoverTooltipTile.city && hoverTooltipTile.city.religion"
+              class="tile-info-row"
+            >
               <div class="tile-info-label">Religion</div>
               <div class="tile-info-value">
-                {{ activeTile.city.religion || "None" }}
+                {{ hoverTooltipTile.city.religion }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div v-if="hoverTooltipTile.city" class="tile-info-row">
               <div class="tile-info-label">Puppeted</div>
               <div class="tile-info-value">
-                {{ activeTile.city.isPuppeted ? "Yes" : "No" }}
+                {{ hoverTooltipTile.city.isPuppeted ? "Yes" : "No" }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div v-if="hoverTooltipTile.city" class="tile-info-row">
               <div class="tile-info-label">Occupied</div>
               <div class="tile-info-value">
-                {{ activeTile.city.isOccupied ? "Yes" : "No" }}
+                {{ hoverTooltipTile.city.isOccupied ? "Yes" : "No" }}
               </div>
             </div>
-            <div v-if="activeTile.city" class="tile-info-row">
+            <div v-if="hoverTooltipTile.city" class="tile-info-row">
               <div class="tile-info-label">Resistance</div>
               <div class="tile-info-value">
-                {{ activeTile.city.isResistance ? "Yes" : "No" }}
+                {{ hoverTooltipTile.city.isResistance ? "Yes" : "No" }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.continent" class="tile-info-row">
               <div class="tile-info-label">Continent</div>
               <div class="tile-info-value">
-                {{ continentLabel(activeTile.continent) }}
+                {{ continentLabel(hoverTooltipTile.continent) }}
               </div>
             </div>
-            <div class="tile-info-row">
+            <div v-if="hoverTooltipTile.hasRiver" class="tile-info-row">
               <div class="tile-info-label">River</div>
               <div class="tile-info-value">
-                {{ activeTile.hasRiver ? "Yes" : "None" }}
+                {{ hoverTooltipTile.hasRiver ? "Yes" : "None" }}
               </div>
             </div>
           </div>
-          <div v-else class="tile-info-empty">
-            Hover or tap a tile to see its details.
+        </div>
+        <!-- <div class="tile-map-hint">Drag to pan.</div> -->
+      </div>
+      <aside class="tile-map-info">
+        <div class="tile-info-card tile-info-accordion">
+          <div class="tile-info-title">
+            Edit Tile
+            <span v-if="selectedTile" class="tile-info-title-meta">
+              {{ tileTitle(selectedTile) }}
+            </span>
           </div>
-        </details>
-        <details class="tile-info-card tile-info-accordion" open>
-          <summary class="tile-info-summary">Edit Tile</summary>
-          <div class="tile-info-title">Edit Tile</div>
           <div v-if="selectedTile" class="tile-edit-form">
             <div class="tile-edit-group">
               <label class="tile-edit-label" for="tile-owner-input">
@@ -492,15 +540,6 @@
             <div class="tile-edit-group">
               <label class="tile-edit-label tile-edit-label-inline">
                 City Name
-                <span class="tile-edit-checkbox-inline">
-                  <input
-                    type="checkbox"
-                    v-model="editCityCapital"
-                    @change="applyCityCapitalEdit"
-                    aria-label="Capital city"
-                  />
-                  Capital City
-                </span>
               </label>
               <div class="tile-edit-row">
                 <input
@@ -531,6 +570,15 @@
               class="tile-edit-group"
             >
               <label class="tile-edit-label tile-edit-label-inline">
+                <span class="tile-edit-checkbox-inline">
+                  <input
+                    type="checkbox"
+                    v-model="editCityCapital"
+                    @change="applyCityCapitalEdit"
+                    aria-label="Capital city"
+                  />
+                  Capital
+                </span>
                 <span class="tile-edit-checkbox-inline">
                   <input
                     type="checkbox"
@@ -657,48 +705,98 @@
               </div>
             </div>
             <div class="tile-edit-group">
-              <label class="tile-edit-label" for="tile-unit-input">Unit</label>
+              <label class="tile-edit-label" for="tile-combat-unit-input">
+                Combat Unit
+              </label>
               <div class="tile-edit-row">
                 <input
-                  id="tile-unit-input"
+                  id="tile-combat-unit-input"
                   class="tile-edit-input"
                   type="text"
-                  list="tile-unit-options"
-                  placeholder="Search unit..."
-                  v-model="editUnitType"
+                  list="tile-combat-unit-options"
+                  placeholder="Search combat unit..."
+                  v-model="editCombatUnitType"
                 />
-                <datalist id="tile-unit-options">
+                <datalist id="tile-combat-unit-options">
                   <option
-                    v-for="unit in unitOptions"
-                    :key="`unit-${unit.name}`"
+                    v-for="unit in combatUnitOptions"
+                    :key="`combat-unit-${unit.name}`"
                     :value="unit.name"
-                    :label="`${unit.name} (${unit.role})`"
+                    :label="unit.name"
                   ></option>
                 </datalist>
                 <button
                   type="button"
                   class="tile-edit-button"
-                  @click="applyUnitEdit"
+                  @click="applyCombatUnitEdit"
                 >
                   Set
                 </button>
                 <button
                   type="button"
                   class="tile-edit-button"
-                  @click="clearUnitEdit"
+                  @click="clearCombatUnitEdit"
                 >
                   Clear
                 </button>
               </div>
               <div class="tile-edit-row">
                 <input
-                  id="tile-unit-owner-input"
+                  id="tile-combat-unit-owner-input"
                   class="tile-edit-input"
                   type="text"
                   list="tile-owner-options"
-                  placeholder="Unit owner..."
-                  v-model="editUnitOwnerName"
-                  :style="ownerInputStyle(editUnitOwnerName)"
+                  placeholder="Combat owner..."
+                  v-model="editCombatUnitOwnerName"
+                  :style="ownerInputStyle(editCombatUnitOwnerName)"
+                />
+              </div>
+            </div>
+            <div class="tile-edit-group">
+              <label class="tile-edit-label" for="tile-civilian-unit-input">
+                Civilian Unit
+              </label>
+              <div class="tile-edit-row">
+                <input
+                  id="tile-civilian-unit-input"
+                  class="tile-edit-input"
+                  type="text"
+                  list="tile-civilian-unit-options"
+                  placeholder="Search civilian unit..."
+                  v-model="editCivilianUnitType"
+                />
+                <datalist id="tile-civilian-unit-options">
+                  <option
+                    v-for="unit in civilianUnitOptions"
+                    :key="`civilian-unit-${unit.name}`"
+                    :value="unit.name"
+                    :label="unit.name"
+                  ></option>
+                </datalist>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="applyCivilianUnitEdit"
+                >
+                  Set
+                </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  @click="clearCivilianUnitEdit"
+                >
+                  Clear
+                </button>
+              </div>
+              <div class="tile-edit-row">
+                <input
+                  id="tile-civilian-unit-owner-input"
+                  class="tile-edit-input"
+                  type="text"
+                  list="tile-owner-options"
+                  placeholder="Civilian owner..."
+                  v-model="editCivilianUnitOwnerName"
+                  :style="ownerInputStyle(editCivilianUnitOwnerName)"
                 />
               </div>
             </div>
@@ -707,22 +805,31 @@
                 <span class="tile-edit-checkbox-inline">
                   <input
                     type="checkbox"
+                    v-model="editPillaged"
+                    @change="applyPillagedEdit"
+                    aria-label="Pillaged terrain"
+                  />
+                  Pillaged
+                </span>
+                <span class="tile-edit-checkbox-inline">
+                  <input
+                    type="checkbox"
                     v-model="editCitadel"
                     @change="applyCitadelEdit"
                     aria-label="Citadel improvement"
                   />
-                  Citadel Improvement
+                  Citadel
                 </span>
               </label>
             </div>
             <p class="tile-edit-hint">
-              Editing applies to the selected tile only.
+              Editing applies to the selected tile. Brush applies for multiple.
             </p>
           </div>
           <div v-else class="tile-info-empty">
-            Select a tile to edit its owner or city.
+            Select a tile to edit its content.
           </div>
-        </details>
+        </div>
       </aside>
     </div>
 
@@ -1203,7 +1310,17 @@ export default {
       dragStart: { x: 0, y: 0 },
       dragTranslate: { x: 0, y: 0 },
       dragMoved: false,
+      activePointers: new Map(),
+      isPinching: false,
+      pinchStartDistance: 0,
+      pinchStartScale: 1,
+      pinchCenter: { x: 0, y: 0 },
       hoveredTile: null,
+      hoverTooltipTile: null,
+      hoverTooltipVisible: false,
+      hoverTooltipTimer: null,
+      hoverTooltipPosition: { x: 0, y: 0 },
+      hoverTooltipSize: { width: 0, height: 0 },
       selectedTile: null,
       tileLookup: null,
       showUnits: false,
@@ -1218,9 +1335,12 @@ export default {
       editCityPuppeted: false,
       editCityOccupied: false,
       editCityResistance: false,
-      editUnitType: "",
-      editUnitOwnerName: "",
+      editCombatUnitType: "",
+      editCombatUnitOwnerName: "",
+      editCivilianUnitType: "",
+      editCivilianUnitOwnerName: "",
       editCitadel: false,
+      editPillaged: false,
       ownerBrushEnabled: false,
       isPaintingOwner: false,
       ownerBrushId: null,
@@ -1311,8 +1431,30 @@ export default {
       };
     },
 
-    activeTile() {
-      return this.selectedTile;
+    tooltipStyle() {
+      if (!this.viewportSize.width || !this.viewportSize.height) {
+        return null;
+      }
+      const padding = 12;
+      const offset = 16;
+      const width = this.hoverTooltipSize.width || 240;
+      const height = this.hoverTooltipSize.height || 200;
+      let left = this.hoverTooltipPosition.x + offset;
+      let top = this.hoverTooltipPosition.y + offset;
+      left = clampValue(
+        left,
+        padding,
+        Math.max(padding, this.viewportSize.width - width - padding)
+      );
+      top = clampValue(
+        top,
+        padding,
+        Math.max(padding, this.viewportSize.height - height - padding)
+      );
+      return {
+        left: `${left}px`,
+        top: `${top}px`,
+      };
     },
 
     scaleLabel() {
@@ -1365,8 +1507,12 @@ export default {
       return s5OwnerList;
     },
 
-    unitOptions() {
-      return BASE_UNITS;
+    combatUnitOptions() {
+      return BASE_UNITS.filter((unit) => unit.role === "combat");
+    },
+
+    civilianUnitOptions() {
+      return BASE_UNITS.filter((unit) => unit.role === "civilian");
     },
 
     canvasWidth() {
@@ -1417,6 +1563,13 @@ export default {
         });
       }
     },
+    hoveredTile(nextTile) {
+      if (!nextTile) {
+        this.hideHoverTooltip();
+        return;
+      }
+      this.scheduleHoverTooltip(nextTile);
+    },
     selectedTile(nextTile) {
       if (nextTile) {
         this.editCityValue =
@@ -1443,6 +1596,17 @@ export default {
         this.editCityResistance = nextTile.city
           ? !!nextTile.city.isResistance
           : false;
+        this.editCombatUnitType = unitInputValueForUnit(nextTile.combatUnit);
+        this.editCombatUnitOwnerName = unitOwnerInputValueForUnit(
+          nextTile.combatUnit
+        );
+        this.editCivilianUnitType = unitInputValueForUnit(
+          nextTile.civilianUnit
+        );
+        this.editCivilianUnitOwnerName = unitOwnerInputValueForUnit(
+          nextTile.civilianUnit
+        );
+        this.editPillaged = !!nextTile.pillaged;
       } else {
         this.editCityValue = null;
         this.editCityName = "";
@@ -1453,6 +1617,11 @@ export default {
         this.editCityPuppeted = false;
         this.editCityOccupied = false;
         this.editCityResistance = false;
+        this.editCombatUnitType = "";
+        this.editCombatUnitOwnerName = "";
+        this.editCivilianUnitType = "";
+        this.editCivilianUnitOwnerName = "";
+        this.editPillaged = false;
       }
     },
   },
@@ -1606,6 +1775,75 @@ export default {
       this.minScale = Math.min(0.4, fitScale);
     },
 
+    updateTooltipPosition(event) {
+      const viewport = this.$refs.viewport;
+      if (!viewport || !event) {
+        return;
+      }
+      const rect = viewport.getBoundingClientRect();
+      this.hoverTooltipPosition = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+      if (this.hoverTooltipVisible) {
+        this.$nextTick(() => {
+          this.updateHoverTooltipSize();
+        });
+      }
+    },
+
+    updateHoverTooltipSize() {
+      const tooltip = this.$refs.tileTooltip;
+      if (!tooltip) {
+        return;
+      }
+      this.hoverTooltipSize = {
+        width: tooltip.offsetWidth,
+        height: tooltip.offsetHeight,
+      };
+    },
+
+    scheduleHoverTooltip(tile) {
+      this.clearHoverTooltipTimer();
+      this.hoverTooltipVisible = false;
+      this.hoverTooltipTile = null;
+      if (
+        !tile ||
+        this.isDragging ||
+        this.isPaintingOwner ||
+        this.ownerBrushEnabled
+      ) {
+        return;
+      }
+      const targetTile = tile;
+      this.hoverTooltipTimer = window.setTimeout(() => {
+        if (
+          this.hoveredTile === targetTile &&
+          !this.isDragging &&
+          !this.isPaintingOwner
+        ) {
+          this.hoverTooltipTile = targetTile;
+          this.hoverTooltipVisible = true;
+          this.$nextTick(() => {
+            this.updateHoverTooltipSize();
+          });
+        }
+      }, 1000);
+    },
+
+    clearHoverTooltipTimer() {
+      if (this.hoverTooltipTimer) {
+        window.clearTimeout(this.hoverTooltipTimer);
+        this.hoverTooltipTimer = null;
+      }
+    },
+
+    hideHoverTooltip() {
+      this.clearHoverTooltipTimer();
+      this.hoverTooltipVisible = false;
+      this.hoverTooltipTile = null;
+    },
+
     clampView() {
       this.translate = this.clampTranslate(this.translate, this.scale);
     },
@@ -1719,8 +1957,35 @@ export default {
     },
 
     onPointerDown(event) {
-      if (event.button !== 0) {
+      if (event.pointerType === "mouse" && event.button !== 0) {
         return;
+      }
+      this.hideHoverTooltip();
+      if (event.pointerType === "touch") {
+        this.activePointers.set(event.pointerId, {
+          x: event.clientX,
+          y: event.clientY,
+        });
+        if (this.activePointers.size === 2) {
+          const points = Array.from(this.activePointers.values());
+          this.isPinching = true;
+          this.pinchStartDistance = Math.hypot(
+            points[0].x - points[1].x,
+            points[0].y - points[1].y
+          );
+          this.pinchStartScale = this.scale;
+          const viewport = this.$refs.viewport;
+          if (viewport) {
+            const rect = viewport.getBoundingClientRect();
+            this.pinchCenter = {
+              x: (points[0].x + points[1].x) / 2 - rect.left,
+              y: (points[0].y + points[1].y) / 2 - rect.top,
+            };
+          }
+          this.isDragging = false;
+          this.dragMoved = true;
+          return;
+        }
       }
       if (this.ownerBrushEnabled) {
         const ownerId = this.resolveBrushOwnerId();
@@ -1743,6 +2008,27 @@ export default {
     },
 
     onPointerMove(event) {
+      this.updateTooltipPosition(event);
+      if (event.pointerType === "touch") {
+        if (this.activePointers.has(event.pointerId)) {
+          this.activePointers.set(event.pointerId, {
+            x: event.clientX,
+            y: event.clientY,
+          });
+        }
+        if (this.isPinching && this.activePointers.size >= 2) {
+          const points = Array.from(this.activePointers.values());
+          const distance = Math.hypot(
+            points[0].x - points[1].x,
+            points[0].y - points[1].y
+          );
+          if (this.pinchStartDistance > 0) {
+            const ratio = distance / this.pinchStartDistance;
+            this.applyZoom(this.pinchStartScale * ratio, this.pinchCenter);
+          }
+          return;
+        }
+      }
       if (this.useTerrainCanvas && !this.isDragging) {
         const tile = this.getTileAtPointer(event);
         if (tile !== this.hoveredTile) {
@@ -1783,6 +2069,13 @@ export default {
           this.drawTerrainCanvas();
         }
         return;
+      }
+      if (event.pointerType === "touch") {
+        this.activePointers.delete(event.pointerId);
+        if (this.activePointers.size < 2) {
+          this.isPinching = false;
+          this.pinchStartDistance = 0;
+        }
       }
       if (this.isPaintingOwner) {
         this.isPaintingOwner = false;
@@ -1848,10 +2141,15 @@ export default {
         context.closePath();
       };
       this.tiles.forEach((tile) => {
-        const color = getColor(tile.terrainId);
+        const fill = adjustedTerrainFill(tile, getColor);
+        const previousAlpha = context.globalAlpha;
+        context.globalAlpha = Number.isFinite(fill.alpha)
+          ? fill.alpha
+          : previousAlpha;
         drawHexPath(tile);
-        context.fillStyle = color;
+        context.fillStyle = fill.color;
         context.fill();
+        context.globalAlpha = previousAlpha;
       });
 
       context.lineWidth = 0.2;
@@ -1861,14 +2159,17 @@ export default {
         context.stroke();
       });
 
-      const overlayAlpha = 0.5;
+      const overlayAlpha = 0.65;
+      const overlayWaterAlpha = 0.1;
       const previousAlpha = context.globalAlpha;
       const overlayTiles = this.tiles.filter((tile) =>
         Number.isFinite(tile.owner)
       );
       if (overlayTiles.length) {
-        context.globalAlpha = overlayAlpha;
         overlayTiles.forEach((tile) => {
+          const isWater =
+            tile.terrainId === "ocean" || tile.terrainId === "coast";
+          context.globalAlpha = isWater ? overlayWaterAlpha : overlayAlpha;
           const color = this.ownerColors[tile.owner] || "#ffffff";
           drawHexPath(tile);
           context.fillStyle = color;
@@ -2017,8 +2318,18 @@ export default {
       this.editOriginalOwnerName = ownerNameForId(
         tile ? tile.originalOwner : null
       );
-      this.editUnitType = unitInputValueForTile(tile);
-      this.editUnitOwnerName = unitOwnerInputValueForTile(tile);
+      this.editCombatUnitType = unitInputValueForUnit(
+        tile ? tile.combatUnit : null
+      );
+      this.editCombatUnitOwnerName = unitOwnerInputValueForUnit(
+        tile ? tile.combatUnit : null
+      );
+      this.editCivilianUnitType = unitInputValueForUnit(
+        tile ? tile.civilianUnit : null
+      );
+      this.editCivilianUnitOwnerName = unitOwnerInputValueForUnit(
+        tile ? tile.civilianUnit : null
+      );
       this.editCityReligion =
         tile && tile.city && tile.city.religion ? tile.city.religion : "";
     },
@@ -2105,9 +2416,25 @@ export default {
       return { stroke: "rgba(0, 0, 0, 0.15)", strokeWidth: 1 };
     },
 
+    tileHexStyle(tile) {
+      const stroke = this.tileStrokeStyle(tile);
+      if (!tile) {
+        return stroke;
+      }
+      const baseColor = terrainColor(tile.terrainId);
+      const fill = adjustedTerrainFill(tile, () => baseColor);
+      const nextStyle = { ...stroke, fill: fill.color };
+      if (Number.isFinite(fill.alpha) && fill.alpha < 1) {
+        nextStyle.fillOpacity = fill.alpha;
+      }
+      return nextStyle;
+    },
+
     ownerOverlayStyle(tile) {
       const color = this.ownerColors[tile.owner] || "#ffffff";
-      return { fill: color, fillOpacity: 0.45 };
+      const isWater =
+        tile && (tile.terrainId === "ocean" || tile.terrainId === "coast");
+      return { fill: color, fillOpacity: isWater ? 0.1 : 0.5 };
     },
 
     terrainClass(tile) {
@@ -2182,8 +2509,24 @@ export default {
         tile && tile.city && tile.city.name ? String(tile.city.name) : "";
       const height = this.cityLabelHeight();
       const badgeDiameter = this.cityLabelBadgeRadius() * 2;
-      const nameWidth = name.length * (height * 0.34);
-      const rightPad = height * 0.32;
+      const unitWidth = height * 0.45;
+      const nameUnits = Array.from(name).reduce((total, char) => {
+        if (char === " ") {
+          return total + 0.5;
+        }
+        if (/[ilI1'`]/.test(char)) {
+          return total + 0.6;
+        }
+        if (/[mwMW]/.test(char)) {
+          return total + 1.2;
+        }
+        if (/[0-9]/.test(char)) {
+          return total + 0.85;
+        }
+        return total + 0.95;
+      }, 0);
+      const nameWidth = nameUnits * unitWidth;
+      const rightPad = height * 0.38;
       return badgeDiameter + this.cityLabelTextGap() + nameWidth + rightPad;
     },
 
@@ -2259,12 +2602,19 @@ export default {
       return { fill, ...textStrokeStyleForFill(fill) };
     },
 
-    unitMarkerStyle(tile) {
-      if (!tile || !tile.unit) {
+    primaryUnit(tile) {
+      if (!tile) {
+        return null;
+      }
+      return tile.combatUnit || tile.civilianUnit || null;
+    },
+
+    unitMarkerStyle(unit) {
+      if (!unit) {
         return null;
       }
       const colors = unitMarkerColors(
-        tile.unit.owner,
+        unit.owner,
         this.ownerColors,
         this.ownerSecondaryColors
       );
@@ -2277,11 +2627,17 @@ export default {
       };
     },
 
-    unitIsCivilian(tile) {
-      if (!tile || !tile.unit) {
-        return false;
+    unitMarkerTransform(tile, role) {
+      if (!tile) {
+        return "translate(0, 0)";
       }
-      return unitRoleFromType(tile.unit.type) === "civilian";
+      const hasCombat = !!tile.combatUnit;
+      const hasCivilian = !!tile.civilianUnit;
+      if (hasCombat && hasCivilian) {
+        const offset = this.hexSize * 0.28;
+        return `translate(0, ${role === "civilian" ? -offset : offset})`;
+      }
+      return "translate(0, 0)";
     },
 
     isCitadelImprovement(tile) {
@@ -2423,28 +2779,62 @@ export default {
       }
     },
 
-    applyUnitEdit() {
+    applyCombatUnitEdit() {
+      this.applyUnitEditForRole("combat");
+    },
+
+    applyCivilianUnitEdit() {
+      this.applyUnitEditForRole("civilian");
+    },
+
+    applyUnitEditForRole(role) {
       if (!this.selectedTile) {
         return;
       }
-      const unitType = normalizeUnitInput(this.editUnitType);
+      const typeInput =
+        role === "combat" ? this.editCombatUnitType : this.editCivilianUnitType;
+      const ownerInput =
+        role === "combat"
+          ? this.editCombatUnitOwnerName
+          : this.editCivilianUnitOwnerName;
+      const unitType = normalizeUnitInput(typeInput);
       if (!unitType) {
         return;
       }
-      const ownerInputId = resolveOwnerInput(this.editUnitOwnerName);
+      if (unitRoleFromType(unitType) !== role) {
+        return;
+      }
+      const ownerInputId = resolveOwnerInput(ownerInput);
       const owner = Number.isFinite(ownerInputId)
         ? ownerInputId
         : Number.isFinite(this.selectedTile.owner)
         ? this.selectedTile.owner
         : null;
-      this.selectedTile.unit = {
-        id: this.nextUnitId,
+      const existingUnit =
+        role === "combat"
+          ? this.selectedTile.combatUnit
+          : this.selectedTile.civilianUnit;
+      const nextId =
+        existingUnit && Number.isFinite(existingUnit.id)
+          ? existingUnit.id
+          : this.nextUnitId++;
+      const unitData = {
+        id: nextId,
         type: unitType,
         owner,
       };
-      this.nextUnitId += 1;
-      this.editUnitType = unitLabelFromType(unitType);
-      this.editUnitOwnerName = ownerNameForId(owner);
+      if (role === "combat") {
+        this.selectedTile.combatUnit = unitData;
+        this.editCombatUnitType = unitLabelFromType(unitType);
+        this.editCombatUnitOwnerName = ownerNameForId(owner);
+      } else {
+        this.selectedTile.civilianUnit = unitData;
+        this.editCivilianUnitType = unitLabelFromType(unitType);
+        this.editCivilianUnitOwnerName = ownerNameForId(owner);
+      }
+      if (Number.isFinite(owner)) {
+        this.ensureOwnerColors(owner);
+      }
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2464,13 +2854,37 @@ export default {
       }
     },
 
-    clearUnitEdit() {
+    applyPillagedEdit() {
       if (!this.selectedTile) {
         return;
       }
-      this.selectedTile.unit = null;
-      this.editUnitType = "";
-      this.editUnitOwnerName = "";
+      this.selectedTile.pillaged = !!this.editPillaged;
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    clearCombatUnitEdit() {
+      this.clearUnitEditForRole("combat");
+    },
+
+    clearCivilianUnitEdit() {
+      this.clearUnitEditForRole("civilian");
+    },
+
+    clearUnitEditForRole(role) {
+      if (!this.selectedTile) {
+        return;
+      }
+      if (role === "combat") {
+        this.selectedTile.combatUnit = null;
+        this.editCombatUnitType = "";
+        this.editCombatUnitOwnerName = "";
+      } else {
+        this.selectedTile.civilianUnit = null;
+        this.editCivilianUnitType = "";
+        this.editCivilianUnitOwnerName = "";
+      }
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
       }
@@ -2997,13 +3411,13 @@ function wonderColor(id) {
 function terrainColor(id) {
   return (
     {
-      grass: "#6b8f46",
-      plains: "#9aa857",
-      desert: "#c9ad5f",
-      tundra: "#8aa089",
+      grass: "#6b973e",
+      plains: "#a0b24d",
+      desert: "#d5b866",
+      tundra: "#95a994",
       snow: "#d9e4e7",
-      coast: "#3c7f9a",
-      ocean: "#1f4f6d",
+      coast: "#4796b6",
+      ocean: "#28658c",
     }[id] || "#3c3c3c"
   );
 }
@@ -3330,7 +3744,7 @@ function buildTiles(
         mapData.improvementList,
         improvement.improvement
       );
-      const unit =
+      const rawUnit =
         improvement.unitId !== 0xffff
           ? unitsById.get(
               normalizeEntityId(
@@ -3349,8 +3763,8 @@ function buildTiles(
             )
           : null;
       const unitData =
-        unit && !usedUnitIds.has(unit.id)
-          ? { id: unit.id, type: unit.type, owner: unit.owner }
+        rawUnit && !usedUnitIds.has(rawUnit.id)
+          ? { id: rawUnit.id, type: rawUnit.type, owner: rawUnit.owner }
           : null;
       const cityData =
         city && !usedCityIds.has(city.id)
@@ -3376,7 +3790,21 @@ function buildTiles(
       if (cityData) {
         usedCityIds.add(cityData.id);
       }
-      const owner = resolveOwner(improvement.owner, unitData, cityData);
+      let combatUnit = null;
+      let civilianUnit = null;
+      if (unitData) {
+        if (unitRoleFromType(unitData.type) === "civilian") {
+          civilianUnit = unitData;
+        } else {
+          combatUnit = unitData;
+        }
+      }
+      const owner = resolveOwner(
+        improvement.owner,
+        combatUnit,
+        civilianUnit,
+        cityData
+      );
       const resourceColor = resource
         ? (resourceColors && resourceColors.get(resource)) ||
           colorFromString(resource, RESOURCE_COLOR_OPTIONS)
@@ -3419,12 +3847,14 @@ function buildTiles(
         improvementColor,
         route: routeFromType(improvement.routeType),
         routeOwner: improvement.routeOwner,
+        pillaged: false,
         owner: Number.isFinite(owner) ? owner : null,
         customOwner: Number.isFinite(owner),
         originalOwner: Number.isFinite(owner) ? owner : null,
         customOriginalOwner: false,
         ownerBorderSegments: [],
-        unit: unitData,
+        combatUnit,
+        civilianUnit,
         city: cityData ? { ...cityData } : null,
       });
     }
@@ -3433,12 +3863,15 @@ function buildTiles(
   return { tiles, ownerColors };
 }
 
-function resolveOwner(improvementOwner, unit, city) {
+function resolveOwner(improvementOwner, combatUnit, civilianUnit, city) {
   if (improvementOwner !== 0xff && improvementOwner !== undefined) {
     return improvementOwner;
   }
-  if (unit && Number.isFinite(unit.owner)) {
-    return unit.owner;
+  if (combatUnit && Number.isFinite(combatUnit.owner)) {
+    return combatUnit.owner;
+  }
+  if (civilianUnit && Number.isFinite(civilianUnit.owner)) {
+    return civilianUnit.owner;
   }
   if (city && Number.isFinite(city.owner)) {
     return city.owner;
@@ -3654,18 +4087,18 @@ function normalizeUnitInput(value) {
   return `UNIT_${raw}`;
 }
 
-function unitInputValueForTile(tile) {
-  if (!tile || !tile.unit || !tile.unit.type) {
+function unitInputValueForUnit(unit) {
+  if (!unit || !unit.type) {
     return "";
   }
-  return unitLabelFromType(tile.unit.type);
+  return unitLabelFromType(unit.type);
 }
 
-function unitOwnerInputValueForTile(tile) {
-  if (!tile || !tile.unit || !Number.isFinite(tile.unit.owner)) {
+function unitOwnerInputValueForUnit(unit) {
+  if (!unit || !Number.isFinite(unit.owner)) {
     return "";
   }
-  return ownerNameForId(tile.unit.owner);
+  return ownerNameForId(unit.owner);
 }
 
 function unitLabelFromType(type) {
@@ -3681,8 +4114,14 @@ function unitLabelFromType(type) {
 function nextUnitIdFromTiles(tiles) {
   let maxId = 0;
   (tiles || []).forEach((tile) => {
-    if (tile && tile.unit && Number.isFinite(tile.unit.id)) {
-      maxId = Math.max(maxId, tile.unit.id);
+    if (!tile) {
+      return;
+    }
+    if (tile.combatUnit && Number.isFinite(tile.combatUnit.id)) {
+      maxId = Math.max(maxId, tile.combatUnit.id);
+    }
+    if (tile.civilianUnit && Number.isFinite(tile.civilianUnit.id)) {
+      maxId = Math.max(maxId, tile.civilianUnit.id);
     }
   });
   return maxId + 1;
@@ -3909,6 +4348,28 @@ function parseHexColor(color) {
   return null;
 }
 
+function desaturateColor(color, amount = 0.25) {
+  const rgb = parseHexColor(color);
+  if (!rgb) {
+    return color;
+  }
+  const avg = (rgb.r + rgb.g + rgb.b) / 3;
+  const mix = (channel) =>
+    Math.round(channel + (avg - channel) * Math.min(Math.max(amount, 0), 1));
+  return `#${toHex(mix(rgb.r))}${toHex(mix(rgb.g))}${toHex(mix(rgb.b))}`;
+}
+
+function adjustedTerrainFill(tile, getColor) {
+  if (!tile) {
+    return { color: "#3c3c3c", alpha: 1 };
+  }
+  const baseColor = getColor
+    ? getColor(tile.terrainId)
+    : terrainColor(tile.terrainId);
+  const color = tile.pillaged ? desaturateColor(baseColor, 0.3) : baseColor;
+  return { color, alpha: 1 };
+}
+
 function textStrokeStyleForFill(fill) {
   const rgb = parseHexColor(fill);
   if (!rgb) {
@@ -3927,829 +4388,956 @@ function toHex(value) {
 </script>
 
 <style lang="stylus">
-@import '../../styles/config.styl';
+@import "../../styles/config.styl";
 
 .tile-map {
   display: grid;
   gap: 1.5rem;
-}
 
-.tile-map-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.tile-map-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.tile-map-subtitle {
-  margin: 0.2rem 0 0;
-  color: lighten($textColor, 25%);
-  font-size: 0.95rem;
-}
-
-.tile-map-subtitle-hint {
-  font-size: 0.85rem;
-  color: lighten($textColor, 40%);
-}
-
-.tile-map-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-button {
-  user-select: none;
-}
-
-.tile-map-control {
-  min-width: 2.4rem;
-  height: 2.4rem;
-  padding: 0 0.8rem;
-  border-radius: 999px;
-  border: 1px solid $borderColor;
-  background: rgba(10, 10, 10, 0.8);
-  color: $textColor;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tile-map-control:hover {
-  color: $backColor;
-  background: $accentColor;
-}
-
-.tile-map-scale {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: lighten($textColor, 25%);
-}
-
-.tile-map-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 21rem;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.tile-map-viewport {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 18rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #0b0b0b;
-  overflow: hidden;
-  touch-action: none;
-  user-select: none;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  outline: none;
-}
-
-.tile-map-viewport:focus {
-  box-shadow: 0 0 0 2px $accentColor;
-}
-
-.tile-map-viewport.dragging {
-  cursor: grabbing;
-}
-
-.tile-map-viewport.brush-active {
-  cursor: crosshair;
-}
-
-.tile-map-loading,
-.tile-map-error {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: lighten($textColor, 20%);
-  font-weight: 700;
-  text-align: center;
-  padding: 1rem;
-}
-
-.tile-map-canvas {
-  transform-origin: top left;
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-  position: relative;
-}
-
-.tile-map-svg {
-  display: block;
-}
-
-.tile-map-canvas-layer {
-  display: block;
-}
-
-.tile-map-hint {
-  position: absolute;
-  inset-block-end: 0.75rem;
-  inset-inline-start: 0.75rem;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-}
-
-.tile-group:hover .tile-hex {
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-
-.tile-hex {
-  stroke: rgba(0, 0, 0, 0.25);
-  stroke-width: 1;
-  fill: #3c3c3c;
-  transition: stroke 0.2s ease;
-  paint-order: stroke;
-}
-
-.tile-selection-outline {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-  pointer-events: none;
-}
-
-.tile-hover-outline {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.65);
-  stroke-width: 2;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-  pointer-events: none;
-}
-
-.tile-owner-overlay {
-  pointer-events: none;
-}
-
-.tile-owner-border {
-  stroke-width: 2;
-  stroke-linejoin: round;
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-.terrain-grass {
-  fill: #6b8f46;
-  background-color: #6b8f46;
-}
-
-.terrain-plains {
-  fill: #9aa857;
-  background-color: #9aa857;
-}
-
-.terrain-desert {
-  fill: #c9ad5f;
-  background-color: #c9ad5f;
-}
-
-.terrain-tundra {
-  fill: #8aa089;
-  background-color: #8aa089;
-}
-
-.terrain-snow {
-  fill: #d9e4e7;
-  background-color: #d9e4e7;
-}
-
-.terrain-coast {
-  fill: #3c7f9a;
-  background-color: #3c7f9a;
-}
-
-.terrain-ocean {
-  fill: #1f4f6d;
-  background-color: #1f4f6d;
-}
-
-.tile-elevation {
-  fill: rgba(255, 255, 255, 0.35);
-  stroke: rgba(0, 0, 0, 0.3);
-  stroke-width: 0.6;
-}
-
-.elevation-hill {
-  fill: rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.elevation-mountain {
-  fill: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.tile-feature {
-  stroke-width: 0.6;
-}
-
-.tile-wonder {
-  stroke-width: 0.6;
-}
-
-.tile-resource {
-  fill: #f3c969;
-  stroke: rgba(0, 0, 0, 0.4);
-  stroke-width: 0.6;
-}
-
-.resource-strategic {
-  fill: #ff7043;
-}
-
-.resource-bonus {
-  fill: #81c784;
-}
-
-.resource-luxury {
-  fill: #ffd54f;
-}
-
-.tile-improvement {
-  fill: #d7d0c0;
-  stroke: rgba(0, 0, 0, 0.3);
-  stroke-width: 0.6;
-}
-
-.improvement-farm {
-  fill: #c7a85a;
-}
-
-.improvement-mine {
-  fill: #8b8b8b;
-}
-
-.improvement-pasture {
-  fill: #c0b08d;
-}
-
-.improvement-plantation {
-  fill: #b9965a;
-}
-
-.improvement-camp {
-  fill: #a8764f;
-}
-
-.improvement-boats {
-  fill: #6fa8dc;
-}
-
-.improvement-quarry {
-  fill: #9e9e9e;
-}
-
-.improvement-lumber {
-  fill: #7a6a5c;
-}
-
-.improvement-trade {
-  fill: #8bc34a;
-}
-
-.improvement-well {
-  fill: #607d8b;
-}
-
-.improvement-fort {
-  fill: #6d4c41;
-}
-
-.improvement-landmark {
-  fill: #ffcc80;
-}
-
-.improvement-special {
-  fill: #b0bec5;
-}
-
-.tile-route {
-  stroke: #f3d18c;
-  stroke-width: 1.4;
-}
-
-.tile-citadel {
-  fill: rgba(255, 255, 255, 0.92);
-  stroke: rgba(0, 0, 0, 0.75);
-  stroke-width: 1.2;
-}
-
-.route-road {
-  stroke: #f3d18c;
-  background: #f3d18c;
-  color: #f3d18c;
-}
-
-.route-railroad {
-  stroke: #cfd8dc;
-  background: #cfd8dc;
-  color: #cfd8dc;
-}
-
-.tile-river {
-  stroke: #4fc3f7;
-  stroke-width: 1.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-.tile-unit {
-  fill: #111;
-  stroke: #fff;
-  stroke-width: 0.6;
-}
-
-.tile-unit-label {
-  fill: #fff;
-  font-size: 5px;
-  font-weight: 700;
-  pointer-events: none;
-}
-
-.tile-unit-marker {
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-
-.tile-city {
-  fill: #131313;
-  stroke: #fff;
-  stroke-width: 1.2;
-}
-
-.tile-city-capital {
-  fill: #fff;
-  stroke: rgba(0, 0, 0, 0.75);
-  stroke-width: 0.75;
-  scale: 1.5;
-  pointer-events: none;
-}
-
-.tile-city-labels {
-  pointer-events: none;
-}
-
-.tile-city-label {
-  pointer-events: none;
-}
-
-.city-label-pill {
-  fill: rgba(86, 42, 36, 0.88);
-  stroke: rgba(0, 0, 0, 0.7);
-  stroke-width: 0.6;
-}
-
-.city-label-badge {
-  fill: rgba(38, 16, 14, 0.9);
-  stroke: rgba(0, 0, 0, 0.75);
-  stroke-width: 0.6;
-}
-
-.city-label-text {
-  font-weight: 700;
-  font-size: 6px;
-  letter-spacing: 0.02em;
-  paint-order: stroke;
-  stroke: rgba(0, 0, 0, 0.7);
-  stroke-width: 1.2;
-}
-
-.city-label-pop {
-  fill: #f5f1e6;
-}
-
-.city-label-name {
-  fill: #e6c07a;
-  font-weight: 800;
-}
-
-.tile-map-info {
-  display: grid;
-  gap: 1rem;
-}
-
-.tile-map-legend {
-  margin-top: 0.5rem;
-}
-
-.tile-info-card,
-.tile-legend-card {
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1rem;
-}
-
-.tile-info-summary {
-  display: none;
-}
-
-.tile-info-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 0.8rem;
-}
-
-.tile-info-list {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.tile-info-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.tile-info-label {
-  color: lighten($textColor, 25%);
-}
-
-.tile-info-value {
-  font-weight: 700;
-}
-
-.tile-info-empty {
-  color: lighten($textColor, 35%);
-  font-size: 0.9rem;
-}
-
-.tile-edit-form {
-  display: grid;
-  gap: 1rem;
-}
-
-.tile-edit-group {
-  display: grid;
-  gap: 0.25rem;
-}
-
-.tile-edit-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: lighten($textColor, 30%);
-}
-
-.tile-edit-label-inline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.tile-edit-checkbox-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.2rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(8, 8, 8, 0.7);
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.72rem;
-  color: lighten($textColor, 15%);
-}
-
-.tile-edit-checkbox-inline input {
-  width: 0.9rem;
-  height: 0.9rem;
-  accent-color: $accentColor;
-}
-
-.tile-edit-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 0.85rem;
-  color: lighten($textColor, 15%);
-}
-
-.tile-edit-checkbox input {
-  width: 1rem;
-  height: 1rem;
-  accent-color: $accentColor;
-}
-
-.tile-edit-row {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.tile-edit-input {
-  flex: 1;
-  min-width: 0;
-  padding: 0.35rem 0.5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(5, 5, 5, 0.8);
-  color: $textColor;
-  font-weight: 700;
-}
-
-.tile-edit-input:focus {
-  outline: none;
-  border-color: $accentColor;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
-}
-
-.tile-edit-button {
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid $borderColor;
-  background: rgba(15, 15, 15, 0.9);
-  color: $textColor;
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tile-edit-button:hover {
-  color: $backColor;
-  background: $accentColor;
-}
-
-.tile-edit-button.is-active {
-  color: $backColor;
-  background: $accentColor;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
-}
-
-.tile-edit-hint {
-  margin: 0.2rem 0 0;
-  color: lighten($textColor, 35%);
-  font-size: 0.75rem;
-}
-
-.tile-legend-section {
-  margin-top: 1rem;
-}
-
-.tile-legend-accordion {
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(8, 10, 14, 0.55);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-  padding: 0.6rem 0.75rem 0.75rem;
-}
-
-.tile-legend-accordion[open] {
-  background: rgba(14, 17, 24, 0.7);
-}
-
-.tile-legend-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  cursor: pointer;
-  list-style: none;
-  outline: none;
-}
-
-.tile-legend-summary::-webkit-details-marker {
-  display: none;
-}
-
-.tile-legend-summary:focus-visible {
-  box-shadow: 0 0 0 2px $accentColor;
-  border-radius: 10px;
-}
-
-@media (max-width: 900px) {
-  .tile-map-body {
-    grid-template-columns: 1fr;
+  button {
+    user-select: none;
   }
 
-  .tile-map-info {
-    order: 2;
+  .tile-map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  .tile-map-legend {
-    order: 3;
+  .tile-map-title,
+  .title-map-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  .tile-map-subtitle {
+    margin-block: 0.2rem 0;
+    margin-inline: 0;
+    font-size: 0.95rem;
+    color: lighten($textColor, 25%);
+  }
+
+  .tile-map-subtitle-hint {
+    font-size: 0.85rem;
+    color: lighten($textColor, 40%);
   }
 
   .tile-map-controls {
-    width: 100%;
-    gap: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    .tile-map-control-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tile-map-control-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: lighten($textColor, 35%);
+    }
+
+    .tile-map-control-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-block: 0.25rem;
+      padding-inline: 0.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(8, 10, 14, 0.8);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .tile-map-control {
+      min-inline-size: 2.4rem;
+      block-size: 2.4rem;
+      padding-inline: 0.8rem;
+      border: 1px solid $borderColor;
+      border-radius: 999px;
+      background: rgba(10, 10, 10, 0.8);
+      color: $textColor;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tile-map-control:hover {
+      color: $backColor;
+      background: $accentColor;
+    }
+
+    .tile-map-control-icon {
+      min-inline-size: 2.1rem;
+      block-size: 2.1rem;
+      padding: 0;
+      border-radius: 50%;
+      border-color: rgba(255, 255, 255, 0.18);
+      font-size: 1.1rem;
+    }
+
+    .tile-map-control-ghost {
+      background: rgba(20, 20, 20, 0.6);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .tile-map-control-ghost:hover {
+      background: rgba(255, 255, 255, 0.92);
+      color: #111;
+    }
+
+    .tile-map-scale {
+      min-inline-size: 3.2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: lighten($textColor, 15%);
+    }
   }
 
-  .tile-map-control {
-    min-width: 2.8rem;
-    height: 2.8rem;
-    padding: 0 0.9rem;
-    font-size: 0.95rem;
+  .tile-map-body {
+    display: grid;
+    align-items: start;
+    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) 21rem;
   }
 
   .tile-map-viewport {
-    min-height: 15rem;
+    position: relative;
+    inline-size: 100%;
+    block-size: auto;
+    min-block-size: 18rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background: #0b0b0b;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $accentColor;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+
+    &.brush-active {
+      cursor: crosshair;
+    }
+
+    .tile-map-loading,
+    .tile-map-error {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 700;
+      color: lighten($textColor, 20%);
+    }
+
+    .tile-map-canvas {
+      position: relative;
+      inline-size: 100%;
+      block-size: 100%;
+      cursor: grab;
+      transform-origin: top left;
+
+      .tile-map-svg,
+      .tile-map-canvas-layer {
+        display: block;
+      }
+    }
+
+    .tile-map-hint {
+      position: absolute;
+      inset-block-end: 0.75rem;
+      inset-inline-start: 0.75rem;
+      padding-block: 0.35rem;
+      padding-inline: 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .tile-map-tooltip {
+      position: absolute;
+      z-index: 5;
+      min-inline-size: 12rem;
+      max-inline-size: 18rem;
+      padding-block: 0.7rem;
+      padding-inline: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(8, 10, 12, 0.96);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+
+      .tile-tooltip-title {
+        margin-block-end: 0.35rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: lighten($textColor, 35%);
+      }
+
+      .tile-tooltip-list {
+        display: grid;
+        gap: 0.35rem;
+      }
+
+      .tile-info-row {
+        font-size: 0.78rem;
+      }
+
+      .tile-info-label {
+        color: lighten($textColor, 30%);
+      }
+    }
+
+    .tile-group:hover .tile-hex {
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+
+    .tile-hex {
+      fill: #3c3c3c;
+      stroke: rgba(0, 0, 0, 0.25);
+      stroke-width: 1;
+      transition: stroke 0.2s ease;
+      paint-order: stroke;
+    }
+
+    .tile-hex.terrain-grass {
+      fill: #6b973e;
+    }
+
+    .tile-hex.terrain-plains {
+      fill: #a0b24d;
+    }
+
+    .tile-hex.terrain-desert {
+      fill: #d5b866;
+    }
+
+    .tile-hex.terrain-tundra {
+      fill: #95a994;
+    }
+
+    .tile-hex.terrain-snow {
+      fill: #d9e4e7;
+    }
+
+    .tile-hex.terrain-coast {
+      fill: #4796b6;
+    }
+
+    .tile-hex.terrain-ocean {
+      fill: #28658c;
+    }
+
+    .tile-hex.is-pillaged {
+      filter: saturate(0.75);
+    }
+
+    .tile-selection-outline,
+    .tile-hover-outline {
+      fill: none;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+
+    .tile-selection-outline {
+      stroke: #ffffff;
+      stroke-width: 2.5;
+    }
+
+    .tile-hover-outline {
+      stroke: rgba(255, 255, 255, 0.65);
+      stroke-width: 2;
+    }
+
+    .tile-owner-overlay {
+      pointer-events: none;
+    }
+
+    .tile-owner-border {
+      stroke-width: 2;
+      stroke-linejoin: round;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .tile-elevation {
+      fill: rgba(255, 255, 255, 0.35);
+      stroke: rgba(0, 0, 0, 0.3);
+      stroke-width: 0.6;
+    }
+
+    .tile-feature,
+    .tile-wonder {
+      stroke-width: 0.6;
+    }
+
+    .tile-resource {
+      fill: #f3c969;
+      stroke: rgba(0, 0, 0, 0.4);
+      stroke-width: 0.6;
+    }
+
+    .tile-improvement {
+      fill: #d7d0c0;
+      stroke: rgba(0, 0, 0, 0.3);
+      stroke-width: 0.6;
+    }
+
+    .tile-route {
+      stroke: #f3d18c;
+      stroke-width: 1.4;
+    }
+
+    .tile-citadel {
+      fill: rgba(255, 255, 255, 0.92);
+      stroke: rgba(0, 0, 0, 0.75);
+      stroke-width: 1.2;
+    }
+
+    .tile-river {
+      fill: none;
+      stroke: #4fc3f7;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tile-unit {
+      fill: #111;
+      stroke: #fff;
+      stroke-width: 0.6;
+    }
+
+    .tile-unit-label {
+      font-size: 5px;
+      font-weight: 700;
+      fill: #fff;
+      pointer-events: none;
+    }
+
+    .tile-unit-marker {
+      stroke-width: 1;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      pointer-events: none;
+    }
+
+    .tile-city {
+      fill: #131313;
+      stroke: #fff;
+      stroke-width: 1.2;
+    }
+
+    .tile-city-capital {
+      fill: #fff;
+      stroke: rgba(0, 0, 0, 0.75);
+      stroke-width: 0.75;
+      scale: 1.5;
+      pointer-events: none;
+    }
+
+    .tile-city-labels,
+    .tile-city-label {
+      pointer-events: none;
+    }
+
+    .city-label-pill {
+      fill: rgba(86, 42, 36, 0.88);
+      stroke: rgba(0, 0, 0, 0.7);
+      stroke-width: 0.6;
+    }
+
+    .city-label-badge {
+      fill: rgba(38, 16, 14, 0.9);
+      stroke: rgba(0, 0, 0, 0.75);
+      stroke-width: 0.6;
+    }
+
+    .city-label-text {
+      font-size: 6px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      paint-order: stroke;
+      stroke: rgba(0, 0, 0, 0.7);
+      stroke-width: 1.2;
+    }
+
+    .city-label-pop {
+      fill: #f5f1e6;
+    }
+
+    .city-label-name {
+      fill: #e6c07a;
+      font-weight: 800;
+    }
   }
 
-  .tile-info-accordion {
-    padding: 0.8rem 0.9rem 0.9rem;
+  .tile-map-info {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .tile-info-card,
+  .tile-legend-card {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: rgba(10, 10, 10, 0.85);
   }
 
   .tile-info-summary {
+    display: none;
+  }
+
+  .tile-info-title {
+    display: flex;
+    margin-block-end: 0.8rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+  }
+
+  .tile-info-title-meta {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    gap: 0.35rem;
+    margin-inline-start: 0.75rem;
+    padding-block: 0.25rem;
+    padding-inline: 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: lighten($textColor, 30%);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .tile-info-list {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .tile-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .tile-info-label {
+    color: lighten($textColor, 25%);
+  }
+
+  .tile-info-value {
+    font-weight: 700;
+  }
+
+  .tile-info-empty {
+    font-size: 0.9rem;
+    color: lighten($textColor, 35%);
+  }
+
+  .tile-edit-form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .tile-edit-group {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .tile-edit-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: lighten($textColor, 30%);
+  }
+
+  .tile-edit-label-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .tile-edit-checkbox-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding-block: 0.2rem;
+    padding-inline: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    font-size: 0.35rem;
+    letter-spacing: 0;
+    text-transform: none;
+    user-select: none;
+    color: lighten($textColor, 15%);
+    background: rgba(8, 8, 8, 0.7);
+
+    input {
+      inline-size: 0.9rem;
+      block-size: 0.9rem;
+      accent-color: $accentColor;
+    }
+  }
+
+  .tile-edit-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: lighten($textColor, 15%);
+
+    input {
+      inline-size: 1rem;
+      block-size: 1rem;
+      accent-color: $accentColor;
+    }
+  }
+
+  .tile-edit-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .tile-edit-input {
+    flex: 1;
+    min-inline-size: 0;
+    padding-block: 0.35rem;
+    padding-inline: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-weight: 700;
+    color: $textColor;
+    background: rgba(5, 5, 5, 0.8);
+
+    &:focus {
+      outline: none;
+      border-color: $accentColor;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .tile-edit-button {
+    padding-block: 0.35rem;
+    padding-inline: 0.6rem;
+    border: 1px solid $borderColor;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $textColor;
+    background: rgba(15, 15, 15, 0.9);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $backColor;
+      background: $accentColor;
+    }
+
+    &.is-active {
+      color: $backColor;
+      background: $accentColor;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  .tile-edit-hint {
+    margin-block: 0.2rem 0;
+    margin-inline: 0;
+    font-size: 0.75rem;
+    color: lighten($textColor, 35%);
+  }
+
+  .tile-map-legend {
+    margin-block-start: 0.5rem;
+
+    .terrain-grass {
+      background-color: #6b973e;
+    }
+
+    .terrain-plains {
+      background-color: #a0b24d;
+    }
+
+    .terrain-desert {
+      background-color: #d5b866;
+    }
+
+    .terrain-tundra {
+      background-color: #95a994;
+    }
+
+    .terrain-snow {
+      background-color: #d9e4e7;
+    }
+
+    .terrain-coast {
+      background-color: #4796b6;
+    }
+
+    .terrain-ocean {
+      background-color: #28658c;
+    }
+  }
+
+  .tile-legend-section {
+    margin-block-start: 1rem;
+  }
+
+  .tile-legend-accordion {
+    padding-block: 0.6rem 0.75rem;
+    padding-inline: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(8, 10, 14, 0.55);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+
+    &[open] {
+      background: rgba(14, 17, 24, 0.7);
+    }
+  }
+
+  .tile-legend-summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.6rem;
-    cursor: pointer;
     list-style: none;
-    font-weight: 800;
-    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:focus-visible {
+      border-radius: 10px;
+      box-shadow: 0 0 0 2px $accentColor;
+    }
+  }
+
+  .tile-legend-title {
+    font-size: 0.8rem;
     letter-spacing: 0.08em;
-    font-size: 0.75rem;
-    color: lighten($textColor, 25%);
+    text-transform: uppercase;
+    color: lighten($textColor, 30%);
   }
 
-  .tile-info-summary::-webkit-details-marker {
-    display: none;
+  .tile-legend-grid {
+    display: grid;
+    inline-size: 100%;
+    gap: 0.45rem;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   }
 
-  .tile-info-accordion > .tile-info-title {
-    display: none;
+  .tile-legend-accordion .tile-legend-grid {
+    margin-block-start: 0.6rem;
   }
 
-  .tile-info-accordion[open] .tile-info-summary {
-    margin-bottom: 0.75rem;
-  }
-}
-
-
-.tile-legend-title {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: lighten($textColor, 30%);
-}
-
-.tile-legend-grid {
-  inline-size: 100%;
-  display: grid;
-  gap: 0.45rem;
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-}
-
-.tile-legend-accordion .tile-legend-grid {
-  margin-top: 0.6rem;
-}
-
-.tile-legend-scroll {
-  max-height: 12rem;
-  overflow-y: auto;
-  padding-right: 0.2rem;
-}
-
-.tile-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-}
-
-.legend-swatch {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.legend-hex,
-.legend-hex-outline {
-  clip-path: polygon(
-    25% 6.7%,
-    75% 6.7%,
-    100% 50%,
-    75% 93.3%,
-    25% 93.3%,
-    0 50%
-  );
-}
-
-.legend-hex-outline {
-  background: transparent;
-  border-width: 2px;
-}
-
-.legend-triangle {
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.legend-circle {
-  border-radius: 50%;
-}
-
-.legend-star {
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-}
-
-.legend-diamond {
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-}
-
-.legend-trapezoid {
-  clip-path: polygon(22% 18%, 78% 18%, 92% 88%, 8% 88%);
-}
-
-.legend-square {
-  border-radius: 4px;
-}
-
-.legend-line {
-  width: 1.5rem;
-  height: 0.6rem;
-  border: none;
-  background: transparent;
-  position: relative;
-}
-
-.legend-line::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 2px;
-  border-radius: 999px;
-  transform: translateY(-50%);
-  background: currentColor;
-}
-
-.legend-feature {
-  border-radius: 50%;
-}
-
-.legend-wonder {
-  border-radius: 6px;
-}
-
-.legend-resource {
-  border-radius: 3px;
-}
-
-.legend-improvement {
-  border-radius: 3px;
-}
-
-.legend-route {
-  border-radius: 8px;
-  background: #f3d18c;
-}
-
-@media (max-width: $MQMobile) {
-  .tile-map-body {
-    grid-template-columns: minmax(0, 1fr);
+  .tile-legend-scroll {
+    max-block-size: 12rem;
+    overflow-y: auto;
+    padding-inline-end: 0.2rem;
   }
 
-  .tile-map-viewport {
-    min-height: 14rem;
+  .tile-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .legend-swatch {
+    inline-size: 1rem;
+    block-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  .legend-hex,
+  .legend-hex-outline {
+    clip-path: polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0 50%
+    );
+  }
+
+  .legend-hex-outline {
+    border-width: 2px;
+    background: transparent;
+  }
+
+  .legend-triangle {
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .legend-circle {
+    border-radius: 50%;
+  }
+
+  .legend-star {
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+  }
+
+  .legend-diamond {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  }
+
+  .legend-trapezoid {
+    clip-path: polygon(22% 18%, 78% 18%, 92% 88%, 8% 88%);
+  }
+
+  .legend-square {
+    border-radius: 4px;
+  }
+
+  .legend-line {
+    position: relative;
+    inline-size: 1.5rem;
+    block-size: 0.6rem;
+    border: none;
+    background: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      block-size: 2px;
+      border-radius: 999px;
+      transform: translateY(-50%);
+      background: currentColor;
+    }
+  }
+
+  .legend-feature {
+    border-radius: 50%;
+  }
+
+  .legend-wonder {
+    border-radius: 6px;
+  }
+
+  .legend-resource,
+  .legend-improvement {
+    border-radius: 3px;
+  }
+
+  .legend-route {
+    border-radius: 8px;
+    background: #f3d18c;
+  }
+
+  .elevation-hill {
+    fill: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .elevation-mountain {
+    fill: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .resource-strategic {
+    fill: #ff7043;
+  }
+
+  .resource-bonus {
+    fill: #81c784;
+  }
+
+  .resource-luxury {
+    fill: #ffd54f;
+  }
+
+  .improvement-farm {
+    fill: #c7a85a;
+  }
+
+  .improvement-mine {
+    fill: #8b8b8b;
+  }
+
+  .improvement-pasture {
+    fill: #c0b08d;
+  }
+
+  .improvement-plantation {
+    fill: #b9965a;
+  }
+
+  .improvement-camp {
+    fill: #a8764f;
+  }
+
+  .improvement-boats {
+    fill: #6fa8dc;
+  }
+
+  .improvement-quarry {
+    fill: #9e9e9e;
+  }
+
+  .improvement-lumber {
+    fill: #7a6a5c;
+  }
+
+  .improvement-trade {
+    fill: #8bc34a;
+  }
+
+  .improvement-well {
+    fill: #607d8b;
+  }
+
+  .improvement-fort {
+    fill: #6d4c41;
+  }
+
+  .improvement-landmark {
+    fill: #ffcc80;
+  }
+
+  .improvement-special {
+    fill: #b0bec5;
+  }
+
+  .route-road {
+    color: #f3d18c;
+    background: #f3d18c;
+    stroke: #f3d18c;
+  }
+
+  .route-railroad {
+    color: #cfd8dc;
+    background: #cfd8dc;
+    stroke: #cfd8dc;
+  }
+
+  @media (max-width: 900px) {
+    .tile-map-body {
+      grid-template-columns: 1fr;
+    }
+
+    .tile-map-info {
+      order: 2;
+    }
+
+    .tile-map-legend {
+      order: 3;
+    }
+
+    .tile-map-controls {
+      inline-size: 100%;
+      gap: 1rem;
+    }
+
+    .tile-map-control {
+      min-inline-size: 2.8rem;
+      block-size: 2.8rem;
+      padding-inline: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .tile-map-control-pill {
+      inline-size: 100%;
+      justify-content: space-between;
+    }
+
+    .tile-map-viewport {
+      min-block-size: 15rem;
+    }
+
+    .tile-info-accordion {
+      padding-block: 0.8rem 0.9rem;
+      padding-inline: 0.9rem;
+    }
+
+    .tile-info-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      list-style: none;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: lighten($textColor, 25%);
+      cursor: pointer;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    .tile-info-accordion > .tile-info-title {
+      display: none;
+    }
+
+    .tile-info-accordion[open] .tile-info-summary {
+      margin-block-end: 0.75rem;
+    }
+  }
+
+  @media (max-width: $MQMobile) {
+    .tile-map-body {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tile-map-viewport {
+      min-block-size: 14rem;
+    }
   }
 }
 </style>
