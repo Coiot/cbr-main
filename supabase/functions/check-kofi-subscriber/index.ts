@@ -10,12 +10,18 @@ const corsHeaders = {
 async function fetchSheetEmails() {
   const sheetId = Deno.env.get("GOOGLE_SHEET_ID");
   const sheetGid = Deno.env.get("GOOGLE_SHEET_GID") || "0";
+  const publishedId = Deno.env.get("GOOGLE_SHEET_PUB_ID");
   if (!sheetId) {
     throw new Error("Missing GOOGLE_SHEET_ID.");
   }
-  const response = await fetch(
+  let response = await fetch(
     `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${sheetGid}`
   );
+  if (!response.ok && publishedId) {
+    response = await fetch(
+      `https://docs.google.com/spreadsheets/d/e/${publishedId}/pub?output=csv`
+    );
+  }
   const csv = await response.text();
   if (!response.ok) {
     throw new Error("Unable to read Google Sheet.");
