@@ -94,15 +94,37 @@ export default {
 
       const scoreItem = (item) => {
         if (!item) return null;
-        const titleScore = fieldScore(item.title) ?? -1;
-        const headerScore = fieldScore(item.header && item.header.title) ?? -1;
+        const titleScore =
+          fieldScore(item.title) !== null &&
+          fieldScore(item.title) !== undefined
+            ? fieldScore(item.title)
+            : -1;
+        const headerScore =
+          fieldScore(item.header && item.header.title) !== null &&
+          fieldScore(item.header && item.header.title) !== undefined
+            ? fieldScore(item.header && item.header.title)
+            : -1;
         const editionScore =
-          fieldScore(item.frontmatter && item.frontmatter.edition) ?? -1;
+          fieldScore(item.frontmatter && item.frontmatter.edition) !== null &&
+          fieldScore(item.frontmatter && item.frontmatter.edition) !== undefined
+            ? fieldScore(item.frontmatter && item.frontmatter.edition)
+            : -1;
         const authorScore =
-          fieldScore(item.frontmatter && item.frontmatter.author) ?? -1;
+          fieldScore(item.frontmatter && item.frontmatter.author) !== null &&
+          fieldScore(item.frontmatter && item.frontmatter.author) !== undefined
+            ? fieldScore(item.frontmatter && item.frontmatter.author)
+            : -1;
         const narratedByScore =
-          fieldScore(item.frontmatter && item.frontmatter.narrated_by) ?? -1;
-        const pathScore = fieldScore(item.path) ?? -1;
+          fieldScore(item.frontmatter && item.frontmatter.narrated_by) !==
+            null &&
+          fieldScore(item.frontmatter && item.frontmatter.narrated_by) !==
+            undefined
+            ? fieldScore(item.frontmatter && item.frontmatter.narrated_by)
+            : -1;
+        const pathScore =
+          fieldScore(item.path) !== null && fieldScore(item.path) !== undefined
+            ? fieldScore(item.path)
+            : -1;
 
         const best = Math.max(
           titleScore + 50,

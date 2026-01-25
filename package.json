@@ -11,10 +11,17 @@
     "build:map-cache": "node scripts/build-community-map-cache.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "vue-router": "^3.4.2",
     "vueperslides": "^2.10.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.24.5",
+    "babel-loader": "^8.3.0",
+    "supabase": "^2.72.8",
     "vue-lazyload": "^1.2.6",
     "vuepress": "^1.0.1",
     "vuepress-plugin-autometa": "^0.1.10",

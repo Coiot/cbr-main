@@ -17,6 +17,43 @@ module.exports = {
   title: "Civ Battle Royale",
   description: "Image Archive for the Civilization Battle Royale (CBR)",
   dest: "./public",
+  chainWebpack(config) {
+    config.module
+      .rule("mjs")
+      .test(/\.mjs$/)
+      .include.add(/node_modules/)
+      .end()
+      .type("javascript/auto");
+
+    config.module
+      .rule("iceberg-js")
+      .test(/\.(mjs|js)$/)
+      .include.add(/node_modules\/iceberg-js/)
+      .end()
+      .use("babel")
+      .loader("babel-loader")
+      .options({
+        babelrc: false,
+        configFile: false,
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              targets: { ie: "11" },
+              modules: false,
+            },
+          ],
+        ],
+        plugins: [
+          "@babel/plugin-proposal-optional-chaining",
+          "@babel/plugin-proposal-nullish-coalescing-operator",
+        ],
+      });
+
+    config
+      .plugin("define-global")
+      .use(require("webpack").DefinePlugin, [{ global: "window" }]);
+  },
   themeConfig: {
     nav: [
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
