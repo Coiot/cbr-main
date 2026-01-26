@@ -124,7 +124,10 @@
         </div>
       </div>
     </div>
-    <div class="tile-map-body" :class="{ 'is-collapsed': editPanelCollapsed }">
+    <div
+      class="tile-map-body"
+      :class="{ 'is-collapsed': editPanelCollapsed && !isMobileView }"
+    >
       <div
         ref="viewport"
         class="tile-map-viewport"
@@ -176,7 +179,13 @@
             >
               <polygon
                 class="tile-hex"
-                :class="[terrainClass(tile), { 'is-pillaged': tile.pillaged }]"
+                :class="[
+                  terrainClass(tile),
+                  {
+                    'is-pillaged': tile.pillaged,
+                    'is-recent': isRecentlyEdited(tile),
+                  },
+                ]"
                 :points="hexPoints"
                 :style="tileHexStyle(tile)"
               />
@@ -405,6 +414,17 @@
             </g>
           </svg>
         </div>
+        <div v-if="!useTerrainCanvas && tiles.length" class="tile-mini-map">
+          <canvas
+            ref="miniMapCanvas"
+            class="tile-mini-map-canvas"
+            :width="miniMapWidth"
+            :height="miniMapHeight"
+            role="img"
+            aria-label="Mini map"
+            @pointerdown.stop.prevent="onMiniMapPointerDown"
+          ></canvas>
+        </div>
         <div
           v-if="hoverTooltipVisible && hoverTooltipTile"
           class="tile-map-tooltip-bridge"
@@ -571,10 +591,11 @@
       </div>
       <aside
         class="tile-map-info"
-        :class="{ 'is-collapsed': editPanelCollapsed }"
+        :class="{ 'is-collapsed': editPanelCollapsed && !isMobileView }"
       >
         <div class="tile-map-info-header">
           <button
+            v-if="!isMobileView"
             type="button"
             class="tile-map-info-toggle"
             @click="toggleEditPanel"
@@ -605,7 +626,10 @@
               />
             </svg>
           </button>
-          <div v-if="!editPanelCollapsed" class="tile-map-info-tabs">
+          <div
+            v-if="!editPanelCollapsed || isMobileView"
+            class="tile-map-info-tabs"
+          >
             <button
               type="button"
               class="tile-edit-button"
@@ -625,7 +649,10 @@
             </button>
           </div>
         </div>
-        <div v-show="!editPanelCollapsed" class="tile-map-info-panel">
+        <div
+          v-show="!editPanelCollapsed || isMobileView"
+          class="tile-map-info-panel"
+        >
           <div
             v-show="editPanelTab === 'edit'"
             class="tile-info-card tile-info-accordion"
@@ -1593,6 +1620,8 @@ const SUPABASE_EDIT_LOG_TABLE = "tile_edits";
 const SUPABASE_CHECK_FUNCTION = "check-kofi-subscriber";
 const REQUIRE_AUTH_FOR_LOCAL = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
+const MINI_MAP_MAX_WIDTH = 180;
+const MINI_MAP_MAX_HEIGHT = 120;
 const NOTE_PIN_PATHS = [
   {
     d: "M176 252.6C176 280.7 185.1 313.6 201.6 349.1C217.9 384.2 240 419.2 262.9 450.6C283.2 478.6 303.7 503.1 320.1 521.7C336.5 503.1 356.9 478.6 377.3 450.6C400.2 419.2 422.3 384.2 438.6 349.1C455 313.6 464.2 280.7 464.2 252.6C464.2 175.8 400.5 112 320.2 112C239.9 112 176 175.7 176 252.6z",
@@ -1658,6 +1687,8 @@ export default {
       hoverTooltipTimer: null,
       hoverTooltipLocked: false,
       hoverTooltipHideTimer: null,
+      hoverTooltipUpdateTimer: null,
+      hoverTooltipSizeCache: new Map(),
       hoverTooltipPosition: { x: 0, y: 0 },
       hoverTooltipSize: { width: 0, height: 0 },
       selectedTile: null,
@@ -1686,6 +1717,11 @@ export default {
       tileNotesStatusTimer: null,
       editPanelCollapsed: true,
       editPanelTab: "edit",
+      isMobileView: false,
+      recentEditTick: 0,
+      recentEditFrameId: null,
+      miniMapFrameId: null,
+      hasLoadedOverrides: false,
       ownerBrushEnabled: false,
       ownerBrushMode: "paint",
       isPaintingOwner: false,
@@ -1917,6 +1953,41 @@ export default {
       return Math.ceil(this.gridHeight);
     },
 
+    miniMapScale() {
+      if (!this.gridWidth || !this.gridHeight) {
+        return 0;
+      }
+      const scaleX = MINI_MAP_MAX_WIDTH / this.gridWidth;
+      const scaleY = MINI_MAP_MAX_HEIGHT / this.gridHeight;
+      return Math.min(scaleX, scaleY);
+    },
+
+    miniMapWidth() {
+      return Math.max(0, Math.round(this.gridWidth * this.miniMapScale));
+    },
+
+    miniMapHeight() {
+      return Math.max(0, Math.round(this.gridHeight * this.miniMapScale));
+    },
+
+    miniMapViewport() {
+      if (!this.gridWidth || !this.gridHeight) {
+        return { x: 0, y: 0, width: 0, height: 0 };
+      }
+      const width = this.viewportSize.width / this.scale;
+      const height = this.viewportSize.height / this.scale;
+      const maxX = Math.max(0, this.gridWidth - width);
+      const maxY = Math.max(0, this.gridHeight - height);
+      const x = clampValue(-this.translate.x / this.scale, 0, maxX);
+      const y = clampValue(-this.translate.y / this.scale, 0, maxY);
+      return {
+        x,
+        y,
+        width: Math.min(width, this.gridWidth),
+        height: Math.min(height, this.gridHeight),
+      };
+    },
+
     visibleTiles() {
       if (this.useTerrainCanvas) {
         return [];
@@ -1956,6 +2027,25 @@ export default {
           this.drawTerrainCanvas();
         });
       }
+      this.scheduleMiniMapDraw();
+    },
+    scale() {
+      this.scheduleMiniMapDraw();
+    },
+    translate: {
+      deep: true,
+      handler() {
+        this.scheduleMiniMapDraw();
+      },
+    },
+    tiles: {
+      deep: true,
+      handler() {
+        this.scheduleMiniMapDraw();
+      },
+    },
+    viewportSize() {
+      this.scheduleMiniMapDraw();
     },
     hoveredTile(nextTile) {
       if (!nextTile) {
@@ -1981,6 +2071,11 @@ export default {
         this.clampView();
       });
     },
+    isMobileView(nextValue) {
+      if (nextValue && this.editPanelCollapsed) {
+        this.editPanelCollapsed = false;
+      }
+    },
     selectedTile(nextTile) {
       this.syncEditFieldsFromTile(nextTile);
     },
@@ -1991,6 +2086,10 @@ export default {
       this.updateViewportSize();
       this.fitToView();
     });
+    this.isMobileView = window.innerWidth <= 900;
+    if (this.isMobileView) {
+      this.editPanelCollapsed = false;
+    }
     this.initSupabase();
     this.loadMap();
     window.addEventListener("resize", this.handleResize);
@@ -2198,6 +2297,9 @@ export default {
     },
 
     toggleEditPanel() {
+      if (this.isMobileView) {
+        return;
+      }
       this.editPanelCollapsed = !this.editPanelCollapsed;
     },
 
@@ -2279,20 +2381,25 @@ export default {
       if (!this.supabase) {
         return;
       }
-      const { data, error } = await this.supabase
-        .from(SUPABASE_OVERRIDE_TABLE)
-        .select("tile_key,payload")
-        .eq("map_id", SUPABASE_MAP_ID);
-      if (error || !Array.isArray(data)) {
-        return;
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_OVERRIDE_TABLE)
+          .select("tile_key,payload")
+          .eq("map_id", SUPABASE_MAP_ID);
+        if (error || !Array.isArray(data)) {
+          return;
+        }
+        this.applyTileOverrides(data, { markRecent: false });
+      } finally {
+        this.hasLoadedOverrides = true;
       }
-      this.applyTileOverrides(data);
     },
 
-    applyTileOverrides(rows) {
+    applyTileOverrides(rows, options = {}) {
       if (!this.tileLookup || !Array.isArray(rows) || !rows.length) {
         return;
       }
+      const { markRecent = false } = options;
       let needsBorderRebuild = false;
       rows.forEach((row) => {
         const tileKey = row.tile_key || row.tileKey;
@@ -2306,6 +2413,9 @@ export default {
         const ownerChanged = this.applyTileOverride(tile, row.payload);
         if (ownerChanged) {
           needsBorderRebuild = true;
+        }
+        if (markRecent) {
+          this.markTileRecentlyEdited(tile);
         }
         if (this.localEditsEnabled && this.localOverrides.has(tileKey)) {
           const localPayload = this.localOverrides.get(tileKey);
@@ -2427,6 +2537,7 @@ export default {
       if (Object.prototype.hasOwnProperty.call(payload, "notes")) {
         const nextNotes = payload.notes ? String(payload.notes).trim() : "";
         tile.notes = nextNotes || null;
+        this.invalidateTooltipCache(tile.key);
       }
       if (this.selectedTile && this.selectedTile.key === tile.key) {
         this.syncEditFieldsFromTile(tile);
@@ -2535,12 +2646,14 @@ export default {
         if (this.localEditsEnabled && tile) {
           const payload = this.buildTileOverridePayload(tile);
           this.localOverrides.set(tile.key, payload);
+          this.markTileRecentlyEdited(tile);
         }
         return;
       }
       if (this.localEditsEnabled) {
         const payload = this.buildTileOverridePayload(tile);
         this.localOverrides.set(tile.key, payload);
+        this.markTileRecentlyEdited(tile);
         return;
       }
       const payload = this.buildTileOverridePayload(tile);
@@ -2548,6 +2661,7 @@ export default {
         tile_key: tile.key,
         payload,
       });
+      this.markTileRecentlyEdited(tile);
       if (this.tileSaveTimer) {
         return;
       }
@@ -2610,31 +2724,9 @@ export default {
             if (!record || !this.tileLookup) {
               return;
             }
-            const tileKey = record.tile_key || record.tileKey;
-            if (!tileKey) {
-              return;
-            }
-            const tile = this.tileLookup.get(tileKey);
-            if (!tile) {
-              return;
-            }
-            const ownerChanged = this.applyTileOverride(tile, record.payload);
-            if (ownerChanged) {
-              this.rebuildOwnerBorders();
-            }
-            if (this.localEditsEnabled && this.localOverrides.has(tileKey)) {
-              const localPayload = this.localOverrides.get(tileKey);
-              if (localPayload) {
-                const localChanged = this.applyTileOverride(tile, localPayload);
-                if (localChanged) {
-                  this.rebuildOwnerBorders();
-                }
-              }
-            }
-            this.nextUnitId = nextUnitIdFromTiles(this.tiles);
-            if (this.useTerrainCanvas) {
-              this.drawTerrainCanvas();
-            }
+            this.applyTileOverrides([record], {
+              markRecent: this.hasLoadedOverrides,
+            });
           }
         )
         .subscribe();
@@ -2742,6 +2834,7 @@ export default {
         this.ownerSecondaryColors
       );
       this.rebuildOwnerBorders();
+      this.hasLoadedOverrides = false;
       this.loadTileOverrides();
       this.subscribeToTileOverrides();
       this.$nextTick(() => {
@@ -2752,6 +2845,10 @@ export default {
     },
 
     handleResize() {
+      this.isMobileView = window.innerWidth <= 900;
+      if (this.isMobileView && this.editPanelCollapsed) {
+        this.editPanelCollapsed = false;
+      }
       this.updateViewportSize();
       this.clampView();
     },
@@ -2806,6 +2903,11 @@ export default {
         width: tooltip.offsetWidth,
         height: tooltip.offsetHeight,
       };
+      if (this.hoverTooltipTile) {
+        this.hoverTooltipSizeCache.set(this.hoverTooltipTile.key, {
+          ...this.hoverTooltipSize,
+        });
+      }
     },
 
     scheduleHoverTooltip(tile) {
@@ -2827,11 +2929,13 @@ export default {
           !this.isDragging &&
           !this.isPaintingOwner
         ) {
+          const cached = this.hoverTooltipSizeCache.get(targetTile.key);
+          if (cached) {
+            this.hoverTooltipSize = { ...cached };
+          }
           this.hoverTooltipTile = targetTile;
           this.hoverTooltipVisible = true;
-          this.$nextTick(() => {
-            this.updateHoverTooltipSize();
-          });
+          this.scheduleHoverTooltipSizeUpdate();
         }
       }, 1000);
     },
@@ -2848,6 +2952,10 @@ export default {
       if (this.hoverTooltipHideTimer) {
         window.clearTimeout(this.hoverTooltipHideTimer);
         this.hoverTooltipHideTimer = null;
+      }
+      if (this.hoverTooltipUpdateTimer) {
+        window.clearTimeout(this.hoverTooltipUpdateTimer);
+        this.hoverTooltipUpdateTimer = null;
       }
       this.hoverTooltipVisible = false;
       this.hoverTooltipTile = null;
@@ -2866,6 +2974,24 @@ export default {
       if (!this.hoveredTile) {
         this.hideHoverTooltip();
       }
+    },
+
+    invalidateTooltipCache(tileKey) {
+      if (!tileKey) {
+        return;
+      }
+      this.hoverTooltipSizeCache.delete(tileKey);
+    },
+
+    scheduleHoverTooltipSizeUpdate() {
+      if (this.hoverTooltipUpdateTimer) {
+        window.clearTimeout(this.hoverTooltipUpdateTimer);
+      }
+      this.hoverTooltipUpdateTimer = window.setTimeout(() => {
+        this.$nextTick(() => {
+          this.updateHoverTooltipSize();
+        });
+      }, 120);
     },
 
     clampView() {
@@ -2978,6 +3104,110 @@ export default {
       };
       const direction = event.deltaY > 0 ? 0.9 : 1.1;
       this.applyZoom(this.scale * direction, focus);
+    },
+
+    onMiniMapPointerDown(event) {
+      if (!this.gridWidth || !this.gridHeight) {
+        return;
+      }
+      const canvas = this.$refs.miniMapCanvas;
+      if (!canvas) {
+        return;
+      }
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) {
+        return;
+      }
+      const ratioX = clampValue((event.clientX - rect.left) / rect.width, 0, 1);
+      const ratioY = clampValue((event.clientY - rect.top) / rect.height, 0, 1);
+      const worldX = ratioX * this.gridWidth;
+      const worldY = ratioY * this.gridHeight;
+      const viewport = this.viewportSize;
+      const nextTranslate = {
+        x: viewport.width / 2 - worldX * this.scale,
+        y: viewport.height / 2 - worldY * this.scale,
+      };
+      this.translate = this.clampTranslate(nextTranslate, this.scale);
+    },
+
+    scheduleMiniMapDraw() {
+      if (this.useTerrainCanvas || !this.tiles.length) {
+        return;
+      }
+      if (this.miniMapFrameId) {
+        return;
+      }
+      this.miniMapFrameId = window.requestAnimationFrame(() => {
+        this.miniMapFrameId = null;
+        this.drawMiniMap();
+      });
+    },
+
+    drawMiniMap() {
+      if (this.useTerrainCanvas || !this.gridWidth || !this.gridHeight) {
+        return;
+      }
+      const canvas = this.$refs.miniMapCanvas;
+      if (!canvas) {
+        return;
+      }
+      const context = canvas.getContext("2d");
+      if (!context) {
+        return;
+      }
+      const width = this.miniMapWidth;
+      const height = this.miniMapHeight;
+      if (!width || !height) {
+        return;
+      }
+      if (canvas.width !== width) {
+        canvas.width = width;
+      }
+      if (canvas.height !== height) {
+        canvas.height = height;
+      }
+      context.clearRect(0, 0, width, height);
+      const scale = this.miniMapScale;
+      if (!scale) {
+        return;
+      }
+      const vertices = buildHexVertices(this.hexSize);
+      const terrainCache = new Map();
+      const getColor = (terrainId) => {
+        if (!terrainCache.has(terrainId)) {
+          terrainCache.set(terrainId, terrainColor(terrainId));
+        }
+        return terrainCache.get(terrainId);
+      };
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+      this.tiles.forEach((tile) => {
+        const fill = getColor(tile.terrainId);
+        context.beginPath();
+        context.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
+        for (let i = 1; i < vertices.length; i += 1) {
+          context.lineTo(tile.x + vertices[i].x, tile.y + vertices[i].y);
+        }
+        context.closePath();
+        context.fillStyle = fill;
+        context.fill();
+      });
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      const viewport = this.miniMapViewport;
+      context.fillStyle = "rgba(255, 255, 255, 0.05)";
+      context.strokeStyle = "rgba(255, 255, 255, 0.75)";
+      context.lineWidth = 1.15;
+      context.fillRect(
+        viewport.x * scale,
+        viewport.y * scale,
+        viewport.width * scale,
+        viewport.height * scale
+      );
+      context.strokeRect(
+        viewport.x * scale,
+        viewport.y * scale,
+        viewport.width * scale,
+        viewport.height * scale
+      );
     },
 
     onPointerDown(event) {
@@ -3260,6 +3490,24 @@ export default {
         });
       }
 
+      const recentTiles = this.tiles.filter((tile) =>
+        this.isRecentlyEdited(tile)
+      );
+      if (recentTiles.length) {
+        context.lineJoin = "round";
+        context.lineCap = "round";
+        recentTiles.forEach((tile) => {
+          const pulse = this.recentEditPulse(tile);
+          if (!pulse) {
+            return;
+          }
+          drawHexPath(tile);
+          context.strokeStyle = `rgba(255, 255, 255, ${pulse})`;
+          context.lineWidth = 1.25 + pulse * 1.75;
+          context.stroke();
+        });
+      }
+
       // Unit markers render in SVG at higher zoom levels.
 
       const outlineTiles = [];
@@ -3436,6 +3684,59 @@ export default {
       return this.selectedTile && this.selectedTile.key === tile.key;
     },
 
+    isRecentlyEdited(tile) {
+      if (!tile || !tile.recentlyEditedUntil) {
+        return false;
+      }
+      return tile.recentlyEditedUntil > this.recentEditTick;
+    },
+
+    recentEditPulse(tile) {
+      if (!this.isRecentlyEdited(tile)) {
+        return 0;
+      }
+      const elapsed = this.recentEditTick - (tile.recentlyEditedAt || 0);
+      const remaining = tile.recentlyEditedUntil - this.recentEditTick;
+      const phase = (elapsed / 1200) * Math.PI * 2;
+      const pulse = 0.4 + 0.4 * Math.sin(phase);
+      const fade = Math.min(1, Math.max(0, remaining / 1000));
+      return Math.max(0.12, pulse) * fade;
+    },
+
+    hasActiveRecentEdits() {
+      return this.tiles.some(
+        (tile) => tile.recentlyEditedUntil > this.recentEditTick
+      );
+    },
+
+    startRecentEditAnimation() {
+      if (this.recentEditFrameId) {
+        return;
+      }
+      const tick = (now) => {
+        this.recentEditTick = now;
+        if (!this.hasActiveRecentEdits()) {
+          this.recentEditFrameId = null;
+          return;
+        }
+        if (this.useTerrainCanvas) {
+          this.drawTerrainCanvas();
+        }
+        this.recentEditFrameId = window.requestAnimationFrame(tick);
+      };
+      this.recentEditFrameId = window.requestAnimationFrame(tick);
+    },
+
+    markTileRecentlyEdited(tile, durationMs = 4000) {
+      if (!tile) {
+        return;
+      }
+      const now = performance.now();
+      tile.recentlyEditedAt = now;
+      tile.recentlyEditedUntil = now + durationMs;
+      this.startRecentEditAnimation();
+    },
+
     tileStrokeStyle(tile) {
       return { stroke: "rgba(0, 0, 0, 0.15)", strokeWidth: 1 };
     },
@@ -3459,6 +3760,11 @@ export default {
       const isWater =
         tile && (tile.terrainId === "ocean" || tile.terrainId === "coast");
       return { fill: color, fillOpacity: isWater ? 0.1 : 0.5 };
+    },
+
+    miniMapHexStyle(tile) {
+      const baseColor = terrainColor(tile.terrainId);
+      return { fill: baseColor };
     },
 
     terrainClass(tile) {
@@ -4042,6 +4348,7 @@ export default {
       }
       this.selectedTile.notes = nextNotes;
       this.queueTileSave(this.selectedTile);
+      this.invalidateTooltipCache(this.selectedTile.key);
       if (this.tileNotesStatusTimer) {
         window.clearTimeout(this.tileNotesStatusTimer);
       }
@@ -5118,6 +5425,8 @@ function buildTiles(
         combatUnit,
         civilianUnit,
         city: cityData ? { ...cityData } : null,
+        recentlyEditedAt: 0,
+        recentlyEditedUntil: 0,
       });
       if (tiles[tiles.length - 1].city && Number.isFinite(owner)) {
         tiles[tiles.length - 1].originalOwner = owner;
@@ -5959,6 +6268,26 @@ function toHex(value) {
       color: lighten($textColor, 20%);
     }
 
+    .tile-mini-map {
+      position: absolute;
+      inset-block-end: 0.75rem;
+      inset-inline-end: 0.75rem;
+      padding: 0.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: .25rem;
+      background: rgba(8, 8, 8, 0.45);
+      box-shadow:
+        0 10px 10px rgba(0, 0, 0, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      pointer-events: auto;
+      transform-origin: 100% 100%;
+    }
+
+    .tile-mini-map-canvas {
+      display: block;
+      cursor: pointer;
+    }
+
     .tile-map-canvas {
       position: relative;
       inline-size: 100%;
@@ -6070,6 +6399,12 @@ function toHex(value) {
       paint-order: stroke;
     }
 
+    .tile-hex.is-recent {
+      stroke: rgba(255, 255, 255, 0.85);
+      stroke-width: 2;
+      animation: recent-pulse 1.1s ease-in-out infinite;
+    }
+
     .tile-hex.terrain-grass {
       fill: #6b973e;
     }
@@ -6100,6 +6435,18 @@ function toHex(value) {
 
     .tile-hex.is-pillaged {
       filter: saturate(0.75);
+    }
+
+    @keyframes recent-pulse {
+      0% {
+        stroke-opacity: 0.35;
+      }
+      50% {
+        stroke-opacity: 0.9;
+      }
+      100% {
+        stroke-opacity: 0.35;
+      }
     }
 
     .tile-selection-outline,
@@ -6963,6 +7310,13 @@ function toHex(value) {
       min-block-size: 15rem;
     }
 
+    .tile-mini-map {
+      inset-block-end: 0.6rem;
+      inset-inline-end: 0.6rem;
+      padding: 0.2rem;
+      transform: scale(0.85);
+    }
+
     .tile-info-accordion {
       padding-block: 0.8rem 0.9rem;
       padding-inline: 0.9rem;
@@ -7015,6 +7369,13 @@ function toHex(value) {
     .tile-map-control-group-compact {
       gap: 0.5rem !important;
       margin-inline-start: 0 !important;
+    }
+
+    .tile-mini-map {
+      inset-block-end: 0.5rem;
+      inset-inline-end: 0.5rem;
+      padding: 0.15rem;
+      transform: scale(0.7);
     }
   }
 }
