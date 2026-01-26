@@ -184,6 +184,7 @@
                   {
                     'is-pillaged': tile.pillaged,
                     'is-recent': isRecentlyEdited(tile),
+                    'is-snapshot-diff': isSnapshotDiff(tile),
                   },
                 ]"
                 :points="hexPoints"
@@ -646,6 +647,14 @@
               @click="editPanelTab = 'notes'"
             >
               Notes
+            </button>
+            <button
+              type="button"
+              class="tile-edit-button"
+              :class="{ 'is-active': editPanelTab === 'snapshots' }"
+              @click="editPanelTab = 'snapshots'"
+            >
+              Snapshots
             </button>
           </div>
         </div>
@@ -1114,6 +1123,204 @@
             </div>
             <div v-else class="tile-info-empty">
               Select a tile to view notes.
+            </div>
+          </div>
+          <div
+            v-show="editPanelTab === 'snapshots'"
+            class="tile-info-card tile-snapshot-card"
+          >
+            <div class="tile-info-title">Snapshots</div>
+            <div class="tile-snapshot-body">
+              <div v-if="snapshotLoading" class="tile-edit-hint">
+                Loading snapshots...
+              </div>
+              <div class="tile-edit-group">
+                <label class="tile-edit-label" for="snapshot-view-select">
+                  View Snapshot
+                </label>
+                <div class="tile-edit-row">
+                  <select
+                    id="snapshot-view-select"
+                    class="tile-edit-input"
+                    v-model="snapshotViewId"
+                  >
+                    <option value="">Live map</option>
+                    <option
+                      v-for="snapshot in snapshots"
+                      :key="snapshot.id"
+                      :value="snapshot.id"
+                    >
+                      {{ formatSnapshotLabel(snapshot) }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="tile-edit-group">
+                <label class="tile-edit-label" for="snapshot-compare-select">
+                  Compare To
+                </label>
+                <div class="tile-edit-row">
+                  <select
+                    id="snapshot-compare-select"
+                    class="tile-edit-input"
+                    v-model="snapshotCompareId"
+                    :disabled="!snapshotViewId"
+                  >
+                    <option value="">None</option>
+                    <option v-if="snapshotViewId" value="__live__">
+                      Live Map
+                    </option>
+                    <option
+                      v-for="snapshot in snapshots"
+                      :key="`compare-${snapshot.id}`"
+                      :value="snapshot.id"
+                    >
+                      {{ formatSnapshotLabel(snapshot) }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div v-if="snapshotDiffList.length" class="tile-snapshot-diff">
+                <div class="tile-info-label">
+                  Changed Tiles ({{ snapshotDiffList.length }})
+                </div>
+                <div
+                  v-if="snapshotDiffLegend.length"
+                  class="tile-snapshot-legend"
+                >
+                  <span class="tile-snapshot-legend-label">Changes:</span>
+                  <span
+                    v-for="item in snapshotDiffLegend"
+                    :key="`legend-${item.id}`"
+                    class="tile-snapshot-chip"
+                  >
+                    {{ item.label }} {{ item.count }}
+                  </span>
+                </div>
+                <div class="tile-snapshot-diff-list">
+                  <details
+                    v-if="snapshotCityChanges.founded.length"
+                    class="tile-snapshot-diff-section"
+                  >
+                    <summary class="tile-snapshot-diff-title">
+                      New Cities ({{ snapshotCityChanges.founded.length }})
+                    </summary>
+                    <div
+                      v-for="entry in snapshotCityChanges.founded"
+                      :key="`founded-${entry.key}-${entry.name}`"
+                      class="tile-snapshot-diff-item"
+                    >
+                      {{ snapshotCityLabel(entry) }}
+                    </div>
+                  </details>
+                  <details
+                    v-if="snapshotCityChanges.captured.length"
+                    class="tile-snapshot-diff-section"
+                  >
+                    <summary class="tile-snapshot-diff-title">
+                      Captured Cities ({{
+                        snapshotCityChanges.captured.length
+                      }})
+                    </summary>
+                    <div
+                      v-for="entry in snapshotCityChanges.captured"
+                      :key="`captured-${entry.key}-${entry.name}`"
+                      class="tile-snapshot-diff-item"
+                    >
+                      {{ snapshotCityLabel(entry) }}
+                    </div>
+                  </details>
+                  <details
+                    v-if="snapshotCityChanges.removed.length"
+                    class="tile-snapshot-diff-section"
+                  >
+                    <summary class="tile-snapshot-diff-title">
+                      Cities Razed/Removed ({{
+                        snapshotCityChanges.removed.length
+                      }})
+                    </summary>
+                    <div
+                      v-for="entry in snapshotCityChanges.removed"
+                      :key="`removed-${entry.key}-${entry.name}`"
+                      class="tile-snapshot-diff-item"
+                    >
+                      {{ snapshotCityLabel(entry) }}
+                    </div>
+                  </details>
+                  <div
+                    v-if="
+                      !snapshotCityChanges.founded.length &&
+                      !snapshotCityChanges.captured.length &&
+                      !snapshotCityChanges.removed.length
+                    "
+                    class="tile-snapshot-diff-empty"
+                  >
+                    No city changes detected.
+                  </div>
+                </div>
+              </div>
+              <div
+                v-else-if="snapshotViewId && snapshotCompareId"
+                class="tile-edit-hint"
+              >
+                No differences found between snapshots.
+              </div>
+              <div v-if="isAdmin" class="tile-snapshot-admin">
+                <div class="tile-edit-group">
+                  <label class="tile-edit-label" for="snapshot-episode-input">
+                    Episode # Snapshot
+                  </label>
+                  <div class="tile-edit-row">
+                    <input
+                      id="snapshot-episode-input"
+                      class="tile-edit-input"
+                      type="number"
+                      min="1"
+                      placeholder="Episode #"
+                      v-model="snapshotEpisodeNumber"
+                    />
+                    <input
+                      class="tile-edit-input"
+                      type="datetime-local"
+                      placeholder="UTC date/time"
+                      v-model="snapshotEpisodeAt"
+                    />
+                    <button
+                      type="button"
+                      class="tile-edit-button"
+                      :disabled="snapshotSaving"
+                      @click="saveSnapshot"
+                    >
+                      Save
+                    </button>
+                  </div>
+                  <div v-if="snapshotMessage" class="tile-edit-hint">
+                    {{ snapshotMessage }}
+                  </div>
+                </div>
+                <div
+                  v-if="adminSnapshots.length"
+                  class="tile-snapshot-admin-list"
+                >
+                  <div
+                    v-for="snapshot in adminSnapshots"
+                    :key="`publish-${snapshot.id}`"
+                    class="tile-snapshot-admin-item"
+                  >
+                    <span class="tile-snapshot-admin-label">
+                      {{ formatSnapshotLabel(snapshot) }}
+                    </span>
+                    <button
+                      type="button"
+                      class="tile-edit-button"
+                      :disabled="snapshotPublishLoadingId === snapshot.id"
+                      @click="toggleSnapshotPublish(snapshot)"
+                    >
+                      {{ snapshot.is_published ? "Unpublish" : "Publish" }}
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1617,6 +1824,8 @@ const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
 const SUPABASE_MAP_ID = "s5";
 const SUPABASE_OVERRIDE_TABLE = "tile_overrides";
 const SUPABASE_EDIT_LOG_TABLE = "tile_edits";
+const SUPABASE_SNAPSHOT_TABLE = "map_snapshots";
+const SUPABASE_ADMIN_TABLE = "map_admins";
 const SUPABASE_CHECK_FUNCTION = "check-kofi-subscriber";
 const REQUIRE_AUTH_FOR_LOCAL = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
@@ -1660,6 +1869,7 @@ export default {
       authChecking: false,
       authLoading: false,
       canEdit: false,
+      isAdmin: false,
       undoLoading: false,
       localEditsEnabled: false,
       localOverrides: new Map(),
@@ -1732,6 +1942,31 @@ export default {
       wonderLegend: [],
       resourceLegend: [],
       improvementLegend: [],
+      snapshots: [],
+      snapshotViewId: "",
+      snapshotCompareId: "",
+      snapshotDiffLookup: {},
+      snapshotDiffList: [],
+      snapshotLoading: false,
+      snapshotSaving: false,
+      snapshotMessage: "",
+      snapshotEpisodeNumber: "",
+      snapshotEpisodeAt: "",
+      snapshotPublishLoadingId: null,
+      baseSnapshotPayload: null,
+      liveOverrideLookup: {},
+      liveSnapshotPayload: [],
+      snapshotDiffSummary: {
+        owner: 0,
+        city: 0,
+        units: 0,
+        other: 0,
+      },
+      snapshotCityChanges: {
+        founded: [],
+        captured: [],
+        removed: [],
+      },
       elevationLegend: [
         { id: "hill", label: "Hills" },
         { id: "mountain", label: "Mountain" },
@@ -1745,10 +1980,47 @@ export default {
 
   computed: {
     editAccessAllowed() {
+      if (this.snapshotViewId) {
+        return false;
+      }
       if (this.localEditsEnabled) {
         return REQUIRE_AUTH_FOR_LOCAL ? !!this.authUser : true;
       }
       return this.canEdit;
+    },
+    isSnapshotViewing() {
+      return !!this.snapshotViewId;
+    },
+    snapshotView() {
+      return (
+        this.snapshots.find(
+          (snapshot) => snapshot.id === this.snapshotViewId
+        ) || null
+      );
+    },
+    snapshotCompare() {
+      return (
+        this.snapshots.find(
+          (snapshot) => snapshot.id === this.snapshotCompareId
+        ) || null
+      );
+    },
+    snapshotComparePayload() {
+      if (this.snapshotCompareId === "__live__") {
+        return this.liveSnapshotPayload || [];
+      }
+      return this.snapshotCompare ? this.snapshotCompare.payload : [];
+    },
+    snapshotDiffLegend() {
+      const summary = this.snapshotDiffSummary || {};
+      return [
+        { id: "owner", label: "Owner", count: summary.owner || 0 },
+        { id: "city", label: "City", count: summary.city || 0 },
+        { id: "units", label: "Units", count: summary.units || 0 },
+      ].filter((entry) => entry.count > 0);
+    },
+    adminSnapshots() {
+      return (this.snapshots || []).filter((snapshot) => !snapshot.is_virtual);
     },
     showNotesTab() {
       return (
@@ -2076,6 +2348,16 @@ export default {
         this.editPanelCollapsed = false;
       }
     },
+    snapshotViewId() {
+      this.applySnapshotView();
+      this.computeSnapshotDiffs();
+    },
+    snapshotCompareId() {
+      this.computeSnapshotDiffs();
+    },
+    snapshots() {
+      this.computeSnapshotDiffs();
+    },
     selectedTile(nextTile) {
       this.syncEditFieldsFromTile(nextTile);
     },
@@ -2115,6 +2397,7 @@ export default {
       this.supabase.auth.getSession().then(({ data: sessionData }) => {
         this.handleAuthSession(sessionData ? sessionData.session : null);
       });
+      this.loadSnapshots();
     },
 
     teardownSupabase() {
@@ -2139,8 +2422,10 @@ export default {
           this.authEmail = this.authUser.email || "";
         }
         this.refreshEditPermission();
+        this.updateAdminStatus();
       } else {
         this.canEdit = false;
+        this.isAdmin = false;
         this.ownerBrushEnabled = false;
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
@@ -2180,10 +2465,30 @@ export default {
       await this.supabase.auth.signOut();
       this.authUser = null;
       this.canEdit = false;
+      this.isAdmin = false;
       this.authMessage = "Signed out.";
       this.ownerBrushEnabled = false;
       this.isPaintingOwner = false;
       this.ownerBrushId = null;
+    },
+
+    async updateAdminStatus() {
+      if (!this.supabase || !this.authUser) {
+        this.isAdmin = false;
+        return;
+      }
+      const { data, error } = await this.supabase
+        .from(SUPABASE_ADMIN_TABLE)
+        .select("user_id")
+        .eq("map_id", SUPABASE_MAP_ID)
+        .eq("user_id", this.authUser.id)
+        .maybeSingle();
+      if (error) {
+        this.isAdmin = false;
+        return;
+      }
+      this.isAdmin = !!data;
+      this.loadSnapshots();
     },
 
     async refreshEditPermission() {
@@ -2264,6 +2569,10 @@ export default {
     },
 
     ensureEditAccess() {
+      if (this.snapshotViewId) {
+        this.authMessage = "Snapshots are view-only.";
+        return false;
+      }
       if (this.localEditsEnabled) {
         if (REQUIRE_AUTH_FOR_LOCAL && !this.authUser) {
           this.authMessage = "Sign in to enable local edits.";
@@ -2389,17 +2698,496 @@ export default {
         if (error || !Array.isArray(data)) {
           return;
         }
+        this.liveOverrideLookup = this.buildSnapshotLookup(data);
+        this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
+          this.liveOverrideLookup
+        );
         this.applyTileOverrides(data, { markRecent: false });
       } finally {
         this.hasLoadedOverrides = true;
       }
     },
 
+    async loadSnapshots() {
+      if (!this.supabase) {
+        return;
+      }
+      this.snapshotLoading = true;
+      let query = this.supabase
+        .from(SUPABASE_SNAPSHOT_TABLE)
+        .select("id,episode_label,episode_at,created_at,payload,is_published")
+        .eq("map_id", SUPABASE_MAP_ID);
+      if (!this.isAdmin) {
+        query = query.eq("is_published", true);
+      }
+      const { data, error } = await query.order("episode_at", {
+        ascending: false,
+      });
+      this.snapshotLoading = false;
+      if (error || !Array.isArray(data)) {
+        return;
+      }
+      this.snapshots = this.withBaseSnapshot(data);
+      if (
+        this.snapshotViewId &&
+        !this.snapshots.find((snapshot) => snapshot.id === this.snapshotViewId)
+      ) {
+        this.snapshotViewId = "";
+      }
+      if (
+        this.snapshotCompareId &&
+        !this.snapshots.find(
+          (snapshot) => snapshot.id === this.snapshotCompareId
+        )
+      ) {
+        this.snapshotCompareId = "";
+      }
+    },
+
+    withBaseSnapshot(rows) {
+      const snapshots = Array.isArray(rows) ? [...rows] : [];
+      if (!Array.isArray(this.tiles) || !this.tiles.length) {
+        return snapshots;
+      }
+      const existingBase = snapshots.find(
+        (snapshot) => snapshot.id === "episode-0-base"
+      );
+      if (existingBase) {
+        return snapshots;
+      }
+      const payload = this.getBaseSnapshotPayload();
+      snapshots.push({
+        id: "episode-0-base",
+        map_id: SUPABASE_MAP_ID,
+        episode_label: "Episode 0 Snapshot",
+        episode_at: null,
+        created_at: null,
+        is_published: true,
+        is_virtual: true,
+        payload,
+      });
+      return snapshots;
+    },
+
+    getBaseSnapshotPayload() {
+      if (this.baseSnapshotPayload) {
+        return this.baseSnapshotPayload;
+      }
+      if (!Array.isArray(this.tiles) || !this.tiles.length) {
+        return [];
+      }
+      const payload = this.tiles.map((tile) => ({
+        tile_key: tile.key,
+        payload: this.buildBaseSnapshotPayload(tile),
+      }));
+      this.baseSnapshotPayload = payload;
+      return payload;
+    },
+
+    buildBaseSnapshotPayload(tile) {
+      const base = tile && tile.baseState ? tile.baseState : null;
+      if (!base) {
+        return this.buildTileOverridePayload(tile);
+      }
+      return {
+        owner: Number.isFinite(base.owner) ? base.owner : null,
+        originalOwner: Number.isFinite(base.originalOwner)
+          ? base.originalOwner
+          : null,
+        notes: base.notes ? String(base.notes) : null,
+        pillaged: !!base.pillaged,
+        ruins: !!base.ruins,
+        citadel:
+          !!base.improvement &&
+          isCitadelImprovement({ improvement: base.improvement }),
+        combatUnit: base.combatUnit ? { ...base.combatUnit } : null,
+        civilianUnit: base.civilianUnit ? { ...base.civilianUnit } : null,
+        city: base.city ? { ...base.city } : null,
+      };
+    },
+
+    applySnapshotView() {
+      if (!this.snapshotViewId) {
+        this.restoreLiveView();
+        return;
+      }
+      if (!this.liveSnapshotPayload || !this.liveSnapshotPayload.length) {
+        this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
+          this.liveOverrideLookup
+        );
+      }
+      const snapshot = this.snapshotView;
+      if (!snapshot || !Array.isArray(snapshot.payload)) {
+        return;
+      }
+      this.resetTilesToBaseState();
+      this.applyTileOverrides(snapshot.payload, {
+        markRecent: false,
+        applyLocal: false,
+      });
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    restoreLiveView() {
+      this.resetTilesToBaseState();
+      this.loadTileOverrides();
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+      this.snapshotDiffLookup = {};
+      this.snapshotDiffList = [];
+    },
+
+    computeSnapshotDiffs() {
+      if (!this.snapshotViewId || !this.snapshotCompareId) {
+        this.snapshotDiffLookup = {};
+        this.snapshotDiffList = [];
+        this.snapshotDiffSummary = { owner: 0, city: 0, units: 0, other: 0 };
+        this.snapshotCityChanges = { founded: [], captured: [], removed: [] };
+        return;
+      }
+      if (
+        this.snapshotCompareId === "__live__" &&
+        (!this.liveSnapshotPayload || !this.liveSnapshotPayload.length)
+      ) {
+        this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
+          this.liveOverrideLookup
+        );
+      }
+      const view = this.snapshotView;
+      const comparePayload = this.snapshotComparePayload;
+      if (!view || !Array.isArray(comparePayload)) {
+        this.snapshotDiffLookup = {};
+        this.snapshotDiffList = [];
+        this.snapshotDiffSummary = { owner: 0, city: 0, units: 0, other: 0 };
+        this.snapshotCityChanges = { founded: [], captured: [], removed: [] };
+        return;
+      }
+      const viewLookup = this.buildSnapshotLookup(view.payload);
+      const compareLookup = this.buildSnapshotLookup(comparePayload);
+      const keys = new Set([
+        ...Object.keys(viewLookup),
+        ...Object.keys(compareLookup),
+      ]);
+      const diffLookup = {};
+      const diffList = [];
+      const summary = { owner: 0, city: 0, units: 0, other: 0 };
+      const cityChanges = { founded: [], captured: [], removed: [] };
+      keys.forEach((key) => {
+        const a = viewLookup[key] || null;
+        const b = compareLookup[key] || null;
+        if (!this.snapshotPayloadEqual(a, b)) {
+          diffLookup[key] = true;
+          const ownerChanged = (a && a.owner) !== (b && b.owner);
+          const cityChanged = !this.snapshotValueEqual(
+            a ? a.city : null,
+            b ? b.city : null
+          );
+          const unitsChanged =
+            !this.snapshotValueEqual(
+              a ? a.combatUnit : null,
+              b ? b.combatUnit : null
+            ) ||
+            !this.snapshotValueEqual(
+              a ? a.civilianUnit : null,
+              b ? b.civilianUnit : null
+            );
+          if (ownerChanged) {
+            summary.owner += 1;
+          }
+          if (cityChanged) {
+            summary.city += 1;
+          }
+          if (unitsChanged) {
+            summary.units += 1;
+          }
+          if (!ownerChanged && !cityChanged && !unitsChanged) {
+            summary.other += 1;
+          }
+          diffList.push({ key, from: a, to: b });
+        }
+      });
+      this.buildCityChangeSummary(compareLookup, viewLookup, cityChanges);
+      summary.city =
+        cityChanges.founded.length +
+        cityChanges.captured.length +
+        cityChanges.removed.length;
+      this.snapshotDiffLookup = diffLookup;
+      this.snapshotDiffList = diffList;
+      this.snapshotDiffSummary = summary;
+      this.snapshotCityChanges = cityChanges;
+    },
+
+    buildSnapshotLookup(payload) {
+      if (!Array.isArray(payload)) {
+        return {};
+      }
+      return payload.reduce((acc, row) => {
+        const key = row.tile_key || row.tileKey;
+        if (key) {
+          acc[key] = row.payload || null;
+        }
+        return acc;
+      }, {});
+    },
+
+    buildLiveSnapshotPayload(overrideLookup) {
+      if (!Array.isArray(this.tiles) || !this.tiles.length) {
+        return [];
+      }
+      return this.tiles.map((tile) => ({
+        tile_key: tile.key,
+        payload: this.buildFullPayloadFromBase(
+          tile.baseState,
+          overrideLookup ? overrideLookup[tile.key] : null
+        ),
+      }));
+    },
+
+    buildFullPayloadFromBase(baseState, overridePayload) {
+      const base = baseState || {};
+      const payload = overridePayload || {};
+      return {
+        owner: Object.prototype.hasOwnProperty.call(payload, "owner")
+          ? payload.owner
+          : base.owner ?? null,
+        originalOwner: Object.prototype.hasOwnProperty.call(
+          payload,
+          "originalOwner"
+        )
+          ? payload.originalOwner
+          : base.originalOwner ?? null,
+        notes: Object.prototype.hasOwnProperty.call(payload, "notes")
+          ? payload.notes
+          : base.notes || null,
+        pillaged: Object.prototype.hasOwnProperty.call(payload, "pillaged")
+          ? !!payload.pillaged
+          : !!base.pillaged,
+        ruins: Object.prototype.hasOwnProperty.call(payload, "ruins")
+          ? !!payload.ruins
+          : !!base.ruins,
+        citadel: Object.prototype.hasOwnProperty.call(payload, "citadel")
+          ? !!payload.citadel
+          : !!base.improvement &&
+            isCitadelImprovement({ improvement: base.improvement }),
+        combatUnit: Object.prototype.hasOwnProperty.call(payload, "combatUnit")
+          ? payload.combatUnit
+          : base.combatUnit || null,
+        civilianUnit: Object.prototype.hasOwnProperty.call(
+          payload,
+          "civilianUnit"
+        )
+          ? payload.civilianUnit
+          : base.civilianUnit || null,
+        city: Object.prototype.hasOwnProperty.call(payload, "city")
+          ? payload.city
+          : base.city || null,
+      };
+    },
+
+    snapshotPayloadEqual(a, b) {
+      if (a === b) {
+        return true;
+      }
+      if (!a || !b) {
+        return false;
+      }
+      return JSON.stringify(a) === JSON.stringify(b);
+    },
+
+    snapshotValueEqual(a, b) {
+      return JSON.stringify(a || null) === JSON.stringify(b || null);
+    },
+
+    snapshotCityLabel(entry) {
+      if (!entry) {
+        return "";
+      }
+      const owner = Number.isFinite(entry.owner)
+        ? this.ownerLabel(entry.owner)
+        : "Unknown";
+      const original = Number.isFinite(entry.originalOwner)
+        ? this.ownerLabel(entry.originalOwner)
+        : null;
+      const suffix = original ? ` (was ${original})` : "";
+      return `${entry.name} @ ${entry.key} \u2014 ${owner}${suffix}`;
+    },
+
+    buildCityChangeSummary(currentLookup, previousLookup, cityChanges) {
+      if (!cityChanges) {
+        return;
+      }
+      const founded = new Map();
+      const captured = new Map();
+      const removed = new Map();
+      const keys = new Set([
+        ...Object.keys(currentLookup || {}),
+        ...Object.keys(previousLookup || {}),
+      ]);
+      keys.forEach((key) => {
+        const current = currentLookup[key] || null;
+        const previous = previousLookup[key] || null;
+        const currentCity = current ? current.city : null;
+        const previousCity = previous ? previous.city : null;
+        if (currentCity && !previousCity) {
+          const entryKey = key;
+          if (!founded.has(entryKey)) {
+            founded.set(entryKey, {
+              key,
+              name: currentCity.name || "Unknown City",
+              owner: currentCity.owner ?? current.owner ?? null,
+              originalOwner: current.originalOwner ?? null,
+            });
+          }
+        }
+        if (!currentCity && previousCity) {
+          const entryKey = key;
+          if (!removed.has(entryKey)) {
+            removed.set(entryKey, {
+              key,
+              name: previousCity.name || "Unknown City",
+              owner: previousCity.owner ?? previous.owner ?? null,
+              originalOwner: previous.originalOwner ?? null,
+            });
+          }
+        }
+        if (
+          currentCity &&
+          (current.originalOwner ?? null) !== null &&
+          current.owner !== current.originalOwner
+        ) {
+          const entryKey = key;
+          if (!captured.has(entryKey)) {
+            captured.set(entryKey, {
+              key,
+              name: currentCity.name || "Unknown City",
+              owner: currentCity.owner ?? current.owner ?? null,
+              originalOwner: current.originalOwner ?? null,
+            });
+          }
+        }
+      });
+      cityChanges.founded = Array.from(founded.values());
+      cityChanges.captured = Array.from(captured.values());
+      cityChanges.removed = Array.from(removed.values());
+    },
+
+    formatSnapshotLabel(snapshot) {
+      if (!snapshot) {
+        return "Snapshot";
+      }
+      const label = snapshot.episode_label || "Snapshot";
+      const date = snapshot.episode_at
+        ? this.formatSnapshotDate(snapshot.episode_at)
+        : null;
+      const base = date ? `${label} \u2014 ${date}` : label;
+      if (this.isAdmin && snapshot.is_published === false) {
+        return `${base} (Unpublished)`;
+      }
+      return base;
+    },
+
+    formatSnapshotDate(value) {
+      try {
+        const date = new Date(value);
+        return date.toLocaleString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "UTC",
+          hour12: false,
+        });
+      } catch (error) {
+        return String(value);
+      }
+    },
+
+    parseUtcDateTimeInput(value) {
+      if (!value) {
+        return null;
+      }
+      const normalized = value.includes("Z")
+        ? value
+        : `${value}:00Z`.replace("T", "T");
+      const date = new Date(normalized);
+      if (Number.isNaN(date.getTime())) {
+        return null;
+      }
+      return date.toISOString();
+    },
+
+    async saveSnapshot() {
+      if (!this.supabase || !this.isAdmin) {
+        return;
+      }
+      const number = String(this.snapshotEpisodeNumber || "").trim();
+      if (!number) {
+        this.snapshotMessage = "Enter an episode number.";
+        return;
+      }
+      const episodeLabel = `Episode ${number} Snapshot`;
+      const episodeAt =
+        this.parseUtcDateTimeInput(this.snapshotEpisodeAt) ||
+        new Date().toISOString();
+      const payload = this.tiles.map((tile) => ({
+        tile_key: tile.key,
+        payload: this.buildTileOverridePayload(tile),
+      }));
+      this.snapshotSaving = true;
+      this.snapshotMessage = "";
+      const { error } = await this.supabase
+        .from(SUPABASE_SNAPSHOT_TABLE)
+        .insert([
+          {
+            map_id: SUPABASE_MAP_ID,
+            episode_label: episodeLabel,
+            episode_at: episodeAt,
+            payload,
+            created_by: this.authUser ? this.authUser.id : null,
+            is_published: true,
+          },
+        ]);
+      this.snapshotSaving = false;
+      if (error) {
+        this.snapshotMessage = "Unable to save snapshot.";
+        return;
+      }
+      this.snapshotEpisodeNumber = "";
+      this.snapshotEpisodeAt = "";
+      this.snapshotMessage = "Snapshot saved.";
+      await this.loadSnapshots();
+    },
+
+    async toggleSnapshotPublish(snapshot) {
+      if (!this.supabase || !this.isAdmin || !snapshot) {
+        return;
+      }
+      this.snapshotPublishLoadingId = snapshot.id;
+      const nextValue = !snapshot.is_published;
+      const { error } = await this.supabase
+        .from(SUPABASE_SNAPSHOT_TABLE)
+        .update({ is_published: nextValue })
+        .eq("id", snapshot.id);
+      this.snapshotPublishLoadingId = null;
+      if (error) {
+        this.snapshotMessage = "Unable to update publish status.";
+        return;
+      }
+      this.snapshotMessage = nextValue
+        ? "Snapshot published."
+        : "Snapshot unpublished.";
+      await this.loadSnapshots();
+    },
+
     applyTileOverrides(rows, options = {}) {
       if (!this.tileLookup || !Array.isArray(rows) || !rows.length) {
         return;
       }
-      const { markRecent = false } = options;
+      const { markRecent = false, applyLocal = true } = options;
       let needsBorderRebuild = false;
       rows.forEach((row) => {
         const tileKey = row.tile_key || row.tileKey;
@@ -2417,7 +3205,11 @@ export default {
         if (markRecent) {
           this.markTileRecentlyEdited(tile);
         }
-        if (this.localEditsEnabled && this.localOverrides.has(tileKey)) {
+        if (
+          applyLocal &&
+          this.localEditsEnabled &&
+          this.localOverrides.has(tileKey)
+        ) {
           const localPayload = this.localOverrides.get(tileKey);
           if (localPayload) {
             const localChanged = this.applyTileOverride(tile, localPayload);
@@ -2642,6 +3434,9 @@ export default {
     },
 
     queueTileSave(tile) {
+      if (this.snapshotViewId) {
+        return;
+      }
       if (!this.supabase || !this.canEdit || !tile) {
         if (this.localEditsEnabled && tile) {
           const payload = this.buildTileOverridePayload(tile);
@@ -2720,6 +3515,9 @@ export default {
             filter: `map_id=eq.${SUPABASE_MAP_ID}`,
           },
           (payload) => {
+            if (this.snapshotViewId) {
+              return;
+            }
             const record = payload.new || payload.old;
             if (!record || !this.tileLookup) {
               return;
@@ -2822,6 +3620,7 @@ export default {
         improvementColors
       );
       this.tiles = tiles;
+      this.baseSnapshotPayload = null;
       this.nextUnitId = nextUnitIdFromTiles(tiles);
       this.tileLookup = buildTileLookup(tiles);
       this.ownerColors = ownerColors;
@@ -2836,6 +3635,7 @@ export default {
       this.rebuildOwnerBorders();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
+      this.loadSnapshots();
       this.subscribeToTileOverrides();
       this.$nextTick(() => {
         if (this.useTerrainCanvas) {
@@ -3508,6 +4308,21 @@ export default {
         });
       }
 
+      const diffKeys = this.snapshotDiffLookup || {};
+      const diffTiles = Object.keys(diffKeys).length
+        ? this.tiles.filter((tile) => diffKeys[tile.key])
+        : [];
+      if (diffTiles.length) {
+        context.lineJoin = "round";
+        context.lineCap = "round";
+        diffTiles.forEach((tile) => {
+          drawHexPath(tile);
+          context.strokeStyle = "rgba(255, 210, 90, 0.9)";
+          context.lineWidth = 2.5;
+          context.stroke();
+        });
+      }
+
       // Unit markers render in SVG at higher zoom levels.
 
       const outlineTiles = [];
@@ -3682,6 +4497,13 @@ export default {
 
     isSelected(tile) {
       return this.selectedTile && this.selectedTile.key === tile.key;
+    },
+
+    isSnapshotDiff(tile) {
+      if (!tile || !this.snapshotDiffLookup) {
+        return false;
+      }
+      return !!this.snapshotDiffLookup[tile.key];
     },
 
     isRecentlyEdited(tile) {
@@ -6402,7 +7224,12 @@ function toHex(value) {
     .tile-hex.is-recent {
       stroke: rgba(255, 255, 255, 0.85);
       stroke-width: 2;
-      animation: recent-pulse 1.1s ease-in-out infinite;
+      animation: recent-pulse 1.5s ease-in-out infinite;
+    }
+
+    .tile-hex.is-snapshot-diff {
+      stroke: rgba(255, 210, 90, 0.95);
+      stroke-width: 2.5;
     }
 
     .tile-hex.terrain-grass {
@@ -6670,6 +7497,10 @@ function toHex(value) {
   .tile-map-info-tabs .tile-edit-button:first-child {
     border-start-end-radius: 0;
     border-end-end-radius: 0;
+  }
+
+  .tile-map-info-tabs .tile-edit-button:not(:first-child):not(:last-child) {
+    border-radius: 0;
   }
 
   .tile-map-info-tabs .tile-edit-button:last-child {
@@ -7026,6 +7857,135 @@ function toHex(value) {
   .tile-notes-input {
     min-block-size: 6rem;
     resize: vertical;
+  }
+
+  .tile-snapshot-card {
+    margin-block-end: 0.75rem;
+  }
+
+  .tile-snapshot-body {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .tile-snapshot-diff {
+    display: grid;
+    gap: 0.4rem;
+    padding-block-start: 0.5rem;
+    border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tile-snapshot-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+
+  .tile-snapshot-legend-label {
+    color: lighten($textColor, 30%);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tile-snapshot-chip {
+    padding-block: 0.2rem;
+    padding-inline: 0.5rem;
+    border-radius: 999px;
+    background: rgba(255, 210, 90, 0.15);
+    color: #f7db9a;
+    font-weight: 700;
+  }
+
+  .tile-snapshot-diff-list {
+    display: grid;
+    gap: 0.25rem;
+    max-block-size: 8rem;
+    overflow: auto;
+    padding-inline-end: 0.35rem;
+    font-size: 0.8rem;
+    color: lighten($textColor, 10%);
+  }
+
+  .tile-snapshot-diff-item {
+    font-weight: 700;
+  }
+
+  .tile-snapshot-diff-section {
+    display: grid;
+    gap: 0.25rem;
+    padding-block-end: 0.4rem;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      list-style: none;
+      cursor: pointer;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    summary::before {
+      content: "";
+      inline-size: 0;
+      block-size: 0;
+      border-block-start: 5px solid transparent;
+      border-block-end: 5px solid transparent;
+      border-inline-start: 7px solid rgba(255, 255, 255, 0.6);
+      transition: transform 0.2s ease;
+    }
+
+    &[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    &:last-child {
+      border-block-end: 0;
+      padding-block-end: 0;
+    }
+  }
+
+  .tile-snapshot-diff-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: lighten($textColor, 25%);
+  }
+
+  .tile-snapshot-diff-empty {
+    font-size: 0.75rem;
+    color: lighten($textColor, 35%);
+  }
+
+  .tile-snapshot-diff-more {
+    font-size: 0.75rem;
+    color: lighten($textColor, 30%);
+  }
+
+  .tile-snapshot-admin-list {
+    display: grid;
+    gap: 0.4rem;
+    margin-block-start: 0.6rem;
+  }
+
+  .tile-snapshot-admin-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .tile-snapshot-admin-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: lighten($textColor, 10%);
   }
 
   .tile-legend-section {
