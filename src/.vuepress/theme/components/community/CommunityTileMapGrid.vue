@@ -1875,6 +1875,8 @@ export default {
       localOverrides: new Map(),
       tileSaveQueue: new Map(),
       tileSaveTimer: null,
+      tileSaveRetryTimer: null,
+      tileSaveRetryCount: 0,
       tileOverrideSubscription: null,
       authSubscription: null,
       scale: 1,
@@ -1956,6 +1958,7 @@ export default {
       baseSnapshotPayload: null,
       liveOverrideLookup: {},
       liveSnapshotPayload: [],
+      lastSupabaseError: "",
       snapshotDiffSummary: {
         owner: 0,
         city: 0,
@@ -2301,6 +2304,12 @@ export default {
       }
       this.scheduleMiniMapDraw();
     },
+    editPanelTab(nextValue) {
+      if (nextValue !== "snapshots" && this.snapshotViewId) {
+        this.snapshotViewId = "";
+        this.snapshotCompareId = "";
+      }
+    },
     scale() {
       this.scheduleMiniMapDraw();
     },
@@ -2375,10 +2384,12 @@ export default {
     this.initSupabase();
     this.loadMap();
     window.addEventListener("resize", this.handleResize);
+    window.addEventListener("online", this.handleOnline);
   },
 
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("online", this.handleOnline);
     this.teardownSupabase();
   },
 
@@ -2413,6 +2424,10 @@ export default {
         window.clearTimeout(this.tileSaveTimer);
         this.tileSaveTimer = null;
       }
+      if (this.tileSaveRetryTimer) {
+        window.clearTimeout(this.tileSaveRetryTimer);
+        this.tileSaveRetryTimer = null;
+      }
     },
 
     handleAuthSession(session) {
@@ -2423,6 +2438,7 @@ export default {
         }
         this.refreshEditPermission();
         this.updateAdminStatus();
+        this.updateConnectionStatus();
       } else {
         this.canEdit = false;
         this.isAdmin = false;
@@ -2436,6 +2452,7 @@ export default {
       if (!this.supabase) {
         return;
       }
+      this.updateConnectionStatus();
       const email = String(this.authEmail || "").trim();
       if (!email) {
         this.authMessage = "Enter your email to receive a login link.";
@@ -2470,6 +2487,38 @@ export default {
       this.ownerBrushEnabled = false;
       this.isPaintingOwner = false;
       this.ownerBrushId = null;
+    },
+
+    handleOnline() {
+      this.refreshSupabaseConnections();
+    },
+
+    refreshSupabaseConnections() {
+      if (!this.supabase) {
+        return;
+      }
+      this.lastSupabaseError = "";
+      this.updateConnectionStatus();
+      if (this.tileOverrideSubscription) {
+        this.supabase.removeChannel(this.tileOverrideSubscription);
+        this.tileOverrideSubscription = null;
+      }
+      this.loadTileOverrides();
+      this.loadSnapshots();
+      this.subscribeToTileOverrides();
+      if (this.tileSaveQueue.size) {
+        this.scheduleTileSaveRetry();
+      }
+    },
+
+    updateConnectionStatus() {
+      if (!navigator.onLine) {
+        this.authMessage = "Offline. Edits will sync when back online.";
+        return;
+      }
+      if (this.lastSupabaseError) {
+        this.authMessage = "Connection issue. Retrying to sync edits...";
+      }
     },
 
     async updateAdminStatus() {
@@ -3478,7 +3527,6 @@ export default {
         updated_at: now,
         updated_by: this.authUser ? this.authUser.id : null,
       }));
-      this.tileSaveQueue.clear();
       this.tileSaveTimer = null;
       const { error } = await this.supabase
         .from(SUPABASE_OVERRIDE_TABLE)
@@ -3486,9 +3534,15 @@ export default {
           onConflict: "map_id,tile_key",
         });
       if (error) {
-        this.authMessage = "Unable to sync edits. Please try again.";
+        this.lastSupabaseError = error.message || "Unable to sync edits.";
+        this.authMessage = "Unable to sync edits. Retrying...";
+        this.scheduleTileSaveRetry();
         return;
       }
+      this.lastSupabaseError = "";
+      this.updateConnectionStatus();
+      this.tileSaveQueue.clear();
+      this.tileSaveRetryCount = 0;
       await this.supabase.from(SUPABASE_EDIT_LOG_TABLE).insert(
         rows.map((row) => ({
           map_id: row.map_id,
@@ -3498,6 +3552,18 @@ export default {
           edited_at: now,
         }))
       );
+    },
+
+    scheduleTileSaveRetry() {
+      if (this.tileSaveRetryTimer) {
+        return;
+      }
+      const retryDelay = Math.min(8000, 1000 * (this.tileSaveRetryCount + 1));
+      this.tileSaveRetryTimer = window.setTimeout(() => {
+        this.tileSaveRetryTimer = null;
+        this.tileSaveRetryCount += 1;
+        this.flushTileSaves();
+      }, retryDelay);
     },
 
     subscribeToTileOverrides() {
