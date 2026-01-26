@@ -2446,6 +2446,8 @@ export default {
         this.refreshEditPermission();
         this.updateAdminStatus();
         this.updateConnectionStatus();
+        this.loadTileOverrides();
+        this.subscribeToTileOverrides();
       } else {
         this.canEdit = false;
         this.isAdmin = false;
