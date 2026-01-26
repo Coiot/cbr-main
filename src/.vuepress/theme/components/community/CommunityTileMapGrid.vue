@@ -1591,7 +1591,7 @@ const SUPABASE_MAP_ID = "s5";
 const SUPABASE_OVERRIDE_TABLE = "tile_overrides";
 const SUPABASE_EDIT_LOG_TABLE = "tile_edits";
 const SUPABASE_CHECK_FUNCTION = "check-kofi-subscriber";
-const REQUIRE_AUTH_FOR_LOCAL = true;
+const REQUIRE_AUTH_FOR_LOCAL = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
 const NOTE_PIN_PATHS = [
   {
