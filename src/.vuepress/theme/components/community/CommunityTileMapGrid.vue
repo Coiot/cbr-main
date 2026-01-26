@@ -2358,6 +2358,13 @@ export default {
       }
     },
     snapshotViewId() {
+      if (this.editPanelTab !== "snapshots") {
+        if (this.snapshotViewId) {
+          this.snapshotViewId = "";
+          this.snapshotCompareId = "";
+        }
+        return;
+      }
       this.applySnapshotView();
       this.computeSnapshotDiffs();
     },
@@ -2856,6 +2863,9 @@ export default {
     },
 
     applySnapshotView() {
+      if (this.editPanelTab !== "snapshots") {
+        return;
+      }
       if (!this.snapshotViewId) {
         this.restoreLiveView();
         return;
