@@ -1879,6 +1879,7 @@ export default {
       tileSaveRetryCount: 0,
       tileOverrideSubscription: null,
       authSubscription: null,
+      modeSwitching: false,
       scale: 1,
       minScale: 0.4,
       maxScale: mapConfig.maxScale || 3,
@@ -2308,6 +2309,8 @@ export default {
       if (nextValue !== "snapshots" && this.snapshotViewId) {
         this.snapshotViewId = "";
         this.snapshotCompareId = "";
+      } else if (nextValue === "snapshots") {
+        this.loadSnapshots();
       }
     },
     scale() {
@@ -2415,7 +2418,6 @@ export default {
       this.supabase.auth.getSession().then(({ data: sessionData }) => {
         this.handleAuthSession(sessionData ? sessionData.session : null);
       });
-      this.loadSnapshots();
     },
 
     teardownSupabase() {
@@ -2546,7 +2548,9 @@ export default {
         return;
       }
       this.isAdmin = !!data;
-      this.loadSnapshots();
+      if (this.editPanelTab === "snapshots") {
+        this.loadSnapshots();
+      }
     },
 
     async refreshEditPermission() {
@@ -2650,7 +2654,11 @@ export default {
     },
 
     setLocalEdits(enabled) {
-      this.localEditsEnabled = !!enabled;
+      const nextValue = !!enabled;
+      if (this.localEditsEnabled === nextValue) {
+        return;
+      }
+      this.localEditsEnabled = nextValue;
       if (this.localEditsEnabled) {
         // this.authMessage = REQUIRE_AUTH_FOR_LOCAL
         //   ? "Local mode requires sign-in."
@@ -2658,8 +2666,16 @@ export default {
       } else {
         // this.authMessage = "Local mode off. Syncing live map.";
         this.localOverrides.clear();
+        this.modeSwitching = true;
         this.resetTilesToBaseState();
-        this.loadTileOverrides();
+        const maybePromise = this.loadTileOverrides();
+        if (maybePromise && typeof maybePromise.finally === "function") {
+          maybePromise.finally(() => {
+            this.modeSwitching = false;
+          });
+        } else {
+          this.modeSwitching = false;
+        }
       }
     },
 
@@ -3496,6 +3512,9 @@ export default {
 
     queueTileSave(tile) {
       if (this.snapshotViewId) {
+        return;
+      }
+      if (this.modeSwitching) {
         return;
       }
       if (!this.supabase || !this.canEdit || !tile) {
