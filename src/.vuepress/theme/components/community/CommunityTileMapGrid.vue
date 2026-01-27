@@ -1318,6 +1318,18 @@
                     >
                       {{ snapshot.is_published ? "Unpublish" : "Publish" }}
                     </button>
+                    <button
+                      type="button"
+                      class="tile-edit-button"
+                      :disabled="
+                        snapshotResetLoadingId === snapshot.id ||
+                        snapshotPublishLoadingId === snapshot.id
+                      "
+                      title="Publish snapshot and clear overrides from previous snapshot"
+                      @click="publishSnapshotAndClearOverrides(snapshot)"
+                    >
+                      Publish + Clear
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1957,6 +1969,7 @@ export default {
       snapshotEpisodeNumber: "",
       snapshotEpisodeAt: "",
       snapshotPublishLoadingId: null,
+      snapshotResetLoadingId: null,
       baseSnapshotPayload: null,
       liveBaseSnapshotId: null,
       liveBaseSnapshotPayload: null,
@@ -2782,7 +2795,8 @@ export default {
           let query = this.supabase
             .from(SUPABASE_OVERRIDE_TABLE)
             .select("tile_key,payload")
-            .eq("map_id", SUPABASE_MAP_ID);
+            .eq("map_id", SUPABASE_MAP_ID)
+            .order("tile_key", { ascending: true });
           if (this.liveBaseSnapshotId) {
             query = query.eq("snapshot_id", this.liveBaseSnapshotId);
           } else {
@@ -3338,6 +3352,51 @@ export default {
         ? "Snapshot published."
         : "Snapshot unpublished.";
       await this.loadSnapshots();
+    },
+
+    async publishSnapshotAndClearOverrides(snapshot) {
+      if (!this.supabase || !this.isAdmin || !snapshot) {
+        return;
+      }
+      if (snapshot.is_virtual) {
+        return;
+      }
+      const previousSnapshotId = this.liveBaseSnapshotId || null;
+      this.snapshotResetLoadingId = snapshot.id;
+      const { error: publishError } = await this.supabase
+        .from(SUPABASE_SNAPSHOT_TABLE)
+        .update({ is_published: true })
+        .eq("id", snapshot.id);
+      if (publishError) {
+        this.snapshotMessage = "Unable to publish snapshot.";
+        this.snapshotResetLoadingId = null;
+        return;
+      }
+      if (previousSnapshotId !== snapshot.id) {
+        let deleteQuery = this.supabase
+          .from(SUPABASE_OVERRIDE_TABLE)
+          .delete()
+          .eq("map_id", SUPABASE_MAP_ID);
+        if (previousSnapshotId) {
+          deleteQuery = deleteQuery.eq("snapshot_id", previousSnapshotId);
+        } else {
+          deleteQuery = deleteQuery.is("snapshot_id", null);
+        }
+        const { error: deleteError } = await deleteQuery;
+        if (deleteError) {
+          this.snapshotMessage =
+            "Snapshot published, but overrides could not be cleared.";
+          this.snapshotResetLoadingId = null;
+          await this.loadSnapshots();
+          return;
+        }
+      }
+      await this.loadSnapshots();
+      await this.loadLiveBaseSnapshot();
+      this.applyLiveBaseSnapshot();
+      this.loadTileOverrides();
+      this.snapshotMessage = "Snapshot published and overrides cleared.";
+      this.snapshotResetLoadingId = null;
     },
 
     applyTileOverrides(rows, options = {}) {
