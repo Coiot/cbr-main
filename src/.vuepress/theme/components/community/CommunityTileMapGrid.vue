@@ -51,30 +51,9 @@
                   Send Link
                 </button>
               </div>
-              <div v-else class="tile-edit-auth-actions">
+              <!-- <div v-else class="tile-edit-auth-actions">
                 <span class="tile-edit-auth-user">{{ authUser.email }}</span>
-                <button
-                  type="button"
-                  class="tile-edit-button"
-                  :disabled="authChecking"
-                  @click="refreshEditPermission"
-                >
-                  Check Access
-                </button>
-                <button type="button" class="tile-edit-button" @click="signOut">
-                  Sign out
-                </button>
-              </div>
-              <button
-                v-if="!localEditsEnabled"
-                type="button"
-                class="tile-edit-button"
-                title="Undoes last 60 seconds of edits"
-                :disabled="!canEdit || undoLoading"
-                @click="undoRecentEdits"
-              >
-                Undo
-              </button>
+              </div> -->
             </div>
             <!-- <span class="tile-map-toolbar-spacer" aria-hidden="true"></span> -->
             <div v-if="authMessage" class="tile-edit-hint">
@@ -117,6 +96,45 @@
                   @click="resetView"
                 >
                   Reset
+                </button>
+                <span
+                  v-if="!isMobileView"
+                  class="tile-map-toolbar-divider"
+                  aria-hidden="true"
+                ></span>
+                <button
+                  v-if="!isMobileView"
+                  type="button"
+                  class="tile-map-info-toggle tile-map-toolbar-toggle"
+                  @click="toggleEditPanel"
+                  :aria-label="
+                    editPanelCollapsed
+                      ? 'Expand edit panel'
+                      : 'Collapse edit panel'
+                  "
+                >
+                  <svg
+                    v-if="editPanelCollapsed"
+                    class="tile-map-info-toggle-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M544 512C526.3 512 512 497.7 512 480L512 160C512 142.3 526.3 128 544 128C561.7 128 576 142.3 576 160L576 480C576 497.7 561.7 512 544 512zM71 337C61.6 327.6 61.6 312.4 71 303.1L215 159C221.9 152.1 232.2 150.1 241.2 153.8C250.2 157.5 256 166.3 256 176L256 256L400 256C426.5 256 448 277.5 448 304L448 336C448 362.5 426.5 384 400 384L256 384L256 464C256 473.7 250.2 482.5 241.2 486.2C232.2 489.9 221.9 487.9 215 481L71 337z"
+                    />
+                  </svg>
+                  <svg
+                    v-else
+                    class="tile-map-info-toggle-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M96 128C113.7 128 128 142.3 128 160L128 480C128 497.7 113.7 512 96 512C78.3 512 64 497.7 64 480L64 160C64 142.3 78.3 128 96 128zM569 303C578.4 312.4 578.4 327.6 569 336.9L425 481C418.1 487.9 407.8 489.9 398.8 486.2C389.8 482.5 384 473.7 384 464L384 384L240 384C213.5 384 192 362.5 192 336L192 304C192 277.5 213.5 256 240 256L384 256L384 176C384 166.3 389.8 157.5 398.8 153.8C407.8 150.1 418.1 152.2 425 159L569 303z"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -167,6 +185,29 @@
             role="img"
             aria-label="Community tile map"
           >
+            <defs>
+              <symbol id="hex-shape" overflow="visible">
+                <polygon :points="hexPoints" />
+              </symbol>
+              <symbol id="resource-diamond" overflow="visible">
+                <polygon :points="resourcePoints" />
+              </symbol>
+              <symbol id="unit-triangle" overflow="visible">
+                <polygon :points="unitTrianglePoints" />
+              </symbol>
+              <symbol id="citadel-star" overflow="visible">
+                <polygon :points="citadelStarPoints" />
+              </symbol>
+              <symbol id="unit-icon" overflow="visible">
+                <path :d="unitPath" />
+              </symbol>
+              <symbol id="city-capital" overflow="visible">
+                <path :d="capitalCityPath" />
+              </symbol>
+              <symbol id="tile-wonder" overflow="visible">
+                <path :d="wonderPath" />
+              </symbol>
+            </defs>
             <g
               v-for="tile in visibleTiles"
               :key="tile.key"
@@ -177,7 +218,7 @@
               @mouseleave="clearHover"
               @click="selectTile(tile)"
             >
-              <polygon
+              <use
                 class="tile-hex"
                 :class="[
                   terrainClass(tile),
@@ -187,13 +228,15 @@
                     'is-snapshot-diff': isSnapshotDiff(tile),
                   },
                 ]"
-                :points="hexPoints"
+                href="#hex-shape"
+                xlink:href="#hex-shape"
                 :style="tileHexStyle(tile)"
               />
-              <polygon
+              <use
                 v-if="Number.isFinite(tile.owner)"
                 class="tile-owner-overlay"
-                :points="hexPoints"
+                href="#hex-shape"
+                xlink:href="#hex-shape"
                 :style="ownerOverlayStyle(tile)"
               />
               <polygon
@@ -229,39 +272,27 @@
                 :cy="-hexSize * 0.25"
                 :style="featureStyle(tile)"
               />
-              <path
+              <use
                 v-if="showDecorations && tile.wonder"
                 class="tile-wonder"
-                :d="wonderPath"
+                href="#tile-wonder"
+                xlink:href="#tile-wonder"
                 :transform="`translate(${hexSize * 0.4}, ${-hexSize * 0.25})`"
                 :style="wonderStyle(tile)"
               />
-              <polygon
+              <use
                 v-if="showDecorations && tile.resource"
                 class="tile-resource"
-                :points="resourcePoints"
+                href="#resource-diamond"
+                xlink:href="#resource-diamond"
                 :transform="`translate(${hexSize * 0.4}, ${hexSize * 0.2})`"
                 :style="{ fill: tile.resourceColor }"
               />
-              <rect
-                v-if="
-                  showDecorations &&
-                  tile.improvement &&
-                  !isCitadelImprovement(tile)
-                "
-                class="tile-improvement"
-                :x="-hexSize * 0.2"
-                :y="hexSize * 0.15"
-                :width="hexSize * 0.4"
-                :height="hexSize * 0.4"
-                rx="1.5"
-                ry="1.5"
-                :style="{ fill: tile.improvementColor }"
-              />
-              <polygon
+              <use
                 v-if="showCitadels && isCitadelImprovement(tile)"
                 class="tile-citadel"
-                :points="citadelStarPoints"
+                href="#citadel-star"
+                xlink:href="#citadel-star"
               />
               <path
                 v-if="showDecorations && tile.route"
@@ -282,10 +313,11 @@
                   :style="ruinsPathStyle(ruinsPath, index, tile)"
                 />
               </g>
-              <path
+              <use
                 v-if="showUnits && primaryUnit(tile)"
                 class="tile-unit"
-                :d="unitPath"
+                href="#unit-icon"
+                xlink:href="#unit-icon"
                 :transform="`translate(${hexSize * 0.3}, ${-hexSize * 0.35})`"
               />
               <text
@@ -304,15 +336,17 @@
                 cx="0"
                 cy="0"
               />
-              <path
+              <use
                 v-if="tile.city && tile.city.isCapital"
                 class="tile-city-capital"
-                :d="capitalCityPath"
+                href="#city-capital"
+                xlink:href="#city-capital"
               />
-              <polygon
+              <use
                 v-if="tile.civilianUnit && scale > 1"
                 class="tile-unit-marker tile-unit-marker-civilian"
-                :points="unitTrianglePoints"
+                href="#unit-triangle"
+                xlink:href="#unit-triangle"
                 :transform="unitMarkerTransform(tile, 'civilian')"
                 :style="unitMarkerStyle(tile.civilianUnit)"
               />
@@ -488,12 +522,6 @@
                 {{ resourceLabel(hoverTooltipTile) }}
               </div>
             </div>
-            <div v-if="hoverTooltipTile.improvement" class="tile-info-row">
-              <div class="tile-info-label">Improvement</div>
-              <div class="tile-info-value">
-                {{ formatLabel(hoverTooltipTile.improvement) }}
-              </div>
-            </div>
             <div v-if="hoverTooltipTile.route" class="tile-info-row">
               <div class="tile-info-label">Route</div>
               <div class="tile-info-value">
@@ -595,38 +623,6 @@
         :class="{ 'is-collapsed': editPanelCollapsed && !isMobileView }"
       >
         <div class="tile-map-info-header">
-          <button
-            v-if="!isMobileView"
-            type="button"
-            class="tile-map-info-toggle"
-            @click="toggleEditPanel"
-            :aria-label="
-              editPanelCollapsed ? 'Expand edit panel' : 'Collapse edit panel'
-            "
-          >
-            <svg
-              v-if="editPanelCollapsed"
-              class="tile-map-info-toggle-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-              aria-hidden="true"
-            >
-              <path
-                d="M544 512C526.3 512 512 497.7 512 480L512 160C512 142.3 526.3 128 544 128C561.7 128 576 142.3 576 160L576 480C576 497.7 561.7 512 544 512zM71 337C61.6 327.6 61.6 312.4 71 303.1L215 159C221.9 152.1 232.2 150.1 241.2 153.8C250.2 157.5 256 166.3 256 176L256 256L400 256C426.5 256 448 277.5 448 304L448 336C448 362.5 426.5 384 400 384L256 384L256 464C256 473.7 250.2 482.5 241.2 486.2C232.2 489.9 221.9 487.9 215 481L71 337z"
-              />
-            </svg>
-            <svg
-              v-else
-              class="tile-map-info-toggle-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 640 640"
-              aria-hidden="true"
-            >
-              <path
-                d="M96 128C113.7 128 128 142.3 128 160L128 480C128 497.7 113.7 512 96 512C78.3 512 64 497.7 64 480L64 160C64 142.3 78.3 128 96 128zM569 303C578.4 312.4 578.4 327.6 569 336.9L425 481C418.1 487.9 407.8 489.9 398.8 486.2C389.8 482.5 384 473.7 384 464L384 384L240 384C213.5 384 192 362.5 192 336L192 304C192 277.5 213.5 256 240 256L384 256L384 176C384 166.3 389.8 157.5 398.8 153.8C407.8 150.1 418.1 152.2 425 159L569 303z"
-              />
-            </svg>
-          </button>
           <div
             v-if="!editPanelCollapsed || isMobileView"
             class="tile-map-info-tabs"
@@ -677,6 +673,18 @@
               >
                 Local Only
               </span>
+              <span class="tile-info-title-actions">
+                <button
+                  v-if="!localEditsEnabled"
+                  type="button"
+                  class="tile-edit-button"
+                  title="Undoes last 60 seconds of edits"
+                  :disabled="!canEdit || undoLoading"
+                  @click="undoRecentEdits"
+                >
+                  Undo
+                </button>
+              </span>
             </div>
             <div
               v-if="selectedTile"
@@ -705,6 +713,9 @@
                       placeholder="Search civ..."
                       v-model="editOwnerName"
                       @keydown.enter.prevent="applyOwnerEdit"
+                      @blur="applyOwnerEdit"
+                      @change="applyOwnerEdit"
+                      @input="scheduleFieldEdit('owner')"
                       :style="ownerInputStyle(editOwnerName)"
                     />
                     <datalist id="tile-owner-options">
@@ -715,13 +726,6 @@
                         :label="ownerOptionLabel(owner, index)"
                       ></option>
                     </datalist>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyOwnerEdit"
-                    >
-                      Set
-                    </button>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -757,7 +761,7 @@
                     class="tile-edit-label"
                     for="tile-original-owner-input"
                   >
-                    Original Owner
+                    Original City Founder
                   </label>
                   <div class="tile-edit-row">
                     <input
@@ -768,15 +772,11 @@
                       placeholder="Search civ..."
                       v-model="editOriginalOwnerName"
                       @keydown.enter.prevent="applyOriginalOwnerEdit"
+                      @blur="applyOriginalOwnerEdit"
+                      @change="applyOriginalOwnerEdit"
+                      @input="scheduleFieldEdit('originalOwner')"
                       :style="ownerInputStyle(editOriginalOwnerName)"
                     />
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyOriginalOwnerEdit"
-                    >
-                      Set
-                    </button>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -798,14 +798,9 @@
                       maxlength="32"
                       v-model="editCityName"
                       @keydown.enter.prevent="applyCityNameEdit"
+                      @blur="applyCityNameEdit"
+                      @input="scheduleFieldEdit('cityName')"
                     />
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyCityNameEdit"
-                    >
-                      Set
-                    </button>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -863,66 +858,61 @@
                   v-if="selectedTile && selectedTile.city"
                   class="tile-edit-group"
                 >
-                  <label class="tile-edit-label" for="tile-city-input">
-                    City Population
-                  </label>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-city-input"
-                      class="tile-edit-input"
-                      type="number"
-                      min="1"
-                      max="99"
-                      v-model.number="editCityValue"
-                      @keydown.enter.prevent="applyCityEdit"
-                    />
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyCityEdit"
-                    >
-                      Set
-                    </button>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="clearCityEdit"
-                    >
-                      Clear
-                    </button>
-                  </div>
-                </div>
-                <div
-                  v-if="selectedTile && selectedTile.city"
-                  class="tile-edit-group"
-                >
-                  <label class="tile-edit-label" for="tile-city-religion-input">
-                    Religion
-                  </label>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-city-religion-input"
-                      class="tile-edit-input"
-                      type="text"
-                      maxlength="32"
-                      placeholder="None"
-                      v-model="editCityReligion"
-                      @keydown.enter.prevent="applyCityReligionEdit"
-                    />
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyCityReligionEdit"
-                    >
-                      Set
-                    </button>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="clearCityReligionEdit"
-                    >
-                      Clear
-                    </button>
+                  <div class="tile-edit-row tile-edit-row-split">
+                    <div class="tile-edit-split">
+                      <label class="tile-edit-label" for="tile-city-input">
+                        Population
+                      </label>
+                      <div class="tile-edit-row">
+                        <input
+                          id="tile-city-input"
+                          class="tile-edit-input tile-edit-input-compact"
+                          type="number"
+                          min="1"
+                          max="99"
+                          v-model.number="editCityValue"
+                          @keydown.enter.prevent="applyCityEdit"
+                          @blur="applyCityEdit"
+                          @change="applyCityEdit"
+                          @input="scheduleFieldEdit('cityValue')"
+                        />
+                        <button
+                          type="button"
+                          class="tile-edit-button"
+                          @click="clearCityEdit"
+                        >
+                          Clear
+                        </button>
+                      </div>
+                    </div>
+                    <div class="tile-edit-split">
+                      <label
+                        class="tile-edit-label"
+                        for="tile-city-religion-input"
+                      >
+                        Religion
+                      </label>
+                      <div class="tile-edit-row">
+                        <input
+                          id="tile-city-religion-input"
+                          class="tile-edit-input"
+                          type="text"
+                          maxlength="32"
+                          placeholder="None"
+                          v-model="editCityReligion"
+                          @keydown.enter.prevent="applyCityReligionEdit"
+                          @blur="applyCityReligionEdit"
+                          @input="scheduleFieldEdit('cityReligion')"
+                        />
+                        <button
+                          type="button"
+                          class="tile-edit-button"
+                          @click="clearCityReligionEdit"
+                        >
+                          Clear
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -940,14 +930,9 @@
                       placeholder="Comma-separated..."
                       v-model="editWorldWonders"
                       @keydown.enter.prevent="applyWorldWondersEdit"
+                      @blur="applyWorldWondersEdit"
+                      @input="scheduleFieldEdit('worldWonders')"
                     />
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyWorldWondersEdit"
-                    >
-                      Set
-                    </button>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -957,102 +942,98 @@
                     </button>
                   </div>
                 </div>
-                <div class="tile-edit-group">
-                  <label class="tile-edit-label" for="tile-combat-unit-input">
-                    Combat Unit
-                  </label>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-combat-unit-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-combat-unit-options"
-                      placeholder="Search combat unit..."
-                      v-model="editCombatUnitType"
-                      @keydown.enter.prevent="applyCombatUnitEdit"
-                    />
-                    <datalist id="tile-combat-unit-options">
-                      <option
-                        v-for="unit in combatUnitOptions"
-                        :key="`combat-unit-${unit.name}`"
-                        :value="unit.name"
-                        :label="unit.name"
-                      ></option>
-                    </datalist>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyCombatUnitEdit"
-                    >
-                      Set
-                    </button>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="clearCombatUnitEdit"
-                    >
-                      Clear
-                    </button>
-                  </div>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-combat-unit-owner-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-owner-options"
-                      placeholder="Combat owner..."
-                      v-model="editCombatUnitOwnerName"
-                      :style="ownerInputStyle(editCombatUnitOwnerName)"
-                    />
-                  </div>
-                </div>
-                <div class="tile-edit-group">
-                  <label class="tile-edit-label" for="tile-civilian-unit-input">
-                    Civilian Unit
-                  </label>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-civilian-unit-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-civilian-unit-options"
-                      placeholder="Search civilian unit..."
-                      v-model="editCivilianUnitType"
-                      @keydown.enter.prevent="applyCivilianUnitEdit"
-                    />
-                    <datalist id="tile-civilian-unit-options">
-                      <option
-                        v-for="unit in civilianUnitOptions"
-                        :key="`civilian-unit-${unit.name}`"
-                        :value="unit.name"
-                        :label="unit.name"
-                      ></option>
-                    </datalist>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="applyCivilianUnitEdit"
-                    >
-                      Set
-                    </button>
-                    <button
-                      type="button"
-                      class="tile-edit-button"
-                      @click="clearCivilianUnitEdit"
-                    >
-                      Clear
-                    </button>
-                  </div>
-                  <div class="tile-edit-row">
-                    <input
-                      id="tile-civilian-unit-owner-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-owner-options"
-                      placeholder="Civilian owner..."
-                      v-model="editCivilianUnitOwnerName"
-                      :style="ownerInputStyle(editCivilianUnitOwnerName)"
-                    />
+                <div class="tile-edit-group tile-edit-units">
+                  <div class="tile-edit-units-grid">
+                    <div class="tile-edit-unit-group">
+                      <div class="tile-edit-unit-header">
+                        <div class="tile-edit-unit-label">Combat Unit</div>
+                        <button
+                          type="button"
+                          class="tile-edit-button"
+                          @click="clearCombatUnitEdit"
+                        >
+                          Clear
+                        </button>
+                      </div>
+                      <input
+                        id="tile-combat-unit-input"
+                        class="tile-edit-input"
+                        type="text"
+                        list="tile-combat-unit-options"
+                        placeholder="Search combat unit..."
+                        v-model="editCombatUnitType"
+                        @keydown.enter.prevent="applyCombatUnitEdit"
+                        @blur="applyCombatUnitEdit"
+                        @change="applyCombatUnitEdit"
+                        @input="scheduleUnitEdit('combat')"
+                      />
+                      <datalist id="tile-combat-unit-options">
+                        <option
+                          v-for="unit in combatUnitOptions"
+                          :key="`combat-unit-${unit.name}`"
+                          :value="unit.name"
+                          :label="unit.name"
+                        ></option>
+                      </datalist>
+                      <input
+                        id="tile-combat-unit-owner-input"
+                        class="tile-edit-input"
+                        type="text"
+                        list="tile-owner-options"
+                        placeholder="Combat owner..."
+                        v-model="editCombatUnitOwnerName"
+                        @keydown.enter.prevent="applyCombatUnitEdit"
+                        @blur="applyCombatUnitEdit"
+                        @change="applyCombatUnitEdit"
+                        @input="scheduleUnitEdit('combat')"
+                        :style="ownerInputStyle(editCombatUnitOwnerName)"
+                      />
+                    </div>
+                    <div class="tile-edit-unit-group">
+                      <div class="tile-edit-unit-header">
+                        <div class="tile-edit-unit-label">Civilian Unit</div>
+                        <button
+                          type="button"
+                          class="tile-edit-button"
+                          @click="clearCivilianUnitEdit"
+                        >
+                          Clear
+                        </button>
+                      </div>
+                      <input
+                        id="tile-civilian-unit-input"
+                        class="tile-edit-input"
+                        type="text"
+                        list="tile-civilian-unit-options"
+                        placeholder="Search civilian unit..."
+                        v-model="editCivilianUnitType"
+                        @keydown.enter.prevent="applyCivilianUnitEdit"
+                        @blur="applyCivilianUnitEdit"
+                        @change="applyCivilianUnitEdit"
+                        @input="scheduleUnitEdit('civilian')"
+                      />
+                      <datalist id="tile-civilian-unit-options">
+                        <option
+                          v-for="unit in civilianUnitOptions"
+                          :key="`civilian-unit-${unit.name}`"
+                          :value="unit.name"
+                          :label="unit.name"
+                        ></option>
+                      </datalist>
+                      <input
+                        id="tile-civilian-unit-owner-input"
+                        class="tile-edit-input"
+                        type="text"
+                        list="tile-owner-options"
+                        placeholder="Civilian owner..."
+                        v-model="editCivilianUnitOwnerName"
+                        @keydown.enter.prevent="applyCivilianUnitEdit"
+                        @blur="applyCivilianUnitEdit"
+                        @change="applyCivilianUnitEdit"
+                        @input="scheduleUnitEdit('civilian')"
+                        :style="ownerInputStyle(editCivilianUnitOwnerName)"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div v-if="!selectedTile.city" class="tile-edit-group">
@@ -1473,27 +1454,6 @@
                 :style="resourceLegendStyle(resource)"
               ></span>
               <span class="legend-label">{{ resource.label }}</span>
-            </div>
-          </div>
-        </details>
-        <details
-          class="tile-legend-section tile-legend-accordion"
-          v-if="improvementLegend.length"
-        >
-          <summary class="tile-legend-summary">
-            <span class="tile-legend-title">Improvements</span>
-          </summary>
-          <div class="tile-legend-grid tile-legend-scroll">
-            <div
-              v-for="improvement in improvementLegend"
-              :key="improvement.id"
-              class="tile-legend-item"
-            >
-              <span
-                class="legend-swatch legend-improvement legend-square"
-                :style="improvementLegendStyle(improvement)"
-              ></span>
-              <span class="legend-label">{{ improvement.label }}</span>
             </div>
           </div>
         </details>
@@ -1944,9 +1904,23 @@ export default {
       editPanelCollapsed: true,
       editPanelTab: "edit",
       isMobileView: false,
+      lastPointerType: null,
       recentEditTick: 0,
       recentEditFrameId: null,
+      canvasDrawFrameId: null,
       miniMapFrameId: null,
+      unitEditTimers: {
+        combat: null,
+        civilian: null,
+      },
+      editDebounceTimers: {
+        owner: null,
+        originalOwner: null,
+        cityName: null,
+        cityValue: null,
+        cityReligion: null,
+        worldWonders: null,
+      },
       hasLoadedOverrides: false,
       ownerBrushEnabled: false,
       ownerBrushMode: "paint",
@@ -2395,6 +2369,10 @@ export default {
     },
     selectedTile(nextTile) {
       this.syncEditFieldsFromTile(nextTile);
+      if (!nextTile) {
+        this.hoverTooltipLocked = false;
+        this.hideHoverTooltip();
+      }
     },
   },
 
@@ -2417,6 +2395,24 @@ export default {
     window.removeEventListener("resize", this.handleResize);
     window.removeEventListener("online", this.handleOnline);
     this.teardownSupabase();
+    if (this.canvasDrawFrameId) {
+      window.cancelAnimationFrame(this.canvasDrawFrameId);
+      this.canvasDrawFrameId = null;
+    }
+    if (this.unitEditTimers) {
+      Object.values(this.unitEditTimers).forEach((timer) => {
+        if (timer) {
+          window.clearTimeout(timer);
+        }
+      });
+    }
+    if (this.editDebounceTimers) {
+      Object.values(this.editDebounceTimers).forEach((timer) => {
+        if (timer) {
+          window.clearTimeout(timer);
+        }
+      });
+    }
   },
 
   methods: {
@@ -4116,6 +4112,33 @@ export default {
       }, 120);
     },
 
+    showSelectedTooltip(tile) {
+      if (!tile) {
+        return;
+      }
+      this.clearHoverTooltipTimer();
+      if (this.hoverTooltipHideTimer) {
+        window.clearTimeout(this.hoverTooltipHideTimer);
+        this.hoverTooltipHideTimer = null;
+      }
+      const viewport = this.$refs.viewport;
+      if (!viewport) {
+        return;
+      }
+      const cached = this.hoverTooltipSizeCache.get(tile.key);
+      if (cached) {
+        this.hoverTooltipSize = { ...cached };
+      }
+      this.hoverTooltipTile = tile;
+      this.hoverTooltipVisible = true;
+      this.hoverTooltipLocked = true;
+      this.hoverTooltipPosition = {
+        x: tile.x * this.scale + this.translate.x,
+        y: tile.y * this.scale + this.translate.y,
+      };
+      this.scheduleHoverTooltipSizeUpdate();
+    },
+
     clampView() {
       this.translate = this.clampTranslate(this.translate, this.scale);
     },
@@ -4333,6 +4356,7 @@ export default {
     },
 
     onPointerDown(event) {
+      this.lastPointerType = event.pointerType || null;
       if (event.pointerType === "mouse" && event.button !== 0) {
         return;
       }
@@ -4389,7 +4413,10 @@ export default {
     },
 
     onPointerMove(event) {
-      this.updateTooltipPosition(event);
+      const isNavigating = this.isDragging || this.isPinching;
+      if (!isNavigating && !this.isPaintingOwner) {
+        this.updateTooltipPosition(event);
+      }
       if (event.pointerType === "touch") {
         if (this.activePointers.has(event.pointerId)) {
           this.activePointers.set(event.pointerId, {
@@ -4410,7 +4437,7 @@ export default {
           return;
         }
       }
-      if (this.useTerrainCanvas && !this.isDragging) {
+      if (this.useTerrainCanvas && !this.isDragging && !this.isPinching) {
         const tile = this.getTileAtPointer(event);
         if (tile !== this.hoveredTile) {
           this.hoveredTile = tile;
@@ -4444,6 +4471,7 @@ export default {
     },
 
     onPointerUp(event) {
+      this.lastPointerType = event.pointerType || this.lastPointerType;
       if (this.useTerrainCanvas && event.type === "pointerleave") {
         if (this.hoveredTile) {
           this.hoveredTile = null;
@@ -4480,14 +4508,38 @@ export default {
         const tile = this.getTileAtPointer(event);
         if (tile) {
           this.selectedTile = tile;
+          if (this.lastPointerType === "touch") {
+            this.showSelectedTooltip(tile);
+          }
           if (this.useTerrainCanvas) {
             this.drawTerrainCanvas();
           }
+          return;
+        }
+        if (this.lastPointerType === "touch") {
+          this.selectedTile = null;
         }
       }
     },
 
+    requestTerrainCanvasDraw() {
+      if (!this.useTerrainCanvas) {
+        return;
+      }
+      if (this.canvasDrawFrameId) {
+        return;
+      }
+      this.canvasDrawFrameId = window.requestAnimationFrame(() => {
+        this.canvasDrawFrameId = null;
+        this.drawTerrainCanvasImmediate();
+      });
+    },
+
     drawTerrainCanvas() {
+      this.requestTerrainCanvasDraw();
+    },
+
+    drawTerrainCanvasImmediate() {
       const canvas = this.$refs.terrainCanvas;
       if (!canvas || !this.tiles.length) {
         return;
@@ -4713,6 +4765,9 @@ export default {
     },
 
     setHover(tile) {
+      if (this.isDragging || this.isPinching) {
+        return;
+      }
       this.hoveredTile = tile;
     },
 
@@ -5508,6 +5563,64 @@ export default {
     },
 
     clearCivilianUnitEdit() {
+      this.clearUnitEditForRole("civilian");
+    },
+
+    scheduleUnitEdit(role) {
+      if (!this.unitEditTimers) {
+        return;
+      }
+      const timer = this.unitEditTimers[role];
+      if (timer) {
+        window.clearTimeout(timer);
+      }
+      this.unitEditTimers[role] = window.setTimeout(() => {
+        if (role === "combat") {
+          this.applyCombatUnitEdit();
+        } else {
+          this.applyCivilianUnitEdit();
+        }
+        this.unitEditTimers[role] = null;
+      }, 500);
+    },
+
+    scheduleFieldEdit(field) {
+      if (!this.editDebounceTimers) {
+        return;
+      }
+      const timer = this.editDebounceTimers[field];
+      if (timer) {
+        window.clearTimeout(timer);
+      }
+      this.editDebounceTimers[field] = window.setTimeout(() => {
+        switch (field) {
+          case "owner":
+            this.applyOwnerEdit();
+            break;
+          case "originalOwner":
+            this.applyOriginalOwnerEdit();
+            break;
+          case "cityName":
+            this.applyCityNameEdit();
+            break;
+          case "cityValue":
+            this.applyCityEdit();
+            break;
+          case "cityReligion":
+            this.applyCityReligionEdit();
+            break;
+          case "worldWonders":
+            this.applyWorldWondersEdit();
+            break;
+          default:
+            break;
+        }
+        this.editDebounceTimers[field] = null;
+      }, 500);
+    },
+
+    clearUnitEdits() {
+      this.clearUnitEditForRole("combat");
       this.clearUnitEditForRole("civilian");
     },
 
@@ -7248,13 +7361,13 @@ function toHex(value) {
       .tile-map-mode-toggle {
         display: inline-flex;
         align-items: center;
-        padding: 0.2rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 999px;
-        background: rgba(8, 10, 14, 0.75);
         gap: 0;
 
         .tile-edit-button {
+          min-block-size: 1.75rem;
+          min-inline-size: 4rem;
+          font-size: 0.75rem;
+          font-weight: 800;
           border-radius: 999px;
         }
 
@@ -7370,7 +7483,7 @@ function toHex(value) {
   }
 
   .tile-map-body.is-collapsed {
-    grid-template-columns: minmax(0, 1fr) 3.25rem;
+    grid-template-columns: 1fr;
   }
 
   .tile-map-viewport {
@@ -7756,7 +7869,7 @@ function toHex(value) {
 
   .tile-map-info {
     display: grid;
-    gap: 1rem;
+    gap: .5rem;
     align-content: start;
     position: relative;
   }
@@ -7781,7 +7894,7 @@ function toHex(value) {
     align-items: center;
     justify-content: center;
     inline-size: 3rem;
-    block-size: 3rem;
+    block-size: 2.5rem;
     padding: 0;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 999px;
@@ -7802,36 +7915,35 @@ function toHex(value) {
     fill: currentColor;
   }
 
+  .tile-map-toolbar-divider {
+    inline-size: 1px;
+    block-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.14);
+    margin-inline: 0.5rem;
+  }
+
   .tile-map-info-tabs {
     display: inline-flex;
     align-items: center;
-    padding: 0.2rem;
+    padding: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    background: rgba(8, 10, 14, 0.7);
+    border-radius: 1rem;
+    background: rgba(8, 10, 14, 0.8);
     gap: 0;
   }
 
   .tile-map-info-tabs .tile-edit-button {
-    border-radius: 999px;
-  }
-
-  .tile-map-info-tabs .tile-edit-button:first-child {
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-  }
-
-  .tile-map-info-tabs .tile-edit-button:not(:first-child):not(:last-child) {
     border-radius: 0;
   }
 
-  .tile-map-info-tabs .tile-edit-button:last-child {
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
+  .tile-map-info-tabs .tile-edit-button:first-child {
+    border-start-start-radius: 0.75rem;
+    border-end-start-radius: 0.75rem;
   }
 
-  .tile-map-info-tabs .tile-edit-button:only-child {
-    border-radius: 999px;
+  .tile-map-info-tabs .tile-edit-button:last-child {
+    border-start-end-radius: 0.75rem;
+    border-end-end-radius: 0.75rem;
   }
 
   .tile-map-info-panel {
@@ -7856,6 +7968,12 @@ function toHex(value) {
     margin-block-end: 0.8rem;
     font-size: 1.25rem;
     font-weight: 800;
+  }
+
+  .tile-info-title-actions {
+    margin-inline-start: auto;
+    display: inline-flex;
+    align-items: center;
   }
 
   .tile-info-title-meta {
@@ -8005,10 +8123,70 @@ function toHex(value) {
     color: lighten($textColor, 30%);
   }
 
+  .tile-edit-units {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .tile-edit-units-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .tile-edit-unit-group {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .tile-edit-unit-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .tile-edit-unit-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: lighten($textColor, 35%);
+  }
+
+  .tile-edit-unit-clear {
+    padding-inline: 0.7rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
   .tile-edit-label-inline {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+  }
+
+  .tile-edit-row-split {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, .325fr));
+    gap: 0.5rem;
+  }
+
+  .tile-edit-split {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .tile-edit-split .tile-edit-row {
+    flex-wrap: nowrap;
+  }
+
+  .tile-edit-split .tile-edit-input {
+    min-inline-size: 0;
+  }
+
+  .tile-edit-input-compact {
+    max-inline-size: 4rem;
   }
 
   .tile-edit-checkbox-inline {
@@ -8629,6 +8807,14 @@ function toHex(value) {
     .tile-info-accordion[open] .tile-info-summary {
       margin-block-end: 0.75rem;
     }
+
+    .tile-edit-units-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tile-edit-row-split {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   @media (max-width: $MQMobile) {
@@ -8651,6 +8837,11 @@ function toHex(value) {
     .tile-map-control-group-compact {
       gap: 0.5rem !important;
       margin-inline-start: 0 !important;
+    }
+
+    .tile-map-toolbar-toggle,
+    .tile-map-toolbar-divider {
+      display: none;
     }
 
     .tile-mini-map {
