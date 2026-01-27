@@ -1874,6 +1874,7 @@ export default {
       localEditsEnabled: false,
       localOverrides: new Map(),
       tileSaveQueue: new Map(),
+      tileDeleteQueue: new Set(),
       tileSaveTimer: null,
       tileSaveRetryTimer: null,
       tileSaveRetryCount: 0,
@@ -2515,7 +2516,9 @@ export default {
         this.tileOverrideSubscription = null;
       }
       this.loadTileOverrides();
-      this.loadSnapshots();
+      if (this.editPanelTab === "snapshots") {
+        this.loadSnapshots();
+      }
       this.subscribeToTileOverrides();
       if (this.tileSaveQueue.size) {
         this.scheduleTileSaveRetry();
@@ -2772,11 +2775,12 @@ export default {
         if (error || !Array.isArray(data)) {
           return;
         }
-        this.liveOverrideLookup = this.buildSnapshotLookup(data);
+        const filtered = this.filterOverrideRows(data);
+        this.liveOverrideLookup = this.buildSnapshotLookup(filtered);
         this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
           this.liveOverrideLookup
         );
-        this.applyTileOverrides(data, { markRecent: false });
+        this.applyTileOverrides(filtered, { markRecent: false });
       } finally {
         this.hasLoadedOverrides = true;
       }
@@ -3510,6 +3514,72 @@ export default {
       };
     },
 
+    buildTileOverrideDiff(tile) {
+      if (!tile) {
+        return null;
+      }
+      const current = this.buildTileOverridePayload(tile);
+      if (!tile.baseState) {
+        return current;
+      }
+      const base = this.buildFullPayloadFromBase(tile.baseState, null);
+      const diff = {};
+      Object.keys(current).forEach((key) => {
+        if (!this.snapshotValueEqual(current[key], base[key])) {
+          diff[key] = current[key];
+        }
+      });
+      return Object.keys(diff).length ? diff : null;
+    },
+
+    filterOverrideRows(rows) {
+      if (!Array.isArray(rows)) {
+        return [];
+      }
+      if (!this.tileLookup) {
+        return rows;
+      }
+      const filtered = [];
+      const deleteKeys = [];
+      rows.forEach((row) => {
+        const key = row.tile_key || row.tileKey;
+        if (!key) {
+          return;
+        }
+        const tile = this.tileLookup.get(key);
+        if (!tile || !tile.baseState) {
+          filtered.push(row);
+          return;
+        }
+        const basePayload = this.buildFullPayloadFromBase(tile.baseState, null);
+        const mergedPayload = this.buildFullPayloadFromBase(
+          tile.baseState,
+          row.payload || null
+        );
+        if (this.snapshotValueEqual(mergedPayload, basePayload)) {
+          deleteKeys.push(key);
+          return;
+        }
+        filtered.push(row);
+      });
+      if (
+        deleteKeys.length &&
+        this.canEdit &&
+        !this.localEditsEnabled &&
+        !this.snapshotViewId
+      ) {
+        deleteKeys.forEach((key) => {
+          this.tileDeleteQueue.add(key);
+        });
+        if (!this.tileSaveTimer) {
+          this.tileSaveTimer = window.setTimeout(() => {
+            this.flushTileSaves();
+          }, 500);
+        }
+      }
+      return filtered;
+    },
+
     queueTileSave(tile) {
       if (this.snapshotViewId) {
         return;
@@ -3519,23 +3589,37 @@ export default {
       }
       if (!this.supabase || !this.canEdit || !tile) {
         if (this.localEditsEnabled && tile) {
-          const payload = this.buildTileOverridePayload(tile);
-          this.localOverrides.set(tile.key, payload);
+          const payload = this.buildTileOverrideDiff(tile);
+          if (payload) {
+            this.localOverrides.set(tile.key, payload);
+          } else {
+            this.localOverrides.delete(tile.key);
+          }
           this.markTileRecentlyEdited(tile);
         }
         return;
       }
       if (this.localEditsEnabled) {
-        const payload = this.buildTileOverridePayload(tile);
-        this.localOverrides.set(tile.key, payload);
+        const payload = this.buildTileOverrideDiff(tile);
+        if (payload) {
+          this.localOverrides.set(tile.key, payload);
+        } else {
+          this.localOverrides.delete(tile.key);
+        }
         this.markTileRecentlyEdited(tile);
         return;
       }
-      const payload = this.buildTileOverridePayload(tile);
-      this.tileSaveQueue.set(tile.key, {
-        tile_key: tile.key,
-        payload,
-      });
+      const payload = this.buildTileOverrideDiff(tile);
+      if (payload) {
+        this.tileSaveQueue.set(tile.key, {
+          tile_key: tile.key,
+          payload,
+        });
+        this.tileDeleteQueue.delete(tile.key);
+      } else {
+        this.tileSaveQueue.delete(tile.key);
+        this.tileDeleteQueue.add(tile.key);
+      }
       this.markTileRecentlyEdited(tile);
       if (this.tileSaveTimer) {
         return;
@@ -3546,26 +3630,54 @@ export default {
     },
 
     async flushTileSaves() {
-      if (!this.supabase || !this.tileSaveQueue.size) {
+      if (!this.supabase) {
+        this.tileSaveTimer = null;
+        return;
+      }
+      const hasSaves = this.tileSaveQueue.size > 0;
+      const hasDeletes = this.tileDeleteQueue.size > 0;
+      if (!hasSaves && !hasDeletes) {
         this.tileSaveTimer = null;
         return;
       }
       const now = new Date().toISOString();
-      const rows = Array.from(this.tileSaveQueue.values()).map((entry) => ({
-        map_id: SUPABASE_MAP_ID,
-        tile_key: entry.tile_key,
-        payload: entry.payload,
-        updated_at: now,
-        updated_by: this.authUser ? this.authUser.id : null,
-      }));
+      const rows = hasSaves
+        ? Array.from(this.tileSaveQueue.values()).map((entry) => ({
+            map_id: SUPABASE_MAP_ID,
+            tile_key: entry.tile_key,
+            payload: entry.payload,
+            updated_at: now,
+            updated_by: this.authUser ? this.authUser.id : null,
+          }))
+        : [];
+      const deleteKeys = Array.from(this.tileDeleteQueue).filter(
+        (key) => !this.tileSaveQueue.has(key)
+      );
       this.tileSaveTimer = null;
-      const { error } = await this.supabase
-        .from(SUPABASE_OVERRIDE_TABLE)
-        .upsert(rows, {
-          onConflict: "map_id,tile_key",
-        });
-      if (error) {
-        this.lastSupabaseError = error.message || "Unable to sync edits.";
+      let upsertError = null;
+      let deleteError = null;
+      if (rows.length) {
+        const { error } = await this.supabase
+          .from(SUPABASE_OVERRIDE_TABLE)
+          .upsert(rows, {
+            onConflict: "map_id,tile_key",
+          });
+        upsertError = error;
+      }
+      if (deleteKeys.length) {
+        const { error } = await this.supabase
+          .from(SUPABASE_OVERRIDE_TABLE)
+          .delete()
+          .eq("map_id", SUPABASE_MAP_ID)
+          .in("tile_key", deleteKeys);
+        deleteError = error;
+      }
+      if (upsertError || deleteError) {
+        const message =
+          (upsertError && upsertError.message) ||
+          (deleteError && deleteError.message) ||
+          "Unable to sync edits.";
+        this.lastSupabaseError = message;
         this.authMessage = "Unable to sync edits. Retrying...";
         this.scheduleTileSaveRetry();
         return;
@@ -3573,16 +3685,27 @@ export default {
       this.lastSupabaseError = "";
       this.updateConnectionStatus();
       this.tileSaveQueue.clear();
+      this.tileDeleteQueue.clear();
       this.tileSaveRetryCount = 0;
-      await this.supabase.from(SUPABASE_EDIT_LOG_TABLE).insert(
-        rows.map((row) => ({
-          map_id: row.map_id,
-          tile_key: row.tile_key,
-          payload: row.payload,
-          edited_by: row.updated_by,
-          edited_at: now,
-        }))
-      );
+      if (rows.length || deleteKeys.length) {
+        const logRows = [
+          ...rows.map((row) => ({
+            map_id: row.map_id,
+            tile_key: row.tile_key,
+            payload: row.payload,
+            edited_by: row.updated_by,
+            edited_at: now,
+          })),
+          ...deleteKeys.map((key) => ({
+            map_id: SUPABASE_MAP_ID,
+            tile_key: key,
+            payload: { __deleted: true },
+            edited_by: this.authUser ? this.authUser.id : null,
+            edited_at: now,
+          })),
+        ];
+        await this.supabase.from(SUPABASE_EDIT_LOG_TABLE).insert(logRows);
+      }
     },
 
     scheduleTileSaveRetry() {
