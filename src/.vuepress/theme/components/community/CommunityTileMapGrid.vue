@@ -1828,6 +1828,7 @@ const SUPABASE_SNAPSHOT_TABLE = "map_snapshots";
 const SUPABASE_ADMIN_TABLE = "map_admins";
 const SUPABASE_CHECK_FUNCTION = "check-kofi-subscriber";
 const REQUIRE_AUTH_FOR_LOCAL = false;
+const ENABLE_OVERRIDE_CLEANUP = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
 const MINI_MAP_MAX_WIDTH = 180;
 const MINI_MAP_MAX_HEIGHT = 120;
@@ -1874,7 +1875,6 @@ export default {
       localEditsEnabled: false,
       localOverrides: new Map(),
       tileSaveQueue: new Map(),
-      tileDeleteQueue: new Set(),
       tileSaveTimer: null,
       tileSaveRetryTimer: null,
       tileSaveRetryCount: 0,
@@ -1958,6 +1958,8 @@ export default {
       snapshotEpisodeAt: "",
       snapshotPublishLoadingId: null,
       baseSnapshotPayload: null,
+      liveBaseSnapshotId: null,
+      liveBaseSnapshotPayload: null,
       liveOverrideLookup: {},
       liveSnapshotPayload: [],
       lastSupabaseError: "",
@@ -2472,7 +2474,10 @@ export default {
       }
       this.authLoading = true;
       this.authMessage = "";
-      const redirectBase = `${window.location.origin}${window.location.pathname}`;
+      const isLocal = window.location.hostname === "localhost";
+      const redirectBase = isLocal
+        ? `${window.location.origin}${window.location.pathname}`
+        : "https://civbattleroyale.tv/community-tile-map/";
       const { error } = await this.supabase.auth.signInWithOtp({
         email,
         options: {
@@ -2768,14 +2773,37 @@ export default {
         return;
       }
       try {
-        const { data, error } = await this.supabase
-          .from(SUPABASE_OVERRIDE_TABLE)
-          .select("tile_key,payload")
-          .eq("map_id", SUPABASE_MAP_ID);
-        if (error || !Array.isArray(data)) {
-          return;
+        const pageSize = 1000;
+        const allRows = [];
+        let page = 0;
+        while (page < 50) {
+          const from = page * pageSize;
+          const to = from + pageSize - 1;
+          let query = this.supabase
+            .from(SUPABASE_OVERRIDE_TABLE)
+            .select("tile_key,payload")
+            .eq("map_id", SUPABASE_MAP_ID);
+          if (this.liveBaseSnapshotId) {
+            query = query.eq("snapshot_id", this.liveBaseSnapshotId);
+          } else {
+            query = query.is("snapshot_id", null);
+          }
+          const { data, error } = await query.range(from, to);
+          if (error || !Array.isArray(data)) {
+            return;
+          }
+          if (!data.length) {
+            break;
+          }
+          allRows.push(...data);
+          if (data.length < pageSize) {
+            break;
+          }
+          page += 1;
         }
-        const filtered = this.filterOverrideRows(data);
+        const filtered = ENABLE_OVERRIDE_CLEANUP
+          ? this.filterOverrideRows(allRows)
+          : allRows;
         this.liveOverrideLookup = this.buildSnapshotLookup(filtered);
         this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
           this.liveOverrideLookup
@@ -2820,6 +2848,54 @@ export default {
       ) {
         this.snapshotCompareId = "";
       }
+    },
+
+    async loadLiveBaseSnapshot() {
+      if (!this.supabase) {
+        return;
+      }
+      const { data, error } = await this.supabase
+        .from(SUPABASE_SNAPSHOT_TABLE)
+        .select("id,episode_label,episode_at,created_at,payload,is_published")
+        .eq("map_id", SUPABASE_MAP_ID)
+        .eq("is_published", true)
+        .order("episode_at", { ascending: false })
+        .order("created_at", { ascending: false })
+        .limit(1);
+      if (error || !Array.isArray(data) || !data.length) {
+        this.liveBaseSnapshotId = null;
+        this.liveBaseSnapshotPayload = null;
+        return;
+      }
+      const snapshot = data[0];
+      this.liveBaseSnapshotId = snapshot.id || null;
+      this.liveBaseSnapshotPayload = Array.isArray(snapshot.payload)
+        ? snapshot.payload
+        : null;
+    },
+
+    applyLiveBaseSnapshot() {
+      if (
+        !this.liveBaseSnapshotPayload ||
+        !this.liveBaseSnapshotPayload.length
+      ) {
+        return;
+      }
+      this.resetTilesToBaseState();
+      this.applyTileOverrides(this.liveBaseSnapshotPayload, {
+        markRecent: false,
+        applyLocal: false,
+      });
+      if (Array.isArray(this.tiles) && this.tiles.length) {
+        this.tiles.forEach((tile) => {
+          tile.baseState = buildBaseState(tile);
+        });
+      }
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+      this.liveOverrideLookup = {};
+      this.liveSnapshotPayload = [];
     },
 
     withBaseSnapshot(rows) {
@@ -3562,20 +3638,8 @@ export default {
         }
         filtered.push(row);
       });
-      if (
-        deleteKeys.length &&
-        this.canEdit &&
-        !this.localEditsEnabled &&
-        !this.snapshotViewId
-      ) {
-        deleteKeys.forEach((key) => {
-          this.tileDeleteQueue.add(key);
-        });
-        if (!this.tileSaveTimer) {
-          this.tileSaveTimer = window.setTimeout(() => {
-            this.flushTileSaves();
-          }, 500);
-        }
+      if (ENABLE_OVERRIDE_CLEANUP && deleteKeys.length) {
+        // Cleanup currently disabled; left as a hook for future use.
       }
       return filtered;
     },
@@ -3609,17 +3673,11 @@ export default {
         this.markTileRecentlyEdited(tile);
         return;
       }
-      const payload = this.buildTileOverrideDiff(tile);
-      if (payload) {
-        this.tileSaveQueue.set(tile.key, {
-          tile_key: tile.key,
-          payload,
-        });
-        this.tileDeleteQueue.delete(tile.key);
-      } else {
-        this.tileSaveQueue.delete(tile.key);
-        this.tileDeleteQueue.add(tile.key);
-      }
+      const payload = this.buildTileOverridePayload(tile);
+      this.tileSaveQueue.set(tile.key, {
+        tile_key: tile.key,
+        payload,
+      });
       this.markTileRecentlyEdited(tile);
       if (this.tileSaveTimer) {
         return;
@@ -3630,53 +3688,34 @@ export default {
     },
 
     async flushTileSaves() {
-      if (!this.supabase) {
-        this.tileSaveTimer = null;
-        return;
-      }
-      const hasSaves = this.tileSaveQueue.size > 0;
-      const hasDeletes = this.tileDeleteQueue.size > 0;
-      if (!hasSaves && !hasDeletes) {
+      if (!this.supabase || !this.tileSaveQueue.size) {
         this.tileSaveTimer = null;
         return;
       }
       const now = new Date().toISOString();
-      const rows = hasSaves
-        ? Array.from(this.tileSaveQueue.values()).map((entry) => ({
-            map_id: SUPABASE_MAP_ID,
-            tile_key: entry.tile_key,
-            payload: entry.payload,
-            updated_at: now,
-            updated_by: this.authUser ? this.authUser.id : null,
-          }))
-        : [];
-      const deleteKeys = Array.from(this.tileDeleteQueue).filter(
-        (key) => !this.tileSaveQueue.has(key)
-      );
+      const rows = Array.from(this.tileSaveQueue.values()).map((entry) => ({
+        map_id: SUPABASE_MAP_ID,
+        tile_key: entry.tile_key,
+        payload: entry.payload,
+        snapshot_id: this.liveBaseSnapshotId || null,
+        updated_at: now,
+        updated_by: this.authUser ? this.authUser.id : null,
+      }));
       this.tileSaveTimer = null;
       let upsertError = null;
-      let deleteError = null;
       if (rows.length) {
+        const conflictTarget = this.liveBaseSnapshotId
+          ? "map_id,snapshot_id,tile_key"
+          : "map_id,tile_key";
         const { error } = await this.supabase
           .from(SUPABASE_OVERRIDE_TABLE)
           .upsert(rows, {
-            onConflict: "map_id,tile_key",
+            onConflict: conflictTarget,
           });
         upsertError = error;
       }
-      if (deleteKeys.length) {
-        const { error } = await this.supabase
-          .from(SUPABASE_OVERRIDE_TABLE)
-          .delete()
-          .eq("map_id", SUPABASE_MAP_ID)
-          .in("tile_key", deleteKeys);
-        deleteError = error;
-      }
-      if (upsertError || deleteError) {
-        const message =
-          (upsertError && upsertError.message) ||
-          (deleteError && deleteError.message) ||
-          "Unable to sync edits.";
+      if (upsertError) {
+        const message = upsertError.message || "Unable to sync edits.";
         this.lastSupabaseError = message;
         this.authMessage = "Unable to sync edits. Retrying...";
         this.scheduleTileSaveRetry();
@@ -3685,25 +3724,15 @@ export default {
       this.lastSupabaseError = "";
       this.updateConnectionStatus();
       this.tileSaveQueue.clear();
-      this.tileDeleteQueue.clear();
       this.tileSaveRetryCount = 0;
-      if (rows.length || deleteKeys.length) {
-        const logRows = [
-          ...rows.map((row) => ({
-            map_id: row.map_id,
-            tile_key: row.tile_key,
-            payload: row.payload,
-            edited_by: row.updated_by,
-            edited_at: now,
-          })),
-          ...deleteKeys.map((key) => ({
-            map_id: SUPABASE_MAP_ID,
-            tile_key: key,
-            payload: { __deleted: true },
-            edited_by: this.authUser ? this.authUser.id : null,
-            edited_at: now,
-          })),
-        ];
+      if (rows.length) {
+        const logRows = rows.map((row) => ({
+          map_id: row.map_id,
+          tile_key: row.tile_key,
+          payload: row.payload,
+          edited_by: row.updated_by,
+          edited_at: now,
+        }));
         await this.supabase.from(SUPABASE_EDIT_LOG_TABLE).insert(logRows);
       }
     },
@@ -3742,6 +3771,16 @@ export default {
             if (!record || !this.tileLookup) {
               return;
             }
+            const expectedSnapshotId = this.liveBaseSnapshotId || null;
+            const recordSnapshotId = Object.prototype.hasOwnProperty.call(
+              record,
+              "snapshot_id"
+            )
+              ? record.snapshot_id
+              : null;
+            if (recordSnapshotId !== expectedSnapshotId) {
+              return;
+            }
             this.applyTileOverrides([record], {
               markRecent: this.hasLoadedOverrides,
             });
@@ -3767,7 +3806,7 @@ export default {
           mapData = parseCiv5Map(buffer);
         }
         const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
-        this.applyMapData(mapData, stateData);
+        await this.applyMapData(mapData, stateData);
       } catch (error) {
         this.loadError = error.message || "Unable to load map data.";
       } finally {
@@ -3795,7 +3834,7 @@ export default {
       }
     },
 
-    applyMapData(mapData, stateData) {
+    async applyMapData(mapData, stateData) {
       const mergedMapData = mergeMapState(mapData, stateData);
       this.mapConfig.columns = mergedMapData.width;
       this.mapConfig.rows = mergedMapData.height;
@@ -3852,10 +3891,14 @@ export default {
         this.ownerPalette,
         this.ownerSecondaryColors
       );
+      await this.loadLiveBaseSnapshot();
+      this.applyLiveBaseSnapshot();
       this.rebuildOwnerBorders();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
-      this.loadSnapshots();
+      if (this.editPanelTab === "snapshots") {
+        this.loadSnapshots();
+      }
       this.subscribeToTileOverrides();
       this.$nextTick(() => {
         if (this.useTerrainCanvas) {
