@@ -176,6 +176,14 @@
             :height="canvasHeight"
             aria-hidden="true"
           ></canvas>
+          <canvas
+            v-if="useTerrainCanvas"
+            ref="brushCanvas"
+            class="tile-map-canvas-layer tile-map-brush-layer"
+            :width="canvasWidth"
+            :height="canvasHeight"
+            aria-hidden="true"
+          ></canvas>
           <svg
             v-else
             class="tile-map-svg"
@@ -212,11 +220,7 @@
               v-for="tile in visibleTiles"
               :key="tile.key"
               class="tile-group"
-              :class="{ 'is-selected': isSelected(tile) }"
               :transform="`translate(${tile.x}, ${tile.y})`"
-              @mouseenter="setHover(tile)"
-              @mouseleave="clearHover"
-              @click="selectTile(tile)"
             >
               <use
                 class="tile-hex"
@@ -1926,6 +1930,9 @@ export default {
       ownerBrushMode: "paint",
       isPaintingOwner: false,
       ownerBrushId: null,
+      brushFrameId: null,
+      brushPendingTile: null,
+      brushDirtyKeys: new Set(),
       nextUnitId: 1,
       terrainLegend: [],
       featureLegend: [],
@@ -2054,7 +2061,7 @@ export default {
     },
 
     resourcePoints() {
-      const size = this.hexSize * 0.18;
+      const size = this.hexSize * 0.2;
       return `${-size} 0 0 ${-size} ${size} 0 0 ${size}`;
     },
 
@@ -2064,8 +2071,8 @@ export default {
     },
 
     wonderPath() {
-      const outer = this.hexSize * 0.22;
-      const inner = this.hexSize * 0.1;
+      const outer = this.hexSize * 0.25;
+      const inner = this.hexSize * 0.25;
       return buildStarPath(outer, inner);
     },
 
@@ -2148,7 +2155,7 @@ export default {
     },
 
     featureRadius() {
-      return this.hexSize * 0.16;
+      return this.hexSize * 0.25;
     },
 
     unitPath() {
@@ -2412,6 +2419,10 @@ export default {
           window.clearTimeout(timer);
         }
       });
+    }
+    if (this.brushFrameId) {
+      window.cancelAnimationFrame(this.brushFrameId);
+      this.brushFrameId = null;
     }
   },
 
@@ -4399,9 +4410,10 @@ export default {
         }
         this.isPaintingOwner = true;
         this.ownerBrushId = ownerId;
+        this.clearBrushOverlay();
         const tile = this.getTileAtPointer(event);
         if (tile) {
-          this.applyOwnerToTile(tile, ownerId);
+          this.applyBrushTile(tile);
         }
         return;
       }
@@ -4444,10 +4456,16 @@ export default {
           this.drawTerrainCanvas();
         }
       }
+      if (!this.useTerrainCanvas && !this.isDragging && !this.isPinching) {
+        const tile = this.getTileAtPointer(event);
+        if (tile !== this.hoveredTile) {
+          this.hoveredTile = tile;
+        }
+      }
       if (this.isPaintingOwner && Number.isFinite(this.ownerBrushId)) {
         const tile = this.getTileAtPointer(event);
         if (tile) {
-          this.applyOwnerToTile(tile, this.ownerBrushId);
+          this.scheduleBrushApply(tile);
         }
         return;
       }
@@ -4472,10 +4490,17 @@ export default {
 
     onPointerUp(event) {
       this.lastPointerType = event.pointerType || this.lastPointerType;
-      if (this.useTerrainCanvas && event.type === "pointerleave") {
+      if (event.type === "pointerleave") {
+        if (this.isPaintingOwner) {
+          this.isPaintingOwner = false;
+          this.ownerBrushId = null;
+          this.flushBrushEdits();
+        }
         if (this.hoveredTile) {
           this.hoveredTile = null;
-          this.drawTerrainCanvas();
+          if (this.useTerrainCanvas) {
+            this.drawTerrainCanvas();
+          }
         }
         return;
       }
@@ -4489,6 +4514,7 @@ export default {
       if (this.isPaintingOwner) {
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
+        this.flushBrushEdits();
         return;
       }
       if (this.isDragging) {
@@ -5709,6 +5735,7 @@ export default {
       if (!this.ownerBrushEnabled) {
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
+        this.flushBrushEdits();
       }
     },
 
@@ -5720,11 +5747,128 @@ export default {
       return Math.round(ownerId);
     },
 
-    applyOwnerToTile(tile, ownerId) {
+    scheduleBrushApply(tile) {
+      if (!tile) {
+        return;
+      }
+      this.brushPendingTile = tile;
+      if (this.brushFrameId) {
+        return;
+      }
+      this.brushFrameId = window.requestAnimationFrame(() => {
+        this.brushFrameId = null;
+        const nextTile = this.brushPendingTile;
+        this.brushPendingTile = null;
+        if (nextTile) {
+          this.applyBrushTile(nextTile);
+        }
+      });
+    },
+
+    applyBrushTile(tile) {
+      if (!tile || !Number.isFinite(this.ownerBrushId)) {
+        return;
+      }
+      const key = tile.key;
+      const alreadyTouched = this.brushDirtyKeys
+        ? this.brushDirtyKeys.has(key)
+        : false;
+      this.applyOwnerToTile(tile, this.ownerBrushId, {
+        deferSave: true,
+        deferBorders: true,
+        deferRender: true,
+        mode: this.ownerBrushMode,
+      });
+      if (this.brushDirtyKeys) {
+        this.brushDirtyKeys.add(key);
+      }
+      if (this.useTerrainCanvas && !alreadyTouched) {
+        this.drawBrushOverlayTile(tile);
+      }
+    },
+
+    flushBrushEdits() {
+      if (this.brushFrameId) {
+        window.cancelAnimationFrame(this.brushFrameId);
+        this.brushFrameId = null;
+      }
+      this.brushPendingTile = null;
+      if (!this.brushDirtyKeys || !this.brushDirtyKeys.size) {
+        this.clearBrushOverlay();
+        return;
+      }
+      const lookup = this.tileLookup || {};
+      this.rebuildOwnerBorders();
+      this.brushDirtyKeys.forEach((key) => {
+        const tile = lookup[key];
+        if (tile) {
+          this.queueTileSave(tile);
+        }
+      });
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+      this.clearBrushOverlay();
+      this.brushDirtyKeys.clear();
+    },
+
+    clearBrushOverlay() {
+      const canvas = this.$refs.brushCanvas;
+      if (!canvas) {
+        return;
+      }
+      const context = canvas.getContext("2d");
+      if (!context) {
+        return;
+      }
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    },
+
+    drawBrushOverlayTile(tile) {
+      const canvas = this.$refs.brushCanvas;
+      if (!canvas || !tile) {
+        return;
+      }
+      const context = canvas.getContext("2d");
+      if (!context) {
+        return;
+      }
+      const width = this.canvasWidth;
+      const height = this.canvasHeight;
+      if (canvas.width !== width) {
+        canvas.width = width;
+      }
+      if (canvas.height !== height) {
+        canvas.height = height;
+      }
+      const vertices = buildHexVertices(this.hexSize);
+      context.beginPath();
+      context.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
+      for (let i = 1; i < vertices.length; i += 1) {
+        context.lineTo(tile.x + vertices[i].x, tile.y + vertices[i].y);
+      }
+      context.closePath();
+      const isClear = this.ownerBrushMode === "clear";
+      const color = isClear
+        ? "rgba(255, 255, 255, 0.25)"
+        : this.ownerColors[this.ownerBrushId] || "#ffffff";
+      const previousAlpha = context.globalAlpha;
+      context.globalAlpha = isClear ? 0.35 : 0.35;
+      context.fillStyle = color;
+      context.fill();
+      context.globalAlpha = isClear ? 0.9 : 0.75;
+      context.lineWidth = 1.5;
+      context.strokeStyle = color;
+      context.stroke();
+      context.globalAlpha = previousAlpha;
+    },
+
+    applyOwnerToTile(tile, ownerId, options = {}) {
       if (!this.ensureEditAccess() || !tile) {
         return;
       }
-      if (this.ownerBrushMode === "clear") {
+      const mode = options.mode || this.ownerBrushMode;
+      if (mode === "clear") {
         if (!tile.owner && !tile.customOwner) {
           return;
         }
@@ -5741,9 +5885,13 @@ export default {
         tile.customOwner = true;
         this.ensureOwnerColors(ownerId);
       }
-      this.rebuildOwnerBorders();
-      this.queueTileSave(tile);
-      if (this.useTerrainCanvas) {
+      if (!options.deferBorders) {
+        this.rebuildOwnerBorders();
+      }
+      if (!options.deferSave) {
+        this.queueTileSave(tile);
+      }
+      if (this.useTerrainCanvas && !options.deferRender) {
         this.drawTerrainCanvas();
       }
     },
@@ -7643,9 +7791,8 @@ function toHex(value) {
       }
     }
 
-    .tile-group:hover .tile-hex {
-      stroke-linejoin: round;
-      stroke-linecap: round;
+    .tile-group {
+      pointer-events: none;
     }
 
     .tile-hex {

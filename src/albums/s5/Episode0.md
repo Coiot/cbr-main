@@ -1,5 +1,5 @@
 ---
-title: "Episode 0: Dramatis Personae"
+title: "Episode 00: Dramatis Personae"
 narrated_by: "Coiot"
 description: ""
 release_date: January 14, 2026
