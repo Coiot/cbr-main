@@ -2829,7 +2829,9 @@ export default {
         this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
           this.liveOverrideLookup
         );
-        this.applyTileOverrides(filtered, { markRecent: false });
+        if (!this.snapshotViewId) {
+          this.applyTileOverrides(filtered, { markRecent: false });
+        }
       } finally {
         this.hasLoadedOverrides = true;
       }
@@ -2960,7 +2962,10 @@ export default {
     },
 
     buildBaseSnapshotPayload(tile) {
-      const base = tile && tile.baseState ? tile.baseState : null;
+      const base =
+        tile && (tile.baseStateOriginal || tile.baseState)
+          ? tile.baseStateOriginal || tile.baseState
+          : null;
       if (!base) {
         return this.buildTileOverridePayload(tile);
       }
@@ -3172,11 +3177,84 @@ export default {
       if (!a || !b) {
         return false;
       }
-      return JSON.stringify(a) === JSON.stringify(b);
+      return (
+        JSON.stringify(this.normalizeSnapshotPayload(a)) ===
+        JSON.stringify(this.normalizeSnapshotPayload(b))
+      );
     },
 
     snapshotValueEqual(a, b) {
-      return JSON.stringify(a || null) === JSON.stringify(b || null);
+      return (
+        JSON.stringify(this.normalizeSnapshotValue(a)) ===
+        JSON.stringify(this.normalizeSnapshotValue(b))
+      );
+    },
+
+    normalizeSnapshotValue(value) {
+      if (!value || typeof value !== "object") {
+        return value || null;
+      }
+      if (Object.prototype.hasOwnProperty.call(value, "type")) {
+        return this.normalizeSnapshotUnit(value);
+      }
+      if (
+        Object.prototype.hasOwnProperty.call(value, "name") &&
+        Object.prototype.hasOwnProperty.call(value, "size")
+      ) {
+        return this.normalizeSnapshotCity(value);
+      }
+      return value;
+    },
+
+    normalizeSnapshotUnit(unit) {
+      if (!unit) {
+        return null;
+      }
+      return {
+        id: unit.id !== undefined && unit.id !== null ? unit.id : null,
+        type: unit.type || "",
+        owner: Number.isFinite(unit.owner) ? unit.owner : null,
+      };
+    },
+
+    normalizeSnapshotCity(city) {
+      if (!city) {
+        return null;
+      }
+      const wonders = Array.isArray(city.worldWonders)
+        ? [...city.worldWonders].sort()
+        : [];
+      return {
+        id: city.id !== undefined && city.id !== null ? city.id : null,
+        name: city.name || "",
+        size: Number.isFinite(city.size) ? city.size : 1,
+        owner: Number.isFinite(city.owner) ? city.owner : null,
+        religion: city.religion || "",
+        worldWonders: wonders,
+        isPuppeted: !!city.isPuppeted,
+        isOccupied: !!city.isOccupied,
+        isResistance: !!city.isResistance,
+        isCapital: !!city.isCapital,
+      };
+    },
+
+    normalizeSnapshotPayload(payload) {
+      if (!payload) {
+        return null;
+      }
+      return {
+        owner: Number.isFinite(payload.owner) ? payload.owner : null,
+        originalOwner: Number.isFinite(payload.originalOwner)
+          ? payload.originalOwner
+          : null,
+        notes: payload.notes ? String(payload.notes) : null,
+        pillaged: !!payload.pillaged,
+        ruins: !!payload.ruins,
+        citadel: !!payload.citadel,
+        combatUnit: this.normalizeSnapshotUnit(payload.combatUnit),
+        civilianUnit: this.normalizeSnapshotUnit(payload.civilianUnit),
+        city: this.normalizeSnapshotCity(payload.city),
+      };
     },
 
     snapshotCityLabel(entry) {
@@ -3257,10 +3335,11 @@ export default {
         return "Snapshot";
       }
       const label = snapshot.episode_label || "Snapshot";
-      const date = snapshot.episode_at
-        ? this.formatSnapshotDate(snapshot.episode_at)
-        : null;
-      const base = date ? `${label} \u2014 ${date}` : label;
+      // const date = snapshot.episode_at
+      //   ? this.formatSnapshotDate(snapshot.episode_at)
+      //   : null;
+      // const base = date ? `${label} \u2014 ${date}` : label;
+      const base = label;
       if (this.isAdmin && snapshot.is_published === false) {
         return `${base} (Unpublished)`;
       }
@@ -6837,6 +6916,9 @@ function buildTiles(
         tiles[tiles.length - 1].originalOwner = owner;
       }
       tiles[tiles.length - 1].baseState = buildBaseState(
+        tiles[tiles.length - 1]
+      );
+      tiles[tiles.length - 1].baseStateOriginal = buildBaseState(
         tiles[tiles.length - 1]
       );
     }
