@@ -43,7 +43,7 @@
               <span class="list-text">Past Power Rankings</span>
             </a>
             <a
-              href="https://www.reddit.com/r/civbattleroyale/comments/1bdeygu/cbrx_season_4_megathread/"
+              href="https://www.reddit.com/r/civbattleroyale/comments/1jalax7/cbrx_season_5_megathread/"
               class="list"
             >
               <span class="list-icon" aria-hidden="true">

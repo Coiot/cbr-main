@@ -709,27 +709,65 @@
                     Owner
                   </label>
                   <div class="tile-edit-row">
-                    <input
-                      id="tile-owner-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-owner-options"
-                      placeholder="Search civ..."
-                      v-model="editOwnerName"
-                      @keydown.enter.prevent="applyOwnerEdit"
-                      @blur="applyOwnerEdit"
-                      @change="applyOwnerEdit"
-                      @input="scheduleFieldEdit('owner')"
-                      :style="ownerInputStyle(editOwnerName)"
-                    />
-                    <datalist id="tile-owner-options">
-                      <option
-                        v-for="(owner, index) in ownerOptions"
-                        :key="`owner-${index}`"
-                        :value="owner.name"
-                        :label="ownerOptionLabel(owner, index)"
-                      ></option>
-                    </datalist>
+                    <div class="tile-edit-combobox">
+                      <input
+                        id="tile-owner-input"
+                        class="tile-edit-input"
+                        type="text"
+                        placeholder="Search civ..."
+                        v-model="editOwnerName"
+                        @focus="openCombo('owner', ownerOptionMatches)"
+                        @blur="handleComboBlur('owner', applyOwnerEdit)"
+                        @change="applyOwnerEdit"
+                        @input="
+                          scheduleFieldEdit('owner');
+                          onComboInput('owner', ownerOptionMatches);
+                        "
+                        @keydown="
+                          onComboKeydown(
+                            $event,
+                            'owner',
+                            ownerOptionMatches,
+                            applyOwnerEdit
+                          )
+                        "
+                        :style="ownerInputStyle(editOwnerName)"
+                      />
+                      <div
+                        v-if="comboOpen.owner"
+                        class="tile-edit-combobox-list"
+                      >
+                        <button
+                          v-for="(owner, index) in ownerOptionMatches"
+                          :key="`owner-${owner.name}-${index}`"
+                          type="button"
+                          class="tile-edit-combobox-option"
+                          :class="{
+                            'is-active': comboHighlight.owner === index,
+                          }"
+                          @mousedown.prevent="
+                            selectComboOption('owner', owner, applyOwnerEdit)
+                          "
+                          @mouseenter="setComboHighlight('owner', index)"
+                        >
+                          <span class="tile-edit-combobox-option-title">
+                            {{ owner.name }}
+                          </span>
+                          <span
+                            v-if="owner.leader"
+                            class="tile-edit-combobox-option-meta"
+                          >
+                            {{ owner.leader }}
+                          </span>
+                        </button>
+                        <div
+                          v-if="!ownerOptionMatches.length"
+                          class="tile-edit-combobox-empty"
+                        >
+                          No matches
+                        </div>
+                      </div>
+                    </div>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -768,19 +806,81 @@
                     Original City Founder
                   </label>
                   <div class="tile-edit-row">
-                    <input
-                      id="tile-original-owner-input"
-                      class="tile-edit-input"
-                      type="text"
-                      list="tile-owner-options"
-                      placeholder="Search civ..."
-                      v-model="editOriginalOwnerName"
-                      @keydown.enter.prevent="applyOriginalOwnerEdit"
-                      @blur="applyOriginalOwnerEdit"
-                      @change="applyOriginalOwnerEdit"
-                      @input="scheduleFieldEdit('originalOwner')"
-                      :style="ownerInputStyle(editOriginalOwnerName)"
-                    />
+                    <div class="tile-edit-combobox">
+                      <input
+                        id="tile-original-owner-input"
+                        class="tile-edit-input"
+                        type="text"
+                        placeholder="Search civ..."
+                        v-model="editOriginalOwnerName"
+                        @focus="
+                          openCombo('originalOwner', originalOwnerOptionMatches)
+                        "
+                        @blur="
+                          handleComboBlur(
+                            'originalOwner',
+                            applyOriginalOwnerEdit
+                          )
+                        "
+                        @change="applyOriginalOwnerEdit"
+                        @input="
+                          scheduleFieldEdit('originalOwner');
+                          onComboInput(
+                            'originalOwner',
+                            originalOwnerOptionMatches
+                          );
+                        "
+                        @keydown="
+                          onComboKeydown(
+                            $event,
+                            'originalOwner',
+                            originalOwnerOptionMatches,
+                            applyOriginalOwnerEdit
+                          )
+                        "
+                        :style="ownerInputStyle(editOriginalOwnerName)"
+                      />
+                      <div
+                        v-if="comboOpen.originalOwner"
+                        class="tile-edit-combobox-list"
+                      >
+                        <button
+                          v-for="(owner, index) in originalOwnerOptionMatches"
+                          :key="`original-owner-${owner.name}-${index}`"
+                          type="button"
+                          class="tile-edit-combobox-option"
+                          :class="{
+                            'is-active': comboHighlight.originalOwner === index,
+                          }"
+                          @mousedown.prevent="
+                            selectComboOption(
+                              'originalOwner',
+                              owner,
+                              applyOriginalOwnerEdit
+                            )
+                          "
+                          @mouseenter="
+                            setComboHighlight('originalOwner', index)
+                          "
+                        >
+                          <span class="tile-edit-combobox-option-title">
+                            {{ owner.name }}
+                          </span>
+                          <span
+                            v-if="owner.leader"
+                            class="tile-edit-combobox-option-meta"
+                          >
+                            {{ owner.leader }}
+                          </span>
+                        </button>
+                        <div
+                          v-if="!originalOwnerOptionMatches.length"
+                          class="tile-edit-combobox-empty"
+                        >
+                          No matches
+                        </div>
+                      </div>
+                    </div>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -959,39 +1059,138 @@
                           Clear
                         </button>
                       </div>
-                      <input
-                        id="tile-combat-unit-input"
-                        class="tile-edit-input"
-                        type="text"
-                        list="tile-combat-unit-options"
-                        placeholder="Search combat unit..."
-                        v-model="editCombatUnitType"
-                        @keydown.enter.prevent="applyCombatUnitEdit"
-                        @blur="applyCombatUnitEdit"
-                        @change="applyCombatUnitEdit"
-                        @input="scheduleUnitEdit('combat')"
-                      />
-                      <datalist id="tile-combat-unit-options">
-                        <option
-                          v-for="unit in combatUnitOptions"
-                          :key="`combat-unit-${unit.name}`"
-                          :value="unit.name"
-                          :label="unit.name"
-                        ></option>
-                      </datalist>
-                      <input
-                        id="tile-combat-unit-owner-input"
-                        class="tile-edit-input"
-                        type="text"
-                        list="tile-owner-options"
-                        placeholder="Combat owner..."
-                        v-model="editCombatUnitOwnerName"
-                        @keydown.enter.prevent="applyCombatUnitEdit"
-                        @blur="applyCombatUnitEdit"
-                        @change="applyCombatUnitEdit"
-                        @input="scheduleUnitEdit('combat')"
-                        :style="ownerInputStyle(editCombatUnitOwnerName)"
-                      />
+                      <div class="tile-edit-combobox">
+                        <input
+                          id="tile-combat-unit-input"
+                          class="tile-edit-input"
+                          type="text"
+                          placeholder="Search combat unit..."
+                          v-model="editCombatUnitType"
+                          @focus="
+                            openCombo('combatUnit', combatUnitOptionMatches)
+                          "
+                          @blur="
+                            handleComboBlur('combatUnit', applyCombatUnitEdit)
+                          "
+                          @change="applyCombatUnitEdit"
+                          @input="
+                            scheduleUnitEdit('combat');
+                            onComboInput('combatUnit', combatUnitOptionMatches);
+                          "
+                          @keydown="
+                            onComboKeydown(
+                              $event,
+                              'combatUnit',
+                              combatUnitOptionMatches,
+                              applyCombatUnitEdit
+                            )
+                          "
+                        />
+                        <div
+                          v-if="comboOpen.combatUnit"
+                          class="tile-edit-combobox-list"
+                        >
+                          <button
+                            v-for="(unit, index) in combatUnitOptionMatches"
+                            :key="`combat-unit-${unit.name}-${index}`"
+                            type="button"
+                            class="tile-edit-combobox-option"
+                            :class="{
+                              'is-active': comboHighlight.combatUnit === index,
+                            }"
+                            @mousedown.prevent="
+                              selectComboOption(
+                                'combatUnit',
+                                unit,
+                                applyCombatUnitEdit
+                              )
+                            "
+                            @mouseenter="setComboHighlight('combatUnit', index)"
+                          >
+                            <span class="tile-edit-combobox-option-title">
+                              {{ unit.name }}
+                            </span>
+                          </button>
+                          <div
+                            v-if="!combatUnitOptionMatches.length"
+                            class="tile-edit-combobox-empty"
+                          >
+                            No matches
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tile-edit-combobox">
+                        <input
+                          id="tile-combat-unit-owner-input"
+                          class="tile-edit-input"
+                          type="text"
+                          placeholder="Combat owner..."
+                          v-model="editCombatUnitOwnerName"
+                          @focus="
+                            openCombo('combatOwner', combatOwnerOptionMatches)
+                          "
+                          @blur="
+                            handleComboBlur('combatOwner', applyCombatUnitEdit)
+                          "
+                          @change="applyCombatUnitEdit"
+                          @input="
+                            scheduleUnitEdit('combat');
+                            onComboInput(
+                              'combatOwner',
+                              combatOwnerOptionMatches
+                            );
+                          "
+                          @keydown="
+                            onComboKeydown(
+                              $event,
+                              'combatOwner',
+                              combatOwnerOptionMatches,
+                              applyCombatUnitEdit
+                            )
+                          "
+                          :style="ownerInputStyle(editCombatUnitOwnerName)"
+                        />
+                        <div
+                          v-if="comboOpen.combatOwner"
+                          class="tile-edit-combobox-list"
+                        >
+                          <button
+                            v-for="(owner, index) in combatOwnerOptionMatches"
+                            :key="`combat-owner-${owner.name}-${index}`"
+                            type="button"
+                            class="tile-edit-combobox-option"
+                            :class="{
+                              'is-active': comboHighlight.combatOwner === index,
+                            }"
+                            @mousedown.prevent="
+                              selectComboOption(
+                                'combatOwner',
+                                owner,
+                                applyCombatUnitEdit
+                              )
+                            "
+                            @mouseenter="
+                              setComboHighlight('combatOwner', index)
+                            "
+                          >
+                            <span class="tile-edit-combobox-option-title">
+                              {{ owner.name }}
+                            </span>
+                            <span
+                              v-if="owner.leader"
+                              class="tile-edit-combobox-option-meta"
+                            >
+                              {{ owner.leader }}
+                            </span>
+                          </button>
+                          <div
+                            v-if="!combatOwnerOptionMatches.length"
+                            class="tile-edit-combobox-empty"
+                          >
+                            No matches
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="tile-edit-unit-group">
                       <div class="tile-edit-unit-header">
@@ -1004,39 +1203,154 @@
                           Clear
                         </button>
                       </div>
-                      <input
-                        id="tile-civilian-unit-input"
-                        class="tile-edit-input"
-                        type="text"
-                        list="tile-civilian-unit-options"
-                        placeholder="Search civilian unit..."
-                        v-model="editCivilianUnitType"
-                        @keydown.enter.prevent="applyCivilianUnitEdit"
-                        @blur="applyCivilianUnitEdit"
-                        @change="applyCivilianUnitEdit"
-                        @input="scheduleUnitEdit('civilian')"
-                      />
-                      <datalist id="tile-civilian-unit-options">
-                        <option
-                          v-for="unit in civilianUnitOptions"
-                          :key="`civilian-unit-${unit.name}`"
-                          :value="unit.name"
-                          :label="unit.name"
-                        ></option>
-                      </datalist>
-                      <input
-                        id="tile-civilian-unit-owner-input"
-                        class="tile-edit-input"
-                        type="text"
-                        list="tile-owner-options"
-                        placeholder="Civilian owner..."
-                        v-model="editCivilianUnitOwnerName"
-                        @keydown.enter.prevent="applyCivilianUnitEdit"
-                        @blur="applyCivilianUnitEdit"
-                        @change="applyCivilianUnitEdit"
-                        @input="scheduleUnitEdit('civilian')"
-                        :style="ownerInputStyle(editCivilianUnitOwnerName)"
-                      />
+                      <div class="tile-edit-combobox">
+                        <input
+                          id="tile-civilian-unit-input"
+                          class="tile-edit-input"
+                          type="text"
+                          placeholder="Search civilian unit..."
+                          v-model="editCivilianUnitType"
+                          @focus="
+                            openCombo('civilianUnit', civilianUnitOptionMatches)
+                          "
+                          @blur="
+                            handleComboBlur(
+                              'civilianUnit',
+                              applyCivilianUnitEdit
+                            )
+                          "
+                          @change="applyCivilianUnitEdit"
+                          @input="
+                            scheduleUnitEdit('civilian');
+                            onComboInput(
+                              'civilianUnit',
+                              civilianUnitOptionMatches
+                            );
+                          "
+                          @keydown="
+                            onComboKeydown(
+                              $event,
+                              'civilianUnit',
+                              civilianUnitOptionMatches,
+                              applyCivilianUnitEdit
+                            )
+                          "
+                        />
+                        <div
+                          v-if="comboOpen.civilianUnit"
+                          class="tile-edit-combobox-list"
+                        >
+                          <button
+                            v-for="(unit, index) in civilianUnitOptionMatches"
+                            :key="`civilian-unit-${unit.name}-${index}`"
+                            type="button"
+                            class="tile-edit-combobox-option"
+                            :class="{
+                              'is-active':
+                                comboHighlight.civilianUnit === index,
+                            }"
+                            @mousedown.prevent="
+                              selectComboOption(
+                                'civilianUnit',
+                                unit,
+                                applyCivilianUnitEdit
+                              )
+                            "
+                            @mouseenter="
+                              setComboHighlight('civilianUnit', index)
+                            "
+                          >
+                            <span class="tile-edit-combobox-option-title">
+                              {{ unit.name }}
+                            </span>
+                          </button>
+                          <div
+                            v-if="!civilianUnitOptionMatches.length"
+                            class="tile-edit-combobox-empty"
+                          >
+                            No matches
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tile-edit-combobox">
+                        <input
+                          id="tile-civilian-unit-owner-input"
+                          class="tile-edit-input"
+                          type="text"
+                          placeholder="Civilian owner..."
+                          v-model="editCivilianUnitOwnerName"
+                          @focus="
+                            openCombo(
+                              'civilianOwner',
+                              civilianOwnerOptionMatches
+                            )
+                          "
+                          @blur="
+                            handleComboBlur(
+                              'civilianOwner',
+                              applyCivilianUnitEdit
+                            )
+                          "
+                          @change="applyCivilianUnitEdit"
+                          @input="
+                            scheduleUnitEdit('civilian');
+                            onComboInput(
+                              'civilianOwner',
+                              civilianOwnerOptionMatches
+                            );
+                          "
+                          @keydown="
+                            onComboKeydown(
+                              $event,
+                              'civilianOwner',
+                              civilianOwnerOptionMatches,
+                              applyCivilianUnitEdit
+                            )
+                          "
+                          :style="ownerInputStyle(editCivilianUnitOwnerName)"
+                        />
+                        <div
+                          v-if="comboOpen.civilianOwner"
+                          class="tile-edit-combobox-list"
+                        >
+                          <button
+                            v-for="(owner, index) in civilianOwnerOptionMatches"
+                            :key="`civilian-owner-${owner.name}-${index}`"
+                            type="button"
+                            class="tile-edit-combobox-option"
+                            :class="{
+                              'is-active':
+                                comboHighlight.civilianOwner === index,
+                            }"
+                            @mousedown.prevent="
+                              selectComboOption(
+                                'civilianOwner',
+                                owner,
+                                applyCivilianUnitEdit
+                              )
+                            "
+                            @mouseenter="
+                              setComboHighlight('civilianOwner', index)
+                            "
+                          >
+                            <span class="tile-edit-combobox-option-title">
+                              {{ owner.name }}
+                            </span>
+                            <span
+                              v-if="owner.leader"
+                              class="tile-edit-combobox-option-meta"
+                            >
+                              {{ owner.leader }}
+                            </span>
+                          </button>
+                          <div
+                            v-if="!civilianOwnerOptionMatches.length"
+                            class="tile-edit-combobox-empty"
+                          >
+                            No matches
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1490,311 +1804,36 @@
 <script>
 import { createClient } from "@supabase/supabase-js";
 import { mapConfig, ownerPalette } from "../../../data/communityTileMap";
-import { getEdition } from "../../../data/editions";
-
-const s5Edition = getEdition("s5");
-const s5OwnerList = [
-  ...((s5Edition && s5Edition.competitors) || []),
-  {
-    name: "Babylon",
-    leader: "Nebuchadnezzar II",
-    author: "Firaxis",
-  },
-];
-
-function normalizeOwnerKey(value) {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/[’']/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-const OWNER_COLOR_MAP = {
-  [normalizeOwnerKey("Babylon")]: { primary: "#244353", secondary: "#d4f9ff" },
-  [normalizeOwnerKey("Zazzau")]: { primary: "#d1e7d2", secondary: "#165e44" },
-  [normalizeOwnerKey("Yunnan")]: { primary: "#750224", secondary: "#baac87" },
-  [normalizeOwnerKey("Yanomami")]: { primary: "#a44345", secondary: "#e4d1c4" },
-  [normalizeOwnerKey("Xavante")]: { primary: "#24050e", secondary: "#eb5b39" },
-  [normalizeOwnerKey("Xaragua")]: { primary: "#89124f", secondary: "#b3d942" },
-  [normalizeOwnerKey("Wassoulou")]: {
-    primary: "#a5dfeb",
-    secondary: "#191c4d",
-  },
-  [normalizeOwnerKey("Wallachia")]: {
-    primary: "#0a5857",
-    secondary: "#bbb645",
-  },
-  [normalizeOwnerKey("Vyatka")]: { primary: "#f9dfb1", secondary: "#b54505" },
-  [normalizeOwnerKey("Umhaill")]: { primary: "#efb212", secondary: "#6c0215" },
-  [normalizeOwnerKey("Tlingit")]: { primary: "#e0d4b4", secondary: "#404a4e" },
-  [normalizeOwnerKey("Ternate")]: { primary: "#3f3901", secondary: "#d4c56b" },
-  [normalizeOwnerKey("Teotihuacan")]: {
-    primary: "#1b1627",
-    secondary: "#50b595",
-  },
-  [normalizeOwnerKey("Tang")]: { primary: "#45100a", secondary: "#c5c44b" },
-  [normalizeOwnerKey("Susquehannock")]: {
-    primary: "#d9b1e4",
-    secondary: "#51070f",
-  },
-  [normalizeOwnerKey("Sumer")]: { primary: "#272b51", secondary: "#d96954" },
-  [normalizeOwnerKey("Seychelles")]: {
-    primary: "#3accc7",
-    secondary: "#0c3856",
-  },
-  [normalizeOwnerKey("Scythia")]: { primary: "#99290a", secondary: "#f9d6b0" },
-  [normalizeOwnerKey("Scotland")]: {
-    primary: "#1c1e35",
-    secondary: "#abbdb7",
-  },
-  [normalizeOwnerKey("Ryukyu")]: { primary: "#ad9ec5", secondary: "#262625" },
-  [normalizeOwnerKey("Rouran")]: { primary: "#c1be33", secondary: "#721c05" },
-  [normalizeOwnerKey("Rapa Nui")]: { primary: "#8babcb", secondary: "#67120a" },
-  [normalizeOwnerKey("Qara-Khitai")]: {
-    primary: "#171614",
-    secondary: "#78b3cf",
-  },
-  [normalizeOwnerKey("Potiguara")]: {
-    primary: "#0e3733",
-    secondary: "#f07158",
-  },
-  [normalizeOwnerKey("Portugal")]: { primary: "#6b7e11", secondary: "#002983" },
-  [normalizeOwnerKey("Ponca")]: { primary: "#e3c565", secondary: "#844505" },
-  [normalizeOwnerKey("Pomo")]: { primary: "#d6683f", secondary: "#000000" },
-  [normalizeOwnerKey("Phoenicia")]: {
-    primary: "#77194d",
-    secondary: "#d89819",
-  },
-  [normalizeOwnerKey("Pegu")]: { primary: "#b21b2a", secondary: "#fff398" },
-  [normalizeOwnerKey("Papal States")]: {
-    primary: "#bc5720",
-    secondary: "#fceed1",
-  },
-  [normalizeOwnerKey("Pakistan")]: {
-    primary: "#437415",
-    secondary: "#d4d9b5",
-  },
-  [normalizeOwnerKey("Onondaga")]: {
-    primary: "#e6d9d4",
-    secondary: "#692060",
-  },
-  [normalizeOwnerKey("New South Wales")]: {
-    primary: "#e6c7cb",
-    secondary: "#67120a",
-  },
-  [normalizeOwnerKey("Mysore")]: { primary: "#6b080f", secondary: "#f07c4e" },
-  [normalizeOwnerKey("Maravi")]: { primary: "#0e1202", secondary: "#c26258" },
-  [normalizeOwnerKey("Ma'in")]: { primary: "#3c1f07", secondary: "#d1722b" },
-  [normalizeOwnerKey("Luba")]: { primary: "#523a65", secondary: "#e0b8af" },
-  [normalizeOwnerKey("Lanfang")]: { primary: "#b2ac1c", secondary: "#21201f" },
-  [normalizeOwnerKey("Kipchaks")]: {
-    primary: "#e59d3b",
-    secondary: "#1f2028",
-  },
-  [normalizeOwnerKey("Ket")]: { primary: "#7d9792", secondary: "#5d1212" },
-  [normalizeOwnerKey("Karankawa")]: {
-    primary: "#154b75",
-    secondary: "#f08977",
-  },
-  [normalizeOwnerKey("Kalmar Union")]: {
-    primary: "#7f3725",
-    secondary: "#dec073",
-  },
-  [normalizeOwnerKey("Japan")]: { primary: "#d3d3d3", secondary: "#68002d" },
-  [normalizeOwnerKey("Itelmen")]: { primary: "#9ed8c7", secondary: "#231016" },
-  [normalizeOwnerKey("Hyksos")]: { primary: "#43010d", secondary: "#ce462f" },
-  [normalizeOwnerKey("Herero")]: { primary: "#f3aa98", secondary: "#550c1c" },
-  [normalizeOwnerKey("Hanseatic League")]: {
-    primary: "#f0e5dd",
-    secondary: "#912316",
-  },
-  [normalizeOwnerKey("Guaycuru")]: {
-    primary: "#d6c798",
-    secondary: "#874420",
-  },
-  [normalizeOwnerKey("Green Ukraine")]: {
-    primary: "#0b4033",
-    secondary: "#ebe968",
-  },
-  [normalizeOwnerKey("France")]: { primary: "#1c3b56", secondary: "#f23929" },
-  [normalizeOwnerKey("Ethiopia")]: {
-    primary: "#110d4b",
-    secondary: "#3a8a81",
-  },
-  [normalizeOwnerKey("Estonia")]: { primary: "#2e79bd", secondary: "#1c1c26" },
-  [normalizeOwnerKey("Circassia")]: {
-    primary: "#265c24",
-    secondary: "#f0e152",
-  },
-  [normalizeOwnerKey("Chono")]: { primary: "#6d3026", secondary: "#9edaef" },
-  [normalizeOwnerKey("Cebu")]: { primary: "#094048", secondary: "#78ded0" },
-  [normalizeOwnerKey("Caral")]: { primary: "#793656", secondary: "#ffaa6d" },
-  [normalizeOwnerKey("Bunuba")]: { primary: "#3f1021", secondary: "#f75142" },
-  [normalizeOwnerKey("Bjarmians")]: {
-    primary: "#3c1e3d",
-    secondary: "#b4b5cf",
-  },
-  [normalizeOwnerKey("Bjarmias")]: {
-    primary: "#3c1e3d",
-    secondary: "#b4b5cf",
-  },
-  [normalizeOwnerKey("Bangladesh")]: {
-    primary: "#064c39",
-    secondary: "#ef7245",
-  },
-  [normalizeOwnerKey("Bactria")]: { primary: "#9db5e3", secondary: "#0c0d7d" },
-  [normalizeOwnerKey("Aures")]: { primary: "#deb057", secondary: "#073c42" },
-  [normalizeOwnerKey("Anishinaabe")]: {
-    primary: "#42102a",
-    secondary: "#b3c5ed",
-  },
-};
 import { parseCiv5Map } from "./civ5MapParser";
-
-const SQRT3 = Math.sqrt(3);
-const RESOURCE_COLOR_OPTIONS = { saturation: 62, lightness: 55 };
-const IMPROVEMENT_COLOR_OPTIONS = { saturation: 45, lightness: 60 };
-const FEATURE_COLORS = {
-  ice: "#d7eff9",
-  jungle: "#1d7b4a",
-  marsh: "#5e6b3d",
-  oasis: "#8bcf9c",
-  "flood-plains": "#b58b4b",
-  forest: "#1f5e3b",
-  fallout: "#8b2d2d",
-  atoll: "#5ec2c9",
-  crater: "#6d4c41",
-  fuji: "#cfd8dc",
-  mesa: "#b87a4a",
-  reef: "#5ec2c9",
-  volcano: "#ef6c00",
-  gibraltar: "#757575",
-  geyser: "#80deea",
-  "fountain-youth": "#4fc3f7",
-  potosi: "#9e9e9e",
-  "el-dorado": "#ffca28",
-  "sri-pada": "#81c784",
-  "mt-sinai": "#f5f5f5",
-  "mt-kailash": "#b0bec5",
-  uluru: "#d84315",
-  "lake-victoria": "#4fc3f7",
-  kilimanjaro: "#78909c",
-  "solomons-mines": "#ffb74d",
-};
-const WONDER_COLORS = {
-  crater: "#c17a52",
-  fuji: "#e0e0e0",
-  mesa: "#b87a4a",
-  volcano: "#ef6c00",
-  gibraltar: "#757575",
-  geyser: "#80deea",
-  "fountain-youth": "#4fc3f7",
-  potosi: "#9e9e9e",
-  "el-dorado": "#ffca28",
-  "sri-pada": "#81c784",
-  "mt-sinai": "#f5f5f5",
-  "mt-kailash": "#b0bec5",
-  uluru: "#d84315",
-  "lake-victoria": "#4fc3f7",
-  kilimanjaro: "#78909c",
-  "solomons-mines": "#ffb74d",
-};
-const BASE_UNITS = [
-  { name: "Settler", role: "civilian" },
-  { name: "Worker", role: "civilian" },
-  { name: "Warrior", role: "combat" },
-  { name: "Scout", role: "combat" },
-  { name: "Archer", role: "combat" },
-  { name: "Spearman", role: "combat" },
-  { name: "Chariot Archer", role: "combat" },
-  { name: "Swordsman", role: "combat" },
-  { name: "Horseman", role: "combat" },
-  { name: "Catapult", role: "combat" },
-  { name: "Knight", role: "combat" },
-  { name: "Crossbowman", role: "combat" },
-  { name: "Pikeman", role: "combat" },
-  { name: "Trebuchet", role: "combat" },
-  { name: "Longswordsman", role: "combat" },
-  { name: "Musketman", role: "combat" },
-  { name: "Cannon", role: "combat" },
-  { name: "Lancer", role: "combat" },
-  { name: "Rifleman", role: "combat" },
-  { name: "Cavalry", role: "combat" },
-  { name: "Infantry", role: "combat" },
-  { name: "Artillery", role: "combat" },
-  { name: "Tank", role: "combat" },
-  { name: "Anti Tank Gun", role: "combat" },
-  { name: "Anti Aircraft Gun", role: "combat" },
-  { name: "Paratrooper", role: "combat" },
-  { name: "Fighter", role: "combat" },
-  { name: "Bomber", role: "combat" },
-  { name: "Atomic Bomb", role: "combat" },
-  { name: "Rocket Artillery", role: "combat" },
-  { name: "Mechanized Infantry", role: "combat" },
-  { name: "Modern Tank", role: "combat" },
-  { name: "Helicopter", role: "combat" },
-  { name: "Mobile Sam", role: "combat" },
-  { name: "Guided Missile", role: "combat" },
-  { name: "Jet Fighter", role: "combat" },
-  { name: "Stealth Bomber", role: "combat" },
-  { name: "Nuclear Missile", role: "combat" },
-  { name: "Giant Death Robot", role: "combat" },
-  { name: "Workboat", role: "civilian" },
-  { name: "Trireme", role: "combat" },
-  { name: "Caravel", role: "combat" },
-  { name: "Frigate", role: "combat" },
-  { name: "Ironclad", role: "combat" },
-  { name: "Destroyer", role: "combat" },
-  { name: "Battleship", role: "combat" },
-  { name: "Submarine", role: "combat" },
-  { name: "Carrier", role: "combat" },
-  { name: "Nuclear Submarine", role: "combat" },
-  { name: "Missile Cruiser", role: "combat" },
-  { name: "Artist", role: "civilian" },
-  { name: "Scientist", role: "civilian" },
-  { name: "Merchant", role: "civilian" },
-  { name: "Engineer", role: "civilian" },
-  { name: "Great General", role: "civilian" },
-];
-const MODDED_ERA_UNITS = [
-  { name: "Cuirassier", role: "combat" },
-  { name: "Explorer", role: "combat" },
-  { name: "Field Gun", role: "combat" },
-  { name: "Line Infantry", role: "combat" },
-  { name: "Skirmisher", role: "combat" },
-  { name: "Surveyor", role: "combat" },
-  { name: "Uhlan", role: "combat" },
-  { name: "Carrack", role: "combat" },
-  { name: "Cruiser", role: "combat" },
-  { name: "Galleon", role: "combat" },
-  { name: "Ship of the Line", role: "combat" },
-  { name: "UAV Fighter", role: "combat" },
-  { name: "Suborbital Bomber", role: "combat" },
-  { name: "Railgun", role: "combat" },
-  { name: "Mech Artillery", role: "combat" },
-  { name: "Hover Tank", role: "combat" },
-  { name: "Cyber Sub", role: "combat" },
-  { name: "Missile Destroyer", role: "combat" },
-  { name: "Neo Destroyer", role: "combat" },
-  { name: "Arsenal Ship", role: "combat" },
-  { name: "Supercarrier", role: "combat" },
-  { name: "Drone", role: "combat" },
-  { name: "Battle Suit", role: "combat" },
-  { name: "Chimera", role: "combat" },
-  { name: "Hydra", role: "combat" },
-  { name: "Special Forces", role: "combat" },
-  { name: "Airborne Forces", role: "combat" },
-  { name: "Splicer", role: "combat" },
-  { name: "Terminator", role: "combat" },
-  { name: "Nexus", role: "combat" },
-  { name: "T-Rex", role: "combat" },
-  { name: "Nueroframe", role: "combat" },
-];
-const ALL_UNITS = [...BASE_UNITS, ...MODDED_ERA_UNITS];
-const BASE_UNIT_IDS = ALL_UNITS.map((unit) =>
-  unit.name.toUpperCase().replace(/[^A-Z0-9]+/g, "_")
-);
+import {
+  s5OwnerList,
+  normalizeOwnerKey,
+  OWNER_COLOR_MAP,
+  SQRT3,
+  RESOURCE_COLOR_OPTIONS,
+  IMPROVEMENT_COLOR_OPTIONS,
+  FEATURE_COLORS,
+  WONDER_COLORS,
+  ALL_UNITS,
+  BASE_UNIT_IDS,
+  NOTE_PIN_PATHS,
+  RUINS_PATHS,
+} from "./communityTileMapConstants";
+import {
+  buildSnapshotLookup,
+  snapshotPayloadEqual,
+  snapshotValueEqual,
+  buildCityChangeSummary,
+} from "./communityTileMapSnapshotUtils";
+import {
+  computeTooltipCoords,
+  computeTooltipBridgeRect,
+} from "./communityTileMapTooltipUtils";
+import {
+  resolveBrushOwnerId,
+  getBrushOwnerChange,
+  getBrushOverlayStyle,
+} from "./communityTileMapBrushUtils";
 const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
 const SUPABASE_MAP_ID = "s5";
@@ -1808,28 +1847,12 @@ const ENABLE_OVERRIDE_CLEANUP = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
 const MINI_MAP_MAX_WIDTH = 180;
 const MINI_MAP_MAX_HEIGHT = 120;
-const NOTE_PIN_PATHS = [
-  {
-    d: "M176 252.6C176 280.7 185.1 313.6 201.6 349.1C217.9 384.2 240 419.2 262.9 450.6C283.2 478.6 303.7 503.1 320.1 521.7C336.5 503.1 356.9 478.6 377.3 450.6C400.2 419.2 422.3 384.2 438.6 349.1C455 313.6 464.2 280.7 464.2 252.6C464.2 175.8 400.5 112 320.2 112C239.9 112 176 175.7 176 252.6z",
-    opacity: 0.3,
-  },
-  {
-    d: "M320 112C400.3 112 464 175.7 464 252.6C464 280.7 454.9 313.6 438.4 349.1C422.1 384.2 400 419.2 377.1 450.6C356.8 478.6 336.3 503.1 319.9 521.7C303.5 503.1 283.1 478.6 262.7 450.6C239.8 419.2 217.7 384.2 201.4 349.1C185 313.6 175.8 280.7 175.8 252.6C175.8 175.8 239.5 112 319.8 112zM352.9 557C407.7 495.4 512 363.8 512 252.6C512 148.4 426 64 320 64C214 64 128 148.4 128 252.6C128 363.8 232.3 495.4 287.1 557C297.3 568.5 305.8 577.5 311.6 583.5C316.9 589 320 592 320 592C320 592 323 589 328.4 583.5C334.2 577.5 342.7 568.5 352.9 557z",
-  },
-];
-const RUINS_PATHS = [
-  {
-    d: "M96 304C96 368.8 128 427.3 179.2 465.8C187.2 471.8 192 481.3 192 491.4L192 528C192 536.8 199.2 544 208 544L256 544L256 496C256 487.2 263.2 480 272 480C280.8 480 288 487.2 288 496L288 544L352 544L352 496C352 487.2 359.2 480 368 480C376.8 480 384 487.2 384 496L384 544L432 544C440.8 544 448 536.8 448 528L448 491.4C448 481.3 452.7 471.9 460.8 465.8C512 427.3 544 368.9 544 304C544 191 445.7 96 320 96C194.3 96 96 191 96 304zM288 320C288 355.3 259.3 384 224 384C188.7 384 160 355.3 160 320C160 284.7 188.7 256 224 256C259.3 256 288 284.7 288 320zM480 320C480 355.3 451.3 384 416 384C380.7 384 352 355.3 352 320C352 284.7 380.7 256 416 256C451.3 256 480 284.7 480 320z",
-    opacity: 0.6,
-  },
-  {
-    d: "M448 491.4C448 481.3 452.7 471.9 460.8 465.8C512 427.3 544 368.9 544 304C544 191 445.7 96 320 96C194.3 96 96 191 96 304C96 368.8 128 427.3 179.2 465.8C187.2 471.8 192 481.3 192 491.4L192 528C192 536.8 199.2 544 208 544L256 544L256 496C256 487.2 263.2 480 272 480C280.8 480 288 487.2 288 496L288 544L352 544L352 496C352 487.2 359.2 480 368 480C376.8 480 384 487.2 384 496L384 544L432 544C440.8 544 448 536.8 448 528L448 491.4zM480 491.4L480 528C480 554.5 458.5 576 432 576L208 576C181.5 576 160 554.5 160 528L160 491.4C101.5 447.4 64 379.8 64 304C64 171.5 178.6 64 320 64C461.4 64 576 171.5 576 304C576 379.8 538.5 447.4 480 491.4zM224 352C241.7 352 256 337.7 256 320C256 302.3 241.7 288 224 288C206.3 288 192 302.3 192 320C192 337.7 206.3 352 224 352zM224 256C259.3 256 288 284.7 288 320C288 355.3 259.3 384 224 384C188.7 384 160 355.3 160 320C160 284.7 188.7 256 224 256zM448 320C448 302.3 433.7 288 416 288C398.3 288 384 302.3 384 320C384 337.7 398.3 352 416 352C433.7 352 448 337.7 448 320zM352 320C352 284.7 380.7 256 416 256C451.3 256 480 284.7 480 320C480 355.3 451.3 384 416 384C380.7 384 352 355.3 352 320z",
-  },
-];
+const COMBO_MAX_RESULTS = 20;
 
 export default {
   data() {
     return {
+      // Map data
       tiles: [],
       mapConfig: { ...mapConfig },
       ownerPalette: [...ownerPalette],
@@ -1839,6 +1862,7 @@ export default {
       mapDescription: "",
       isLoading: false,
       loadError: "",
+      // Supabase/auth
       supabase: null,
       authEmail: "",
       authUser: null,
@@ -1857,6 +1881,7 @@ export default {
       tileOverrideSubscription: null,
       authSubscription: null,
       modeSwitching: false,
+      // Viewport + interaction
       scale: 1,
       minScale: 0.4,
       maxScale: mapConfig.maxScale || 3,
@@ -1871,6 +1896,7 @@ export default {
       pinchStartDistance: 0,
       pinchStartScale: 1,
       pinchCenter: { x: 0, y: 0 },
+      // Hover + selection
       hoveredTile: null,
       hoverTooltipTile: null,
       hoverTooltipVisible: false,
@@ -1885,6 +1911,7 @@ export default {
       tileLookup: null,
       showUnits: false,
       ownerSecondaryColors: {},
+      // Edit form state
       editOwnerName: "",
       editOriginalOwnerName: "",
       editCityValue: null,
@@ -1905,10 +1932,12 @@ export default {
       editTileNotes: "",
       tileNotesStatus: "",
       tileNotesStatusTimer: null,
+      // Panel UI state
       editPanelCollapsed: true,
       editPanelTab: "edit",
       isMobileView: false,
       lastPointerType: null,
+      // Render timers
       recentEditTick: 0,
       recentEditFrameId: null,
       canvasDrawFrameId: null,
@@ -1925,6 +1954,23 @@ export default {
         cityReligion: null,
         worldWonders: null,
       },
+      forceLegacyOverrideConflict: false,
+      comboOpen: {
+        owner: false,
+        originalOwner: false,
+        combatUnit: false,
+        combatOwner: false,
+        civilianUnit: false,
+        civilianOwner: false,
+      },
+      comboHighlight: {
+        owner: -1,
+        originalOwner: -1,
+        combatUnit: -1,
+        combatOwner: -1,
+        civilianUnit: -1,
+        civilianOwner: -1,
+      },
       hasLoadedOverrides: false,
       ownerBrushEnabled: false,
       ownerBrushMode: "paint",
@@ -1934,11 +1980,13 @@ export default {
       brushPendingTile: null,
       brushDirtyKeys: new Set(),
       nextUnitId: 1,
+      // Legends
       terrainLegend: [],
       featureLegend: [],
       wonderLegend: [],
       resourceLegend: [],
       improvementLegend: [],
+      // Snapshots
       snapshots: [],
       snapshotViewId: "",
       snapshotCompareId: "",
@@ -2108,45 +2156,27 @@ export default {
       };
     },
     hoverTooltipCoords() {
-      if (!this.viewportSize.width || !this.viewportSize.height) {
-        return null;
-      }
-      const padding = 12;
-      const offset = 16;
-      const width = this.hoverTooltipSize.width || 240;
-      const height = this.hoverTooltipSize.height || 200;
-      let left = this.hoverTooltipPosition.x + offset;
-      let top = this.hoverTooltipPosition.y + offset;
-      left = clampValue(
-        left,
-        padding,
-        Math.max(padding, this.viewportSize.width - width - padding)
-      );
-      top = clampValue(
-        top,
-        padding,
-        Math.max(padding, this.viewportSize.height - height - padding)
-      );
-      return { left, top };
+      return computeTooltipCoords({
+        viewportWidth: this.viewportSize.width,
+        viewportHeight: this.viewportSize.height,
+        tooltipWidth: this.hoverTooltipSize.width || 240,
+        tooltipHeight: this.hoverTooltipSize.height || 200,
+        position: this.hoverTooltipPosition,
+      });
     },
     hoverTooltipBridgeStyle() {
-      if (!this.hoverTooltipCoords) {
+      const rect = computeTooltipBridgeRect({
+        position: this.hoverTooltipPosition,
+        tooltipCoords: this.hoverTooltipCoords,
+      });
+      if (!rect) {
         return null;
       }
-      const bridgePadding = 10;
-      const startX = this.hoverTooltipPosition.x;
-      const startY = this.hoverTooltipPosition.y;
-      const endX = this.hoverTooltipCoords.left;
-      const endY = this.hoverTooltipCoords.top;
-      const minX = Math.min(startX, endX) - bridgePadding;
-      const minY = Math.min(startY, endY) - bridgePadding;
-      const width = Math.max(12, Math.abs(endX - startX) + bridgePadding * 2);
-      const height = Math.max(12, Math.abs(endY - startY) + bridgePadding * 2);
       return {
-        left: `${minX}px`,
-        top: `${minY}px`,
-        width: `${width}px`,
-        height: `${height}px`,
+        left: `${rect.left}px`,
+        top: `${rect.top}px`,
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
       };
     },
 
@@ -2210,12 +2240,42 @@ export default {
       return s5OwnerList;
     },
 
+    ownerOptionMatches() {
+      return this.filterOwnerOptions(this.editOwnerName);
+    },
+
+    originalOwnerOptionMatches() {
+      return this.filterOwnerOptions(this.editOriginalOwnerName);
+    },
+
+    combatOwnerOptionMatches() {
+      return this.filterOwnerOptions(this.editCombatUnitOwnerName);
+    },
+
+    civilianOwnerOptionMatches() {
+      return this.filterOwnerOptions(this.editCivilianUnitOwnerName);
+    },
+
     combatUnitOptions() {
       return ALL_UNITS.filter((unit) => unit.role === "combat");
     },
 
     civilianUnitOptions() {
       return ALL_UNITS.filter((unit) => unit.role === "civilian");
+    },
+
+    combatUnitOptionMatches() {
+      return this.filterUnitOptions(
+        this.editCombatUnitType,
+        this.combatUnitOptions
+      );
+    },
+
+    civilianUnitOptionMatches() {
+      return this.filterUnitOptions(
+        this.editCivilianUnitType,
+        this.civilianUnitOptions
+      );
     },
 
     canvasWidth() {
@@ -2310,24 +2370,16 @@ export default {
         this.loadSnapshots();
       }
     },
-    scale() {
-      this.scheduleMiniMapDraw();
-    },
+    scale: "scheduleMiniMapDraw",
     translate: {
       deep: true,
-      handler() {
-        this.scheduleMiniMapDraw();
-      },
+      handler: "scheduleMiniMapDraw",
     },
     tiles: {
       deep: true,
-      handler() {
-        this.scheduleMiniMapDraw();
-      },
+      handler: "scheduleMiniMapDraw",
     },
-    viewportSize() {
-      this.scheduleMiniMapDraw();
-    },
+    viewportSize: "scheduleMiniMapDraw",
     hoveredTile(nextTile) {
       if (!nextTile) {
         if (this.hoverTooltipVisible) {
@@ -2339,9 +2391,6 @@ export default {
         return;
       }
       this.scheduleHoverTooltip(nextTile);
-    },
-    selectedTile() {
-      this.ensureEditPanelTab();
     },
     editAccessAllowed() {
       this.ensureEditPanelTab();
@@ -2375,6 +2424,7 @@ export default {
       this.computeSnapshotDiffs();
     },
     selectedTile(nextTile) {
+      this.ensureEditPanelTab();
       this.syncEditFieldsFromTile(nextTile);
       if (!nextTile) {
         this.hoverTooltipLocked = false;
@@ -2804,10 +2854,12 @@ export default {
             .select("tile_key,payload")
             .eq("map_id", SUPABASE_MAP_ID)
             .order("tile_key", { ascending: true });
-          if (this.liveBaseSnapshotId) {
-            query = query.eq("snapshot_id", this.liveBaseSnapshotId);
-          } else {
-            query = query.is("snapshot_id", null);
+          if (!this.forceLegacyOverrideConflict) {
+            if (this.liveBaseSnapshotId) {
+              query = query.eq("snapshot_id", this.liveBaseSnapshotId);
+            } else {
+              query = query.is("snapshot_id", null);
+            }
           }
           const { data, error } = await query.range(from, to);
           if (error || !Array.isArray(data)) {
@@ -2825,7 +2877,7 @@ export default {
         const filtered = ENABLE_OVERRIDE_CLEANUP
           ? this.filterOverrideRows(allRows)
           : allRows;
-        this.liveOverrideLookup = this.buildSnapshotLookup(filtered);
+        this.liveOverrideLookup = buildSnapshotLookup(filtered);
         this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
           this.liveOverrideLookup
         );
@@ -3048,8 +3100,8 @@ export default {
         this.snapshotCityChanges = { founded: [], captured: [], removed: [] };
         return;
       }
-      const viewLookup = this.buildSnapshotLookup(view.payload);
-      const compareLookup = this.buildSnapshotLookup(comparePayload);
+      const viewLookup = buildSnapshotLookup(view.payload);
+      const compareLookup = buildSnapshotLookup(comparePayload);
       const keys = new Set([
         ...Object.keys(viewLookup),
         ...Object.keys(compareLookup),
@@ -3057,23 +3109,22 @@ export default {
       const diffLookup = {};
       const diffList = [];
       const summary = { owner: 0, city: 0, units: 0, other: 0 };
-      const cityChanges = { founded: [], captured: [], removed: [] };
       keys.forEach((key) => {
         const a = viewLookup[key] || null;
         const b = compareLookup[key] || null;
-        if (!this.snapshotPayloadEqual(a, b)) {
+        if (!snapshotPayloadEqual(a, b)) {
           diffLookup[key] = true;
           const ownerChanged = (a && a.owner) !== (b && b.owner);
-          const cityChanged = !this.snapshotValueEqual(
+          const cityChanged = !snapshotValueEqual(
             a ? a.city : null,
             b ? b.city : null
           );
           const unitsChanged =
-            !this.snapshotValueEqual(
+            !snapshotValueEqual(
               a ? a.combatUnit : null,
               b ? b.combatUnit : null
             ) ||
-            !this.snapshotValueEqual(
+            !snapshotValueEqual(
               a ? a.civilianUnit : null,
               b ? b.civilianUnit : null
             );
@@ -3092,7 +3143,7 @@ export default {
           diffList.push({ key, from: a, to: b });
         }
       });
-      this.buildCityChangeSummary(compareLookup, viewLookup, cityChanges);
+      const cityChanges = buildCityChangeSummary(compareLookup, viewLookup);
       summary.city =
         cityChanges.founded.length +
         cityChanges.captured.length +
@@ -3101,19 +3152,6 @@ export default {
       this.snapshotDiffList = diffList;
       this.snapshotDiffSummary = summary;
       this.snapshotCityChanges = cityChanges;
-    },
-
-    buildSnapshotLookup(payload) {
-      if (!Array.isArray(payload)) {
-        return {};
-      }
-      return payload.reduce((acc, row) => {
-        const key = row.tile_key || row.tileKey;
-        if (key) {
-          acc[key] = row.payload || null;
-        }
-        return acc;
-      }, {});
     },
 
     buildLiveSnapshotPayload(overrideLookup) {
@@ -3170,93 +3208,6 @@ export default {
       };
     },
 
-    snapshotPayloadEqual(a, b) {
-      if (a === b) {
-        return true;
-      }
-      if (!a || !b) {
-        return false;
-      }
-      return (
-        JSON.stringify(this.normalizeSnapshotPayload(a)) ===
-        JSON.stringify(this.normalizeSnapshotPayload(b))
-      );
-    },
-
-    snapshotValueEqual(a, b) {
-      return (
-        JSON.stringify(this.normalizeSnapshotValue(a)) ===
-        JSON.stringify(this.normalizeSnapshotValue(b))
-      );
-    },
-
-    normalizeSnapshotValue(value) {
-      if (!value || typeof value !== "object") {
-        return value || null;
-      }
-      if (Object.prototype.hasOwnProperty.call(value, "type")) {
-        return this.normalizeSnapshotUnit(value);
-      }
-      if (
-        Object.prototype.hasOwnProperty.call(value, "name") &&
-        Object.prototype.hasOwnProperty.call(value, "size")
-      ) {
-        return this.normalizeSnapshotCity(value);
-      }
-      return value;
-    },
-
-    normalizeSnapshotUnit(unit) {
-      if (!unit) {
-        return null;
-      }
-      return {
-        id: unit.id !== undefined && unit.id !== null ? unit.id : null,
-        type: unit.type || "",
-        owner: Number.isFinite(unit.owner) ? unit.owner : null,
-      };
-    },
-
-    normalizeSnapshotCity(city) {
-      if (!city) {
-        return null;
-      }
-      const wonders = Array.isArray(city.worldWonders)
-        ? [...city.worldWonders].sort()
-        : [];
-      return {
-        id: city.id !== undefined && city.id !== null ? city.id : null,
-        name: city.name || "",
-        size: Number.isFinite(city.size) ? city.size : 1,
-        owner: Number.isFinite(city.owner) ? city.owner : null,
-        religion: city.religion || "",
-        worldWonders: wonders,
-        isPuppeted: !!city.isPuppeted,
-        isOccupied: !!city.isOccupied,
-        isResistance: !!city.isResistance,
-        isCapital: !!city.isCapital,
-      };
-    },
-
-    normalizeSnapshotPayload(payload) {
-      if (!payload) {
-        return null;
-      }
-      return {
-        owner: Number.isFinite(payload.owner) ? payload.owner : null,
-        originalOwner: Number.isFinite(payload.originalOwner)
-          ? payload.originalOwner
-          : null,
-        notes: payload.notes ? String(payload.notes) : null,
-        pillaged: !!payload.pillaged,
-        ruins: !!payload.ruins,
-        citadel: !!payload.citadel,
-        combatUnit: this.normalizeSnapshotUnit(payload.combatUnit),
-        civilianUnit: this.normalizeSnapshotUnit(payload.civilianUnit),
-        city: this.normalizeSnapshotCity(payload.city),
-      };
-    },
-
     snapshotCityLabel(entry) {
       if (!entry) {
         return "";
@@ -3269,65 +3220,6 @@ export default {
         : null;
       const suffix = original ? ` (was ${original})` : "";
       return `${entry.name} @ ${entry.key} \u2014 ${owner}${suffix}`;
-    },
-
-    buildCityChangeSummary(currentLookup, previousLookup, cityChanges) {
-      if (!cityChanges) {
-        return;
-      }
-      const founded = new Map();
-      const captured = new Map();
-      const removed = new Map();
-      const keys = new Set([
-        ...Object.keys(currentLookup || {}),
-        ...Object.keys(previousLookup || {}),
-      ]);
-      keys.forEach((key) => {
-        const current = currentLookup[key] || null;
-        const previous = previousLookup[key] || null;
-        const currentCity = current ? current.city : null;
-        const previousCity = previous ? previous.city : null;
-        if (currentCity && !previousCity) {
-          const entryKey = key;
-          if (!founded.has(entryKey)) {
-            founded.set(entryKey, {
-              key,
-              name: currentCity.name || "Unknown City",
-              owner: currentCity.owner ?? current.owner ?? null,
-              originalOwner: current.originalOwner ?? null,
-            });
-          }
-        }
-        if (!currentCity && previousCity) {
-          const entryKey = key;
-          if (!removed.has(entryKey)) {
-            removed.set(entryKey, {
-              key,
-              name: previousCity.name || "Unknown City",
-              owner: previousCity.owner ?? previous.owner ?? null,
-              originalOwner: previous.originalOwner ?? null,
-            });
-          }
-        }
-        if (
-          currentCity &&
-          (current.originalOwner ?? null) !== null &&
-          current.owner !== current.originalOwner
-        ) {
-          const entryKey = key;
-          if (!captured.has(entryKey)) {
-            captured.set(entryKey, {
-              key,
-              name: currentCity.name || "Unknown City",
-              owner: currentCity.owner ?? current.owner ?? null,
-              originalOwner: current.originalOwner ?? null,
-            });
-          }
-        }
-      });
-      cityChanges.founded = Array.from(founded.values());
-      cityChanges.captured = Array.from(captured.values());
-      cityChanges.removed = Array.from(removed.values());
     },
 
     formatSnapshotLabel(snapshot) {
@@ -3746,7 +3638,7 @@ export default {
       const base = this.buildFullPayloadFromBase(tile.baseState, null);
       const diff = {};
       Object.keys(current).forEach((key) => {
-        if (!this.snapshotValueEqual(current[key], base[key])) {
+        if (!snapshotValueEqual(current[key], base[key])) {
           diff[key] = current[key];
         }
       });
@@ -3777,7 +3669,7 @@ export default {
           tile.baseState,
           row.payload || null
         );
-        if (this.snapshotValueEqual(mergedPayload, basePayload)) {
+        if (snapshotValueEqual(mergedPayload, basePayload)) {
           deleteKeys.push(key);
           return;
         }
@@ -3849,7 +3741,9 @@ export default {
       this.tileSaveTimer = null;
       let upsertError = null;
       if (rows.length) {
-        const conflictTarget = this.liveBaseSnapshotId
+        const useSnapshotConflict =
+          this.liveBaseSnapshotId && !this.forceLegacyOverrideConflict;
+        const conflictTarget = useSnapshotConflict
           ? "map_id,snapshot_id,tile_key"
           : "map_id,tile_key";
         const { error } = await this.supabase
@@ -3858,6 +3752,21 @@ export default {
             onConflict: conflictTarget,
           });
         upsertError = error;
+        if (
+          upsertError &&
+          useSnapshotConflict &&
+          this.isSnapshotConflictError(upsertError)
+        ) {
+          const fallback = await this.supabase
+            .from(SUPABASE_OVERRIDE_TABLE)
+            .upsert(rows, {
+              onConflict: "map_id,tile_key",
+            });
+          if (!fallback.error) {
+            this.forceLegacyOverrideConflict = true;
+          }
+          upsertError = fallback.error;
+        }
       }
       if (upsertError) {
         const message = upsertError.message || "Unable to sync edits.";
@@ -3894,6 +3803,18 @@ export default {
       }, retryDelay);
     },
 
+    isSnapshotConflictError(error) {
+      if (!error) {
+        return false;
+      }
+      const code = String(error.code || "");
+      if (code === "23505") {
+        return true;
+      }
+      const message = String(error.message || "").toLowerCase();
+      return message.includes("tile_overrides_pkey");
+    },
+
     subscribeToTileOverrides() {
       if (!this.supabase || this.tileOverrideSubscription) {
         return;
@@ -3923,7 +3844,10 @@ export default {
             )
               ? record.snapshot_id
               : null;
-            if (recordSnapshotId !== expectedSnapshotId) {
+            if (
+              !this.forceLegacyOverrideConflict &&
+              recordSnapshotId !== expectedSnapshotId
+            ) {
               return;
             }
             this.applyTileOverrides([record], {
@@ -4080,153 +4004,6 @@ export default {
         height / this.gridHeight
       );
       this.minScale = Math.min(0.4, fitScale);
-    },
-
-    updateTooltipPosition(event) {
-      const viewport = this.$refs.viewport;
-      if (!viewport || !event) {
-        return;
-      }
-      if (this.hoverTooltipVisible) {
-        return;
-      }
-      const rect = viewport.getBoundingClientRect();
-      this.hoverTooltipPosition = {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top,
-      };
-      if (this.hoverTooltipVisible) {
-        this.$nextTick(() => {
-          this.updateHoverTooltipSize();
-        });
-      }
-    },
-
-    updateHoverTooltipSize() {
-      const tooltip = this.$refs.tileTooltip;
-      if (!tooltip) {
-        return;
-      }
-      this.hoverTooltipSize = {
-        width: tooltip.offsetWidth,
-        height: tooltip.offsetHeight,
-      };
-      if (this.hoverTooltipTile) {
-        this.hoverTooltipSizeCache.set(this.hoverTooltipTile.key, {
-          ...this.hoverTooltipSize,
-        });
-      }
-    },
-
-    scheduleHoverTooltip(tile) {
-      this.clearHoverTooltipTimer();
-      this.hoverTooltipVisible = false;
-      this.hoverTooltipTile = null;
-      if (
-        !tile ||
-        this.isDragging ||
-        this.isPaintingOwner ||
-        this.ownerBrushEnabled
-      ) {
-        return;
-      }
-      const targetTile = tile;
-      this.hoverTooltipTimer = window.setTimeout(() => {
-        if (
-          this.hoveredTile === targetTile &&
-          !this.isDragging &&
-          !this.isPaintingOwner
-        ) {
-          const cached = this.hoverTooltipSizeCache.get(targetTile.key);
-          if (cached) {
-            this.hoverTooltipSize = { ...cached };
-          }
-          this.hoverTooltipTile = targetTile;
-          this.hoverTooltipVisible = true;
-          this.scheduleHoverTooltipSizeUpdate();
-        }
-      }, 1000);
-    },
-
-    clearHoverTooltipTimer() {
-      if (this.hoverTooltipTimer) {
-        window.clearTimeout(this.hoverTooltipTimer);
-        this.hoverTooltipTimer = null;
-      }
-    },
-
-    hideHoverTooltip() {
-      this.clearHoverTooltipTimer();
-      if (this.hoverTooltipHideTimer) {
-        window.clearTimeout(this.hoverTooltipHideTimer);
-        this.hoverTooltipHideTimer = null;
-      }
-      if (this.hoverTooltipUpdateTimer) {
-        window.clearTimeout(this.hoverTooltipUpdateTimer);
-        this.hoverTooltipUpdateTimer = null;
-      }
-      this.hoverTooltipVisible = false;
-      this.hoverTooltipTile = null;
-    },
-
-    lockHoverTooltip() {
-      this.hoverTooltipLocked = true;
-      if (this.hoverTooltipHideTimer) {
-        window.clearTimeout(this.hoverTooltipHideTimer);
-        this.hoverTooltipHideTimer = null;
-      }
-    },
-
-    unlockHoverTooltip() {
-      this.hoverTooltipLocked = false;
-      if (!this.hoveredTile) {
-        this.hideHoverTooltip();
-      }
-    },
-
-    invalidateTooltipCache(tileKey) {
-      if (!tileKey) {
-        return;
-      }
-      this.hoverTooltipSizeCache.delete(tileKey);
-    },
-
-    scheduleHoverTooltipSizeUpdate() {
-      if (this.hoverTooltipUpdateTimer) {
-        window.clearTimeout(this.hoverTooltipUpdateTimer);
-      }
-      this.hoverTooltipUpdateTimer = window.setTimeout(() => {
-        this.$nextTick(() => {
-          this.updateHoverTooltipSize();
-        });
-      }, 120);
-    },
-
-    showSelectedTooltip(tile) {
-      if (!tile) {
-        return;
-      }
-      this.clearHoverTooltipTimer();
-      if (this.hoverTooltipHideTimer) {
-        window.clearTimeout(this.hoverTooltipHideTimer);
-        this.hoverTooltipHideTimer = null;
-      }
-      const viewport = this.$refs.viewport;
-      if (!viewport) {
-        return;
-      }
-      const cached = this.hoverTooltipSizeCache.get(tile.key);
-      if (cached) {
-        this.hoverTooltipSize = { ...cached };
-      }
-      this.hoverTooltipTile = tile;
-      this.hoverTooltipVisible = true;
-      this.hoverTooltipLocked = true;
-      this.hoverTooltipPosition = {
-        x: tile.x * this.scale + this.translate.x,
-        y: tile.y * this.scale + this.translate.y,
-      };
-      this.scheduleHoverTooltipSizeUpdate();
     },
 
     clampView() {
@@ -4445,6 +4222,153 @@ export default {
       );
     },
 
+    updateTooltipPosition(event) {
+      const viewport = this.$refs.viewport;
+      if (!viewport || !event) {
+        return;
+      }
+      if (this.hoverTooltipVisible) {
+        return;
+      }
+      const rect = viewport.getBoundingClientRect();
+      this.hoverTooltipPosition = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+      if (this.hoverTooltipVisible) {
+        this.$nextTick(() => {
+          this.updateHoverTooltipSize();
+        });
+      }
+    },
+
+    updateHoverTooltipSize() {
+      const tooltip = this.$refs.tileTooltip;
+      if (!tooltip) {
+        return;
+      }
+      this.hoverTooltipSize = {
+        width: tooltip.offsetWidth,
+        height: tooltip.offsetHeight,
+      };
+      if (this.hoverTooltipTile) {
+        this.hoverTooltipSizeCache.set(this.hoverTooltipTile.key, {
+          ...this.hoverTooltipSize,
+        });
+      }
+    },
+
+    scheduleHoverTooltip(tile) {
+      this.clearHoverTooltipTimer();
+      this.hoverTooltipVisible = false;
+      this.hoverTooltipTile = null;
+      if (
+        !tile ||
+        this.isDragging ||
+        this.isPaintingOwner ||
+        this.ownerBrushEnabled
+      ) {
+        return;
+      }
+      const targetTile = tile;
+      this.hoverTooltipTimer = window.setTimeout(() => {
+        if (
+          this.hoveredTile === targetTile &&
+          !this.isDragging &&
+          !this.isPaintingOwner
+        ) {
+          const cached = this.hoverTooltipSizeCache.get(targetTile.key);
+          if (cached) {
+            this.hoverTooltipSize = { ...cached };
+          }
+          this.hoverTooltipTile = targetTile;
+          this.hoverTooltipVisible = true;
+          this.scheduleHoverTooltipSizeUpdate();
+        }
+      }, 1000);
+    },
+
+    clearHoverTooltipTimer() {
+      if (this.hoverTooltipTimer) {
+        window.clearTimeout(this.hoverTooltipTimer);
+        this.hoverTooltipTimer = null;
+      }
+    },
+
+    hideHoverTooltip() {
+      this.clearHoverTooltipTimer();
+      if (this.hoverTooltipHideTimer) {
+        window.clearTimeout(this.hoverTooltipHideTimer);
+        this.hoverTooltipHideTimer = null;
+      }
+      if (this.hoverTooltipUpdateTimer) {
+        window.clearTimeout(this.hoverTooltipUpdateTimer);
+        this.hoverTooltipUpdateTimer = null;
+      }
+      this.hoverTooltipVisible = false;
+      this.hoverTooltipTile = null;
+    },
+
+    lockHoverTooltip() {
+      this.hoverTooltipLocked = true;
+      if (this.hoverTooltipHideTimer) {
+        window.clearTimeout(this.hoverTooltipHideTimer);
+        this.hoverTooltipHideTimer = null;
+      }
+    },
+
+    unlockHoverTooltip() {
+      this.hoverTooltipLocked = false;
+      if (!this.hoveredTile) {
+        this.hideHoverTooltip();
+      }
+    },
+
+    invalidateTooltipCache(tileKey) {
+      if (!tileKey) {
+        return;
+      }
+      this.hoverTooltipSizeCache.delete(tileKey);
+    },
+
+    scheduleHoverTooltipSizeUpdate() {
+      if (this.hoverTooltipUpdateTimer) {
+        window.clearTimeout(this.hoverTooltipUpdateTimer);
+      }
+      this.hoverTooltipUpdateTimer = window.setTimeout(() => {
+        this.$nextTick(() => {
+          this.updateHoverTooltipSize();
+        });
+      }, 120);
+    },
+
+    showSelectedTooltip(tile) {
+      if (!tile) {
+        return;
+      }
+      this.clearHoverTooltipTimer();
+      if (this.hoverTooltipHideTimer) {
+        window.clearTimeout(this.hoverTooltipHideTimer);
+        this.hoverTooltipHideTimer = null;
+      }
+      const viewport = this.$refs.viewport;
+      if (!viewport) {
+        return;
+      }
+      const cached = this.hoverTooltipSizeCache.get(tile.key);
+      if (cached) {
+        this.hoverTooltipSize = { ...cached };
+      }
+      this.hoverTooltipTile = tile;
+      this.hoverTooltipVisible = true;
+      this.hoverTooltipLocked = true;
+      this.hoverTooltipPosition = {
+        x: tile.x * this.scale + this.translate.x,
+        y: tile.y * this.scale + this.translate.y,
+      };
+      this.scheduleHoverTooltipSizeUpdate();
+    },
+
     onPointerDown(event) {
       this.lastPointerType = event.pointerType || null;
       if (event.pointerType === "mouse" && event.button !== 0) {
@@ -4481,14 +4405,18 @@ export default {
         if (!this.ensureEditAccess()) {
           return;
         }
-        const ownerId = this.resolveBrushOwnerId();
-        if (this.ownerBrushMode === "paint") {
-          if (!Number.isFinite(ownerId)) {
-            return;
-          }
+        const ownerId = resolveBrushOwnerId(
+          this.editOwnerName,
+          resolveOwnerInput
+        );
+        if (this.ownerBrushMode === "paint" && !Number.isFinite(ownerId)) {
+          return;
         }
         this.isPaintingOwner = true;
         this.ownerBrushId = ownerId;
+        if (event.currentTarget && event.currentTarget.setPointerCapture) {
+          event.currentTarget.setPointerCapture(event.pointerId);
+        }
         this.clearBrushOverlay();
         const tile = this.getTileAtPointer(event);
         if (tile) {
@@ -4541,7 +4469,10 @@ export default {
           this.hoveredTile = tile;
         }
       }
-      if (this.isPaintingOwner && Number.isFinite(this.ownerBrushId)) {
+      if (
+        this.isPaintingOwner &&
+        (this.ownerBrushMode === "clear" || Number.isFinite(this.ownerBrushId))
+      ) {
         const tile = this.getTileAtPointer(event);
         if (tile) {
           this.scheduleBrushApply(tile);
@@ -4594,6 +4525,13 @@ export default {
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
         this.flushBrushEdits();
+        if (
+          event.currentTarget &&
+          event.currentTarget.hasPointerCapture &&
+          event.currentTarget.hasPointerCapture(event.pointerId)
+        ) {
+          event.currentTarget.releasePointerCapture(event.pointerId);
+        }
         return;
       }
       if (this.isDragging) {
@@ -5724,6 +5662,226 @@ export default {
       }, 500);
     },
 
+    filterOwnerOptions(query) {
+      const options = this.ownerOptions || [];
+      if (!options.length) {
+        return [];
+      }
+      const needle = String(query || "")
+        .trim()
+        .toLowerCase();
+      if (!needle) {
+        return options.slice(0, COMBO_MAX_RESULTS);
+      }
+      return options
+        .filter((owner, index) =>
+          this.ownerOptionLabel(owner, index).toLowerCase().includes(needle)
+        )
+        .slice(0, COMBO_MAX_RESULTS);
+    },
+
+    filterUnitOptions(query, options) {
+      const list = options || [];
+      if (!list.length) {
+        return [];
+      }
+      const needle = String(query || "")
+        .trim()
+        .toLowerCase();
+      if (!needle) {
+        return list.slice(0, COMBO_MAX_RESULTS);
+      }
+      return list
+        .filter((unit) =>
+          String(unit.name || "")
+            .toLowerCase()
+            .includes(needle)
+        )
+        .slice(0, COMBO_MAX_RESULTS);
+    },
+
+    getComboValue(key) {
+      switch (key) {
+        case "owner":
+          return this.editOwnerName;
+        case "originalOwner":
+          return this.editOriginalOwnerName;
+        case "combatUnit":
+          return this.editCombatUnitType;
+        case "combatOwner":
+          return this.editCombatUnitOwnerName;
+        case "civilianUnit":
+          return this.editCivilianUnitType;
+        case "civilianOwner":
+          return this.editCivilianUnitOwnerName;
+        default:
+          return "";
+      }
+    },
+
+    setComboValue(key, value) {
+      switch (key) {
+        case "owner":
+          this.editOwnerName = value;
+          break;
+        case "originalOwner":
+          this.editOriginalOwnerName = value;
+          break;
+        case "combatUnit":
+          this.editCombatUnitType = value;
+          break;
+        case "combatOwner":
+          this.editCombatUnitOwnerName = value;
+          break;
+        case "civilianUnit":
+          this.editCivilianUnitType = value;
+          break;
+        case "civilianOwner":
+          this.editCivilianUnitOwnerName = value;
+          break;
+        default:
+          break;
+      }
+    },
+
+    comboOptionValue(key, option) {
+      if (!option) {
+        return "";
+      }
+      switch (key) {
+        case "owner":
+        case "originalOwner":
+        case "combatOwner":
+        case "civilianOwner":
+          return option.name || "";
+        case "combatUnit":
+        case "civilianUnit":
+          return option.name || "";
+        default:
+          return "";
+      }
+    },
+
+    openCombo(key, options) {
+      if (!this.comboOpen || !(key in this.comboOpen)) {
+        return;
+      }
+      this.comboOpen[key] = true;
+      this.syncComboHighlight(key, options);
+    },
+
+    closeCombo(key) {
+      if (!this.comboOpen || !(key in this.comboOpen)) {
+        return;
+      }
+      this.comboOpen[key] = false;
+      if (this.comboHighlight && key in this.comboHighlight) {
+        this.comboHighlight[key] = -1;
+      }
+    },
+
+    syncComboHighlight(key, options) {
+      if (!this.comboHighlight || !(key in this.comboHighlight)) {
+        return;
+      }
+      if (!options || !options.length) {
+        this.comboHighlight[key] = -1;
+        return;
+      }
+      const currentValue = this.getComboValue(key);
+      const normalized = String(currentValue || "")
+        .trim()
+        .toLowerCase();
+      let index = -1;
+      if (normalized) {
+        index = options.findIndex(
+          (option) =>
+            this.comboOptionValue(key, option).toLowerCase() === normalized
+        );
+      }
+      this.comboHighlight[key] = index >= 0 ? index : 0;
+    },
+
+    onComboInput(key, options) {
+      if (!this.comboOpen[key]) {
+        this.comboOpen[key] = true;
+      }
+      this.syncComboHighlight(key, options);
+    },
+
+    setComboHighlight(key, index) {
+      if (!this.comboHighlight || !(key in this.comboHighlight)) {
+        return;
+      }
+      this.comboHighlight[key] = index;
+    },
+
+    selectComboOption(key, option, applyFn) {
+      const value = this.comboOptionValue(key, option);
+      this.setComboValue(key, value);
+      if (typeof applyFn === "function") {
+        applyFn.call(this);
+      }
+      this.closeCombo(key);
+    },
+
+    handleComboBlur(key, applyFn) {
+      this.closeCombo(key);
+      if (typeof applyFn === "function") {
+        applyFn.call(this);
+      }
+    },
+
+    onComboKeydown(event, key, options, applyFn) {
+      const list = options || [];
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        if (!this.comboOpen[key]) {
+          this.comboOpen[key] = true;
+        }
+        if (!list.length) {
+          this.setComboHighlight(key, -1);
+          return;
+        }
+        const maxIndex = list.length - 1;
+        let index = this.comboHighlight[key];
+        if (!Number.isFinite(index) || index < 0 || index > maxIndex) {
+          index = event.key === "ArrowUp" ? maxIndex : 0;
+        } else {
+          index += event.key === "ArrowUp" ? -1 : 1;
+          if (index < 0) {
+            index = maxIndex;
+          }
+          if (index > maxIndex) {
+            index = 0;
+          }
+        }
+        this.setComboHighlight(key, index);
+        return;
+      }
+      if (event.key === "Enter") {
+        if (this.comboOpen[key] && list.length) {
+          const index = this.comboHighlight[key];
+          if (Number.isFinite(index) && index >= 0 && index < list.length) {
+            event.preventDefault();
+            this.selectComboOption(key, list[index], applyFn);
+            return;
+          }
+        }
+        if (typeof applyFn === "function") {
+          applyFn.call(this);
+        }
+        this.closeCombo(key);
+        return;
+      }
+      if (event.key === "Escape") {
+        if (this.comboOpen[key]) {
+          event.preventDefault();
+          this.closeCombo(key);
+        }
+      }
+    },
+
     clearUnitEdits() {
       this.clearUnitEditForRole("combat");
       this.clearUnitEditForRole("civilian");
@@ -5818,14 +5976,6 @@ export default {
       }
     },
 
-    resolveBrushOwnerId() {
-      const ownerId = resolveOwnerInput(this.editOwnerName);
-      if (!Number.isFinite(ownerId) || ownerId < 0) {
-        return null;
-      }
-      return Math.round(ownerId);
-    },
-
     scheduleBrushApply(tile) {
       if (!tile) {
         return;
@@ -5845,7 +5995,12 @@ export default {
     },
 
     applyBrushTile(tile) {
-      if (!tile || !Number.isFinite(this.ownerBrushId)) {
+      if (!tile) {
+        return;
+      }
+      const canApply =
+        this.ownerBrushMode === "clear" || Number.isFinite(this.ownerBrushId);
+      if (!canApply) {
         return;
       }
       const key = tile.key;
@@ -5876,10 +6031,11 @@ export default {
         this.clearBrushOverlay();
         return;
       }
-      const lookup = this.tileLookup || {};
+      const lookup = this.tileLookup;
+      const useMap = lookup instanceof Map;
       this.rebuildOwnerBorders();
       this.brushDirtyKeys.forEach((key) => {
-        const tile = lookup[key];
+        const tile = useMap ? lookup.get(key) : lookup ? lookup[key] : null;
         if (tile) {
           this.queueTileSave(tile);
         }
@@ -5927,17 +6083,18 @@ export default {
         context.lineTo(tile.x + vertices[i].x, tile.y + vertices[i].y);
       }
       context.closePath();
-      const isClear = this.ownerBrushMode === "clear";
-      const color = isClear
-        ? "rgba(255, 255, 255, 0.25)"
-        : this.ownerColors[this.ownerBrushId] || "#ffffff";
+      const style = getBrushOverlayStyle({
+        mode: this.ownerBrushMode,
+        ownerId: this.ownerBrushId,
+        ownerColors: this.ownerColors,
+      });
       const previousAlpha = context.globalAlpha;
-      context.globalAlpha = isClear ? 0.35 : 0.35;
-      context.fillStyle = color;
+      context.globalAlpha = style.fillAlpha;
+      context.fillStyle = style.color;
       context.fill();
-      context.globalAlpha = isClear ? 0.9 : 0.75;
+      context.globalAlpha = style.strokeAlpha;
       context.lineWidth = 1.5;
-      context.strokeStyle = color;
+      context.strokeStyle = style.color;
       context.stroke();
       context.globalAlpha = previousAlpha;
     },
@@ -5947,22 +6104,19 @@ export default {
         return;
       }
       const mode = options.mode || this.ownerBrushMode;
-      if (mode === "clear") {
-        if (!tile.owner && !tile.customOwner) {
-          return;
-        }
-        tile.owner = null;
-        tile.customOwner = false;
-      } else {
-        if (!Number.isFinite(ownerId)) {
-          return;
-        }
-        if (tile.owner === ownerId && tile.customOwner) {
-          return;
-        }
-        tile.owner = ownerId;
-        tile.customOwner = true;
-        this.ensureOwnerColors(ownerId);
+      const change = getBrushOwnerChange({
+        tileOwner: tile.owner,
+        tileCustomOwner: tile.customOwner,
+        ownerId,
+        mode,
+      });
+      if (!change) {
+        return;
+      }
+      tile.owner = change.owner;
+      tile.customOwner = change.customOwner;
+      if (Number.isFinite(tile.owner)) {
+        this.ensureOwnerColors(tile.owner);
       }
       if (!options.deferBorders) {
         this.rebuildOwnerBorders();
@@ -8483,6 +8637,65 @@ function toHex(value) {
       cursor: not-allowed;
       opacity: 0.6;
     }
+  }
+
+  .tile-edit-combobox {
+    position: relative;
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .tile-edit-combobox-list {
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 0.3rem);
+    z-index: 12;
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.35rem;
+    max-block-size: 14rem;
+    overflow: auto;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.65rem;
+    background: rgba(8, 8, 8, 0.98);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  .tile-edit-combobox-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    padding-block: 0.35rem;
+    padding-inline: 0.5rem;
+    border: 0;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $textColor;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .tile-edit-combobox-option.is-active,
+  .tile-edit-combobox-option:hover {
+    color: $backColor;
+    background: $accentColor;
+  }
+
+  .tile-edit-combobox-option-meta {
+    font-size: 0.6rem;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .tile-edit-combobox-empty {
+    padding-block: 0.35rem;
+    padding-inline: 0.5rem;
+    font-size: 0.7rem;
+    color: lighten($textColor, 30%);
   }
 
   .tile-edit-button {
