@@ -443,6 +443,10 @@
 import { normalize } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import BookmarkButton from "./BookmarkButton.vue";
+import {
+  getSupabaseClient,
+  SUPABASE_ALBUM_PROGRESS_TABLE,
+} from "../supabaseClient";
 
 const pageDir = (path) => {
   const normalized = normalize(path).replace(/\/$/, "");
@@ -463,6 +467,8 @@ export default {
       copiedScene: null,
       timelineFocusEnabled: false,
       timelineFocusTimeoutId: null,
+      supabase: null,
+      authUser: null,
     };
   },
   components: {
@@ -538,6 +544,9 @@ export default {
     resumeScene() {
       return this.bookmarkedScene || this.lastSeenScene;
     },
+    useCloud() {
+      return Boolean(this.supabase && this.authUser);
+    },
   },
   watch: {
     "$page.path"() {
@@ -568,6 +577,7 @@ export default {
     if (typeof window === "undefined") {
       return;
     }
+    this.initSupabase();
     const saved = window.localStorage.getItem("albumsViewMode");
     if (saved === "horizontal") {
       this.isToggle = true;
@@ -583,6 +593,10 @@ export default {
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("keydown", this.handleKeydown);
+    window.addEventListener(
+      "albums-bookmark-updated",
+      this.handleBookmarkUpdate
+    );
   },
   beforeDestroy() {
     if (typeof window === "undefined") {
@@ -590,6 +604,11 @@ export default {
     }
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("keydown", this.handleKeydown);
+    window.removeEventListener(
+      "albums-bookmark-updated",
+      this.handleBookmarkUpdate
+    );
+    this.teardownSupabase();
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
     }
@@ -602,6 +621,171 @@ export default {
     }
   },
   methods: {
+    initSupabase() {
+      if (this.supabase || typeof window === "undefined") {
+        return;
+      }
+      this.supabase = getSupabaseClient();
+      if (!this.supabase) {
+        return;
+      }
+      const { data } = this.supabase.auth.onAuthStateChange(
+        (_event, session) => {
+          this.handleAuthSession(session);
+        }
+      );
+      this._authSubscription = data ? data.subscription : null;
+      this.supabase.auth.getSession().then(({ data: sessionData }) => {
+        this.handleAuthSession(sessionData ? sessionData.session : null);
+      });
+    },
+    teardownSupabase() {
+      if (this._authSubscription) {
+        this._authSubscription.unsubscribe();
+        this._authSubscription = null;
+      }
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+        this._resumeSyncTimer = null;
+      }
+      this._pendingResumeScene = null;
+    },
+    handleAuthSession(session) {
+      this.authUser = session ? session.user : null;
+      if (this.authUser) {
+        this.loadCloudState();
+        return;
+      }
+      this.loadBookmarkLocal();
+      this.loadResumeLocal();
+    },
+    handleBookmarkUpdate() {
+      this.loadBookmark();
+    },
+    getLocalSceneNumber(key) {
+      if (typeof window === "undefined") {
+        return null;
+      }
+      const stored = window.localStorage.getItem(key);
+      if (!stored) {
+        return null;
+      }
+      const sceneNumber = parseInt(stored, 10);
+      if (!Number.isFinite(sceneNumber)) {
+        return null;
+      }
+      return sceneNumber;
+    },
+    setLocalSceneNumber(key, sceneNumber) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!Number.isFinite(sceneNumber)) {
+        window.localStorage.removeItem(key);
+        return;
+      }
+      window.localStorage.setItem(key, String(sceneNumber));
+    },
+    async loadCloudState() {
+      if (!this.useCloud) {
+        return;
+      }
+      if (this._cloudLoadPromise) {
+        return this._cloudLoadPromise;
+      }
+      this._cloudLoadPromise = (async () => {
+        const localBookmark = this.getLocalSceneNumber(this.bookmarkKey);
+        const localResume = this.getLocalSceneNumber(this.resumeKey);
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .select("bookmark_scene, resume_scene")
+          .eq("user_id", this.authUser.id)
+          .eq("page_path", this.$page.path)
+          .maybeSingle();
+        if (error) {
+          console.warn("Unable to load cloud album state.", error);
+          this.loadBookmarkLocal();
+          this.loadResumeLocal();
+          return;
+        }
+        const cloudBookmark = data ? parseInt(data.bookmark_scene, 10) : null;
+        const cloudResume = data ? parseInt(data.resume_scene, 10) : null;
+        const mergedBookmark = Number.isFinite(cloudBookmark)
+          ? cloudBookmark
+          : localBookmark;
+        const mergedResume = Number.isFinite(cloudResume)
+          ? cloudResume
+          : localResume;
+        const needsUpsert =
+          (Number.isFinite(localBookmark) && !Number.isFinite(cloudBookmark)) ||
+          (Number.isFinite(localResume) && !Number.isFinite(cloudResume));
+        if (needsUpsert) {
+          await this.upsertCloudState({
+            bookmark_scene: Number.isFinite(mergedBookmark)
+              ? mergedBookmark
+              : null,
+            resume_scene: Number.isFinite(mergedResume) ? mergedResume : null,
+          });
+        }
+        this.bookmarkedScene = Number.isFinite(mergedBookmark)
+          ? mergedBookmark
+          : null;
+        this.lastSeenScene = Number.isFinite(mergedResume)
+          ? mergedResume
+          : null;
+        this.setLocalSceneNumber(this.bookmarkKey, mergedBookmark);
+        this.setLocalSceneNumber(this.resumeKey, mergedResume);
+        if (this.bookmarkedScene && !this.getHashSceneNumber()) {
+          this.jumpToScene = this.bookmarkedScene;
+          this.$nextTick(() => {
+            this.goToScene();
+          });
+        }
+      })();
+      try {
+        await this._cloudLoadPromise;
+      } finally {
+        this._cloudLoadPromise = null;
+      }
+    },
+    async upsertCloudState(payload) {
+      if (!this.useCloud) {
+        return;
+      }
+      const row = {
+        user_id: this.authUser.id,
+        page_path: this.$page.path,
+      };
+      if (Object.prototype.hasOwnProperty.call(payload, "bookmark_scene")) {
+        row.bookmark_scene = payload.bookmark_scene;
+      }
+      if (Object.prototype.hasOwnProperty.call(payload, "resume_scene")) {
+        row.resume_scene = payload.resume_scene;
+      }
+      const { error } = await this.supabase
+        .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+        .upsert(row, { onConflict: "user_id,page_path" });
+      if (error) {
+        console.warn("Unable to save cloud album state.", error);
+      }
+    },
+    queueCloudResumeUpdate(sceneNumber) {
+      if (!this.useCloud) {
+        return;
+      }
+      this._pendingResumeScene = sceneNumber;
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+      }
+      this._resumeSyncTimer = window.setTimeout(() => {
+        const pending = this._pendingResumeScene;
+        this._pendingResumeScene = null;
+        this._resumeSyncTimer = null;
+        if (Number.isFinite(pending)) {
+          this.upsertCloudState({ resume_scene: pending });
+        }
+      }, 1200);
+    },
     toggleView() {
       this.isToggle = !this.isToggle;
       if (typeof window !== "undefined") {
@@ -814,32 +998,42 @@ export default {
         this.copiedScene = null;
       }, 2000);
     },
-    bookmarkScene(index) {
+    async bookmarkScene(index) {
       if (typeof window === "undefined") {
         return;
       }
       const sceneNumber = index + 1;
       if (this.bookmarkedScene === sceneNumber) {
         this.bookmarkedScene = null;
-        window.localStorage.removeItem(this.bookmarkKey);
+        if (this.useCloud) {
+          await this.upsertCloudState({ bookmark_scene: null });
+        }
+        this.setLocalSceneNumber(this.bookmarkKey, null);
         window.dispatchEvent(new CustomEvent("albums-bookmark-updated"));
         this.saveResumeScene(this.activeSceneIndex + 1);
         return;
       }
       this.bookmarkedScene = sceneNumber;
-      window.localStorage.setItem(this.bookmarkKey, String(sceneNumber));
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+        this._resumeSyncTimer = null;
+      }
+      this._pendingResumeScene = null;
+      if (this.useCloud) {
+        await this.upsertCloudState({ bookmark_scene: sceneNumber });
+      }
+      this.setLocalSceneNumber(this.bookmarkKey, sceneNumber);
       window.dispatchEvent(new CustomEvent("albums-bookmark-updated"));
     },
     loadResume() {
-      if (typeof window === "undefined") {
+      if (this.useCloud) {
+        this.loadCloudState();
         return;
       }
-      const stored = window.localStorage.getItem(this.resumeKey);
-      if (!stored) {
-        this.lastSeenScene = null;
-        return;
-      }
-      const sceneNumber = parseInt(stored, 10);
+      this.loadResumeLocal();
+    },
+    loadResumeLocal() {
+      const sceneNumber = this.getLocalSceneNumber(this.resumeKey);
       if (!Number.isFinite(sceneNumber)) {
         this.lastSeenScene = null;
         return;
@@ -867,19 +1061,21 @@ export default {
         return;
       }
       this.lastSeenScene = safeScene;
-      window.localStorage.setItem(this.resumeKey, String(safeScene));
+      this.setLocalSceneNumber(this.resumeKey, safeScene);
+      if (this.useCloud) {
+        this.queueCloudResumeUpdate(safeScene);
+      }
     },
     loadBookmark() {
-      if (typeof window === "undefined") {
+      if (this.useCloud) {
+        this.loadCloudState();
         return;
       }
+      this.loadBookmarkLocal();
+    },
+    loadBookmarkLocal() {
       const hashScene = this.getHashSceneNumber();
-      const stored = window.localStorage.getItem(this.bookmarkKey);
-      if (!stored) {
-        this.bookmarkedScene = null;
-        return;
-      }
-      const sceneNumber = parseInt(stored, 10);
+      const sceneNumber = this.getLocalSceneNumber(this.bookmarkKey);
       if (!Number.isFinite(sceneNumber)) {
         this.bookmarkedScene = null;
         return;

@@ -165,6 +165,10 @@ import SidebarButton from "../sidebar/SidebarButton.vue";
 import AlgoliaSearchBox from "../search/AlgoliaSearchBox.vue";
 import SearchBox from "../search/SearchBox.vue";
 import NavLinks from "./NavLinks.vue";
+import {
+  getSupabaseClient,
+  SUPABASE_ALBUM_PROGRESS_TABLE,
+} from "../../supabaseClient";
 
 export default {
   components: {
@@ -180,6 +184,8 @@ export default {
       bookmarks: [],
       bookmarkOpen: false,
       helpOpen: false,
+      supabase: null,
+      authUser: null,
     };
   },
 
@@ -201,6 +207,7 @@ export default {
     handleLinksWrapWidth();
     window.addEventListener("resize", handleLinksWrapWidth, false);
 
+    this.initSupabase();
     this.loadBookmarks();
     this._bookmarkUpdateHandler = () => this.loadBookmarks();
     if (typeof window !== "undefined") {
@@ -222,6 +229,7 @@ export default {
       window.removeEventListener("storage", this._bookmarkUpdateHandler);
       window.removeEventListener("click", this.handleOutsideClick, true);
     }
+    this.teardownSupabase();
   },
 
   computed: {
@@ -234,6 +242,9 @@ export default {
     isAlgoliaSearch() {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName;
     },
+    useCloud() {
+      return Boolean(this.supabase && this.authUser);
+    },
   },
 
   watch: {
@@ -245,6 +256,173 @@ export default {
   },
 
   methods: {
+    initSupabase() {
+      if (this.supabase || typeof window === "undefined") {
+        return;
+      }
+      this.supabase = getSupabaseClient();
+      if (!this.supabase) {
+        return;
+      }
+      const { data } = this.supabase.auth.onAuthStateChange(
+        (_event, session) => {
+          this.handleAuthSession(session);
+        }
+      );
+      this._authSubscription = data ? data.subscription : null;
+      this.supabase.auth.getSession().then(({ data: sessionData }) => {
+        this.handleAuthSession(sessionData ? sessionData.session : null);
+      });
+    },
+    teardownSupabase() {
+      if (this._authSubscription) {
+        this._authSubscription.unsubscribe();
+        this._authSubscription = null;
+      }
+      this._localSyncDone = false;
+      this._localSyncPromise = null;
+    },
+    handleAuthSession(session) {
+      this.authUser = session ? session.user : null;
+      this._localSyncDone = false;
+      if (this.authUser) {
+        this.syncLocalStateToCloud().then(() => {
+          this.loadBookmarks();
+        });
+        return;
+      }
+      this.loadBookmarks();
+    },
+    collectLocalAlbumState() {
+      if (typeof window === "undefined") {
+        return {};
+      }
+      const state = {};
+      const storage = window.localStorage || {};
+      const bookmarkPrefix = "albumsBookmark:";
+      const resumePrefix = "albumsResume:";
+      Object.keys(storage).forEach((key) => {
+        if (key.startsWith(bookmarkPrefix)) {
+          const path = key.slice(bookmarkPrefix.length);
+          const scene = parseInt(window.localStorage.getItem(key), 10);
+          if (!Number.isFinite(scene)) {
+            return;
+          }
+          state[path] = state[path] || {};
+          state[path].bookmark_scene = scene;
+          return;
+        }
+        if (key.startsWith(resumePrefix)) {
+          const path = key.slice(resumePrefix.length);
+          const scene = parseInt(window.localStorage.getItem(key), 10);
+          if (!Number.isFinite(scene)) {
+            return;
+          }
+          state[path] = state[path] || {};
+          state[path].resume_scene = scene;
+        }
+      });
+      return state;
+    },
+    async syncLocalStateToCloud() {
+      if (!this.useCloud) {
+        return;
+      }
+      if (this._localSyncDone) {
+        return;
+      }
+      if (this._localSyncPromise) {
+        return this._localSyncPromise;
+      }
+      let syncSucceeded = false;
+      this._localSyncPromise = (async () => {
+        const localState = this.collectLocalAlbumState();
+        const paths = Object.keys(localState);
+        if (!paths.length) {
+          syncSucceeded = true;
+          return;
+        }
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .select("page_path, bookmark_scene, resume_scene")
+          .eq("user_id", this.authUser.id)
+          .in("page_path", paths);
+        if (error) {
+          console.warn("Unable to sync local album state.", error);
+          return;
+        }
+        const cloudMap = new Map(
+          (data || []).map((row) => [row.page_path, row])
+        );
+        const rows = [];
+        paths.forEach((path) => {
+          const localEntry = localState[path] || {};
+          const cloudEntry = cloudMap.get(path) || {};
+          const cloudBookmark = parseInt(cloudEntry.bookmark_scene, 10);
+          const cloudResume = parseInt(cloudEntry.resume_scene, 10);
+          const bookmarkScene = Number.isFinite(cloudBookmark)
+            ? cloudBookmark
+            : localEntry.bookmark_scene;
+          const resumeScene = Number.isFinite(cloudResume)
+            ? cloudResume
+            : localEntry.resume_scene;
+          if (
+            !Number.isFinite(bookmarkScene) &&
+            !Number.isFinite(resumeScene)
+          ) {
+            return;
+          }
+          rows.push({
+            user_id: this.authUser.id,
+            page_path: path,
+            bookmark_scene: Number.isFinite(bookmarkScene)
+              ? bookmarkScene
+              : null,
+            resume_scene: Number.isFinite(resumeScene) ? resumeScene : null,
+          });
+        });
+        if (!rows.length) {
+          syncSucceeded = true;
+          return;
+        }
+        const { error: upsertError } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .upsert(rows, { onConflict: "user_id,page_path" });
+        if (upsertError) {
+          console.warn("Unable to sync local album state.", upsertError);
+          return;
+        }
+        syncSucceeded = true;
+      })();
+      try {
+        await this._localSyncPromise;
+      } finally {
+        this._localSyncPromise = null;
+        if (syncSucceeded) {
+          this._localSyncDone = true;
+        }
+      }
+    },
+    updateLocalBookmarksCache(items) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const prefix = "albumsBookmark:";
+      const keep = new Set();
+      items.forEach((item) => {
+        const key = `${prefix}${item.path}`;
+        keep.add(key);
+        if (Number.isFinite(item.scene)) {
+          window.localStorage.setItem(key, String(item.scene));
+        }
+      });
+      const keys = Object.keys(window.localStorage || {});
+      keys.forEach((key) => {
+        if (key.startsWith(prefix) && !keep.has(key)) {
+          window.localStorage.removeItem(key);
+        }
+      });
+    },
     toggleBookmarkMenu() {
       this.bookmarkOpen = !this.bookmarkOpen;
     },
@@ -254,11 +432,32 @@ export default {
     toggleHelpMenu() {
       this.helpOpen = !this.helpOpen;
     },
-    removeBookmark(key) {
+    async removeBookmark(key) {
       if (typeof window === "undefined") {
         return;
       }
-      window.localStorage.removeItem(key);
+      const prefix = "albumsBookmark:";
+      const path =
+        key && key.startsWith(prefix) ? key.slice(prefix.length) : key;
+      if (!path) {
+        return;
+      }
+      if (this.useCloud) {
+        const { error } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .upsert(
+            {
+              user_id: this.authUser.id,
+              page_path: path,
+              bookmark_scene: null,
+            },
+            { onConflict: "user_id,page_path" }
+          );
+        if (error) {
+          console.warn("Unable to remove cloud bookmark.", error);
+        }
+      }
+      window.localStorage.removeItem(`${prefix}${path}`);
       this.loadBookmarks();
       window.dispatchEvent(new CustomEvent("albums-bookmark-updated"));
     },
@@ -272,11 +471,61 @@ export default {
         this.helpOpen = false;
       }
     },
-    loadBookmarks() {
+    async loadBookmarks() {
       if (typeof window === "undefined") {
         this.bookmarks = [];
         return;
       }
+      if (this.useCloud) {
+        await this.syncLocalStateToCloud();
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .select("page_path, bookmark_scene")
+          .eq("user_id", this.authUser.id)
+          .not("bookmark_scene", "is", null);
+        if (error) {
+          console.warn("Unable to load cloud bookmarks.", error);
+          this.loadBookmarksLocal();
+          return;
+        }
+        const items = (data || [])
+          .map((row) => {
+            const path = row.page_path;
+            const scene = parseInt(row.bookmark_scene, 10);
+            if (!Number.isFinite(scene)) {
+              return null;
+            }
+            const page = this.$site.pages.find((p) => p.path === path);
+            const title =
+              (page && (page.frontmatter.title || page.title)) || path;
+            const edition =
+              page && page.frontmatter && page.frontmatter.edition;
+            const pr = page && page.frontmatter && page.frontmatter.pr;
+            return {
+              key: path,
+              path,
+              scene,
+              title,
+              edition,
+              pr,
+            };
+          })
+          .filter(Boolean);
+        items.sort((a, b) => {
+          const aGroup = a.edition || a.pr;
+          const bGroup = b.edition || b.pr;
+          if (aGroup && bGroup && aGroup !== bGroup) {
+            return aGroup.localeCompare(bGroup);
+          }
+          return a.title.localeCompare(b.title);
+        });
+        this.bookmarks = items;
+        this.updateLocalBookmarksCache(items);
+        return;
+      }
+      this.loadBookmarksLocal();
+    },
+    loadBookmarksLocal() {
       const prefix = "albumsBookmark:";
       const keys = Object.keys(window.localStorage || {});
       const items = [];
@@ -294,7 +543,7 @@ export default {
         const edition = page && page.frontmatter && page.frontmatter.edition;
         const pr = page && page.frontmatter && page.frontmatter.pr;
         items.push({
-          key,
+          key: path,
           path,
           scene,
           title,
