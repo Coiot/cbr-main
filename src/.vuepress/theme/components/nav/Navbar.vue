@@ -172,7 +172,8 @@
           <!-- <div class="user-header">Account</div> -->
           <div v-if="!authUser" class="user-section">
             <p class="user-copy">
-              Sign in to sync bookmarks, reactions, and live map editing.
+              Sign in to sync bookmarks, reactions, comments, and live map
+              editing.
             </p>
             <input
               class="user-input"
@@ -191,9 +192,10 @@
             </button>
             <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
             <p class="user-cta">
-              Ko-Fi supporters access exclusive features.
+              Support the show and get exclusive features.
+              <br />
               <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
-                >Donate on Ko-fi</a
+                >Donate on Ko-Fi</a
               >
             </p>
           </div>
@@ -271,7 +273,7 @@
                 type="text"
                 placeholder="Add a short flair"
                 v-model="customFlair"
-                maxlength="32"
+                maxlength="40"
                 @change="saveCustomFlair"
               />
               <p class="user-hint">Shown next to your supporter comment.</p>
@@ -1421,9 +1423,11 @@ $navbar-horizontal-padding = 1.4rem;
     }
 
     .user-copy {
-      font-size: 0.85rem;
-      line-height: 1.3;
       color: lighten($backColor, 10%);
+      font-size: 0.85rem;
+      word-break: break-word;
+      white-space: normal;
+      line-height: 1.3;
       margin: 0;
     }
 
@@ -1543,7 +1547,7 @@ $navbar-horizontal-padding = 1.4rem;
 
     .user-cta a {
       color: $accentColor;
-      font-size: 0.9rem;
+      font-size: 1.125rem;
       font-weight: 800;
       padding-block-start: 0.5rem;
     }
