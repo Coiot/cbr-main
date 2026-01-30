@@ -777,6 +777,7 @@ const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
 const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
 const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
 const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
+const RESUME_SYNC_DEBOUNCE = 4000;
 
 export default {
   name: "Albums",
@@ -1053,6 +1054,8 @@ export default {
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("keydown", this.handleKeydown, true);
+    window.addEventListener("visibilitychange", this.handleVisibilityChange);
+    window.addEventListener("beforeunload", this.handleBeforeUnload);
     window.addEventListener(
       "albums-bookmark-updated",
       this.handleBookmarkUpdate
@@ -1065,6 +1068,8 @@ export default {
     }
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("keydown", this.handleKeydown, true);
+    window.removeEventListener("visibilitychange", this.handleVisibilityChange);
+    window.removeEventListener("beforeunload", this.handleBeforeUnload);
     window.removeEventListener(
       "albums-bookmark-updated",
       this.handleBookmarkUpdate
@@ -1072,6 +1077,7 @@ export default {
     window.removeEventListener("user-settings-synced", this.handleSettingsSync);
     this.teardownReactions();
     this.teardownSupabase();
+    this.flushPendingResume(true);
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
     }
@@ -1112,6 +1118,7 @@ export default {
         this._resumeSyncTimer = null;
       }
       this._pendingResumeScene = null;
+      this.setSessionSceneNumber(this.resumePendingKey(), null);
     },
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
@@ -1146,6 +1153,20 @@ export default {
       }
       return sceneNumber;
     },
+    getSessionSceneNumber(key) {
+      if (typeof window === "undefined") {
+        return null;
+      }
+      const stored = window.sessionStorage.getItem(key);
+      if (!stored) {
+        return null;
+      }
+      const sceneNumber = parseInt(stored, 10);
+      if (!Number.isFinite(sceneNumber)) {
+        return null;
+      }
+      return sceneNumber;
+    },
     setLocalSceneNumber(key, sceneNumber) {
       if (typeof window === "undefined") {
         return;
@@ -1155,6 +1176,16 @@ export default {
         return;
       }
       window.localStorage.setItem(key, String(sceneNumber));
+    },
+    setSessionSceneNumber(key, sceneNumber) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!Number.isFinite(sceneNumber)) {
+        window.sessionStorage.removeItem(key);
+        return;
+      }
+      window.sessionStorage.setItem(key, String(sceneNumber));
     },
     initReactions() {
       if (typeof window === "undefined") {
@@ -1417,6 +1448,9 @@ export default {
           : null;
         this.setLocalSceneNumber(this.bookmarkKey, mergedBookmark);
         this.setLocalSceneNumber(this.resumeKey, mergedResume);
+        this._lastCloudResumeScene = Number.isFinite(mergedResume)
+          ? mergedResume
+          : null;
         if (this.bookmarkedScene && !this.getHashSceneNumber()) {
           this.jumpToScene = this.bookmarkedScene;
           this.$nextTick(() => {
@@ -1451,22 +1485,36 @@ export default {
         console.warn("Unable to save cloud album state.", error);
       }
     },
+    resumePendingKey() {
+      return `${this.resumeKey}:pending`;
+    },
     queueCloudResumeUpdate(sceneNumber) {
       if (!this.useCloud) {
         return;
       }
+      this.setSessionSceneNumber(this.resumePendingKey(), sceneNumber);
       this._pendingResumeScene = sceneNumber;
       if (this._resumeSyncTimer) {
         window.clearTimeout(this._resumeSyncTimer);
       }
       this._resumeSyncTimer = window.setTimeout(() => {
-        const pending = this._pendingResumeScene;
-        this._pendingResumeScene = null;
         this._resumeSyncTimer = null;
-        if (Number.isFinite(pending)) {
-          this.upsertCloudState({ resume_scene: pending });
-        }
-      }, 1200);
+        this.flushPendingResume();
+      }, RESUME_SYNC_DEBOUNCE);
+    },
+    flushPendingResume(force) {
+      if (!this.useCloud) {
+        return;
+      }
+      const pending = this.getSessionSceneNumber(this.resumePendingKey());
+      if (!Number.isFinite(pending)) {
+        return;
+      }
+      if (!force && this._lastCloudResumeScene === pending) {
+        return;
+      }
+      this._lastCloudResumeScene = pending;
+      this.upsertCloudState({ resume_scene: pending });
     },
     toggleView() {
       this.isToggle = !this.isToggle;
@@ -1949,6 +1997,7 @@ export default {
         this._resumeSyncTimer = null;
       }
       this._pendingResumeScene = null;
+      this.setSessionSceneNumber(this.resumePendingKey(), null);
       if (this.useCloud) {
         await this.upsertCloudState({ bookmark_scene: sceneNumber });
       }
@@ -2141,6 +2190,17 @@ export default {
         this.jumpToIndex(this.sceneCount - 1);
         return;
       }
+    },
+    handleVisibilityChange() {
+      if (typeof document === "undefined") {
+        return;
+      }
+      if (document.visibilityState === "hidden") {
+        this.flushPendingResume(true);
+      }
+    },
+    handleBeforeUnload() {
+      this.flushPendingResume(true);
     },
     jumpRelative(delta) {
       if (!this.sceneCount) {
@@ -2350,6 +2410,7 @@ export default {
 }
 
 .nav-kicker {
+  color: lighten($textColor, 20%);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2402,12 +2463,14 @@ export default {
 }
 
 .label {
+  color: $navColor;
   font-size: 1.6rem;
   font-weight: 800;
   color: $navColor;
 }
 
 .value {
+  color: $accentColor;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
@@ -2417,6 +2480,7 @@ export default {
 .value a {
   color: #fff;
   font-weight: 600;
+  color: #fff;
   transition: all 0.2s ease-in-out;
 }
 
@@ -2441,6 +2505,7 @@ export default {
 }
 
 .view-status {
+  color: $navColor;
   font-size: 1rem;
   font-weight: 700;
   color: $navColor;
@@ -2466,6 +2531,7 @@ export default {
 .toggle-button:hover {
   background-color: darken(#d20083, 35%);
   transform: scale(1.01);
+  background-color: darken(#d20083, 35%);
   cursor: pointer;
 }
 

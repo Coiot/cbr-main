@@ -8602,6 +8602,7 @@ function toHex(value) {
   .tile-edit-input {
     flex: 1;
     min-inline-size: 0;
+    inline-size: -webkit-fill-available;
     padding-block: 0.35rem;
     padding-inline: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.12);
