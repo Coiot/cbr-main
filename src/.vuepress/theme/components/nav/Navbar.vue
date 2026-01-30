@@ -27,6 +27,57 @@
       <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
       <SearchBox v-else-if="$site.themeConfig.search !== false" />
       <NavLinks class="can-hide" />
+      <a
+        class="social-trigger"
+        href="https://old.reddit.com/r/civbattleroyale/"
+        aria-label="Reddit"
+        title="Reddit"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="social-icon" viewBox="0 0 512 512" aria-hidden="true">
+          <path
+            d="M0 256C0 114.6 114.6 0 256 0S512 114.6 512 256 397.4 512 256 512L37.1 512c-13.7 0-20.5-16.5-10.9-26.2L75 437C28.7 390.7 0 326.7 0 256zM349.6 153.6c23.6 0 42.7-19.1 42.7-42.7s-19.1-42.7-42.7-42.7c-20.6 0-37.8 14.6-41.8 34-34.5 3.7-61.4 33-61.4 68.4l0 .2c-37.5 1.6-71.8 12.3-99 29.1-10.1-7.8-22.8-12.5-36.5-12.5-33 0-59.8 26.8-59.8 59.8 0 24 14.1 44.6 34.4 54.1 2 69.4 77.6 125.2 170.6 125.2s168.7-55.9 170.6-125.3c20.2-9.6 34.1-30.2 34.1-54 0-33-26.8-59.8-59.8-59.8-13.7 0-26.3 4.6-36.4 12.4-27.4-17-62.1-27.7-100-29.1l0-.2c0-25.4 18.9-46.5 43.4-49.9 4.4 18.8 21.3 32.8 41.5 32.8l.1 .2zM177.1 246.9c16.7 0 29.5 17.6 28.5 39.3s-13.5 29.6-30.3 29.6-31.4-8.8-30.4-30.5 15.4-38.3 32.1-38.3l.1-.1zm190.1 38.3c1 21.7-13.7 30.5-30.4 30.5s-29.3-7.9-30.3-29.6 11.8-39.3 28.5-39.3 31.2 16.6 32.1 38.3l.1 .1zm-48.1 56.7c-10.3 24.6-34.6 41.9-63 41.9s-52.7-17.3-63-41.9c-1.2-2.9 .8-6.2 3.9-6.5 18.4-1.9 38.3-2.9 59.1-2.9s40.7 1 59.1 2.9c3.1 .3 5.1 3.6 3.9 6.5z"
+          />
+        </svg>
+      </a>
+      <a
+        class="social-trigger"
+        href="https://discord.gg/565JwaMsuQ"
+        aria-label="Discord"
+        title="Discord"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg
+          class="social-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          aria-hidden="true"
+        >
+          <path
+            d="M524.5 133.8C524.3 133.5 524.1 133.2 523.7 133.1C485.6 115.6 445.3 103.1 404 96C403.6 95.9 403.2 96 402.9 96.1C402.6 96.2 402.3 96.5 402.1 96.9C396.6 106.8 391.6 117.1 387.2 127.5C342.6 120.7 297.3 120.7 252.8 127.5C248.3 117 243.3 106.8 237.7 96.9C237.5 96.6 237.2 96.3 236.9 96.1C236.6 95.9 236.2 95.9 235.8 95.9C194.5 103 154.2 115.5 116.1 133C115.8 133.1 115.5 133.4 115.3 133.7C39.1 247.5 18.2 358.6 28.4 468.2C28.4 468.5 28.5 468.7 28.6 469C28.7 469.3 28.9 469.4 29.1 469.6C73.5 502.5 123.1 527.6 175.9 543.8C176.3 543.9 176.7 543.9 177 543.8C177.3 543.7 177.7 543.4 177.9 543.1C189.2 527.7 199.3 511.3 207.9 494.3C208 494.1 208.1 493.8 208.1 493.5C208.1 493.2 208.1 493 208 492.7C207.9 492.4 207.8 492.2 207.6 492.1C207.4 492 207.2 491.8 206.9 491.7C191.1 485.6 175.7 478.3 161 469.8C160.7 469.6 160.5 469.4 160.3 469.2C160.1 469 160 468.6 160 468.3C160 468 160 467.7 160.2 467.4C160.4 467.1 160.5 466.9 160.8 466.7C163.9 464.4 167 462 169.9 459.6C170.2 459.4 170.5 459.2 170.8 459.2C171.1 459.2 171.5 459.2 171.8 459.3C268 503.2 372.2 503.2 467.3 459.3C467.6 459.2 468 459.1 468.3 459.1C468.6 459.1 469 459.3 469.2 459.5C472.1 461.9 475.2 464.4 478.3 466.7C478.5 466.9 478.7 467.1 478.9 467.4C479.1 467.7 479.1 468 479.1 468.3C479.1 468.6 479 468.9 478.8 469.2C478.6 469.5 478.4 469.7 478.2 469.8C463.5 478.4 448.2 485.7 432.3 491.6C432.1 491.7 431.8 491.8 431.6 492C431.4 492.2 431.3 492.4 431.2 492.7C431.1 493 431.1 493.2 431.1 493.5C431.1 493.8 431.2 494 431.3 494.3C440.1 511.3 450.1 527.6 461.3 543.1C461.5 543.4 461.9 543.7 462.2 543.8C462.5 543.9 463 543.9 463.3 543.8C516.2 527.6 565.9 502.5 610.4 469.6C610.6 469.4 610.8 469.2 610.9 469C611 468.8 611.1 468.5 611.1 468.2C623.4 341.4 590.6 231.3 524.2 133.7zM222.5 401.5C193.5 401.5 169.7 374.9 169.7 342.3C169.7 309.7 193.1 283.1 222.5 283.1C252.2 283.1 275.8 309.9 275.3 342.3C275.3 375 251.9 401.5 222.5 401.5zM417.9 401.5C388.9 401.5 365.1 374.9 365.1 342.3C365.1 309.7 388.5 283.1 417.9 283.1C447.6 283.1 471.2 309.9 470.7 342.3C470.7 375 447.5 401.5 417.9 401.5z"
+          />
+        </svg>
+      </a>
+      <router-link
+        class="community-trigger"
+        to="/community-tile-map/"
+        aria-label="Community tile map"
+        title="Community tile map"
+      >
+        <svg
+          class="community-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+          aria-hidden="true"
+        >
+          <path
+            transform="rotate(90 320 320)"
+            d="M65.5 284.3C52.8 306.5 52.8 333.7 65.5 355.8L161.7 523.9C174.5 546.3 198.4 560.1 224.2 560.1L415.8 560.1C441.6 560.1 465.5 546.3 478.3 523.9L574.5 355.8C587.2 333.6 587.2 306.4 574.5 284.3L478.3 116.2C465.5 93.8 441.6 80 415.8 80L224.2 80C198.4 80 174.5 93.8 161.7 116.2L65.5 284.3zM107.2 332C103 324.6 103 315.5 107.2 308.2L203.4 140.1C207.7 132.6 215.6 128 224.2 128L415.8 128C424.4 128 432.4 132.6 436.6 140.1L532.8 308.2C537 315.6 537 324.7 532.8 332L436.7 500C432.4 507.5 424.5 512.1 415.9 512.1L224.3 512.1C215.7 512.1 207.7 507.5 203.5 500L107.2 332zM296 408C296 421.3 306.7 432 320 432C333.3 432 344 421.3 344 408L344 344L408 344C421.3 344 432 333.3 432 320C432 306.7 421.3 296 408 296L344 296L344 232C344 218.7 333.3 208 320 208C306.7 208 296 218.7 296 232L296 296L232 296C218.7 296 208 306.7 208 320C208 333.3 218.7 344 232 344L296 344L296 408z"
+          />
+        </svg>
+      </router-link>
       <div class="bookmark-wrapper" ref="bookmarkWrapper">
         <button
           type="button"
@@ -94,24 +145,145 @@
           <p v-else class="bookmark-empty">No bookmarks yet.</p>
         </div>
       </div>
-      <router-link
-        class="community-trigger"
-        to="/community-tile-map/"
-        aria-label="Community tile map"
-        title="Community tile map"
-      >
-        <svg
-          class="community-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 640 640"
-          aria-hidden="true"
+
+      <div class="user-wrapper" ref="userWrapper">
+        <button
+          type="button"
+          class="user-trigger"
+          aria-label="User menu"
+          aria-haspopup="true"
+          :aria-expanded="userOpen ? 'true' : 'false'"
+          @click="toggleUserMenu"
         >
-          <path
-            transform="rotate(90 320 320)"
-            d="M65.5 284.3C52.8 306.5 52.8 333.7 65.5 355.8L161.7 523.9C174.5 546.3 198.4 560.1 224.2 560.1L415.8 560.1C441.6 560.1 465.5 546.3 478.3 523.9L574.5 355.8C587.2 333.6 587.2 306.4 574.5 284.3L478.3 116.2C465.5 93.8 441.6 80 415.8 80L224.2 80C198.4 80 174.5 93.8 161.7 116.2L65.5 284.3zM107.2 332C103 324.6 103 315.5 107.2 308.2L203.4 140.1C207.7 132.6 215.6 128 224.2 128L415.8 128C424.4 128 432.4 132.6 436.6 140.1L532.8 308.2C537 315.6 537 324.7 532.8 332L436.7 500C432.4 507.5 424.5 512.1 415.9 512.1L224.3 512.1C215.7 512.1 207.7 507.5 203.5 500L107.2 332zM296 408C296 421.3 306.7 432 320 432C333.3 432 344 421.3 344 408L344 344L408 344C421.3 344 432 333.3 432 320C432 306.7 421.3 296 408 296L344 296L344 232C344 218.7 333.3 208 320 208C306.7 208 296 218.7 296 232L296 296L232 296C218.7 296 208 306.7 208 320C208 333.3 218.7 344 232 344L296 344L296 408z"
-          />
-        </svg>
-      </router-link>
+          <svg
+            class="user-icon"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M18 20a6 6 0 0 0-12 0" />
+            <circle cx="12" cy="10" r="4" />
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+        </button>
+        <div v-if="userOpen" class="user-dropdown">
+          <!-- <div class="user-header">Account</div> -->
+          <div v-if="!authUser" class="user-section">
+            <p class="user-copy">
+              Sign in to sync bookmarks, reactions, and live map editing.
+            </p>
+            <input
+              class="user-input"
+              type="email"
+              placeholder="Email linked with Ko-Fi"
+              v-model="authEmail"
+              autocomplete="email"
+            />
+            <button
+              type="button"
+              class="user-button"
+              :disabled="authLoading"
+              @click="signInWithEmail"
+            >
+              {{ authLoading ? "Sending..." : "Send Link" }}
+            </button>
+            <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
+            <p class="user-cta">
+              Ko-Fi supporters access exclusive features.
+              <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
+                >Donate on Ko-fi</a
+              >
+            </p>
+          </div>
+          <div v-else class="user-section">
+            <p class="user-email">{{ displayName }}</p>
+            <div class="user-field">
+              <label class="user-label" for="user-name-input">Username</label>
+              <div class="user-row">
+                <input
+                  id="user-name-input"
+                  class="user-input"
+                  type="text"
+                  placeholder="Set display name"
+                  v-model="usernameInput"
+                  maxlength="32"
+                  autocomplete="nickname"
+                />
+                <button
+                  type="button"
+                  class="user-button"
+                  :disabled="usernameSaving"
+                  @click="saveUsername"
+                >
+                  {{ usernameSaving ? "Saving..." : "Save" }}
+                </button>
+              </div>
+              <p v-if="usernameMessage" class="user-message">
+                {{ usernameMessage }}
+              </p>
+            </div>
+            <div class="user-field">
+              <label class="user-label">View Mode Preference</label>
+              <div class="user-toggle">
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': albumsViewMode === 'vertical' }"
+                  @click="setAlbumsViewMode('vertical')"
+                >
+                  Vertical
+                </button>
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': albumsViewMode === 'horizontal' }"
+                  @click="setAlbumsViewMode('horizontal')"
+                >
+                  Horizontal
+                </button>
+              </div>
+            </div>
+            <div class="user-field">
+              <label class="user-label" for="user-civ-select"
+                >Favorite civ</label
+              >
+              <select
+                id="user-civ-select"
+                class="user-input"
+                v-model="favoriteCiv"
+                @change="saveFavoriteCiv"
+              >
+                <option value="">No preference</option>
+                <option v-for="civ in civOptions" :key="civ" :value="civ">
+                  {{ civ }}
+                </option>
+              </select>
+            </div>
+            <div class="user-field">
+              <label class="user-label" for="user-flair-input"
+                >Custom flair</label
+              >
+              <input
+                id="user-flair-input"
+                class="user-input"
+                type="text"
+                placeholder="Add a short flair"
+                v-model="customFlair"
+                maxlength="32"
+                @change="saveCustomFlair"
+              />
+              <p class="user-hint">Shown next to your supporter comment.</p>
+            </div>
+            <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
+            <button type="button" class="user-button" @click="signOut">
+              Sign out
+            </button>
+            <p class="user-cta">Thank you for supporting the show!</p>
+          </div>
+        </div>
+      </div>
       <div class="help-wrapper" ref="helpWrapper">
         <button
           type="button"
@@ -165,10 +337,14 @@ import SidebarButton from "../sidebar/SidebarButton.vue";
 import AlgoliaSearchBox from "../search/AlgoliaSearchBox.vue";
 import SearchBox from "../search/SearchBox.vue";
 import NavLinks from "./NavLinks.vue";
+import { getEdition } from "../../../data/editions";
 import {
   getSupabaseClient,
   SUPABASE_ALBUM_PROGRESS_TABLE,
+  SUPABASE_USER_SETTINGS_TABLE,
 } from "../../supabaseClient";
+
+const USER_SETTINGS_KEYS = ["albumsViewMode", "favoriteCiv", "customFlair"];
 
 export default {
   components: {
@@ -184,8 +360,20 @@ export default {
       bookmarks: [],
       bookmarkOpen: false,
       helpOpen: false,
+      userOpen: false,
       supabase: null,
       authUser: null,
+      authProfile: null,
+      userSettings: {},
+      authEmail: "",
+      usernameInput: "",
+      usernameSaving: false,
+      usernameMessage: "",
+      albumsViewMode: "vertical",
+      favoriteCiv: "",
+      customFlair: "",
+      authLoading: false,
+      authMessage: "",
     };
   },
 
@@ -209,6 +397,7 @@ export default {
 
     this.initSupabase();
     this.loadBookmarks();
+    this.loadViewMode();
     this._bookmarkUpdateHandler = () => this.loadBookmarks();
     if (typeof window !== "undefined") {
       window.addEventListener(
@@ -216,6 +405,10 @@ export default {
         this._bookmarkUpdateHandler
       );
       window.addEventListener("storage", this._bookmarkUpdateHandler);
+      window.addEventListener(
+        "user-settings-updated",
+        this.handleSettingsUpdate
+      );
       window.addEventListener("click", this.handleOutsideClick, true);
     }
   },
@@ -227,6 +420,10 @@ export default {
         this._bookmarkUpdateHandler
       );
       window.removeEventListener("storage", this._bookmarkUpdateHandler);
+      window.removeEventListener(
+        "user-settings-updated",
+        this.handleSettingsUpdate
+      );
       window.removeEventListener("click", this.handleOutsideClick, true);
     }
     this.teardownSupabase();
@@ -245,12 +442,31 @@ export default {
     useCloud() {
       return Boolean(this.supabase && this.authUser);
     },
+    displayName() {
+      if (this.authProfile && this.authProfile.username) {
+        return this.authProfile.username;
+      }
+      return (this.authUser && this.authUser.email) || "";
+    },
+    civOptions() {
+      const edition = getEdition("s5");
+      const names = (
+        edition && edition.competitors
+          ? edition.competitors.map((civ) => civ.name)
+          : []
+      ).slice();
+      if (!names.includes("Babylon")) {
+        names.push("Babylon");
+      }
+      return names.sort((a, b) => a.localeCompare(b, "en"));
+    },
   },
 
   watch: {
     $route() {
       this.bookmarkOpen = false;
       this.helpOpen = false;
+      this.userOpen = false;
       this.loadBookmarks();
     },
   },
@@ -281,16 +497,34 @@ export default {
       }
       this._localSyncDone = false;
       this._localSyncPromise = null;
+      this._settingsSyncDone = false;
+      this._settingsSyncPromise = null;
     },
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
+      if (this.authUser && !this.authEmail) {
+        this.authEmail = this.authUser.email || "";
+      }
       this._localSyncDone = false;
+      this._settingsSyncDone = false;
       if (this.authUser) {
+        this.authMessage = "Signed in.";
+        this.fetchProfile();
         this.syncLocalStateToCloud().then(() => {
           this.loadBookmarks();
         });
+        this.syncLocalSettingsToCloud();
         return;
       }
+      if (this.authMessage && this.authMessage !== "Signed out.") {
+        this.authMessage = "";
+      }
+      this.authProfile = null;
+      this.userSettings = {};
+      this.usernameInput = "";
+      this.usernameMessage = "";
+      this.favoriteCiv = "";
+      this.customFlair = "";
       this.loadBookmarks();
     },
     collectLocalAlbumState() {
@@ -403,6 +637,291 @@ export default {
         }
       }
     },
+    async fetchProfile() {
+      if (!this.useCloud) {
+        return;
+      }
+      const { data, error } = await this.supabase
+        .from("profiles")
+        .select("username")
+        .eq("id", this.authUser.id)
+        .maybeSingle();
+      if (error) {
+        console.warn("Unable to load profile.", error);
+        return;
+      }
+      this.authProfile = data || null;
+      if (this.authProfile && this.authProfile.username) {
+        this.usernameInput = this.authProfile.username;
+      }
+    },
+    collectLocalUserSettings() {
+      if (typeof window === "undefined") {
+        return {};
+      }
+      const settings = {};
+      USER_SETTINGS_KEYS.forEach((key) => {
+        const value = window.localStorage.getItem(key);
+        if (!value) {
+          return;
+        }
+        if (key === "albumsViewMode") {
+          if (value === "horizontal" || value === "vertical") {
+            settings[key] = value;
+          }
+          return;
+        }
+        if (key === "favoriteCiv") {
+          settings[key] = value;
+          return;
+        }
+        if (key === "customFlair") {
+          settings[key] = value;
+          return;
+        }
+        settings[key] = value;
+      });
+      return settings;
+    },
+    applyUserSettings(settings, emit = false) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!settings || typeof settings !== "object") {
+        return;
+      }
+      USER_SETTINGS_KEYS.forEach((key) => {
+        if (!Object.prototype.hasOwnProperty.call(settings, key)) {
+          return;
+        }
+        const value = settings[key];
+        if (key === "albumsViewMode") {
+          if (value === "horizontal" || value === "vertical") {
+            window.localStorage.setItem(key, value);
+          }
+          return;
+        }
+        if (key === "favoriteCiv") {
+          if (value) {
+            window.localStorage.setItem(key, value);
+          } else {
+            window.localStorage.removeItem(key);
+          }
+          return;
+        }
+        if (key === "customFlair") {
+          if (value) {
+            window.localStorage.setItem(key, value);
+          } else {
+            window.localStorage.removeItem(key);
+          }
+          return;
+        }
+        if (value == null) {
+          return;
+        }
+        window.localStorage.setItem(key, String(value));
+      });
+      if (emit) {
+        window.dispatchEvent(
+          new CustomEvent("user-settings-synced", { detail: settings })
+        );
+      }
+    },
+    async syncLocalSettingsToCloud() {
+      if (!this.useCloud) {
+        return;
+      }
+      if (this._settingsSyncDone) {
+        return;
+      }
+      if (this._settingsSyncPromise) {
+        return this._settingsSyncPromise;
+      }
+      let syncSucceeded = false;
+      this._settingsSyncPromise = (async () => {
+        const localSettings = this.collectLocalUserSettings();
+        const { data, error } = await this.supabase
+          .from(SUPABASE_USER_SETTINGS_TABLE)
+          .select("settings")
+          .eq("user_id", this.authUser.id)
+          .maybeSingle();
+        if (error) {
+          console.warn("Unable to sync user settings.", error);
+          return;
+        }
+        const cloudSettings = (data && data.settings) || {};
+        const merged = { ...localSettings, ...cloudSettings };
+        this.userSettings = merged;
+        this.applyUserSettings(merged, true);
+        this.loadViewMode();
+        let needsUpsert = !data;
+        USER_SETTINGS_KEYS.forEach((key) => {
+          if (
+            Object.prototype.hasOwnProperty.call(localSettings, key) &&
+            !Object.prototype.hasOwnProperty.call(cloudSettings, key)
+          ) {
+            needsUpsert = true;
+          }
+        });
+        if (!needsUpsert) {
+          syncSucceeded = true;
+          return;
+        }
+        const { error: upsertError } = await this.supabase
+          .from(SUPABASE_USER_SETTINGS_TABLE)
+          .upsert(
+            {
+              user_id: this.authUser.id,
+              settings: merged,
+            },
+            { onConflict: "user_id" }
+          );
+        if (upsertError) {
+          console.warn("Unable to sync user settings.", upsertError);
+          return;
+        }
+        syncSucceeded = true;
+      })();
+      try {
+        await this._settingsSyncPromise;
+      } finally {
+        this._settingsSyncPromise = null;
+        if (syncSucceeded) {
+          this._settingsSyncDone = true;
+        }
+      }
+    },
+    async saveUserSettings(patch) {
+      if (!this.useCloud || !patch || typeof patch !== "object") {
+        return;
+      }
+      this.userSettings = { ...this.userSettings, ...patch };
+      const { error } = await this.supabase
+        .from(SUPABASE_USER_SETTINGS_TABLE)
+        .upsert(
+          {
+            user_id: this.authUser.id,
+            settings: this.userSettings,
+          },
+          { onConflict: "user_id" }
+        );
+      if (error) {
+        console.warn("Unable to save user settings.", error);
+      }
+    },
+    handleSettingsUpdate(event) {
+      if (!event || !event.detail) {
+        return;
+      }
+      const settings = event.detail;
+      this.applyUserSettings(settings, false);
+      if (Object.prototype.hasOwnProperty.call(settings, "albumsViewMode")) {
+        this.albumsViewMode = settings.albumsViewMode;
+      }
+      if (Object.prototype.hasOwnProperty.call(settings, "favoriteCiv")) {
+        this.favoriteCiv = settings.favoriteCiv || "";
+      }
+      if (Object.prototype.hasOwnProperty.call(settings, "customFlair")) {
+        this.customFlair = settings.customFlair || "";
+      }
+      this.saveUserSettings(settings);
+    },
+    loadViewMode() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const stored = window.localStorage.getItem("albumsViewMode");
+      this.albumsViewMode =
+        stored === "horizontal" || stored === "vertical" ? stored : "vertical";
+      const storedCiv = window.localStorage.getItem("favoriteCiv");
+      this.favoriteCiv = storedCiv || "";
+      const storedFlair = window.localStorage.getItem("customFlair");
+      this.customFlair = storedFlair || "";
+    },
+    setAlbumsViewMode(mode) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (mode !== "horizontal" && mode !== "vertical") {
+        return;
+      }
+      this.albumsViewMode = mode;
+      window.localStorage.setItem("albumsViewMode", mode);
+      window.dispatchEvent(
+        new CustomEvent("user-settings-updated", {
+          detail: { albumsViewMode: mode },
+        })
+      );
+    },
+    saveFavoriteCiv() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const value = String(this.favoriteCiv || "").trim();
+      if (value) {
+        window.localStorage.setItem("favoriteCiv", value);
+      } else {
+        window.localStorage.removeItem("favoriteCiv");
+      }
+      window.dispatchEvent(
+        new CustomEvent("user-settings-updated", {
+          detail: { favoriteCiv: value },
+        })
+      );
+    },
+    saveCustomFlair() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const value = String(this.customFlair || "").trim();
+      if (value) {
+        window.localStorage.setItem("customFlair", value);
+      } else {
+        window.localStorage.removeItem("customFlair");
+      }
+      window.dispatchEvent(
+        new CustomEvent("user-settings-updated", {
+          detail: { customFlair: value },
+        })
+      );
+    },
+    async saveUsername() {
+      if (!this.useCloud) {
+        return;
+      }
+      const trimmed = String(this.usernameInput || "").trim();
+      if (!trimmed) {
+        this.usernameMessage = "Enter a username to save.";
+        return;
+      }
+      if (trimmed.length > 32) {
+        this.usernameMessage = "Username must be 32 characters or less.";
+        return;
+      }
+      if (this.authProfile && this.authProfile.username === trimmed) {
+        this.usernameMessage = "Username is already set.";
+        return;
+      }
+      this.usernameSaving = true;
+      this.usernameMessage = "";
+      const { error } = await this.supabase.from("profiles").upsert(
+        {
+          id: this.authUser.id,
+          username: trimmed,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "id" }
+      );
+      this.usernameSaving = false;
+      if (error) {
+        console.warn("Unable to save username.", error);
+        this.usernameMessage = "Unable to save username.";
+        return;
+      }
+      this.authProfile = { ...(this.authProfile || {}), username: trimmed };
+      this.usernameMessage = "Username saved.";
+    },
     updateLocalBookmarksCache(items) {
       if (typeof window === "undefined") {
         return;
@@ -429,8 +948,57 @@ export default {
     closeBookmarkMenu() {
       this.bookmarkOpen = false;
     },
+    toggleUserMenu() {
+      this.userOpen = !this.userOpen;
+    },
+    closeUserMenu() {
+      this.userOpen = false;
+    },
     toggleHelpMenu() {
       this.helpOpen = !this.helpOpen;
+    },
+    async signInWithEmail() {
+      if (!this.supabase) {
+        return;
+      }
+      const email = String(this.authEmail || "").trim();
+      if (!email) {
+        this.authMessage = "Enter your email to receive a login link.";
+        return;
+      }
+      this.authLoading = true;
+      this.authMessage = "";
+      const redirectBase =
+        window.location.origin +
+        window.location.pathname +
+        window.location.hash;
+      const { error } = await this.supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: redirectBase,
+        },
+      });
+      this.authLoading = false;
+      if (error) {
+        this.authMessage = error.message || "Unable to send login link.";
+        return;
+      }
+      this.authMessage = "Check your email for the login link.";
+    },
+    async signOut() {
+      if (!this.supabase) {
+        return;
+      }
+      await this.supabase.auth.signOut();
+      this.authUser = null;
+      this.authProfile = null;
+      this.userSettings = {};
+      this.usernameInput = "";
+      this.usernameMessage = "";
+      this.favoriteCiv = "";
+      this.customFlair = "";
+      this.authMessage = "Signed out.";
+      this.loadBookmarks();
     },
     async removeBookmark(key) {
       if (typeof window === "undefined") {
@@ -465,6 +1033,10 @@ export default {
       const wrapper = this.$refs.bookmarkWrapper;
       if (this.bookmarkOpen && wrapper && !wrapper.contains(event.target)) {
         this.bookmarkOpen = false;
+      }
+      const userWrapper = this.$refs.userWrapper;
+      if (this.userOpen && userWrapper && !userWrapper.contains(event.target)) {
+        this.userOpen = false;
       }
       const helpWrapper = this.$refs.helpWrapper;
       if (this.helpOpen && helpWrapper && !helpWrapper.contains(event.target)) {
@@ -630,6 +1202,10 @@ $navbar-horizontal-padding = 1.4rem;
       position: relative;
     }
 
+    .user-wrapper {
+      position: relative;
+    }
+
     .help-wrapper {
       position: relative;
     }
@@ -678,6 +1254,60 @@ $navbar-horizontal-padding = 1.4rem;
       width: 1.2rem;
       height: 1.2rem;
       fill: currentColor;
+    }
+
+    .social-trigger {
+      width: 1.75rem;
+      height: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $backColor;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 0.3rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .social-trigger:hover {
+      border-color: $accentColor;
+      color: $accentColor;
+    }
+
+    .social-icon {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+      display: block;
+    }
+
+    .user-trigger {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $backColor;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 0.3rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .user-trigger:hover {
+      border-color: $accentColor;
+      color: $accentColor;
+    }
+
+    .user-icon {
+      width: 1.15rem;
+      height: 1.15rem;
+      display: block;
+      stroke: currentColor;
     }
 
     .bookmark-icon {
@@ -748,6 +1378,22 @@ $navbar-horizontal-padding = 1.4rem;
       padding-inline: 0.8rem;
     }
 
+    .user-dropdown {
+      position: absolute;
+      width: 20rem;
+      max-width: 90vw;
+      z-index: 20;
+      inset-block-start: calc(100% + 0.4rem);
+      inset-inline-end: 0;
+      color: $backColor;
+      background: #fff;
+      border: 1px solid darken($borderColor, 10%);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      padding-block: 1rem;
+      padding-inline: 1rem;
+    }
+
     .help-dropdown {
       position: absolute;
       width: 20rem;
@@ -762,6 +1408,144 @@ $navbar-horizontal-padding = 1.4rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       padding-block: 1rem;
       padding-inline: 1rem;
+    }
+
+    .user-header {
+      font-weight: 800;
+      margin-block-end: 0.6rem;
+    }
+
+    .user-section {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .user-copy {
+      font-size: 0.85rem;
+      line-height: 1.3;
+      color: lighten($backColor, 10%);
+      margin: 0;
+    }
+
+    .user-input {
+      padding: 0.5rem 0.7rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .user-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: lighten($backColor, 25%);
+    }
+
+    .user-field {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .user-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .user-row .user-input {
+      flex: 1;
+    }
+
+    .user-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid $accentColor;
+      background: $accentColor;
+      color: #1a1a1a;
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .user-button--ghost {
+      background: #fff;
+      color: $accentColor;
+    }
+
+    .user-button--ghost:hover {
+      background: lighten($accentColor, 38%);
+    }
+
+    .user-button:hover {
+      background: lighten($accentColor, 10%);
+      border-color: lighten($accentColor, 10%);
+    }
+
+    .user-button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .user-toggle {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .user-chip {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      padding: 0.35rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #f7f5f0;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .user-chip.is-active {
+      background: $accentColor;
+      border-color: $accentColor;
+      color: #1a1a1a;
+    }
+
+    .user-message {
+      margin: 0;
+      font-size: 0.85rem;
+      color: lighten($backColor, 15%);
+    }
+
+    .user-hint {
+      margin: 0;
+      font-size: 0.7rem;
+      color: lighten($backColor, 30%);
+    }
+
+    .user-email {
+      margin: 0;
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: $backColor;
+    }
+
+    .user-cta {
+      margin: 0;
+      font-size: 0.75rem;
+      color: lighten($backColor, 35%);
+      line-height: 1.25;
+    }
+
+    .user-cta a {
+      color: $accentColor;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding-block-start: 0.5rem;
     }
 
     .help-header {
@@ -940,10 +1724,24 @@ $navbar-horizontal-padding = 1.4rem;
       box-sizing: border-box;
     }
 
+    .user-dropdown,
+    .help-dropdown {
+      position: fixed;
+      top: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+      inset-inline-end: 1rem;
+      width: min(95vw, 20rem);
+      max-width: 95vw;
+      box-sizing: border-box;
+    }
+
     .help-dropdown {
       width: min(95vw, 19rem) !important;
       max-width: 95vw;
 
+    }
+
+    .social-trigger {
+      display: none;
     }
   }
 }

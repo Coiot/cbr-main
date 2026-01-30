@@ -8,8 +8,8 @@
         </p> -->
         <h1 class="title-map-title">Community Tile Map</h1>
         <p class="tile-map-subtitle tile-map-subtitle-hint">
-          Drag to pan. Click a tile to view details. Login with Ko-Fi email for
-          editing.
+          Drag to pan. Click a tile to view details. Sign in from the user menu
+          to edit.
         </p>
       </div>
       <div class="tile-map-controls">
@@ -34,26 +34,9 @@
               </button>
             </div>
             <div class="tile-map-toolbar-group tile-map-auth-group">
-              <div v-if="!authUser" class="tile-edit-auth-actions">
-                <input
-                  class="tile-edit-input"
-                  type="email"
-                  placeholder="Email linked with Ko-Fi"
-                  v-model="authEmail"
-                  autocomplete="email"
-                />
-                <button
-                  type="button"
-                  class="tile-edit-button"
-                  :disabled="authLoading"
-                  @click="signInWithEmail"
-                >
-                  Send Link
-                </button>
-              </div>
-              <!-- <div v-else class="tile-edit-auth-actions">
-                <span class="tile-edit-auth-user">{{ authUser.email }}</span>
-              </div> -->
+              <span v-if="!authUser" class="tile-edit-hint">
+                Sign in via the user menu to unlock edits.
+              </span>
             </div>
             <!-- <span class="tile-map-toolbar-spacer" aria-hidden="true"></span> -->
             <div v-if="authMessage" class="tile-edit-hint">

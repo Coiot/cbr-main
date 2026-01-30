@@ -11,3 +11,4 @@ package-lock.json
 .nova/
 docs/
 nova/
+.env.supporters

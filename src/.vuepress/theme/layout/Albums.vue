@@ -293,6 +293,84 @@
                     reporter: scene.reporter,
                   }"
                 ></p>
+                <div class="scene-reactions">
+                  <div class="reaction-list">
+                    <button
+                      v-for="reaction in reactionDisplay(sceneNumber(index))
+                        .top"
+                      :key="reaction.key"
+                      type="button"
+                      class="reaction-pill"
+                      :class="{
+                        active:
+                          userReaction(sceneNumber(index)) === reaction.key,
+                      }"
+                      :aria-pressed="
+                        userReaction(sceneNumber(index)) === reaction.key
+                      "
+                      :aria-label="reaction.label"
+                      :title="reaction.label"
+                      :disabled="!authUser"
+                      @click.stop="
+                        toggleReaction(sceneNumber(index), reaction.key)
+                      "
+                    >
+                      <span class="reaction-emoji">{{ reaction.emoji }}</span>
+                      <span class="reaction-count">
+                        {{ reaction.count }}
+                      </span>
+                    </button>
+                    <button
+                      v-if="reactionDisplay(sceneNumber(index)).rest.length"
+                      type="button"
+                      class="reaction-more"
+                      :aria-expanded="isReactionMenuOpen(sceneNumber(index))"
+                      @click.stop="toggleReactionMenu(sceneNumber(index))"
+                    >
+                      {{
+                        isReactionMenuOpen(sceneNumber(index))
+                          ? "Less"
+                          : `+${
+                              reactionDisplay(sceneNumber(index)).rest.length
+                            }`
+                      }}
+                    </button>
+                  </div>
+                  <div
+                    v-if="
+                      isReactionMenuOpen(sceneNumber(index)) &&
+                      reactionDisplay(sceneNumber(index)).rest.length
+                    "
+                    class="reaction-more-panel"
+                  >
+                    <button
+                      v-for="reaction in reactionDisplay(sceneNumber(index))
+                        .rest"
+                      :key="reaction.key"
+                      type="button"
+                      class="reaction-pill"
+                      :class="{
+                        active:
+                          userReaction(sceneNumber(index)) === reaction.key,
+                      }"
+                      :aria-pressed="
+                        userReaction(sceneNumber(index)) === reaction.key
+                      "
+                      :aria-label="reaction.label"
+                      :title="reaction.label"
+                      :disabled="!authUser"
+                      @click.stop="
+                        toggleReaction(sceneNumber(index), reaction.key)
+                      "
+                    >
+                      <span class="reaction-emoji">{{ reaction.emoji }}</span>
+                      <span class="reaction-count">{{ reaction.count }}</span>
+                    </button>
+                  </div>
+                  <span v-if="!authUser" class="reaction-hint">
+                    Sign in to react
+                  </span>
+                </div>
               </article>
             </template>
           </vueper-slide>
@@ -414,11 +492,238 @@
                   reporter: scene.reporter,
                 }"
               ></div>
+              <div class="scene-reactions">
+                <div class="reaction-list">
+                  <button
+                    v-for="reaction in reactionDisplay(sceneNumber(index)).top"
+                    :key="reaction.key"
+                    type="button"
+                    class="reaction-pill"
+                    :class="{
+                      active: userReaction(sceneNumber(index)) === reaction.key,
+                    }"
+                    :aria-pressed="
+                      userReaction(sceneNumber(index)) === reaction.key
+                    "
+                    :aria-label="reaction.label"
+                    :title="reaction.label"
+                    :disabled="!authUser"
+                    @click.stop="
+                      toggleReaction(sceneNumber(index), reaction.key)
+                    "
+                  >
+                    <span class="reaction-emoji">{{ reaction.emoji }}</span>
+                    <span class="reaction-count">
+                      {{ reaction.count }}
+                    </span>
+                  </button>
+                  <button
+                    v-if="reactionDisplay(sceneNumber(index)).rest.length"
+                    type="button"
+                    class="reaction-more"
+                    :aria-expanded="isReactionMenuOpen(sceneNumber(index))"
+                    @click.stop="toggleReactionMenu(sceneNumber(index))"
+                  >
+                    {{
+                      isReactionMenuOpen(sceneNumber(index))
+                        ? "Less"
+                        : `+${reactionDisplay(sceneNumber(index)).rest.length}`
+                    }}
+                  </button>
+                </div>
+                <div
+                  v-if="
+                    isReactionMenuOpen(sceneNumber(index)) &&
+                    reactionDisplay(sceneNumber(index)).rest.length
+                  "
+                  class="reaction-more-panel"
+                >
+                  <button
+                    v-for="reaction in reactionDisplay(sceneNumber(index)).rest"
+                    :key="reaction.key"
+                    type="button"
+                    class="reaction-pill"
+                    :class="{
+                      active: userReaction(sceneNumber(index)) === reaction.key,
+                    }"
+                    :aria-pressed="
+                      userReaction(sceneNumber(index)) === reaction.key
+                    "
+                    :aria-label="reaction.label"
+                    :title="reaction.label"
+                    :disabled="!authUser"
+                    @click.stop="
+                      toggleReaction(sceneNumber(index), reaction.key)
+                    "
+                  >
+                    <span class="reaction-emoji">{{ reaction.emoji }}</span>
+                    <span class="reaction-count">{{ reaction.count }}</span>
+                  </button>
+                </div>
+                <span v-if="!authUser" class="reaction-hint">
+                  Sign in to react
+                </span>
+              </div>
             </div>
           </article>
         </section>
 
         <Content class="custom" />
+
+        <section v-if="showComments" class="album-comments">
+          <div class="comments-header">
+            <h2>Supporter Comments</h2>
+            <p class="comments-subtitle">
+              Supporters can leave one comment within a week of release.
+              <span v-if="commentWindowLabel">
+                Comments close {{ commentWindowLabel }}.
+              </span>
+            </p>
+          </div>
+          <div class="comment-form">
+            <p v-if="!authUser" class="comment-note">
+              Sign in to leave a comment.
+            </p>
+            <p v-else-if="!canSupporterComment" class="comment-note">
+              Supporters only can comment.
+            </p>
+            <p v-else-if="!commentWindowOpen" class="comment-note">
+              Comment window has closed for this episode.
+            </p>
+            <div v-else>
+              <div
+                v-if="userComment && !commentEditing"
+                class="comment-note comment-note--row"
+              >
+                <span>You already left a comment.</span>
+                <div class="comment-inline-actions" v-if="commentWindowOpen">
+                  <button
+                    type="button"
+                    class="comment-link"
+                    @click="startEditComment"
+                  >
+                    Edit comment
+                  </button>
+                  <button
+                    type="button"
+                    class="comment-link comment-link--danger"
+                    @click="deleteComment"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <div v-else class="comment-editor">
+                <textarea
+                  class="comment-input"
+                  v-model="commentDraft"
+                  :maxlength="commentMaxLength"
+                  rows="4"
+                  placeholder="Post a comment for all posterity..."
+                ></textarea>
+                <div class="comment-actions">
+                  <button
+                    type="button"
+                    class="comment-button comment-button--ghost"
+                    :disabled="commentSaving || !commentDraft.trim()"
+                    @click="previewComment"
+                  >
+                    Preview before Posting
+                  </button>
+                  <button
+                    type="button"
+                    class="comment-button"
+                    :disabled="commentSaving || !canSubmitComment"
+                    @click="submitComment"
+                  >
+                    {{ userComment ? "Update Comment" : "Post Comment" }}
+                  </button>
+                  <button
+                    v-if="userComment"
+                    type="button"
+                    class="comment-link"
+                    @click="cancelEditComment"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    v-if="userComment"
+                    type="button"
+                    class="comment-link comment-link--danger"
+                    @click="deleteComment"
+                  >
+                    Delete
+                  </button>
+                  <span class="comment-count">
+                    {{ commentDraft.length }}/{{ commentMaxLength }}
+                  </span>
+                </div>
+                <div v-if="commentPreview" class="comment-preview">
+                  <div class="comment-preview-label">Preview</div>
+                  <article class="comment-card comment-card--preview">
+                    <div
+                      class="comment-civ"
+                      :style="commentCivStyle(commentPreview)"
+                    >
+                      <span class="comment-civ-tooltip">
+                        {{ commentPreview.civ_label || "No civ preference" }}
+                      </span>
+                    </div>
+                    <div class="comment-body">
+                      <div class="comment-header">
+                        <span class="comment-name">
+                          {{ commentPreview.username || "Supporter" }}
+                        </span>
+                        <span v-if="commentPreview.flair" class="comment-flair">
+                          {{ commentPreview.flair }}
+                        </span>
+                      </div>
+                      <p class="comment-text">{{ commentPreview.message }}</p>
+                    </div>
+                  </article>
+                </div>
+                <p v-if="commentMessage" class="comment-note">
+                  {{ commentMessage }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="comment-list">
+            <p v-if="commentsLoading" class="comment-note">
+              Loading comments...
+            </p>
+            <p
+              v-else-if="!comments.length"
+              class="comment-note comment-note--empty"
+            >
+              No comments yet.
+            </p>
+            <div v-else class="comment-cards">
+              <article
+                v-for="comment in comments"
+                :key="comment.id"
+                class="comment-card"
+              >
+                <div class="comment-civ" :style="commentCivStyle(comment)">
+                  <span class="comment-civ-tooltip">
+                    {{ comment.civ_label || "No civ preference" }}
+                  </span>
+                </div>
+                <div class="comment-body">
+                  <div class="comment-header">
+                    <span class="comment-name">
+                      {{ comment.username || "Supporter" }}
+                    </span>
+                    <span v-if="comment.flair" class="comment-flair">
+                      {{ comment.flair }}
+                    </span>
+                  </div>
+                  <p class="comment-text">{{ comment.message }}</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
       </div>
 
       <div class="page-nav" v-if="prev || next">
@@ -443,9 +748,12 @@
 import { normalize } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import BookmarkButton from "./BookmarkButton.vue";
+import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
   SUPABASE_ALBUM_PROGRESS_TABLE,
+  SUPABASE_ALBUM_REACTIONS_TABLE,
+  SUPABASE_ALBUM_COMMENTS_TABLE,
 } from "../supabaseClient";
 
 const pageDir = (path) => {
@@ -454,6 +762,21 @@ const pageDir = (path) => {
   parts.pop();
   return parts.join("/") || "/";
 };
+
+const DEFAULT_REACTION_OPTIONS = [
+  { key: "fire", label: "Fire", emoji: "🔥" },
+  { key: "heart", label: "Love", emoji: "❤️" },
+  { key: "clap", label: "Clap", emoji: "👏" },
+  { key: "wow", label: "Wow", emoji: "🤯" },
+  { key: "sad", label: "Sad", emoji: "😢" },
+];
+const REACTION_POLL_INTERVAL = 60000;
+const COMMENT_WINDOW_DAYS = 7;
+const COMMENT_MAX_LENGTH = 600;
+const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
+const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
+const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
+const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
 
 export default {
   name: "Albums",
@@ -469,6 +792,21 @@ export default {
       timelineFocusTimeoutId: null,
       supabase: null,
       authUser: null,
+      authProfile: null,
+      reactionCounts: {},
+      userReactions: {},
+      reactionLoading: false,
+      reactionUpdating: false,
+      reactionMenuOpen: {},
+      comments: [],
+      commentsLoading: false,
+      commentDraft: "",
+      commentPreview: null,
+      commentMessage: "",
+      commentSaving: false,
+      commentEditing: false,
+      favoriteCiv: "",
+      customFlair: "",
     };
   },
   components: {
@@ -547,6 +885,105 @@ export default {
     useCloud() {
       return Boolean(this.supabase && this.authUser);
     },
+    reactionOptions() {
+      const options =
+        this.$site &&
+        this.$site.themeConfig &&
+        this.$site.themeConfig.reactions;
+      return Array.isArray(options) && options.length
+        ? options
+        : DEFAULT_REACTION_OPTIONS;
+    },
+    isSeasonFive() {
+      const edition =
+        (this.$page &&
+          this.$page.frontmatter &&
+          this.$page.frontmatter.edition) ||
+        "";
+      const normalized = String(edition).trim().toLowerCase();
+      return (
+        normalized === "s5" ||
+        normalized === "season5" ||
+        normalized === "season 5"
+      );
+    },
+    showComments() {
+      return this.isSeasonFive;
+    },
+    commentPostedAt() {
+      const raw =
+        (this.$page && this.$page.frontmatter && this.$page.frontmatter.date) ||
+        null;
+      const date = raw ? new Date(raw) : null;
+      return date && Number.isFinite(date.getTime()) ? date : null;
+    },
+    commentWindowEndsAt() {
+      if (!this.showComments) {
+        return null;
+      }
+      if (this.isSeasonFive) {
+        if (!this.commentPostedAt) {
+          return SEASON_FIVE_COMMENT_CUTOFF;
+        }
+        const regularEnd = new Date(
+          this.commentPostedAt.getTime() +
+            COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
+        );
+        return regularEnd > SEASON_FIVE_COMMENT_CUTOFF
+          ? regularEnd
+          : SEASON_FIVE_COMMENT_CUTOFF;
+      }
+      if (!this.commentPostedAt) {
+        return null;
+      }
+      return new Date(
+        this.commentPostedAt.getTime() +
+          COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
+      );
+    },
+    commentWindowOpen() {
+      if (!this.showComments) {
+        return false;
+      }
+      if (!this.commentWindowEndsAt) {
+        return true;
+      }
+      return Date.now() <= this.commentWindowEndsAt.getTime();
+    },
+    commentWindowLabel() {
+      if (!this.showComments) {
+        return "";
+      }
+      if (this.isSeasonFive) {
+        return SEASON_FIVE_COMMENT_LABEL.toLocaleDateString();
+      }
+      if (!this.commentWindowEndsAt) {
+        return "";
+      }
+      return this.commentWindowEndsAt.toLocaleDateString();
+    },
+    canSupporterComment() {
+      return Boolean(this.authProfile && this.authProfile.can_edit);
+    },
+    userComment() {
+      if (!this.authUser) {
+        return null;
+      }
+      return (
+        this.comments.find((comment) => comment.user_id === this.authUser.id) ||
+        null
+      );
+    },
+    commentMaxLength() {
+      return COMMENT_MAX_LENGTH;
+    },
+    canSubmitComment() {
+      if (!this.commentPreview || !this.commentPreview.message) {
+        return false;
+      }
+      const current = String(this.commentDraft || "").trim();
+      return current && this.commentPreview.message === current;
+    },
   },
   watch: {
     "$page.path"() {
@@ -555,9 +992,19 @@ export default {
       this.lastSeenScene = null;
       this.activeSceneIndex = 0;
       this.copiedScene = null;
+      this.resetReactions();
+      this.comments = [];
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.commentMessage = "";
+      this.commentEditing = false;
       this.$nextTick(() => {
         this.loadBookmark();
         this.loadResume();
+        this.loadReactionCounts();
+        if (this.showComments) {
+          this.loadComments();
+        }
         this.cacheSceneElements();
       });
     },
@@ -572,12 +1019,25 @@ export default {
     "$route.hash"() {
       this.applyHashScene();
     },
+    commentDraft() {
+      if (
+        this.commentPreview &&
+        this.commentPreview.message !== String(this.commentDraft || "").trim()
+      ) {
+        this.commentPreview = null;
+      }
+    },
   },
   mounted() {
     if (typeof window === "undefined") {
       return;
     }
     this.initSupabase();
+    this.initReactions();
+    this.loadLocalUserSettings();
+    if (this.showComments) {
+      this.loadComments();
+    }
     const saved = window.localStorage.getItem("albumsViewMode");
     if (saved === "horizontal") {
       this.isToggle = true;
@@ -592,22 +1052,25 @@ export default {
       this.updateActiveFromScroll();
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
-    window.addEventListener("keydown", this.handleKeydown);
+    window.addEventListener("keydown", this.handleKeydown, true);
     window.addEventListener(
       "albums-bookmark-updated",
       this.handleBookmarkUpdate
     );
+    window.addEventListener("user-settings-synced", this.handleSettingsSync);
   },
   beforeDestroy() {
     if (typeof window === "undefined") {
       return;
     }
     window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("keydown", this.handleKeydown);
+    window.removeEventListener("keydown", this.handleKeydown, true);
     window.removeEventListener(
       "albums-bookmark-updated",
       this.handleBookmarkUpdate
     );
+    window.removeEventListener("user-settings-synced", this.handleSettingsSync);
+    this.teardownReactions();
     this.teardownSupabase();
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
@@ -652,12 +1115,19 @@ export default {
     },
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
+      this.authProfile = null;
+      this.loadReactionCounts();
       if (this.authUser) {
+        this.fetchProfile();
         this.loadCloudState();
         return;
       }
       this.loadBookmarkLocal();
       this.loadResumeLocal();
+      this.authProfile = null;
+      this.commentEditing = false;
+      this.commentDraft = "";
+      this.commentPreview = null;
     },
     handleBookmarkUpdate() {
       this.loadBookmark();
@@ -685,6 +1155,218 @@ export default {
         return;
       }
       window.localStorage.setItem(key, String(sceneNumber));
+    },
+    initReactions() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      this.loadReactionCounts();
+      this.startReactionPolling();
+    },
+    teardownReactions() {
+      if (this._reactionPollId) {
+        window.clearInterval(this._reactionPollId);
+        this._reactionPollId = null;
+      }
+      this.reactionLoading = false;
+      this.reactionUpdating = false;
+    },
+    resetReactions() {
+      this.reactionCounts = {};
+      this.userReactions = {};
+      this.reactionMenuOpen = {};
+    },
+    startReactionPolling() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (this._reactionPollId) {
+        window.clearInterval(this._reactionPollId);
+      }
+      this._reactionPollId = window.setInterval(() => {
+        this.loadReactionCounts();
+      }, REACTION_POLL_INTERVAL);
+    },
+    sceneNumber(index) {
+      return index + 1;
+    },
+    reactionCount(sceneNumber, reactionKey) {
+      const sceneCounts = this.reactionCounts[sceneNumber] || {};
+      return sceneCounts[reactionKey] || 0;
+    },
+    userReaction(sceneNumber) {
+      return this.userReactions[sceneNumber] || null;
+    },
+    reactionDisplay(sceneNumber) {
+      const counts = this.reactionCounts[sceneNumber] || {};
+      const userKey = this.userReaction(sceneNumber);
+      const ranked = this.reactionOptions
+        .map((option, index) => ({
+          ...option,
+          count: counts[option.key] || 0,
+          order: index,
+          isUser: option.key === userKey,
+        }))
+        .sort((a, b) => {
+          if (b.count !== a.count) {
+            return b.count - a.count;
+          }
+          if (a.isUser !== b.isUser) {
+            return a.isUser ? -1 : 1;
+          }
+          return a.order - b.order;
+        });
+      const top = ranked.slice(0, 8);
+      if (userKey && !top.some((item) => item.key === userKey)) {
+        const userItem = ranked.find((item) => item.key === userKey);
+        if (userItem && top.length) {
+          top[top.length - 1] = userItem;
+        } else if (userItem) {
+          top.push(userItem);
+        }
+      }
+      const topKeys = new Set(top.map((item) => item.key));
+      const rest = ranked.filter((item) => !topKeys.has(item.key));
+      return { top, rest };
+    },
+    isReactionMenuOpen(sceneNumber) {
+      return Boolean(this.reactionMenuOpen[sceneNumber]);
+    },
+    toggleReactionMenu(sceneNumber) {
+      this.$set(
+        this.reactionMenuOpen,
+        sceneNumber,
+        !this.reactionMenuOpen[sceneNumber]
+      );
+    },
+    async loadReactionCounts() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.reactionLoading) {
+        return;
+      }
+      this.reactionLoading = true;
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+          .select("scene_number, reaction_key")
+          .eq("page_path", this.$page.path);
+        if (error) {
+          console.warn("Unable to load reactions.", error);
+          return;
+        }
+        const counts = {};
+        (data || []).forEach((row) => {
+          const scene = parseInt(row.scene_number, 10);
+          if (!Number.isFinite(scene)) {
+            return;
+          }
+          const key = row.reaction_key;
+          if (!key) {
+            return;
+          }
+          if (!counts[scene]) {
+            counts[scene] = {};
+          }
+          counts[scene][key] = (counts[scene][key] || 0) + 1;
+        });
+        const userReactions = {};
+        if (this.authUser) {
+          const { data: userData, error: userError } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .select("scene_number, reaction_key")
+            .eq("page_path", this.$page.path)
+            .eq("user_id", this.authUser.id);
+          if (userError) {
+            console.warn("Unable to load user reactions.", userError);
+          } else {
+            (userData || []).forEach((row) => {
+              const scene = parseInt(row.scene_number, 10);
+              if (!Number.isFinite(scene)) {
+                return;
+              }
+              if (!row.reaction_key) {
+                return;
+              }
+              userReactions[scene] = row.reaction_key;
+            });
+          }
+        }
+        this.reactionCounts = counts;
+        this.userReactions = userReactions;
+      } finally {
+        this.reactionLoading = false;
+      }
+    },
+    async toggleReaction(sceneNumber, reactionKey) {
+      if (!this.authUser) {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.reactionUpdating) {
+        return;
+      }
+      this.reactionUpdating = true;
+      const current = this.userReactions[sceneNumber] || null;
+      this.userReactions = {
+        ...this.userReactions,
+        [sceneNumber]: current === reactionKey ? null : reactionKey,
+      };
+      try {
+        if (current === reactionKey) {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .delete()
+            .eq("user_id", this.authUser.id)
+            .eq("page_path", this.$page.path)
+            .eq("scene_number", sceneNumber);
+          if (error) {
+            console.warn("Unable to remove reaction.", error);
+          }
+        } else {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .upsert(
+              {
+                user_id: this.authUser.id,
+                page_path: this.$page.path,
+                scene_number: sceneNumber,
+                reaction_key: reactionKey,
+              },
+              { onConflict: "user_id,page_path,scene_number" }
+            );
+          if (error) {
+            console.warn("Unable to save reaction.", error);
+          }
+        }
+      } finally {
+        this.reactionUpdating = false;
+        this.loadReactionCounts();
+      }
+    },
+    async fetchProfile() {
+      if (!this.useCloud) {
+        return;
+      }
+      const { data, error } = await this.supabase
+        .from("profiles")
+        .select("username, can_edit")
+        .eq("id", this.authUser.id)
+        .maybeSingle();
+      if (error) {
+        console.warn("Unable to load profile.", error);
+        return;
+      }
+      this.authProfile = data || null;
     },
     async loadCloudState() {
       if (!this.useCloud) {
@@ -789,11 +1471,259 @@ export default {
     toggleView() {
       this.isToggle = !this.isToggle;
       if (typeof window !== "undefined") {
-        window.localStorage.setItem(
-          "albumsViewMode",
-          this.isToggle ? "horizontal" : "vertical"
+        const viewMode = this.isToggle ? "horizontal" : "vertical";
+        window.localStorage.setItem("albumsViewMode", viewMode);
+        window.dispatchEvent(
+          new CustomEvent("user-settings-updated", {
+            detail: { albumsViewMode: viewMode },
+          })
         );
       }
+    },
+    loadLocalUserSettings() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const storedCiv = window.localStorage.getItem("favoriteCiv");
+      this.favoriteCiv = storedCiv || "";
+      const storedFlair = window.localStorage.getItem("customFlair");
+      this.customFlair = storedFlair || "";
+    },
+    handleSettingsSync(event) {
+      if (!event || !event.detail) {
+        return;
+      }
+      const mode = event.detail.albumsViewMode;
+      if (mode === "horizontal") {
+        this.isToggle = true;
+      } else if (mode === "vertical") {
+        this.isToggle = false;
+      }
+      if (Object.prototype.hasOwnProperty.call(event.detail, "favoriteCiv")) {
+        this.favoriteCiv = event.detail.favoriteCiv || "";
+      }
+      if (Object.prototype.hasOwnProperty.call(event.detail, "customFlair")) {
+        this.customFlair = event.detail.customFlair || "";
+      }
+    },
+    async loadComments() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.showComments) {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.commentsLoading) {
+        return;
+      }
+      this.commentsLoading = true;
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+          .select(
+            "id, user_id, username, message, civ_label, civ_primary, civ_secondary, flair, created_at, updated_at"
+          )
+          .eq("page_path", this.$page.path)
+          .order("created_at", { ascending: true });
+        if (error) {
+          console.warn("Unable to load comments.", error);
+          return;
+        }
+        this.comments = data || [];
+      } finally {
+        this.commentsLoading = false;
+      }
+    },
+    commentCivStyle(comment) {
+      const primary = comment.civ_primary || COMMENT_FALLBACK_PRIMARY;
+      const secondary = comment.civ_secondary || COMMENT_FALLBACK_SECONDARY;
+      return {
+        "--civ-primary": primary,
+        "--civ-secondary": secondary,
+      };
+    },
+    startEditComment() {
+      if (!this.userComment) {
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        return;
+      }
+      this.commentDraft = this.userComment.message || "";
+      this.commentPreview = null;
+      this.commentEditing = true;
+      this.commentMessage = "";
+    },
+    cancelEditComment() {
+      this.commentEditing = false;
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.commentMessage = "";
+    },
+    previewComment() {
+      if (!this.authUser) {
+        this.commentMessage = "Sign in to leave a comment.";
+        return;
+      }
+      if (!this.canSupporterComment) {
+        this.commentMessage = "Supporters only can comment.";
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.commentMessage = "Comment window has closed.";
+        return;
+      }
+      const message = String(this.commentDraft || "").trim();
+      if (!message) {
+        this.commentMessage = "Enter a comment before previewing.";
+        return;
+      }
+      if (message.length > COMMENT_MAX_LENGTH) {
+        this.commentMessage = `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`;
+        return;
+      }
+      const civLabel = String(this.favoriteCiv || "").trim();
+      const civKey = civLabel ? normalizeOwnerKey(civLabel) : "";
+      const colors =
+        civKey && OWNER_COLOR_MAP[civKey] ? OWNER_COLOR_MAP[civKey] : null;
+      const flair = String(this.customFlair || "").trim();
+      const username =
+        (this.authProfile && this.authProfile.username) ||
+        (this.authUser && this.authUser.email) ||
+        "Supporter";
+      this.commentPreview = {
+        message,
+        username,
+        civ_label: civLabel || null,
+        civ_primary: colors ? colors.primary : COMMENT_FALLBACK_PRIMARY,
+        civ_secondary: colors ? colors.secondary : COMMENT_FALLBACK_SECONDARY,
+        flair: flair || null,
+      };
+      this.commentMessage = "";
+    },
+    async submitComment() {
+      if (!this.authUser) {
+        this.commentMessage = "Sign in to leave a comment.";
+        return;
+      }
+      if (!this.canSupporterComment) {
+        this.commentMessage = "Supporters only can comment.";
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.commentMessage = "Comment window has closed.";
+        return;
+      }
+      const message = String(this.commentDraft || "").trim();
+      if (!message) {
+        this.commentMessage = "Enter a comment before posting.";
+        return;
+      }
+      if (message.length > COMMENT_MAX_LENGTH) {
+        this.commentMessage = `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`;
+        return;
+      }
+      if (!this.canSubmitComment) {
+        this.commentMessage = "Preview before posting.";
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.commentSaving) {
+        return;
+      }
+      this.commentSaving = true;
+      this.commentMessage = "";
+      const now = new Date().toISOString();
+      try {
+        if (this.userComment) {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+            .update({
+              message,
+              updated_at: now,
+            })
+            .eq("id", this.userComment.id)
+            .eq("user_id", this.authUser.id);
+          if (error) {
+            console.warn("Unable to update comment.", error);
+            this.commentMessage = "Unable to update comment.";
+            return;
+          }
+          this.commentEditing = false;
+        } else {
+          const civLabel = String(this.favoriteCiv || "").trim();
+          const civKey = civLabel ? normalizeOwnerKey(civLabel) : "";
+          const colors =
+            civKey && OWNER_COLOR_MAP[civKey] ? OWNER_COLOR_MAP[civKey] : null;
+          const flair = String(this.customFlair || "").trim();
+          const username =
+            (this.authProfile && this.authProfile.username) ||
+            (this.authUser && this.authUser.email) ||
+            "Supporter";
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+            .insert({
+              user_id: this.authUser.id,
+              page_path: this.$page.path,
+              message,
+              username,
+              civ_label: civLabel || null,
+              civ_primary: colors ? colors.primary : COMMENT_FALLBACK_PRIMARY,
+              civ_secondary: colors
+                ? colors.secondary
+                : COMMENT_FALLBACK_SECONDARY,
+              flair: flair || null,
+              updated_at: now,
+            });
+          if (error) {
+            console.warn("Unable to save comment.", error);
+            this.commentMessage = "Unable to save comment.";
+            return;
+          }
+        }
+        this.commentDraft = "";
+        this.commentPreview = null;
+        this.loadComments();
+      } finally {
+        this.commentSaving = false;
+      }
+    },
+    async deleteComment() {
+      if (!this.userComment || !this.authUser) {
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.commentMessage = "Comment window has closed.";
+        return;
+      }
+      if (typeof window !== "undefined") {
+        const confirmed = window.confirm("Delete your comment?");
+        if (!confirmed) {
+          return;
+        }
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      const { error } = await this.supabase
+        .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+        .delete()
+        .eq("id", this.userComment.id)
+        .eq("user_id", this.authUser.id);
+      if (error) {
+        console.warn("Unable to delete comment.", error);
+        this.commentMessage = "Unable to delete comment.";
+        return;
+      }
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.commentEditing = false;
+      this.loadComments();
     },
     resumeToScene() {
       if (!this.resumeScene) {
@@ -1141,9 +2071,6 @@ export default {
         return;
       }
       const key = event.key;
-      if (this.isToggle && (key === "ArrowRight" || key === "ArrowLeft")) {
-        return;
-      }
       const tagName = event.target && event.target.tagName;
       const isInput =
         tagName === "INPUT" ||
@@ -1154,12 +2081,24 @@ export default {
       }
       if (key === "ArrowRight" || key === "j" || key === "J") {
         event.preventDefault();
+        if (key === "ArrowRight") {
+          event.stopPropagation();
+          if (typeof event.stopImmediatePropagation === "function") {
+            event.stopImmediatePropagation();
+          }
+        }
         this.enableTimelineFocus();
         this.jumpRelative(1);
         return;
       }
       if (key === "ArrowLeft" || key === "k" || key === "K") {
         event.preventDefault();
+        if (key === "ArrowLeft") {
+          event.stopPropagation();
+          if (typeof event.stopImmediatePropagation === "function") {
+            event.stopImmediatePropagation();
+          }
+        }
         this.enableTimelineFocus();
         this.jumpRelative(-1);
         return;
@@ -1763,6 +2702,94 @@ export default {
   border-color: $accentColor;
 }
 
+.scene-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin-block-start: 1.5rem;
+  padding-block: 1.5rem .75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.reaction-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reaction-more {
+  border: 1px dashed rgba(255, 191, 70, 0.5);
+  border-radius: 999px;
+  padding-block: 0.15rem;
+  padding-inline: 0.6rem;
+  background: transparent;
+  color: lighten($textColor, 25%);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.reaction-more:hover {
+  border-color: rgba(255, 191, 70, 0.8);
+  color: #fff;
+}
+
+.reaction-more-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.reaction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(255, 191, 70, 0.35);
+  border-radius: 999px;
+  padding-block: 0.35rem;
+  padding-inline: 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: lighten($textColor, 20%);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.reaction-pill:hover {
+background: #222;
+  border-color: rgba(255, 191, 70, 0.9);
+  color: #fff;
+}
+
+.reaction-pill.active {
+  background: #ffbf46;
+  color: #1a1a1a;
+  border-color: #ffbf46;
+}
+
+.reaction-pill:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.reaction-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.reaction-count {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.reaction-hint {
+  font-size: 0.75rem;
+  color: lighten($textColor, 35%);
+}
+
 
 .h-narration p {
   font-size: 1.1rem;
@@ -1855,6 +2882,272 @@ h2 {
 .page-nav {
   padding: 0.2rem 0 0 0;
 }
+
+.album-comments {
+  margin-block: 0 1.5rem;
+  padding-block-start: 2rem;
+  border-top: 1px solid $borderColor;
+}
+
+.comments-header h2 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.comments-subtitle {
+  font-size: 0.95rem;
+  color: lighten($textColor, 25%);
+  margin: 0.5rem 0 1rem;
+}
+
+.comment-form {
+  position: relative;
+  background: linear-gradient(145deg, #0f0f0f 0%, #171717 100%);
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-block-end: 1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.comment-input {
+  width: -webkit-fill-available;
+  min-height: 110px;
+  background: radial-gradient(circle at top, #161616 0%, #0b0b0b 70%);
+  color: #f5f1e6;
+  border: 1px solid rgba(255, 191, 70, 0.25);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: lighten($accentColor, 5%);
+  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.18),
+    0 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-block-start: 0.6rem;
+}
+
+.comment-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid #f6c55b;
+  background: linear-gradient(135deg, #ffbf46 0%, #f7a726 100%);
+  color: #1a1a1a;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.comment-button:hover {
+  background: linear-gradient(135deg, #ffd27a 0%, #ffb13b 100%);
+  border-color: #ffd27a;
+  transform: translateY(-1px);
+}
+
+.comment-button--ghost {
+  background: rgba(255, 191, 70, 0.3);
+  color: #ffcf70;
+  border-color: rgba(255, 191, 70, 0.5);
+  box-shadow: none;
+}
+
+.comment-button--ghost:hover {
+  background: rgba(255, 191, 70, 0.4);
+  transform: translateY(-1px);
+}
+
+.comment-button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.comment-link {
+  background: transparent;
+  border: 0;
+  color: $accentColor;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.comment-count {
+  margin-inline-start: auto;
+  font-size: 0.8rem;
+  color: lighten($textColor, 30%);
+}
+
+.comment-preview {
+  margin-block-start: 0.9rem;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 191, 70, 0.35);
+  background: #121212;
+}
+
+.comment-preview-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: lighten($textColor, 30%);
+  margin-block-end: 0.6rem;
+}
+
+.comment-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.comment-cards {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.comment-card {
+  display: flex;
+  gap: 0.85rem;
+  background: linear-gradient(145deg, #111 0%, #191919 100%);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.comment-civ {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--civ-primary);
+  border: 2px solid var(--civ-secondary);
+  flex: 0 0 auto;
+  position: relative;
+  margin-block-start: 0.1rem;
+  cursor: pointer;
+}
+
+.comment-civ-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 0.5rem;
+  z-index: 10;
+  border: 1px solid rgba(255, 191, 70, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.comment-civ-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #1a1a1a;
+  filter: drop-shadow(0 1px 0px rgba(255,191,70,0.3));
+}
+
+.comment-civ:hover .comment-civ-tooltip {
+  opacity: 1;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+  .comment-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    margin-block-end: 0.25rem;
+  }
+
+.comment-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.comment-flair {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: none;
+  background: #171717;
+  border: 1px solid rgba(255, 191, 70, 0.35);
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.comment-text {
+  margin: 0;
+  line-height: 1.4;
+  color: #f0f0f0;
+  white-space: pre-line;
+}
+
+.comment-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: lighten($textColor, 25%);
+}
+
+.comment-note--row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.comment-inline-actions {
+  display: inline-flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.comment-note--empty {
+  text-align: center;
+  padding-block: 0.5rem;
+}
+
+.comment-link--danger {
+  color: #f08c7a;
+}
+
 
 @media (max-width: $MQMobile) {
   .scene-timeline {

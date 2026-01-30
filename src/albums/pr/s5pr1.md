@@ -186,7 +186,7 @@ scenes:
 - scene_number: 45
   scene_title: "Ket"
   slide_url: https://cdn.civbattleroyale.tv/season5-pr1-scene45.jpeg
-  narration: "<p>Caitlyn: Ket has settled in an interesting location for a second city, but I suppose we shouldn’t be surprised at them wanting to be surrounded by white powder. Ket, like other civs in the cylinder, is in large part in a good position from their neighbors making poor decisions or being messed with in other ways. Regardless, having this many cities this early on never hurts, & likely means they have a decent shot this early in the mark. Their overall stats could definitely be better at this point however.</p><p></p><p>Paige: *sniffles*</p>"
+  narration: "<p>Caitlyn: Ket has settled in an interesting location for a second city, but I suppose we shouldn’t be surprised at them wanting to be surrounded by white powder. Ket, like other civs in the cylinder, is in large part in a good position from their neighbors making poor decisions or being messed with in other ways. Regardless, having this many cities this early on never hurts, & likely means they have a decent shot this early in the season. Their overall stats could definitely be better at this point however.</p><p></p><p>Paige: *sniffles*</p>"
 - scene_number: 46
   scene_title: "Tang"
   slide_url: https://cdn.civbattleroyale.tv/season5-pr1-scene46.jpeg

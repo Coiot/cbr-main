@@ -582,6 +582,7 @@ export default {
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("keydown", this.handleKeydown);
+    window.addEventListener("user-settings-synced", this.handleSettingsSync);
   },
   beforeDestroy() {
     if (typeof window === "undefined") {
@@ -589,6 +590,7 @@ export default {
     }
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("keydown", this.handleKeydown);
+    window.removeEventListener("user-settings-synced", this.handleSettingsSync);
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
     }
@@ -604,10 +606,24 @@ export default {
     toggleView() {
       this.isToggle = !this.isToggle;
       if (typeof window !== "undefined") {
-        window.localStorage.setItem(
-          "albumsViewMode",
-          this.isToggle ? "horizontal" : "vertical"
+        const viewMode = this.isToggle ? "horizontal" : "vertical";
+        window.localStorage.setItem("albumsViewMode", viewMode);
+        window.dispatchEvent(
+          new CustomEvent("user-settings-updated", {
+            detail: { albumsViewMode: viewMode },
+          })
         );
+      }
+    },
+    handleSettingsSync(event) {
+      if (!event || !event.detail) {
+        return;
+      }
+      const mode = event.detail.albumsViewMode;
+      if (mode === "horizontal") {
+        this.isToggle = true;
+      } else if (mode === "vertical") {
+        this.isToggle = false;
       }
     },
     resumeToScene() {
