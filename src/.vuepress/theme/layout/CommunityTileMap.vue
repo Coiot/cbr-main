@@ -34,28 +34,23 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-@import '../styles/config.styl';
-
+<style>
 .community-tile-map {
   max-width: 1200px;
   width: 100%;
   padding: 1rem 1rem 0;
   margin: 0 auto;
-
-  .map-intro {
-    max-width: 70ch;
-  }
-
-  .footer {
-    color: lighten($textColor, 25%);
-    text-align: center;
-    border-top: 2px solid $borderColor;
-    padding: 1.5rem 2.5rem 2.5rem;
-    margin-block-start: 5rem;
-  }
 }
-
+.community-tile-map .map-intro {
+  max-width: 70ch;
+}
+.community-tile-map .footer {
+  color: color-mix(in srgb, var(--text-color), white 25%);
+  text-align: center;
+  border-top: 2px solid var(--border-color);
+  padding: 1.5rem 2.5rem 2.5rem;
+  margin-block-start: 5rem;
+}
 @media (max-width: 900px) {
   .community-tile-map {
     width: 95vw;

@@ -118,92 +118,74 @@ function resolveOpenGroupIndex(route, items) {
 }
 </script>
 
-<style lang="stylus">
-@import '../../styles/config.styl';
-
-.sidebar {
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-
-  a {
-    display: inline-block;
-  }
-
-  .nav-links {
-    display: none;
-    border-bottom: 1px solid $borderColor;
-    padding: 0.5rem 0 0.75rem 0;
-
-    a {
-      font-weight: 800;
-    }
-
-    .nav-item, .repo-link {
-      display: block;
-      line-height: 1.25rem;
-      font-size: 1.1em;
-      padding: 0.5rem 0 0.5rem 1.5rem;
-    }
-  }
-
-  .sidebar-links {
-    padding: 1.5rem 0;
-  }
-
-  .sidebar-social {
-    display: none;
-  }
+<style>
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
-
-@media (max-width: $MQMobile) {
-  .sidebar {
-    .nav-links {
-      display: block;
-
-      .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after {
-        top: calc(1rem - 2px);
-      }
-    }
-
-    .sidebar-links {
-      padding: 1rem 0;
-    }
-
-    .sidebar-social {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      padding: 0.75rem 1.5rem 1.2rem;
-      border-top: 1px solid $borderColor;
-    }
-
-    .sidebar-social-link {
-      width: 2.2rem;
-      height: 2.2rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: $textColor;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .sidebar-social-link:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .sidebar-social-icon {
-      width: 1.3rem;
-      height: 1.3rem;
-      fill: currentColor;
-      display: block;
-    }
+.sidebar a {
+  display: inline-block;
+}
+.sidebar .nav-links {
+  display: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 0 0.75rem 0;
+}
+.sidebar .nav-links a {
+  font-weight: 800;
+}
+.sidebar .nav-links .nav-item,
+.sidebar .nav-links .repo-link {
+  display: block;
+  line-height: 1.25rem;
+  font-size: 1.1em;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+.sidebar .sidebar-links {
+  padding: 1.5rem 0;
+}
+.sidebar .sidebar-social {
+  display: none;
+}
+@media (max-width: 799px) {
+  .sidebar .nav-links {
+    display: block;
+  }
+  .sidebar .nav-links .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after {
+    top: calc(1rem - 2px);
+  }
+  .sidebar .sidebar-links {
+    padding: 1rem 0;
+  }
+  .sidebar .sidebar-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.75rem 1.5rem 1.2rem;
+    border-top: 1px solid var(--border-color);
+  }
+  .sidebar .sidebar-social-link {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--text-color);
+    transition: all 0.2s ease-in-out;
+  }
+  .sidebar .sidebar-social-link:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+  }
+  .sidebar .sidebar-social-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: currentColor;
+    display: block;
   }
 }
 </style>

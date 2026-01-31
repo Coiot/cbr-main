@@ -1063,31 +1063,42 @@ export default {
 // }
 </script>
 
-<style lang="stylus" scoped>
-@import '../styles/config.styl';
-@require '../styles/wrapper.styl';
-
+<style scoped>
+.wrapper,
+.blog {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0.2rem;
+}
+@media (max-width: 980px) {
+  .wrapper,
+  .blog {
+    padding: 0.4rem;
+  }
+}
+@media (max-width: 450px) {
+  .wrapper,
+  .blog {
+    padding: 0.3rem;
+  }
+}
 .blog {
   text-shadow: 2px 2px #083832;
   margin-block: 2rem;
 }
-
 .blog h1 {
   font-size: 3rem;
   font-weight: 900;
   line-height: 1;
   padding-block-start: 2rem;
 }
-
 .blog h1 span {
   font-size: 60%;
   margin-inline-start: 0.2rem;
 }
-
 .resume-banner {
   margin-block: 0.6rem 1.4rem;
 }
-
 .resume-chip {
   font-size: 0.9rem;
   font-weight: 800;
@@ -1100,27 +1111,22 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 .resume-chip:hover {
-  background: lighten(#ffbf46, 10%);
+  background: color-mix(in srgb, #ffbf46, white 10%);
 }
-
 .blog h2 {
   font-weight: 700;
   line-height: 1.3;
 }
-
 .page-nav {
   margin-block: 0.6rem 1.6rem;
 }
-
 .nextprev {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   width: 100%;
 }
-
 .nav-card {
   position: relative;
   display: flex;
@@ -1130,51 +1136,43 @@ export default {
   background: linear-gradient(145deg, #111 0%, #161616 100%);
   border: 1px solid #242424;
   border-radius: 0 0 14px 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
   padding-block: 0.95rem 1.05rem;
   padding-inline: 1.3rem;
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .nav-card::after {
   content: '';
   position: absolute;
   height: 4px;
-  background: $accentColor;
+  background: var(--accent-color);
   inset-block-start: 0;
   inset-inline: 0;
 }
-
 .nav-card:hover {
   transform: translateY(-2px);
-  border-color: $accentColor;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+  border-color: var(--accent-color);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.28);
 }
-
 .nav-card.prev {
   padding-inline-start: 2.8rem;
 }
-
 .nav-card.next {
   text-align: right;
   padding-inline-end: 2.8rem;
 }
-
 .nav-kicker {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: lighten($textColor, 20%);
+  color: color-mix(in srgb, var(--text-color), white 20%);
 }
-
 .nav-title {
   font-size: 1.1rem;
   font-weight: 800;
   line-height: 1.2;
 }
-
 .nav-arrow {
   position: absolute;
   transform: translateY(-50%);
@@ -1185,21 +1183,18 @@ export default {
   justify-content: center;
   font-size: 1.1rem;
   color: #151515;
-  background: s('oklch(from %s l c h / 0.9)', $accentColor);
+  background: oklch(from var(--accent-color) l c h / 0.9);
   border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
   text-shadow: none;
   inset-block-start: 50%;
 }
-
 .nav-card.prev .nav-arrow {
   inset-inline-start: -0.9rem;
 }
-
 .nav-card.next .nav-arrow {
   inset-inline-end: -0.9rem;
 }
-
 .albumInfo {
   display: flex;
   flex-flow: row nowrap;
@@ -1209,35 +1204,29 @@ export default {
   margin-block: 0 2rem;
   margin-inline: auto;
 }
-
 .column {
   flex: 1 0 25%;
 }
-
 .label {
   font-size: 1.6rem;
   font-weight: 800;
-  color: $navColor;
+  color: var(--nav-color);
 }
-
 .value {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
-  color: $accentColor;
+  color: var(--accent-color);
 }
-
 .value a {
   color: #fff;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
-
 .abstract {
   font-size: 1.8rem;
   line-height: 1.4;
 }
-
 .episode-tools {
   display: flex;
   flex-wrap: wrap;
@@ -1246,19 +1235,16 @@ export default {
   gap: 1.5rem 2.5rem;
   margin-block: 1.2em 2em;
 }
-
 .view-toggle {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .view-status {
   font-size: 1rem;
   font-weight: 700;
-  color: $navColor;
+  color: var(--nav-color);
 }
-
 .toggle-button {
   font-size: 1.4rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1275,34 +1261,29 @@ export default {
   transition: all 0.2s ease-in-out;
   width: auto;
 }
-
 .toggle-button:hover {
-  background-color: darken(#d20083, 35%);
+  background-color: color-mix(in srgb, #d20083, black 35%);
   transform: scale(1.01);
   cursor: pointer;
 }
-
 .scene-jump {
   min-width: 220px;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
-
 .jump-label {
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: $navColor;
+  color: var(--nav-color);
 }
-
 .jump-controls {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
-
 .jump-controls input {
   width: 6.5rem;
   font-size: 1rem;
@@ -1313,12 +1294,10 @@ export default {
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
 }
-
 .jump-controls input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
+  box-shadow: 0 0 0 2px rgba(255,191,70,0.3);
 }
-
 .scene-button {
   font-size: 0.95rem;
   font-weight: 700;
@@ -1331,18 +1310,15 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 .scene-button:hover {
   background: #ffbf46;
   color: #1a1a1a;
 }
-
 .scene-count {
   font-size: 0.95rem;
   font-weight: 600;
-  color: lighten($textColor, 25%);
+  color: color-mix(in srgb, var(--text-color), white 25%);
 }
-
 .scene-timeline {
   position: sticky;
   z-index: 5;
@@ -1353,7 +1329,6 @@ export default {
   margin-block: 0 2rem;
   inset-block-start: 0;
 }
-
 .timeline-track {
   position: relative;
   width: 100%;
@@ -1367,19 +1342,17 @@ export default {
   padding-block: 0;
   padding-inline: 0.2rem;
 }
-
 .timeline-track::before {
   content: '';
   position: absolute;
   height: 100%;
   width: var(--progress);
-  background: $accentColor;
+  background: var(--accent-color);
   border-radius: inherit;
   z-index: 0;
   inset-block-start: 0;
   inset-inline-start: 0;
 }
-
 .timeline-dot {
   width: 0.65rem;
   height: 0.65rem;
@@ -1390,52 +1363,42 @@ export default {
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    background 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0.15s ease-in-out;
 }
-
 .timeline-dot.completed:not(.death):not(.reporter) {
-  background: hsl(30, 100%, 45%);
+  background: #e67300;
   border-color: #2a2a2a;
 }
-
 .timeline-dot.active {
   transform: scale(1.35);
-  box-shadow: 0 0 0 3px rgba(255, 191, 70, 0.45);
+  box-shadow: 0 0 0 3px rgba(255,191,70,0.45);
 }
-
 .timeline-dot.active:not(.death):not(.reporter) {
-  background: $accentColor;
-  border-color: darken($accentColor, 35%);
+  background: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color), black 35%);
 }
-
 .timeline-dot.death {
   background: #d16b6b;
 }
-
 .timeline-dot.reporter {
   background: #5fa6db;
 }
-
 .timeline-dot.bookmarked {
   box-shadow: 0 0 0 2px #ffbf46;
 }
-
 .timeline-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.85rem;
-  color: lighten($textColor, 25%);
+  color: color-mix(in srgb, var(--text-color), white 25%);
   margin-block-start: 0.6rem;
 }
-
 .legend-item {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
 }
-
 .legend-dot {
   width: 0.6rem;
   height: 0.6rem;
@@ -1444,49 +1407,41 @@ export default {
   background: #444;
   display: inline-block;
 }
-
 .legend-dot.bookmarked {
   box-shadow: 0 0 0 2px #ffbf46;
 }
-
 .legend-dot.death {
   background: #d16b6b;
 }
-
 .legend-dot.reporter {
   background: #5fa6db;
 }
-
 .h-narration {
   position: relative;
-  border-bottom: 3px solid darken($accentColor, 20%);
+  border-bottom: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
   background-color: #1a1a1a;
   padding-block: 0.5rem;
   padding-inline: 1rem;
 }
-
 .h-narration h3 {
   font-size: 1.2rem;
   margin-block: 1rem 0.5rem;
 }
-
 .scene-heading {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.6rem;
 }
-
 .scene-title {
   display: inline-block;
 }
-
 .scene-link {
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: lighten($textColor, 25%);
+  color: color-mix(in srgb, var(--text-color), white 25%);
   background: transparent;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -1495,18 +1450,15 @@ export default {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
 .scene-link:hover {
-  color: $accentColor;
-  border-color: $accentColor;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
-
 .scene-link.copied {
-  background: $accentColor;
+  background: var(--accent-color);
   color: #1a1a1a;
-  border-color: $accentColor;
+  border-color: var(--accent-color);
 }
-
 .h-narration p {
   font-size: 1.1rem;
   line-height: 1.6 !important;
@@ -1515,7 +1467,6 @@ export default {
   max-height: 9.7rem;
   overflow: auto;
 }
-
 .scenes {
   width: 100%;
   max-width: 1050px;
@@ -1523,42 +1474,35 @@ export default {
   display: block;
   margin-top: 1rem;
 }
-
 article + article {
   margin: 3rem 0;
 }
-
 h2 {
   font-size: 3.5rem;
   font-weight: 900;
-  color: white;
+  color: #fff;
   margin: 1.5rem 0 1rem;
 }
-
 .scene-image {
   width: 100%;
   line-height: 0;
   display: block;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
-
 .scene-image:hover {
-  box-shadow: 0 3px 0 0 hsla(45.3, 75%, 43.7%, 1);
+  box-shadow: 0 3px 0 0 #c39a1c;
   transform: scale(1.007);
 }
-
 .text {
-  border-bottom: 3px solid darken($accentColor, 20%);
+  border-bottom: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
   background-color: #1a1a1a;
   padding: 2rem 2rem 1rem;
 }
-
 .scenes h3 {
   font-size: 1.6rem;
   font-weight: 800;
   margin: 0;
 }
-
 .narrations {
   font-size: 1.3rem;
   font-weight: 500;
@@ -1567,133 +1511,101 @@ h2 {
   padding: 0;
   margin: 0;
 }
-
 .reporter {
   font-size: 1.1rem;
   font-weight: 400;
 }
-
-.blog {
-  @extend $wrapper;
-}
-
 .page-nav {
   padding: 0.2rem 0 0 0;
 }
-
-@media (max-width: $MQMobile) {
+@media (max-width: 799px) {
   .scene-timeline {
     margin-bottom: 1.4rem;
   }
-
   .timeline-track {
     min-width: 420px;
   }
-
   .timeline-dot {
     width: 0.55rem;
     height: 0.55rem;
   }
-
   .scene-link {
     font-size: 0.65rem;
   }
-
   .episode-tools {
     align-items: flex-start;
   }
-
   .toggle-button {
     width: 100%;
   }
-
   .scene-jump {
     width: 100%;
   }
-
   .nextprev {
     grid-template-columns: 1fr;
   }
-
   .nav-card {
     text-align: left;
   }
-
   .nav-card.next {
     padding-right: 1.3rem;
   }
-
   .nav-card.next .nav-arrow {
     right: 0.5rem;
   }
-
   .nav-card.prev {
     padding-left: 1.3rem;
   }
-
   .nav-card.prev .nav-arrow {
     left: 0.5rem;
   }
-
   .nav-arrow {
     width: 1.8rem;
     height: 1.8rem;
     display: none;
   }
-
   .albumInfo {
     flex-flow: column nowrap;
   }
-
   .column {
     flex: 0 1 auto;
   }
-
   .scene-image {
     box-shadow: none;
   }
-
   .scenes h2 {
     margin: 1.5rem 0 0.5rem;
   }
-
   .scenes h3 {
     font-size: 1.2rem;
     margin: 0.5rem 0 0;
   }
-
   .text {
     padding: 0.5rem;
   }
-
   .narrations {
     font-size: 1rem;
     word-break: break-word;
     margin: 0;
     border-top: 0;
   }
-
   .reporter {
     padding-bottom: 1rem;
   }
-
   .pswp img {
     width: 100% !important;
     height: 100% !important;
   }
 }
-
-@media (max-width: $MQNarrow) {
+@media (max-width: 980px) {
   .blog {
     margin: 0 1rem;
   }
-
   .blog h1 {
     margin-top: 0.5rem;
   }
 }
-
-@media (max-width: $MQMobileNarrow) {
+@media (max-width: 450px) {
   .blog__title {
     font-size: 2.5rem;
   }

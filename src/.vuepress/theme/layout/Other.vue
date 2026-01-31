@@ -26,20 +26,17 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-@import '../styles/config.styl';
-
+<style>
 .page {
   padding: 0 1rem 0;
-  max-width: 100%h;
+  max-width: 100%;
   margin: 0 auto;
-
-  .footer {
-    color: lighten($textColor, 25%);
-    text-align: center;
-    border-top: 2px solid $borderColor;
-    padding: 1.5rem 2.5rem 2.5rem;
-    margin-block-start: 5rem;
-  }
+}
+.page .footer {
+  color: color-mix(in srgb, var(--text-color), white 25%);
+  text-align: center;
+  border-top: 2px solid var(--border-color);
+  padding: 1.5rem 2.5rem 2.5rem;
+  margin-block-start: 5rem;
 }
 </style>

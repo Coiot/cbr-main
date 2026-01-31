@@ -73,7 +73,7 @@ img {
   left: 0;
   top: 2rem;
   padding: 0.5rem 1rem;
-  color: $textColor;
+  color: var(--text-color);
   text-shadow: 1px 2px #083832;
   background: #202020;
   border: 1px double #fff;

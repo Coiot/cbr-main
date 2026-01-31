@@ -1,4 +1,8 @@
 const currentDateUTC = new Date().toUTCString();
+const siteDescription =
+  "Image Archive for the Civilization Battle Royale (CBR)";
+const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
+const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const autometa_options = {
   enable: true,
   image: true,
@@ -9,13 +13,111 @@ const autometa_options = {
     name: "Civilization Battle Royale",
     twitter: "isaacvolpe",
   },
-  canonical_base: "https://civilizationbattleroyale.com",
+  canonical_base: "https://civbattleroyale.tv",
   description_sources: ["frontmatter"],
   image_sources: ["frontmatter"],
 };
+
+const formatSeasonLabel = (edition) => {
+  if (!edition) return "";
+  const match = String(edition).match(/s(\\d+)/i);
+  return match ? `Season ${match[1]}` : String(edition);
+};
+
+const buildEpisodeDescription = (frontmatter) => {
+  const parts = [];
+  const season = formatSeasonLabel(frontmatter.edition);
+  if (season) parts.push(season);
+  if (frontmatter.release_date) {
+    parts.push(`Released ${frontmatter.release_date}`);
+  }
+  if (frontmatter.narrated_by) {
+    parts.push(`Narrated by ${frontmatter.narrated_by}`);
+  }
+  if (Array.isArray(frontmatter.scenes) && frontmatter.scenes.length) {
+    parts.push(`${frontmatter.scenes.length} scenes`);
+  }
+  return parts.join(" • ");
+};
+
+const buildFallbackDescription = (frontmatter) => {
+  const isEpisode =
+    Boolean(frontmatter.scenes) ||
+    (frontmatter.title && /episode/i.test(frontmatter.title));
+  if (isEpisode) {
+    const episodeDescription = buildEpisodeDescription(frontmatter);
+    if (episodeDescription) return episodeDescription;
+  }
+  return siteDescription;
+};
+
+const addMetaOnce = (meta, entry, key) => {
+  if (!entry || !entry.content) return;
+  const exists = meta.some((item) => item && item[key] === entry[key]);
+  if (!exists) {
+    meta.push(entry);
+  }
+};
+
+const socialMetaEnhancer = () => ({
+  name: "social-meta-enhancer",
+  extendPageData($page) {
+    const frontmatter = $page.frontmatter || {};
+    const meta = frontmatter.meta || [];
+    const socialImage = DEFAULT_SOCIAL_IMAGE;
+    const socialAlt =
+      frontmatter.image_alt ||
+      frontmatter.imageAlt ||
+      frontmatter.title ||
+      DEFAULT_SOCIAL_ALT;
+
+    if (!frontmatter.image) {
+      if (
+        Array.isArray(frontmatter.scenes) &&
+        frontmatter.scenes.length &&
+        frontmatter.scenes[0].slide_url
+      ) {
+        frontmatter.image = frontmatter.scenes[0].slide_url;
+      } else {
+        frontmatter.image = socialImage;
+      }
+    }
+
+    if (!frontmatter.description || !String(frontmatter.description).trim()) {
+      frontmatter.description = buildFallbackDescription(frontmatter);
+    }
+
+    addMetaOnce(
+      meta,
+      { property: "og:image:alt", content: socialAlt },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      { name: "twitter:image:alt", content: socialAlt },
+      "name"
+    );
+
+    if (frontmatter.image === socialImage) {
+      addMetaOnce(
+        meta,
+        { property: "og:image:width", content: "1200" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:height", content: "630" },
+        "property"
+      );
+    }
+
+    frontmatter.meta = meta;
+    $page.frontmatter = frontmatter;
+  },
+});
 module.exports = {
   title: "Civ Battle Royale",
-  description: "Image Archive for the Civilization Battle Royale (CBR)",
+  description: siteDescription,
   dest: "./public",
   chainWebpack(config) {
     config.module
@@ -66,6 +168,8 @@ module.exports = {
       // },
     ],
     logo: "/cbr_logo_color.svg",
+    socialImage: DEFAULT_SOCIAL_IMAGE,
+    socialImageAlt: DEFAULT_SOCIAL_ALT,
     docsDir: "src",
     serviceWorker: true,
     reactions: [
@@ -89,6 +193,7 @@ module.exports = {
     ],
   },
   plugins: [
+    socialMetaEnhancer(),
     "vuepress-plugin-janitor",
     [
       "vuepress-plugin-medium-zoom",

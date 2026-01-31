@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="924" viewBox="0 0 1400 924" role="img" aria-label="Season 5 Supporters">
+  <style>
+    
+    @font-face {
+      font-family: "Teko";
+      src: url("data:font/otf;base64,T1RUTwAKAIAAAwAgQ0ZGIIgWufEAAAiQAAA2PUdTVUKoJ8P3AAA+0AAAAihPUy8yWcbwpwAAARAAAABgY21hcLmt+lwAAAX8AAACcmhlYWQh8k4nAAAArAAAADZoaGVhCVUEtQAAAOQAAAAkaG10eHQtJNMAAED4AAAFUG1heHABVFAAAAABCAAAAAZuYW1la0qWrwAAAXAAAASKcG9zdP+4ADIAAAhwAAAAIAABAAAAAwAAAIkp3l8PPPUAAwPoAAAAAN6eK84AAAAA3p3fPP+p/tUF8wNlAAEABgACAAAAAAAAAAEAAANm/tQAUAZw/6n+HAXzAAEAAAAAAAAAAAAAAAAAAAFUAABQAAFUAAAABAHfArwABQAAArwCigAAAIwCvAKKAAAB3QAyAPoAAAAAAAAAAAAAAACAAAAnAAAAAAAAAAAAAAAASVRGTwCgAAD7AgNm/tQAUANmASwgAACTAAAAAAHmAoIAAAAgAAMAAAAPALoAAwABBAkAAAB6AAAAAwABBAkAAQAIAHoAAwABBAkAAgAIAIIAAwABBAkAAwAoAIoAAwABBAkABAASALIAAwABBAkABQAaAMQAAwABBAkABgASAN4AAwABBAkABwBWAPAAAwABBAkACAAmAUYAAwABBAkACQA6AWwAAwABBAkACgBGAaYAAwABBAkACwA6AewAAwABBAkADABWAiYAAwABBAkADQEgAnwAAwABBAkADgA0A5wAQwBvAHAAeQByAGkAZwBoAHQAIAAyADAAMQA0AC0AMgAwADIAMgAgAEkAbgBkAGkAYQBuACAAVAB5AHAAZQAgAEYAbwB1AG4AZAByAHkALgAgAEEAbABsACAAcgBpAGcAaAB0AHMAIAByAGUAcwBlAHIAdgBlAGQALgBUAGUAawBvAEIAbwBsAGQAMwAuADAAMAAwADsASQBUAEYATwA7AFQAZQBrAG8ALQBCAG8AbABkAFQAZQBrAG8AIABCAG8AbABkAFYAZQByAHMAaQBvAG4AIAAzAC4AMAAwADAAVABlAGsAbwAtAEIAbwBsAGQAVABlAGsAbwAgAGkAcwAgAGEAIAB0AHIAYQBkAGUAbQBhAHIAawAgAG8AZgAgAEkAbgBkAGkAYQBuACAAVAB5AHAAZQAgAEYAbwB1AG4AZAByAHkALgBJAG4AZABpAGEAbgAgAFQAeQBwAGUAIABGAG8AdQBuAGQAcgB5AE0AYQBuAHUAcwBoAGkAIABQAGEAcgBpAGsAaAAsACAASgBvAG4AbgB5ACAAUABpAG4AaABvAHIAbgBGAG8AbgB0ACAAcgBlAC0AZQBuAGcAaQBuAGUAZQByAGUAZAAgAGIAeQAgAFIAYQBoAHUAbAAgAEcAYQBqAGoAYQByAC4AaAB0AHQAcABzADoALwAvAGkAbgBkAGkAYQBuAHQAeQBwAGUAZgBvAHUAbgBkAHIAeQAuAGMAbwBtAGgAdAB0AHAAcwA6AC8ALwB3AHcAdwAuAGkAbgBkAGkAYQBuAHQAeQBwAGUAZgBvAHUAbgBkAHIAeQAuAGMAbwBtAC8AZABlAHMAaQBnAG4AZQByAHMAVABoAGkAcwAgAEYAbwBuAHQAIABTAG8AZgB0AHcAYQByAGUAIABpAHMAIABsAGkAYwBlAG4AcwBlAGQAIAB1AG4AZABlAHIAIAB0AGgAZQAgAFMASQBMACAATwBwAGUAbgAgAEYAbwBuAHQAIABMAGkAYwBlAG4AcwBlACwAIABWAGUAcgBzAGkAbwBuACAAMQAuADEALgAgAFQAaABpAHMAIABsAGkAYwBlAG4AcwBlACAAaQBzACAAYQB2AGEAaQBsAGEAYgBsAGUAIAB3AGkAdABoACAAYQAgAEYAQQBRACAAYQB0ADoAIABoAHQAdABwADoALwAvAHMAYwByAGkAcAB0AHMALgBzAGkAbAAuAG8AcgBnAC8ATwBGAEwAaAB0AHQAcAA6AC8ALwBzAGMAcgBpAHAAdABzAC4AcwBpAGwALgBvAHIAZwAvAE8ARgBMAAAAAAACAAAAAwAAABQAAwABAAAAFAAEAl4AAACCAIAABgACAAAADQAgAH4AuwDFAQIBBwEMARMBFgEbAR8BIwErATEBNwE+AUgBTQFQAVsBZQFrAXMBfgGSAhsCvALHAskC3QPAIAsgFCAaIB4gIiAmIDAgOiBEIKggrCC6IL0hEyEiISYhLiICIg8iEiIVIhoiHiIrIkgiYCJlJcolzPj/+wL//wAAAAAADQAgACEAoAC8AMYBAwEMAQ0BFgEXAR4BIgEqAS4BNgE5AUEBTAFQAVEBXgFqAW4BeAGSAhgCvALGAskC2APAIAsgEyAYIBwgICAmIDAgOSBEIKggrCC5IL0hEyEiISYhLiICIg8iESIVIhkiHiIrIkgiYCJkJcolzPj/+wH//wAB//X/4//m/8UAAP/FAAD/w//E/8L/w//B/7//uf+3/7MAAP+v/6z/qv+r/6n/pf+j/5//jP8H/okAAP5aAAD9jeE54RHhDuEN4QzhCeEA4Pjg7+Cg4IgAAOCS4D3gE+AQ4BnfT98oAADfJAAA3x3fEd713t7e29t32jkHBQZBAAEAAAAAAAAAAAAAAHgAAACIAAAAAAAAAAAAAAAAAAAAAAAAAH4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHIAAAByAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAUkBSgFLAIEAggCDAIQAhgCIAIkAyQDKAMwAzQDOAOsA7ADtAO4BTADvAIUA0ADIANkAigDLAIcA+wAGAU4BUwE4AToBRgAAAAMAAAAAAAD/tQAyAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQCAAEBAQpUZWtvLUJvbGQAAQEBO/iLAPiMAfiNDAD4jgL4jwP4FARADAM0+78dAAAF8/n5BR0AAAz9Dx0AAA6cEJwdAAAxlRIdAAAOnhEAdQIAAQAFAAcACgAWACEAKAAyADcAPgBFAEsAUQBYAF8AZQBrAHEAdwB9AIMAiQCPAJYAnQCnALEAuAC/AMUAywDRANcA4wDvAPYA/QEEAQsBFQEhAS0BMwE5AUUBUQFXAV0BYwFvAXsBgQGHAY4BlQGiAa8BtQG7AccB0wHZAd8B5QHrAfMB+wIDAgsCEQIXAh4CJQIqAi8CPAJJAlACVwJdAmMCbQJ3AoMCjwKbAqcCsAK0ArcCvgLLAtkC4QLpAvQC/AMFAxEDGAMmAzMDOgNDA0gDTgNQA1sDYANlA3ADegODA4YDsQPuA/cD+05VTExDUklURmNpcmNsZWRvdHRlZGluZGlhbnJ1cGVlbmJzcGFjZXNvZnRoeXBoZW5taWNyb0FtYWNyb25hbWFjcm9uQWJyZXZlYWJyZXZlQW9nb25la2FvZ29uZWtDYWN1dGVjYWN1dGVDY2Fyb25jY2Fyb25EY2Fyb25kY2Fyb25EY3JvYXRkY3JvYXRFbWFjcm9uZW1hY3JvbkVkb3RhY2NlbnRlZG90YWNjZW50RW9nb25la2VvZ29uZWtFY2Fyb25lY2Fyb25HYnJldmVnYnJldmVHY29tbWFhY2NlbnRnY29tbWFhY2NlbnRJbWFjcm9uaW1hY3JvbklvZ29uZWtpb2dvbmVrSWRvdGFjY2VudEtjb21tYWFjY2VudGtjb21tYWFjY2VudExhY3V0ZWxhY3V0ZUxjb21tYWFjY2VudGxjb21tYWFjY2VudGxjYXJvbk5hY3V0ZW5hY3V0ZU5jb21tYWFjY2VudG5jb21tYWFjY2VudE5jYXJvbm5jYXJvbk9tYWNyb25vbWFjcm9uT2h1bmdhcnVtbGF1dG9odW5nYXJ1bWxhdXRSYWN1dGVyYWN1dGVSY29tbWFhY2NlbnRyY29tbWFhY2NlbnRSY2Fyb25yY2Fyb25TYWN1dGVzYWN1dGVTY2VkaWxsYXNjZWRpbGxhVGNlZGlsbGF0Y2VkaWxsYVRjYXJvbnRjYXJvblVtYWNyb251bWFjcm9uVXJpbmd1cmluZ1VodW5nYXJ1bWxhdXR1aHVuZ2FydW1sYXV0VW9nb25la3VvZ29uZWtaYWN1dGV6YWN1dGVaZG90YWNjZW50emRvdGFjY2VudFNjb21tYWFjY2VudHNjb21tYWFjY2VudFRjb21tYWFjY2VudHRjb21tYWFjY2VudG1hY3Jvbm1vZEV1cm9PaG1wcm9kdWN0ZGl2aXNpb25zbGFzaGJ1bGxldG9wZXJhdG9yaW5maW5pdHlpbnRlZ3JhbGFwcHJveGVxdWFsbm90ZXF1YWxsZXNzZXF1YWxncmVhdGVyZXF1YWxsb3plbmdlemVyb3dpZHRoc3BhY2VhcG9zdHJvcGhlbW9kcmFkaWNhbGVzdGltYXRlZHJ1cGVlTGNhcm9ucGl0dXJraXNobGlyYXJ1YmxlbGl0cmVwYXJ0aWFsZGlmZkRlbHRhLm1hdGhzdW1tYXRpb24zLjBUZWtvIGlzIGEgdHJhZGVtYXJrIG9mIEluZGlhbiBUeXBlIEZvdW5kcnkuQ29weXJpZ2h0IDIwMTQtMjAyMiBJbmRpYW4gVHlwZSBGb3VuZHJ5LiBBbGwgcmlnaHRzIHJlc2VydmVkLlRla28gQm9sZFRla28AawIAAQAIAA4AEgAWABoAIAAkACcATQBYAIQAiQCOAJkAoACkAN0A9AEDAQkBDgEcATcBTAFpAXABjQGWAaMBqQGwAbYB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AeQAKAIVABkBHwANARsADQH0AHQB6QAoAjkAGwEQADEB9AB5ANoACgFLABkB9QAPAdUAFAIfAAACHwAAAh8AAAH0ACgCHwAAAfQANQIfAAACHwAAAfQAaQMCAAAB7wAjAcEAIwHBACgBwQAaAfQAJgD//7cA/wAoAP//rQD//7wCD//7AhUAKAIEACUCBAAlAgQAJQIEACUB9AAlAeIAFAIEAB4CCgAoAgoAKAIKACgCCgAoAgcAAAIWAC0CpQAtAd8AHgHfAB4B3wAeAd8AHgHfAB4B3wAeAuAAIwHDAB4B1wAaAdcAHgHXAB4B1wAeAPr/uAD6ACgA+v+pAPr/tgHuAB4B5AAlAeEAIwHhACMB4QAfAeEAIwHhACMCFQAZAeEAGQHkACMB5AAjAeQAHwH0ACMB0AAAAekAIgH0AAACHwAAAd8AHgIfAAAB9AA1Ad8AHgIfAAAB9ACRAd8AHgHvACMBwwAeAe8AIwH0ACgBwwAQAhEAMgIIAB4CGf/7AeQAIwHBACQB1wAeAcEAKAH0AKkB1wAeAcEAKAHXAB4BwQAdAdcAHQH1ACMB3wAeAfUAIwHfAB4A//++APr/ugD/AAMA+v/+AP8AKAD6ACgCEgAoAdsAKAGeACgA+gAoAZ4AKAD6ACgBLAAoAbL/2QEE/8kCFQAoAeQAKAIVACgB5AAoAhUAKAHkABYCBAAlAeEAIwH0ACUB9AAhAeEAIwLkAEEDQQAjAgIAKAFPACgCAgAoAU8AKAICACgBT//mAesAHgG9ABkB6wAeAb0AGQHrAB4BvQAMAbAABQGwAAUBsAADAS8ABQIKACgB5AAjAgoAKAHkACMB9AAoAeQAIwIKACgB5AAjAfQAAAHQABQBhwAKAdAAFAGHAAoB0AAUAYf/9gHBAAgB6wAeAb0AGQGwAAUBLwAFAfQANwJfAC4C7QAuAP4AKAD+ACgA/AAoAdAAKAHQACgB0AAoAcYACgHkABkBjAAyAvAAKAT2ABkBKwAPASsADwGb/+wCBAAPAtsACgIUAA8CGwAAApoADwGb/+wA/AAoAl//8wHjAFgCMwAZAhUAGQIVABkCFQAZArsAQwH+AAoB/gAKAAAAAAD+ACgDQQBTAlgAIgO9ACgDQQBGAy4ARgMWACUBngAoAjoACgAA/9UAAP/pArMAaQH6ACQCnQA0Ai0AGQ==") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    .title {
+      font-family: "Teko","Impact",sans-serif;
+      font-size: 90px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      fill: #ffffff;
+    }
+    .name {
+      font-family: "Teko","Impact",sans-serif;
+      font-size: 34px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      fill: #f5f1e6;
+    }
+    .count {
+      font-family: "Teko","Impact",sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      fill: #f5f1e6;
+    }
+    .supporter {
+      cursor: default;
+    }
+    .civ-tooltip-bg,
+    .civ-tooltip {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .supporter:hover .civ-tooltip-bg,
+    .supporter:hover .civ-tooltip {
+      opacity: 1;
+    }
+    .civ-tooltip-bg {
+      fill: rgba(0,0,0,0.8);
+    }
+    .civ-tooltip {
+      font-family: "Teko","Impact",sans-serif;
+      font-size: 36px;
+      fill: #fff;
+      letter-spacing: 0.04em;
+    }
+    .counts-panel {
+      fill: rgba(60,60,60,0.4);
+    }
+    .counts-label {
+      font-family: "Teko","Impact",sans-serif;
+      font-size: 20px;
+      fill: #b6b3ae;
+      letter-spacing: 0.04em;
+    }
+    .side-bar {
+      fill: #f4a641;
+    }
+  </style>
+  <rect width="100%" height="100%" fill="#0a0a0a" />
+
+  <rect class="side-bar" x="49.5" y="44" width="18" height="836" />
+  <rect class="side-bar" x="1332.5" y="44" width="18" height="836" />
+
+  <text class="title" x="700" y="200" text-anchor="middle">Season 5 Supporters</text>
+  <g class="names" transform="translate(156, 0)">
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="303" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="239.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="303" dominant-baseline="middle">Admiral_Cloudberg</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="341" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="277.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="341" dominant-baseline="middle">Ajaxx</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="379" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="315.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="339.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="379" dominant-baseline="middle">AkumetsuTime</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="417" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="353.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="417" dominant-baseline="middle">Andy</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="455" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="391.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="455" dominant-baseline="middle">anonymous punjab</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="493" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="429.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="493" dominant-baseline="middle">Autistic Not Weird</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="531" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="467.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="531" dominant-baseline="middle">Bartok</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="569" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="505.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="529.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="569" dominant-baseline="middle">Buzzercap</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="607" dominant-baseline="middle">dabokan</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="645" dominant-baseline="middle">DeadHeadAhead</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="10" cy="683" r="10" fill="#3accc7" stroke="#0c3856" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-106" y="619.8" width="232" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="643.4" text-anchor="middle" dominant-baseline="middle">Seychelles</text>
+    <text class="name" x="30" y="683" dominant-baseline="middle">ECH</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="303" r="10" fill="#b21b2a" stroke="#fff398" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="239.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Pegu</text>
+    <text class="name" x="439.3333333333333" y="303" dominant-baseline="middle">EmeraldRange</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="341" r="10" fill="#0b4033" stroke="#ebe968" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="270.9333333333333" y="277.8" width="296.8" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Green Ukraine</text>
+    <text class="name" x="439.3333333333333" y="341" dominant-baseline="middle">ExplosiveWatermelon</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="379" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="315.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="339.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="379" dominant-baseline="middle">Frankie Leonie</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="417" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="353.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="417" dominant-baseline="middle">GBlazeMan</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="455" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="391.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="455" dominant-baseline="middle">ItsTruckMonth</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="493" r="10" fill="#9db5e3" stroke="#0c0d7d" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="335.73333333333335" y="429.8" width="167.2" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Bactria</text>
+    <text class="name" x="439.3333333333333" y="493" dominant-baseline="middle">Lacsirax</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="531" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="467.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="531" dominant-baseline="middle">Lemons</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="569" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="505.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="529.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="569" dominant-baseline="middle">Lisbon Mapping</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="607" dominant-baseline="middle">Marekesh</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="645" dominant-baseline="middle">Nathanmasse</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="419.3333333333333" cy="683" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="619.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="643.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="683" dominant-baseline="middle">Nirosat</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="303" r="10" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="647.8666666666667" y="239.8" width="361.59999999999997" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Hanseatic League</text>
+    <text class="name" x="848.6666666666666" y="303" dominant-baseline="middle">NJay</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="341" r="10" fill="#6b080f" stroke="#f07c4e" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="755.8666666666667" y="277.8" width="145.6" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Mysore</text>
+    <text class="name" x="848.6666666666666" y="341" dominant-baseline="middle">NopeCopter</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="379" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="315.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="339.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="379" dominant-baseline="middle">Paraguay_Stronk</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="417" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="353.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="417" dominant-baseline="middle">PvtPikman</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="455" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="391.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="455" dominant-baseline="middle">QuantumBotany</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="493" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="429.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="493" dominant-baseline="middle">Semiconscious</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="531" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="467.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="531" dominant-baseline="middle">SeroSedSerio</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="569" r="10" fill="#1c3b56" stroke="#f23929" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="755.8666666666667" y="505.8" width="145.6" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="529.4" text-anchor="middle" dominant-baseline="middle">France</text>
+    <text class="name" x="848.6666666666666" y="569" dominant-baseline="middle">shaggysnorlax</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="607" dominant-baseline="middle">SilverFoxG</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="645" dominant-baseline="middle">sundevil_062005</text>
+  </g>
+  </g>
+  <rect class="counts-panel" x="293.84999999999997" y="736" width="812.3000000000001" height="94" rx="10" ry="10" />
+  <text class="counts-label" x="700" y="772" text-anchor="middle">Top 5 Supporters Choice</text>
+  <g class="counts" transform="translate(309.84999999999997, 0)">
+  <circle class="count-badge" cx="8" cy="801" r="8" fill="#d6683f" stroke="#000000" stroke-width="3" />
+  <text class="count" x="24" y="801" dominant-baseline="middle">Pomo 25</text>
+  <circle class="count-badge" cx="125.3" cy="801" r="8" fill="#9db5e3" stroke="#0c0d7d" stroke-width="3" />
+  <text class="count" x="141.3" y="801" dominant-baseline="middle">Bactria 1</text>
+  <circle class="count-badge" cx="262.40000000000003" cy="801" r="8" fill="#1c3b56" stroke="#f23929" stroke-width="3" />
+  <text class="count" x="278.40000000000003" y="801" dominant-baseline="middle">France 1</text>
+  <circle class="count-badge" cx="389.6" cy="801" r="8" fill="#0b4033" stroke="#ebe968" stroke-width="3" />
+  <text class="count" x="405.6" y="801" dominant-baseline="middle">Green Ukraine 1</text>
+  <circle class="count-badge" cx="586.1" cy="801" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+  <text class="count" x="602.1" y="801" dominant-baseline="middle">Hanseatic League 1</text>
+  </g>
+</svg>

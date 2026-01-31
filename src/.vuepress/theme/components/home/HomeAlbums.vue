@@ -93,7 +93,7 @@ h2 {
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: lighten($textColor, 25%);
+  color: color-mix(in srgb, var(--text-color), white 25%);
   margin: 0;
 }
 

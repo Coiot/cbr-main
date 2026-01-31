@@ -27,37 +27,41 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-.sidebar-group
-  &:not(.first)
-    margin-top 1em
-  .sidebar-group
-    padding-left 0.5em
-  &:not(.collapsable)
-    .sidebar-heading
-      cursor auto
-      color inherit
-
-.sidebar-heading
-  color #999
-  transition color .15s ease
-  cursor pointer
-  font-size 1.1em
-  font-weight bold
-  // text-transform uppercase
-  padding 0 1.5rem
-  margin-top 0
-  margin-bottom 0.5rem
-  &.open, &:hover
-    color inherit
-  .arrow
-    position relative
-    top -0.12em
-    left 0.5em
-  &:.open .arrow
-    top -0.18em
-
-.sidebar-group-items
-  transition height .1s ease-out
-  overflow hidden
+<style>
+.sidebar-group:not(.first) {
+  margin-top: 1em;
+}
+.sidebar-group .sidebar-group {
+  padding-left: 0.5em;
+}
+.sidebar-group:not(.collapsable) .sidebar-heading {
+  cursor: auto;
+  color: inherit;
+}
+.sidebar-heading {
+  color: #999;
+  transition: color 0.15s ease;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 0 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.sidebar-heading.open,
+.sidebar-heading:hover {
+  color: inherit;
+}
+.sidebar-heading .arrow {
+  position: relative;
+  top: -0.12em;
+  left: 0.5em;
+}
+.sidebar-heading:.open .arrow {
+  top: -0.18em;
+}
+.sidebar-group-items {
+  transition: height 0.1s ease-out;
+  overflow: hidden;
+}
 </style>

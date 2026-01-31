@@ -91,75 +91,58 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-@import '../../styles/config.styl';
-
+<style>
 .nav-links {
   display: inline-block;
-
-  a {
-    color: $backColor;
-
-    &:hover {
-      color: $accentColor;
-    }
-  }
-
-  a:not(.external) {
-    font-weight: 900;
-    text-shadow: 1px 1px #eee;
-  }
-
-  .nav-item {
-    position: relative;
-    display: inline-block;
-    margin-top: 0.3rem;
-    margin-left: 1.2rem;
-    line-height: 1.5rem;
-
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .repo-link {
-    margin-left: 1.1rem;
-  }
-
 }
-
+.nav-links a {
+  color: var(--back-color);
+}
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+.nav-links a:not(.external) {
+  font-weight: 900;
+  text-shadow: 1px 1px #eee;
+}
+.nav-links .nav-item {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.3rem;
+  margin-left: 1.2rem;
+  line-height: 1.5rem;
+}
+.nav-links .nav-item:first-child {
+  margin-left: 0;
+}
+.nav-links .repo-link {
+  margin-left: 1.1rem;
+}
 .edition-links {
   display: none;
 }
-
-
-@media (max-width: $MQMobile) {
-  .nav-links {
-    .nav-item, .repo-link {
-      margin-left: 0;
-    }
+@media (max-width: 799px) {
+  .nav-links .nav-item,
+  .nav-links .repo-link {
+    margin-left: 0;
   }
-
   .edition-links {
     display: block !important;
   }
 }
-
-@media (min-width: $MQMobile) {
-  .nav-links a {
-    &:hover, &.router-link-active {
-      color: $backColor;
-    }
+@media (min-width: 799px) {
+  .nav-links a:hover,
+  .nav-links a.router-link-active {
+    color: var(--back-color);
   }
-
   .nav-item {
     border-bottom: 3px solid transparent;
     transition: all 0.2s ease-in;
-
-    &:hover, &.router-link-active {
-      margin-bottom: 0px;
-      border-bottom: 3px solid lighten($accentColor, 20%);
-    }
+  }
+  .nav-item:hover,
+  .nav-item.router-link-active {
+    margin-bottom: 0px;
+    border-bottom: 3px solid color-mix(in srgb, var(--accent-color), white 20%);
   }
 }
 </style>

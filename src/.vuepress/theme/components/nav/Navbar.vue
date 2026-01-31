@@ -318,7 +318,7 @@
               <li><kbd>R</kbd> Resume to bookmark</li>
               <li><kbd>G</kbd> Jump to scene input</li>
               <li><kbd>T</kbd> Toggle view</li>
-              <li><kbd>C</kbd> Copy scene link</li>
+              <!-- <li><kbd>C</kbd> Copy scene link</li> -->
             </ul>
           </div>
           <div class="help-section">
@@ -380,7 +380,7 @@ export default {
   },
 
   mounted() {
-    const MOBILE_DESKTOP_BREAKPOINT = 719; // refer to config.styl
+    const MOBILE_DESKTOP_BREAKPOINT = 799; // keep aligned with CSS breakpoints
     const NAVBAR_VERTICAL_PADDING =
       parseInt(css(this.$el, "paddingLeft")) +
       parseInt(css(this.$el, "paddingRight"));
@@ -1146,607 +1146,560 @@ function css(el, property) {
 }
 </script>
 
-<style lang="stylus">
-@import '../../styles/config.styl';
-
-$navbar-vertical-padding = 0.6rem;
-$navbar-horizontal-padding = 1.4rem;
-
+<style>
 .navbar {
   position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  inline-size: 100%;
+  min-block-size: var(--navbar-height);
+  background-color: var(--nav-color);
   padding-block: 0;
-  padding-inline-start: 0;
-  padding-inline-end: 4rem;
-
-  a, span, img {
-    display: inline-block;
-  }
-
-  .logo {
-    height: 3.5em;
-    vertical-align: top;
-    margin-inline-end: 0.9rem;
-  }
-
-  .site-name {
-    position: relative;
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: $backColor;
-    text-shadow: 2px 2px #eee;
-    margin-block-start: 0.7rem;
-  }
-
-  .links {
-    position: absolute;
-    inset-block-start: $navbar-vertical-padding;
-    inset-inline-end: $navbar-horizontal-padding;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    box-sizing: border-box;
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: $navColor;
-    white-space: nowrap;
-    padding-inline-start: 1.5rem;
-
-    .search-box {
-      flex: 0 0 auto;
-      vertical-align: top;
-    }
-
-    .nav-links {
-      flex: 1;
-    }
-
-    .bookmark-wrapper {
-      position: relative;
-    }
-
-    .user-wrapper {
-      position: relative;
-    }
-
-    .help-wrapper {
-      position: relative;
-    }
-
-    .bookmark-trigger {
-      width: 2.4rem;
-      height: 2.4rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: $backColor;
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.3rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .bookmark-trigger:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .community-trigger {
-      width: 1.75rem;
-      height: 1.75rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: $backColor;
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.3rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .community-trigger:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .community-icon {
-      width: 1.2rem;
-      height: 1.2rem;
-      fill: currentColor;
-    }
-
-    .social-trigger {
-      width: 1.75rem;
-      height: 1.75rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: $backColor;
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.3rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .social-trigger:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .social-icon {
-      width: 1.2rem;
-      height: 1.2rem;
-      fill: currentColor;
-      display: block;
-    }
-
-    .user-trigger {
-      width: 2.4rem;
-      height: 2.4rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: $backColor;
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.3rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .user-trigger:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .user-icon {
-      width: 1.15rem;
-      height: 1.15rem;
-      display: block;
-      stroke: currentColor;
-    }
-
-    .bookmark-icon {
-      width: 1.2rem;
-      height: 1.2rem;
-      fill: currentColor;
-    }
-
-    .help-trigger {
-      width: 2.4rem;
-      height: 2.4rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: $backColor;
-      background: transparent;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: 0.3rem;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .help-trigger:hover {
-      border-color: $accentColor;
-      color: $accentColor;
-    }
-
-    .help-icon {
-      width: 1.15rem;
-      height: 1.15rem;
-      fill: currentColor;
-    }
-
-    .community-description {
-      font-size: 0.85rem;
-      font-weight: 400;
-      line-height: 1.25;
-      text-wrap: balance;
-      margin-block-start: 0.25rem;
-    }
-
-    .bookmark-badge {
-      position: absolute;
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      background: $accentColor;
-      border-radius: 999px;
-      padding: 0.1rem 0.35rem;
-      inset-block-start: -0.2rem;
-      inset-inline-end: -0.2rem;
-    }
-
-    .bookmark-dropdown {
-      position: absolute;
-      min-width: 22rem;
-      max-width: 90vw;
-      z-index: 20;
-      inset-block-start: calc(100% + 0.4rem);
-      inset-inline-end: 0;
-      color: $backColor;
-      background: #fff;
-      border: 1px solid darken($borderColor, 10%);
-      border-radius: 6px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      padding-block: 0.8rem;
-      padding-inline: 0.8rem;
-    }
-
-    .user-dropdown {
-      position: absolute;
-      width: 20rem;
-      max-width: 90vw;
-      z-index: 20;
-      inset-block-start: calc(100% + 0.4rem);
-      inset-inline-end: 0;
-      color: $backColor;
-      background: #fff;
-      border: 1px solid darken($borderColor, 10%);
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      padding-block: 1rem;
-      padding-inline: 1rem;
-    }
-
-    .help-dropdown {
-      position: absolute;
-      width: 20rem;
-      max-width: 90vw;
-      z-index: 20;
-      inset-block-start: calc(100% + 0.4rem);
-      inset-inline-end: 0;
-      color: $backColor;
-      background: #fff;
-      border: 1px solid darken($borderColor, 10%);
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      padding-block: 1rem;
-      padding-inline: 1rem;
-    }
-
-    .user-header {
-      font-weight: 800;
-      margin-block-end: 0.6rem;
-    }
-
-    .user-section {
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .user-copy {
-      color: lighten($backColor, 10%);
-      font-size: 0.85rem;
-      word-break: break-word;
-      white-space: normal;
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .user-input {
-      padding: 0.5rem 0.7rem;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .user-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: lighten($backColor, 25%);
-    }
-
-    .user-field {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .user-row {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .user-row .user-input {
-      flex: 1;
-    }
-
-    .user-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.45rem 0.8rem;
-      border-radius: 6px;
-      border: 1px solid $accentColor;
-      background: $accentColor;
-      color: #1a1a1a;
-      font-size: .9rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .user-button--ghost {
-      background: #fff;
-      color: $accentColor;
-    }
-
-    .user-button--ghost:hover {
-      background: lighten($accentColor, 38%);
-    }
-
-    .user-button:hover {
-      background: lighten($accentColor, 10%);
-      border-color: lighten($accentColor, 10%);
-    }
-
-    .user-button:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    .user-toggle {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .user-chip {
-      flex: 1;
-      border: 1px solid #ddd;
-      border-radius: 999px;
-      padding: 0.35rem 0.6rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      background: #f7f5f0;
-      color: #1a1a1a;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .user-chip.is-active {
-      background: $accentColor;
-      border-color: $accentColor;
-      color: #1a1a1a;
-    }
-
-    .user-message {
-      margin: 0;
-      font-size: 0.85rem;
-      color: lighten($backColor, 15%);
-    }
-
-    .user-hint {
-      margin: 0;
-      font-size: 0.7rem;
-      color: lighten($backColor, 30%);
-    }
-
-    .user-email {
-      margin: 0;
-      font-weight: 800;
-      font-size: 1.125rem;
-      color: $backColor;
-    }
-
-    .user-cta {
-      margin: 0;
-      font-size: 0.75rem;
-      color: lighten($backColor, 35%);
-      line-height: 1.25;
-    }
-
-    .user-cta a {
-      color: $accentColor;
-      font-size: 1.125rem;
-      font-weight: 800;
-      padding-block-start: 0.5rem;
-    }
-
-    .help-header {
-      font-weight: 800;
-      margin-block-end: 0.6rem;
-    }
-
-    .help-section + .help-section {
-      margin-block-start: 1rem;
-    }
-
-    .help-section h4 {
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: lighten($backColor, 20%);
-      margin-block: 0 0.4rem;
-    }
-
-    .help-section p {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      color: lighten($backColor, 10%);
-      margin: 0;
-    }
-
-    .help-list {
-      list-style: none;
-      display: grid;
-      gap: 0.35rem;
-      font-size: 0.9rem;
-      color: lighten($backColor, 10%);
-      margin: 0;
-      padding: 0;
-    }
-
-    .help-list kbd {
-      min-width: 1.2rem;
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      background: #f3f3f3;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      padding-block: 0.1rem;
-      padding-inline: 0.4rem;
-      margin-inline-end: 0.2rem;
-    }
-
-    .bookmark-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 800;
-      margin-block-end: 0.6rem;
-    }
-
-    .bookmark-count {
-      font-size: 0.8rem;
-      color: lighten($backColor, 20%);
-    }
-
-    .bookmark-list {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .bookmark-list li {
-      display: flex;
-      align-items: stretch;
-      width: 100%;
-      box-sizing: border-box;
-      background: #fefefe;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .bookmark-link {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      width: 100%;
-      min-width: 0;
-      box-sizing: border-box;
-      color: $backColor;
-      overflow: hidden;
-      padding-block: 0.55rem;
-      padding-inline: 0.8rem;
-    }
-
-    .bookmark-link:hover {
-      background: #f6f6f6;
-    }
-
-    .bookmark-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .bookmark-meta {
-      display: flex;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      color: lighten($backColor, 25%);
-      flex-wrap: wrap;
-    }
-
-    .bookmark-remove {
-      flex: 0 0 3rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: lighten($backColor, 10%);
-      background: #f3f3f3;
-      border: 0;
-      border-inline-start: 1px solid #e3e3e3;
-      cursor: pointer;
-      transition: all 0.15s ease-in-out;
-    }
-
-    .bookmark-remove:hover {
-      color: #d16b6b;
-      background: #fff1f1;
-    }
-
-    .bookmark-remove-icon {
-      width: 1rem;
-      height: 1rem;
-      display: block;
-      fill: currentColor;
-    }
-
-    .bookmark-empty {
-      font-size: 0.9rem;
-      color: lighten($backColor, 30%);
-      margin-block-start: 0.4rem;
-    }
-  }
 }
-
-@media (max-width: $MQMobile) {
+.navbar a,
+.navbar span,
+.navbar img {
+  display: inline-block;
+}
+.navbar .logo {
+  block-size: 3.5em;
+  vertical-align: top;
+  margin-inline-end: 0.9rem;
+}
+.navbar .home-link {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+.navbar .site-name {
+  position: relative;
+  margin: 0;
+  color: var(--back-color);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 2px 2px #eee;
+}
+.navbar .links {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  min-block-size: var(--navbar-height);
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background-color: var(--nav-color);
+  margin-inline-start: auto;
+  min-inline-size: 0;
+  padding-block: 0.35rem;
+  padding-inline: 0.5rem;
+}
+.navbar .links > * {
+  flex: 0 0 auto;
+}
+.navbar .links .search-box {
+  min-inline-size: 0;
+  flex: 0 0 auto;
+  vertical-align: top;
+}
+.navbar .links .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  min-inline-size: 0;
+}
+.navbar .links .nav-links .nav-item,
+.navbar .links .nav-links .repo-link {
+  margin: 0;
+}
+.navbar .links .bookmark-wrapper {
+  position: relative;
+}
+.navbar .links .user-wrapper {
+  position: relative;
+}
+.navbar .links .help-wrapper {
+  position: relative;
+}
+.navbar .links .bookmark-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  color: var(--back-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .bookmark-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.navbar .links .community-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  color: var(--back-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .community-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.navbar .links .community-icon {
+  inline-size: 1.2rem;
+  block-size: 1.2rem;
+  fill: currentColor;
+}
+.navbar .links .social-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  color: var(--back-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .social-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.navbar .links .social-icon {
+  display: block;
+  inline-size: 1.2rem;
+  block-size: 1.2rem;
+  fill: currentColor;
+}
+.navbar .links .user-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--back-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .user-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.navbar .links .user-icon {
+  display: block;
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+  stroke: currentColor;
+}
+.navbar .links .bookmark-icon {
+  inline-size: 1.2rem;
+  block-size: 1.2rem;
+  fill: currentColor;
+}
+.navbar .links .help-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.2rem;
+  block-size: 2.2rem;
+  color: var(--back-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .help-trigger:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.navbar .links .help-icon {
+  inline-size: 1.15rem;
+  block-size: 1.15rem;
+  fill: currentColor;
+}
+.navbar .links .community-description {
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-wrap: balance;
+  margin-block-start: 0.25rem;
+}
+.navbar .links .bookmark-badge {
+  position: absolute;
+  inset-block-start: -0.2rem;
+  inset-inline-end: -0.2rem;
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 999px;
+  background: var(--accent-color);
+  padding: 0.1rem 0.35rem;
+}
+.navbar .links .bookmark-dropdown {
+  position: absolute;
+  z-index: 20;
+  inset-block-start: calc(100% + 0.4rem);
+  inset-inline-end: 0;
+  min-inline-size: 22rem;
+  max-inline-size: 90vw;
+  color: var(--back-color);
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding-block: 0.8rem;
+  padding-inline: 0.8rem;
+}
+.navbar .links .user-dropdown {
+  position: absolute;
+  z-index: 20;
+  inset-block-start: calc(100% + 0.4rem);
+  inset-inline-end: 0;
+  inline-size: 20rem;
+  max-inline-size: 90vw;
+  color: var(--back-color);
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+.navbar .links .help-dropdown {
+  position: absolute;
+  z-index: 20;
+  inset-block-start: calc(100% + 0.4rem);
+  inset-inline-end: 0;
+  inline-size: 20rem;
+  max-inline-size: 90vw;
+  color: var(--back-color);
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+.navbar .links .user-header {
+  font-weight: 800;
+  margin-block-end: 0.6rem;
+}
+.navbar .links .user-section {
+  display: grid;
+  gap: 0.6rem;
+}
+.navbar .links .user-copy {
+  color: color-mix(in srgb, var(--back-color), white 10%);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  word-break: break-word;
+  white-space: normal;
+  margin: 0;
+}
+.navbar .links .user-input {
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+}
+.navbar .links .user-label {
+  color: color-mix(in srgb, var(--back-color), white 25%);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.navbar .links .user-field {
+  display: grid;
+  gap: 0.5rem;
+}
+.navbar .links .user-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar .links .user-row .user-input {
+  flex: 1;
+}
+.navbar .links .user-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .user-button--ghost {
+  color: var(--accent-color);
+  background: #fff;
+}
+.navbar .links .user-button--ghost:hover {
+  background: color-mix(in srgb, var(--accent-color), white 38%);
+}
+.navbar .links .user-button:hover {
+  background: color-mix(in srgb, var(--accent-color), white 10%);
+  border-color: color-mix(in srgb, var(--accent-color), white 10%);
+}
+.navbar .links .user-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.navbar .links .user-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+.navbar .links .user-chip {
+  flex: 1;
+  color: #1a1a1a;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #f7f5f0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .user-chip.is-active {
+  color: #1a1a1a;
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+}
+.navbar .links .user-message {
+  color: color-mix(in srgb, var(--back-color), white 15%);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.navbar .links .user-hint {
+  color: color-mix(in srgb, var(--back-color), white 30%);
+  font-size: 0.7rem;
+  margin: 0;
+}
+.navbar .links .user-email {
+  color: var(--back-color);
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin: 0;
+}
+.navbar .links .user-cta {
+  color: color-mix(in srgb, var(--back-color), white 35%);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 0;
+}
+.navbar .links .user-cta a {
+  color: var(--accent-color);
+  font-size: 1.125rem;
+  font-weight: 800;
+  padding-block-start: 0.5rem;
+}
+.navbar .links .help-header {
+  font-weight: 800;
+  margin-block-end: 0.6rem;
+}
+.navbar .links .help-section + .help-section {
+  margin-block-start: 1rem;
+}
+.navbar .links .help-section h4 {
+  color: color-mix(in srgb, var(--back-color), white 20%);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-block: 0 0.4rem;
+}
+.navbar .links .help-section p {
+  color: color-mix(in srgb, var(--back-color), white 10%);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.navbar .links .help-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: color-mix(in srgb, var(--back-color), white 10%);
+  font-size: 0.9rem;
+}
+.navbar .links .help-list kbd {
+  min-inline-size: 1.2rem;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #f3f3f3;
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding-block: 0.1rem;
+  padding-inline: 0.4rem;
+  margin-inline-end: 0.2rem;
+}
+.navbar .links .bookmark-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 800;
+  margin-block-end: 0.6rem;
+}
+.navbar .links .bookmark-count {
+  color: color-mix(in srgb, var(--back-color), white 20%);
+  font-size: 0.8rem;
+}
+.navbar .links .bookmark-list {
+  display: grid;
+  gap: 0.5rem;
+  inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar .links .bookmark-list li {
+  display: flex;
+  align-items: stretch;
+  inline-size: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fefefe;
+  overflow: hidden;
+}
+.navbar .links .bookmark-link {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--back-color);
+  overflow: hidden;
+  padding-block: 0.55rem;
+  padding-inline: 0.8rem;
+}
+.navbar .links .bookmark-link:hover {
+  background: #f6f6f6;
+}
+.navbar .links .bookmark-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar .links .bookmark-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  color: color-mix(in srgb, var(--back-color), white 25%);
+  font-size: 0.8rem;
+}
+.navbar .links .bookmark-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3rem;
+  color: color-mix(in srgb, var(--back-color), white 10%);
+  border: 0;
+  border-inline-start: 1px solid #e3e3e3;
+  background: #f3f3f3;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.navbar .links .bookmark-remove:hover {
+  color: #d16b6b;
+  background: #fff1f1;
+}
+.navbar .links .bookmark-remove-icon {
+  display: block;
+  inline-size: 1rem;
+  block-size: 1rem;
+  fill: currentColor;
+}
+.navbar .links .bookmark-empty {
+  color: color-mix(in srgb, var(--back-color), white 30%);
+  font-size: 0.9rem;
+  margin-block-start: 0.4rem;
+}
+@media (max-width: 799px) {
   .navbar {
-    padding-inline-start: 3.1rem;
-
-    .can-hide {
-      display: none;
-    }
-
-    .links {
-      padding-inline-start: 1rem;
-    }
-
-    .logo {
-      height: 3.2rem;
-      min-width: 3rem;
-    }
-
-    .bookmark-dropdown {
-      position: fixed;
-      top: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-      inset-inline-start: 20%;
-      inset-inline-end: auto;
-      width: min(95vw, 20rem);
-      max-width: 95vw;
-      min-width: 0;
-      transform: translateX(-75%);
-      box-sizing: border-box;
-    }
-
-    .user-dropdown,
-    .help-dropdown {
-      position: fixed;
-      top: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-      inset-inline-end: 1rem;
-      width: min(95vw, 20rem);
-      max-width: 95vw;
-      box-sizing: border-box;
-    }
-
-    .help-dropdown {
-      width: min(95vw, 19rem) !important;
-      max-width: 95vw;
-
-    }
-
-    .social-trigger {
-      display: none;
-    }
+    gap: 0.6rem;
+    padding-inline: 3.1rem 0.75rem;
+  }
+  .navbar .can-hide {
+    display: none;
+  }
+  .navbar .links {
+    gap: 0.5rem;
+    min-block-size: 0;
+    padding-block: 0.2rem;
+    padding-inline-start: 1rem;
+  }
+  .navbar .logo {
+    block-size: 3.2rem;
+    min-inline-size: 3rem;
+  }
+  .navbar .bookmark-dropdown {
+    position: fixed;
+    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+    inset-inline-start: 20%;
+    inset-inline-end: auto;
+    inline-size: 20rem;
+    max-inline-size: 95vw;
+    min-inline-size: 0;
+    box-sizing: border-box;
+    transform: translateX(-75%);
+  }
+  .navbar .user-dropdown,
+  .navbar .help-dropdown {
+    position: fixed;
+    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+    inset-inline-end: 1rem;
+    inline-size: 20rem;
+    max-inline-size: 95vw;
+    box-sizing: border-box;
+  }
+  .navbar .help-dropdown {
+    inline-size: 19rem !important;
+    max-inline-size: 95vw;
+  }
+  .navbar .social-trigger {
+    display: none;
   }
 }
 </style>

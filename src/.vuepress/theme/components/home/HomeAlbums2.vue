@@ -75,7 +75,7 @@ h2 {
 
 .section-subtitle {
   font-size: 1rem;
-  color: lighten($textColor, 25%);
+  color: color-mix(in srgb, var(--text-color), white 25%);
   margin: 0;
 }
 
@@ -172,7 +172,7 @@ h2 {
   flex-direction: column;
   gap: 0.2rem;
   font-size: 0.85rem;
-  color: lighten($textColor, 20%);
+  color: color-mix(in srgb, var(--text-color), white 20%);
 }
 
 @media (max-width: 719px) {

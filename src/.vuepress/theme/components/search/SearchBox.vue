@@ -262,149 +262,121 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-@import '../../styles/config.styl';
-
+<style>
 .search-box {
   display: inline-block;
   position: relative;
   margin-right: 1.5rem;
-
-  input {
-    cursor: text;
-    width: 15rem;
-    color: lighten($backColor, 15%);
-    display: inline-block;
-    border: 1px solid darken($borderColor, 30%);
-    border-radius: 0.6rem;
-    font-size: 1rem;
-    line-height: 2rem;
-    padding: 0 0.5rem 0 2rem;
-    outline: none;
-    transition: all 0.2s ease;
-    background: #fff url('../../assets/search.svg') 0.6rem 0.5rem no-repeat;
-    background-size: 1rem;
-
-    &:focus {
-      cursor: auto;
-      border-color: $accentColor;
-    }
-  }
-
-  .suggestions {
-    background: #fff;
-    width: 20rem;
-    position: absolute;
-    top: 1.5rem;
-    border: 1px solid darken($borderColor, 10%);
-    border-radius: 4px;
-    padding: 0.4rem;
-    list-style-type: none;
-
-    &.align-right {
-      right: 0;
-    }
-  }
-
-  .suggestion {
-    line-height: 1.4;
-    padding: 0.4rem 0.6rem;
-    border-radius: 4px;
+}
+.search-box input {
+  cursor: text;
+  width: 15rem;
+  color: color-mix(in srgb, var(--back-color), white 15%);
+  display: inline-block;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 30%);
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding: 0 0.5rem 0 2rem;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #fff url("../../assets/search.svg") 0.6rem 0.5rem no-repeat;
+  background-size: 1rem;
+}
+.search-box input:focus {
+  cursor: auto;
+  border-color: var(--accent-color);
+}
+.search-box .suggestions {
+  background: #fff;
+  width: 20rem;
+  position: absolute;
+  top: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
+  border-radius: 4px;
+  padding: 0.4rem;
+  list-style-type: none;
+}
+.search-box .suggestions.align-right {
+  right: 0;
+}
+.search-box .suggestion {
+  line-height: 1.4;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-box .suggestion a {
+  white-space: normal;
+  color: color-mix(in srgb, var(--back-color), white 25%);
+}
+.search-box .suggestion a .page-title {
+  font-weight: 800;
+}
+.search-box .suggestion a .page-title .page-edition {
+  font-size: 0.85em;
+  font-weight: 400;
+}
+.search-box .suggestion a .header {
+  font-size: 0.8em;
+  margin-left: 0.25em;
+}
+.search-box .suggestion a .page-meta {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 400;
+  margin-top: 0.1rem;
+  color: color-mix(in srgb, var(--back-color), white 35%);
+}
+.search-box .suggestion.focused {
+  font-weight: 700;
+  background-color: #f9f9f9;
+}
+.search-box .suggestion.focused a {
+  color: var(--back-color);
+}
+@media (max-width: 980px) {
+  .search-box input {
     cursor: pointer;
-
-    a {
-      white-space: normal;
-      color: lighten($backColor, 25%);
-
-      .page-title {
-        font-weight: 800;
-
-        .page-edition {
-          font-size: 0.85em;
-          font-weight: 400;
-        }
-      }
-
-      .header {
-        font-size: 0.8em;
-        margin-left: 0.25em;
-      }
-
-      .page-meta {
-        display: block;
-        font-size: 0.8em;
-        font-weight: 400;
-        margin-top: 0.1rem;
-        color: lighten($backColor, 35%);
-      }
-    }
-
-    &.focused {
-      font-weight: 700;
-      background-color: #f9f9f9;
-
-      a {
-        color: $backColor;
-      }
-    }
+    width: 0;
+    border-color: transparent;
+    position: relative;
+  }
+  .search-box input:focus {
+    cursor: text;
+    left: 0;
+    width: 10rem;
   }
 }
-
-@media (max-width: $MQNarrow) {
-  .search-box {
-    input {
-      cursor: pointer;
-      width: 0;
-      border-color: transparent;
-      position: relative;
-
-      &:focus {
-        cursor: text;
-        left: 0;
-        width: 10rem;
-      }
-    }
+@media (max-width: 980px) and (min-width: 799px) {
+  .search-box .suggestions {
+    left: 0;
   }
 }
-
-@media (max-width: $MQNarrow) and (min-width: $MQMobile) {
-  .search-box {
-    .suggestions {
-      left: 0;
-    }
-  }
-}
-
-@media (max-width: $MQMobile) {
+@media (max-width: 799px) {
   .search-box {
     margin-right: 0.5rem;
-
-    input {
-      left: 1rem;
-    }
-
-    .suggestions {
-      position: fixed;
-      left: 0.75rem;
-      right: 0.75rem;
-      width: auto;
-      max-width: calc(100vw - 1.5rem);
-      box-sizing: border-box;
-      transform: none;
-      top: calc(var(--navbar-height, 2.25rem) + 0.4rem);
-    }
+  }
+  .search-box input {
+    left: 1rem;
+  }
+  .search-box .suggestions {
+    position: fixed;
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+    max-width: calc(100vw - 1.5rem);
+    box-sizing: border-box;
+    transform: none;
+    top: calc(var(--navbar-height, 2.25rem) + 0.4rem);
   }
 }
-
-@media (max-width: $MQMobileNarrow) {
-  .search-box {
-    .suggestions {
-      width: auto;
-    }
-
-    input:focus {
-      width: 8rem;
-    }
+@media (max-width: 450px) {
+  .search-box .suggestions {
+    width: auto;
+  }
+  .search-box input:focus {
+    width: 8rem;
   }
 }
 </style>

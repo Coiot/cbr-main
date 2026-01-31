@@ -10,29 +10,35 @@
       <path
         fill="1a1a1a"
         d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
-        class=""
       ></path>
     </svg>
   </div>
 </template>
 
-<style lang="stylus">
-@import '../../styles/config.styl'
-
-.sidebar-button
-  display none
-  width 1rem
-  height 1rem
-  position absolute
-  padding 0.6rem
-  top 0.6rem
-  left .3rem
-  .icon
-    display block
-    width 1.25rem
-    height 1.25rem
-
-@media (max-width: $MQMobile)
-  .sidebar-button
-    display block
+<style>
+.sidebar-button {
+  position: absolute;
+  inset-block-start: 0.4rem;
+  inset-inline-start: 0.4rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.6rem;
+  block-size: 2.6rem;
+  background: #fff;
+  cursor: pointer;
+}
+.sidebar-button .icon {
+  display: block;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+}
+.sidebar-button:hover {
+  fill: #000;
+}
+@media (max-width: 799px) {
+  .sidebar-button {
+    display: flex;
+  }
+}
 </style>
