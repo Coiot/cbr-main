@@ -5,7 +5,7 @@ description: The Big Celebration
 starting_turn: "923"
 release_date: January 9, 2018
 audio_narration: https://youtu.be/sw-97P1lDV0
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part99/
 next: /albums/mk2/part101/
 date: 2018-01-09T00:00:00.000Z

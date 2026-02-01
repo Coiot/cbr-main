@@ -4,15 +4,7 @@
     <slot name="top" />
     <ul class="sidebar-links" v-if="items.length">
       <li v-for="(item, i) in items" :key="i">
-        <SidebarGroup
-          v-if="item.type === 'group'"
-          :item="item"
-          :first="i === 0"
-          :open="i === openGroupIndex"
-          :collapsable="item.collapsable || item.collapsible"
-          @toggle="toggleGroup(i)"
-        />
-        <SidebarLink v-else :item="item" />
+        <SidebarLink :item="item" />
       </li>
     </ul>
     <div class="sidebar-social">
@@ -60,13 +52,12 @@
 </template>
 
 <script>
-import SidebarGroup from "./SidebarGroup.vue";
 import SidebarLink from "./SidebarLink.vue";
 import NavLinks from "../nav/NavLinks.vue";
 import { isActive } from "../../util";
 
 export default {
-  components: { SidebarGroup, SidebarLink, NavLinks },
+  components: { SidebarLink, NavLinks },
 
   props: ["items"],
 
@@ -152,7 +143,12 @@ function resolveOpenGroupIndex(route, items) {
   .sidebar .nav-links {
     display: block;
   }
-  .sidebar .nav-links .dropdown-wrapper .nav-dropdown .dropdown-item a.router-link-active::after {
+  .sidebar
+    .nav-links
+    .dropdown-wrapper
+    .nav-dropdown
+    .dropdown-item
+    a.router-link-active::after {
     top: calc(1rem - 2px);
   }
   .sidebar .sidebar-links {

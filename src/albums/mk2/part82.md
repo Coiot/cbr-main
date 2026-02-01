@@ -5,7 +5,7 @@ description: 'The denizens of Babylon rejoice to the sound of Leg Day returning 
 starting_turn: '791'
 release_date: 'Oct 23, 2016'
 audio_narration: https://youtu.be/4wzhcC-L7J8
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part81/
 next: /albums/mk2/part83/
 date: 2016-10-23T00:00:00.000Z

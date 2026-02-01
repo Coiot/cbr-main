@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  name: "HomeLatestEpisode",
   computed: {
     albums() {
       return this.$site.pages

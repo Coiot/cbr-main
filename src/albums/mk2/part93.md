@@ -5,7 +5,7 @@ description: ''
 starting_turn: '854'
 release_date: 'November 21, 2017'
 audio_narration: https://youtu.be/81UPPGO0cpg
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part92/
 next: /albums/mk2/part94/
 date: 2017-11-21T00:00:00.000Z

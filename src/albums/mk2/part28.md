@@ -5,7 +5,7 @@ description: 'When one dead civ isn’t enough!'
 starting_turn: '299'
 release_date: 'November 23, 2015'
 audio_narration: https://youtu.be/hAt1SBRX5BA
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part27/
 next: /albums/mk2/part29/
 date: 2015-11-23T00:00:00.000Z

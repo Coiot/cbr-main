@@ -5,7 +5,7 @@ description: 'The trumpets circle around the fallen. The war between the Boers a
 starting_turn: '842'
 release_date: 'November 7, 2017'
 audio_narration: https://youtu.be/K5EqbCoS1qc
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part90/
 next: /albums/mk2/part92/
 date: 2017-11-07T00:00:00.000Z

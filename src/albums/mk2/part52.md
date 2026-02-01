@@ -5,7 +5,7 @@ description: ''
 starting_turn: '537'
 release_date: 'April 20, 2016'
 audio_narration: https://youtu.be/dTCIhq-usqk
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part51/
 next: /albums/mk2/part53/
 date: 2016-04-20T00:00:00.000Z

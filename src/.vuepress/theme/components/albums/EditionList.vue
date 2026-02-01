@@ -2,14 +2,15 @@
   <transition name="fade">
     <div v-if="edition" class="album-list" :class="editionClass">
       <div class="header">
-        <h1>{{ edition.title }}</h1>
+        <h2 class="page-title">{{ edition.title }}</h2>
         <span v-if="edition.subtitle">{{ edition.subtitle }}</span>
       </div>
 
       <div class="edition-controls">
-        <label class="filter">
+        <label class="filter" :for="episodeInputId">
           <span>Search episodes</span>
           <input
+            :id="episodeInputId"
             v-model="episodeQuery"
             type="search"
             placeholder="Title, narrator, date, episode"
@@ -61,7 +62,7 @@
 
       <template v-else>
         <div class="filter-results">
-          <h1>Results</h1>
+          <h3 class="section-title">Results</h3>
           <div v-if="filteredAlbums.length">
             <router-link
               v-for="post in filteredAlbums"
@@ -101,7 +102,7 @@
         class="competitors-section"
       >
         <div class="section-header">
-          <h1>Competitors</h1>
+          <h3 class="section-title">Competitors</h3>
           <button
             type="button"
             class="control-button"
@@ -111,9 +112,10 @@
           </button>
         </div>
         <div class="competitor-controls">
-          <label class="filter">
+          <label class="filter" :for="competitorInputId">
             <span>Search competitors</span>
             <input
+              :id="competitorInputId"
               v-model="competitorQuery"
               type="search"
               placeholder="Civ, leader, author"
@@ -137,7 +139,11 @@
         </div>
         <a href="#competitors-end" class="skip-link"> Skip competitors list </a>
         <ul v-if="competitorsOpen" class="competitors">
-          <li v-for="civ in filteredCompetitors" :key="civ.name" tabindex="0">
+          <li
+            v-for="civ in filteredCompetitors"
+            :key="civ.id || civ.name"
+            tabindex="0"
+          >
             <p>{{ civ.name }}</p>
             <span>{{ civ.leader }} &ndash; {{ civ.author }}</span>
           </li>
@@ -148,17 +154,21 @@
 
       <template v-if="!hasEpisodeFilter">
         <template v-if="edition.sections && edition.sections.length">
-          <template v-for="(section, sectionIndex) in edition.sections">
-            <h1 v-if="section.title" :key="`section-title-${sectionIndex}`">
+          <section
+            v-for="(section, sectionIndex) in edition.sections"
+            :key="section.id || section.title || `section-${sectionIndex}`"
+            class="section-block"
+          >
+            <h3 v-if="section.title" class="section-title">
               {{ section.title }}
-            </h1>
+            </h3>
             <div
               v-for="(arc, arcIndex) in section.arcs"
               :key="`arc-${sectionIndex}-${arcIndex}`"
               class="arc"
             >
               <div class="arc-header">
-                <h2 v-if="arc.title">{{ arc.title }}</h2>
+                <h4 v-if="arc.title" class="arc-title">{{ arc.title }}</h4>
                 <span v-if="arc.label">{{ arc.label }}</span>
                 <p v-if="arc.note">{{ arc.note }}</p>
               </div>
@@ -210,7 +220,7 @@
                 </router-link>
               </article>
             </div>
-          </template>
+          </section>
         </template>
 
         <div v-else>
@@ -319,14 +329,20 @@ export default {
       });
     },
     hasEpisodeFilter() {
-      return this.episodeQuery.trim().length > 0;
+      return this.episodeTokens.length > 0;
     },
-    filteredAlbums() {
+    episodeTokens() {
       const query = this.episodeQuery.trim().toLowerCase();
       if (!query) {
+        return [];
+      }
+      return query.split(/\s+/).filter(Boolean);
+    },
+    filteredAlbums() {
+      const tokens = this.episodeTokens;
+      if (!tokens.length) {
         return this.sortedAlbums;
       }
-      const tokens = query.split(/\s+/).filter(Boolean);
       return this.sortedAlbums.filter((post) => {
         const fields = [
           post.frontmatter && post.frontmatter.title,
@@ -342,15 +358,21 @@ export default {
         return tokens.every((token) => haystack.indexOf(token) > -1);
       });
     },
+    competitorTokens() {
+      const query = this.competitorQuery.trim().toLowerCase();
+      if (!query) {
+        return [];
+      }
+      return query.split(/\s+/).filter(Boolean);
+    },
     filteredCompetitors() {
       if (!this.edition || !Array.isArray(this.edition.competitors)) {
         return [];
       }
-      const query = this.competitorQuery.trim().toLowerCase();
-      if (!query) {
+      const tokens = this.competitorTokens;
+      if (!tokens.length) {
         return this.edition.competitors;
       }
-      const tokens = query.split(/\s+/).filter(Boolean);
       return this.edition.competitors.filter((civ) => {
         const fields = [civ.name, civ.leader, civ.author];
         const haystack = fields.filter(Boolean).join(" ").toLowerCase();
@@ -365,6 +387,12 @@ export default {
     },
     competitorsOpenKey() {
       return "edition-list:competitors-open";
+    },
+    episodeInputId() {
+      return `edition-episode-filter-${this._uid}`;
+    },
+    competitorInputId() {
+      return `edition-competitor-filter-${this._uid}`;
     },
   },
   watch: {
@@ -545,7 +573,7 @@ export default {
   gap: 1rem;
 }
 
-.section-header h1 {
+.section-header .section-title {
   padding-top: 0;
 }
 
@@ -699,12 +727,18 @@ img {
   margin-inline-start: 0.5rem;
 }
 
-h1 {
+.page-title {
   font-size: 4rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
   padding: 0.75em 0 0.1em;
   margin-top: 0;
+}
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  text-shadow: 2px 2px #083832;
+  margin: 0.8rem 0 0.4rem;
 }
 
 .competitors {
@@ -780,7 +814,7 @@ h1 {
   width: 40%;
 }
 
-.arc-header h2 {
+.arc-header .arc-title {
   font-size: 2.2rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
@@ -964,7 +998,7 @@ h1 {
     margin-bottom: 2rem;
   }
 
-  .header h1 {
+  .header .page-title {
     margin: 0;
   }
 
@@ -982,7 +1016,7 @@ h1 {
     padding: 0;
   }
 
-  .arc-header h2 {
+  .arc-header .arc-title {
     font-size: 3rem;
   }
 
@@ -1031,12 +1065,14 @@ h1 {
     height: auto;
   }
 
-  h1 {
+  .page-title,
+  .section-title {
     word-break: break-word;
     padding: 0.4em 0 0.1em;
   }
 
-  h2 {
+  .arc-title,
+  .section-title {
     word-break: break-word;
     border-bottom: none;
   }

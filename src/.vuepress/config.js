@@ -1,7 +1,7 @@
 const currentDateUTC = new Date().toUTCString();
 const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
-const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
+const DEFAULT_SOCIAL_IMAGE = "/social-card.svg";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const autometa_options = {
   enable: true,
@@ -160,12 +160,6 @@ module.exports = {
     nav: [
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
-      // { text: "Reddit", link: "https://old.reddit.com/r/civbattleroyale/" },
-      // { text: "Discord", link: "https://discord.gg/565JwaMsuQ" },
-      // {
-      //   text: "Youtube",
-      //   link: "https://www.youtube.com/channel/UCyKT0We3nrm7Mm0d4AtxnkQ",
-      // },
     ],
     logo: "/cbr_logo_color.svg",
     socialImage: DEFAULT_SOCIAL_IMAGE,
@@ -174,14 +168,14 @@ module.exports = {
     serviceWorker: true,
     reactions: [
       { key: "smart", label: "Smart", emoji: "🧠" },
-      { key: "salt", label: "Salt", emoji: "🧂" },
       { key: "clap", label: "Clap", emoji: "👏" },
       { key: "mindblown", label: "MindBlown", emoji: "🤯" },
       { key: "pray", label: "Pray", emoji: "🙏" },
       { key: "fire", label: "Fire", emoji: "🔥" },
       { key: "facepalm", label: "FacePalm", emoji: "🤦" },
-      { key: "star", label: "Star", emoji: "⭐" },
       { key: "popcorn", label: "Popcorn", emoji: "🍿" },
+      { key: "star", label: "Star", emoji: "⭐" },
+      { key: "salt", label: "Salt", emoji: "🧂" },
       { key: "hype", label: "Hype", emoji: "🚀" },
       { key: "heart", label: "Heart", emoji: "❤️" },
       { key: "laugh", label: "Laugh", emoji: "😂" },

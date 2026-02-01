@@ -5,7 +5,7 @@ description: ''
 starting_turn: '938'
 release_date: 'May 08, 2018'
 audio_narration: https://youtu.be/7gLYE-KvRkk
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part116/
 next: /albums/mk2/part118/
 date: 2018-05-08T00:00:00.000Z

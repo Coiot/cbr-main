@@ -5,7 +5,7 @@ description: 'Death closes in on several civs throughout the cylinder.'
 starting_turn: '312'
 release_date: 'December 06, 2015'
 audio_narration: https://youtu.be/fcntuKpMKxg
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part29/
 next: /albums/mk2/part31/
 date: 2015-12-06T00:00:00.000Z

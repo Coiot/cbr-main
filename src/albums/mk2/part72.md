@@ -5,7 +5,7 @@ description: ''
 starting_turn: '727'
 release_date: 'August 28, 2016'
 audio_narration: https://youtu.be/Zlcl8yrnXX8
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part71/
 next: /albums/mk2/part73/
 date: 2016-08-28T00:00:00.000Z

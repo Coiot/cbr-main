@@ -5,7 +5,7 @@ description: 'We see more rumbles in Africa, Europe and South Asia as landscapes
 starting_turn: '279'
 release_date: 'November 08, 2015'
 audio_narration: https://youtu.be/cL2YMQ0UjbE
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part24/
 next: /albums/mk2/part26/
 date: 2015-11-08T00:00:00.000Z

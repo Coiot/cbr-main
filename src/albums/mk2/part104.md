@@ -5,7 +5,7 @@ description: "."
 starting_turn: 1001
 release_date: 'Feburary 06, 2018'
 audio_narration: https://youtu.be/x8I82X6WWDI
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part103/
 next: /albums/mk2/part105/
 date: 2018-02-06T00:00:00.000Z

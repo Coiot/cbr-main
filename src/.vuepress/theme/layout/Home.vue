@@ -6,7 +6,7 @@
           <div class="hero-intro">
             <h1 class="hero-tagline">Latest from the frontlines</h1>
           </div>
-          <HomeAlbums />
+          <HomeLatestEpisode />
         </div>
         <aside class="link-column">
           <div class="quick-panel">
@@ -30,7 +30,7 @@
               <!-- <span class="latest-cta">Open Episode</span> -->
             </router-link>
 
-            <PRListHome />
+            <HomePowerRankings />
 
             <a href="https://civbattleroyale.tv/albums/pr/" class="list">
               <span class="list-icon" aria-hidden="true">
@@ -88,7 +88,7 @@
           </div>
         </aside>
       </section>
-      <HomeAlbums2 />
+      <HomeRecentEpisodes />
       <Content custom />
       <div class="footer" v-if="footerText">{{ footerText }}</div>
     </div>
@@ -96,15 +96,15 @@
 </template>
 
 <script>
-import HomeAlbums from "../components/home/HomeAlbums.vue";
-import HomeAlbums2 from "../components/home/HomeAlbums2.vue";
-import PRListHome from "../components/home/PRListHome.vue";
+import HomeLatestEpisode from "../components/home/HomeLatestEpisode.vue";
+import HomeRecentEpisodes from "../components/home/HomeRecentEpisodes.vue";
+import HomePowerRankings from "../components/home/HomePowerRankings.vue";
 
 export default {
   components: {
-    HomeAlbums,
-    HomeAlbums2,
-    PRListHome,
+    HomeLatestEpisode,
+    HomeRecentEpisodes,
+    HomePowerRankings,
   },
 
   computed: {
@@ -144,7 +144,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .home {
   max-inline-size: 1200px;
   padding-block-start: 3rem;
@@ -181,78 +181,6 @@ export default {
   text-transform: uppercase;
   margin-block: 0 0.4rem;
 }
-.home .hero-subtitle {
-  max-inline-size: 28rem;
-  color: color-mix(in srgb, var(--text-color), white 10%);
-  font-size: 1.55rem;
-  font-weight: 800;
-  margin: 0;
-}
-.home .hero {
-  text-align: center;
-}
-.home .hero img {
-  max-block-size: 280px;
-  display: block;
-  margin-block: 3rem 1.5rem;
-  margin-inline: auto;
-}
-.home .hero h1 {
-  font-size: 3rem;
-}
-.home .hero h1,
-.home .hero .description,
-.home .hero .action {
-  margin-block: 1.8rem;
-  margin-inline: auto;
-}
-.home .hero .description {
-  max-inline-size: 35rem;
-  color: color-mix(in srgb, var(--text-color), white 40%);
-  font-size: 1.6rem;
-  line-height: 1.3;
-}
-.home .hero .action-button {
-  box-sizing: border-box;
-  display: inline-block;
-  color: #fff;
-  font-size: 1.2rem;
-  background-color: var(--accent-color);
-  border-block-end: 1px solid color-mix(in srgb, var(--accent-color), black 10%);
-  border-radius: 4px;
-  padding-block: 0.8rem;
-  padding-inline: 1.6rem;
-  transition: background-color 0.1s ease;
-}
-.home .hero .action-button:hover {
-  background-color: color-mix(in srgb, var(--accent-color), white 10%);
-}
-.home .features {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: stretch;
-  justify-content: space-between;
-  border-block-start: 1px solid var(--border-color);
-  padding-block: 1.2rem;
-  padding-inline: 0;
-  margin-block-start: 2.5rem;
-}
-.home .feature {
-  max-inline-size: 30%;
-  flex-grow: 1;
-  flex-basis: 30%;
-/* h2 {
-      color: color-mix(in srgb, var(--text-color), white 10%);
-      font-size: 1.4rem;
-      font-weight: 500;
-      border-block-end: none;
-      padding-block-end: 0;
-    } */
-}
-.home .feature p {
-  color: color-mix(in srgb, var(--text-color), white 25%);
-}
 .home .link-column {
   max-inline-size: 380px;
   display: flex;
@@ -265,7 +193,7 @@ export default {
   background: #fff;
   border: 1px solid #f1d9a0;
   border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   padding: 1.2rem;
 }
 .home .quick-title {
@@ -289,7 +217,7 @@ export default {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .home .latest-card:hover {
-  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
   transform: translateY(-2px);
 }
 .home .latest-kicker {
@@ -337,7 +265,7 @@ export default {
 }
 .home .list:hover {
   border-color: #e5c27a;
-  box-shadow: 0 10px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 .home .list-icon {
@@ -376,46 +304,10 @@ export default {
     inline-size: 100%;
     max-inline-size: none;
   }
-  .home .hero-subtitle {
-    font-size: 1.2rem;
-  }
-  .home .features {
-    flex-direction: column;
-  }
-  .home .feature {
-    max-inline-size: 100%;
-    padding-inline: 2.5rem;
-    padding-block: 0;
-  }
 }
 @media (max-width: 450px) {
   .home {
     padding-inline: 1.5rem;
-  }
-  .home .hero img {
-    max-block-size: 210px;
-    margin-block: 2rem 1.2rem;
-    margin-inline: auto;
-  }
-  .home .hero h1 {
-    font-size: 2rem;
-  }
-  .home .hero h1,
-  .home .hero .description,
-  .home .hero .action {
-    margin-block: 1.2rem;
-    margin-inline: auto;
-  }
-  .home .hero .description {
-    font-size: 1.2rem;
-  }
-  .home .hero .action-button {
-    font-size: 1rem;
-    padding-block: 0.6rem;
-    padding-inline: 1.2rem;
-  }
-  .home .feature h2 {
-    font-size: 1.25rem;
   }
 }
 </style>

@@ -5,7 +5,7 @@ description: "The Battle for Anatolia rages on! Who will hold Constantinople at 
 starting_turn: "112"
 release_date: "September 03, 2015"
 audio_narration: https://youtu.be/O9vmXUPTklA
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part6/
 next: /albums/mk2/part8/
 date: 2015-09-03T00:00:00.000Z

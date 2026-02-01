@@ -5,7 +5,7 @@ description: ''
 starting_turn: '904'
 release_date: 'December 26, 2017'
 audio_narration: https://youtu.be/7POgPRRuldA
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part97/
 next: /albums/mk2/part99/
 date: 2017-12-26T00:00:00.000Z

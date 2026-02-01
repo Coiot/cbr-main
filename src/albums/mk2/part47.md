@@ -5,7 +5,7 @@ description: ''
 starting_turn: '479'
 release_date: 'March 30, 206'
 audio_narration: https://youtu.be/eLCn0Vgq61I
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part46/
 next: /albums/mk2/part48/
 date: 2016-03-30T00:00:00.000Z

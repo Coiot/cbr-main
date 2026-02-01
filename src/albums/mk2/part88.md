@@ -5,7 +5,7 @@ description: 'Orange meets Green in the Middle East as two of the favorite conte
 starting_turn: '826'
 release_date: 'October 17, 2017'
 audio_narration: https://youtu.be/FDg2nkc9UKs
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part87/
 next: /albums/mk2/part89/
 date: 2017-10-17T00:00:00.000Z

@@ -24,9 +24,31 @@
         'max-width': linksWrapMaxWidth + 'px',
       }"
     >
-      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
-      <SearchBox v-else-if="$site.themeConfig.search !== false" />
       <NavLinks class="can-hide" />
+      <div class="search-wrapper" ref="searchWrapper">
+        <button
+          type="button"
+          class="search-trigger"
+          aria-label="Search"
+          aria-haspopup="true"
+          :aria-expanded="searchOpen ? 'true' : 'false'"
+          @click="toggleSearchMenu"
+        >
+          <svg
+            class="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            aria-hidden="true"
+          >
+            <path
+              d="M208 80C137.3 80 80 137.3 80 208s57.3 128 128 128s128-57.3 128-128S278.7 80 208 80zM0 208C0 93.1 93.1 0 208 0s208 93.1 208 208c0 45.1-14.3 86.8-38.6 120.9l124.9 124.9c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L332.1 374.2C298.8 398.7 255.8 416 208 416C93.1 416 0 322.9 0 208z"
+            />
+          </svg>
+        </button>
+        <div v-if="searchOpen" class="search-dropdown">
+          <SearchBox />
+        </div>
+      </div>
       <a
         class="social-trigger"
         href="https://old.reddit.com/r/civbattleroyale/"
@@ -336,7 +358,6 @@
 
 <script>
 import SidebarButton from "../sidebar/SidebarButton.vue";
-import AlgoliaSearchBox from "../search/AlgoliaSearchBox.vue";
 import SearchBox from "../search/SearchBox.vue";
 import NavLinks from "./NavLinks.vue";
 import { getEdition } from "../../../data/editions";
@@ -353,7 +374,6 @@ export default {
     SidebarButton,
     NavLinks,
     SearchBox,
-    AlgoliaSearchBox,
   },
 
   data() {
@@ -363,6 +383,7 @@ export default {
       bookmarkOpen: false,
       helpOpen: false,
       userOpen: false,
+      searchOpen: false,
       supabase: null,
       authUser: null,
       authProfile: null,
@@ -432,15 +453,6 @@ export default {
   },
 
   computed: {
-    algolia() {
-      return (
-        this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-      );
-    },
-
-    isAlgoliaSearch() {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName;
-    },
     useCloud() {
       return Boolean(this.supabase && this.authUser);
     },
@@ -959,6 +971,20 @@ export default {
     toggleHelpMenu() {
       this.helpOpen = !this.helpOpen;
     },
+    toggleSearchMenu() {
+      this.searchOpen = !this.searchOpen;
+      if (this.searchOpen) {
+        this.$nextTick(() => {
+          if (!this.$refs.searchWrapper) {
+            return;
+          }
+          const input = this.$refs.searchWrapper.querySelector("input");
+          if (input) {
+            input.focus();
+          }
+        });
+      }
+    },
     async signInWithEmail() {
       if (!this.supabase) {
         return;
@@ -1043,6 +1069,14 @@ export default {
       const helpWrapper = this.$refs.helpWrapper;
       if (this.helpOpen && helpWrapper && !helpWrapper.contains(event.target)) {
         this.helpOpen = false;
+      }
+      const searchWrapper = this.$refs.searchWrapper;
+      if (
+        this.searchOpen &&
+        searchWrapper &&
+        !searchWrapper.contains(event.target)
+      ) {
+        this.searchOpen = false;
       }
     },
     async loadBookmarks() {
@@ -1224,6 +1258,9 @@ function css(el, property) {
 .navbar .links .bookmark-wrapper {
   position: relative;
 }
+.navbar .links .search-wrapper {
+  position: relative;
+}
 .navbar .links .user-wrapper {
   position: relative;
 }
@@ -1247,6 +1284,41 @@ function css(el, property) {
 .navbar .links .bookmark-trigger:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
+}
+.navbar .links .search-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  color: var(--back-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar .links .search-trigger:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.navbar .links .search-icon {
+  inline-size: 1.05rem;
+  block-size: 1.05rem;
+  fill: currentColor;
+}
+.navbar .links .search-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.65rem);
+  z-index: 40;
+  min-inline-size: min-content;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
 }
 .navbar .links .community-trigger {
   display: inline-flex;

@@ -6,7 +6,7 @@ release_date: December 11, 2018
 audio_narration: "https://www.youtube.com/watch?v=dFZAZTWCOt0&feature=youtu.be"
 fullvideo:
 starting_turn: 348
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part119/
 next:
 date: 2021-08-04T00:00:00.000Z

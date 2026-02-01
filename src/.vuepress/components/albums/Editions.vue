@@ -13,15 +13,28 @@
             class="list-button"
             role="tab"
             :aria-selected="clickedEdition === edition.id"
+            :aria-controls="panelId(edition.id)"
+            :id="tabId(edition.id)"
+            :tabindex="clickedEdition === edition.id ? 0 : -1"
             :class="{ active: clickedEdition === edition.id }"
             @click="selectEdition(edition.id)"
+            @keydown="onTabKeydown($event, edition.id)"
           >
             <span>{{ edition.navLabel }}</span>
           </button>
         </div>
       </div>
 
-      <EditionList v-if="clickedEdition" :edition-id="clickedEdition" />
+      <div
+        v-if="clickedEdition"
+        class="edition-panel"
+        role="tabpanel"
+        :id="panelId(clickedEdition)"
+        :aria-labelledby="tabId(clickedEdition)"
+        tabindex="0"
+      >
+        <EditionList :edition-id="clickedEdition" />
+      </div>
     </div>
   </transition>
 </template>
@@ -65,6 +78,43 @@ export default {
     },
   },
   methods: {
+    tabId(id) {
+      return `edition-tab-${id}`;
+    },
+    panelId(id) {
+      return `edition-panel-${id}`;
+    },
+    onTabKeydown(event, currentId) {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(event.key)) {
+        return;
+      }
+      event.preventDefault();
+      const ids = this.navEditions.map((item) => item.id);
+      if (!ids.length) {
+        return;
+      }
+      const currentIndex = ids.indexOf(currentId);
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowLeft") {
+        nextIndex = currentIndex > 0 ? currentIndex - 1 : ids.length - 1;
+      } else if (event.key === "ArrowRight") {
+        nextIndex = currentIndex < ids.length - 1 ? currentIndex + 1 : 0;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = ids.length - 1;
+      }
+      const nextId = ids[nextIndex];
+      this.selectEdition(nextId);
+      this.$nextTick(() => {
+        const nextTab =
+          this.$el && this.$el.querySelector(`#${this.tabId(nextId)}`);
+        if (nextTab && typeof nextTab.focus === "function") {
+          nextTab.focus();
+        }
+      });
+    },
     selectEdition(id) {
       const nextId = this.normalizeEditionId(id);
       if (!nextId) {

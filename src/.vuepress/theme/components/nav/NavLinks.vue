@@ -3,8 +3,7 @@
     <nav class="nav-links" v-if="userLinks.length || repoLink">
       <!-- user links -->
       <div class="nav-item" v-for="item in userLinks" :key="item.link">
-        <DropdownLink v-if="item.type === 'links'" :item="item" />
-        <NavLink v-else :item="item" />
+        <NavLink :item="item" />
       </div>
     </nav>
     <div class="nav-links">
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-import DropdownLink from "./DropdownLink.vue";
 import NavLink from "./NavLink.vue";
 import { resolveNavLinkItem } from "../../util";
 import { editionNavItems } from "../../../data/editions";
@@ -26,7 +24,6 @@ import { editionNavItems } from "../../../data/editions";
 export default {
   components: {
     NavLink,
-    DropdownLink,
   },
 
   computed: {

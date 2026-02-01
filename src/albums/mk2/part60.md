@@ -5,7 +5,7 @@ description: ''
 starting_turn: '631'
 release_date: 'June 16, 2016'
 audio_narration: https://youtu.be/LMEH9S4F2Y4
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part59/
 next: /albums/mk2/part61/
 date: 2016-06-16T00:00:00.000Z

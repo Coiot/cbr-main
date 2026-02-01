@@ -5,7 +5,7 @@ description: ''
 starting_turn: '987'
 release_date: 'January 30, 2018'
 audio_narration: https://youtu.be/29mFjliMDbo
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part102/
 next: /albums/mk2/part104/
 date: 2018-01-30T00:00:00.000Z

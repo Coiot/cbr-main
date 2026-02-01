@@ -5,7 +5,7 @@ description: ""
 release_date: December 18, 2018
 audio_narration:
 fullvideo:
-edition: mk2
+edition: MK2
 date: 2021-08-04T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/fb_m&m-scene01.jpg
 prcast:

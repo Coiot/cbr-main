@@ -5,7 +5,7 @@ description: 'Babylonian Agent Em sets out as Steve Jobs join the Buccaneers!'
 starting_turn: '168'
 release_date: 'September 20, 2015'
 audio_narration: https://youtu.be/0MF3EsAR9dY
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part10/
 next: /albums/mk2/part12/
 date: 2015-09-20T00:00:00.000Z

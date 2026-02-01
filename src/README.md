@@ -6,7 +6,7 @@ heroText:
 tagline:
 actionText:
 actionLink:
-image: /social-card.png
-image_alt: "Civ Battle Royale"
+image: /social-card.svg
+image_alt: "Civilization Battle Royale — latest episode"
 footer: © 2026 Blue Cassette
 ---

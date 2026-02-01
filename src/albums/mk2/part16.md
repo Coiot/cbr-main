@@ -5,7 +5,7 @@ description: 'With heated wars popping up, the power players make their moves, s
 starting_turn: '212'
 release_date: 'October 07, 2015'
 audio_narration: https://youtu.be/Fmiv_wlI3tY
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part15/
 next: /albums/mk2/part17/
 date: 2015-10-07T00:00:00.000Z

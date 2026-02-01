@@ -5,7 +5,7 @@ description: "Speak softly and watch the greatest BR political blunder to date."
 starting_turn: '185'
 release_date: 'September 27, 2015'
 audio_narration: https://youtu.be/1eXNTW6ySxs
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part12/
 next: /albums/mk2/part14/
 date: 2015-09-27T00:00:00.000Z

@@ -5,7 +5,7 @@ description: 'The sunset riders line up their shots as Mini-Pedro is summoned an
 starting_turn: '836'
 release_date: 'October 31, 2017'
 audio_narration: https://youtu.be/80zuQxeesmg
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part89/
 next: /albums/mk2/part91/
 date: 2017-10-31T00:00:00.000Z

@@ -1,28 +1,49 @@
 <template>
   <div class="search-box">
     <input
-      @input="query = $event.target.value"
+      @input="onInput"
+      role="combobox"
+      aria-autocomplete="list"
       aria-label="Search"
-      :value="query"
+      aria-haspopup="listbox"
+      :aria-expanded="showSuggestions ? 'true' : 'false'"
+      :aria-controls="showSuggestions ? listboxId : null"
+      :aria-activedescendant="activeDescendantId"
+      :value="inputValue"
       :class="{ focused: focused }"
       autocomplete="off"
       spellcheck="false"
       @focus="focused = true"
-      @blur="focused = false"
+      @blur="onBlur"
       @keyup.enter="onEnter"
       @keyup.esc="onEsc"
-      @keyup.up="onUp"
-      @keyup.down="onDown"
+      @keydown.tab="onTab"
+      @keydown.up.prevent="onUp"
+      @keydown.down.prevent="onDown"
     />
-    <ul class="suggestions" v-if="showSuggestions" @mouseleave="unfocus">
+    <ul
+      class="suggestions"
+      v-if="showSuggestions"
+      :id="listboxId"
+      ref="suggestionsList"
+      role="listbox"
+      aria-live="polite"
+      @mouseleave="unfocus"
+    >
       <li
         class="suggestion"
         v-for="(s, i) in suggestions"
+        :id="optionId(i)"
+        role="option"
+        :aria-posinset="i + 1"
+        :aria-setsize="suggestions.length"
+        :aria-selected="i === focusIndex ? 'true' : 'false'"
         :class="{ focused: i === focusIndex }"
-        @mousedown="go(i)"
+        @mousedown.prevent="onSuggestionPointerDown"
+        @touchstart.prevent="go(i)"
         @mouseenter="focus(i)"
       >
-        <a :href="s.path" @click.prevent>
+        <a :href="s.path" @click.prevent="go(i)">
           <span class="page-title">
             {{ s.title || s.path }}
           </span>
@@ -38,13 +59,29 @@
 export default {
   data() {
     return {
+      inputValue: "",
       query: "",
+      queryTimer: null,
       focused: false,
       focusIndex: 0,
+      listboxId: `search-suggestions-${Math.random().toString(36).slice(2, 8)}`,
+      searchCache: new Map(),
+      searchIndex: [],
+      queryDebounceMs: 140,
     };
   },
 
+  created() {
+    this.buildIndex();
+  },
+
   computed: {
+    activeDescendantId() {
+      if (!this.showSuggestions || this.focusIndex < 0) {
+        return null;
+      }
+      return this.optionId(this.focusIndex);
+    },
     showSuggestions() {
       return this.focused && this.suggestions && this.suggestions.length;
     },
@@ -56,142 +93,218 @@ export default {
         return [];
       }
 
-      const { pages, themeConfig } = this.$site;
-      const max = themeConfig.searchMaxSuggestions || 10;
+      const { themeConfig } = this.$site;
+      const max = themeConfig.searchMaxSuggestions || 20;
       const localePath = this.$localePath;
-      const tokens = query.split(/\s+/).filter(Boolean);
-
-      const fuzzyMatch = (needle, haystack) => {
-        let h = 0;
-        for (let n = 0; n < needle.length; n++) {
-          const ch = needle[n];
-          h = haystack.indexOf(ch, h);
-          if (h === -1) return false;
-          h++;
-        }
-        return true;
-      };
-
-      const fieldScore = (fieldValue) => {
-        if (!fieldValue) return null;
-        const hay = fieldValue.toLowerCase();
-        let score = 0;
-        for (let t = 0; t < tokens.length; t++) {
-          const token = tokens[t];
-          const idx = hay.indexOf(token);
-          if (idx !== -1) {
-            score += 120 - Math.min(idx, 60) - Math.min(hay.length, 80) * 0.05;
-            continue;
-          }
-          if (fuzzyMatch(token, hay)) {
-            score += 40 - Math.min(hay.length, 80) * 0.03;
-            continue;
-          }
-          return null;
-        }
-        return score;
-      };
-
-      const scoreItem = (item) => {
-        if (!item) return null;
-        const titleScore =
-          fieldScore(item.title) !== null &&
-          fieldScore(item.title) !== undefined
-            ? fieldScore(item.title)
-            : -1;
-        const headerScore =
-          fieldScore(item.header && item.header.title) !== null &&
-          fieldScore(item.header && item.header.title) !== undefined
-            ? fieldScore(item.header && item.header.title)
-            : -1;
-        const editionScore =
-          fieldScore(item.frontmatter && item.frontmatter.edition) !== null &&
-          fieldScore(item.frontmatter && item.frontmatter.edition) !== undefined
-            ? fieldScore(item.frontmatter && item.frontmatter.edition)
-            : -1;
-        const authorScore =
-          fieldScore(item.frontmatter && item.frontmatter.author) !== null &&
-          fieldScore(item.frontmatter && item.frontmatter.author) !== undefined
-            ? fieldScore(item.frontmatter && item.frontmatter.author)
-            : -1;
-        const narratedByScore =
-          fieldScore(item.frontmatter && item.frontmatter.narrated_by) !==
-            null &&
-          fieldScore(item.frontmatter && item.frontmatter.narrated_by) !==
-            undefined
-            ? fieldScore(item.frontmatter && item.frontmatter.narrated_by)
-            : -1;
-        const pathScore =
-          fieldScore(item.path) !== null && fieldScore(item.path) !== undefined
-            ? fieldScore(item.path)
-            : -1;
-
-        const best = Math.max(
-          titleScore + 50,
-          headerScore + 35,
-          editionScore + 20,
-          authorScore + 20,
-          narratedByScore + 20,
-          pathScore + 10
-        );
-        if (best < 0) return null;
-        return best;
-      };
-
-      const buildMeta = (item) => {
-        const parts = [];
-        if (item.frontmatter && item.frontmatter.edition) {
-          parts.push(item.frontmatter.edition);
-        }
-        if (item.frontmatter && item.frontmatter.author) {
-          parts.push(`Author: ${item.frontmatter.author}`);
-        } else if (item.frontmatter && item.frontmatter.narrated_by) {
-          parts.push(`Narrated by: ${item.frontmatter.narrated_by}`);
-        }
-        return parts.length ? parts.join(" • ") : "";
-      };
+      const tokens = this.tokenize(query);
+      const cacheKey = `${localePath}|${max}|${query}`;
+      const cached = this.searchCache.get(cacheKey);
+      if (cached) {
+        return cached;
+      }
 
       const res = [];
-      for (let i = 0; i < pages.length; i++) {
-        const p = pages[i];
-        // filter out results that do not match current locale
-        if (this.getPageLocalePath(p) !== localePath) {
+      for (let i = 0; i < this.searchIndex.length; i++) {
+        const item = this.searchIndex[i];
+        if (item.localePath !== localePath) {
           continue;
         }
-        const pageScore = scoreItem(p);
-        if (pageScore !== null) {
-          res.push(
-            Object.assign({}, p, { score: pageScore, meta: buildMeta(p) })
-          );
+        const score = this.scoreItem(item, tokens);
+        if (score === null) {
           continue;
         }
-        if (p.headers) {
-          for (let j = 0; j < p.headers.length; j++) {
-            const h = p.headers[j];
-            const headerItem = Object.assign({}, p, {
-              path: p.path + "#" + h.slug,
-              header: h,
-            });
-            const headerScore = scoreItem(headerItem);
-            if (headerScore !== null) {
-              res.push(
-                Object.assign({}, headerItem, {
-                  score: headerScore,
-                  meta: buildMeta(p),
-                })
-              );
-            }
-          }
-        }
+        res.push(
+          Object.assign({}, item.page, {
+            path: item.path,
+            header: item.header,
+            score,
+            meta: item.meta,
+          })
+        );
       }
-      return res
+      const final = res
         .sort((a, b) => b.score - a.score)
         .slice(0, max)
         .map((item) => item);
+      this.cacheSuggestions(cacheKey, final);
+      return final;
     },
   },
 
   methods: {
+    buildIndex() {
+      const { pages } = this.$site || {};
+      if (!pages || !pages.length) {
+        this.searchIndex = [];
+        return;
+      }
+      const index = [];
+      for (let i = 0; i < pages.length; i++) {
+        const p = pages[i];
+        const localePath = this.getPageLocalePath(p);
+        const meta = this.buildMeta(p);
+        const base = {
+          page: p,
+          localePath,
+          meta,
+        };
+        const pageFields = {
+          title: this.normalize(p.title),
+          headerTitle: "",
+          edition: this.normalize(p.frontmatter && p.frontmatter.edition),
+          author: this.normalize(p.frontmatter && p.frontmatter.author),
+          narratedBy: this.normalize(
+            p.frontmatter && p.frontmatter.narrated_by
+          ),
+          path: this.normalize(p.path),
+        };
+        index.push(
+          Object.assign({}, base, {
+            path: p.path,
+            header: null,
+            fields: Object.assign({}, pageFields),
+          })
+        );
+        if (p.headers) {
+          for (let j = 0; j < p.headers.length; j++) {
+            const h = p.headers[j];
+            index.push(
+              Object.assign({}, base, {
+                path: p.path + "#" + h.slug,
+                header: h,
+                fields: Object.assign({}, pageFields, {
+                  headerTitle: this.normalize(h.title),
+                }),
+              })
+            );
+          }
+        }
+      }
+      this.searchIndex = index;
+      this.searchCache.clear();
+    },
+
+    tokenize(query) {
+      return query.split(/\s+/).filter(Boolean);
+    },
+
+    normalize(value) {
+      if (!value) return "";
+      return String(value).toLowerCase();
+    },
+
+    fuzzyMatch(needle, haystack) {
+      let h = 0;
+      for (let n = 0; n < needle.length; n++) {
+        const ch = needle[n];
+        h = haystack.indexOf(ch, h);
+        if (h === -1) return false;
+        h++;
+      }
+      return true;
+    },
+
+    fieldScore(tokens, hay) {
+      if (!hay) return null;
+      let score = 0;
+      for (let t = 0; t < tokens.length; t++) {
+        const token = tokens[t];
+        const idx = hay.indexOf(token);
+        if (idx !== -1) {
+          score += 120 - Math.min(idx, 60) - Math.min(hay.length, 80) * 0.05;
+          continue;
+        }
+        if (this.fuzzyMatch(token, hay)) {
+          score += 40 - Math.min(hay.length, 80) * 0.03;
+          continue;
+        }
+        return null;
+      }
+      return score;
+    },
+
+    scoreItem(item, tokens) {
+      if (!item || !item.fields) return null;
+      const titleScore = this.fieldScore(tokens, item.fields.title);
+      const headerScore = this.fieldScore(tokens, item.fields.headerTitle);
+      const editionScore = this.fieldScore(tokens, item.fields.edition);
+      const authorScore = this.fieldScore(tokens, item.fields.author);
+      const narratedByScore = this.fieldScore(tokens, item.fields.narratedBy);
+      const pathScore = this.fieldScore(tokens, item.fields.path);
+      const toScore = (value) => (value === null ? -1 : value);
+      const best = Math.max(
+        toScore(titleScore) + 50,
+        toScore(headerScore) + 35,
+        toScore(editionScore) + 20,
+        toScore(authorScore) + 20,
+        toScore(narratedByScore) + 20,
+        toScore(pathScore) + 10
+      );
+      if (best < 0) return null;
+      return best;
+    },
+
+    buildMeta(item) {
+      const parts = [];
+      if (item.frontmatter && item.frontmatter.edition) {
+        parts.push(item.frontmatter.edition);
+      }
+      if (item.frontmatter && item.frontmatter.author) {
+        parts.push(`Author: ${item.frontmatter.author}`);
+      } else if (item.frontmatter && item.frontmatter.narrated_by) {
+        parts.push(`Narrated by: ${item.frontmatter.narrated_by}`);
+      }
+      return parts.length ? parts.join(" • ") : "";
+    },
+
+    cacheSuggestions(key, value) {
+      if (!this.searchCache) {
+        this.searchCache = new Map();
+      }
+      this.searchCache.set(key, value);
+      if (this.searchCache.size > 50) {
+        const firstKey = this.searchCache.keys().next().value;
+        this.searchCache.delete(firstKey);
+      }
+    },
+
+    scheduleQueryUpdate(value) {
+      if (this.queryTimer) {
+        clearTimeout(this.queryTimer);
+      }
+      this.queryTimer = setTimeout(() => {
+        this.query = value;
+        this.queryTimer = null;
+        this.focusIndex = 0;
+      }, this.queryDebounceMs);
+    },
+
+    flushQuery() {
+      if (this.queryTimer) {
+        clearTimeout(this.queryTimer);
+        this.queryTimer = null;
+      }
+      this.query = this.inputValue;
+    },
+
+    onInput(event) {
+      const value = event.target.value;
+      this.inputValue = value;
+      this.scheduleQueryUpdate(value);
+    },
+
+    onBlur() {
+      this.focused = false;
+      this.focusIndex = -1;
+    },
+
+    onSuggestionPointerDown() {
+      this.focused = true;
+    },
+
+    optionId(index) {
+      return `${this.listboxId}-option-${index}`;
+    },
     getPageLocalePath(page) {
       for (const localePath in this.$site.locales || {}) {
         if (localePath !== "/" && page.path.indexOf(localePath) === 0) {
@@ -202,22 +315,26 @@ export default {
     },
 
     onUp() {
-      if (this.showSuggestions) {
-        if (this.focusIndex > 0) {
-          this.focusIndex--;
-        } else {
-          this.focusIndex = this.suggestions.length - 1;
-        }
+      if (!this.showSuggestions) {
+        this.focused = true;
+        return;
+      }
+      if (this.focusIndex > 0) {
+        this.focusIndex--;
+      } else {
+        this.focusIndex = this.suggestions.length - 1;
       }
     },
 
     onDown() {
-      if (this.showSuggestions) {
-        if (this.focusIndex < this.suggestions.length - 1) {
-          this.focusIndex++;
-        } else {
-          this.focusIndex = 0;
-        }
+      if (!this.showSuggestions) {
+        this.focused = true;
+        return;
+      }
+      if (this.focusIndex < this.suggestions.length - 1) {
+        this.focusIndex++;
+      } else {
+        this.focusIndex = 0;
       }
     },
 
@@ -230,6 +347,7 @@ export default {
         return;
       }
       this.$router.push(this.suggestions[index].path);
+      this.inputValue = "";
       this.query = "";
       this.focusIndex = 0;
     },
@@ -243,6 +361,7 @@ export default {
     },
 
     onEnter() {
+      this.flushQuery();
       if (!this.showSuggestions) {
         return;
       }
@@ -254,28 +373,70 @@ export default {
     },
 
     onEsc() {
+      if (this.queryTimer) {
+        clearTimeout(this.queryTimer);
+        this.queryTimer = null;
+      }
+      this.inputValue = "";
       this.query = "";
       this.focused = false;
       this.focusIndex = 0;
     },
+    onTab() {
+      this.focused = false;
+      this.focusIndex = -1;
+    },
+  },
+  watch: {
+    query() {
+      this.focusIndex = 0;
+    },
+    focusIndex() {
+      this.$nextTick(() => {
+        if (!this.showSuggestions || this.focusIndex < 0) {
+          return;
+        }
+        const list = this.$refs.suggestionsList;
+        const activeId = this.optionId(this.focusIndex);
+        const activeEl = document.getElementById(activeId);
+        if (!list || !activeEl) {
+          return;
+        }
+        const listRect = list.getBoundingClientRect();
+        const itemRect = activeEl.getBoundingClientRect();
+        if (itemRect.top < listRect.top) {
+          list.scrollTop -= listRect.top - itemRect.top;
+        } else if (itemRect.bottom > listRect.bottom) {
+          list.scrollTop += itemRect.bottom - listRect.bottom;
+        }
+      });
+    },
+  },
+
+  beforeDestroy() {
+    if (this.queryTimer) {
+      clearTimeout(this.queryTimer);
+      this.queryTimer = null;
+    }
   },
 };
 </script>
 
 <style>
 .search-box {
-  display: inline-block;
   position: relative;
-  margin-right: 1.5rem;
+  display: inline-block;
+  margin: 0;
 }
 .search-box input {
   cursor: text;
-  width: 15rem;
+  width: -webkit-fill-available;
   color: color-mix(in srgb, var(--back-color), white 15%);
   display: inline-block;
   border: 1px solid color-mix(in srgb, var(--border-color), black 30%);
   border-radius: 0.6rem;
   font-size: 1rem;
+  font-weight: 600;
   line-height: 2rem;
   padding: 0 0.5rem 0 2rem;
   outline: none;
@@ -288,23 +449,26 @@ export default {
   border-color: var(--accent-color);
 }
 .search-box .suggestions {
-  background: #fff;
-  width: 20rem;
   position: absolute;
-  top: 1.5rem;
+  top: calc(100% + 0.45rem);
+  left: -1rem;
+  max-height: 18rem;
+  min-width: 16.5rem;
+  width: 100%;
+  overflow-y: auto;
+  background: #fff;
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
   border-radius: 4px;
-  padding: 0.4rem;
+  padding: 0.5rem;
   list-style-type: none;
-}
-.search-box .suggestions.align-right {
-  right: 0;
 }
 .search-box .suggestion {
   line-height: 1.4;
-  padding: 0.4rem 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 .search-box .suggestion a {
   white-space: normal;
@@ -330,53 +494,49 @@ export default {
 }
 .search-box .suggestion.focused {
   font-weight: 700;
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
 }
 .search-box .suggestion.focused a {
-  color: var(--back-color);
+  color: color-mix(in srgb, var(--back-color), black 15%);
+}
+.search-box .suggestion:hover {
+  background-color: #ddd;
+  border-color: #ccc;
+}
+.search-box .suggestion:hover a {
+  color: color-mix(in srgb, var(--back-color), black 20%);
 }
 @media (max-width: 980px) {
   .search-box input {
-    cursor: pointer;
-    width: 0;
-    border-color: transparent;
+    width: -webkit-fill-available;
+    border-color: color-mix(in srgb, var(--border-color), black 30%);
     position: relative;
-  }
-  .search-box input:focus {
-    cursor: text;
-    left: 0;
-    width: 10rem;
-  }
-}
-@media (max-width: 980px) and (min-width: 799px) {
-  .search-box .suggestions {
-    left: 0;
   }
 }
 @media (max-width: 799px) {
-  .search-box {
-    margin-right: 0.5rem;
-  }
   .search-box input {
-    left: 1rem;
+    width: -webkit-fill-available;
+    border-color: color-mix(in srgb, var(--border-color), black 30%);
+    position: relative;
   }
   .search-box .suggestions {
-    position: fixed;
-    left: 0.75rem;
-    right: 0.75rem;
-    width: auto;
-    max-width: calc(100vw - 1.5rem);
+    position: static;
+    top: calc(var(--navbar-height, 2.25rem) + 0.4rem);
+    max-height: min(50vh, 22rem);
+    width: 100%;
+    margin-top: 0.5rem;
     box-sizing: border-box;
     transform: none;
-    top: calc(var(--navbar-height, 2.25rem) + 0.4rem);
   }
-}
-@media (max-width: 450px) {
-  .search-box .suggestions {
-    width: auto;
-  }
-  .search-box input:focus {
-    width: 8rem;
+
+  .search-dropdown {
+    position: fixed;
+    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+    inset-inline-start: 0.75rem;
+    inset-inline-end: 0.75rem;
+    min-inline-size: 0;
+    max-inline-size: calc(100vw - 1.5rem);
+    box-sizing: border-box;
   }
 }
 </style>

@@ -1,14 +1,13 @@
 <template>
-  <div
-    class="theme-container"
-    :class="pageClasses"
-    @touchstart="onTouchStart"
-    @touchend="onTouchEnd"
-  >
+  <div class="theme-container" :class="pageClasses">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <Sidebar
+      v-if="shouldRenderSidebar"
+      :items="sidebarItems"
+      @toggle-sidebar="toggleSidebar"
+    >
       <slot name="sidebar-top" slot="top" />
       <slot name="sidebar-bottom" slot="bottom" />
     </Sidebar>
@@ -26,18 +25,6 @@
 
       <Page v-else> </Page>
     </main>
-
-    <ClientOnly>
-      <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
-      <script>
-        kofiWidgetOverlay.draw("coiot", {
-          type: "floating-chat",
-          "floating-chat.donateButton.text": "Support Us",
-          "floating-chat.donateButton.background-color": "#fcbf47",
-          "floating-chat.donateButton.text-color": "#323842",
-        });
-      </script>
-    </ClientOnly>
   </div>
 </template>
 
@@ -54,7 +41,6 @@ import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
 import VueLazyload from "vue-lazyload";
-import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
 Vue.use(VueLazyload, {
@@ -75,8 +61,6 @@ export default {
     CommunityTileMap,
     Sidebar,
     Navbar,
-    VueperSlides,
-    VueperSlide,
   },
 
   data() {
@@ -111,6 +95,10 @@ export default {
       );
     },
 
+    shouldRenderSidebar() {
+      return this.shouldShowSidebar || this.shouldShowNavbar;
+    },
+
     sidebarItems() {
       return resolveSidebarItems(
         this.$page,
@@ -141,37 +129,42 @@ export default {
       showSpinner: false,
     });
 
-    this.$router.beforeEach((to, from, next) => {
+    this.removeBeforeEach = this.$router.beforeEach((to, from, next) => {
       if (to.path !== from.path && !Vue.component(to.name)) {
         nprogress.start();
       }
       next();
     });
 
-    this.$router.afterEach(() => {
+    this.removeAfterEach = this.$router.afterEach(() => {
       nprogress.done();
       this.isSidebarOpen = false;
+      this.$nextTick(() => {
+        const main = this.$el && this.$el.querySelector("#main-content");
+        if (main && typeof main.focus === "function") {
+          main.focus();
+        }
+      });
     });
 
     this.$on("sw-updated", this.onSWUpdated);
   },
 
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+    if (typeof this.removeBeforeEach === "function") {
+      this.removeBeforeEach();
+      this.removeBeforeEach = null;
+    }
+    if (typeof this.removeAfterEach === "function") {
+      this.removeAfterEach();
+      this.removeAfterEach = null;
+    }
+  },
+
   methods: {
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
-    },
-
-    // side swipe
-    onTouchStart(e) {
-      this.touchStart = {
-        x: e.changedTouches[0].clientX,
-        y: e.changedTouches[0].clientY,
-      };
-    },
-
-    onTouchEnd(e) {
-      const dx = e.changedTouches[0].clientX - this.touchStart.x;
-      const dy = e.changedTouches[0].clientY - this.touchStart.y;
     },
 
     onSWUpdated(e) {

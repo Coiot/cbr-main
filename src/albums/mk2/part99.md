@@ -5,7 +5,7 @@ description: ''
 starting_turn: '913'
 release_date: 'Janurary 2, 2018'
 audio_narration: https://youtu.be/3FyLM96OCxQ
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part98/
 next: /albums/mk2/part100/
 date: 2018-01-02T00:00:00.000Z

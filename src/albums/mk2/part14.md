@@ -5,7 +5,7 @@ description: "We all knew it was coming: WHO WILL GO HOME FIRST?"
 starting_turn: '193'
 release_date: 'September 30, 2015'
 audio_narration: https://youtu.be/sYNa_J8rub8
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part13/
 next: /albums/mk2/part15/
 date: 2015-09-30T00:00:00.000Z

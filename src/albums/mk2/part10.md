@@ -5,7 +5,7 @@ description: 'Cry havoc as the battle in Southeast Asia heats up!'
 starting_turn: '154'
 release_date: 'September 16, 2015'
 audio_narration: https://youtu.be/RZUceDooBgE
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part9/
 next: /albums/mk2/part11/
 date: 2015-09-16T00:00:00.000Z

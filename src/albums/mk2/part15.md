@@ -5,7 +5,7 @@ description: 'In the aftermath of elimination, a giant awakens!'
 starting_turn: '203'
 release_date: 'October 4, 2015'
 audio_narration: https://youtu.be/WFci8cwsA6M
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part14/
 next: /albums/mk2/part16/
 date: 2015-10-04T00:00:00.000Z

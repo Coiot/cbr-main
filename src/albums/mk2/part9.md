@@ -5,7 +5,7 @@ description: 'They started from the bottom, now they own 2 capitals.'
 starting_turn: '143'
 release_date: 'September 13, 2015'
 audio_narration: https://youtu.be/Fmwl_BhkCdk
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part8/
 next: /albums/mk2/part10/
 date: 2015-09-13T00:00:00.000Z

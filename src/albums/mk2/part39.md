@@ -5,7 +5,7 @@ description: ''
 starting_turn: '402'
 release_date: 'March 02, 2016'
 audio_narration: https://youtu.be/i4Vt3VOM3uw
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part38/
 next: /albums/mk2/par40/
 date: 2016-03-02T00:00:00.000Z

@@ -5,7 +5,7 @@ description: ''
 starting_turn: '366'
 release_date: 'February 17, 2016'
 audio_narration: https://youtu.be/6wFaytgwIiY
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part34/
 next: /albums/mk2/part36/
 date: 2016-02-17T00:00:00.000Z

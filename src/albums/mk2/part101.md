@@ -5,7 +5,7 @@ description: ''
 starting_turn: '954'
 release_date: 'January 16, 2018'
 audio_narration: https://youtu.be/6_VhddGmko0
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part100/
 next: /albums/mk2/part102/
 date: 2018-01-16T00:00:00.000Z

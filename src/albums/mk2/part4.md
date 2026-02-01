@@ -5,7 +5,7 @@ description: "Forward settling in Asia leads to a multi-sided brawl for territor
 starting_turn: "70"
 release_date: "August 22, 2015"
 audio_narration: https://youtu.be/DJcju0wS2zQ
-edition: mk2
+edition: MK2
 date: 2015-08-22T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part4-scene06.jpg
 prev: /albums/mk2/part3/

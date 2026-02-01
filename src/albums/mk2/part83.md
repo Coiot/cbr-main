@@ -5,7 +5,7 @@ description: 'The ceasefire between the Green Dragon and the Orange Menace gives
 starting_turn: '797'
 release_date: 'Oct 30, 2016'
 audio_narration: https://youtu.be/vYjDVjiw7iE
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part82/
 next: /albums/mk2/part84/
 date: 2016-10-30T00:00:00.000Z

@@ -5,7 +5,7 @@ description: "Early settlements grow and the first conflicts between the empires
 starting_turn: "28"
 release_date: "August 15, 2015"
 audio_narration: https://youtu.be/1RzQqZXcmTk
-edition: mk2
+edition: MK2
 date: 2015-08-15T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/mark2-part2-scene06.jpg
 prev: /albums/mk2/part1/

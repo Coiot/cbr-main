@@ -5,7 +5,7 @@ description: 'Another Civ Battle Royale Part? *shakes ball* My sources say Yes!'
 starting_turn: '131'
 release_date: 'September 08, 2015'
 audio_narration: https://youtu.be/tEl1NzZ2N0E
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part7/
 next: /albums/mk2/part9/
 date: 2015-09-08T00:00:00.000Z

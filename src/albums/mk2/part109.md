@@ -5,7 +5,7 @@ description: ''
 starting_turn: '881'
 release_date: 'March 13, 2018'
 audio_narration: https://youtu.be/l1nP0SqScuQ
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part108/
 next: /albums/mk2/part110/
 date: 2018-03-13T00:00:00.000Z

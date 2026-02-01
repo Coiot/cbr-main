@@ -5,7 +5,7 @@ description: ''
 starting_turn: '1013'
 release_date: 'Feburary 13, 2018'
 audio_narration: https://youtu.be/JA-nhkeF0_A
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part104/
 next: /albums/mk2/part106/
 date: 2018-02-13T00:00:00.000Z

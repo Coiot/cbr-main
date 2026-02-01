@@ -5,7 +5,7 @@ description: 'Ask not for whom the bell tolls...'
 starting_turn: '322'
 release_date: 'December 14, 2015'
 audio_narration: https://youtu.be/w0LXnV3VxLA
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part30/
 next: /albums/mk2/part32/
 date: 2015-12-14T00:00:00.000Z

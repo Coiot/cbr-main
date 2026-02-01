@@ -5,7 +5,7 @@ description: ''
 starting_turn: '391'
 release_date: 'February 28, 2016'
 audio_narration: https://youtu.be/_69e0pCl-ZM
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part37/
 next: /albums/mk2/part39/
 date: 2016-02-28T00:00:00.000Z

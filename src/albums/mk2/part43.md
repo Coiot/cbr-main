@@ -5,7 +5,7 @@ description: ''
 starting_turn: '439'
 release_date: 'March 16, 2016'
 audio_narration: https://youtu.be/VBz9zJDVpwQ
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part42/
 next: /albums/mk2/part44/
 date: 2016-03-16T00:00:00.000Z

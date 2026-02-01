@@ -5,7 +5,7 @@ description: ''
 starting_turn: '865'
 release_date: 'March 06, 2018'
 audio_narration: https://youtu.be/rggjbOlKeeI
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part107/
 next: /albums/mk2/part109/
 date: 2018-03-06T00:00:00.000Z

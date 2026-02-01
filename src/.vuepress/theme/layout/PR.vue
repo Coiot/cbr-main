@@ -1136,14 +1136,14 @@ export default {
   background: linear-gradient(145deg, #111 0%, #161616 100%);
   border: 1px solid #242424;
   border-radius: 0 0 14px 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   padding-block: 0.95rem 1.05rem;
   padding-inline: 1.3rem;
   text-decoration: none;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-card::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 4px;
   background: var(--accent-color);
@@ -1153,7 +1153,7 @@ export default {
 .nav-card:hover {
   transform: translateY(-2px);
   border-color: var(--accent-color);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.28);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
 }
 .nav-card.prev {
   padding-inline-start: 2.8rem;
@@ -1185,7 +1185,7 @@ export default {
   color: #151515;
   background: oklch(from var(--accent-color) l c h / 0.9);
   border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   text-shadow: none;
   inset-block-start: 50%;
 }
@@ -1247,7 +1247,7 @@ export default {
 }
 .toggle-button {
   font-size: 1.4rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 900;
   line-height: 1.4;
   color: #fff;
@@ -1296,7 +1296,7 @@ export default {
 }
 .jump-controls input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255,191,70,0.3);
+  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
 }
 .scene-button {
   font-size: 0.95rem;
@@ -1343,7 +1343,7 @@ export default {
   padding-inline: 0.2rem;
 }
 .timeline-track::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 100%;
   width: var(--progress);
@@ -1363,7 +1363,8 @@ export default {
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    background 0.15s ease-in-out;
 }
 .timeline-dot.completed:not(.death):not(.reporter) {
   background: #e67300;
@@ -1371,7 +1372,7 @@ export default {
 }
 .timeline-dot.active {
   transform: scale(1.35);
-  box-shadow: 0 0 0 3px rgba(255,191,70,0.45);
+  box-shadow: 0 0 0 3px rgba(255, 191, 70, 0.45);
 }
 .timeline-dot.active:not(.death):not(.reporter) {
   background: var(--accent-color);
@@ -1540,9 +1541,6 @@ h2 {
   }
   .scene-jump {
     width: 100%;
-  }
-  .nextprev {
-    grid-template-columns: 1fr;
   }
   .nav-card {
     text-align: left;

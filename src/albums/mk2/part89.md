@@ -5,7 +5,7 @@ description: 'The bell tolls for the great rump masterminds . The world looks on
 starting_turn: '831'
 release_date: 'October 24, 2017'
 audio_narration: https://youtu.be/j8ULr1HHMSY
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part88/
 next: /albums/mk2/part90/
 date: 2017-10-24T00:00:00.000Z

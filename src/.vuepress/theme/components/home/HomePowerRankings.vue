@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  name: "HomePowerRankings",
   computed: {
     albums() {
       return this.$site.pages

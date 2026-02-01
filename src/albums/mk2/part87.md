@@ -5,7 +5,7 @@ description: 'Sweden’s bold march across Eastern Europe continues as the great
 starting_turn: '821'
 release_date: 'October 10, 2017'
 audio_narration: https://youtu.be/gvRGfIERU6c
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part86/
 next: /albums/mk2/part88/
 date: 2017-10-10T00:00:00.000Z

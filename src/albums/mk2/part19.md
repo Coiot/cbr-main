@@ -5,7 +5,7 @@ description: 'Several of the slowpokes reach the Renaissance, as the leaders con
 starting_turn: '236'
 release_date: 'October 18, 2015'
 audio_narration: https://youtu.be/RIwea7-JsOs
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part18/
 next: /albums/mk2/part20/
 date: 2015-10-18T00:00:00.000Z

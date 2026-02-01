@@ -5,7 +5,7 @@ description: 'Remember the golden rule: kill all those who oppose your reign.'
 starting_turn: '293'
 release_date: 'November 19, 2015'
 audio_narration: https://youtu.be/5aMCmoq5Zn8
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part26/
 next: /albums/mk2/part28/
 date: 2015-11-19T00:00:00.000Z

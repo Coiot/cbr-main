@@ -5,7 +5,7 @@ description: 'The Boerg prove restless and the lords of the sea take to the wave
 starting_turn: '765'
 release_date: 'Oct 09, 2016'
 audio_narration: https://youtu.be/ZMRcHCOgFKQ
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part78/
 next: /albums/mk2/part80/
 date: 2016-10-09T00:00:00.000Z

@@ -1,20 +1,7 @@
 <template>
   <transition name="fade">
     <div class="blog">
-      <div class="page-nav" v-if="prev || next">
-        <div class="nextprev">
-          <router-link v-if="prev" class="nav-card prev" :to="prev.path">
-            <span class="nav-arrow">←</span>
-            <span class="nav-kicker">Previous</span>
-            <span class="nav-title">{{ prev.title || prev.path }}</span>
-          </router-link>
-          <router-link v-if="next" class="nav-card next" :to="next.path">
-            <span class="nav-kicker">Next</span>
-            <span class="nav-title">{{ next.title || next.path }}</span>
-            <span class="nav-arrow">→</span>
-          </router-link>
-        </div>
-      </div>
+      <AlbumsNav :prev="prev" :next="next" />
 
       <h1 class>
         {{ $page.frontmatter.title }}
@@ -197,549 +184,74 @@
             :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
-              <article class="h-narration" style="flex-direction: column">
-                <h3
-                  v-if="scene.scene_number == scene.scene_title"
-                  class="scene-heading"
-                >
-                  <span class="scene-title">{{ scene.scene_number }}</span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else-if="scene.scene_title_html" class="scene-heading">
-                  <span class="scene-title">
-                    {{ scene.scene_number }}:
-                    <span v-html="scene.scene_title_html"></span>
-                  </span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else-if="scene.scene_title" class="scene-heading">
-                  <span class="scene-title">
-                    {{ scene.scene_number }}:
-                    {{ scene.scene_title }}
-                  </span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else class="scene-heading">
-                  <span class="scene-title">{{ scene.scene_number }}</span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <p class="narrations" v-html="scene.narration" tabindex="0"></p>
-                <p
-                  class="narrations"
-                  v-if="scene.reporter"
-                  v-html="scene.reporter"
-                  tabindex="0"
-                  v-bind:class="{
-                    reporter: scene.reporter,
-                  }"
-                ></p>
-                <div class="scene-reactions">
-                  <div class="reaction-list">
-                    <button
-                      v-for="reaction in reactionDisplay(sceneNumber(index))
-                        .top"
-                      :key="reaction.key"
-                      type="button"
-                      class="reaction-pill"
-                      :class="{
-                        active:
-                          userReaction(sceneNumber(index)) === reaction.key,
-                      }"
-                      :aria-pressed="
-                        userReaction(sceneNumber(index)) === reaction.key
-                      "
-                      :aria-label="reaction.label"
-                      :title="reaction.label"
-                      :disabled="!authUser"
-                      @click.stop="
-                        toggleReaction(sceneNumber(index), reaction.key)
-                      "
-                    >
-                      <span class="reaction-emoji">{{ reaction.emoji }}</span>
-                      <span class="reaction-count">
-                        {{ reaction.count }}
-                      </span>
-                    </button>
-                    <button
-                      v-if="reactionDisplay(sceneNumber(index)).rest.length"
-                      type="button"
-                      class="reaction-more"
-                      :aria-expanded="isReactionMenuOpen(sceneNumber(index))"
-                      @click.stop="toggleReactionMenu(sceneNumber(index))"
-                    >
-                      {{
-                        isReactionMenuOpen(sceneNumber(index))
-                          ? "Less"
-                          : `+${
-                              reactionDisplay(sceneNumber(index)).rest.length
-                            }`
-                      }}
-                    </button>
-                  </div>
-                  <div
-                    v-if="
-                      isReactionMenuOpen(sceneNumber(index)) &&
-                      reactionDisplay(sceneNumber(index)).rest.length
-                    "
-                    class="reaction-more-panel"
-                  >
-                    <button
-                      v-for="reaction in reactionDisplay(sceneNumber(index))
-                        .rest"
-                      :key="reaction.key"
-                      type="button"
-                      class="reaction-pill"
-                      :class="{
-                        active:
-                          userReaction(sceneNumber(index)) === reaction.key,
-                      }"
-                      :aria-pressed="
-                        userReaction(sceneNumber(index)) === reaction.key
-                      "
-                      :aria-label="reaction.label"
-                      :title="reaction.label"
-                      :disabled="!authUser"
-                      @click.stop="
-                        toggleReaction(sceneNumber(index), reaction.key)
-                      "
-                    >
-                      <span class="reaction-emoji">{{ reaction.emoji }}</span>
-                      <span class="reaction-count">{{ reaction.count }}</span>
-                    </button>
-                  </div>
-                  <span v-if="!authUser" class="reaction-hint">
-                    Sign in to react
-                  </span>
-                </div>
-              </article>
+              <SceneSlideContent
+                :scene="scene"
+                :scene-number="sceneNumber(index)"
+                :bookmarked="isBookmarked(index)"
+                :bookmark-aria="bookmarkAria(index)"
+                :reaction-display="reactionDisplay(sceneNumber(index))"
+                :user-reaction="userReaction(sceneNumber(index))"
+                :auth-user="authUser"
+                :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+                @toggle-bookmark="bookmarkScene(index)"
+                @toggle-reaction="toggleReaction"
+                @toggle-menu="toggleReactionMenu"
+              />
             </template>
           </vueper-slide>
         </vueper-slides>
       </div>
       <div v-if="isToggle === false">
         <section class="scenes">
-          <article
-            class="medium"
+          <SceneCard
             v-for="(scene, index) in $page.frontmatter.scenes"
             :key="sceneKey(scene, index)"
             :id="sceneAnchor(index)"
-          >
-            <img
-              v-lazy="scene.slide_url"
-              tabindex="0"
-              :alt="sceneAlt(scene)"
-              class="scene-image"
-              v-bind:class="{ civdeathImage: scene.death }"
-            />
-            <div class="text" v-bind:class="{ civdeathBorder: scene.death }">
-              <h3
-                v-if="scene.scene_number == scene.scene_title"
-                class="scene-heading"
-              >
-                <span class="scene-title">{{ scene.scene_number }}</span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else-if="scene.scene_title_html" class="scene-heading">
-                <span class="scene-title">
-                  {{ scene.scene_number }}:
-                  <span v-html="scene.scene_title_html"></span>
-                </span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else-if="scene.scene_title" class="scene-heading">
-                <span class="scene-title">
-                  {{ scene.scene_number }}:
-                  {{ scene.scene_title }}
-                </span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else class="scene-heading">
-                <span class="scene-title">{{ scene.scene_number }}</span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-
-              <div
-                class="narrations"
-                v-html="scene.narration"
-                tabindex="0"
-              ></div>
-              <div
-                class="narrations"
-                v-if="scene.reporter"
-                v-html="scene.reporter"
-                tabindex="0"
-                v-bind:class="{
-                  reporter: scene.reporter,
-                }"
-              ></div>
-              <div class="scene-reactions">
-                <div class="reaction-list">
-                  <button
-                    v-for="reaction in reactionDisplay(sceneNumber(index)).top"
-                    :key="reaction.key"
-                    type="button"
-                    class="reaction-pill"
-                    :class="{
-                      active: userReaction(sceneNumber(index)) === reaction.key,
-                    }"
-                    :aria-pressed="
-                      userReaction(sceneNumber(index)) === reaction.key
-                    "
-                    :aria-label="reaction.label"
-                    :title="reaction.label"
-                    :disabled="!authUser"
-                    @click.stop="
-                      toggleReaction(sceneNumber(index), reaction.key)
-                    "
-                  >
-                    <span class="reaction-emoji">{{ reaction.emoji }}</span>
-                    <span class="reaction-count">
-                      {{ reaction.count }}
-                    </span>
-                  </button>
-                  <button
-                    v-if="reactionDisplay(sceneNumber(index)).rest.length"
-                    type="button"
-                    class="reaction-more"
-                    :aria-expanded="isReactionMenuOpen(sceneNumber(index))"
-                    @click.stop="toggleReactionMenu(sceneNumber(index))"
-                  >
-                    {{
-                      isReactionMenuOpen(sceneNumber(index))
-                        ? "Less"
-                        : `+${reactionDisplay(sceneNumber(index)).rest.length}`
-                    }}
-                  </button>
-                </div>
-                <div
-                  v-if="
-                    isReactionMenuOpen(sceneNumber(index)) &&
-                    reactionDisplay(sceneNumber(index)).rest.length
-                  "
-                  class="reaction-more-panel"
-                >
-                  <button
-                    v-for="reaction in reactionDisplay(sceneNumber(index)).rest"
-                    :key="reaction.key"
-                    type="button"
-                    class="reaction-pill"
-                    :class="{
-                      active: userReaction(sceneNumber(index)) === reaction.key,
-                    }"
-                    :aria-pressed="
-                      userReaction(sceneNumber(index)) === reaction.key
-                    "
-                    :aria-label="reaction.label"
-                    :title="reaction.label"
-                    :disabled="!authUser"
-                    @click.stop="
-                      toggleReaction(sceneNumber(index), reaction.key)
-                    "
-                  >
-                    <span class="reaction-emoji">{{ reaction.emoji }}</span>
-                    <span class="reaction-count">{{ reaction.count }}</span>
-                  </button>
-                </div>
-                <span v-if="!authUser" class="reaction-hint">
-                  Sign in to react
-                </span>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <Content class="custom" />
-
-        <section v-if="showComments" class="album-comments">
-          <div class="comments-header">
-            <h2>Supporter Comments</h2>
-            <p class="comments-subtitle">
-              Supporters can leave one comment within a week of release.
-              <span v-if="commentWindowLabel">
-                Comments close {{ commentWindowLabel }}.
-              </span>
-            </p>
-          </div>
-          <div class="comment-form">
-            <p v-if="!authUser" class="comment-note">
-              Sign in to leave a comment.
-            </p>
-            <p v-else-if="!canSupporterComment" class="comment-note">
-              Supporters only can comment.
-            </p>
-            <p v-else-if="!commentWindowOpen" class="comment-note">
-              Comment window has closed for this episode.
-            </p>
-            <div v-else>
-              <div
-                v-if="userComment && !commentEditing"
-                class="comment-note comment-note--row"
-              >
-                <span>You already left a comment.</span>
-                <div class="comment-inline-actions" v-if="commentWindowOpen">
-                  <button
-                    type="button"
-                    class="comment-link"
-                    @click="startEditComment"
-                  >
-                    Edit comment
-                  </button>
-                  <button
-                    type="button"
-                    class="comment-link comment-link--danger"
-                    @click="deleteComment"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div v-else class="comment-editor">
-                <textarea
-                  class="comment-input"
-                  v-model="commentDraft"
-                  :maxlength="commentMaxLength"
-                  rows="4"
-                  placeholder="Post a comment for all posterity..."
-                ></textarea>
-                <div class="comment-actions">
-                  <button
-                    type="button"
-                    class="comment-button comment-button--ghost"
-                    :disabled="commentSaving || !commentDraft.trim()"
-                    @click="previewComment"
-                  >
-                    Preview before Posting
-                  </button>
-                  <button
-                    type="button"
-                    class="comment-button"
-                    :disabled="commentSaving || !canSubmitComment"
-                    @click="submitComment"
-                  >
-                    {{ userComment ? "Update Comment" : "Post Comment" }}
-                  </button>
-                  <button
-                    v-if="userComment"
-                    type="button"
-                    class="comment-link"
-                    @click="cancelEditComment"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    v-if="userComment"
-                    type="button"
-                    class="comment-link comment-link--danger"
-                    @click="deleteComment"
-                  >
-                    Delete
-                  </button>
-                  <span class="comment-count">
-                    {{ commentDraft.length }}/{{ commentMaxLength }}
-                  </span>
-                </div>
-                <div v-if="commentPreview" class="comment-preview">
-                  <div class="comment-preview-label">Preview</div>
-                  <article class="comment-card comment-card--preview">
-                    <div
-                      class="comment-civ"
-                      :style="commentCivStyle(commentPreview)"
-                    >
-                      <span class="comment-civ-tooltip">
-                        {{ commentPreview.civ_label || "No civ preference" }}
-                      </span>
-                    </div>
-                    <div class="comment-body">
-                      <div class="comment-header">
-                        <span class="comment-name">
-                          {{ commentPreview.username || "Supporter" }}
-                        </span>
-                        <span v-if="commentPreview.flair" class="comment-flair">
-                          {{ commentPreview.flair }}
-                        </span>
-                      </div>
-                      <p class="comment-text">{{ commentPreview.message }}</p>
-                    </div>
-                  </article>
-                </div>
-                <p v-if="commentMessage" class="comment-note">
-                  {{ commentMessage }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="comment-list">
-            <p v-if="commentsLoading" class="comment-note">
-              Loading comments...
-            </p>
-            <p
-              v-else-if="!comments.length"
-              class="comment-note comment-note--empty"
-            >
-              No comments yet.
-            </p>
-            <div v-else class="comment-cards">
-              <article
-                v-for="comment in comments"
-                :key="comment.id"
-                class="comment-card"
-              >
-                <div class="comment-civ" :style="commentCivStyle(comment)">
-                  <span class="comment-civ-tooltip">
-                    {{ comment.civ_label || "No civ preference" }}
-                  </span>
-                </div>
-                <div class="comment-body">
-                  <div class="comment-header">
-                    <span class="comment-name">
-                      {{ comment.username || "Supporter" }}
-                    </span>
-                    <span v-if="comment.flair" class="comment-flair">
-                      {{ comment.flair }}
-                    </span>
-                  </div>
-                  <p class="comment-text">{{ comment.message }}</p>
-                </div>
-              </article>
-            </div>
-          </div>
+            :scene="scene"
+            :scene-alt="sceneAlt(scene)"
+            :scene-number="sceneNumber(index)"
+            :bookmarked="isBookmarked(index)"
+            :bookmark-aria="bookmarkAria(index)"
+            :reaction-display="reactionDisplay(sceneNumber(index))"
+            :user-reaction="userReaction(sceneNumber(index))"
+            :auth-user="authUser"
+            :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+            @toggle-bookmark="bookmarkScene(index)"
+            @toggle-reaction="toggleReaction"
+            @toggle-menu="toggleReactionMenu"
+          />
         </section>
       </div>
 
-      <div class="page-nav" v-if="prev || next">
-        <div class="nextprev">
-          <router-link v-if="prev" class="nav-card prev" :to="prev.path">
-            <span class="nav-kicker">Previous</span>
-            <span class="nav-title">{{ prev.title || prev.path }}</span>
-            <span class="nav-arrow">←</span>
-          </router-link>
-          <router-link v-if="next" class="nav-card next" :to="next.path">
-            <span class="nav-kicker">Next</span>
-            <span class="nav-title">{{ next.title || next.path }}</span>
-            <span class="nav-arrow">→</span>
-          </router-link>
-        </div>
-      </div>
+      <Content class="custom" />
+
+      <CommentsSection
+        v-if="showComments"
+        :auth-user="authUser"
+        :can-supporter-comment="canSupporterComment"
+        :comment-window-open="commentWindowOpen"
+        :comment-window-label="commentWindowLabel"
+        :user-comment="userComment"
+        :comment-editing="commentEditing"
+        :comment-draft="commentDraft"
+        :comment-max-length="commentMaxLength"
+        :comment-saving="commentSaving"
+        :can-submit-comment="canSubmitComment"
+        :comment-preview="commentPreview"
+        :comment-message="commentMessage"
+        :comment-message-type="commentMessageType"
+        :comments-loading="commentsLoading"
+        :comments="comments"
+        :comment-civ-style="commentCivStyle"
+        @update:commentDraft="commentDraft = $event"
+        @start-edit="startEditComment"
+        @delete-comment="deleteComment"
+        @preview-comment="previewComment"
+        @submit-comment="submitComment"
+        @cancel-edit="cancelEditComment"
+      />
+
+      <AlbumsNav :prev="prev" :next="next" />
     </div>
   </transition>
 </template>
@@ -747,7 +259,10 @@
 <script>
 import { normalize } from "../util.js";
 import { VueperSlides, VueperSlide } from "vueperslides";
-import BookmarkButton from "./BookmarkButton.vue";
+import AlbumsNav from "../components/albums/AlbumsNav.vue";
+import SceneCard from "../components/albums/SceneCard.vue";
+import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
+import CommentsSection from "../components/albums/CommentsSection.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
@@ -770,7 +285,7 @@ const DEFAULT_REACTION_OPTIONS = [
   { key: "wow", label: "Wow", emoji: "🤯" },
   { key: "sad", label: "Sad", emoji: "😢" },
 ];
-const REACTION_POLL_INTERVAL = 60000;
+const REACTION_POLL_INTERVAL = 30000;
 const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
 const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
@@ -804,6 +319,7 @@ export default {
       commentDraft: "",
       commentPreview: null,
       commentMessage: "",
+      commentMessageType: "info",
       commentSaving: false,
       commentEditing: false,
       favoriteCiv: "",
@@ -813,7 +329,10 @@ export default {
   components: {
     VueperSlides,
     VueperSlide,
-    BookmarkButton,
+    AlbumsNav,
+    SceneCard,
+    SceneSlideContent,
+    CommentsSection,
   },
   computed: {
     siblingPages() {
@@ -997,7 +516,7 @@ export default {
       this.comments = [];
       this.commentDraft = "";
       this.commentPreview = null;
-      this.commentMessage = "";
+      this.clearCommentMessage();
       this.commentEditing = false;
       this.$nextTick(() => {
         this.loadBookmark();
@@ -1090,6 +609,14 @@ export default {
     }
   },
   methods: {
+    setCommentMessage(message, type = "info") {
+      this.commentMessage = message;
+      this.commentMessageType = type;
+    },
+    clearCommentMessage() {
+      this.commentMessage = "";
+      this.commentMessageType = "info";
+    },
     initSupabase() {
       if (this.supabase || typeof window === "undefined") {
         return;
@@ -1613,34 +1140,37 @@ export default {
       this.commentDraft = this.userComment.message || "";
       this.commentPreview = null;
       this.commentEditing = true;
-      this.commentMessage = "";
+      this.clearCommentMessage();
     },
     cancelEditComment() {
       this.commentEditing = false;
       this.commentDraft = "";
       this.commentPreview = null;
-      this.commentMessage = "";
+      this.clearCommentMessage();
     },
     previewComment() {
       if (!this.authUser) {
-        this.commentMessage = "Sign in to leave a comment.";
+        this.setCommentMessage("Sign in to leave a comment.", "error");
         return;
       }
       if (!this.canSupporterComment) {
-        this.commentMessage = "Supporters only can comment.";
+        this.setCommentMessage("Supporters only can comment.", "error");
         return;
       }
       if (!this.commentWindowOpen) {
-        this.commentMessage = "Comment window has closed.";
+        this.setCommentMessage("Comment window has closed.", "error");
         return;
       }
       const message = String(this.commentDraft || "").trim();
       if (!message) {
-        this.commentMessage = "Enter a comment before previewing.";
+        this.setCommentMessage("Enter a comment before previewing.", "error");
         return;
       }
       if (message.length > COMMENT_MAX_LENGTH) {
-        this.commentMessage = `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`;
+        this.setCommentMessage(
+          `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`,
+          "error"
+        );
         return;
       }
       const civLabel = String(this.favoriteCiv || "").trim();
@@ -1660,32 +1190,35 @@ export default {
         civ_secondary: colors ? colors.secondary : COMMENT_FALLBACK_SECONDARY,
         flair: flair || null,
       };
-      this.commentMessage = "";
+      this.clearCommentMessage();
     },
     async submitComment() {
       if (!this.authUser) {
-        this.commentMessage = "Sign in to leave a comment.";
+        this.setCommentMessage("Sign in to leave a comment.", "error");
         return;
       }
       if (!this.canSupporterComment) {
-        this.commentMessage = "Supporters only can comment.";
+        this.setCommentMessage("Supporters only can comment.", "error");
         return;
       }
       if (!this.commentWindowOpen) {
-        this.commentMessage = "Comment window has closed.";
+        this.setCommentMessage("Comment window has closed.", "error");
         return;
       }
       const message = String(this.commentDraft || "").trim();
       if (!message) {
-        this.commentMessage = "Enter a comment before posting.";
+        this.setCommentMessage("Enter a comment before posting.", "error");
         return;
       }
       if (message.length > COMMENT_MAX_LENGTH) {
-        this.commentMessage = `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`;
+        this.setCommentMessage(
+          `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`,
+          "error"
+        );
         return;
       }
       if (!this.canSubmitComment) {
-        this.commentMessage = "Preview before posting.";
+        this.setCommentMessage("Preview before posting.", "info");
         return;
       }
       if (!this.supabase) {
@@ -1695,7 +1228,7 @@ export default {
         return;
       }
       this.commentSaving = true;
-      this.commentMessage = "";
+      this.clearCommentMessage();
       const now = new Date().toISOString();
       try {
         if (this.userComment) {
@@ -1709,7 +1242,7 @@ export default {
             .eq("user_id", this.authUser.id);
           if (error) {
             console.warn("Unable to update comment.", error);
-            this.commentMessage = "Unable to update comment.";
+            this.setCommentMessage("Unable to update comment.", "error");
             return;
           }
           this.commentEditing = false;
@@ -1740,7 +1273,7 @@ export default {
             });
           if (error) {
             console.warn("Unable to save comment.", error);
-            this.commentMessage = "Unable to save comment.";
+            this.setCommentMessage("Unable to save comment.", "error");
             return;
           }
         }
@@ -1756,7 +1289,7 @@ export default {
         return;
       }
       if (!this.commentWindowOpen) {
-        this.commentMessage = "Comment window has closed.";
+        this.setCommentMessage("Comment window has closed.", "error");
         return;
       }
       if (typeof window !== "undefined") {
@@ -1775,7 +1308,7 @@ export default {
         .eq("user_id", this.authUser.id);
       if (error) {
         console.warn("Unable to delete comment.", error);
-        this.commentMessage = "Unable to delete comment.";
+        this.setCommentMessage("Unable to delete comment.", "error");
         return;
       }
       this.commentDraft = "";
@@ -2375,84 +1908,6 @@ export default {
   font-weight: 700;
   line-height: 1.3;
 }
-.page-nav {
-  padding-block-start: 0.2rem;
-  margin-block: 0.6rem 1.6rem;
-}
-.nextprev {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  inline-size: 100%;
-}
-.nav-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding-block: 0.95rem 1.05rem;
-  padding-inline: 1.3rem;
-  border: 1px solid #242424;
-  border-radius: 0 0 14px 14px;
-  background: linear-gradient(145deg, #111 0%, #161616 100%);
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-  text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.nav-card::after {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: 4px;
-  background: var(--accent-color);
-}
-.nav-card:hover {
-  border-color: var(--accent-color);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.28);
-  transform: translateY(-2px);
-}
-.nav-card.prev {
-  padding-inline-start: 2.8rem;
-}
-.nav-card.next {
-  padding-inline-end: 2.8rem;
-  text-align: right;
-}
-.nav-kicker {
-  color: color-mix(in srgb, var(--text-color), white 20%);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.nav-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-.nav-arrow {
-  position: absolute;
-  inset-block-start: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 2.1rem;
-  block-size: 2.1rem;
-  border-radius: 999px;
-  background: oklch(from var(--accent-color) l c h / 0.9);
-  color: #151515;
-  font-size: 1.1rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  text-shadow: none;
-  transform: translateY(-50%);
-}
-.nav-card.prev .nav-arrow {
-  inset-inline-start: -0.9rem;
-}
-.nav-card.next .nav-arrow {
-  inset-inline-end: -0.9rem;
-}
 .albumInfo {
   display: flex;
   flex-flow: row nowrap;
@@ -2512,7 +1967,7 @@ export default {
   background-color: #d20083;
   color: #fff;
   font-size: 1.4rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 900;
   line-height: 1.4;
   text-shadow: 2px 2px #083832;
@@ -2552,14 +2007,16 @@ export default {
   font-size: 1rem;
   color: #fff;
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #ffbf46 50%), linear-gradient(135deg, #ffbf46 50%, transparent 50%);
-  background-position: calc(100% - 0.9rem) calc(50% - 0.1rem), calc(100% - 0.6rem) calc(50% - 0.1rem);
+  background-image: linear-gradient(45deg, transparent 50%, #ffbf46 50%),
+    linear-gradient(135deg, #ffbf46 50%, transparent 50%);
+  background-position: calc(100% - 0.9rem) calc(50% - 0.1rem),
+    calc(100% - 0.6rem) calc(50% - 0.1rem);
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
 }
 .jump-controls select:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255,191,70,0.3);
+  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
 }
 .scene-button {
   padding-block: 0.3rem;
@@ -2606,7 +2063,7 @@ export default {
   background: #2a2a2a;
 }
 .timeline-track::before {
-  content: '';
+  content: "";
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
@@ -2626,7 +2083,8 @@ export default {
   border-radius: 50%;
   background: #3a3a3a;
   cursor: pointer;
-  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    background 0.15s ease-in-out;
 }
 .timeline-dot.completed:not(.death):not(.reporter) {
   border-color: #2a2a2a;
@@ -2634,7 +2092,7 @@ export default {
 }
 .timeline-dot.active {
   transform: scale(1.35);
-  box-shadow: 0 0 0 3px rgba(255,191,70,0.45);
+  box-shadow: 0 0 0 3px rgba(255, 191, 70, 0.45);
 }
 .timeline-dot.active:not(.death):not(.reporter) {
   border-color: color-mix(in srgb, var(--accent-color), black 35%);
@@ -2679,425 +2137,19 @@ export default {
 .legend-dot.reporter {
   background: #5fa6db;
 }
-.h-narration {
-  position: relative;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  border-block-end: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
-  background-color: #1a1a1a;
-}
-.h-narration h3 {
-  font-size: 1.2rem;
-  margin-block: 1rem 0.5rem;
-}
-.scene-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.6rem;
-}
-.scene-title {
-  display: inline-block;
-}
-.scene-link {
-  padding-block: 0.1rem;
-  padding-inline: 0.55rem;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: transparent;
-  color: color-mix(in srgb, var(--text-color), white 25%);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.scene-link:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-}
-.scene-link.copied {
-  border-color: var(--accent-color);
-  background: var(--accent-color);
-  color: #1a1a1a;
-}
-.scene-reactions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1rem;
-  margin-block-start: 1.5rem;
-  padding-block: 1.5rem 0.75rem;
-  border-block-start: 1px solid rgba(255,255,255,0.12);
-}
-.reaction-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.reaction-more {
-  padding-block: 0.15rem;
-  padding-inline: 0.6rem;
-  border: 1px dashed rgba(255,191,70,0.5);
-  border-radius: 999px;
-  background: transparent;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--text-color), white 25%);
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.reaction-more:hover {
-  border-color: rgba(255,191,70,0.8);
-  color: #fff;
-}
-.reaction-more-panel {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  inline-size: 100%;
-}
-.reaction-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding-block: 0.35rem;
-  padding-inline: 0.6rem;
-  border: 1px solid rgba(255,191,70,0.35);
-  border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  font-size: 0.9rem;
-  color: color-mix(in srgb, var(--text-color), white 20%);
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.reaction-pill:hover {
-  border-color: rgba(255,191,70,0.9);
-  color: #fff;
-  background: #222;
-}
-.reaction-pill.active {
-  border-color: #ffbf46;
-  background: #ffbf46;
-  color: #1a1a1a;
-}
-.reaction-pill:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-.reaction-emoji {
-  font-size: 1rem;
-  line-height: 1;
-}
-.reaction-count {
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-.reaction-hint {
-  font-size: 0.75rem;
-  color: color-mix(in srgb, var(--text-color), white 35%);
-}
-.h-narration p {
-  max-height: 9.7rem;
-  overflow: auto;
-  padding: 0 !important;
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.6 !important;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,191,70,0.7) rgba(255,255,255,0.08);
-  scrollbar-gutter: stable;
-  overscroll-behavior: contain;
-}
-.h-narration p::-webkit-scrollbar {
-  inline-size: 8px;
-}
-.h-narration p::-webkit-scrollbar-track {
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-}
-.h-narration p::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(255,191,70,0.7);
-}
 .scenes {
-  display: block;
+  display: grid;
   inline-size: 100%;
   max-inline-size: 1050px;
   block-size: auto;
   margin-block-start: 1rem;
-}
-article + article {
-  margin-block: 3rem;
+  gap: 3rem;
 }
 h2 {
   margin-block: 1.5rem 1rem;
   font-size: 3.5rem;
   font-weight: 900;
   color: #fff;
-}
-.scene-image {
-  display: block;
-  inline-size: 100%;
-  line-height: 0;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-.scene-image:hover {
-  box-shadow: 0 3px 0 0 #c39a1c;
-  transform: scale(1.007);
-}
-.text {
-  padding: 2rem 2rem 1rem;
-  border-block-end: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
-  background-color: #1a1a1a;
-}
-.scenes h3 {
-  margin: 0;
-  font-size: 1.6rem;
-  font-weight: 800;
-}
-.narrations {
-  font-size: 1.3rem;
-  font-weight: 500;
-  line-height: 1.25;
-  text-shadow: 2px 2px #08201d;
-  padding: 0;
-  margin: 0;
-}
-.reporter {
-  font-size: 1.1rem;
-  font-weight: 400;
-}
-.album-comments {
-  margin-block: 0 1.5rem;
-  padding-block-start: 2rem;
-  border-block-start: 1px solid var(--border-color);
-}
-.comments-header h2 {
-  margin: 0;
-  font-size: 1.75rem;
-}
-.comments-subtitle {
-  color: color-mix(in srgb, var(--text-color), white 25%);
-  font-size: 0.95rem;
-  margin: 0.5rem 0 1rem;
-}
-.comment-form {
-  position: relative;
-  padding: 1rem;
-  border: 1px solid #2b2b2b;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #0f0f0f 0%, #171717 100%);
-  margin-block-end: 1rem;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-}
-.comment-input {
-  inline-size: -webkit-fill-available;
-  min-height: 110px;
-  padding: 0.75rem 0.9rem;
-  border: 1px solid rgba(255,191,70,0.25);
-  border-radius: 8px;
-  background: radial-gradient(circle at top, #161616 0%, #0b0b0b 70%);
-  color: #f5f1e6;
-  font-size: 1rem;
-  font-family: inherit;
-  resize: vertical;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 6px 12px rgba(0,0,0,0.25);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.comment-input:focus {
-  outline: none;
-  border-color: color-mix(in srgb, var(--accent-color), white 5%);
-  box-shadow: 0 0 0 2px rgba(255,191,70,0.18), 0 10px 18px rgba(0,0,0,0.35);
-}
-.comment-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-block-start: 0.6rem;
-}
-.comment-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 1rem;
-  border: 1px solid #f6c55b;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #ffbf46 0%, #f7a726 100%);
-  color: #1a1a1a;
-  font-weight: 800;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-  cursor: pointer;
-}
-.comment-button:hover {
-  border-color: #ffd27a;
-  background: linear-gradient(135deg, #ffd27a 0%, #ffb13b 100%);
-  transform: translateY(-1px);
-}
-.comment-button--ghost {
-  border-color: rgba(255,191,70,0.5);
-  background: rgba(255,191,70,0.3);
-  color: #ffcf70;
-  box-shadow: none;
-}
-.comment-button--ghost:hover {
-  background: rgba(255,191,70,0.4);
-  transform: translateY(-1px);
-}
-.comment-button:disabled {
-  opacity: 0.75;
-  cursor: not-allowed;
-}
-.comment-link {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--accent-color);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-.comment-count {
-  margin-inline-start: auto;
-  font-size: 0.8rem;
-  color: color-mix(in srgb, var(--text-color), white 30%);
-}
-.comment-preview {
-  margin-block-start: 0.9rem;
-  padding: 0.85rem;
-  border-radius: 10px;
-  border: 1px dashed rgba(255,191,70,0.35);
-  background: #121212;
-}
-.comment-preview-label {
-  color: color-mix(in srgb, var(--text-color), white 30%);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-block-end: 0.6rem;
-}
-.comment-list {
-  display: grid;
-  gap: 0.8rem;
-}
-.comment-cards {
-  display: grid;
-  gap: 0.8rem;
-}
-.comment-card {
-  display: flex;
-  gap: 0.85rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid #2a2a2a;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #111 0%, #191919 100%);
-}
-.comment-civ {
-  position: relative;
-  flex: 0 0 auto;
-  margin-block-start: 0.1rem;
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
-  border-radius: 50%;
-  border: 2px solid var(--civ-secondary);
-  background: var(--civ-primary);
-  cursor: pointer;
-}
-.comment-civ-tooltip {
-  position: absolute;
-  z-index: 10;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
-  border: 1px solid rgba(255,191,70,0.3);
-  background: #1a1a1a;
-  color: #fff;
-  white-space: nowrap;
-  font-size: 0.95rem;
-  font-weight: 500;
-  opacity: 0;
-  pointer-events: none;
-  margin-bottom: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  inset-block-end: 100%;
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.2s ease;
-}
-.comment-civ-tooltip::after {
-  content: '';
-  position: absolute;
-  inline-size: 0;
-  block-size: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #1a1a1a;
-  filter: drop-shadow(0 1px 0px rgba(255,191,70,0.3));
-  inset-block-start: 100%;
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
-}
-.comment-civ:hover .comment-civ-tooltip {
-  opacity: 1;
-}
-.comment-body {
-  flex: 1;
-}
-.comment-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 0.75rem;
-  margin-block-end: 0.25rem;
-}
-.comment-name {
-  color: #fff;
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-.comment-flair {
-  padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(255,191,70,0.35);
-  border-radius: 1rem;
-  background: #171717;
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-shadow: none;
-}
-.comment-text {
-  margin: 0;
-  line-height: 1.4;
-  color: #f0f0f0;
-  white-space: pre-line;
-}
-.comment-note {
-  margin: 0;
-  font-size: 0.9rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
-}
-.comment-note--row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-.comment-inline-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-.comment-note--empty {
-  padding-block: 0.5rem;
-  text-align: center;
-}
-.comment-link--danger {
-  color: #f08c7a;
 }
 @media (max-width: 799px) {
   .scene-timeline {
@@ -3110,9 +2162,6 @@ h2 {
     inline-size: 0.55rem;
     block-size: 0.55rem;
   }
-  .scene-link {
-    font-size: 0.65rem;
-  }
   .episode-tools {
     align-items: flex-start;
   }
@@ -3122,67 +2171,11 @@ h2 {
   .scene-jump {
     inline-size: 100%;
   }
-  .nextprev {
-    grid-template-columns: 1fr;
-  }
-  .nav-card {
-    text-align: left;
-    gap: 0.2rem;
-    padding-block: 0.6rem 0.7rem;
-    padding-inline: 0.9rem;
-    border-radius: 0 0 12px 12px;
-  }
-  .nav-card.next {
-    padding-inline-end: 0.9rem;
-  }
-  .nav-card.next .nav-arrow {
-    inset-inline-end: 0.5rem;
-  }
-  .nav-card.prev {
-    padding-inline-start: 0.9rem;
-  }
-  .nav-card.prev .nav-arrow {
-    inset-inline-start: 0.5rem;
-  }
-  .nav-arrow {
-    inline-size: 1.8rem;
-    block-size: 1.8rem;
-    display: none;
-  }
-  .nav-kicker {
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-  }
-  .nav-title {
-    font-size: 0.95rem;
-  }
   .albumInfo {
     flex-flow: column nowrap;
   }
   .column {
     flex: 0 1 auto;
-  }
-  .scene-image {
-    box-shadow: none;
-  }
-  .scenes h2 {
-    margin: 1.5rem 0 0.5rem;
-  }
-  .scenes h3 {
-    margin: 0.5rem 0 0;
-    font-size: 1.2rem;
-  }
-  .text {
-    padding: 0.5rem;
-  }
-  .narrations {
-    font-size: 1rem;
-    word-break: break-word;
-    margin: 0;
-    border-block-start: 0;
-  }
-  .reporter {
-    padding-block-end: 1rem;
   }
   .pswp img {
     inline-size: 100% !important;

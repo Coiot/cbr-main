@@ -5,7 +5,7 @@ description: ''
 starting_turn: '735'
 release_date: 'September 04, 2016'
 audio_narration: https://youtu.be/orZGiXx9Qww
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part72/
 next: /albums/mk2/part74/
 date: 2016-09-04T00:00:00.000Z

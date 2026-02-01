@@ -5,7 +5,7 @@ description: 'Violent wars stammer on endlessly while old tensions burn bright. 
 starting_turn: '807'
 release_date: 'September 26, 2017'
 audio_narration: https://youtu.be/0Loj1ZWHAJg
-edition: mk2
+edition: MK2
 prev: /albums/mk2/part84/
 next: /albums/mk2/part86/
 date: 2017-09-26T00:00:00.000Z
