@@ -4,7 +4,7 @@
   "version": "0.11.0-beta",
   "license": "MIT",
   "engines": {
-    "node": ">=20 <23"
+    "node": ">=20.17 <23"
   },
   "scripts": {
     "dev": "vuepress dev src",
