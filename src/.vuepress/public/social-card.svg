@@ -31,7 +31,7 @@
     
     .title {
       font-family: "Teko","Teko","Impact",sans-serif;
-      font-size: 62px;
+      font-size: 56px;
       font-weight: 600;
       letter-spacing: 0.01em;
       line-height: 1.2;
@@ -73,9 +73,9 @@
 
   <text class="kicker" x="50" y="121">Latest Episode</text>
   <text class="title" x="50" y="201" dominant-baseline="hanging">
-    <tspan x="50" dy="0">Episode 02:</tspan><tspan x="50" dy="71">Planetary</tspan><tspan x="50" dy="71">Pantheon</tspan><tspan x="50" dy="71">Pandemonium</tspan>
+    <tspan x="50" dy="0">Episode 02:</tspan><tspan x="50" dy="64">Planetary</tspan><tspan x="50" dy="64">Pantheon</tspan><tspan x="50" dy="64">Pandemonium</tspan>
   </text>
-  <text class="meta" x="50" y="485">S5 • January 27, 2026</text>
+  <text class="meta" x="50" y="457">S5 • January 27, 2026</text>
   <text class="site" x="50" y="560">civbattleroyale.tv</text>
 
   <g filter="url(#shadow)">

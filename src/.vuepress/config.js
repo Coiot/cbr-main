@@ -3,6 +3,7 @@ const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
 const DEFAULT_SOCIAL_IMAGE = "/social-card.svg";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
+const EPISODE_SOCIAL_DIR = "/social/episodes";
 const autometa_options = {
   enable: true,
   image: true,
@@ -47,6 +48,15 @@ const buildFallbackDescription = (frontmatter) => {
   return siteDescription;
 };
 
+const episodeSlugFromPath = (pagePath) => {
+  if (!pagePath) return "";
+  return String(pagePath)
+    .replace(/^\/+/, "")
+    .replace(/\/$/, "")
+    .replace(/\//g, "-")
+    .toLowerCase();
+};
+
 const addMetaOnce = (meta, entry, key) => {
   if (!entry || !entry.content) return;
   const exists = meta.some((item) => item && item[key] === entry[key]);
@@ -61,6 +71,10 @@ const socialMetaEnhancer = () => ({
     const frontmatter = $page.frontmatter || {};
     const meta = frontmatter.meta || [];
     const socialImage = DEFAULT_SOCIAL_IMAGE;
+    const episodeSlug = episodeSlugFromPath($page.path);
+    const episodeSocialImage = episodeSlug
+      ? `${EPISODE_SOCIAL_DIR}/${episodeSlug}.png`
+      : "";
     const socialAlt =
       frontmatter.image_alt ||
       frontmatter.imageAlt ||
@@ -103,6 +117,19 @@ const socialMetaEnhancer = () => ({
       frontmatter.descriptionAuto = true;
     } else {
       frontmatter.descriptionAuto = false;
+    }
+
+    if (episodeSocialImage && $page.path && $page.path.startsWith("/albums/")) {
+      addMetaOnce(
+        meta,
+        { property: "og:image", content: episodeSocialImage },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { name: "twitter:image", content: episodeSocialImage },
+        "name"
+      );
     }
 
     addMetaOnce(

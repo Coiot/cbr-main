@@ -14,6 +14,13 @@ const OUTPUT_PATH =
 const OUTPUT_PNG_PATH =
   process.env.SOCIAL_CARD_OUTPUT_PNG ||
   path.join(PUBLIC_DIR, "social-card.png");
+const EPISODE_CARD_DIR =
+  process.env.SOCIAL_CARD_EPISODE_DIR ||
+  path.join(PUBLIC_DIR, "social/episodes");
+const EPISODE_CARD_LIMIT = Number.parseInt(
+  process.env.SOCIAL_CARD_EPISODE_LIMIT || "3",
+  10
+);
 const FONT_FILE =
   process.env.SOCIAL_CARD_FONT_FILE || process.env.SUPPORTERS_FONT_FILE || "";
 const FONT_NAME =
@@ -88,6 +95,7 @@ function parseEpisode(filePath) {
       ? frontmatter.scenes[0].slide_url
       : "");
   return {
+    filePath,
     title: frontmatter.title,
     edition: frontmatter.edition || "",
     release_date: frontmatter.release_date || "",
@@ -227,112 +235,50 @@ async function writePngFromSvg(svg) {
   }
 }
 
-async function buildSocialCard() {
-  const markdownFiles = walkMarkdown(ALBUMS_DIR).filter(isSeasonAlbum);
-  const episodes = markdownFiles
-    .map(parseEpisode)
-    .filter(Boolean)
-    .sort((a, b) => b.timestamp - a.timestamp);
+function toEpisodeSlug(filePath) {
+  const relative = path.relative(ALBUMS_DIR, filePath);
+  const noExt = relative.replace(path.extname(relative), "");
+  return noExt.split(path.sep).join("-").toLowerCase();
+}
 
-  const latest = episodes[0] || null;
-  const episodeTitle = latest ? latest.title : SITE_TITLE;
-  const episodeMeta = [latest && latest.edition, latest && latest.release_date]
-    .filter(Boolean)
-    .join(" • ");
-
-  const imageData = await loadImageData(latest && latest.image).catch(
-    () => null
-  );
-
-  const imageWidth = Number.parseInt(
-    process.env.SOCIAL_CARD_IMAGE_WIDTH || "640",
-    10
-  );
-  const imageHeight = Number.parseInt(
-    process.env.SOCIAL_CARD_IMAGE_HEIGHT || "520",
-    10
-  );
-  const imageX = WIDTH - PADDING - imageWidth;
-  const imageY = Math.round((HEIGHT - imageHeight) / 2);
-  const imageRadius = Number.parseInt(
-    process.env.SOCIAL_CARD_IMAGE_RADIUS || "28",
-    10
-  );
-
-  const textMaxWidth = imageX - PADDING - 10;
-
-  const brandSize = Number.parseInt(
-    process.env.SOCIAL_CARD_BRAND_SIZE || "26",
-    10
-  );
-  const kickerSize = Number.parseInt(
-    process.env.SOCIAL_CARD_KICKER_SIZE || "26",
-    10
-  );
-  const titleSize = Number.parseInt(
-    process.env.SOCIAL_CARD_TITLE_SIZE || "62",
-    10
-  );
-  const titleLineHeight = Math.round(titleSize * 1.15);
-  const metaSize = Number.parseInt(
-    process.env.SOCIAL_CARD_META_SIZE || "26",
-    10
-  );
-  const siteSize = Number.parseInt(
-    process.env.SOCIAL_CARD_SITE_SIZE || "22",
-    10
-  );
-  const hexRadius = Number.parseInt(
-    process.env.SOCIAL_CARD_HEX_RADIUS || "42",
-    10
-  );
-  const hexWidth = Math.sqrt(3) * hexRadius;
-  const hexHeight = hexRadius * 2;
-  const hexStepY = 1 * hexRadius;
-  const hexRowYOffset = hexHeight / 4;
-  const patternWidth = hexWidth * 2;
-  const patternHeight = (hexStepY + hexRowYOffset) * 2;
-
-  const hexPath = (cx, cy) => {
-    const halfWidth = hexWidth / 2;
-    return [
-      `M${cx.toFixed(3)} ${(cy - hexRadius).toFixed(3)}`,
-      `L${(cx + halfWidth).toFixed(3)} ${(cy - hexRadius / 2).toFixed(3)}`,
-      `L${(cx + halfWidth).toFixed(3)} ${(cy + hexRadius / 2).toFixed(3)}`,
-      `L${cx.toFixed(3)} ${(cy + hexRadius).toFixed(3)}`,
-      `L${(cx - halfWidth).toFixed(3)} ${(cy + hexRadius / 2).toFixed(3)}`,
-      `L${(cx - halfWidth).toFixed(3)} ${(cy - hexRadius / 2).toFixed(3)}`,
-      "Z",
-    ].join(" ");
-  };
-
-  const brandY = PADDING + brandSize + 10;
-  const kickerY = brandY + 35;
-  const titleStartY = kickerY + 80;
-  const titleLines = wrapText(episodeTitle, textMaxWidth, titleSize, 0.55);
-  const titleBlockHeight = titleLines.length * titleLineHeight;
-  const metaY = titleStartY + titleBlockHeight;
-  const siteY = HEIGHT - PADDING - 20;
-
-  const titleText = titleLines
-    .map((line, index) => {
-      const dy = index === 0 ? 0 : titleLineHeight;
-      return `<tspan x="${PADDING}" dy="${dy}">${escapeXml(line)}</tspan>`;
-    })
-    .join("");
-
-  const fontFace =
-    FONT_FILE && fs.existsSync(FONT_FILE)
-      ? `@font-face {\n  font-family: "${FONT_NAME}";\n  src: url("data:font/otf;base64,${fs
-          .readFileSync(FONT_FILE)
-          .toString(
-            "base64"
-          )}") format("opentype");\n  font-weight: 500;\n  font-style: normal;\n  font-display: swap;\n}\n`
-      : "";
-
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
+function buildCardSvg({
+  episodeTitle,
+  episodeMeta,
+  kickerText = KICKER,
+  imageData,
+  imageWidth,
+  imageHeight,
+  imageX,
+  imageY,
+  imageRadius,
+  textMaxWidth,
+  brandSize,
+  kickerSize,
+  titleSize,
+  titleLineHeight,
+  metaSize,
+  siteSize,
+  hexRadius,
+  hexWidth,
+  hexHeight,
+  hexStepY,
+  hexRowYOffset,
+  patternWidth,
+  patternHeight,
+  hexPath,
+  brandY,
+  kickerY,
+  titleStartY,
+  titleLines,
+  titleText,
+  metaY,
+  siteY,
+  fontFace,
+}) {
+  const safeKicker = kickerText || KICKER;
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-label="${escapeXml(
-    `${SITE_TITLE} — ${KICKER}`
+    `${SITE_TITLE} — ${safeKicker}`
   )}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -423,7 +369,9 @@ async function buildSocialCard() {
     SITE_TITLE
   )}</text>
 
-  <text class="kicker" x="${PADDING}" y="${kickerY}">${escapeXml(KICKER)}</text>
+  <text class="kicker" x="${PADDING}" y="${kickerY}">${escapeXml(
+    safeKicker
+  )}</text>
   <text class="title" x="${PADDING}" y="${titleStartY}" dominant-baseline="hanging">
     ${titleText}
   </text>
@@ -446,6 +394,144 @@ async function buildSocialCard() {
   }
 </svg>
 `;
+}
+
+async function buildSocialCard() {
+  const markdownFiles = walkMarkdown(ALBUMS_DIR).filter(isSeasonAlbum);
+  const episodes = markdownFiles
+    .map(parseEpisode)
+    .filter(Boolean)
+    .sort((a, b) => b.timestamp - a.timestamp);
+
+  const latest = episodes[0] || null;
+  const episodeTitle = latest ? latest.title : SITE_TITLE;
+  const episodeMeta = [latest && latest.edition, latest && latest.release_date]
+    .filter(Boolean)
+    .join(" • ");
+
+  const imageData = await loadImageData(latest && latest.image).catch(
+    () => null
+  );
+
+  const imageWidth = Number.parseInt(
+    process.env.SOCIAL_CARD_IMAGE_WIDTH || "640",
+    10
+  );
+  const imageHeight = Number.parseInt(
+    process.env.SOCIAL_CARD_IMAGE_HEIGHT || "520",
+    10
+  );
+  const imageX = WIDTH - PADDING - imageWidth;
+  const imageY = Math.round((HEIGHT - imageHeight) / 2);
+  const imageRadius = Number.parseInt(
+    process.env.SOCIAL_CARD_IMAGE_RADIUS || "28",
+    10
+  );
+
+  const textMaxWidth = imageX - PADDING - 10;
+
+  const brandSize = Number.parseInt(
+    process.env.SOCIAL_CARD_BRAND_SIZE || "26",
+    10
+  );
+  const kickerSize = Number.parseInt(
+    process.env.SOCIAL_CARD_KICKER_SIZE || "26",
+    10
+  );
+  const titleSize = Number.parseInt(
+    process.env.SOCIAL_CARD_TITLE_SIZE || "56",
+    10
+  );
+  const titleLineHeight = Math.round(titleSize * 1.15);
+  const metaSize = Number.parseInt(
+    process.env.SOCIAL_CARD_META_SIZE || "26",
+    10
+  );
+  const siteSize = Number.parseInt(
+    process.env.SOCIAL_CARD_SITE_SIZE || "22",
+    10
+  );
+  const hexRadius = Number.parseInt(
+    process.env.SOCIAL_CARD_HEX_RADIUS || "42",
+    10
+  );
+  const hexWidth = Math.sqrt(3) * hexRadius;
+  const hexHeight = hexRadius * 2;
+  const hexStepY = 1 * hexRadius;
+  const hexRowYOffset = hexHeight / 4;
+  const patternWidth = hexWidth * 2;
+  const patternHeight = (hexStepY + hexRowYOffset) * 2;
+
+  const hexPath = (cx, cy) => {
+    const halfWidth = hexWidth / 2;
+    return [
+      `M${cx.toFixed(3)} ${(cy - hexRadius).toFixed(3)}`,
+      `L${(cx + halfWidth).toFixed(3)} ${(cy - hexRadius / 2).toFixed(3)}`,
+      `L${(cx + halfWidth).toFixed(3)} ${(cy + hexRadius / 2).toFixed(3)}`,
+      `L${cx.toFixed(3)} ${(cy + hexRadius).toFixed(3)}`,
+      `L${(cx - halfWidth).toFixed(3)} ${(cy + hexRadius / 2).toFixed(3)}`,
+      `L${(cx - halfWidth).toFixed(3)} ${(cy - hexRadius / 2).toFixed(3)}`,
+      "Z",
+    ].join(" ");
+  };
+
+  const brandY = PADDING + brandSize + 10;
+  const kickerY = brandY + 35;
+  const titleStartY = kickerY + 80;
+  const titleLines = wrapText(episodeTitle, textMaxWidth, titleSize, 0.55);
+  const titleBlockHeight = titleLines.length * titleLineHeight;
+  const metaY = titleStartY + titleBlockHeight;
+  const siteY = HEIGHT - PADDING - 20;
+
+  const titleText = titleLines
+    .map((line, index) => {
+      const dy = index === 0 ? 0 : titleLineHeight;
+      return `<tspan x="${PADDING}" dy="${dy}">${escapeXml(line)}</tspan>`;
+    })
+    .join("");
+
+  const fontFace =
+    FONT_FILE && fs.existsSync(FONT_FILE)
+      ? `@font-face {\n  font-family: "${FONT_NAME}";\n  src: url("data:font/otf;base64,${fs
+          .readFileSync(FONT_FILE)
+          .toString(
+            "base64"
+          )}") format("opentype");\n  font-weight: 500;\n  font-style: normal;\n  font-display: swap;\n}\n`
+      : "";
+
+  const svg = buildCardSvg({
+    episodeTitle,
+    episodeMeta,
+    imageData,
+    imageWidth,
+    imageHeight,
+    imageX,
+    imageY,
+    imageRadius,
+    textMaxWidth,
+    brandSize,
+    kickerSize,
+    titleSize,
+    titleLineHeight,
+    metaSize,
+    siteSize,
+    hexRadius,
+    hexWidth,
+    hexHeight,
+    hexStepY,
+    hexRowYOffset,
+    patternWidth,
+    patternHeight,
+    hexPath,
+    brandY,
+    kickerY,
+    titleStartY,
+    titleLines,
+    titleText,
+    metaY,
+    siteY,
+    fontFace,
+  });
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
@@ -457,6 +543,75 @@ async function buildSocialCard() {
   }
   if (fs.existsSync(OUTPUT_PNG_PATH)) {
     console.log(`Wrote social card PNG to ${OUTPUT_PNG_PATH}`);
+  }
+
+  const latestEpisodes = episodes.slice(0, EPISODE_CARD_LIMIT);
+  if (!latestEpisodes.length) {
+    return;
+  }
+  fs.mkdirSync(EPISODE_CARD_DIR, { recursive: true });
+  for (const episode of latestEpisodes) {
+    const slug = toEpisodeSlug(episode.filePath);
+    const outputPng = path.join(EPISODE_CARD_DIR, `${slug}.png`);
+    const episodeMetaLine = [episode.edition, episode.release_date]
+      .filter(Boolean)
+      .join(" • ");
+    const episodeImage = await loadImageData(episode.image).catch(() => null);
+    const episodeLines = wrapText(episode.title, textMaxWidth, titleSize, 0.55);
+    const episodeTitleText = episodeLines
+      .map((line, index) => {
+        const dy = index === 0 ? 0 : titleLineHeight;
+        return `<tspan x="${PADDING}" dy="${dy}">${escapeXml(line)}</tspan>`;
+      })
+      .join("");
+    const episodeSvg = buildCardSvg({
+      episodeTitle: episode.title,
+      episodeMeta: episodeMetaLine,
+      kickerText: "Season 5",
+      imageData: episodeImage,
+      imageWidth,
+      imageHeight,
+      imageX,
+      imageY,
+      imageRadius,
+      textMaxWidth,
+      brandSize,
+      kickerSize,
+      titleSize,
+      titleLineHeight,
+      metaSize,
+      siteSize,
+      hexRadius,
+      hexWidth,
+      hexHeight,
+      hexStepY,
+      hexRowYOffset,
+      patternWidth,
+      patternHeight,
+      hexPath,
+      brandY,
+      kickerY,
+      titleStartY,
+      titleLines: episodeLines,
+      titleText: episodeTitleText,
+      metaY,
+      siteY,
+      fontFace,
+    });
+    let sharp;
+    try {
+      // eslint-disable-next-line global-require
+      sharp = require("sharp");
+    } catch (error) {
+      console.warn("sharp not installed; skipping episode social cards.");
+      break;
+    }
+    try {
+      await sharp(Buffer.from(episodeSvg)).png().toFile(outputPng);
+      console.log(`Wrote episode social card to ${outputPng}`);
+    } catch (error) {
+      console.warn(`Failed to write episode social card for ${slug}.`, error);
+    }
   }
 }
 
