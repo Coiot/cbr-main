@@ -67,15 +67,14 @@ h2 {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   background: #fff;
   border: 1px solid #d9a62b;
   border-radius: 14px;
   overflow: hidden;
+  transition: transform 0.2s ease-in-out;
 }
 
 .post:hover {
-  box-shadow: 0 14px 22px rgba(8, 56, 50, 0.22);
   transform: translateY(-2px);
 }
 

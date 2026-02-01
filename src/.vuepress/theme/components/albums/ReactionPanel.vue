@@ -26,7 +26,10 @@
         {{ isMenuOpen ? "Less" : `+${reactionDisplay.rest.length}` }}
       </button>
     </div>
-    <div v-if="isMenuOpen && reactionDisplay.rest.length" class="reaction-more-panel">
+    <div
+      v-if="isMenuOpen && reactionDisplay.rest.length"
+      class="reaction-more-panel"
+    >
       <button
         v-for="reaction in reactionDisplay.rest"
         :key="reaction.key"
@@ -43,7 +46,14 @@
         <span class="reaction-count">{{ reaction.count }}</span>
       </button>
     </div>
-    <span v-if="!authUser" class="reaction-hint">Sign in to react</span>
+    <span
+      v-if="!authUser"
+      class="reaction-hint"
+      role="status"
+      aria-live="polite"
+    >
+      Sign in to react
+    </span>
   </div>
 </template>
 

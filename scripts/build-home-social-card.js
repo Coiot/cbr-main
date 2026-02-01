@@ -11,6 +11,9 @@ const PUBLIC_DIR = path.join(ROOT_DIR, "src/.vuepress/public");
 
 const OUTPUT_PATH =
   process.env.SOCIAL_CARD_OUTPUT || path.join(PUBLIC_DIR, "social-card.svg");
+const OUTPUT_PNG_PATH =
+  process.env.SOCIAL_CARD_OUTPUT_PNG ||
+  path.join(PUBLIC_DIR, "social-card.png");
 const FONT_FILE =
   process.env.SOCIAL_CARD_FONT_FILE || process.env.SUPPORTERS_FONT_FILE || "";
 const FONT_NAME =
@@ -206,6 +209,22 @@ function wrapText(text, maxWidth, fontSize, widthFactor = 0.58) {
   }
   lines.push(current);
   return lines;
+}
+
+async function writePngFromSvg(svg) {
+  let sharp;
+  try {
+    // eslint-disable-next-line global-require
+    sharp = require("sharp");
+  } catch (error) {
+    console.warn("sharp not installed; skipping social-card.png generation.");
+    return;
+  }
+  try {
+    await sharp(Buffer.from(svg)).png().toFile(OUTPUT_PNG_PATH);
+  } catch (error) {
+    console.warn("Failed to write social-card.png.", error);
+  }
 }
 
 async function buildSocialCard() {
@@ -430,10 +449,14 @@ async function buildSocialCard() {
 
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
+  await writePngFromSvg(svg);
   if (latest) {
     console.log(`Wrote social card for ${latest.title} to ${OUTPUT_PATH}`);
   } else {
     console.log(`Wrote fallback social card to ${OUTPUT_PATH}`);
+  }
+  if (fs.existsSync(OUTPUT_PNG_PATH)) {
+    console.log(`Wrote social card PNG to ${OUTPUT_PNG_PATH}`);
   }
 }
 

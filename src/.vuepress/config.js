@@ -26,11 +26,7 @@ const formatSeasonLabel = (edition) => {
 
 const buildEpisodeDescription = (frontmatter) => {
   const parts = [];
-  const season = formatSeasonLabel(frontmatter.edition);
-  if (season) parts.push(season);
-  if (frontmatter.release_date) {
-    parts.push(`Released ${frontmatter.release_date}`);
-  }
+  parts.push("The newest episode, ready to watch");
   if (frontmatter.narrated_by) {
     parts.push(`Narrated by ${frontmatter.narrated_by}`);
   }
@@ -84,7 +80,29 @@ const socialMetaEnhancer = () => ({
     }
 
     if (!frontmatter.description || !String(frontmatter.description).trim()) {
-      frontmatter.description = buildFallbackDescription(frontmatter);
+      const fallbackDescription = buildFallbackDescription(frontmatter);
+      if (frontmatter.home) {
+        frontmatter.description = fallbackDescription;
+      } else {
+        addMetaOnce(
+          meta,
+          { name: "description", content: fallbackDescription },
+          "name"
+        );
+        addMetaOnce(
+          meta,
+          { property: "og:description", content: fallbackDescription },
+          "property"
+        );
+        addMetaOnce(
+          meta,
+          { name: "twitter:description", content: fallbackDescription },
+          "name"
+        );
+      }
+      frontmatter.descriptionAuto = true;
+    } else {
+      frontmatter.descriptionAuto = false;
     }
 
     addMetaOnce(
@@ -141,7 +159,7 @@ module.exports = {
           [
             "@babel/preset-env",
             {
-              targets: { ie: "11" },
+              targets: { esmodules: true },
               modules: false,
             },
           ],

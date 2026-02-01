@@ -120,13 +120,11 @@ h2 {
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .post:hover {
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
-  scale: 1.01;
 }
 
 .hero-overlay {

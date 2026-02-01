@@ -137,7 +137,7 @@
         </div> -->
       </div>
 
-      <div v-if="isToggle === true">
+      <div v-if="isToggle === true" :key="`slides-${$page.path}`">
         <vueper-slides
           ref="vueperslides2"
           @slide="handleThumbSlide"
@@ -201,7 +201,7 @@
           </vueper-slide>
         </vueper-slides>
       </div>
-      <div v-if="isToggle === false">
+      <div v-if="isToggle === false" :key="`scenes-${$page.path}`">
         <section class="scenes">
           <SceneCard
             v-for="(scene, index) in $page.frontmatter.scenes"
@@ -258,7 +258,10 @@
 
 <script>
 import { normalize } from "../util.js";
-import { VueperSlides, VueperSlide } from "vueperslides";
+const VueperSlides = () =>
+  import("vueperslides").then((mod) => mod.VueperSlides);
+const VueperSlide = () => import("vueperslides").then((mod) => mod.VueperSlide);
+import "vueperslides/dist/vueperslides.css";
 import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
 import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
@@ -324,6 +327,8 @@ export default {
       commentEditing: false,
       favoriteCiv: "",
       customFlair: "",
+      siblingPagesCache: [],
+      sceneTimelineCache: [],
     };
   },
   components: {
@@ -334,21 +339,12 @@ export default {
     SceneSlideContent,
     CommentsSection,
   },
+  created() {
+    this.rebuildPageCaches();
+  },
   computed: {
     siblingPages() {
-      const dir = pageDir(this.$page.path);
-      return this.$site.pages
-        .filter((page) => {
-          if (page.frontmatter.exclude) {
-            return false;
-          }
-          return pageDir(page.path) === dir;
-        })
-        .sort((a, b) => {
-          const aDate = new Date(a.frontmatter.date || 0);
-          const bDate = new Date(b.frontmatter.date || 0);
-          return aDate - bDate;
-        });
+      return this.siblingPagesCache;
     },
     prev() {
       const index = this.siblingPages.findIndex(
@@ -376,16 +372,7 @@ export default {
       return this.hasScenes ? this.$page.frontmatter.scenes.length : 0;
     },
     sceneTimeline() {
-      if (!this.hasScenes) {
-        return [];
-      }
-      return this.$page.frontmatter.scenes.map((scene, index) => ({
-        index,
-        key: `${this.sceneKey(scene, index)}-${index}`,
-        number: scene.scene_number || index + 1,
-        hasDeath: Boolean(scene.death),
-        hasReporter: Boolean(scene.reporter),
-      }));
+      return this.sceneTimelineCache;
     },
     timelineProgress() {
       if (this.sceneCount <= 1) {
@@ -507,6 +494,7 @@ export default {
   },
   watch: {
     "$page.path"() {
+      this.rebuildPageCaches();
       this.jumpToScene = 1;
       this.bookmarkedScene = null;
       this.lastSeenScene = null;
@@ -566,6 +554,7 @@ export default {
     }
     this.loadBookmark();
     this.loadResume();
+    this.rebuildPageCaches();
     this.$nextTick(() => {
       this.cacheSceneElements();
       this.applyHashScene();
@@ -609,6 +598,37 @@ export default {
     }
   },
   methods: {
+    rebuildPageCaches() {
+      this.siblingPagesCache = this.computeSiblingPages();
+      this.sceneTimelineCache = this.computeSceneTimeline();
+    },
+    computeSiblingPages() {
+      const dir = pageDir(this.$page.path);
+      return this.$site.pages
+        .filter((page) => {
+          if (page.frontmatter.exclude) {
+            return false;
+          }
+          return pageDir(page.path) === dir;
+        })
+        .sort((a, b) => {
+          const aDate = new Date(a.frontmatter.date || 0);
+          const bDate = new Date(b.frontmatter.date || 0);
+          return aDate - bDate;
+        });
+    },
+    computeSceneTimeline() {
+      if (!this.hasScenes) {
+        return [];
+      }
+      return this.$page.frontmatter.scenes.map((scene, index) => ({
+        index,
+        key: `${this.sceneKey(scene, index)}-${index}`,
+        number: scene.scene_number || index + 1,
+        hasDeath: Boolean(scene.death),
+        hasReporter: Boolean(scene.reporter),
+      }));
+    },
     setCommentMessage(message, type = "info") {
       this.commentMessage = message;
       this.commentMessageType = type;
@@ -2151,6 +2171,44 @@ h2 {
   font-weight: 900;
   color: #fff;
 }
+:global(.vueperslide) {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+:global(.vueperslides__fractions) {
+  border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
+  border-radius: 0.3em !important;
+  background: hsla(38.3, 42.2%, 63.4%, 0.9) !important;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: 2px 2px 2px 0 hsla(56.5, 75%, 13.3%, 0.3);
+  padding: 0.5em 1em;
+  transition: opacity 0.2s ease-in-out;
+}
+
+:global(.vueperslides__fractions:hover) {
+  opacity: 0;
+}
+
+:global(.first .vueperslide--active) {
+  box-shadow: inset 0 4px 0 0 hsl(40, 100%, 60%) !important;
+}
+
+:global(.vueperslides--touchable .vueperslides__track--dragging),
+:global(.vueperslides--touchable .vueperslides__track--mousedown),
+:global(.vueperslides--touchable .vueperslides__track),
+:global(.vueperslides--touchable) {
+  cursor: default !important;
+}
+
+:global(.vueperslides__bullet),
+:global(.vueperslides__bullets) {
+  opacity: 0;
+  width: 0;
+}
+
 @media (max-width: 799px) {
   .scene-timeline {
     margin-block-end: 1.4rem;
@@ -2180,6 +2238,11 @@ h2 {
   .pswp img {
     inline-size: 100% !important;
     block-size: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  :global(.vueperslides__fractions) {
+    display: none;
   }
 }
 @media (max-width: 980px) {

@@ -1737,7 +1737,7 @@ function css(el, property) {
     display: none;
   }
   .navbar .links {
-    gap: 0.5rem;
+    gap: 0;
     min-block-size: 0;
     padding-block: 0.2rem;
     padding-inline-start: 1rem;

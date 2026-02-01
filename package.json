@@ -3,6 +3,9 @@
   "description": "This is a basic template to use VuePress as your blogging platform",
   "version": "0.11.0-beta",
   "license": "MIT",
+  "engines": {
+    "node": ">=20 <23"
+  },
   "scripts": {
     "dev": "vuepress dev src",
     "dev:docs": "vuepress dev docs",
@@ -24,6 +27,7 @@
     "@babel/preset-env": "^7.24.5",
     "babel-loader": "^8.3.0",
     "dotenv": "^16.4.5",
+    "sharp": "^0.33.5",
     "supabase": "^2.72.8",
     "vue-lazyload": "^1.2.6",
     "vuepress": "^1.0.1",

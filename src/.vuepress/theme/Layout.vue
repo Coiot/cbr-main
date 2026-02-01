@@ -41,7 +41,6 @@ import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
 import VueLazyload from "vue-lazyload";
-import "vueperslides/dist/vueperslides.css";
 
 Vue.use(VueLazyload, {
   observer: true,
@@ -122,8 +121,6 @@ export default {
   },
 
   mounted() {
-    window.addEventListener("scroll", this.onScroll);
-
     // configure progress bar
     nprogress.configure({
       showSpinner: false,
@@ -151,7 +148,6 @@ export default {
   },
 
   beforeDestroy() {
-    window.removeEventListener("scroll", this.onScroll);
     if (typeof this.removeBeforeEach === "function") {
       this.removeBeforeEach();
       this.removeBeforeEach = null;
@@ -202,55 +198,5 @@ export default {
   font-weight: 800;
   text-decoration: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.slide-wrapper {
-  display: flex;
-  -webkit-box-orient: vertical;
-  flex-direction: column;
-}
-
-.vueperslide {
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.vueperslides__fractions {
-  border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
-  border-radius: 0.3em !important;
-  background: hsla(38.3, 42.2%, 63.4%, 0.9) !important;
-  font-weight: 800;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  box-shadow: 2px 2px 2px 0 hsla(56.5, 75%, 13.3%, 0.3);
-  padding: 0.5em 1em;
-  transition: all 0.2s ease-in-out;
-}
-
-.vueperslides__fractions:hover {
-  opacity: 0;
-}
-
-.first .vueperslide--active {
-  box-shadow: inset 0 4px 0 0 hsl(40, 100%, 60%) !important;
-}
-
-.vueperslides--touchable .vueperslides__track--dragging,
-.vueperslides--touchable .vueperslides__track--mousedown,
-.vueperslides--touchable .vueperslides__track,
-.vueperslides--touchable {
-  cursor: default !important;
-}
-
-.vueperslides__bullet,
-.vueperslides__bullets {
-  opacity: 0;
-  width: 0;
-}
-
-@media (max-width: 600px) {
-  .vueperslides__fractions {
-    display: none;
-  }
 }
 </style>

@@ -99,11 +99,10 @@ h2 {
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .post:hover {
-  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
   transform: translateY(-2px);
 }
 
