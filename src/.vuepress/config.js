@@ -1,7 +1,8 @@
 const currentDateUTC = new Date().toUTCString();
 const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
-const DEFAULT_SOCIAL_IMAGE = "/social-card.svg";
+const SITE_URL = "https://civbattleroyale.tv";
+const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const EPISODE_SOCIAL_DIR = "/social/episodes";
 const autometa_options = {
@@ -14,7 +15,7 @@ const autometa_options = {
     name: "Civilization Battle Royale",
     twitter: "isaacvolpe",
   },
-  canonical_base: "https://civbattleroyale.tv",
+  canonical_base: SITE_URL,
   description_sources: ["frontmatter"],
   image_sources: ["frontmatter"],
 };
@@ -53,8 +54,16 @@ const episodeSlugFromPath = (pagePath) => {
   return String(pagePath)
     .replace(/^\/+/, "")
     .replace(/\/$/, "")
+    .replace(/\.html?$/i, "")
     .replace(/\//g, "-")
+    .replace(/^albums-/, "")
     .toLowerCase();
+};
+
+const toAbsoluteUrl = (value) => {
+  if (!value) return "";
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${SITE_URL}${value.startsWith("/") ? "" : "/"}${value}`;
 };
 
 const addMetaOnce = (meta, entry, key) => {
@@ -70,10 +79,10 @@ const socialMetaEnhancer = () => ({
   extendPageData($page) {
     const frontmatter = $page.frontmatter || {};
     const meta = frontmatter.meta || [];
-    const socialImage = DEFAULT_SOCIAL_IMAGE;
+    const socialImage = toAbsoluteUrl(DEFAULT_SOCIAL_IMAGE);
     const episodeSlug = episodeSlugFromPath($page.path);
     const episodeSocialImage = episodeSlug
-      ? `${EPISODE_SOCIAL_DIR}/${episodeSlug}.png`
+      ? toAbsoluteUrl(`${EPISODE_SOCIAL_DIR}/${episodeSlug}.png`)
       : "";
     const socialAlt =
       frontmatter.image_alt ||
@@ -123,6 +132,21 @@ const socialMetaEnhancer = () => ({
       addMetaOnce(
         meta,
         { property: "og:image", content: episodeSocialImage },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:secure_url", content: episodeSocialImage },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:width", content: "1200" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:height", content: "630" },
         "property"
       );
       addMetaOnce(
