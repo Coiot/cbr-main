@@ -1948,6 +1948,7 @@ export default {
       editPanelCollapsed: true,
       editPanelTab: "edit",
       isMobileView: false,
+      isMobileBrowser: false,
       lastPointerType: null,
       // Render timers
       recentEditTick: 0,
@@ -2040,6 +2041,20 @@ export default {
   },
 
   computed: {
+    resolvedEmbeddedMode() {
+      return ["live", "snapshot"].includes(this.embeddedMode)
+        ? this.embeddedMode
+        : "live";
+    },
+    isSnapshotEmbed() {
+      return this.embedded && this.resolvedEmbeddedMode === "snapshot";
+    },
+    canvasRenderScale() {
+      if (this.isSnapshotEmbed && this.isMobileBrowser) {
+        return 0.65;
+      }
+      return 1;
+    },
     editAccessAllowed() {
       if (this.snapshotViewId) {
         return false;
@@ -2291,11 +2306,13 @@ export default {
     },
 
     canvasWidth() {
-      return Math.ceil(this.gridWidth);
+      const scale = this.canvasRenderScale || 1;
+      return Math.max(1, Math.ceil(this.gridWidth * scale));
     },
 
     canvasHeight() {
-      return Math.ceil(this.gridHeight);
+      const scale = this.canvasRenderScale || 1;
+      return Math.max(1, Math.ceil(this.gridHeight * scale));
     },
 
     miniMapScale() {
@@ -2451,6 +2468,10 @@ export default {
       this.fitToView();
     });
     this.isMobileView = window.innerWidth <= 900;
+    if (typeof navigator !== "undefined") {
+      const ua = navigator.userAgent || "";
+      this.isMobileBrowser = /Mobi|Android|iP(hone|ad|od)/.test(ua);
+    }
     if (this.isMobileView) {
       this.editPanelCollapsed = false;
     }
@@ -4613,13 +4634,16 @@ export default {
       }
       const width = this.canvasWidth;
       const height = this.canvasHeight;
+      const scale = this.canvasRenderScale || 1;
       if (canvas.width !== width) {
         canvas.width = width;
       }
       if (canvas.height !== height) {
         canvas.height = height;
       }
+      context.setTransform(1, 0, 0, 1, 0, 0);
       context.clearRect(0, 0, width, height);
+      context.setTransform(scale, 0, 0, scale, 0, 0);
       const vertices = buildHexVertices(this.hexSize);
       const terrainCache = new Map();
       const getColor = (terrainId) => {
@@ -6090,12 +6114,14 @@ export default {
       }
       const width = this.canvasWidth;
       const height = this.canvasHeight;
+      const scale = this.canvasRenderScale || 1;
       if (canvas.width !== width) {
         canvas.width = width;
       }
       if (canvas.height !== height) {
         canvas.height = height;
       }
+      context.setTransform(scale, 0, 0, scale, 0, 0);
       const vertices = buildHexVertices(this.hexSize);
       context.beginPath();
       context.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
