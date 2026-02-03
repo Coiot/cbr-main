@@ -1,6 +1,6 @@
 <template>
   <section
-    v-if="isReady"
+    v-if="shouldShowSection"
     class="episode-snapshot"
     aria-labelledby="snapshot-title"
   >
@@ -16,16 +16,14 @@
     <div class="episode-snapshot-map">
       <div v-if="!shouldRenderMap" class="episode-snapshot-placeholder">
         <div class="episode-snapshot-placeholder-card">
-          <p>
-            Tap to load the snapshot map. It can use more memory on mobile
-            devices.
-          </p>
+          <p>{{ placeholderMessage }}</p>
           <button
             type="button"
             class="episode-snapshot-load"
             @click="requestMap"
+            :disabled="isLoadingSnapshot"
           >
-            Load Map
+            {{ isLoadingSnapshot ? "Loading..." : "Load Map" }}
           </button>
         </div>
       </div>
@@ -102,22 +100,65 @@ export default {
       mapMounted: false,
       mapRequested: false,
       isMobileBrowser,
+      isLoadingSnapshot: false,
     };
   },
   computed: {
+    hasSnapshotSource() {
+      return !!this.snapshotPath || this.useBaseSnapshot;
+    },
+    requiresPayload() {
+      return !!this.snapshotPath;
+    },
+    shouldShowSection() {
+      if (!this.hasSnapshotSource) {
+        return false;
+      }
+      if (this.isMobileBrowser) {
+        return true;
+      }
+      return this.requiresPayload ? this.isReady : true;
+    },
     shouldRenderMap() {
+      if (!this.hasSnapshotSource) {
+        return false;
+      }
+      if (this.requiresPayload) {
+        return this.isReady && (!this.isMobileBrowser || this.mapRequested);
+      }
       return !this.isMobileBrowser || this.mapRequested;
+    },
+    placeholderMessage() {
+      if (this.isLoadingSnapshot) {
+        return "Loading snapshot map...";
+      }
+      return "Tap to load the snapshot map. It can use more memory on mobile devices.";
     },
   },
   mounted() {
     if (this.useBaseSnapshot && !this.snapshotPath) {
-      this.isReady = true;
+      this.isReady = !this.isMobileBrowser;
       return;
     }
-    this.loadSnapshot(this.useBaseSnapshot);
+    if (!this.isMobileBrowser) {
+      this.loadSnapshot(this.useBaseSnapshot);
+    }
   },
   beforeDestroy() {
     this.abortSnapshotFetch();
+  },
+  watch: {
+    snapshotPath() {
+      this.abortSnapshotFetch();
+      this.snapshotPayload = null;
+      this.isReady = false;
+      this.isLoadingSnapshot = false;
+      this.mapMounted = false;
+      this.mapRequested = false;
+      if (!this.isMobileBrowser) {
+        this.loadSnapshot(this.useBaseSnapshot);
+      }
+    },
   },
   methods: {
     onMapMounted() {
@@ -125,6 +166,9 @@ export default {
     },
     requestMap() {
       this.mapRequested = true;
+      if (this.requiresPayload && !this.isReady && !this.isLoadingSnapshot) {
+        this.loadSnapshot(this.useBaseSnapshot);
+      }
     },
     abortSnapshotFetch() {
       if (this.fetchController) {
@@ -156,6 +200,7 @@ export default {
         return;
       }
       this.abortSnapshotFetch();
+      this.isLoadingSnapshot = true;
       try {
         const resolved = this.$withBase
           ? this.$withBase(this.snapshotPath)
@@ -183,6 +228,7 @@ export default {
         this.isReady = allowFallback;
       } finally {
         this.fetchController = null;
+        this.isLoadingSnapshot = false;
       }
     },
   },
@@ -287,6 +333,13 @@ export default {
 .episode-snapshot-load:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 24px rgba(0, 0, 0, 0.3);
+}
+
+.episode-snapshot-load:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .episode-snapshot-zoom {
