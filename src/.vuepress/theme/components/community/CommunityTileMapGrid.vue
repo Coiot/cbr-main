@@ -438,7 +438,10 @@
             </g>
           </svg>
         </div>
-        <div v-if="!useTerrainCanvas && tiles.length" class="tile-mini-map">
+        <div
+          v-if="showMiniMap && !useTerrainCanvas && tiles.length"
+          class="tile-mini-map"
+        >
           <canvas
             ref="miniMapCanvas"
             class="tile-mini-map-canvas"
@@ -1950,10 +1953,12 @@ export default {
       isMobileView: false,
       isMobileBrowser: false,
       lastPointerType: null,
+      deferOwnerBorders: false,
       // Render timers
       recentEditTick: 0,
       recentEditFrameId: null,
       canvasDrawFrameId: null,
+      ownerBordersRebuildId: null,
       miniMapFrameId: null,
       unitEditTimers: {
         combat: null,
@@ -2051,7 +2056,7 @@ export default {
     },
     canvasRenderScale() {
       if (this.isSnapshotEmbed && this.isMobileBrowser) {
-        return 0.65;
+        return 0.45;
       }
       return 1;
     },
@@ -2315,6 +2320,10 @@ export default {
       return Math.max(1, Math.ceil(this.gridHeight * scale));
     },
 
+    showMiniMap() {
+      return !(this.isSnapshotEmbed && this.isMobileBrowser);
+    },
+
     miniMapScale() {
       if (!this.gridWidth || !this.gridHeight) {
         return 0;
@@ -2492,6 +2501,10 @@ export default {
     if (this.canvasDrawFrameId) {
       window.cancelAnimationFrame(this.canvasDrawFrameId);
       this.canvasDrawFrameId = null;
+    }
+    if (this.ownerBordersRebuildId) {
+      window.cancelAnimationFrame(this.ownerBordersRebuildId);
+      this.ownerBordersRebuildId = null;
     }
     if (this.unitEditTimers) {
       Object.values(this.unitEditTimers).forEach((timer) => {
@@ -2819,7 +2832,7 @@ export default {
         }
       });
       if (needsBorderRebuild) {
-        this.rebuildOwnerBorders();
+        this.scheduleOwnerBordersRebuild();
       }
       if (this.useTerrainCanvas) {
         this.drawTerrainCanvas();
@@ -3451,7 +3464,7 @@ export default {
         }
       });
       if (needsBorderRebuild) {
-        this.rebuildOwnerBorders();
+        this.scheduleOwnerBordersRebuild();
       }
       this.nextUnitId = nextUnitIdFromTiles(this.tiles);
       if (this.useTerrainCanvas) {
@@ -4016,7 +4029,8 @@ export default {
       );
       await this.loadLiveBaseSnapshot();
       this.applyLiveBaseSnapshot();
-      this.rebuildOwnerBorders();
+      this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
+      this.scheduleOwnerBordersRebuild();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
       if (this.editPanelTab === "snapshots") {
@@ -6506,6 +6520,21 @@ export default {
         this.ownerSecondaryColors,
         this.hexSize
       );
+    },
+
+    scheduleOwnerBordersRebuild() {
+      if (!this.deferOwnerBorders) {
+        this.rebuildOwnerBorders();
+        return;
+      }
+      if (this.ownerBordersRebuildId) {
+        return;
+      }
+      this.ownerBordersRebuildId = window.requestAnimationFrame(() => {
+        this.ownerBordersRebuildId = null;
+        this.deferOwnerBorders = false;
+        this.rebuildOwnerBorders();
+      });
     },
   },
 };
