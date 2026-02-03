@@ -1,20 +1,7 @@
 <template>
   <transition name="fade">
     <div class="blog">
-      <div class="page-nav" v-if="prev || next">
-        <div class="nextprev">
-          <router-link v-if="prev" class="nav-card prev" :to="prev.path">
-            <span class="nav-arrow">←</span>
-            <span class="nav-kicker">Previous</span>
-            <span class="nav-title">{{ prev.title || prev.path }}</span>
-          </router-link>
-          <router-link v-if="next" class="nav-card next" :to="next.path">
-            <span class="nav-kicker">Next</span>
-            <span class="nav-title">{{ next.title || next.path }}</span>
-            <span class="nav-arrow">→</span>
-          </router-link>
-        </div>
-      </div>
+      <AlbumsNav :prev="prev" :next="next" />
 
       <h1 class>
         {{ $page.frontmatter.title }}
@@ -100,32 +87,36 @@
         <div class="scene-jump">
           <label class="jump-label" for="scene-jump">Jump to scene</label>
           <div class="jump-controls">
-            <input
+            <select
               id="scene-jump"
               v-model.number="jumpToScene"
-              type="number"
-              :min="1"
-              :max="sceneCount"
+              @change="goToScene"
               @keyup.enter="goToScene"
-            />
+            >
+              <option v-for="index in sceneCount" :key="index" :value="index">
+                Scene {{ index }}
+              </option>
+            </select>
             <button type="button" class="scene-button" @click="goToScene">
               Go
             </button>
           </div>
-          <span class="scene-count">{{ sceneCount }} scenes</span>
         </div>
       </div>
 
       <div v-if="hasScenes" class="scene-timeline">
         <div
+          ref="timelineTrack"
           class="timeline-track"
           :style="{ '--progress': timelineProgress + '%' }"
+          @keydown="handleTimelineKeydown"
         >
           <button
             v-for="(scene, index) in sceneTimeline"
             :key="scene.key"
             type="button"
             class="timeline-dot"
+            :tabindex="index === activeSceneIndex ? 0 : -1"
             :class="{
               active: index === activeSceneIndex,
               completed: index < activeSceneIndex,
@@ -151,7 +142,7 @@
         </div> -->
       </div>
 
-      <div v-if="isToggle === true">
+      <div v-if="isToggle === true" :key="`slides-${$page.path}`">
         <vueper-slides
           ref="vueperslides2"
           @slide="handleThumbSlide"
@@ -198,258 +189,146 @@
             :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
-              <article class="h-narration" style="flex-direction: column">
-                <h3
-                  v-if="scene.scene_number == scene.scene_title"
-                  class="scene-heading"
-                >
-                  <span class="scene-title">{{ scene.scene_number }}</span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else-if="scene.scene_title_html" class="scene-heading">
-                  <span class="scene-title">
-                    {{ scene.scene_number }}:
-                    <span v-html="scene.scene_title_html"></span>
-                  </span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else-if="scene.scene_title" class="scene-heading">
-                  <span class="scene-title">
-                    {{ scene.scene_number }}:
-                    {{ scene.scene_title }}
-                  </span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <h3 v-else class="scene-heading">
-                  <span class="scene-title">{{ scene.scene_number }}</span>
-                  <BookmarkButton
-                    :active="isBookmarked(index)"
-                    :aria-label="bookmarkAria(index)"
-                    :title="bookmarkAria(index)"
-                    @toggle="bookmarkScene(index)"
-                  />
-                  <!-- <button
-                    type="button"
-                    class="scene-link"
-                    :class="{ copied: copiedScene === index + 1 }"
-                    :aria-label="copyLabel(index)"
-                    :title="copyLabel(index)"
-                    @click.stop="copySceneLink(index)"
-                  >
-                    {{ copyLabel(index) }}
-                  </button> -->
-                </h3>
-                <p class="narrations" v-html="scene.narration" tabindex="0"></p>
-                <p
-                  class="narrations"
-                  v-if="scene.reporter"
-                  v-html="scene.reporter"
-                  tabindex="0"
-                  v-bind:class="{
-                    reporter: scene.reporter,
-                  }"
-                ></p>
-              </article>
+              <SceneSlideContent
+                :scene="scene"
+                :scene-number="sceneNumber(index)"
+                :bookmarked="isBookmarked(index)"
+                :bookmark-aria="bookmarkAria(index)"
+                :reaction-display="reactionDisplay(sceneNumber(index))"
+                :user-reaction="userReaction(sceneNumber(index))"
+                :auth-user="authUser"
+                :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+                @toggle-bookmark="bookmarkScene(index)"
+                @toggle-reaction="toggleReaction"
+                @toggle-menu="toggleReactionMenu"
+              />
             </template>
           </vueper-slide>
         </vueper-slides>
       </div>
-      <div v-if="isToggle === false">
+      <div v-if="isToggle === false" :key="`scenes-${$page.path}`">
         <section class="scenes">
-          <article
-            class="medium"
+          <SceneCard
             v-for="(scene, index) in $page.frontmatter.scenes"
             :key="sceneKey(scene, index)"
             :id="sceneAnchor(index)"
-          >
-            <img
-              v-lazy="scene.slide_url"
-              tabindex="0"
-              :alt="sceneAlt(scene)"
-              class="scene-image"
-              v-bind:class="{ civdeathImage: scene.death }"
-            />
-            <div class="text" v-bind:class="{ civdeathBorder: scene.death }">
-              <h3
-                v-if="scene.scene_number == scene.scene_title"
-                class="scene-heading"
-              >
-                <span class="scene-title">{{ scene.scene_number }}</span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else-if="scene.scene_title_html" class="scene-heading">
-                <span class="scene-title">
-                  {{ scene.scene_number }}:
-                  <span v-html="scene.scene_title_html"></span>
-                </span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else-if="scene.scene_title" class="scene-heading">
-                <span class="scene-title">
-                  {{ scene.scene_number }}:
-                  {{ scene.scene_title }}
-                </span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-              <h3 v-else class="scene-heading">
-                <span class="scene-title">{{ scene.scene_number }}</span>
-                <BookmarkButton
-                  :active="isBookmarked(index)"
-                  :aria-label="bookmarkAria(index)"
-                  :title="bookmarkAria(index)"
-                  @toggle="bookmarkScene(index)"
-                />
-                <!-- <button
-                  type="button"
-                  class="scene-link"
-                  :class="{ copied: copiedScene === index + 1 }"
-                  :aria-label="copyLabel(index)"
-                  :title="copyLabel(index)"
-                  @click.stop="copySceneLink(index)"
-                >
-                  {{ copyLabel(index) }}
-                </button> -->
-              </h3>
-
-              <div
-                class="narrations"
-                v-html="scene.narration"
-                tabindex="0"
-              ></div>
-              <div
-                class="narrations"
-                v-if="scene.reporter"
-                v-html="scene.reporter"
-                tabindex="0"
-                v-bind:class="{
-                  reporter: scene.reporter,
-                }"
-              ></div>
-            </div>
-          </article>
+            :scene="scene"
+            :scene-alt="sceneAlt(scene)"
+            :scene-number="sceneNumber(index)"
+            :bookmarked="isBookmarked(index)"
+            :bookmark-aria="bookmarkAria(index)"
+            :reaction-display="reactionDisplay(sceneNumber(index))"
+            :user-reaction="userReaction(sceneNumber(index))"
+            :auth-user="authUser"
+            :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+            @toggle-bookmark="bookmarkScene(index)"
+            @toggle-reaction="toggleReaction"
+            @toggle-menu="toggleReactionMenu"
+          />
         </section>
-
-        <Content class="custom" />
       </div>
 
-      <div class="page-nav" v-if="prev || next">
-        <div class="nextprev">
-          <router-link v-if="prev" class="nav-card prev" :to="prev.path">
-            <span class="nav-kicker">Previous</span>
-            <span class="nav-title">{{ prev.title || prev.path }}</span>
-            <span class="nav-arrow">←</span>
-          </router-link>
-          <router-link v-if="next" class="nav-card next" :to="next.path">
-            <span class="nav-kicker">Next</span>
-            <span class="nav-title">{{ next.title || next.path }}</span>
-            <span class="nav-arrow">→</span>
-          </router-link>
-        </div>
-      </div>
+      <Content class="custom" />
+
+      <div
+        v-if="shouldTrackSnapshot"
+        ref="snapshotSentinel"
+        class="episode-snapshot-sentinel"
+        aria-hidden="true"
+      ></div>
+
+      <CommentsSection
+        v-if="shouldShowComments"
+        :auth-user="authUser"
+        :can-supporter-comment="canSupporterComment"
+        :comment-window-open="commentWindowOpen"
+        :comment-window-label="commentWindowLabel"
+        :user-comment="userComment"
+        :comment-editing="commentEditing"
+        :comment-draft="commentDraft"
+        :comment-max-length="commentMaxLength"
+        :comment-saving="commentSaving"
+        :can-submit-comment="canSubmitComment"
+        :comment-preview="commentPreview"
+        :comment-message="commentMessage"
+        :comment-message-type="commentMessageType"
+        :comments-loading="commentsLoading"
+        :comments="comments"
+        :comment-civ-style="commentCivStyle"
+        @update:commentDraft="commentDraft = $event"
+        @start-edit="startEditComment"
+        @delete-comment="deleteComment"
+        @preview-comment="previewComment"
+        @submit-comment="submitComment"
+        @cancel-edit="cancelEditComment"
+      />
+
+      <EpisodeMapSnapshot
+        v-if="shouldRenderSnapshot"
+        :snapshot-path="episodeSnapshotPath"
+        :snapshot-title="episodeSnapshotTitle"
+        :use-base-snapshot="episodeSnapshotIsBase"
+      />
+
+      <AlbumsNav :prev="prev" :next="next" />
     </div>
   </transition>
 </template>
 
 <script>
 import { normalize } from "../util.js";
-import { VueperSlides, VueperSlide } from "vueperslides";
-import BookmarkButton from "./BookmarkButton.vue";
+const VueperSlides = () =>
+  import("vueperslides").then((mod) => mod.VueperSlides);
+const VueperSlide = () => import("vueperslides").then((mod) => mod.VueperSlide);
+import "vueperslides/dist/vueperslides.css";
+import SceneCard from "../components/albums/SceneCard.vue";
+import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
+import CommentsSection from "../components/albums/CommentsSection.vue";
+import AlbumsNav from "../components/albums/AlbumsNav.vue";
+import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
+import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
+import {
+  getSupabaseClient,
+  SUPABASE_ALBUM_PROGRESS_TABLE,
+  SUPABASE_ALBUM_REACTIONS_TABLE,
+  SUPABASE_ALBUM_COMMENTS_TABLE,
+} from "../supabaseClient";
 
 const pageDir = (path) => {
   const normalized = normalize(path).replace(/\/$/, "");
   const parts = normalized.split("/");
   parts.pop();
   return parts.join("/") || "/";
+};
+
+const REACTION_POLL_INTERVAL = 30000;
+const COMMENT_WINDOW_DAYS = 7;
+const COMMENT_MAX_LENGTH = 600;
+const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
+const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
+const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
+const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
+const RESUME_SYNC_DEBOUNCE = 4000;
+const normalizeEpisodeNumber = (value) => {
+  if (value === null || value === undefined) {
+    return "";
+  }
+  const raw = String(value).trim();
+  if (!raw) {
+    return "";
+  }
+  if (raw.includes(".")) {
+    const numeric = Number.parseFloat(raw);
+    if (!Number.isFinite(numeric)) {
+      return "";
+    }
+    return String(numeric);
+  }
+  const numeric = Number.parseInt(raw, 10);
+  if (!Number.isFinite(numeric)) {
+    return "";
+  }
+  return String(numeric);
 };
 
 export default {
@@ -462,28 +341,46 @@ export default {
       lastSeenScene: null,
       activeSceneIndex: 0,
       copiedScene: null,
+      timelineFocusEnabled: false,
+      timelineFocusTimeoutId: null,
+      supabase: null,
+      authUser: null,
+      authProfile: null,
+      reactionCounts: {},
+      userReactions: {},
+      reactionLoading: false,
+      reactionUpdating: false,
+      reactionMenuOpen: {},
+      comments: [],
+      commentsLoading: false,
+      commentDraft: "",
+      commentPreview: null,
+      commentMessage: "",
+      commentMessageType: "info",
+      commentSaving: false,
+      commentEditing: false,
+      favoriteCiv: "",
+      customFlair: "",
+      siblingPagesCache: [],
+      sceneTimelineCache: [],
+      snapshotInView: false,
     };
+  },
+  created() {
+    this.rebuildPageCaches();
   },
   components: {
     VueperSlides,
     VueperSlide,
-    BookmarkButton,
+    SceneCard,
+    SceneSlideContent,
+    CommentsSection,
+    AlbumsNav,
+    EpisodeMapSnapshot,
   },
   computed: {
     siblingPages() {
-      const dir = pageDir(this.$page.path);
-      return this.$site.pages
-        .filter((page) => {
-          if (page.frontmatter.exclude) {
-            return false;
-          }
-          return pageDir(page.path) === dir;
-        })
-        .sort((a, b) => {
-          const aDate = new Date(a.frontmatter.date || 0);
-          const bDate = new Date(b.frontmatter.date || 0);
-          return aDate - bDate;
-        });
+      return this.siblingPagesCache;
     },
     prev() {
       const index = this.siblingPages.findIndex(
@@ -511,16 +408,7 @@ export default {
       return this.hasScenes ? this.$page.frontmatter.scenes.length : 0;
     },
     sceneTimeline() {
-      if (!this.hasScenes) {
-        return [];
-      }
-      return this.$page.frontmatter.scenes.map((scene, index) => ({
-        index,
-        key: `${this.sceneKey(scene, index)}-${index}`,
-        number: scene.scene_number || index + 1,
-        hasDeath: Boolean(scene.death),
-        hasReporter: Boolean(scene.reporter),
-      }));
+      return this.sceneTimelineCache;
     },
     timelineProgress() {
       if (this.sceneCount <= 1) {
@@ -537,18 +425,199 @@ export default {
     resumeScene() {
       return this.bookmarkedScene || this.lastSeenScene;
     },
+    useCloud() {
+      return Boolean(this.supabase && this.authUser);
+    },
+    reactionOptions() {
+      const options =
+        this.$site &&
+        this.$site.themeConfig &&
+        this.$site.themeConfig.reactions;
+      return options || [];
+    },
+    isSeasonFive() {
+      const edition =
+        (this.$page &&
+          this.$page.frontmatter &&
+          (this.$page.frontmatter.edition || this.$page.frontmatter.pr)) ||
+        "";
+      const normalized = String(edition).trim().toLowerCase();
+      return (
+        normalized === "s5" ||
+        normalized === "season5" ||
+        normalized === "season 5" ||
+        normalized.includes("s5")
+      );
+    },
+    episodeSnapshotNumber() {
+      if (!this.isSeasonFive) {
+        return "";
+      }
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const explicit =
+        frontmatter.episode_number ||
+        frontmatter.episodeNumber ||
+        frontmatter.episode;
+      if (explicit !== undefined && explicit !== null) {
+        return normalizeEpisodeNumber(explicit);
+      }
+      const title = frontmatter.title || "";
+      const match = String(title).match(/episode\s*([0-9]+(?:\.[0-9]+)?)/i);
+      if (match) {
+        return normalizeEpisodeNumber(match[1]);
+      }
+      const prLabel = frontmatter.pr || "";
+      const prMatch = String(prLabel).match(/([0-9]+(?:\.[0-9]+)?)/);
+      if (!prMatch) {
+        return "";
+      }
+      return normalizeEpisodeNumber(prMatch[1]);
+    },
+    episodeSnapshotPath() {
+      if (!this.isSeasonFive || !this.episodeSnapshotNumber) {
+        return "";
+      }
+      const safeNumber = this.episodeSnapshotNumber.replace(/\./g, "-");
+      return `/community/snapshots/s5-episode-${safeNumber}.json`;
+    },
+    episodeSnapshotIsBase() {
+      return this.isSeasonFive && this.episodeSnapshotNumber === "0";
+    },
+    episodeSnapshotTitle() {
+      if (!this.episodeSnapshotNumber) {
+        return "Episode Map Snapshot";
+      }
+      return `Episode ${this.episodeSnapshotNumber} Snapshot`;
+    },
+    hasEpisodeSnapshot() {
+      return Boolean(this.episodeSnapshotPath || this.episodeSnapshotIsBase);
+    },
+    isFinalScene() {
+      if (!this.sceneCount) {
+        return true;
+      }
+      return this.activeSceneIndex >= this.sceneCount - 1;
+    },
+    shouldTrackSnapshot() {
+      return this.hasEpisodeSnapshot && !this.isToggle && !this.snapshotInView;
+    },
+    shouldRenderSnapshot() {
+      if (!this.hasEpisodeSnapshot) {
+        return false;
+      }
+      if (this.isToggle) {
+        return this.isFinalScene;
+      }
+      return this.snapshotInView;
+    },
+    showComments() {
+      return Boolean(
+        this.$page && this.$page.frontmatter && this.$page.frontmatter.pr
+      );
+    },
+    shouldShowComments() {
+      return this.showComments && (!this.isToggle || this.isFinalScene);
+    },
+    commentPostedAt() {
+      const raw =
+        (this.$page && this.$page.frontmatter && this.$page.frontmatter.date) ||
+        null;
+      const date = raw ? new Date(raw) : null;
+      return date && Number.isFinite(date.getTime()) ? date : null;
+    },
+    commentWindowEndsAt() {
+      if (!this.showComments) {
+        return null;
+      }
+      if (this.isSeasonFive) {
+        if (!this.commentPostedAt) {
+          return SEASON_FIVE_COMMENT_CUTOFF;
+        }
+        const regularEnd = new Date(
+          this.commentPostedAt.getTime() +
+            COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
+        );
+        return regularEnd > SEASON_FIVE_COMMENT_CUTOFF
+          ? regularEnd
+          : SEASON_FIVE_COMMENT_CUTOFF;
+      }
+      if (!this.commentPostedAt) {
+        return null;
+      }
+      return new Date(
+        this.commentPostedAt.getTime() +
+          COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
+      );
+    },
+    commentWindowOpen() {
+      if (!this.showComments) {
+        return false;
+      }
+      if (!this.commentWindowEndsAt) {
+        return true;
+      }
+      return Date.now() <= this.commentWindowEndsAt.getTime();
+    },
+    commentWindowLabel() {
+      if (!this.showComments) {
+        return "";
+      }
+      if (this.isSeasonFive) {
+        return SEASON_FIVE_COMMENT_LABEL.toLocaleDateString();
+      }
+      if (!this.commentWindowEndsAt) {
+        return "";
+      }
+      return this.commentWindowEndsAt.toLocaleDateString();
+    },
+    canSupporterComment() {
+      return Boolean(this.authProfile && this.authProfile.can_edit);
+    },
+    userComment() {
+      if (!this.authUser) {
+        return null;
+      }
+      return (
+        this.comments.find((comment) => comment.user_id === this.authUser.id) ||
+        null
+      );
+    },
+    commentMaxLength() {
+      return COMMENT_MAX_LENGTH;
+    },
+    canSubmitComment() {
+      if (!this.commentPreview || !this.commentPreview.message) {
+        return false;
+      }
+      const current = String(this.commentDraft || "").trim();
+      return current && this.commentPreview.message === current;
+    },
   },
   watch: {
     "$page.path"() {
+      this.rebuildPageCaches();
       this.jumpToScene = 1;
       this.bookmarkedScene = null;
       this.lastSeenScene = null;
       this.activeSceneIndex = 0;
       this.copiedScene = null;
+      this.snapshotInView = false;
+      this.teardownSnapshotObserver();
+      this.resetReactions();
+      this.comments = [];
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.clearCommentMessage();
+      this.commentEditing = false;
       this.$nextTick(() => {
         this.loadBookmark();
         this.loadResume();
+        this.loadReactionCounts();
+        if (this.showComments) {
+          this.loadComments();
+        }
         this.cacheSceneElements();
+        this.setupSnapshotObserver();
       });
     },
     isToggle() {
@@ -557,15 +626,30 @@ export default {
         if (!this.isToggle) {
           this.updateActiveFromScroll();
         }
+        this.setupSnapshotObserver();
       });
     },
     "$route.hash"() {
       this.applyHashScene();
     },
+    commentDraft() {
+      if (
+        this.commentPreview &&
+        this.commentPreview.message !== String(this.commentDraft || "").trim()
+      ) {
+        this.commentPreview = null;
+      }
+    },
   },
   mounted() {
     if (typeof window === "undefined") {
       return;
+    }
+    this.initSupabase();
+    this.initReactions();
+    this.loadLocalUserSettings();
+    if (this.showComments) {
+      this.loadComments();
     }
     const saved = window.localStorage.getItem("albumsViewMode");
     if (saved === "horizontal") {
@@ -575,13 +659,21 @@ export default {
     }
     this.loadBookmark();
     this.loadResume();
+    this.rebuildPageCaches();
     this.$nextTick(() => {
       this.cacheSceneElements();
       this.applyHashScene();
       this.updateActiveFromScroll();
+      this.setupSnapshotObserver();
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
-    window.addEventListener("keydown", this.handleKeydown);
+    window.addEventListener("keydown", this.handleKeydown, true);
+    window.addEventListener("visibilitychange", this.handleVisibilityChange);
+    window.addEventListener("beforeunload", this.handleBeforeUnload);
+    window.addEventListener(
+      "albums-bookmark-updated",
+      this.handleBookmarkUpdate
+    );
     window.addEventListener("user-settings-synced", this.handleSettingsSync);
   },
   beforeDestroy() {
@@ -589,8 +681,18 @@ export default {
       return;
     }
     window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("keydown", this.handleKeydown);
+    window.removeEventListener("keydown", this.handleKeydown, true);
+    window.removeEventListener("visibilitychange", this.handleVisibilityChange);
+    window.removeEventListener("beforeunload", this.handleBeforeUnload);
+    window.removeEventListener(
+      "albums-bookmark-updated",
+      this.handleBookmarkUpdate
+    );
     window.removeEventListener("user-settings-synced", this.handleSettingsSync);
+    this.teardownSnapshotObserver();
+    this.teardownReactions();
+    this.teardownSupabase();
+    this.flushPendingResume(true);
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
     }
@@ -603,17 +705,489 @@ export default {
     }
   },
   methods: {
-    toggleView() {
-      this.isToggle = !this.isToggle;
-      if (typeof window !== "undefined") {
-        const viewMode = this.isToggle ? "horizontal" : "vertical";
-        window.localStorage.setItem("albumsViewMode", viewMode);
-        window.dispatchEvent(
-          new CustomEvent("user-settings-updated", {
-            detail: { albumsViewMode: viewMode },
-          })
-        );
+    rebuildPageCaches() {
+      this.siblingPagesCache = this.computeSiblingPages();
+      this.sceneTimelineCache = this.computeSceneTimeline();
+    },
+    computeSiblingPages() {
+      const dir = pageDir(this.$page.path);
+      return this.$site.pages
+        .filter((page) => {
+          if (page.frontmatter.exclude) {
+            return false;
+          }
+          return pageDir(page.path) === dir;
+        })
+        .sort((a, b) => {
+          const aDate = new Date(a.frontmatter.date || 0);
+          const bDate = new Date(b.frontmatter.date || 0);
+          return aDate - bDate;
+        });
+    },
+    computeSceneTimeline() {
+      if (!this.hasScenes) {
+        return [];
       }
+      return this.$page.frontmatter.scenes.map((scene, index) => ({
+        index,
+        key: `${this.sceneKey(scene, index)}-${index}`,
+        number: scene.scene_number || index + 1,
+        hasDeath: Boolean(scene.death),
+        hasReporter: Boolean(scene.reporter),
+      }));
+    },
+    setCommentMessage(message, type = "info") {
+      this.commentMessage = message;
+      this.commentMessageType = type;
+    },
+    clearCommentMessage() {
+      this.commentMessage = "";
+      this.commentMessageType = "info";
+    },
+    initSupabase() {
+      if (this.supabase || typeof window === "undefined") {
+        return;
+      }
+      this.supabase = getSupabaseClient();
+      if (!this.supabase) {
+        return;
+      }
+      const { data } = this.supabase.auth.onAuthStateChange(
+        (_event, session) => {
+          this.handleAuthSession(session);
+        }
+      );
+      this._authSubscription = data ? data.subscription : null;
+      this.supabase.auth.getSession().then(({ data: sessionData }) => {
+        this.handleAuthSession(sessionData ? sessionData.session : null);
+      });
+    },
+    teardownSupabase() {
+      if (this._authSubscription) {
+        this._authSubscription.unsubscribe();
+        this._authSubscription = null;
+      }
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+        this._resumeSyncTimer = null;
+      }
+      this._pendingResumeScene = null;
+      this.setSessionSceneNumber(this.resumePendingKey(), null);
+    },
+    handleAuthSession(session) {
+      this.authUser = session ? session.user : null;
+      this.authProfile = null;
+      this.loadReactionCounts();
+      if (this.authUser) {
+        this.fetchProfile();
+        this.loadCloudState();
+        return;
+      }
+      this.loadBookmarkLocal();
+      this.loadResumeLocal();
+      this.authProfile = null;
+      this.commentEditing = false;
+      this.commentDraft = "";
+      this.commentPreview = null;
+    },
+    handleBookmarkUpdate() {
+      this.loadBookmark();
+    },
+    getLocalSceneNumber(key) {
+      if (typeof window === "undefined") {
+        return null;
+      }
+      const stored = window.localStorage.getItem(key);
+      if (!stored) {
+        return null;
+      }
+      const sceneNumber = parseInt(stored, 10);
+      if (!Number.isFinite(sceneNumber)) {
+        return null;
+      }
+      return sceneNumber;
+    },
+    getSessionSceneNumber(key) {
+      if (typeof window === "undefined") {
+        return null;
+      }
+      const stored = window.sessionStorage.getItem(key);
+      if (!stored) {
+        return null;
+      }
+      const sceneNumber = parseInt(stored, 10);
+      if (!Number.isFinite(sceneNumber)) {
+        return null;
+      }
+      return sceneNumber;
+    },
+    setLocalSceneNumber(key, sceneNumber) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!Number.isFinite(sceneNumber)) {
+        window.localStorage.removeItem(key);
+        return;
+      }
+      window.localStorage.setItem(key, String(sceneNumber));
+    },
+    setSessionSceneNumber(key, sceneNumber) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!Number.isFinite(sceneNumber)) {
+        window.sessionStorage.removeItem(key);
+        return;
+      }
+      window.sessionStorage.setItem(key, String(sceneNumber));
+    },
+    initReactions() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      this.loadReactionCounts();
+      this.startReactionPolling();
+    },
+    teardownReactions() {
+      if (this._reactionPollId) {
+        window.clearInterval(this._reactionPollId);
+        this._reactionPollId = null;
+      }
+      this.reactionLoading = false;
+      this.reactionUpdating = false;
+    },
+    resetReactions() {
+      this.reactionCounts = {};
+      this.userReactions = {};
+      this.reactionMenuOpen = {};
+    },
+    startReactionPolling() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (this._reactionPollId) {
+        window.clearInterval(this._reactionPollId);
+      }
+      this._reactionPollId = window.setInterval(() => {
+        this.loadReactionCounts();
+      }, REACTION_POLL_INTERVAL);
+    },
+    sceneNumber(index) {
+      return index + 1;
+    },
+    reactionCount(sceneNumber, reactionKey) {
+      const sceneCounts = this.reactionCounts[sceneNumber] || {};
+      return sceneCounts[reactionKey] || 0;
+    },
+    userReaction(sceneNumber) {
+      return this.userReactions[sceneNumber] || null;
+    },
+    reactionDisplay(sceneNumber) {
+      const counts = this.reactionCounts[sceneNumber] || {};
+      const userKey = this.userReaction(sceneNumber);
+      const ranked = this.reactionOptions
+        .map((option, index) => ({
+          ...option,
+          count: counts[option.key] || 0,
+          order: index,
+          isUser: option.key === userKey,
+        }))
+        .sort((a, b) => {
+          if (b.count !== a.count) {
+            return b.count - a.count;
+          }
+          if (a.isUser !== b.isUser) {
+            return a.isUser ? -1 : 1;
+          }
+          return a.order - b.order;
+        });
+      const top = ranked.slice(0, 8);
+      if (userKey && !top.some((item) => item.key === userKey)) {
+        const userItem = ranked.find((item) => item.key === userKey);
+        if (userItem && top.length) {
+          top[top.length - 1] = userItem;
+        } else if (userItem) {
+          top.push(userItem);
+        }
+      }
+      const topKeys = new Set(top.map((item) => item.key));
+      const rest = ranked.filter((item) => !topKeys.has(item.key));
+      return { top, rest };
+    },
+    isReactionMenuOpen(sceneNumber) {
+      return Boolean(this.reactionMenuOpen[sceneNumber]);
+    },
+    toggleReactionMenu(sceneNumber) {
+      this.$set(
+        this.reactionMenuOpen,
+        sceneNumber,
+        !this.reactionMenuOpen[sceneNumber]
+      );
+    },
+    async loadReactionCounts() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.reactionLoading) {
+        return;
+      }
+      this.reactionLoading = true;
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+          .select("scene_number, reaction_key")
+          .eq("page_path", this.$page.path);
+        if (error) {
+          console.warn("Unable to load reactions.", error);
+          return;
+        }
+        const counts = {};
+        (data || []).forEach((row) => {
+          const scene = parseInt(row.scene_number, 10);
+          if (!Number.isFinite(scene)) {
+            return;
+          }
+          const key = row.reaction_key;
+          if (!key) {
+            return;
+          }
+          if (!counts[scene]) {
+            counts[scene] = {};
+          }
+          counts[scene][key] = (counts[scene][key] || 0) + 1;
+        });
+        const userReactions = {};
+        if (this.authUser) {
+          const { data: userData, error: userError } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .select("scene_number, reaction_key")
+            .eq("page_path", this.$page.path)
+            .eq("user_id", this.authUser.id);
+          if (userError) {
+            console.warn("Unable to load user reactions.", userError);
+          } else {
+            (userData || []).forEach((row) => {
+              const scene = parseInt(row.scene_number, 10);
+              if (!Number.isFinite(scene)) {
+                return;
+              }
+              if (!row.reaction_key) {
+                return;
+              }
+              userReactions[scene] = row.reaction_key;
+            });
+          }
+        }
+        this.reactionCounts = counts;
+        this.userReactions = userReactions;
+      } finally {
+        this.reactionLoading = false;
+      }
+    },
+    async toggleReaction(sceneNumber, reactionKey) {
+      if (!this.authUser) {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.reactionUpdating) {
+        return;
+      }
+      this.reactionUpdating = true;
+      const current = this.userReactions[sceneNumber] || null;
+      this.userReactions = {
+        ...this.userReactions,
+        [sceneNumber]: current === reactionKey ? null : reactionKey,
+      };
+      try {
+        if (current === reactionKey) {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .delete()
+            .eq("user_id", this.authUser.id)
+            .eq("page_path", this.$page.path)
+            .eq("scene_number", sceneNumber);
+          if (error) {
+            console.warn("Unable to remove reaction.", error);
+          }
+        } else {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_REACTIONS_TABLE)
+            .upsert(
+              {
+                user_id: this.authUser.id,
+                page_path: this.$page.path,
+                scene_number: sceneNumber,
+                reaction_key: reactionKey,
+              },
+              { onConflict: "user_id,page_path,scene_number" }
+            );
+          if (error) {
+            console.warn("Unable to save reaction.", error);
+          }
+        }
+      } finally {
+        this.reactionUpdating = false;
+        this.loadReactionCounts();
+      }
+    },
+    async fetchProfile() {
+      if (!this.useCloud) {
+        return;
+      }
+      const { data, error } = await this.supabase
+        .from("profiles")
+        .select("username, can_edit")
+        .eq("id", this.authUser.id)
+        .maybeSingle();
+      if (error) {
+        console.warn("Unable to load profile.", error);
+        return;
+      }
+      this.authProfile = data || null;
+    },
+    async loadCloudState() {
+      if (!this.useCloud) {
+        return;
+      }
+      if (this._cloudLoadPromise) {
+        return this._cloudLoadPromise;
+      }
+      this._cloudLoadPromise = (async () => {
+        const localBookmark = this.getLocalSceneNumber(this.bookmarkKey);
+        const localResume = this.getLocalSceneNumber(this.resumeKey);
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .select("bookmark_scene, resume_scene")
+          .eq("user_id", this.authUser.id)
+          .eq("page_path", this.$page.path)
+          .maybeSingle();
+        if (error) {
+          console.warn("Unable to load cloud album state.", error);
+          this.loadBookmarkLocal();
+          this.loadResumeLocal();
+          return;
+        }
+        const hasCloudRow = Boolean(data);
+        const cloudBookmark = data ? parseInt(data.bookmark_scene, 10) : null;
+        const cloudResume = data ? parseInt(data.resume_scene, 10) : null;
+        const mergedBookmark = Number.isFinite(cloudBookmark)
+          ? cloudBookmark
+          : hasCloudRow
+          ? null
+          : localBookmark;
+        const mergedResume = Number.isFinite(cloudResume)
+          ? cloudResume
+          : hasCloudRow
+          ? null
+          : localResume;
+        const needsUpsert =
+          (!hasCloudRow && Number.isFinite(localBookmark)) ||
+          (!hasCloudRow && Number.isFinite(localResume));
+        if (needsUpsert) {
+          await this.upsertCloudState({
+            bookmark_scene: Number.isFinite(mergedBookmark)
+              ? mergedBookmark
+              : null,
+            resume_scene: Number.isFinite(mergedResume) ? mergedResume : null,
+          });
+        }
+        this.bookmarkedScene = Number.isFinite(mergedBookmark)
+          ? mergedBookmark
+          : null;
+        this.lastSeenScene = Number.isFinite(mergedResume)
+          ? mergedResume
+          : null;
+        if (hasCloudRow) {
+          this.setLocalSceneNumber(this.bookmarkKey, null);
+          this.setLocalSceneNumber(this.resumeKey, null);
+        } else {
+          this.setLocalSceneNumber(this.bookmarkKey, mergedBookmark);
+          this.setLocalSceneNumber(this.resumeKey, mergedResume);
+        }
+        this._lastCloudResumeScene = Number.isFinite(mergedResume)
+          ? mergedResume
+          : null;
+        if (this.bookmarkedScene && !this.getHashSceneNumber()) {
+          this.jumpToScene = this.bookmarkedScene;
+          this.$nextTick(() => {
+            this.goToScene();
+          });
+        }
+      })();
+      try {
+        await this._cloudLoadPromise;
+      } finally {
+        this._cloudLoadPromise = null;
+      }
+    },
+    async upsertCloudState(payload) {
+      if (!this.useCloud) {
+        return;
+      }
+      const row = {
+        user_id: this.authUser.id,
+        page_path: this.$page.path,
+      };
+      if (Object.prototype.hasOwnProperty.call(payload, "bookmark_scene")) {
+        row.bookmark_scene = payload.bookmark_scene;
+      }
+      if (Object.prototype.hasOwnProperty.call(payload, "resume_scene")) {
+        row.resume_scene = payload.resume_scene;
+      }
+      const { error } = await this.supabase
+        .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+        .upsert(row, { onConflict: "user_id,page_path" });
+      if (error) {
+        console.warn("Unable to save cloud album state.", error);
+      }
+    },
+    resumePendingKey() {
+      return `${this.resumeKey}:pending`;
+    },
+    queueCloudResumeUpdate(sceneNumber) {
+      if (!this.useCloud) {
+        return;
+      }
+      this.setSessionSceneNumber(this.resumePendingKey(), sceneNumber);
+      this._pendingResumeScene = sceneNumber;
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+      }
+      this._resumeSyncTimer = window.setTimeout(() => {
+        this._resumeSyncTimer = null;
+        this.flushPendingResume();
+      }, RESUME_SYNC_DEBOUNCE);
+    },
+    flushPendingResume(force) {
+      if (!this.useCloud) {
+        return;
+      }
+      const pending = this.getSessionSceneNumber(this.resumePendingKey());
+      if (!Number.isFinite(pending)) {
+        return;
+      }
+      if (!force && this._lastCloudResumeScene === pending) {
+        return;
+      }
+      this._lastCloudResumeScene = pending;
+      this.upsertCloudState({ resume_scene: pending });
+    },
+    loadLocalUserSettings() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const storedCiv = window.localStorage.getItem("favoriteCiv");
+      this.favoriteCiv = storedCiv || "";
+      const storedFlair = window.localStorage.getItem("customFlair");
+      this.customFlair = storedFlair || "";
     },
     handleSettingsSync(event) {
       if (!event || !event.detail) {
@@ -624,6 +1198,249 @@ export default {
         this.isToggle = true;
       } else if (mode === "vertical") {
         this.isToggle = false;
+      }
+      if (Object.prototype.hasOwnProperty.call(event.detail, "favoriteCiv")) {
+        this.favoriteCiv = event.detail.favoriteCiv || "";
+      }
+      if (Object.prototype.hasOwnProperty.call(event.detail, "customFlair")) {
+        this.customFlair = event.detail.customFlair || "";
+      }
+    },
+    async loadComments() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (!this.showComments) {
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.commentsLoading) {
+        return;
+      }
+      this.commentsLoading = true;
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+          .select(
+            "id, user_id, username, message, civ_label, civ_primary, civ_secondary, flair, created_at, updated_at"
+          )
+          .eq("page_path", this.$page.path)
+          .order("created_at", { ascending: true });
+        if (error) {
+          console.warn("Unable to load comments.", error);
+          return;
+        }
+        this.comments = data || [];
+      } finally {
+        this.commentsLoading = false;
+      }
+    },
+    commentCivStyle(comment) {
+      const primary = comment.civ_primary || COMMENT_FALLBACK_PRIMARY;
+      const secondary = comment.civ_secondary || COMMENT_FALLBACK_SECONDARY;
+      return {
+        "--civ-primary": primary,
+        "--civ-secondary": secondary,
+      };
+    },
+    startEditComment() {
+      if (!this.userComment) {
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        return;
+      }
+      this.commentDraft = this.userComment.message || "";
+      this.commentPreview = null;
+      this.commentEditing = true;
+      this.clearCommentMessage();
+    },
+    cancelEditComment() {
+      this.commentEditing = false;
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.clearCommentMessage();
+    },
+    previewComment() {
+      if (!this.authUser) {
+        this.setCommentMessage("Sign in to leave a comment.", "error");
+        return;
+      }
+      if (!this.canSupporterComment) {
+        this.setCommentMessage("Supporters only can comment.", "error");
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.setCommentMessage("Comment window has closed.", "error");
+        return;
+      }
+      const message = String(this.commentDraft || "").trim();
+      if (!message) {
+        this.setCommentMessage("Enter a comment before previewing.", "error");
+        return;
+      }
+      if (message.length > COMMENT_MAX_LENGTH) {
+        this.setCommentMessage(
+          `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`,
+          "error"
+        );
+        return;
+      }
+      const civLabel = String(this.favoriteCiv || "").trim();
+      const civKey = civLabel ? normalizeOwnerKey(civLabel) : "";
+      const colors =
+        civKey && OWNER_COLOR_MAP[civKey] ? OWNER_COLOR_MAP[civKey] : null;
+      const flair = String(this.customFlair || "").trim();
+      const username =
+        (this.authProfile && this.authProfile.username) ||
+        (this.authUser && this.authUser.email) ||
+        "Supporter";
+      this.commentPreview = {
+        message,
+        username,
+        civ_label: civLabel || null,
+        civ_primary: colors ? colors.primary : COMMENT_FALLBACK_PRIMARY,
+        civ_secondary: colors ? colors.secondary : COMMENT_FALLBACK_SECONDARY,
+        flair: flair || null,
+      };
+      this.clearCommentMessage();
+    },
+    async submitComment() {
+      if (!this.authUser) {
+        this.setCommentMessage("Sign in to leave a comment.", "error");
+        return;
+      }
+      if (!this.canSupporterComment) {
+        this.setCommentMessage("Supporters only can comment.", "error");
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.setCommentMessage("Comment window has closed.", "error");
+        return;
+      }
+      const message = String(this.commentDraft || "").trim();
+      if (!message) {
+        this.setCommentMessage("Enter a comment before posting.", "error");
+        return;
+      }
+      if (message.length > COMMENT_MAX_LENGTH) {
+        this.setCommentMessage(
+          `Comment must be ${COMMENT_MAX_LENGTH} characters or less.`,
+          "error"
+        );
+        return;
+      }
+      if (!this.canSubmitComment) {
+        this.setCommentMessage("Preview before posting.", "info");
+        return;
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      if (!this.supabase || this.commentSaving) {
+        return;
+      }
+      this.commentSaving = true;
+      this.clearCommentMessage();
+      const now = new Date().toISOString();
+      try {
+        if (this.userComment) {
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+            .update({
+              message,
+              updated_at: now,
+            })
+            .eq("id", this.userComment.id)
+            .eq("user_id", this.authUser.id);
+          if (error) {
+            console.warn("Unable to update comment.", error);
+            this.setCommentMessage("Unable to update comment.", "error");
+            return;
+          }
+          this.commentEditing = false;
+        } else {
+          const civLabel = String(this.favoriteCiv || "").trim();
+          const civKey = civLabel ? normalizeOwnerKey(civLabel) : "";
+          const colors =
+            civKey && OWNER_COLOR_MAP[civKey] ? OWNER_COLOR_MAP[civKey] : null;
+          const flair = String(this.customFlair || "").trim();
+          const username =
+            (this.authProfile && this.authProfile.username) ||
+            (this.authUser && this.authUser.email) ||
+            "Supporter";
+          const { error } = await this.supabase
+            .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+            .insert({
+              user_id: this.authUser.id,
+              page_path: this.$page.path,
+              message,
+              username,
+              civ_label: civLabel || null,
+              civ_primary: colors ? colors.primary : COMMENT_FALLBACK_PRIMARY,
+              civ_secondary: colors
+                ? colors.secondary
+                : COMMENT_FALLBACK_SECONDARY,
+              flair: flair || null,
+              updated_at: now,
+            });
+          if (error) {
+            console.warn("Unable to save comment.", error);
+            this.setCommentMessage("Unable to save comment.", "error");
+            return;
+          }
+        }
+        this.commentDraft = "";
+        this.commentPreview = null;
+        this.loadComments();
+      } finally {
+        this.commentSaving = false;
+      }
+    },
+    async deleteComment() {
+      if (!this.userComment || !this.authUser) {
+        return;
+      }
+      if (!this.commentWindowOpen) {
+        this.setCommentMessage("Comment window has closed.", "error");
+        return;
+      }
+      if (typeof window !== "undefined") {
+        const confirmed = window.confirm("Delete your comment?");
+        if (!confirmed) {
+          return;
+        }
+      }
+      if (!this.supabase) {
+        this.supabase = getSupabaseClient();
+      }
+      const { error } = await this.supabase
+        .from(SUPABASE_ALBUM_COMMENTS_TABLE)
+        .delete()
+        .eq("id", this.userComment.id)
+        .eq("user_id", this.authUser.id);
+      if (error) {
+        console.warn("Unable to delete comment.", error);
+        this.setCommentMessage("Unable to delete comment.", "error");
+        return;
+      }
+      this.commentDraft = "";
+      this.commentPreview = null;
+      this.commentEditing = false;
+      this.loadComments();
+    },
+    toggleView() {
+      this.isToggle = !this.isToggle;
+      if (typeof window !== "undefined") {
+        const viewMode = this.isToggle ? "horizontal" : "vertical";
+        window.localStorage.setItem("albumsViewMode", viewMode);
+        window.dispatchEvent(
+          new CustomEvent("user-settings-updated", {
+            detail: { albumsViewMode: viewMode },
+          })
+        );
       }
     },
     resumeToScene() {
@@ -673,6 +1490,63 @@ export default {
       }
       this.scrollToScene(index);
     },
+    focusTimelineDot(index) {
+      this.$nextTick(() => {
+        const track = this.$refs.timelineTrack;
+        if (!track) {
+          return;
+        }
+        const dots = Array.from(track.querySelectorAll(".timeline-dot"));
+        const target = dots[index];
+        if (target && typeof target.focus === "function") {
+          target.focus({ preventScroll: true });
+        }
+      });
+    },
+    handleTimelineKeydown(event) {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(event.key)) {
+        return;
+      }
+      const track = this.$refs.timelineTrack;
+      if (!track) {
+        return;
+      }
+      const dots = Array.from(track.querySelectorAll(".timeline-dot"));
+      if (!dots.length) {
+        return;
+      }
+      const targetIndex = dots.indexOf(event.target);
+      const currentIndex =
+        targetIndex >= 0 ? targetIndex : this.activeSceneIndex || 0;
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowLeft") {
+        nextIndex = Math.max(0, currentIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        nextIndex = Math.min(dots.length - 1, currentIndex + 1);
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = dots.length - 1;
+      }
+      if (nextIndex === currentIndex) {
+        return;
+      }
+      event.preventDefault();
+      this.enableTimelineFocus();
+      this.jumpToIndex(nextIndex);
+      this.focusTimelineDot(nextIndex);
+    },
+    enableTimelineFocus() {
+      this.timelineFocusEnabled = true;
+      if (this.timelineFocusTimeoutId) {
+        clearTimeout(this.timelineFocusTimeoutId);
+      }
+      this.timelineFocusTimeoutId = setTimeout(() => {
+        this.timelineFocusEnabled = false;
+        this.timelineFocusTimeoutId = null;
+      }, 1500);
+    },
     setActiveScene(index) {
       if (!this.sceneCount) {
         return;
@@ -680,6 +1554,17 @@ export default {
       const safeIndex = Math.min(Math.max(index, 0), this.sceneCount - 1);
       this.activeSceneIndex = safeIndex;
       this.saveResumeScene(safeIndex + 1);
+      this.syncTimelineFocus(safeIndex);
+    },
+    syncTimelineFocus(index) {
+      const track = this.$refs.timelineTrack;
+      if (!track) {
+        return;
+      }
+      if (!this.timelineFocusEnabled) {
+        return;
+      }
+      this.focusTimelineDot(index);
     },
     sceneAnchor(index) {
       return `scene-${index + 1}`;
@@ -761,32 +1646,43 @@ export default {
         this.copiedScene = null;
       }, 2000);
     },
-    bookmarkScene(index) {
+    async bookmarkScene(index) {
       if (typeof window === "undefined") {
         return;
       }
       const sceneNumber = index + 1;
       if (this.bookmarkedScene === sceneNumber) {
         this.bookmarkedScene = null;
-        window.localStorage.removeItem(this.bookmarkKey);
+        if (this.useCloud) {
+          await this.upsertCloudState({ bookmark_scene: null });
+        }
+        this.setLocalSceneNumber(this.bookmarkKey, null);
         window.dispatchEvent(new CustomEvent("albums-bookmark-updated"));
         this.saveResumeScene(this.activeSceneIndex + 1);
         return;
       }
       this.bookmarkedScene = sceneNumber;
-      window.localStorage.setItem(this.bookmarkKey, String(sceneNumber));
+      if (this._resumeSyncTimer) {
+        window.clearTimeout(this._resumeSyncTimer);
+        this._resumeSyncTimer = null;
+      }
+      this._pendingResumeScene = null;
+      this.setSessionSceneNumber(this.resumePendingKey(), null);
+      if (this.useCloud) {
+        await this.upsertCloudState({ bookmark_scene: sceneNumber });
+      }
+      this.setLocalSceneNumber(this.bookmarkKey, sceneNumber);
       window.dispatchEvent(new CustomEvent("albums-bookmark-updated"));
     },
     loadResume() {
-      if (typeof window === "undefined") {
+      if (this.useCloud) {
+        this.loadCloudState();
         return;
       }
-      const stored = window.localStorage.getItem(this.resumeKey);
-      if (!stored) {
-        this.lastSeenScene = null;
-        return;
-      }
-      const sceneNumber = parseInt(stored, 10);
+      this.loadResumeLocal();
+    },
+    loadResumeLocal() {
+      const sceneNumber = this.getLocalSceneNumber(this.resumeKey);
       if (!Number.isFinite(sceneNumber)) {
         this.lastSeenScene = null;
         return;
@@ -814,19 +1710,21 @@ export default {
         return;
       }
       this.lastSeenScene = safeScene;
-      window.localStorage.setItem(this.resumeKey, String(safeScene));
+      this.setLocalSceneNumber(this.resumeKey, safeScene);
+      if (this.useCloud) {
+        this.queueCloudResumeUpdate(safeScene);
+      }
     },
     loadBookmark() {
-      if (typeof window === "undefined") {
+      if (this.useCloud) {
+        this.loadCloudState();
         return;
       }
+      this.loadBookmarkLocal();
+    },
+    loadBookmarkLocal() {
       const hashScene = this.getHashSceneNumber();
-      const stored = window.localStorage.getItem(this.bookmarkKey);
-      if (!stored) {
-        this.bookmarkedScene = null;
-        return;
-      }
-      const sceneNumber = parseInt(stored, 10);
+      const sceneNumber = this.getLocalSceneNumber(this.bookmarkKey);
       if (!Number.isFinite(sceneNumber)) {
         this.bookmarkedScene = null;
         return;
@@ -892,9 +1790,6 @@ export default {
         return;
       }
       const key = event.key;
-      if (this.isToggle && (key === "ArrowRight" || key === "ArrowLeft")) {
-        return;
-      }
       const tagName = event.target && event.target.tagName;
       const isInput =
         tagName === "INPUT" ||
@@ -905,11 +1800,25 @@ export default {
       }
       if (key === "ArrowRight" || key === "j" || key === "J") {
         event.preventDefault();
+        if (key === "ArrowRight") {
+          event.stopPropagation();
+          if (typeof event.stopImmediatePropagation === "function") {
+            event.stopImmediatePropagation();
+          }
+        }
+        this.enableTimelineFocus();
         this.jumpRelative(1);
         return;
       }
       if (key === "ArrowLeft" || key === "k" || key === "K") {
         event.preventDefault();
+        if (key === "ArrowLeft") {
+          event.stopPropagation();
+          if (typeof event.stopImmediatePropagation === "function") {
+            event.stopImmediatePropagation();
+          }
+        }
+        this.enableTimelineFocus();
         this.jumpRelative(-1);
         return;
       }
@@ -938,9 +1847,6 @@ export default {
         const jumpInput = document.getElementById("scene-jump");
         if (jumpInput && typeof jumpInput.focus === "function") {
           jumpInput.focus();
-          if (typeof jumpInput.select === "function") {
-            jumpInput.select();
-          }
         }
         return;
       }
@@ -954,6 +1860,17 @@ export default {
         this.jumpToIndex(this.sceneCount - 1);
         return;
       }
+    },
+    handleVisibilityChange() {
+      if (typeof document === "undefined") {
+        return;
+      }
+      if (document.visibilityState === "hidden") {
+        this.flushPendingResume(true);
+      }
+    },
+    handleBeforeUnload() {
+      this.flushPendingResume(true);
     },
     jumpRelative(delta) {
       if (!this.sceneCount) {
@@ -976,7 +1893,60 @@ export default {
       this._scrollRaf = window.requestAnimationFrame(() => {
         this._scrollRaf = null;
         this.updateActiveFromScroll();
+        this.checkSnapshotInView();
       });
+    },
+    setupSnapshotObserver() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      this.teardownSnapshotObserver();
+      if (!this.shouldTrackSnapshot) {
+        return;
+      }
+      const sentinel = this.$refs.snapshotSentinel;
+      if (!sentinel) {
+        return;
+      }
+      if ("IntersectionObserver" in window) {
+        this._snapshotObserver = new IntersectionObserver((entries) => {
+          if (!entries || !entries.length) {
+            return;
+          }
+          if (entries.some((entry) => entry.isIntersecting)) {
+            this.snapshotInView = true;
+            this.teardownSnapshotObserver();
+          }
+        });
+        this._snapshotObserver.observe(sentinel);
+        return;
+      }
+      this.checkSnapshotInView();
+    },
+    teardownSnapshotObserver() {
+      if (this._snapshotObserver) {
+        this._snapshotObserver.disconnect();
+        this._snapshotObserver = null;
+      }
+    },
+    checkSnapshotInView() {
+      if (
+        this.snapshotInView ||
+        this.isToggle ||
+        typeof window === "undefined" ||
+        !this.hasEpisodeSnapshot
+      ) {
+        return;
+      }
+      const sentinel = this.$refs.snapshotSentinel;
+      if (!sentinel || typeof sentinel.getBoundingClientRect !== "function") {
+        return;
+      }
+      const rect = sentinel.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        this.snapshotInView = true;
+        this.teardownSnapshotObserver();
+      }
     },
     updateActiveFromScroll() {
       if (!this._sceneElements || !this._sceneElements.length) {
@@ -1118,83 +2088,6 @@ export default {
   font-weight: 700;
   line-height: 1.3;
 }
-.page-nav {
-  margin-block: 0.6rem 1.6rem;
-}
-.nextprev {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  width: 100%;
-}
-.nav-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  color: #fff;
-  background: linear-gradient(145deg, #111 0%, #161616 100%);
-  border: 1px solid #242424;
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  padding-block: 0.95rem 1.05rem;
-  padding-inline: 1.3rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.nav-card::after {
-  content: "";
-  position: absolute;
-  height: 4px;
-  background: var(--accent-color);
-  inset-block-start: 0;
-  inset-inline: 0;
-}
-.nav-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-color);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
-}
-.nav-card.prev {
-  padding-inline-start: 2.8rem;
-}
-.nav-card.next {
-  text-align: right;
-  padding-inline-end: 2.8rem;
-}
-.nav-kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--text-color), white 20%);
-}
-.nav-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-.nav-arrow {
-  position: absolute;
-  transform: translateY(-50%);
-  width: 2.1rem;
-  height: 2.1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  color: #151515;
-  background: oklch(from var(--accent-color) l c h / 0.9);
-  border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  text-shadow: none;
-  inset-block-start: 50%;
-}
-.nav-card.prev .nav-arrow {
-  inset-inline-start: -0.9rem;
-}
-.nav-card.next .nav-arrow {
-  inset-inline-end: -0.9rem;
-}
 .albumInfo {
   display: flex;
   flex-flow: row nowrap;
@@ -1284,7 +2177,7 @@ export default {
   align-items: center;
   gap: 0.6rem;
 }
-.jump-controls input {
+.jump-controls select {
   width: 6.5rem;
   font-size: 1rem;
   color: #fff;
@@ -1294,7 +2187,7 @@ export default {
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
 }
-.jump-controls input:focus {
+.jump-controls select:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
 }
@@ -1313,11 +2206,6 @@ export default {
 .scene-button:hover {
   background: #ffbf46;
   color: #1a1a1a;
-}
-.scene-count {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: color-mix(in srgb, var(--text-color), white 25%);
 }
 .scene-timeline {
   position: sticky;
@@ -1474,6 +2362,10 @@ export default {
   height: auto;
   display: block;
   margin-top: 1rem;
+}
+.episode-snapshot-sentinel {
+  width: 100%;
+  height: 1px;
 }
 article + article {
   margin: 3rem 0;

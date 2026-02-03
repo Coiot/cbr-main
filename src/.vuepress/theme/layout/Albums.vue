@@ -87,7 +87,12 @@
         <div class="scene-jump">
           <label class="jump-label" for="scene-jump">Jump to scene</label>
           <div class="jump-controls">
-            <select id="scene-jump" v-model.number="jumpToScene">
+            <select
+              id="scene-jump"
+              v-model.number="jumpToScene"
+              @change="goToScene"
+              @keyup.enter="goToScene"
+            >
               <option v-for="index in sceneCount" :key="index" :value="index">
                 Scene {{ index }}
               </option>
@@ -296,13 +301,6 @@ const pageDir = (path) => {
   return parts.join("/") || "/";
 };
 
-const DEFAULT_REACTION_OPTIONS = [
-  { key: "fire", label: "Fire", emoji: "🔥" },
-  { key: "heart", label: "Love", emoji: "❤️" },
-  { key: "clap", label: "Clap", emoji: "👏" },
-  { key: "wow", label: "Wow", emoji: "🤯" },
-  { key: "sad", label: "Sad", emoji: "😢" },
-];
 const REACTION_POLL_INTERVAL = 30000;
 const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
@@ -429,9 +427,7 @@ export default {
         this.$site &&
         this.$site.themeConfig &&
         this.$site.themeConfig.reactions;
-      return Array.isArray(options) && options.length
-        ? options
-        : DEFAULT_REACTION_OPTIONS;
+      return options || [];
     },
     isSeasonFive() {
       const edition =
