@@ -15,7 +15,17 @@
       </div>
     </div>
     <div class="home-map-embed">
-      <ClientOnly>
+      <div v-if="!shouldRenderMap" class="home-map-placeholder">
+        <div class="home-map-placeholder-card">
+          <p>
+            Tap to load the live map. It can use more memory on mobile devices.
+          </p>
+          <button type="button" class="home-map-load" @click="requestMap">
+            Load Map
+          </button>
+        </div>
+      </div>
+      <ClientOnly v-else>
         <keep-alive>
           <CommunityTileMapGrid
             ref="map"
@@ -25,6 +35,7 @@
         </keep-alive>
       </ClientOnly>
       <div
+        v-if="shouldRenderMap"
         class="home-map-zoom"
         :class="{ 'is-disabled': !mapMounted }"
         aria-label="Map zoom controls"
@@ -59,13 +70,27 @@ export default {
     CommunityTileMapGrid,
   },
   data() {
+    const isMobileBrowser =
+      typeof navigator !== "undefined"
+        ? /Mobi|Android|iP(hone|ad|od)/.test(navigator.userAgent || "")
+        : false;
     return {
       mapMounted: false,
+      mapRequested: false,
+      isMobileBrowser,
     };
+  },
+  computed: {
+    shouldRenderMap() {
+      return !this.isMobileBrowser || this.mapRequested;
+    },
   },
   methods: {
     onMapMounted() {
       this.mapMounted = true;
+    },
+    requestMap() {
+      this.mapRequested = true;
     },
     zoomIn() {
       const map = this.$refs.map;
@@ -145,6 +170,47 @@ export default {
   border-radius: 16px;
   overflow: hidden;
   overscroll-behavior: contain;
+}
+
+.home-map-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 24rem;
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.9);
+}
+
+.home-map-placeholder-card {
+  display: grid;
+  gap: 0.9rem;
+  max-inline-size: 32ch;
+  text-align: center;
+  color: color-mix(in srgb, #fff, transparent 30%);
+}
+
+.home-map-placeholder-card p {
+  margin: 0;
+}
+
+.home-map-load {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #f6c55b;
+  background: linear-gradient(135deg, #ffbf46 0%, #f7a726 100%);
+  color: #1a1a1a;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-map-load:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.3);
 }
 
 .home-map-zoom {

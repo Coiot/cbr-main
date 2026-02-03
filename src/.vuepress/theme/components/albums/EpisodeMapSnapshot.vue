@@ -14,16 +14,37 @@
       </router-link>
     </div>
     <div class="episode-snapshot-map">
-      <ClientOnly>
+      <div v-if="!shouldRenderMap" class="episode-snapshot-placeholder">
+        <div class="episode-snapshot-placeholder-card">
+          <p>
+            Tap to load the snapshot map. It can use more memory on mobile
+            devices.
+          </p>
+          <button
+            type="button"
+            class="episode-snapshot-load"
+            @click="requestMap"
+          >
+            Load Map
+          </button>
+        </div>
+      </div>
+      <ClientOnly v-else>
         <CommunityTileMapGrid
           ref="map"
           embedded
           embedded-mode="snapshot"
           :snapshot-payload="snapshotPayload"
           :use-base-snapshot="useBaseSnapshot"
+          @hook:mounted="onMapMounted"
         />
       </ClientOnly>
-      <div class="episode-snapshot-zoom" aria-label="Map zoom controls">
+      <div
+        v-if="shouldRenderMap"
+        class="episode-snapshot-zoom"
+        :class="{ 'is-disabled': !mapMounted }"
+        aria-label="Map zoom controls"
+      >
         <button
           type="button"
           class="episode-snapshot-zoom-button"
@@ -70,11 +91,23 @@ export default {
     },
   },
   data() {
+    const isMobileBrowser =
+      typeof navigator !== "undefined"
+        ? /Mobi|Android|iP(hone|ad|od)/.test(navigator.userAgent || "")
+        : false;
     return {
       snapshotPayload: null,
       isReady: false,
       fetchController: null,
+      mapMounted: false,
+      mapRequested: false,
+      isMobileBrowser,
     };
+  },
+  computed: {
+    shouldRenderMap() {
+      return !this.isMobileBrowser || this.mapRequested;
+    },
   },
   mounted() {
     if (this.useBaseSnapshot && !this.snapshotPath) {
@@ -87,6 +120,12 @@ export default {
     this.abortSnapshotFetch();
   },
   methods: {
+    onMapMounted() {
+      this.mapMounted = true;
+    },
+    requestMap() {
+      this.mapRequested = true;
+    },
     abortSnapshotFetch() {
       if (this.fetchController) {
         this.fetchController.abort();
@@ -209,6 +248,47 @@ export default {
   overscroll-behavior: contain;
 }
 
+.episode-snapshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 22rem;
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.9);
+}
+
+.episode-snapshot-placeholder-card {
+  display: grid;
+  gap: 0.9rem;
+  max-inline-size: 32ch;
+  text-align: center;
+  color: color-mix(in srgb, #fff, transparent 30%);
+}
+
+.episode-snapshot-placeholder-card p {
+  margin: 0;
+}
+
+.episode-snapshot-load {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid #f6c55b;
+  background: linear-gradient(135deg, #ffbf46 0%, #f7a726 100%);
+  color: #1a1a1a;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episode-snapshot-load:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.3);
+}
+
 .episode-snapshot-zoom {
   position: absolute;
   inset-block-start: 1rem;
@@ -227,6 +307,10 @@ export default {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.episode-snapshot-zoom.is-disabled {
+  pointer-events: none;
 }
 
 .episode-snapshot-zoom-button {
