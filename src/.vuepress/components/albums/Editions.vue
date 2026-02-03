@@ -175,22 +175,22 @@ export default {
 
 <style scoped>
 .edition-list {
+  width: calc(100% - 4rem);
+  max-width: 90vw;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   align-items: center;
   gap: 0.25rem;
   background-color: #fff;
   border: 1px solid #f2d28a;
   border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   padding: 0.45rem 0.6rem;
   margin: 1em auto 0;
-  width: calc(100% - 4rem);
-  max-width: 90vw;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 5;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   scrollbar-width: thin;
   scrollbar-color: #f1d28c transparent;
+  overflow-x: auto;
+  z-index: 5;
 }
 
 .list {
@@ -225,9 +225,9 @@ export default {
 }
 
 .list-button.active {
+  color: #1a1a1a;
   background: #ffbf46;
   border-color: #f0ad32;
-  color: #1a1a1a;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 

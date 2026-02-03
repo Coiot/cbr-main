@@ -10,16 +10,18 @@
       </div>
       <div class="album-list">
         <router-link
+          v-for="post in albums"
+          :key="post.path"
           :to="post.path"
-          v-for="(post, index) in albums"
-          :key="post.title"
           class="post"
-          :aria-label="`${post.frontmatter.title} ${
-            post.frontmatter.edition || ''
-          }`"
+          :aria-label="episodeLabel(post)"
         >
           <div class="card-media">
-            <img :src="post.frontmatter.image" loading="lazy" />
+            <img
+              :src="post.frontmatter.image"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="card-chip">
               {{ post.frontmatter.edition || post.frontmatter.pr }}
             </span>
@@ -46,14 +48,58 @@
 <script>
 export default {
   name: "HomeRecentEpisodes",
+  data() {
+    return {
+      memoEpisodes: [],
+      memoKey: "",
+    };
+  },
   computed: {
     albums() {
-      return this.$site.pages
-        .filter((x) => x.path.startsWith("/albums/s") && !x.frontmatter.exclude)
-        .sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        )
-        .slice(1, 5);
+      const pages = (this.$site && this.$site.pages) || [];
+      const key = `${pages.length}-${(this.$site && this.$site.time) || ""}`;
+      if (this.memoKey === key && this.memoEpisodes.length) {
+        return this.memoEpisodes;
+      }
+      const top = [];
+      pages.forEach((page) => {
+        if (!page.path.startsWith("/albums/s") || page.frontmatter.exclude) {
+          return;
+        }
+        const time = Date.parse(page.frontmatter.date || "");
+        if (!Number.isFinite(time)) {
+          return;
+        }
+        const item = { page, time };
+        let inserted = false;
+        for (let i = 0; i < top.length; i += 1) {
+          if (time > top[i].time) {
+            top.splice(i, 0, item);
+            inserted = true;
+            break;
+          }
+        }
+        if (!inserted) {
+          top.push(item);
+        }
+        if (top.length > 5) {
+          top.length = 5;
+        }
+      });
+      const result = top.slice(1, 5).map((item) => item.page);
+      this.memoEpisodes = result;
+      this.memoKey = key;
+      return result;
+    },
+  },
+  methods: {
+    episodeLabel(post) {
+      if (!post || !post.frontmatter) {
+        return "Episode";
+      }
+      const title = post.frontmatter.title || "Episode";
+      const edition = post.frontmatter.edition || "";
+      return edition ? `${title} ${edition}` : title;
     },
   },
 };
@@ -64,7 +110,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  margin-block: 0.6rem 1.2rem;
+  margin-block: 3rem 1.2rem;
 }
 
 h2 {

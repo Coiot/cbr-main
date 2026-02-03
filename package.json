@@ -10,7 +10,8 @@
     "dev": "vuepress dev src",
     "dev:docs": "vuepress dev docs",
     "build:social-card": "node scripts/build-home-social-card.js",
-    "build": "npm run build:social-card && vuepress build src",
+    "build:episode-snapshots": "node scripts/build-episode-snapshots.js",
+    "build": "npm run build:social-card && npm run build:episode-snapshots && vuepress build src",
     "build:docs": "vuepress build docs",
     "build:map-cache": "node scripts/build-community-map-cache.js",
     "build:supporters": "node scripts/build-supporters-image.js"

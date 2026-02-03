@@ -88,8 +88,13 @@
           </div>
         </aside>
       </section>
+
+      <HomeCommunityMap />
+
       <HomeRecentEpisodes />
+
       <Content custom />
+
       <div class="footer" v-if="footerText">{{ footerText }}</div>
     </div>
   </transition>
@@ -99,12 +104,14 @@
 import HomeLatestEpisode from "../components/home/HomeLatestEpisode.vue";
 import HomeRecentEpisodes from "../components/home/HomeRecentEpisodes.vue";
 import HomePowerRankings from "../components/home/HomePowerRankings.vue";
+import HomeCommunityMap from "../components/home/HomeCommunityMap.vue";
 
 export default {
   components: {
     HomeLatestEpisode,
     HomeRecentEpisodes,
     HomePowerRankings,
+    HomeCommunityMap,
   },
 
   computed: {

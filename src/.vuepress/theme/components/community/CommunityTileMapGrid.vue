@@ -1,6 +1,6 @@
 <template>
   <section class="tile-map">
-    <div class="tile-map-header">
+    <div v-if="!embedded" class="tile-map-header">
       <div class="tile-map-meta">
         <!-- <h2 class="tile-map-title">{{ mapName || "Map Viewer" }}</h2>
         <p class="tile-map-subtitle" v-if="mapDescription">
@@ -127,7 +127,9 @@
     </div>
     <div
       class="tile-map-body"
-      :class="{ 'is-collapsed': editPanelCollapsed && !isMobileView }"
+      :class="{
+        'is-collapsed': embedded || (editPanelCollapsed && !isMobileView),
+      }"
     >
       <div
         ref="viewport"
@@ -606,6 +608,7 @@
         <!-- <div class="tile-map-hint">Drag to pan.</div> -->
       </div>
       <aside
+        v-if="!embedded"
         class="tile-map-info"
         :class="{ 'is-collapsed': editPanelCollapsed && !isMobileView }"
       >
@@ -1621,7 +1624,7 @@
       </aside>
     </div>
 
-    <div class="tile-map-legend">
+    <div v-if="!embedded" class="tile-map-legend">
       <div class="tile-legend-card">
         <div class="tile-info-title">Legend</div>
         <details
@@ -1833,6 +1836,32 @@ const MINI_MAP_MAX_HEIGHT = 120;
 const COMBO_MAX_RESULTS = 20;
 
 export default {
+  props: {
+    embedded: {
+      type: Boolean,
+      default: false,
+    },
+    embeddedMode: {
+      type: String,
+      default: "live",
+      validator: (value) => ["live", "snapshot"].includes(value),
+    },
+    snapshotPayload: {
+      type: Array,
+      default: null,
+    },
+    useBaseSnapshot: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    resolvedEmbeddedMode() {
+      return ["live", "snapshot"].includes(this.embeddedMode)
+        ? this.embeddedMode
+        : "live";
+    },
+  },
   data() {
     return {
       // Map data
@@ -2425,7 +2454,11 @@ export default {
     if (this.isMobileView) {
       this.editPanelCollapsed = false;
     }
-    this.initSupabase();
+    const useLiveMap =
+      !this.snapshotPayload && this.resolvedEmbeddedMode !== "snapshot";
+    if (useLiveMap) {
+      this.initSupabase();
+    }
     this.loadMap();
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("online", this.handleOnline);
@@ -3859,6 +3892,23 @@ export default {
         }
         const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
         await this.applyMapData(mapData, stateData);
+        if (
+          Array.isArray(this.snapshotPayload) &&
+          this.snapshotPayload.length
+        ) {
+          this.applyTileOverrides(this.snapshotPayload, {
+            markRecent: false,
+            applyLocal: false,
+          });
+        } else if (this.useBaseSnapshot) {
+          const payload = this.getBaseSnapshotPayload();
+          if (payload && payload.length) {
+            this.applyTileOverrides(payload, {
+              markRecent: false,
+              applyLocal: false,
+            });
+          }
+        }
       } catch (error) {
         this.loadError = error.message || "Unable to load map data.";
       } finally {
@@ -4086,19 +4136,6 @@ export default {
         clamped.y = (viewport.height - scaledHeight) / 2;
       }
       return clamped;
-    },
-
-    onWheel(event) {
-      if (!this.gridWidth || !this.gridHeight) {
-        return;
-      }
-      const rect = this.$refs.viewport.getBoundingClientRect();
-      const focus = {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top,
-      };
-      const direction = event.deltaY > 0 ? 0.9 : 1.1;
-      this.applyZoom(this.scale * direction, focus);
     },
 
     onMiniMapPointerDown(event) {
@@ -7689,8 +7726,8 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(8,10,14,0.6);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(8, 10, 14, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
@@ -7718,22 +7755,37 @@ function toHex(value) {
   align-items: center;
   gap: 0;
 }
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-mode-toggle .tile-edit-button {
+.tile-map
+  .tile-map-controls
+  .tile-map-auth-toolbar
+  .tile-map-mode-toggle
+  .tile-edit-button {
   min-block-size: 1.75rem;
   min-inline-size: 4rem;
   font-size: 0.75rem;
   font-weight: 800;
   border-radius: 999px;
 }
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-mode-toggle .tile-edit-button:first-child {
+.tile-map
+  .tile-map-controls
+  .tile-map-auth-toolbar
+  .tile-map-mode-toggle
+  .tile-edit-button:first-child {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 }
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-mode-toggle .tile-edit-button:last-child {
+.tile-map
+  .tile-map-controls
+  .tile-map-auth-toolbar
+  .tile-map-mode-toggle
+  .tile-edit-button:last-child {
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 }
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-control-group-compact {
+.tile-map
+  .tile-map-controls
+  .tile-map-auth-toolbar
+  .tile-map-control-group-compact {
   gap: 0.35rem;
   margin-inline-start: auto;
 }
@@ -7763,10 +7815,10 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  background: rgba(8,10,14,0.8);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 10, 14, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   padding-block: 0.25rem;
   padding-inline: 0.35rem;
 }
@@ -7776,7 +7828,7 @@ function toHex(value) {
   color: var(--text-color);
   font-size: 0.85rem;
   font-weight: 700;
-  background: rgba(10,10,10,0.8);
+  background: rgba(10, 10, 10, 0.8);
   border: 1px solid var(--border-color);
   border-radius: 999px;
   padding-inline: 0.8rem;
@@ -7792,17 +7844,17 @@ function toHex(value) {
   min-inline-size: 2.1rem;
   font-size: 1.1rem;
   border-radius: 50%;
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255, 255, 255, 0.18);
   padding: 0;
 }
 .tile-map .tile-map-controls .tile-map-control-ghost {
   white-space: nowrap;
-  background: rgba(20,20,20,0.6);
-  border-color: rgba(255,255,255,0.18);
+  background: rgba(20, 20, 20, 0.6);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 .tile-map .tile-map-controls .tile-map-control-ghost:hover {
   color: #111;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
 }
 .tile-map .tile-map-controls .tile-map-scale {
   min-inline-size: 3.2rem;
@@ -7826,11 +7878,12 @@ function toHex(value) {
   min-block-size: 18rem;
   inline-size: 100%;
   overflow: hidden;
+  overscroll-behavior: contain;
   background: #0b0b0b;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   outline: none;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   touch-action: none;
   user-select: none;
 }
@@ -7859,10 +7912,11 @@ function toHex(value) {
   position: absolute;
   inset-block-end: 0.75rem;
   inset-inline-end: 0.75rem;
-  background: rgba(8,8,8,0.45);
-  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(8, 8, 8, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 0.25rem;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.05);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   padding: 0.25rem;
   transform-origin: 100% 100%;
   pointer-events: auto;
@@ -7886,11 +7940,11 @@ function toHex(value) {
   position: absolute;
   inset-block-end: 0.75rem;
   inset-inline-start: 0.75rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 999px;
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
@@ -7906,10 +7960,10 @@ function toHex(value) {
   z-index: 5;
   min-inline-size: 12rem;
   max-inline-size: 18rem;
-  background: rgba(8,10,12,0.96);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 10, 12, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
   padding-block: 0.7rem;
   padding-inline: 0.85rem;
   pointer-events: auto;
@@ -7936,11 +7990,15 @@ function toHex(value) {
 .tile-map .tile-map-viewport .tile-map-tooltip .tile-info-notes {
   display: grid;
   gap: 0.35rem;
-  border-block-start: 1px solid rgba(255,255,255,0.08);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
   padding-block-start: 0.75rem;
   margin-block-start: 0.5rem;
 }
-.tile-map .tile-map-viewport .tile-map-tooltip .tile-info-notes .tile-info-label {
+.tile-map
+  .tile-map-viewport
+  .tile-map-tooltip
+  .tile-info-notes
+  .tile-info-label {
   color: color-mix(in srgb, var(--text-color), white 35%);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
@@ -7962,18 +8020,18 @@ function toHex(value) {
 }
 .tile-map .tile-map-viewport .tile-hex {
   fill: #3c3c3c;
-  stroke: rgba(0,0,0,0.25);
+  stroke: rgba(0, 0, 0, 0.25);
   stroke-width: 1;
   transition: stroke 0.2s ease;
   paint-order: stroke;
 }
 .tile-map .tile-map-viewport .tile-hex.is-recent {
-  stroke: rgba(255,255,255,0.85);
+  stroke: rgba(255, 255, 255, 0.85);
   stroke-width: 2;
   animation: recent-pulse 1.5s ease-in-out infinite;
 }
 .tile-map .tile-map-viewport .tile-hex.is-snapshot-diff {
-  stroke: rgba(255,210,90,0.95);
+  stroke: rgba(255, 210, 90, 0.95);
   stroke-width: 2.5;
 }
 .tile-map .tile-map-viewport .tile-hex.terrain-grass {
@@ -8013,7 +8071,7 @@ function toHex(value) {
   stroke-width: 2.5;
 }
 .tile-map .tile-map-viewport .tile-hover-outline {
-  stroke: rgba(255,255,255,0.65);
+  stroke: rgba(255, 255, 255, 0.65);
   stroke-width: 2;
 }
 .tile-map .tile-map-viewport .tile-owner-overlay {
@@ -8026,8 +8084,8 @@ function toHex(value) {
   pointer-events: none;
 }
 .tile-map .tile-map-viewport .tile-elevation {
-  fill: rgba(255,255,255,0.35);
-  stroke: rgba(0,0,0,0.3);
+  fill: rgba(255, 255, 255, 0.35);
+  stroke: rgba(0, 0, 0, 0.3);
   stroke-width: 0.6;
 }
 .tile-map .tile-map-viewport .tile-feature,
@@ -8036,12 +8094,12 @@ function toHex(value) {
 }
 .tile-map .tile-map-viewport .tile-resource {
   fill: #f3c969;
-  stroke: rgba(0,0,0,0.4);
+  stroke: rgba(0, 0, 0, 0.4);
   stroke-width: 0.6;
 }
 .tile-map .tile-map-viewport .tile-improvement {
   fill: #d7d0c0;
-  stroke: rgba(0,0,0,0.3);
+  stroke: rgba(0, 0, 0, 0.3);
   stroke-width: 0.6;
 }
 .tile-map .tile-map-viewport .tile-ruins {
@@ -8057,8 +8115,8 @@ function toHex(value) {
   stroke-width: 1.4;
 }
 .tile-map .tile-map-viewport .tile-citadel {
-  fill: rgba(255,255,255,0.92);
-  stroke: rgba(0,0,0,0.75);
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(0, 0, 0, 0.75);
   stroke-width: 1.2;
 }
 .tile-map .tile-map-viewport .tile-river {
@@ -8092,7 +8150,7 @@ function toHex(value) {
 }
 .tile-map .tile-map-viewport .tile-city-capital {
   fill: #fff;
-  stroke: rgba(0,0,0,0.75);
+  stroke: rgba(0, 0, 0, 0.75);
   stroke-width: 0.75;
   scale: 1.5;
   pointer-events: none;
@@ -8102,13 +8160,13 @@ function toHex(value) {
   pointer-events: none;
 }
 .tile-map .tile-map-viewport .city-label-pill {
-  fill: rgba(86,42,36,0.88);
-  stroke: rgba(0,0,0,0.7);
+  fill: rgba(86, 42, 36, 0.88);
+  stroke: rgba(0, 0, 0, 0.7);
   stroke-width: 0.6;
 }
 .tile-map .tile-map-viewport .city-label-badge {
-  fill: rgba(38,16,14,0.9);
-  stroke: rgba(0,0,0,0.75);
+  fill: rgba(38, 16, 14, 0.9);
+  stroke: rgba(0, 0, 0, 0.75);
   stroke-width: 0.6;
 }
 .tile-map .tile-map-viewport .city-label-original-badge {
@@ -8118,7 +8176,7 @@ function toHex(value) {
   font-size: 6px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  stroke: rgba(0,0,0,0.7);
+  stroke: rgba(0, 0, 0, 0.7);
   stroke-width: 1.2;
   paint-order: stroke;
 }
@@ -8198,8 +8256,8 @@ function toHex(value) {
   align-items: center;
   justify-content: center;
   color: var(--text-color);
-  background: rgba(8,10,14,0.7);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 10, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   padding: 0;
   cursor: pointer;
@@ -8217,15 +8275,15 @@ function toHex(value) {
 .tile-map .tile-map-toolbar-divider {
   block-size: 1.8rem;
   inline-size: 1px;
-  background: rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.14);
   margin-inline: 0.5rem;
 }
 .tile-map .tile-map-info-tabs {
   display: inline-flex;
   align-items: center;
   gap: 0;
-  background: rgba(8,10,14,0.8);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 10, 14, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -8246,8 +8304,8 @@ function toHex(value) {
 }
 .tile-map .tile-info-card,
 .tile-map .tile-legend-card {
-  background: rgba(10,10,10,0.85);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 1rem;
 }
@@ -8275,7 +8333,7 @@ function toHex(value) {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   padding-block: 0.25rem;
   padding-inline: 0.75rem;
@@ -8283,12 +8341,12 @@ function toHex(value) {
 }
 .tile-map .tile-info-title-meta-local {
   color: #1f2b26;
-  background: rgba(122,230,171,0.8);
+  background: rgba(122, 230, 171, 0.8);
 }
 .tile-map .tile-edit-auth {
   display: grid;
   gap: 0.5rem;
-  border-block-end: 1px solid rgba(255,255,255,0.08);
+  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
   padding-block-end: 0.75rem;
   margin-block-end: 1rem;
 }
@@ -8310,26 +8368,26 @@ function toHex(value) {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
   padding-block: 0.2rem;
   padding-inline: 0.6rem;
 }
 .tile-map .tile-edit-auth-status.is-enabled {
   color: #c7f3d1;
-  background: rgba(77,186,109,0.18);
-  border-color: rgba(129,210,145,0.5);
+  background: rgba(77, 186, 109, 0.18);
+  border-color: rgba(129, 210, 145, 0.5);
 }
 .tile-map .tile-edit-auth-status.is-denied {
   color: #ffd0d0;
-  background: rgba(255,90,90,0.18);
-  border-color: rgba(255,161,161,0.5);
+  background: rgba(255, 90, 90, 0.18);
+  border-color: rgba(255, 161, 161, 0.5);
 }
 .tile-map .tile-edit-auth-status.is-loading {
   color: color-mix(in srgb, var(--text-color), white 35%);
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 .tile-map .tile-edit-auth-actions {
   display: flex;
@@ -8452,8 +8510,8 @@ function toHex(value) {
   font-size: 0.35rem;
   letter-spacing: 0;
   text-transform: none;
-  background: rgba(8,8,8,0.7);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(8, 8, 8, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   padding-block: 0.2rem;
   padding-inline: 0.5rem;
@@ -8489,8 +8547,8 @@ function toHex(value) {
   flex: 1;
   color: var(--text-color);
   font-weight: 700;
-  background: rgba(5,5,5,0.8);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   padding-block: 0.35rem;
   padding-inline: 0.5rem;
@@ -8498,7 +8556,7 @@ function toHex(value) {
 .tile-map .tile-edit-input:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
 }
 .tile-map .tile-edit-input:disabled {
   cursor: not-allowed;
@@ -8518,10 +8576,10 @@ function toHex(value) {
   display: grid;
   gap: 0.2rem;
   overflow: auto;
-  background: rgba(8,8,8,0.98);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(8, 8, 8, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0.65rem;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
   padding: 0.35rem;
 }
 .tile-map .tile-edit-combobox-option {
@@ -8561,7 +8619,7 @@ function toHex(value) {
   color: var(--text-color);
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(15,15,15,0.9);
+  background: rgba(15, 15, 15, 0.9);
   border: 1px solid var(--border-color);
   border-radius: 999px;
   padding-block: 0.35rem;
@@ -8575,14 +8633,14 @@ function toHex(value) {
 }
 .tile-map .tile-edit-button:disabled {
   color: color-mix(in srgb, var(--text-color), white 20%);
-  background: rgba(15,15,15,0.6);
+  background: rgba(15, 15, 15, 0.6);
   cursor: not-allowed;
   opacity: 0.6;
 }
 .tile-map .tile-edit-button.is-active {
   color: var(--back-color);
   background: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
 }
 .tile-map .tile-edit-hint {
   color: color-mix(in srgb, var(--text-color), white 35%);
@@ -8651,7 +8709,7 @@ function toHex(value) {
 .tile-map .tile-snapshot-diff {
   display: grid;
   gap: 0.4rem;
-  border-block-start: 1px solid rgba(255,255,255,0.08);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
   padding-block-start: 0.5rem;
 }
 .tile-map .tile-snapshot-legend {
@@ -8670,7 +8728,7 @@ function toHex(value) {
 .tile-map .tile-snapshot-chip {
   color: #f7db9a;
   font-weight: 700;
-  background: rgba(255,210,90,0.15);
+  background: rgba(255, 210, 90, 0.15);
   border-radius: 999px;
   padding-block: 0.2rem;
   padding-inline: 0.5rem;
@@ -8690,7 +8748,7 @@ function toHex(value) {
 .tile-map .tile-snapshot-diff-section {
   display: grid;
   gap: 0.25rem;
-  border-block-end: 1px solid rgba(255,255,255,0.08);
+  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
   padding-block-end: 0.4rem;
 }
 .tile-map .tile-snapshot-diff-section summary {
@@ -8709,7 +8767,7 @@ function toHex(value) {
   inline-size: 0;
   border-block-start: 5px solid transparent;
   border-block-end: 5px solid transparent;
-  border-inline-start: 7px solid rgba(255,255,255,0.6);
+  border-inline-start: 7px solid rgba(255, 255, 255, 0.6);
   transition: transform 0.2s ease;
 }
 .tile-map .tile-snapshot-diff-section[open] summary::before {
@@ -8754,15 +8812,15 @@ function toHex(value) {
   margin-block-start: 1rem;
 }
 .tile-map .tile-legend-accordion {
-  background: rgba(8,10,14,0.55);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(8, 10, 14, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   padding-block: 0.6rem 0.75rem;
   padding-inline: 0.75rem;
 }
 .tile-map .tile-legend-accordion[open] {
-  background: rgba(14,17,24,0.7);
+  background: rgba(14, 17, 24, 0.7);
 }
 .tile-map .tile-legend-summary {
   display: flex;
@@ -8809,7 +8867,7 @@ function toHex(value) {
 .tile-map .legend-swatch {
   block-size: 1rem;
   inline-size: 1rem;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
 .tile-map .legend-hex,
@@ -8827,7 +8885,18 @@ function toHex(value) {
   border-radius: 50%;
 }
 .tile-map .legend-star {
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
 }
 .tile-map .legend-diamond {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
@@ -8870,12 +8939,12 @@ function toHex(value) {
   border-radius: 8px;
 }
 .tile-map .elevation-hill {
-  fill: rgba(255,255,255,0.35);
-  background: rgba(255,255,255,0.35);
+  fill: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.35);
 }
 .tile-map .elevation-mountain {
-  fill: rgba(255,255,255,0.6);
-  background: rgba(255,255,255,0.6);
+  fill: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.6);
 }
 .tile-map .resource-strategic {
   fill: #ff7043;

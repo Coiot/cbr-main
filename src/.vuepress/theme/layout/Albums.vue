@@ -225,8 +225,15 @@
 
       <Content class="custom" />
 
+      <div
+        v-if="shouldTrackSnapshot"
+        ref="snapshotSentinel"
+        class="episode-snapshot-sentinel"
+        aria-hidden="true"
+      ></div>
+
       <CommentsSection
-        v-if="showComments"
+        v-if="shouldShowComments"
         :auth-user="authUser"
         :can-supporter-comment="canSupporterComment"
         :comment-window-open="commentWindowOpen"
@@ -251,6 +258,13 @@
         @cancel-edit="cancelEditComment"
       />
 
+      <EpisodeMapSnapshot
+        v-if="shouldRenderSnapshot"
+        :snapshot-path="episodeSnapshotPath"
+        :snapshot-title="episodeSnapshotTitle"
+        :use-base-snapshot="episodeSnapshotIsBase"
+      />
+
       <AlbumsNav :prev="prev" :next="next" />
     </div>
   </transition>
@@ -266,6 +280,7 @@ import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
 import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
 import CommentsSection from "../components/albums/CommentsSection.vue";
+import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
@@ -296,6 +311,21 @@ const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
 const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
 const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
 const RESUME_SYNC_DEBOUNCE = 4000;
+const normalizeEpisodeNumber = (value) => {
+  if (value === null || value === undefined) {
+    return "";
+  }
+  const raw = String(value).trim();
+  if (!raw) {
+    return "";
+  }
+  if (raw.includes(".")) {
+    const numeric = Number.parseFloat(raw);
+    return Number.isFinite(numeric) ? String(numeric) : raw;
+  }
+  const numeric = Number.parseInt(raw, 10);
+  return Number.isFinite(numeric) ? String(numeric) : raw;
+};
 
 export default {
   name: "Albums",
@@ -329,6 +359,7 @@ export default {
       customFlair: "",
       siblingPagesCache: [],
       sceneTimelineCache: [],
+      snapshotInView: false,
     };
   },
   components: {
@@ -338,6 +369,7 @@ export default {
     SceneCard,
     SceneSlideContent,
     CommentsSection,
+    EpisodeMapSnapshot,
   },
   created() {
     this.rebuildPageCaches();
@@ -414,8 +446,67 @@ export default {
         normalized === "season 5"
       );
     },
+    episodeSnapshotNumber() {
+      if (!this.isSeasonFive) {
+        return "";
+      }
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const explicit =
+        frontmatter.episode_number ||
+        frontmatter.episodeNumber ||
+        frontmatter.episode;
+      if (explicit !== undefined && explicit !== null) {
+        return normalizeEpisodeNumber(explicit);
+      }
+      const title = frontmatter.title || "";
+      const match = String(title).match(/episode\s*([0-9]+(?:\.[0-9]+)?)/i);
+      if (!match) {
+        return "";
+      }
+      return normalizeEpisodeNumber(match[1]);
+    },
+    episodeSnapshotPath() {
+      if (!this.isSeasonFive || !this.episodeSnapshotNumber) {
+        return "";
+      }
+      const safeNumber = this.episodeSnapshotNumber.replace(/\./g, "-");
+      return `/community/snapshots/s5-episode-${safeNumber}.json`;
+    },
+    episodeSnapshotIsBase() {
+      return this.isSeasonFive && this.episodeSnapshotNumber === "0";
+    },
+    episodeSnapshotTitle() {
+      if (!this.episodeSnapshotNumber) {
+        return "Episode Map Snapshot";
+      }
+      return `Episode ${this.episodeSnapshotNumber} Snapshot`;
+    },
+    hasEpisodeSnapshot() {
+      return Boolean(this.episodeSnapshotPath || this.episodeSnapshotIsBase);
+    },
+    isFinalScene() {
+      if (!this.sceneCount) {
+        return true;
+      }
+      return this.activeSceneIndex >= this.sceneCount - 1;
+    },
+    shouldTrackSnapshot() {
+      return this.hasEpisodeSnapshot && !this.isToggle && !this.snapshotInView;
+    },
+    shouldRenderSnapshot() {
+      if (!this.hasEpisodeSnapshot) {
+        return false;
+      }
+      if (this.isToggle) {
+        return this.isFinalScene;
+      }
+      return this.snapshotInView;
+    },
     showComments() {
       return this.isSeasonFive;
+    },
+    shouldShowComments() {
+      return this.showComments && (!this.isToggle || this.isFinalScene);
     },
     commentPostedAt() {
       const raw =
@@ -500,6 +591,8 @@ export default {
       this.lastSeenScene = null;
       this.activeSceneIndex = 0;
       this.copiedScene = null;
+      this.snapshotInView = false;
+      this.teardownSnapshotObserver();
       this.resetReactions();
       this.comments = [];
       this.commentDraft = "";
@@ -514,6 +607,7 @@ export default {
           this.loadComments();
         }
         this.cacheSceneElements();
+        this.setupSnapshotObserver();
       });
     },
     isToggle() {
@@ -522,6 +616,7 @@ export default {
         if (!this.isToggle) {
           this.updateActiveFromScroll();
         }
+        this.setupSnapshotObserver();
       });
     },
     "$route.hash"() {
@@ -559,6 +654,7 @@ export default {
       this.cacheSceneElements();
       this.applyHashScene();
       this.updateActiveFromScroll();
+      this.setupSnapshotObserver();
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("keydown", this.handleKeydown, true);
@@ -583,6 +679,7 @@ export default {
       this.handleBookmarkUpdate
     );
     window.removeEventListener("user-settings-synced", this.handleSettingsSync);
+    this.teardownSnapshotObserver();
     this.teardownReactions();
     this.teardownSupabase();
     this.flushPendingResume(true);
@@ -1786,7 +1883,60 @@ export default {
       this._scrollRaf = window.requestAnimationFrame(() => {
         this._scrollRaf = null;
         this.updateActiveFromScroll();
+        this.checkSnapshotInView();
       });
+    },
+    setupSnapshotObserver() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      this.teardownSnapshotObserver();
+      if (!this.shouldTrackSnapshot) {
+        return;
+      }
+      const sentinel = this.$refs.snapshotSentinel;
+      if (!sentinel) {
+        return;
+      }
+      if ("IntersectionObserver" in window) {
+        this._snapshotObserver = new IntersectionObserver((entries) => {
+          if (!entries || !entries.length) {
+            return;
+          }
+          if (entries.some((entry) => entry.isIntersecting)) {
+            this.snapshotInView = true;
+            this.teardownSnapshotObserver();
+          }
+        });
+        this._snapshotObserver.observe(sentinel);
+        return;
+      }
+      this.checkSnapshotInView();
+    },
+    teardownSnapshotObserver() {
+      if (this._snapshotObserver) {
+        this._snapshotObserver.disconnect();
+        this._snapshotObserver = null;
+      }
+    },
+    checkSnapshotInView() {
+      if (
+        this.snapshotInView ||
+        this.isToggle ||
+        typeof window === "undefined" ||
+        !this.hasEpisodeSnapshot
+      ) {
+        return;
+      }
+      const sentinel = this.$refs.snapshotSentinel;
+      if (!sentinel || typeof sentinel.getBoundingClientRect !== "function") {
+        return;
+      }
+      const rect = sentinel.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        this.snapshotInView = true;
+        this.teardownSnapshotObserver();
+      }
     },
     updateActiveFromScroll() {
       if (!this._sceneElements || !this._sceneElements.length) {
@@ -2164,6 +2314,9 @@ export default {
   block-size: auto;
   margin-block-start: 1rem;
   gap: 3rem;
+}
+.episode-snapshot-sentinel {
+  height: 1px;
 }
 h2 {
   margin-block: 1.5rem 1rem;

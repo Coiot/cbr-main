@@ -6,27 +6,28 @@
         <p class="section-subtitle">{{ latestSubtitle }}</p>
       </div>
       <router-link
-        :to="post.path"
-        v-for="(post, index) in albums"
-        :key="post.title"
+        v-if="latestEpisode"
+        :to="latestEpisode.path"
         class="post"
-        :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
-        :aria-label="`${post.frontmatter.title} ${
-          post.frontmatter.edition || ''
-        }`"
+        :style="latestEpisodeStyle"
+        :aria-label="latestEpisodeLabel"
       >
         <div class="hero-overlay"></div>
         <div class="title-info">
-          <p>{{ post.frontmatter.title }}</p>
-          <span v-if="post.frontmatter.edition">{{
-            post.frontmatter.edition
+          <p>{{ latestEpisode.frontmatter.title }}</p>
+          <span v-if="latestEpisode.frontmatter.edition">{{
+            latestEpisode.frontmatter.edition
           }}</span>
-          <span v-else-if="post.frontmatter.pr">{{ post.frontmatter.pr }}</span>
+          <span v-else-if="latestEpisode.frontmatter.pr">{{
+            latestEpisode.frontmatter.pr
+          }}</span>
         </div>
 
         <div class="album-info">
-          <p>{{ post.frontmatter.narrated_by }}</p>
-          <span>Release Date: {{ post.frontmatter.release_date }}</span>
+          <p>{{ latestEpisode.frontmatter.narrated_by }}</p>
+          <span>
+            Release Date: {{ latestEpisode.frontmatter.release_date }}
+          </span>
         </div>
       </router-link>
     </div>
@@ -36,17 +37,40 @@
 <script>
 export default {
   name: "HomeLatestEpisode",
+  data() {
+    return {
+      memoEpisode: null,
+      memoKey: "",
+    };
+  },
   computed: {
-    albums() {
-      return this.$site.pages
-        .filter((x) => x.path.startsWith("/albums/s") && !x.frontmatter.exclude)
-        .sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        )
-        .slice(0, 1);
+    latestEpisode() {
+      const pages = (this.$site && this.$site.pages) || [];
+      const key = `${pages.length}-${(this.$site && this.$site.time) || ""}`;
+      if (this.memoKey === key && this.memoEpisode) {
+        return this.memoEpisode;
+      }
+      let latest = null;
+      let latestTime = 0;
+      pages.forEach((page) => {
+        if (!page.path.startsWith("/albums/s") || page.frontmatter.exclude) {
+          return;
+        }
+        const time = Date.parse(page.frontmatter.date || "");
+        if (!Number.isFinite(time)) {
+          return;
+        }
+        if (!latest || time > latestTime) {
+          latest = page;
+          latestTime = time;
+        }
+      });
+      this.memoEpisode = latest;
+      this.memoKey = key;
+      return latest;
     },
     latestHeadline() {
-      const post = this.albums[0];
+      const post = this.latestEpisode;
       if (!post) {
         return "Latest Release";
       }
@@ -65,13 +89,27 @@ export default {
       return "Latest Release";
     },
     latestSubtitle() {
-      const post = this.albums[0];
+      const post = this.latestEpisode;
       const description =
         post && post.frontmatter && post.frontmatter.description;
       if (description && String(description).trim()) {
         return description;
       }
       return "The newest episode, ready to watch.";
+    },
+    latestEpisodeStyle() {
+      const post = this.latestEpisode;
+      const image = post && post.frontmatter && post.frontmatter.image;
+      return image ? { backgroundImage: `url(${image})` } : undefined;
+    },
+    latestEpisodeLabel() {
+      const post = this.latestEpisode;
+      if (!post) {
+        return "Latest episode";
+      }
+      const title = post.frontmatter.title || "Latest episode";
+      const edition = post.frontmatter.edition || "";
+      return edition ? `${title} ${edition}` : title;
     },
   },
 };
@@ -132,9 +170,9 @@ h2 {
   inset: 0;
   background: linear-gradient(
     140deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.15) 45%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0.4) 100%
   );
 }
 

@@ -8,7 +8,7 @@
 
       <div class="edition-controls">
         <label class="filter" :for="episodeInputId">
-          <span>Search episodes</span>
+          <span v-once>Search episodes</span>
           <input
             :id="episodeInputId"
             v-model="episodeQuery"
@@ -62,7 +62,7 @@
 
       <template v-else>
         <div class="filter-results">
-          <h3 class="section-title">Results</h3>
+          <h3 v-once class="section-title">Results</h3>
           <div v-if="filteredAlbums.length">
             <router-link
               v-for="post in filteredAlbums"
@@ -113,7 +113,7 @@
         </div>
         <div class="competitor-controls">
           <label class="filter" :for="competitorInputId">
-            <span>Search competitors</span>
+            <span v-once>Search competitors</span>
             <input
               :id="competitorInputId"
               v-model="competitorQuery"
@@ -137,7 +137,9 @@
             </button>
           </div>
         </div>
-        <a href="#competitors-end" class="skip-link"> Skip competitors list </a>
+        <a href="#competitors-end" class="skip-link" v-once>
+          Skip competitors list
+        </a>
         <ul v-if="competitorsOpen" class="competitors">
           <li
             v-for="civ in filteredCompetitors"
@@ -148,7 +150,7 @@
             <span>{{ civ.leader }} &ndash; {{ civ.author }}</span>
           </li>
         </ul>
-        <p v-else class="collapsed-hint">Competitors hidden.</p>
+        <p v-else class="collapsed-hint" v-once>Competitors hidden.</p>
         <span id="competitors-end" class="skip-target" tabindex="-1"></span>
       </div>
 
@@ -274,6 +276,12 @@ export default {
       episodeQuery: "",
       competitorQuery: "",
       competitorsOpen: true,
+      memoSortedKey: "",
+      memoSortedAlbums: [],
+      memoFilteredKey: "",
+      memoFilteredAlbums: [],
+      memoCompetitorsKey: "",
+      memoFilteredCompetitors: [],
     };
   },
   computed: {
@@ -313,7 +321,15 @@ export default {
       if (!this.edition) {
         return [];
       }
+      const siteTime = (this.$site && this.$site.time) || "";
       const prefixes = this.edition.pathPrefixes || [];
+      const sortOrder = this.edition.sortOrder || "asc";
+      const key = `${this.editionId}:${siteTime}:${sortOrder}:${prefixes.join(
+        ","
+      )}`;
+      if (this.memoSortedKey === key && this.memoSortedAlbums.length) {
+        return this.memoSortedAlbums;
+      }
       const pages = this.$site.pages.filter((page) => {
         if (page.frontmatter.exclude) {
           return false;
@@ -321,12 +337,15 @@ export default {
         return prefixes.some((prefix) => page.path.startsWith(prefix));
       });
 
-      return pages.sort((a, b) => {
+      const sorted = pages.sort((a, b) => {
         const aDate = new Date(a.frontmatter.date || 0);
         const bDate = new Date(b.frontmatter.date || 0);
         const diff = aDate - bDate;
-        return this.edition.sortOrder === "desc" ? -diff : diff;
+        return sortOrder === "desc" ? -diff : diff;
       });
+      this.memoSortedKey = key;
+      this.memoSortedAlbums = sorted;
+      return sorted;
     },
     hasEpisodeFilter() {
       return this.episodeTokens.length > 0;
@@ -340,10 +359,18 @@ export default {
     },
     filteredAlbums() {
       const tokens = this.episodeTokens;
+      const key = `${this.editionId}:${tokens.join("|")}:${
+        this.sortedAlbums.length
+      }`;
+      if (this.memoFilteredKey === key && this.memoFilteredAlbums.length) {
+        return this.memoFilteredAlbums;
+      }
       if (!tokens.length) {
+        this.memoFilteredKey = key;
+        this.memoFilteredAlbums = this.sortedAlbums;
         return this.sortedAlbums;
       }
-      return this.sortedAlbums.filter((post) => {
+      const filtered = this.sortedAlbums.filter((post) => {
         const fields = [
           post.frontmatter && post.frontmatter.title,
           post.title,
@@ -357,6 +384,9 @@ export default {
         const haystack = fields.filter(Boolean).join(" ").toLowerCase();
         return tokens.every((token) => haystack.indexOf(token) > -1);
       });
+      this.memoFilteredKey = key;
+      this.memoFilteredAlbums = filtered;
+      return filtered;
     },
     competitorTokens() {
       const query = this.competitorQuery.trim().toLowerCase();
@@ -370,14 +400,28 @@ export default {
         return [];
       }
       const tokens = this.competitorTokens;
+      const key = `${this.editionId}:${tokens.join("|")}:${
+        this.edition.competitors.length
+      }`;
+      if (
+        this.memoCompetitorsKey === key &&
+        this.memoFilteredCompetitors.length
+      ) {
+        return this.memoFilteredCompetitors;
+      }
       if (!tokens.length) {
+        this.memoCompetitorsKey = key;
+        this.memoFilteredCompetitors = this.edition.competitors;
         return this.edition.competitors;
       }
-      return this.edition.competitors.filter((civ) => {
+      const filtered = this.edition.competitors.filter((civ) => {
         const fields = [civ.name, civ.leader, civ.author];
         const haystack = fields.filter(Boolean).join(" ").toLowerCase();
         return tokens.every((token) => haystack.indexOf(token) > -1);
       });
+      this.memoCompetitorsKey = key;
+      this.memoFilteredCompetitors = filtered;
+      return filtered;
     },
     featuredAlbums() {
       return this.filteredAlbums.slice(0, this.featuredCount);
@@ -473,7 +517,8 @@ export default {
 
 <style scoped>
 .album-list {
-  margin: 0 5rem;
+  margin-block: 0;
+  margin-inline: 5rem;
 }
 
 .header {
@@ -485,40 +530,41 @@ export default {
   font-size: 1.5rem;
   font-weight: 300;
   text-shadow: 2px 2px #083832;
-  margin-left: 2rem;
+  margin-inline-start: 2rem;
 }
 
 .edition-controls {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: 0.8rem 1.5rem;
-  margin: 1.2rem 0 2.4rem;
+  margin-block: 1.2rem 2.4rem;
+  margin-inline: 0;
 }
 
 .filter {
+  min-inline-size: 220px;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  min-width: 220px;
 }
 
 .filter span {
+  color: #ffbf46;
   font-size: 0.75rem;
   font-weight: 800;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #ffbf46;
+  text-transform: uppercase;
 }
 
 .edition-controls input,
 .competitor-controls input {
-  background: #141414;
   color: #fff;
+  font-size: 0.95rem;
   border: 1px solid #ffbf46;
   border-radius: 0.4rem;
+  background: #141414;
   padding: 0.5rem 0.7rem;
-  font-size: 0.95rem;
 }
 
 .edition-controls input:focus,
@@ -536,24 +582,24 @@ export default {
 }
 
 .control-button {
-  background: transparent;
   color: #ffbf46;
-  border: 1px solid #ffbf46;
-  border-radius: 999px;
-  padding: 0.2rem 0.8rem;
   font-size: 0.85rem;
   font-weight: 700;
-  cursor: pointer;
+  border: 1px solid #ffbf46;
+  border-radius: 999px;
+  background: transparent;
+  padding: 0.2rem 0.8rem;
   transition: all 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .control-button:hover {
-  background: #ffbf46;
   color: #1a1a1a;
+  background: #ffbf46;
 }
 
 .filter-results .list {
-  margin-bottom: 1.5rem;
+  margin-block-end: 1.5rem;
 }
 
 .empty-state {
@@ -562,7 +608,7 @@ export default {
 }
 
 .competitors-section {
-  margin-top: 2rem;
+  margin-block-start: 2rem;
 }
 
 .section-header {
@@ -578,70 +624,72 @@ export default {
 }
 
 .competitor-controls {
+  align-items: flex-end;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
   gap: 0.8rem 1.2rem;
-  margin: 1rem 0 1.5rem;
+  margin-block: 1rem 1.5rem;
+  margin-inline: 0;
 }
 
 .collapsed-hint {
   color: #e6e6e6;
   font-style: italic;
-  margin-top: 0.5rem;
+  margin-block-start: 0.5rem;
 }
 
 .skip-link {
+  inset-block-start: auto;
+  inset-inline-start: -9999px;
   position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
+  block-size: 1px;
+  inline-size: 1px;
   overflow: hidden;
 }
 
 .skip-link:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 0.8rem;
-  color: #1a1a1a;
-  background: #ffbf46;
+  overflow: visible;
+  position: static;
+  block-size: auto;
   border-radius: 999px;
-  padding: 0.3rem 0.8rem;
+  inline-size: auto;
+  color: #1a1a1a;
   font-size: 0.85rem;
   font-weight: 800;
   text-decoration: none;
+  background: #ffbf46;
+  padding-block: 0.3rem;
+  padding-inline: 0.8rem;
+  margin-block-end: 0.8rem;
 }
 
 .skip-target {
   display: block;
-  width: 1px;
-  height: 1px;
+  block-size: 1px;
+  inline-size: 1px;
 }
 
 .post {
   position: relative;
+  inline-size: 100%;
+  block-size: 70vh;
+  min-block-size: 520px;
   display: block;
-  text-decoration: none;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
   color: inherit;
-  min-height: 520px;
-  width: 100%;
-  height: 70vh;
+  text-decoration: none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-  border: 1px solid #2a2a2a;
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 2.5rem;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  margin-block-end: 2.5rem;
 }
 
 .post:hover {
@@ -650,41 +698,42 @@ export default {
 }
 
 .hero-overlay {
-  position: absolute;
   inset: 0;
+  position: absolute;
   background: linear-gradient(
     140deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.15) 45%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0.4) 100%
   );
 }
 
 img {
-  width: 100%;
+  inline-size: 100%;
   line-height: 0;
-  margin: 2rem 0;
+  margin-block: 2rem;
+  margin-inline: 0;
 }
 
 .title-info {
-  position: absolute;
-  max-width: 550px;
-  z-index: 1;
   inset-block-start: 2rem;
   inset-inline-start: 0;
-  text-shadow: 1px 2px rgba(8, 56, 50, 0.6);
-  background: rgba(16, 16, 16, 0.9);
+  position: absolute;
+  z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-inline-start: 0;
   border-radius: 0 12px 12px 0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  max-inline-size: 550px;
   padding-block: 1.2rem;
   padding-inline: 1.6rem;
+  text-shadow: 1px 2px rgba(8, 56, 50, 0.6);
+  background: rgba(16, 16, 16, 0.9);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
 }
 
 .title-info p {
-  width: auto;
   display: inline-block;
+  width: auto;
   font-size: 1.5rem;
   font-weight: 800;
   margin: 0;
@@ -697,20 +746,20 @@ img {
 }
 
 .album-info {
-  position: absolute;
-  max-width: 900px;
-  z-index: 1;
   inset-block-end: 2rem;
   inset-inline-end: 0;
-  color: #1a1a1a;
-  text-shadow: none;
-  background: rgba(255, 250, 240, 0.95);
+  position: absolute;
+  z-index: 1;
   border: 1px solid #f0d79b;
   border-inline-end: 0;
   border-radius: 12px 0 0 12px;
-  box-shadow: -6px 10px 20px rgba(0, 0, 0, 0.2);
+  max-inline-size: 900px;
   padding-block: 1.1rem;
   padding-inline: 1.6rem;
+  color: #1a1a1a;
+  text-shadow: none;
+  background: rgba(255, 250, 240, 0.95);
+  box-shadow: -6px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .album-info p {
@@ -731,34 +780,38 @@ img {
   font-size: 4rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
-  padding: 0.75em 0 0.1em;
-  margin-top: 0;
+  padding-block: 0.75em 0.1em;
+  padding-inline: 0;
+  margin-block-end: 1rem;
+  margin-block-start: 0;
 }
 .section-title {
   font-size: 2.6rem;
   font-weight: 900;
   text-shadow: 2px 2px #083832;
-  margin: 0.8rem 0 0.4rem;
+  margin-block: 0.8rem 0.4rem;
+  margin-inline: 0;
 }
 
 .competitors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.6rem 1.4rem;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 3rem;
   counter-reset: civs;
+  display: grid;
+  gap: 0.6rem 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-block: 0 3rem;
+  margin-inline: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .competitors li {
-  width: 100%;
+  counter-increment: civs;
+  inline-size: 100%;
+  min-inline-size: 0;
   display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr);
   align-items: start;
   gap: 0.2rem 0.8rem;
-  min-width: 0;
-  counter-increment: civs;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
   transition: all 0.2s ease-in-out;
 }
 
@@ -768,7 +821,7 @@ img {
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
 .competitors li:hover {
@@ -782,43 +835,45 @@ img {
 }
 
 .competitors p {
+  min-inline-size: 0;
+  padding-inline-end: 0;
   font-size: 1.1rem;
   font-weight: 900;
   text-shadow: 2px 2px #083832;
-  padding-right: 0;
   margin: 0;
-  min-width: 0;
 }
 
 .competitors span {
   grid-column: 2;
+  overflow-wrap: anywhere;
+  min-inline-size: 0;
   color: #fff !important;
   font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.3;
-  overflow-wrap: anywhere;
-  min-width: 0;
 }
 
 .arc {
-  width: 100%;
   display: flex;
   flex-flow: row;
+  inline-size: 100%;
 }
 
 .arc + .arc {
-  margin: 3em 0;
+  margin-block: 3em;
+  margin-inline: 0;
 }
 
 .arc-header {
-  width: 40%;
+  inline-size: 40%;
 }
 
 .arc-header .arc-title {
   font-size: 2.2rem;
   font-weight: 900;
   text-shadow: 3px 3px #083832;
-  margin: 0 0 0.5em;
+  margin-block: 0 0.5em;
+  margin-inline: 0;
 }
 
 .arc-header span {
@@ -828,57 +883,58 @@ img {
 }
 
 .arc-header p {
+  margin-inline-end: 3em;
   text-shadow: 2px 2px #083832;
-  margin-right: 3em;
 }
 
 .arc-list {
-  width: 80%;
+  inline-size: 80%;
   display: flex;
   flex-flow: column;
-  flex-wrap: nowrap;
   flex-grow: 1;
+  flex-wrap: nowrap;
   gap: 1.1rem;
 }
 
 .list {
-  position: relative;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 0.35rem;
-  text-decoration: none;
+  position: relative;
   color: #fff;
+  text-decoration: none;
+  text-shadow: none;
   background: linear-gradient(
     140deg,
     rgba(20, 20, 20, 0.95) 0%,
     rgba(32, 32, 32, 0.95) 100%
   );
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0 12px 12px 0;
+  margin-block-end: 1.2rem;
+  padding-block: 1.1rem;
+  padding-inline: 1.5rem;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-  padding: 1.1rem 1.5rem;
-  margin-bottom: 1.2rem;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
-  text-shadow: none;
-  overflow: hidden;
+  cursor: pointer;
 }
 
 .list::before {
   content: "";
-  position: absolute;
   inset-block: 0;
   inset-inline-start: 0;
-  width: 4px;
+  position: absolute;
+  inline-size: 4px;
   background: #ffbf46;
   opacity: 0.9;
 }
 
 .list:hover {
+  border-color: rgba(255, 191, 70, 0.45);
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
-  border-color: rgba(255, 191, 70, 0.45);
 }
 
 .arc-list .list {
@@ -894,15 +950,15 @@ img {
 
 .arc-mini-header {
   position: sticky;
-  top: 1rem;
+  inset-block-start: 1rem;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.35rem 0.9rem;
-  background: rgba(12, 16, 16, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  background: rgba(12, 16, 16, 0.85);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(6px);
 }
@@ -914,9 +970,9 @@ img {
 }
 
 .arc-mini-label {
+  color: #ffbf46;
   font-size: 0.8rem;
   font-weight: 800;
-  color: #ffbf46;
 }
 
 .list-title {
@@ -927,9 +983,9 @@ img {
 }
 
 .list-title .list-suffix {
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.78rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
   text-shadow: none;
   margin-inline-start: 0.5rem;
 }
@@ -937,38 +993,38 @@ img {
 .list-meta {
   font-size: 1rem;
   font-weight: 700;
-  margin: 0;
   text-shadow: none;
+  margin: 0;
 }
 
 .list-meta span {
+  color: rgba(255, 255, 255, 0.72);
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
   margin-inline-start: 0.5rem;
 }
 
 .list-summary {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  max-block-size: 0;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0;
   text-shadow: none;
-  max-height: 0;
   opacity: 0;
-  overflow: hidden;
   transform: translateY(-2px);
-  transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
+  transition: max-block-size 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .list:hover .list-summary,
 .album-list a:focus .list-summary,
 .album-list a:focus-visible .list-summary {
-  max-height: 3.5em;
+  max-block-size: 3.5em;
   opacity: 1;
   transform: translateY(0);
 }
@@ -982,20 +1038,21 @@ img {
 
 @media (max-width: 900px) {
   .edition-controls {
-    margin: 1rem 0 1.6rem;
+    margin-block: 1rem 1.6rem;
+    margin-inline: 0;
   }
 
   .filter {
-    min-width: 100%;
+    min-inline-size: 100%;
   }
 
   .control-meta {
-    width: 100%;
+    inline-size: 100%;
   }
 
   .header {
     flex-flow: column;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
   }
 
   .header .page-title {
@@ -1003,7 +1060,7 @@ img {
   }
 
   .header span {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   .arc {
@@ -1011,7 +1068,7 @@ img {
   }
 
   .arc-header {
-    width: 100%;
+    inline-size: 100%;
     line-height: 0.1;
     padding: 0;
   }
@@ -1026,26 +1083,29 @@ img {
 
   .arc-header p {
     font-size: 1.5rem;
-    padding: 1rem 0;
-    margin-right: 0;
+    padding-block: 1rem;
+    padding-inline: 0;
+    margin-inline-end: 0;
   }
 
   .arc-list {
-    width: 100%;
+    inline-size: 100%;
   }
 
   .arc-mini-header {
-    top: 0.5rem;
-    padding: 0.3rem 0.7rem;
+    inset-block-start: 0.5rem;
+    padding-block: 0.3rem;
+    padding-inline: 0.7rem;
   }
 
   .list {
-    padding: 0.9rem 1.1rem;
+    padding-block: 0.9rem;
+    padding-inline: 1.1rem;
   }
 
   .competitors {
-    grid-template-columns: 1fr;
     gap: 0.6rem;
+    grid-template-columns: 1fr;
   }
 
   .competitors li {
@@ -1057,24 +1117,26 @@ img {
   }
 
   .album-list {
-    margin: 1rem 1.5rem 0;
+    margin-block: 1rem 0;
+    margin-inline: 1.5rem;
   }
 
   .post {
-    min-height: 420px;
-    height: auto;
+    min-block-size: 420px;
+    block-size: auto;
   }
 
   .page-title,
   .section-title {
     word-break: break-word;
-    padding: 0.4em 0 0.1em;
+    padding-block: 0.4em 0.1em;
+    padding-inline: 0;
   }
 
   .arc-title,
   .section-title {
-    word-break: break-word;
     border-bottom: none;
+    word-break: break-word;
   }
 }
 </style>

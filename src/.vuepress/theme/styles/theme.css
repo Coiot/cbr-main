@@ -439,7 +439,7 @@ a {
   color: var(--accent-color);
   text-decoration: none;
 }
-.blog a {
+/*.blog a {
   font-weight: 700;
   border-bottom: 2px solid color-mix(in srgb, var(--border-color), black 30%);
   transition: all 0.25s ease-in;
@@ -447,7 +447,7 @@ a {
 .blog a:hover {
   border-bottom: 2px solid #fffaf1;
   transform: scale(1.03) !important;
-}
+}*/
 p a code {
   font-weight: 400;
   color: var(--accent-color);

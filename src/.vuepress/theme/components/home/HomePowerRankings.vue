@@ -3,12 +3,15 @@
     <section>
       <div class="album-list">
         <router-link
-          :to="post.path"
-          v-for="(post, index) in albums"
-          :key="post.title"
+          v-if="latestPowerRanking"
+          :to="latestPowerRanking.path"
           class="post"
         >
-          <img :src="post.frontmatter.image" />
+          <img
+            :src="latestPowerRanking.frontmatter.image"
+            loading="lazy"
+            decoding="async"
+          />
 
           <div class="album-info">
             <p class="pr-title">
@@ -16,9 +19,10 @@
               <!-- <span class="pr-badge">New</span> -->
             </p>
             <!-- <p v-else>{{ post.frontmatter.pr }}</p> -->
-            <span>{{ post.frontmatter.title }}</span>
+            <span>{{ latestPowerRanking.frontmatter.title }}</span>
             <span style="margin-block-start: 0.25rem"
-              >Release Date: {{ post.frontmatter.release_date }}</span
+              >Release Date:
+              {{ latestPowerRanking.frontmatter.release_date }}</span
             >
           </div>
         </router-link>
@@ -30,16 +34,37 @@
 <script>
 export default {
   name: "HomePowerRankings",
+  data() {
+    return {
+      memoRanking: null,
+      memoKey: "",
+    };
+  },
   computed: {
-    albums() {
-      return this.$site.pages
-        .filter(
-          (x) => x.path.startsWith("/albums/pr") && !x.frontmatter.exclude
-        )
-        .sort(
-          (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-        )
-        .slice(0, 1);
+    latestPowerRanking() {
+      const pages = (this.$site && this.$site.pages) || [];
+      const key = `${pages.length}-${(this.$site && this.$site.time) || ""}`;
+      if (this.memoKey === key && this.memoRanking) {
+        return this.memoRanking;
+      }
+      let latest = null;
+      let latestTime = 0;
+      pages.forEach((page) => {
+        if (!page.path.startsWith("/albums/pr") || page.frontmatter.exclude) {
+          return;
+        }
+        const time = Date.parse(page.frontmatter.date || "");
+        if (!Number.isFinite(time)) {
+          return;
+        }
+        if (!latest || time > latestTime) {
+          latest = page;
+          latestTime = time;
+        }
+      });
+      this.memoRanking = latest;
+      this.memoKey = key;
+      return latest;
     },
   },
 };
