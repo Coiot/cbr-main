@@ -535,7 +535,7 @@ export default {
     inset-inline-start: 0.75rem;
     inset-inline-end: 0.75rem;
     min-inline-size: 0;
-    max-inline-size: calc(100vw - 1.5rem);
+    max-inline-size: calc(100vw - 2rem);
     box-sizing: border-box;
   }
 }

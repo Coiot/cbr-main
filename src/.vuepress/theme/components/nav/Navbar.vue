@@ -45,7 +45,12 @@
             />
           </svg>
         </button>
-        <div v-if="searchOpen" class="search-dropdown">
+        <div
+          v-if="searchOpen"
+          class="search-dropdown"
+          @click.stop
+          @touchstart.stop
+        >
           <SearchBox />
         </div>
       </div>
@@ -1756,6 +1761,15 @@ function css(el, property) {
     min-inline-size: 0;
     box-sizing: border-box;
     transform: translateX(-75%);
+  }
+  .navbar .search-dropdown {
+    position: fixed;
+    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
+    inset-inline-end: 1rem;
+    inline-size: 20rem;
+    max-inline-size: 95vw;
+    min-inline-size: 0;
+    box-sizing: border-box;
   }
   .navbar .user-dropdown,
   .navbar .help-dropdown {

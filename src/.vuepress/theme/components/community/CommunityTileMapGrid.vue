@@ -1617,9 +1617,20 @@
                     :key="`publish-${snapshot.id}`"
                     class="tile-snapshot-admin-item"
                   >
-                    <span class="tile-snapshot-admin-label">
-                      {{ formatSnapshotLabel(snapshot) }}
-                    </span>
+                    <div class="tile-snapshot-admin-meta">
+                      <span class="tile-snapshot-admin-label">
+                        {{ formatSnapshotLabel(snapshot) }}
+                      </span>
+                      <span
+                        class="tile-snapshot-admin-status"
+                        :class="{
+                          'is-published': snapshot.is_published,
+                          'is-draft': !snapshot.is_published,
+                        }"
+                      >
+                        {{ snapshot.is_published ? "Published" : "Draft" }}
+                      </span>
+                    </div>
                     <button
                       type="button"
                       class="tile-edit-button"
@@ -2432,7 +2443,7 @@ export default {
         this.snapshotViewId = "";
         this.snapshotCompareId = "";
       } else if (nextValue === "snapshots") {
-        this.loadSnapshots();
+        this.loadSnapshotsIfActive();
       }
     },
     scale: "handleScaleChange",
@@ -2554,6 +2565,12 @@ export default {
   },
 
   methods: {
+    loadSnapshotsIfActive() {
+      if (this.editPanelTab !== "snapshots") {
+        return;
+      }
+      this.loadSnapshots();
+    },
     initSupabase() {
       if (this.supabase) {
         return;
@@ -2668,9 +2685,7 @@ export default {
         this.tileOverrideSubscription = null;
       }
       this.loadTileOverrides();
-      if (this.editPanelTab === "snapshots") {
-        this.loadSnapshots();
-      }
+      this.loadSnapshotsIfActive();
       this.subscribeToTileOverrides();
       if (this.tileSaveQueue.size) {
         this.scheduleTileSaveRetry();
@@ -2703,9 +2718,7 @@ export default {
         return;
       }
       this.isAdmin = !!data;
-      if (this.editPanelTab === "snapshots") {
-        this.loadSnapshots();
-      }
+      this.loadSnapshotsIfActive();
     },
 
     async refreshEditPermission() {
@@ -4060,9 +4073,6 @@ export default {
       this.scheduleOwnerBordersRebuild();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
-      if (this.editPanelTab === "snapshots") {
-        this.loadSnapshots();
-      }
       this.subscribeToTileOverrides();
       this.$nextTick(() => {
         if (this.useTerrainCanvas) {
@@ -8960,10 +8970,37 @@ function toHex(value) {
   justify-content: space-between;
   gap: 0.5rem;
 }
+.tile-map .tile-snapshot-admin-meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
 .tile-map .tile-snapshot-admin-label {
   color: color-mix(in srgb, var(--text-color), white 10%);
   font-size: 0.8rem;
   font-weight: 700;
+}
+.tile-map .tile-snapshot-admin-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding-block: 0.1rem;
+  padding-inline: 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tile-map .tile-snapshot-admin-status.is-published {
+  background: rgba(255, 191, 70, 0.16);
+  color: #ffbf46;
+  border: 1px solid rgba(255, 191, 70, 0.45);
+}
+.tile-map .tile-snapshot-admin-status.is-draft {
+  background: rgba(255, 255, 255, 0.08);
+  color: color-mix(in srgb, var(--text-color), white 30%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 .tile-map .tile-legend-section {
   margin-block-start: 1rem;
@@ -9173,15 +9210,33 @@ function toHex(value) {
   }
   .tile-map .tile-map-controls {
     inline-size: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    overflow-x: hidden;
+  }
+  .tile-map .tile-map-controls .tile-map-control-group {
+    flex-wrap: wrap;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+  .tile-map .tile-map-controls .tile-map-auth-toolbar {
+    flex-wrap: wrap;
+    min-inline-size: 0;
+  }
+  .tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-toolbar-row {
+    flex-wrap: wrap;
+    min-inline-size: 0;
   }
   .tile-map .tile-map-control {
     block-size: 2.8rem;
     min-inline-size: 2.8rem;
+    max-inline-size: 100%;
     font-size: 0.95rem;
     padding-inline: 0.9rem;
   }
   .tile-map .tile-map-control-pill {
-    inline-size: 100%;
+    inline-size: fit-content;
+    max-inline-size: 100%;
     justify-content: space-between;
   }
   .tile-map .tile-map-viewport {
