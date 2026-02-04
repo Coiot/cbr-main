@@ -80,6 +80,14 @@
                 >
                   Reset
                 </button>
+                <button
+                  type="button"
+                  class="tile-map-control tile-map-control-ghost"
+                  :aria-pressed="miniMapEnabled"
+                  @click="toggleMiniMap"
+                >
+                  Mini Map
+                </button>
                 <span
                   v-if="!isMobileView"
                   class="tile-map-toolbar-divider"
@@ -439,8 +447,9 @@
           </svg>
         </div>
         <div
-          v-if="showMiniMap && !useTerrainCanvas && tiles.length"
+          v-if="showMiniMap && tiles.length"
           class="tile-mini-map"
+          :class="{ 'is-embedded': embedded }"
         >
           <canvas
             ref="miniMapCanvas"
@@ -451,6 +460,19 @@
             aria-label="Mini map"
             @pointerdown.stop.prevent="onMiniMapPointerDown"
           ></canvas>
+        </div>
+        <div v-if="showEmbeddedMiniMapToggle" class="tile-mini-toggle">
+          <button
+            type="button"
+            class="tile-mini-toggle-button"
+            :class="{ 'is-active': miniMapEnabled }"
+            :aria-pressed="miniMapEnabled"
+            @click.stop="toggleMiniMap"
+            @pointerdown.stop
+            @touchstart.stop
+          >
+            Mini Map {{ miniMapEnabled ? "On" : "Off" }}
+          </button>
         </div>
         <div
           v-if="hoverTooltipVisible && hoverTooltipTile"
@@ -1911,6 +1933,7 @@ export default {
       pinchStartDistance: 0,
       pinchStartScale: 1,
       pinchCenter: { x: 0, y: 0 },
+      miniMapEnabled: false,
       // Hover + selection
       hoveredTile: null,
       hoverTooltipTile: null,
@@ -2321,7 +2344,11 @@ export default {
     },
 
     showMiniMap() {
-      return !(this.isSnapshotEmbed && this.isMobileBrowser);
+      return this.miniMapEnabled;
+    },
+
+    showEmbeddedMiniMapToggle() {
+      return this.embedded && this.scale > 1;
     },
 
     miniMapScale() {
@@ -2398,7 +2425,7 @@ export default {
           this.drawTerrainCanvas();
         });
       }
-      this.scheduleMiniMapDraw();
+      this.scheduleMiniMapDrawIfVisible();
     },
     editPanelTab(nextValue) {
       if (nextValue !== "snapshots" && this.snapshotViewId) {
@@ -2408,16 +2435,16 @@ export default {
         this.loadSnapshots();
       }
     },
-    scale: "scheduleMiniMapDraw",
+    scale: "handleScaleChange",
     translate: {
       deep: true,
-      handler: "scheduleMiniMapDraw",
+      handler: "scheduleMiniMapDrawIfVisible",
     },
     tiles: {
       deep: true,
-      handler: "scheduleMiniMapDraw",
+      handler: "scheduleMiniMapDrawIfVisible",
     },
-    viewportSize: "scheduleMiniMapDraw",
+    viewportSize: "scheduleMiniMapDrawIfVisible",
     hoveredTile(nextTile) {
       if (!nextTile) {
         if (this.hoverTooltipVisible) {
@@ -4110,6 +4137,34 @@ export default {
       this.applyZoom(this.scale * 0.85);
     },
 
+    handleScaleChange() {
+      if (this.embedded && this.scale <= 1 && this.miniMapEnabled) {
+        this.toggleMiniMap(false);
+        return;
+      }
+      this.scheduleMiniMapDrawIfVisible();
+    },
+
+    scheduleMiniMapDrawIfVisible() {
+      if (!this.showMiniMap) {
+        return;
+      }
+      this.scheduleMiniMapDraw();
+    },
+
+    toggleMiniMap(nextValue) {
+      this.miniMapEnabled =
+        typeof nextValue === "boolean" ? nextValue : !this.miniMapEnabled;
+      if (this.miniMapEnabled) {
+        this.scheduleMiniMapDraw();
+        return;
+      }
+      if (this.miniMapFrameId) {
+        window.cancelAnimationFrame(this.miniMapFrameId);
+        this.miniMapFrameId = null;
+      }
+    },
+
     applyZoom(nextScale, focus) {
       if (!this.gridWidth || !this.gridHeight) {
         return;
@@ -4198,7 +4253,10 @@ export default {
     },
 
     scheduleMiniMapDraw() {
-      if (this.useTerrainCanvas || !this.tiles.length) {
+      if (!this.showMiniMap) {
+        return;
+      }
+      if (!this.tiles.length) {
         return;
       }
       if (this.miniMapFrameId) {
@@ -4211,7 +4269,7 @@ export default {
     },
 
     drawMiniMap() {
-      if (this.useTerrainCanvas || !this.gridWidth || !this.gridHeight) {
+      if (!this.gridWidth || !this.gridHeight) {
         return;
       }
       const canvas = this.$refs.miniMapCanvas;
@@ -7975,6 +8033,50 @@ function toHex(value) {
   padding: 0.25rem;
   transform-origin: 100% 100%;
   pointer-events: auto;
+}
+.tile-map .tile-map-viewport .tile-mini-map.is-embedded {
+  inset-block-end: 3rem;
+}
+.tile-map .tile-map-viewport .tile-mini-toggle {
+  position: absolute;
+  inset-block-end: 0.75rem;
+  inset-inline-end: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+.tile-map .tile-map-viewport .tile-mini-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.35rem;
+  padding-inline: 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(12, 12, 12, 0.75);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.tile-map .tile-map-viewport .tile-mini-toggle-button:hover {
+  transform: translateY(-1px);
+  background: rgba(20, 20, 20, 0.85);
+}
+.tile-map .tile-map-viewport .tile-mini-toggle-button.is-active {
+  border-color: var(--accent-color);
+}
+.tile-map .tile-map-viewport .tile-mini-toggle-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 .tile-map .tile-map-viewport .tile-mini-map-canvas {
   display: block;
