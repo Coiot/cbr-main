@@ -62,9 +62,10 @@
               type="button"
               class="comment-button"
               :disabled="commentSaving || !canSubmitComment"
+              :title="submitHint"
               @click="$emit('submit-comment')"
             >
-              {{ userComment ? "Update Comment" : "Post Comment" }}
+              {{ submitLabel }}
             </button>
             <button
               v-if="userComment"
@@ -226,6 +227,32 @@ export default {
     },
   },
   computed: {
+    submitHint() {
+      if (this.commentSaving) {
+        return "Saving comment...";
+      }
+      const trimmed = String(this.commentDraft || "").trim();
+      if (!trimmed) {
+        return "Write a comment to enable posting.";
+      }
+      if (!this.commentPreview || this.commentPreview.message !== trimmed) {
+        return "Preview your comment to enable posting.";
+      }
+      return this.userComment ? "Update your comment." : "Post your comment.";
+    },
+    submitLabel() {
+      if (this.commentSaving) {
+        return this.userComment ? "Updating..." : "Posting...";
+      }
+      const trimmed = String(this.commentDraft || "").trim();
+      if (!trimmed) {
+        return "Write a comment";
+      }
+      if (!this.commentPreview || this.commentPreview.message !== trimmed) {
+        return "Preview first";
+      }
+      return this.userComment ? "Update Comment" : "Post Comment";
+    },
     messageIsError() {
       return this.commentMessageType === "error";
     },

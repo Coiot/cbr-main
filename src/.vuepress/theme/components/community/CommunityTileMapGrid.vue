@@ -76,13 +76,6 @@
                 <button
                   type="button"
                   class="tile-map-control tile-map-control-ghost"
-                  @click="resetView"
-                >
-                  Reset
-                </button>
-                <button
-                  type="button"
-                  class="tile-map-control tile-map-control-ghost"
                   :aria-pressed="miniMapEnabled"
                   @click="toggleMiniMap"
                 >
@@ -4133,12 +4126,6 @@ export default {
       this.translate = this.centerTranslate(this.scale);
     },
 
-    resetView() {
-      this.scale = 1;
-      this.translate = this.centerTranslate(this.scale);
-      this.clampView();
-    },
-
     zoomIn() {
       this.applyZoom(this.scale * 1.15);
     },
@@ -4906,11 +4893,6 @@ export default {
       if (key === "-" || key === "_") {
         event.preventDefault();
         this.zoomOut();
-        return;
-      }
-      if (key === "0") {
-        event.preventDefault();
-        this.resetView();
         return;
       }
       if (key === "f" || key === "F") {
