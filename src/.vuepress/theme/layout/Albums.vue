@@ -157,7 +157,7 @@
         >
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
-            :image="scene.slide_url"
+            :image="scene.slide_svg ? null : scene.slide_url"
             :key="sceneKey(scene, index)"
             @keyup.left="previous()"
             @keyup.right="next()"
@@ -165,7 +165,18 @@
               $refs.vueperslides1 && $refs.vueperslides1.goToSlide(index)
             "
             style="margin: 0 0.2rem"
-          ></vueper-slide>
+          >
+            <template v-if="scene.slide_svg" v-slot:content>
+              <div class="scene-slide-media scene-slide-media--thumb">
+                <object
+                  class="scene-slide-svg"
+                  :data="scene.slide_svg"
+                  type="image/svg+xml"
+                  aria-label="Scene slide"
+                ></object>
+              </div>
+            </template>
+          </vueper-slide>
         </vueper-slides>
         <vueper-slides
           ref="vueperslides1"
@@ -182,13 +193,21 @@
         >
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
-            :image="scene.slide_url"
+            :image="scene.slide_svg ? null : scene.slide_url"
             :key="sceneKey(scene, index)"
             :title="scene.scene_title"
             :content="scene.narration"
             :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
+              <div v-if="scene.slide_svg" class="scene-slide-media">
+                <object
+                  class="scene-slide-svg"
+                  :data="scene.slide_svg"
+                  type="image/svg+xml"
+                  aria-label="Scene slide"
+                ></object>
+              </div>
               <SceneSlideContent
                 :scene="scene"
                 :scene-number="sceneNumber(index)"
@@ -2356,6 +2375,21 @@ h2 {
 :global(.vueperslides__bullets) {
   opacity: 0;
   width: 0;
+}
+.scene-slide-media {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+  background: #0b0b0b;
+}
+.scene-slide-media--thumb {
+  block-size: 100%;
+}
+.scene-slide-svg {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+  border: none;
 }
 
 @media (max-width: 799px) {

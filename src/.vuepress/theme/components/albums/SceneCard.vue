@@ -1,6 +1,16 @@
 <template>
   <article class="medium">
+    <object
+      v-if="scene.slide_svg"
+      class="scene-image scene-image--svg"
+      :class="{ civdeathImage: scene.death }"
+      :data="scene.slide_svg"
+      type="image/svg+xml"
+      tabindex="0"
+      :aria-label="sceneAlt"
+    ></object>
     <img
+      v-else
       v-lazy="scene.slide_url"
       tabindex="0"
       :alt="sceneAlt"
@@ -140,6 +150,11 @@ export default {
   inline-size: 100%;
   line-height: 0;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.scene-image--svg {
+  block-size: auto;
+  min-block-size: 12rem;
+  border: none;
 }
 .scene-image:hover {
   box-shadow: 0 3px 0 0 #c39a1c;

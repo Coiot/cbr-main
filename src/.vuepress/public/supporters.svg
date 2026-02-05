@@ -272,9 +272,9 @@
     <text class="name" x="848.6666666666666" y="607" dominant-baseline="middle">sundevil_062005</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="777.4666666666666" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="645" r="10" fill="#1c1e35" stroke="#abbdb7" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="734.2666666666667" y="581.8" width="188.79999999999998" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="605.4" text-anchor="middle" dominant-baseline="middle">Scotland</text>
     <text class="name" x="848.6666666666666" y="645" dominant-baseline="middle">Videosyncratic</text>
   </g>
   </g>
@@ -282,7 +282,7 @@
   <text class="counts-label" x="700" y="810" text-anchor="middle">Top 5 Supporters Choice</text>
   <g class="counts" transform="translate(334.59999999999997, 0)">
   <circle class="count-badge" cx="8" cy="839" r="8" fill="#d6683f" stroke="#000000" stroke-width="3" />
-  <text class="count" x="24" y="839" dominant-baseline="middle">Pomo 23</text>
+  <text class="count" x="24" y="839" dominant-baseline="middle">Pomo 22</text>
   <circle class="count-badge" cx="125.3" cy="839" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
   <text class="count" x="141.3" y="839" dominant-baseline="middle">Hanseatic League 2</text>
   <circle class="count-badge" cx="351.5" cy="839" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />

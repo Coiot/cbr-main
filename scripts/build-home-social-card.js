@@ -439,7 +439,7 @@ async function buildSocialCard() {
     10
   );
   const titleSize = Number.parseInt(
-    process.env.SOCIAL_CARD_TITLE_SIZE || "50",
+    process.env.SOCIAL_CARD_TITLE_SIZE || "48",
     10
   );
   const titleLineHeight = Math.round(titleSize * 1.15);
