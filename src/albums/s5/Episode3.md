@@ -13,11 +13,11 @@ scenes:
   narration: "<p>I hope you’ve settled into a comfy position because we are live with the third episode of the Civ Battle Royale X Season Five! You’ll be shown around by this week’s narrator Bulletproof Cookie. Bullets may have not been invented yet in this timeline, but blades are being sharpened and arrows are soaring through the air. Try not to get caught by either!</p>"
 - scene_number: 02
   scene_title: "2-4-1 On Mappacks? Yes please!"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode3-scene02.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode3-scene03.jpg
   narration: "<p>Sonicfan0511 has humbly graced us with not one but TWO maps! One for episode 1 and 2. You can see when comparing what a difference those 16 turns make at the crucial moments of the early game. And the map will surely fill up more from here.</p>"
 - scene_number: 03
   scene_title: "Setters Make For The Best Settlers"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode3-scene03.jpg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode3-scene02.jpg
   narration: "<p>Lasqueto offers this humorous (or heartbreaking depending on how you view it) depiction on Hotu Matu’a’s concerns over where his spare settler has wandered off to. Could this be the episode where we see him be reunited with it?</p><p></p><p>(That or it gets dognapped…)</p>"
 - scene_number: 04
   scene_title: "Keep The Sub Floating"
