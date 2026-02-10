@@ -532,10 +532,10 @@ export default {
   .search-dropdown {
     position: fixed;
     inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-    inset-inline-start: 0.75rem;
-    inset-inline-end: 0.75rem;
+    inset-inline-end: 1rem;
+    inline-size: 20rem;
+    max-inline-size: 95vw;
     min-inline-size: 0;
-    max-inline-size: calc(100vw - 2rem);
     box-sizing: border-box;
   }
 }
