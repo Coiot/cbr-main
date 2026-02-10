@@ -37,12 +37,11 @@
           >
             <template v-if="scene.slide_svg" v-slot:content>
               <div class="scene-slide-media">
-                <object
+                <img
                   class="scene-slide-svg"
-                  :data="scene.slide_svg"
-                  type="image/svg+xml"
-                  aria-label="Scene slide"
-                ></object>
+                  :src="scene.slide_svg"
+                  alt="Scene slide"
+                />
               </div>
             </template>
           </vueper-slide>
@@ -479,6 +478,23 @@ export default {
 .cinematic-stage:fullscreen .cinematic-slides,
 .cinematic-stage:-webkit-full-screen .cinematic-slides {
   block-size: 100%;
+}
+.scene-slide-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: hidden;
+  background: #050505;
+}
+.scene-slide-svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;
 }
 :global(.cinematic-primary .vueperslide) {
   background-color: #050505;
