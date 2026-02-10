@@ -122,167 +122,179 @@
     <text class="name" x="30" y="569" dominant-baseline="middle">Buzzercap</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="10" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="10" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="30" y="607" dominant-baseline="middle">dabokan</text>
+    <circle class="civ-badge" cx="10" cy="607" r="10" fill="#e59d3b" stroke="#1f2028" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-84.39999999999999" y="543.8" width="188.79999999999998" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="567.4" text-anchor="middle" dominant-baseline="middle">Kipchaks</text>
+    <text class="name" x="30" y="607" dominant-baseline="middle">Convicted Melon</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="10" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="10" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="30" y="645" dominant-baseline="middle">DeadHeadAhead</text>
+    <circle class="civ-badge" cx="10" cy="645" r="10" fill="#e6c7cb" stroke="#67120a" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-160" y="581.8" width="340" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="605.4" text-anchor="middle" dominant-baseline="middle">New South Wales</text>
+    <text class="name" x="30" y="645" dominant-baseline="middle">dabokan</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="10" cy="683" r="10" fill="#3accc7" stroke="#0c3856" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="-106" y="619.8" width="232" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="10" y="643.4" text-anchor="middle" dominant-baseline="middle">Seychelles</text>
-    <text class="name" x="30" y="683" dominant-baseline="middle">ECH</text>
+    <circle class="civ-badge" cx="10" cy="683" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="619.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="643.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="30" y="683" dominant-baseline="middle">DeadHeadAhead</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="10" cy="721" r="10" fill="#b21b2a" stroke="#fff398" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="657.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="10" y="681.4" text-anchor="middle" dominant-baseline="middle">Pegu</text>
-    <text class="name" x="30" y="721" dominant-baseline="middle">EmeraldRange</text>
+    <circle class="civ-badge" cx="10" cy="721" r="10" fill="#3accc7" stroke="#0c3856" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-106" y="657.8" width="232" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="681.4" text-anchor="middle" dominant-baseline="middle">Seychelles</text>
+    <text class="name" x="30" y="721" dominant-baseline="middle">ECH</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="303" r="10" fill="#0b4033" stroke="#ebe968" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="270.9333333333333" y="239.8" width="296.8" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Green Ukraine</text>
-    <text class="name" x="439.3333333333333" y="303" dominant-baseline="middle">ExplosiveWatermelon</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="303" r="10" fill="#b21b2a" stroke="#fff398" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="239.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Pegu</text>
+    <text class="name" x="439.3333333333333" y="303" dominant-baseline="middle">EmeraldRange</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="341" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="368.1333333333333" y="277.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="341" dominant-baseline="middle">Frankie Leonie</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="341" r="10" fill="#0b4033" stroke="#ebe968" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="270.9333333333333" y="277.8" width="296.8" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Green Ukraine</text>
+    <text class="name" x="439.3333333333333" y="341" dominant-baseline="middle">ExplosiveWatermelon</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="419.3333333333333" cy="379" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="368.1333333333333" y="315.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="419.3333333333333" y="339.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="379" dominant-baseline="middle">GBlazeMan</text>
+    <text class="name" x="439.3333333333333" y="379" dominant-baseline="middle">Frankie Leonie</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="417" r="10" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="238.53333333333333" y="353.8" width="361.59999999999997" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Hanseatic League</text>
-    <text class="name" x="439.3333333333333" y="417" dominant-baseline="middle">gold13</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="417" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="353.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="417" dominant-baseline="middle">GBlazeMan</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="455" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="368.1333333333333" y="391.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="455" dominant-baseline="middle">ItsTruckMonth</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="455" r="10" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="238.53333333333333" y="391.8" width="361.59999999999997" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Hanseatic League</text>
+    <text class="name" x="439.3333333333333" y="455" dominant-baseline="middle">gold13</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="493" r="10" fill="#9db5e3" stroke="#0c0d7d" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="335.73333333333335" y="429.8" width="167.2" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Bactria</text>
-    <text class="name" x="439.3333333333333" y="493" dominant-baseline="middle">Lacsirax</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="493" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="429.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="493" dominant-baseline="middle">ItsTruckMonth</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="531" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="368.1333333333333" y="467.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="531" dominant-baseline="middle">Lemons</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="531" r="10" fill="#9db5e3" stroke="#0c0d7d" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="335.73333333333335" y="467.8" width="167.2" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Bactria</text>
+    <text class="name" x="439.3333333333333" y="531" dominant-baseline="middle">Lacsirax</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="419.3333333333333" cy="569" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="368.1333333333333" y="505.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="419.3333333333333" y="529.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="569" dominant-baseline="middle">Lisbon Mapping</text>
+    <text class="name" x="439.3333333333333" y="569" dominant-baseline="middle">Lemons</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="419.3333333333333" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="368.1333333333333" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="419.3333333333333" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="607" dominant-baseline="middle">Marekesh</text>
+    <text class="name" x="439.3333333333333" y="607" dominant-baseline="middle">Lisbon Mapping</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="419.3333333333333" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="368.1333333333333" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="419.3333333333333" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="645" dominant-baseline="middle">Nathanmasse</text>
+    <text class="name" x="439.3333333333333" y="645" dominant-baseline="middle">Marekesh</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="419.3333333333333" cy="683" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="368.1333333333333" y="619.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="419.3333333333333" y="643.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="439.3333333333333" y="683" dominant-baseline="middle">Nirosat</text>
+    <text class="name" x="439.3333333333333" y="683" dominant-baseline="middle">Nathanmasse</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="419.3333333333333" cy="721" r="10" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="238.53333333333333" y="657.8" width="361.59999999999997" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="419.3333333333333" y="681.4" text-anchor="middle" dominant-baseline="middle">Hanseatic League</text>
-    <text class="name" x="439.3333333333333" y="721" dominant-baseline="middle">NJay</text>
+    <circle class="civ-badge" cx="419.3333333333333" cy="721" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="368.1333333333333" y="657.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="419.3333333333333" y="681.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="439.3333333333333" y="721" dominant-baseline="middle">Nirosat</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="303" r="10" fill="#6b080f" stroke="#f07c4e" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="755.8666666666667" y="239.8" width="145.6" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Mysore</text>
-    <text class="name" x="848.6666666666666" y="303" dominant-baseline="middle">NopeCopter</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="303" r="10" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="647.8666666666667" y="239.8" width="361.59999999999997" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="263.40000000000003" text-anchor="middle" dominant-baseline="middle">Hanseatic League</text>
+    <text class="name" x="848.6666666666666" y="303" dominant-baseline="middle">NJay</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="341" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="777.4666666666666" y="277.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="341" dominant-baseline="middle">Paraguay_Stronk</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="341" r="10" fill="#6b080f" stroke="#f07c4e" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="755.8666666666667" y="277.8" width="145.6" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="301.40000000000003" text-anchor="middle" dominant-baseline="middle">Mysore</text>
+    <text class="name" x="848.6666666666666" y="341" dominant-baseline="middle">NopeCopter</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="828.6666666666666" cy="379" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="777.4666666666666" y="315.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="828.6666666666666" y="339.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="379" dominant-baseline="middle">PvtPikman</text>
+    <text class="name" x="848.6666666666666" y="379" dominant-baseline="middle">Paraguay_Stronk</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="417" r="10" fill="#deb057" stroke="#073c42" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="766.6666666666666" y="353.8" width="124" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Aures</text>
-    <text class="name" x="848.6666666666666" y="417" dominant-baseline="middle">QuantumBotany</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="417" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="353.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="417" dominant-baseline="middle">PvtPikman</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="455" r="10" fill="#f3aa98" stroke="#550c1c" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="755.8666666666667" y="391.8" width="145.6" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Herero</text>
-    <text class="name" x="848.6666666666666" y="455" dominant-baseline="middle">Semiconscious</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="455" r="10" fill="#deb057" stroke="#073c42" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="766.6666666666666" y="391.8" width="124" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="415.40000000000003" text-anchor="middle" dominant-baseline="middle">Aures</text>
+    <text class="name" x="848.6666666666666" y="455" dominant-baseline="middle">QuantumBotany</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="493" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="777.4666666666666" y="429.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="493" dominant-baseline="middle">SeroSedSerio</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="493" r="10" fill="#f3aa98" stroke="#550c1c" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="755.8666666666667" y="429.8" width="145.6" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="453.40000000000003" text-anchor="middle" dominant-baseline="middle">Herero</text>
+    <text class="name" x="848.6666666666666" y="493" dominant-baseline="middle">Semiconscious</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="531" r="10" fill="#1c3b56" stroke="#f23929" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="755.8666666666667" y="467.8" width="145.6" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">France</text>
-    <text class="name" x="848.6666666666666" y="531" dominant-baseline="middle">shaggysnorlax</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="531" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="467.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="491.40000000000003" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="531" dominant-baseline="middle">SeroSedSerio</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="569" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="777.4666666666666" y="505.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="529.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="569" dominant-baseline="middle">SilverFoxG</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="569" r="10" fill="#1c3b56" stroke="#f23929" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="755.8666666666667" y="505.8" width="145.6" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="529.4" text-anchor="middle" dominant-baseline="middle">France</text>
+    <text class="name" x="848.6666666666666" y="569" dominant-baseline="middle">shaggysnorlax</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="828.6666666666666" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="777.4666666666666" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="828.6666666666666" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="607" dominant-baseline="middle">sundevil_062005</text>
+    <text class="name" x="848.6666666666666" y="607" dominant-baseline="middle">SilverFoxG</text>
   </g>
   <g class="supporter">
     <circle class="civ-badge" cx="828.6666666666666" cy="645" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
     <rect class="civ-tooltip-bg" x="777.4666666666666" y="581.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
     <text class="civ-tooltip" x="828.6666666666666" y="605.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
-    <text class="name" x="848.6666666666666" y="645" dominant-baseline="middle">Videosyncratic</text>
+    <text class="name" x="848.6666666666666" y="645" dominant-baseline="middle">sundevil_062005</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="683" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="777.4666666666666" y="619.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="643.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <text class="name" x="848.6666666666666" y="683" dominant-baseline="middle">venice enjoyer</text>
+  </g>
+  <g class="supporter">
+    <circle class="civ-badge" cx="828.6666666666666" cy="721" r="10" fill="#1c1e35" stroke="#abbdb7" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="734.2666666666667" y="657.8" width="188.79999999999998" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="681.4" text-anchor="middle" dominant-baseline="middle">Scotland</text>
+    <text class="name" x="848.6666666666666" y="721" dominant-baseline="middle">Videosyncratic</text>
   </g>
   </g>
   <rect class="counts-panel" x="318.59999999999997" y="774" width="762.8000000000001" height="94" rx="10" ry="10" />
   <text class="counts-label" x="700" y="810" text-anchor="middle">Top 5 Supporters Choice</text>
   <g class="counts" transform="translate(334.59999999999997, 0)">
   <circle class="count-badge" cx="8" cy="839" r="8" fill="#d6683f" stroke="#000000" stroke-width="3" />
-  <text class="count" x="24" y="839" dominant-baseline="middle">Pomo 23</text>
+  <text class="count" x="24" y="839" dominant-baseline="middle">Pomo 22</text>
   <circle class="count-badge" cx="125.3" cy="839" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
   <text class="count" x="141.3" y="839" dominant-baseline="middle">Hanseatic League 2</text>
   <circle class="count-badge" cx="351.5" cy="839" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />

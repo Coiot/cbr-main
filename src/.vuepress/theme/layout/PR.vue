@@ -2053,7 +2053,6 @@ export default {
   }
 }
 .blog {
-  text-shadow: 2px 2px #083832;
   margin-block: 2rem;
 }
 .blog h1 {

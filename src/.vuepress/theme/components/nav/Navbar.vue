@@ -345,6 +345,7 @@
               <li><kbd>R</kbd> Resume to bookmark</li>
               <li><kbd>G</kbd> Jump to scene input</li>
               <li><kbd>T</kbd> Toggle view</li>
+              <li><kbd>F</kbd> Toggle fullscreen</li>
               <!-- <li><kbd>C</kbd> Copy scene link</li> -->
             </ul>
           </div>
@@ -717,6 +718,8 @@ export default {
         if (key === "albumsViewMode") {
           if (value === "horizontal" || value === "vertical") {
             window.localStorage.setItem(key, value);
+          } else {
+            window.localStorage.setItem(key, "vertical");
           }
           return;
         }
@@ -851,8 +854,7 @@ export default {
         return;
       }
       const stored = window.localStorage.getItem("albumsViewMode");
-      this.albumsViewMode =
-        stored === "horizontal" || stored === "vertical" ? stored : "vertical";
+      this.albumsViewMode = stored === "horizontal" ? "horizontal" : "vertical";
       const storedCiv = window.localStorage.getItem("favoriteCiv");
       this.favoriteCiv = storedCiv || "";
       const storedFlair = window.localStorage.getItem("customFlair");
