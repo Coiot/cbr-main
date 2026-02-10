@@ -595,7 +595,7 @@ export default {
   }
 }
 
-:global(body.cinematic-fullscreen-active .floatingchat-container-wrap) {
+:global(body.cinematic-fullscreen-active iframe) {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
