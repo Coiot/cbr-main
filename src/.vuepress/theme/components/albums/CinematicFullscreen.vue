@@ -362,6 +362,9 @@ export default {
   background-position: center center !important;
   background-repeat: no-repeat !important;
 }
+:global(.cinematic-primary .vueperslide__title) {
+  display: none !important;
+}
 :global(.cinematic-primary.vueperslides--fixed-height .vueperslides__inner),
 :global(
     .cinematic-primary.vueperslides--fixed-height
