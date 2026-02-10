@@ -183,6 +183,7 @@ export default {
       if (!next) {
         this.pseudoFullscreen = false;
         this.unlockBodyScroll();
+        this.setFullscreenBodyClass(false);
         return;
       }
       this.$nextTick(() => {
@@ -192,6 +193,7 @@ export default {
       if (this.shouldUsePseudoFullscreen()) {
         this.lockBodyScroll();
       }
+      this.setFullscreenBodyClass(true);
     },
     activeSceneIndex() {
       if (!this.isFullscreen) {
@@ -217,6 +219,7 @@ export default {
       return;
     }
     this.unlockBodyScroll();
+    this.setFullscreenBodyClass(false);
     document.removeEventListener(
       "fullscreenchange",
       this.handleFullscreenChange
@@ -243,7 +246,14 @@ export default {
         this.pseudoFullscreen = false;
         this.unlockBodyScroll();
       }
+      this.setFullscreenBodyClass(isActive || this.pseudoFullscreen);
       this.$emit("fullscreen-change", isActive);
+    },
+    setFullscreenBodyClass(active) {
+      if (typeof document === "undefined" || !document.body) {
+        return;
+      }
+      document.body.classList.toggle("cinematic-fullscreen-active", !!active);
     },
     shouldUsePseudoFullscreen() {
       if (typeof window === "undefined") {
@@ -298,6 +308,7 @@ export default {
         this.pseudoFullscreen = next;
         if (next) {
           this.lockBodyScroll();
+          this.setFullscreenBodyClass(true);
           this.$emit("fullscreen-change", true);
           this.$nextTick(() => {
             this.syncToIndex(this.activeSceneIndex);
@@ -305,6 +316,7 @@ export default {
           });
         } else {
           this.unlockBodyScroll();
+          this.setFullscreenBodyClass(false);
           this.$emit("fullscreen-change", false);
         }
         return;
@@ -329,6 +341,7 @@ export default {
         try {
           await request.call(stage);
         } catch (error) {
+          this.setFullscreenBodyClass(false);
           this.$emit("fullscreen-change", false);
         }
       }
@@ -577,5 +590,11 @@ export default {
   .cinematic-stage--bottom .cinematic-narration {
     max-block-size: 100%;
   }
+}
+
+:global(body.cinematic-fullscreen-active .floatingchat-container-wrap) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 </style>
