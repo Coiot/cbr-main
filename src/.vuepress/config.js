@@ -1,4 +1,8 @@
 const currentDateUTC = new Date().toUTCString();
+const ASSET_VERSION =
+  process.env.ASSET_VERSION ||
+  process.env.VERCEL_GIT_COMMIT_SHA ||
+  String(Date.now());
 const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
 const SITE_URL = "https://civbattleroyale.tv";
@@ -221,9 +225,12 @@ module.exports = {
         ],
       });
 
-    config
-      .plugin("define-global")
-      .use(require("webpack").DefinePlugin, [{ global: "window" }]);
+    config.plugin("define-global").use(require("webpack").DefinePlugin, [
+      {
+        global: "window",
+        __ASSET_VERSION__: JSON.stringify(ASSET_VERSION),
+      },
+    ]);
   },
   themeConfig: {
     nav: [
@@ -231,6 +238,7 @@ module.exports = {
       { text: "Albums", link: "/albums/" },
     ],
     logo: "/cbr_logo_color.svg",
+    assetVersion: ASSET_VERSION,
     socialImage: DEFAULT_SOCIAL_IMAGE,
     socialImageAlt: DEFAULT_SOCIAL_ALT,
     docsDir: "src",

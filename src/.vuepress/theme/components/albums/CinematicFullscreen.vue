@@ -30,7 +30,7 @@
         >
           <vueper-slide
             v-for="(scene, index) in scenes"
-            :image="scene.slide_svg ? null : scene.slide_url"
+            :image="scene.slide_svg ? null : $assetUrl(scene.slide_url)"
             :key="sceneKey(scene, index)"
             :title="String(scene.scene_title || '')"
             :class="{ civdeathBorder: scene.death }"
@@ -39,7 +39,7 @@
               <div class="scene-slide-media">
                 <img
                   class="scene-slide-svg"
-                  :src="scene.slide_svg"
+                  :src="$assetUrl(scene.slide_svg)"
                   alt="Scene slide"
                 />
               </div>

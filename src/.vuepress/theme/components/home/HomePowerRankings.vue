@@ -8,7 +8,7 @@
           class="post"
         >
           <img
-            :src="latestPowerRanking.frontmatter.image"
+            :src="$assetUrl(latestPowerRanking.frontmatter.image)"
             loading="lazy"
             decoding="async"
           />

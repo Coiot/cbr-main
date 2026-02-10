@@ -142,7 +142,7 @@
         >
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
-            :image="scene.slide_url"
+            :image="$assetUrl(scene.slide_url)"
             :key="sceneKey(scene, index)"
             @keyup.left="previous()"
             @keyup.right="next()"
@@ -167,7 +167,7 @@
         >
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
-            :image="scene.slide_url"
+            :image="$assetUrl(scene.slide_url)"
             :key="sceneKey(scene, index)"
             :title="scene.scene_title"
             :content="scene.narration"

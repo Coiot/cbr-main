@@ -4,14 +4,14 @@
       v-if="scene.slide_svg"
       class="scene-image scene-image--svg"
       :class="{ civdeathImage: scene.death }"
-      :data="scene.slide_svg"
+      :data="$assetUrl(scene.slide_svg)"
       type="image/svg+xml"
       tabindex="0"
       :aria-label="sceneAlt"
     ></object>
     <img
       v-else
-      v-lazy="scene.slide_url"
+      v-lazy="$assetUrl(scene.slide_url)"
       tabindex="0"
       :alt="sceneAlt"
       class="scene-image"

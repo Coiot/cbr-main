@@ -18,7 +18,7 @@
         >
           <div class="card-media">
             <img
-              :src="post.frontmatter.image"
+              :src="$assetUrl(post.frontmatter.image)"
               loading="lazy"
               decoding="async"
             />
