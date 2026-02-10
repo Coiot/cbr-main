@@ -71,37 +71,22 @@
       </p>
 
       <div class="episode-tools" v-if="hasScenes">
-        <div class="view-toggle">
-          <span class="view-status">
-            Viewing: {{ isToggle ? "Horizontal" : "Vertical" }}
-          </span>
-          <button
-            class="toggle-button"
-            type="button"
-            :aria-pressed="isToggle"
-            @click="toggleView"
-          >
-            Switch to {{ isToggle ? "Vertical" : "Horizontal" }} View
-          </button>
-        </div>
-        <div class="scene-jump">
-          <label class="jump-label" for="scene-jump">Jump to scene</label>
-          <div class="jump-controls">
-            <select
-              id="scene-jump"
-              v-model.number="jumpToScene"
-              @change="goToScene"
-              @keyup.enter="goToScene"
-            >
-              <option v-for="index in sceneCount" :key="index" :value="index">
-                Scene {{ index }}
-              </option>
-            </select>
-            <button type="button" class="scene-button" @click="goToScene">
-              Go
-            </button>
-          </div>
-        </div>
+        <EpisodeViewControls
+          :current-view-label="currentViewLabel"
+          :is-vertical-view="isVerticalView"
+          :is-horizontal-view="isHorizontalView"
+          :is-cinematic-fullscreen="isCinematicFullscreen"
+          :cinematic-narration-layout="cinematicNarrationLayout"
+          @set-view-mode="setViewMode"
+          @toggle-fullscreen="toggleCinematicFullscreen"
+          @set-layout="setCinematicNarrationLayout"
+        />
+        <SceneJumpControl
+          v-model.number="jumpToScene"
+          :scene-count="sceneCount"
+          select-id="scene-jump"
+          @go="goToScene"
+        />
       </div>
 
       <div v-if="hasScenes" class="scene-timeline">
@@ -206,6 +191,30 @@
           </vueper-slide>
         </vueper-slides>
       </div>
+      <CinematicFullscreen
+        ref="cinematicOverlay"
+        :scenes="$page.frontmatter.scenes || []"
+        :is-fullscreen="isCinematicFullscreen"
+        :narration-layout="cinematicNarrationLayout"
+        :active-scene="activeScene"
+        :active-scene-index="activeSceneIndex"
+        :active-scene-number="sceneNumber(activeSceneIndex)"
+        :active-bookmarked="isBookmarked(activeSceneIndex)"
+        :active-bookmark-aria="bookmarkAria(activeSceneIndex)"
+        :active-reaction-display="
+          reactionDisplay(sceneNumber(activeSceneIndex))
+        "
+        :active-user-reaction="userReaction(sceneNumber(activeSceneIndex))"
+        :active-menu-open="isReactionMenuOpen(sceneNumber(activeSceneIndex))"
+        :auth-user="authUser"
+        :scene-key="sceneKey"
+        @set-layout="setCinematicNarrationLayout"
+        @toggle-bookmark="bookmarkScene(activeSceneIndex)"
+        @toggle-reaction="toggleReaction"
+        @toggle-menu="toggleReactionMenu"
+        @slide-change="handlePrimarySlide"
+        @fullscreen-change="handleCinematicFullscreenChange"
+      />
       <div v-if="isToggle === false" :key="`scenes-${$page.path}`">
         <section class="scenes">
           <SceneCard
@@ -283,6 +292,9 @@ const VueperSlide = () => import("vueperslides").then((mod) => mod.VueperSlide);
 import "vueperslides/dist/vueperslides.css";
 import SceneCard from "../components/albums/SceneCard.vue";
 import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
+import CinematicFullscreen from "../components/albums/CinematicFullscreen.vue";
+import EpisodeViewControls from "../components/albums/EpisodeViewControls.vue";
+import SceneJumpControl from "../components/albums/SceneJumpControl.vue";
 import CommentsSection from "../components/albums/CommentsSection.vue";
 import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
@@ -309,6 +321,7 @@ const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
 const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
 const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
 const RESUME_SYNC_DEBOUNCE = 4000;
+const CINEMATIC_NARRATION_LAYOUT_KEY = "albumsCinematicNarrationLayout";
 const normalizeEpisodeNumber = (value) => {
   if (value === null || value === undefined) {
     return "";
@@ -340,6 +353,8 @@ export default {
       bookmarkedScene: null,
       lastSeenScene: null,
       activeSceneIndex: 0,
+      cinematicNarrationLayout: "side",
+      isCinematicFullscreen: false,
       copiedScene: null,
       timelineFocusEnabled: false,
       timelineFocusTimeoutId: null,
@@ -374,6 +389,9 @@ export default {
     VueperSlide,
     SceneCard,
     SceneSlideContent,
+    CinematicFullscreen,
+    EpisodeViewControls,
+    SceneJumpControl,
     CommentsSection,
     AlbumsNav,
     EpisodeMapSnapshot,
@@ -409,6 +427,25 @@ export default {
     },
     sceneTimeline() {
       return this.sceneTimelineCache;
+    },
+    currentViewLabel() {
+      return this.isToggle ? "Horizontal" : "Vertical";
+    },
+    isHorizontalView() {
+      return this.isToggle;
+    },
+    isVerticalView() {
+      return !this.isToggle;
+    },
+    activeScene() {
+      if (!this.hasScenes) {
+        return null;
+      }
+      return (
+        this.$page.frontmatter.scenes[this.activeSceneIndex] ||
+        this.$page.frontmatter.scenes[0] ||
+        null
+      );
     },
     timelineProgress() {
       if (this.sceneCount <= 1) {
@@ -600,6 +637,7 @@ export default {
       this.bookmarkedScene = null;
       this.lastSeenScene = null;
       this.activeSceneIndex = 0;
+      this.isCinematicFullscreen = false;
       this.copiedScene = null;
       this.snapshotInView = false;
       this.teardownSnapshotObserver();
@@ -652,11 +690,8 @@ export default {
       this.loadComments();
     }
     const saved = window.localStorage.getItem("albumsViewMode");
-    if (saved === "horizontal") {
-      this.isToggle = true;
-    } else if (saved === "vertical") {
-      this.isToggle = false;
-    }
+    this.loadCinematicSettings();
+    this.setViewMode(saved, { persist: false, emit: false });
     this.loadBookmark();
     this.loadResume();
     this.rebuildPageCaches();
@@ -1193,11 +1228,13 @@ export default {
       if (!event || !event.detail) {
         return;
       }
-      const mode = event.detail.albumsViewMode;
-      if (mode === "horizontal") {
-        this.isToggle = true;
-      } else if (mode === "vertical") {
-        this.isToggle = false;
+      if (
+        Object.prototype.hasOwnProperty.call(event.detail, "albumsViewMode")
+      ) {
+        this.setViewMode(event.detail.albumsViewMode, {
+          persist: false,
+          emit: false,
+        });
       }
       if (Object.prototype.hasOwnProperty.call(event.detail, "favoriteCiv")) {
         this.favoriteCiv = event.detail.favoriteCiv || "";
@@ -1431,17 +1468,68 @@ export default {
       this.commentEditing = false;
       this.loadComments();
     },
-    toggleView() {
-      this.isToggle = !this.isToggle;
-      if (typeof window !== "undefined") {
-        const viewMode = this.isToggle ? "horizontal" : "vertical";
-        window.localStorage.setItem("albumsViewMode", viewMode);
+    normalizeViewMode(mode) {
+      if (mode === "horizontal" || mode === "vertical") {
+        return mode;
+      }
+      return "vertical";
+    },
+    applyViewMode(mode) {
+      const normalized = this.normalizeViewMode(mode);
+      this.isToggle = normalized === "horizontal";
+    },
+    setViewMode(mode, options = {}) {
+      const { persist = true, emit = true } = options;
+      const normalized = this.normalizeViewMode(mode);
+      this.applyViewMode(normalized);
+      if (typeof window !== "undefined" && persist) {
+        window.localStorage.setItem("albumsViewMode", normalized);
+      }
+      if (typeof window !== "undefined" && emit) {
         window.dispatchEvent(
           new CustomEvent("user-settings-updated", {
-            detail: { albumsViewMode: viewMode },
+            detail: { albumsViewMode: normalized },
           })
         );
       }
+    },
+    toggleView() {
+      this.setViewMode(this.isToggle ? "vertical" : "horizontal");
+    },
+    loadCinematicSettings() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const storedLayout = window.localStorage.getItem(
+        CINEMATIC_NARRATION_LAYOUT_KEY
+      );
+      if (storedLayout === "side" || storedLayout === "bottom") {
+        this.cinematicNarrationLayout = storedLayout;
+      }
+    },
+    setCinematicNarrationLayout(layout) {
+      if (layout !== "side" && layout !== "bottom") {
+        return;
+      }
+      this.cinematicNarrationLayout = layout;
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(CINEMATIC_NARRATION_LAYOUT_KEY, layout);
+      }
+    },
+    handleCinematicFullscreenChange(isFullscreen) {
+      this.isCinematicFullscreen = Boolean(isFullscreen);
+      if (this.isCinematicFullscreen) {
+        this.$nextTick(() => {
+          this.syncSlidesToActiveScene();
+        });
+      }
+    },
+    async toggleCinematicFullscreen() {
+      const overlay = this.$refs.cinematicOverlay;
+      if (!overlay || typeof overlay.toggleFullscreen !== "function") {
+        return;
+      }
+      await overlay.toggleFullscreen();
     },
     resumeToScene() {
       if (!this.resumeScene) {
@@ -1472,6 +1560,29 @@ export default {
       this.jumpToScene = event.currentSlide.index + 1;
       this.setActiveScene(event.currentSlide.index);
     },
+    syncSlidesToActiveScene() {
+      if (!this.sceneCount) {
+        return;
+      }
+      const targetIndex = Math.min(
+        Math.max(this.activeSceneIndex, 0),
+        this.sceneCount - 1
+      );
+      const overlay = this.$refs.cinematicOverlay;
+      if (
+        this.isCinematicFullscreen &&
+        overlay &&
+        typeof overlay.syncToIndex === "function"
+      ) {
+        overlay.syncToIndex(targetIndex);
+      }
+      if (this.$refs.vueperslides1) {
+        this.$refs.vueperslides1.goToSlide(targetIndex, { emit: false });
+      }
+      if (this.$refs.vueperslides2) {
+        this.$refs.vueperslides2.goToSlide(targetIndex, { emit: false });
+      }
+    },
     goToScene() {
       if (!this.sceneCount) {
         return;
@@ -1484,6 +1595,15 @@ export default {
       this.jumpToScene = target;
       const index = target - 1;
       this.setActiveScene(index);
+      const overlay = this.$refs.cinematicOverlay;
+      if (
+        this.isCinematicFullscreen &&
+        overlay &&
+        typeof overlay.goToIndex === "function"
+      ) {
+        overlay.goToIndex(index);
+        return;
+      }
       if (this.isToggle && this.$refs.vueperslides1) {
         this.$refs.vueperslides1.goToSlide(index);
         return;
@@ -1837,6 +1957,11 @@ export default {
         this.toggleView();
         return;
       }
+      if (key === "f" || key === "F") {
+        event.preventDefault();
+        this.toggleCinematicFullscreen();
+        return;
+      }
       if (key === "r" || key === "R") {
         event.preventDefault();
         this.resumeToScene();
@@ -2127,85 +2252,6 @@ export default {
   gap: 1.5rem 2.5rem;
   margin-block: 1.2em 2em;
 }
-.view-toggle {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.view-status {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--nav-color);
-}
-.toggle-button {
-  font-size: 1.4rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 900;
-  line-height: 1.4;
-  color: #fff;
-  text-shadow: 2px 2px #083832;
-  background-color: #d20083;
-  box-shadow: #d20083 0px 5px 25px -10px;
-  border: 1px solid #000;
-  border-radius: 10px;
-  padding-block: 0.35em 0.42em;
-  padding-inline: 1.1em;
-  transition: all 0.2s ease-in-out;
-  width: auto;
-}
-.toggle-button:hover {
-  background-color: color-mix(in srgb, #d20083, black 35%);
-  transform: scale(1.01);
-  cursor: pointer;
-}
-.scene-jump {
-  min-width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-.jump-label {
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--nav-color);
-}
-.jump-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.jump-controls select {
-  width: 6.5rem;
-  font-size: 1rem;
-  color: #fff;
-  background: #1a1a1a;
-  border: 1px solid #ffbf46;
-  border-radius: 6px;
-  padding-block: 0.35rem;
-  padding-inline: 0.6rem;
-}
-.jump-controls select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
-}
-.scene-button {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #ffbf46;
-  background: #1a1a1a;
-  border: 1px solid #ffbf46;
-  border-radius: 999px;
-  padding-block: 0.3rem;
-  padding-inline: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.scene-button:hover {
-  background: #ffbf46;
-  color: #1a1a1a;
-}
 .scene-timeline {
   position: sticky;
   z-index: 5;
@@ -2426,12 +2472,6 @@ h2 {
   }
   .episode-tools {
     align-items: flex-start;
-  }
-  .toggle-button {
-    width: 100%;
-  }
-  .scene-jump {
-    width: 100%;
   }
   .nav-card {
     text-align: left;

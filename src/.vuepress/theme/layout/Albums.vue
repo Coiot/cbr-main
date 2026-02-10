@@ -71,83 +71,22 @@
       </p>
 
       <div class="episode-tools" v-if="hasScenes">
-        <div class="view-toggle">
-          <span class="view-status">
-            Viewing: {{ currentViewLabel }}
-            <button
-              class="scene-button fullscreen-button"
-              type="button"
-              :class="{ 'is-active': isCinematicFullscreen }"
-              @click="toggleCinematicFullscreen"
-            >
-              {{ isCinematicFullscreen ? "Exit Fullscreen" : "Fullscreen" }}
-            </button>
-          </span>
-          <div class="view-mode-buttons" role="group" aria-label="View mode">
-            <button
-              class="toggle-button mode-button"
-              type="button"
-              :class="{ 'is-active': isVerticalView }"
-              :aria-pressed="isVerticalView"
-              @click="setViewMode('vertical')"
-            >
-              Vertical
-            </button>
-            <button
-              class="toggle-button mode-button"
-              type="button"
-              :class="{ 'is-active': isHorizontalView }"
-              :aria-pressed="isHorizontalView"
-              @click="setViewMode('horizontal')"
-            >
-              Horizontal
-            </button>
-          </div>
-
-          <div
-            v-if="isCinematicFullscreen"
-            class="fullscreen-layout-toggle"
-            role="group"
-            aria-label="Fullscreen narration layout"
-          >
-            <div class="layout-toggle-group">
-              <button
-                type="button"
-                class="scene-button cinematic-setting layout-toggle"
-                :class="{ 'is-active': cinematicNarrationLayout === 'side' }"
-                @click="setCinematicNarrationLayout('side')"
-              >
-                Narration Side
-              </button>
-              <button
-                type="button"
-                class="scene-button cinematic-setting layout-toggle"
-                :class="{ 'is-active': cinematicNarrationLayout === 'bottom' }"
-                @click="setCinematicNarrationLayout('bottom')"
-              >
-                Narration Bottom
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="scene-jump">
-          <label class="jump-label" for="scene-jump">Jump to scene</label>
-          <div class="jump-controls">
-            <select
-              id="scene-jump"
-              v-model.number="jumpToScene"
-              @change="goToScene"
-              @keyup.enter="goToScene"
-            >
-              <option v-for="index in sceneCount" :key="index" :value="index">
-                Scene {{ index }}
-              </option>
-            </select>
-            <button type="button" class="scene-button" @click="goToScene">
-              Go
-            </button>
-          </div>
-        </div>
+        <EpisodeViewControls
+          :current-view-label="currentViewLabel"
+          :is-vertical-view="isVerticalView"
+          :is-horizontal-view="isHorizontalView"
+          :is-cinematic-fullscreen="isCinematicFullscreen"
+          :cinematic-narration-layout="cinematicNarrationLayout"
+          @set-view-mode="setViewMode"
+          @toggle-fullscreen="toggleCinematicFullscreen"
+          @set-layout="setCinematicNarrationLayout"
+        />
+        <SceneJumpControl
+          v-model.number="jumpToScene"
+          :scene-count="sceneCount"
+          select-id="scene-jump"
+          @go="goToScene"
+        />
       </div>
 
       <div v-if="hasScenes" class="scene-timeline">
@@ -374,6 +313,8 @@ import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
 import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
 import CinematicFullscreen from "../components/albums/CinematicFullscreen.vue";
+import EpisodeViewControls from "../components/albums/EpisodeViewControls.vue";
+import SceneJumpControl from "../components/albums/SceneJumpControl.vue";
 import CommentsSection from "../components/albums/CommentsSection.vue";
 import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
@@ -460,6 +401,8 @@ export default {
     SceneCard,
     SceneSlideContent,
     CinematicFullscreen,
+    EpisodeViewControls,
+    SceneJumpControl,
     CommentsSection,
     EpisodeMapSnapshot,
   },
@@ -2315,139 +2258,6 @@ export default {
   gap: 1.5rem 2.5rem;
   margin-block: 1.2em 2em;
 }
-.view-toggle {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.fullscreen-button {
-  margin-inline-start: 0.5rem;
-  align-self: flex-start;
-}
-.fullscreen-layout-toggle {
-  display: none;
-}
-.view-status {
-  color: var(--nav-color);
-  font-size: 1rem;
-  font-weight: 700;
-}
-.view-mode-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-.toggle-button {
-  inline-size: auto;
-  padding-block: 0.35em 0.42em;
-  padding-inline: 1.1em;
-  border: 1px solid #000;
-  border-radius: 10px;
-  background-color: #d20083;
-  color: #fff;
-  font-size: 1.4rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 900;
-  line-height: 1.4;
-  text-shadow: 2px 2px #083832;
-  box-shadow: #d20083 0px 5px 25px -10px;
-  transition: all 0.2s ease-in-out;
-}
-.toggle-button:hover {
-  background-color: color-mix(in srgb, #d20083, black 35%);
-  transform: scale(1.01);
-  cursor: pointer;
-}
-.mode-button {
-  min-inline-size: 10.2rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  text-shadow: 1px 1px #083832;
-}
-.mode-button.is-active {
-  background-color: color-mix(in srgb, #d20083, white 20%);
-  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.45);
-}
-.scene-jump {
-  min-inline-size: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.jump-label {
-  color: var(--nav-color);
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.jump-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.jump-controls select {
-  min-inline-size: 6.5rem;
-  padding-block: 0.5rem;
-  padding-inline: 0.75rem 2rem;
-  border: 1px solid #ffbf46;
-  border-radius: 6px;
-  background: #1a1a1a;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #fff;
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #ffbf46 50%),
-    linear-gradient(135deg, #ffbf46 50%, transparent 50%);
-  background-position: calc(100% - 0.9rem) calc(50% - 0.1rem),
-    calc(100% - 0.6rem) calc(50% - 0.1rem);
-  background-size: 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
-}
-.jump-controls select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
-}
-.scene-button {
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  border: 1px solid #ffbf46;
-  border-radius: 999px;
-  background: #1a1a1a;
-  color: #ffbf46;
-  font-size: 1.125rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.scene-button:hover {
-  color: #1a1a1a;
-  background: #ffbf46;
-}
-.scene-button.is-active {
-  color: #1a1a1a;
-  background: #ffbf46;
-}
-.cinematic-setting {
-  min-inline-size: 9.5rem;
-}
-.layout-toggle-group {
-  display: inline-flex;
-  align-items: stretch;
-  gap: 0;
-}
-.layout-toggle {
-  border-radius: 999px;
-}
-.layout-toggle-group .layout-toggle:first-child {
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-}
-.layout-toggle-group .layout-toggle:last-child {
-  margin-inline-start: -1px;
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
-}
 .scene-count {
   color: color-mix(in srgb, var(--text-color), white 25%);
   font-size: 0.95rem;
@@ -2634,34 +2444,6 @@ h2 {
   }
   .episode-tools {
     align-items: flex-start;
-  }
-  .view-mode-buttons {
-    inline-size: 100%;
-  }
-  .toggle-button {
-    inline-size: 100%;
-  }
-  .mode-button {
-    min-inline-size: 0;
-  }
-  .scene-jump {
-    inline-size: 100%;
-  }
-  .fullscreen-layout-toggle {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    inline-size: 100%;
-  }
-  .fullscreen-layout-toggle .cinematic-setting {
-    flex: 1 1 10rem;
-    min-inline-size: 0;
-  }
-  .fullscreen-layout-toggle .layout-toggle-group {
-    inline-size: 100%;
-  }
-  .fullscreen-layout-toggle .layout-toggle {
-    flex: 1 1 auto;
   }
   .albumInfo {
     flex-flow: column nowrap;
