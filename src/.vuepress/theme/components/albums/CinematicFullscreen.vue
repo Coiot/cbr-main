@@ -544,6 +544,9 @@ export default {
   .cinematic-mode.is-pseudo-fullscreen {
     padding: 0.6rem;
   }
+  :global(.cinematic-primary .vueperslides__fractions) {
+    display: none !important;
+  }
   .cinematic-control-button {
     font-size: 0.82rem;
     padding-inline: 0.65rem;
