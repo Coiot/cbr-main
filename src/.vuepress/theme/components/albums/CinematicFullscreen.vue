@@ -5,6 +5,7 @@
     :class="{
       'is-active': isFullscreen,
       'cinematic-mode--bottom': narrationLayout === 'bottom',
+      'is-pseudo-fullscreen': pseudoFullscreen,
     }"
   >
     <div
@@ -14,34 +15,6 @@
         'cinematic-stage--bottom': narrationLayout === 'bottom',
       }"
     >
-      <div class="cinematic-fullscreen-controls">
-        <div class="layout-toggle-group">
-          <button
-            type="button"
-            class="cinematic-control-button layout-toggle"
-            :class="{ 'is-active': narrationLayout === 'side' }"
-            @click="$emit('set-layout', 'side')"
-          >
-            Narration Side
-          </button>
-          <button
-            type="button"
-            class="cinematic-control-button layout-toggle"
-            :class="{ 'is-active': narrationLayout === 'bottom' }"
-            @click="$emit('set-layout', 'bottom')"
-          >
-            Narration Bottom
-          </button>
-        </div>
-        <button
-          type="button"
-          class="cinematic-control-button"
-          :class="{ 'is-active': isFullscreen }"
-          @click="toggleFullscreen"
-        >
-          Exit Fullscreen
-        </button>
-      </div>
       <div class="cinematic-slides">
         <vueper-slides
           ref="cinematicSlides"
@@ -76,22 +49,52 @@
         </vueper-slides>
       </div>
       <aside class="cinematic-narration" v-if="activeScene">
-        <SceneSlideContent
-          :scene="activeScene"
-          :scene-number="activeSceneNumber"
-          :bookmarked="activeBookmarked"
-          :bookmark-aria="activeBookmarkAria"
-          :reaction-display="activeReactionDisplay"
-          :user-reaction="activeUserReaction"
-          :auth-user="authUser"
-          :is-menu-open="activeMenuOpen"
-          @toggle-bookmark="$emit('toggle-bookmark')"
-          @toggle-reaction="
-            (sceneNumber, reactionKey) =>
-              $emit('toggle-reaction', sceneNumber, reactionKey)
-          "
-          @toggle-menu="(sceneNumber) => $emit('toggle-menu', sceneNumber)"
-        />
+        <div class="cinematic-narration-controls">
+          <div class="layout-toggle-group">
+            <button
+              type="button"
+              class="cinematic-control-button layout-toggle"
+              :class="{ 'is-active': narrationLayout === 'side' }"
+              @click="$emit('set-layout', 'side')"
+            >
+              Side
+            </button>
+            <button
+              type="button"
+              class="cinematic-control-button layout-toggle"
+              :class="{ 'is-active': narrationLayout === 'bottom' }"
+              @click="$emit('set-layout', 'bottom')"
+            >
+              Bottom
+            </button>
+          </div>
+          <button
+            type="button"
+            class="cinematic-control-button"
+            :class="{ 'is-active': isFullscreen }"
+            @click="toggleFullscreen"
+          >
+            Exit
+          </button>
+        </div>
+        <div ref="narrationContent" class="cinematic-narration-content">
+          <SceneSlideContent
+            :scene="activeScene"
+            :scene-number="activeSceneNumber"
+            :bookmarked="activeBookmarked"
+            :bookmark-aria="activeBookmarkAria"
+            :reaction-display="activeReactionDisplay"
+            :user-reaction="activeUserReaction"
+            :auth-user="authUser"
+            :is-menu-open="activeMenuOpen"
+            @toggle-bookmark="$emit('toggle-bookmark')"
+            @toggle-reaction="
+              (sceneNumber, reactionKey) =>
+                $emit('toggle-reaction', sceneNumber, reactionKey)
+            "
+            @toggle-menu="(sceneNumber) => $emit('toggle-menu', sceneNumber)"
+          />
+        </div>
       </aside>
     </div>
   </div>
@@ -109,6 +112,12 @@ export default {
     VueperSlides,
     VueperSlide,
     SceneSlideContent,
+  },
+  data() {
+    return {
+      pseudoFullscreen: false,
+      previousBodyOverflow: null,
+    };
   },
   props: {
     scenes: {
@@ -172,10 +181,24 @@ export default {
   watch: {
     isFullscreen(next) {
       if (!next) {
+        this.pseudoFullscreen = false;
+        this.unlockBodyScroll();
         return;
       }
       this.$nextTick(() => {
         this.syncToIndex(this.activeSceneIndex);
+        this.resetNarrationScroll();
+      });
+      if (this.shouldUsePseudoFullscreen()) {
+        this.lockBodyScroll();
+      }
+    },
+    activeSceneIndex() {
+      if (!this.isFullscreen) {
+        return;
+      }
+      this.$nextTick(() => {
+        this.resetNarrationScroll();
       });
     },
   },
@@ -193,6 +216,7 @@ export default {
     if (typeof document === "undefined") {
       return;
     }
+    this.unlockBodyScroll();
     document.removeEventListener(
       "fullscreenchange",
       this.handleFullscreenChange
@@ -215,7 +239,51 @@ export default {
       const isActive = Boolean(
         active && stage && (active === stage || stage.contains(active))
       );
+      if (!isActive) {
+        this.pseudoFullscreen = false;
+        this.unlockBodyScroll();
+      }
       this.$emit("fullscreen-change", isActive);
+    },
+    shouldUsePseudoFullscreen() {
+      if (typeof window === "undefined") {
+        return false;
+      }
+      const ua = window.navigator.userAgent || "";
+      const isIos =
+        /iPad|iPhone|iPod/.test(ua) ||
+        (window.navigator.platform === "MacIntel" &&
+          window.navigator.maxTouchPoints > 1);
+      const isSafari =
+        /Safari/i.test(ua) &&
+        !/Chrome|CriOS|EdgiOS|FxiOS|Firefox|Android/i.test(ua);
+      return isIos || (isSafari && window.navigator.maxTouchPoints > 0);
+    },
+    lockBodyScroll() {
+      if (typeof document === "undefined") {
+        return;
+      }
+      const body = document.body;
+      if (!body) {
+        return;
+      }
+      if (this.previousBodyOverflow === null) {
+        this.previousBodyOverflow = body.style.overflow || "";
+      }
+      body.style.overflow = "hidden";
+    },
+    unlockBodyScroll() {
+      if (typeof document === "undefined") {
+        return;
+      }
+      const body = document.body;
+      if (!body) {
+        return;
+      }
+      if (this.previousBodyOverflow !== null) {
+        body.style.overflow = this.previousBodyOverflow;
+      }
+      this.previousBodyOverflow = null;
     },
     async toggleFullscreen() {
       if (typeof document === "undefined") {
@@ -225,6 +293,23 @@ export default {
       if (!stage) {
         return;
       }
+      if (this.shouldUsePseudoFullscreen()) {
+        const next = !this.isFullscreen;
+        this.pseudoFullscreen = next;
+        if (next) {
+          this.lockBodyScroll();
+          this.$emit("fullscreen-change", true);
+          this.$nextTick(() => {
+            this.syncToIndex(this.activeSceneIndex);
+            this.resetNarrationScroll();
+          });
+        } else {
+          this.unlockBodyScroll();
+          this.$emit("fullscreen-change", false);
+        }
+        return;
+      }
+      this.pseudoFullscreen = false;
       const active = this.getFullscreenElement();
       if (active) {
         const exit =
@@ -237,6 +322,7 @@ export default {
       this.$emit("fullscreen-change", true);
       await new Promise((resolve) => this.$nextTick(resolve));
       this.syncToIndex(this.activeSceneIndex);
+      this.resetNarrationScroll();
       const request =
         stage.requestFullscreen || stage.webkitRequestFullscreen || null;
       if (typeof request === "function") {
@@ -259,7 +345,25 @@ export default {
       }
       this.$refs.cinematicSlides.goToSlide(index);
     },
+    resetNarrationScroll() {
+      const panel = this.$refs.narrationContent;
+      if (!panel) {
+        return;
+      }
+      if (typeof panel.scrollTo === "function") {
+        panel.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      } else {
+        panel.scrollTop = 0;
+      }
+      const nested = panel.querySelectorAll(".h-narration, .h-narration p");
+      nested.forEach((node) => {
+        if (node && typeof node.scrollTop === "number") {
+          node.scrollTop = 0;
+        }
+      });
+    },
     handlePrimarySlide(event) {
+      this.resetNarrationScroll();
       this.$emit("slide-change", event);
     },
   },
@@ -273,23 +377,24 @@ export default {
 .cinematic-mode.is-active {
   display: block;
 }
+.cinematic-mode.is-pseudo-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  padding: 1rem;
+  background: #000;
+}
 .cinematic-stage {
-  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 20%);
   align-items: stretch;
   gap: 0.9rem;
   min-block-size: min(84vh, 920px);
 }
-.cinematic-fullscreen-controls {
-  position: absolute;
-  inset-block-start: 0.8rem;
-  inset-inline-end: 0.8rem;
-  z-index: 9;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.5rem;
+.cinematic-mode.is-pseudo-fullscreen .cinematic-stage {
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 100%;
 }
 .cinematic-control-button {
   padding-block: 0.3rem;
@@ -324,6 +429,15 @@ export default {
   margin-inline-start: -1px;
   border-start-start-radius: 0;
   border-end-start-radius: 0;
+}
+.cinematic-narration-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-block-end: 1px solid color-mix(in srgb, var(--accent-color), black 50%);
+  background: #101010;
 }
 .cinematic-stage:fullscreen,
 .cinematic-stage:-webkit-full-screen {
@@ -374,15 +488,25 @@ export default {
   height: 100% !important;
 }
 .cinematic-narration {
+  display: flex;
+  flex-direction: column;
   min-inline-size: 0;
+  min-block-size: 0;
   border: 1px solid color-mix(in srgb, var(--accent-color), black 40%);
   border-radius: 12px;
-  overflow: auto;
+  overflow: hidden;
   background: #141414;
+}
+.cinematic-narration-content {
+  min-block-size: 0;
+  block-size: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 .cinematic-stage--bottom .cinematic-narration {
   max-block-size: clamp(130px, 22vh, 200px);
-  overflow: auto;
 }
 .cinematic-stage:fullscreen .cinematic-narration,
 .cinematic-stage:-webkit-full-screen .cinematic-narration {
@@ -393,7 +517,10 @@ export default {
   max-block-size: 20vh;
 }
 :global(.cinematic-narration .h-narration) {
-  block-size: 100%;
+  block-size: auto;
+  min-block-size: 100%;
+  display: flex;
+  flex-direction: column;
   border: none;
   background: transparent;
 }
@@ -401,15 +528,15 @@ export default {
   max-height: none;
 }
 @media (max-width: 799px) {
-  .cinematic-fullscreen-controls {
-    inset-block-start: 0.55rem;
-    inset-inline-end: 0.55rem;
-    inline-size: calc(100% - 1.1rem);
-    justify-content: flex-end;
+  .cinematic-mode.is-pseudo-fullscreen {
+    padding: 0.6rem;
   }
   .cinematic-control-button {
     font-size: 0.82rem;
     padding-inline: 0.65rem;
+  }
+  .cinematic-narration-controls {
+    padding: 0.45rem;
   }
   .cinematic-stage {
     grid-template-columns: 1fr;

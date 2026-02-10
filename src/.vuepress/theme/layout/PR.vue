@@ -1918,6 +1918,13 @@ export default {
       if (isInput) {
         return;
       }
+      if (
+        this.isCinematicFullscreen &&
+        (key === "ArrowRight" || key === "ArrowLeft")
+      ) {
+        event.preventDefault();
+        return;
+      }
       if (key === "ArrowRight" || key === "j" || key === "J") {
         event.preventDefault();
         if (key === "ArrowRight") {
