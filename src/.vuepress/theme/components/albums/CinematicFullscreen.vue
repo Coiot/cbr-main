@@ -538,21 +538,44 @@ export default {
   .cinematic-narration-controls {
     padding: 0.45rem;
   }
-  .cinematic-stage {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) auto;
-    min-block-size: min(82vh, 760px);
-  }
-  .cinematic-stage--bottom {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) minmax(110px, 30vh);
-    min-block-size: min(84vh, 780px);
+  .cinematic-narration-controls .layout-toggle-group {
+    display: none;
   }
   .cinematic-slides {
     min-block-size: 240px;
   }
   .cinematic-stage .cinematic-narration {
     max-block-size: 30vh;
+  }
+}
+
+@media (max-width: 799px) and (orientation: portrait) {
+  .cinematic-stage,
+  .cinematic-stage--bottom,
+  .cinematic-stage:fullscreen,
+  .cinematic-stage:-webkit-full-screen,
+  .cinematic-stage--bottom:fullscreen,
+  .cinematic-stage--bottom:-webkit-full-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(110px, 30vh);
+    min-block-size: min(84vh, 780px);
+  }
+}
+
+@media (max-width: 799px) and (orientation: landscape) {
+  .cinematic-stage,
+  .cinematic-stage--bottom,
+  .cinematic-stage:fullscreen,
+  .cinematic-stage:-webkit-full-screen,
+  .cinematic-stage--bottom:fullscreen,
+  .cinematic-stage--bottom:-webkit-full-screen {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 34%);
+    grid-template-rows: minmax(0, 1fr);
+    min-block-size: min(82vh, 760px);
+  }
+  .cinematic-stage .cinematic-narration,
+  .cinematic-stage--bottom .cinematic-narration {
+    max-block-size: 100%;
   }
 }
 </style>
