@@ -556,6 +556,13 @@ export default {
 :global(.cinematic-narration .h-narration p) {
   max-height: none;
 }
+:global(
+    .cinematic-stage:not(.cinematic-stage--bottom)
+      .cinematic-narration
+      .narrations
+  ) {
+  max-height: 100% !important;
+}
 @media (max-width: 799px) {
   .cinematic-mode.is-pseudo-fullscreen {
     padding: 0.6rem;
