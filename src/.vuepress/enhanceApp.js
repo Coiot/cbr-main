@@ -19,13 +19,8 @@ const withAssetVersion = (url) => {
     return trimmed;
   }
   if (/^https?:\/\//i.test(trimmed)) {
-    if (typeof window === "undefined") {
-      return trimmed;
-    }
-    const sameOrigin = trimmed.startsWith(window.location.origin);
-    if (!sameOrigin) {
-      return trimmed;
-    }
+    // Keep absolute URLs untouched to avoid SSR/client hydration differences.
+    return trimmed;
   }
   const hasQuery = trimmed.includes("?");
   const hasHash = trimmed.includes("#");

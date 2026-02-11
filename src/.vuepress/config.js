@@ -2,7 +2,8 @@ const currentDateUTC = new Date().toUTCString();
 const ASSET_VERSION =
   process.env.ASSET_VERSION ||
   process.env.VERCEL_GIT_COMMIT_SHA ||
-  String(Date.now());
+  process.env.BUILD_ID ||
+  "dev";
 const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
 const SITE_URL = "https://civbattleroyale.tv";
