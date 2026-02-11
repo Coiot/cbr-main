@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const currentDateUTC = new Date().toUTCString();
 const ASSET_VERSION =
   process.env.ASSET_VERSION ||
@@ -10,6 +13,12 @@ const SITE_URL = "https://civbattleroyale.tv";
 const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const EPISODE_SOCIAL_DIR = "/social/episodes";
+const ABOUT_PAGE_PATH = "/archive/what-is-the-civ-battle-royale/";
+const SOCIAL_LINKS = [
+  "https://old.reddit.com/r/civbattleroyale/",
+  "https://discord.gg/565JwaMsuQ",
+  "https://ko-fi.com/coiot",
+];
 const autometa_options = {
   enable: true,
   image: true,
@@ -23,6 +32,218 @@ const autometa_options = {
   canonical_base: SITE_URL,
   description_sources: ["frontmatter"],
   image_sources: ["frontmatter"],
+};
+
+const toISODateTime = (value) => {
+  if (!value) return "";
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toISOString();
+};
+
+const toISODate = (value) => {
+  const iso = toISODateTime(value);
+  return iso ? iso.slice(0, 10) : "";
+};
+
+const normalizePagePath = (pagePath) => {
+  if (!pagePath) return "/";
+  let normalized = String(pagePath).trim();
+  if (!normalized.startsWith("/")) {
+    normalized = `/${normalized}`;
+  }
+  normalized = normalized.replace(/\.html?$/i, "/").replace(/\/{2,}/g, "/");
+  if (normalized !== "/" && !normalized.endsWith("/")) {
+    normalized = `${normalized}/`;
+  }
+  return normalized;
+};
+
+const toAbsolutePageUrl = (pagePath) =>
+  `${SITE_URL}${normalizePagePath(pagePath)}`;
+
+const readFileLastModISO = (filePath) => {
+  if (!filePath || !fs.existsSync(filePath)) return "";
+  try {
+    return toISODateTime(fs.statSync(filePath).mtime);
+  } catch (error) {
+    return "";
+  }
+};
+
+const pickFirstDate = (...values) => {
+  for (let i = 0; i < values.length; i += 1) {
+    const value = values[i];
+    const iso = toISODateTime(value);
+    if (iso) return iso;
+  }
+  return "";
+};
+
+const cleanupObject = (value) => {
+  if (Array.isArray(value)) {
+    return value
+      .map(cleanupObject)
+      .filter((item) => item !== undefined && item !== null && item !== "");
+  }
+  if (value && typeof value === "object") {
+    const out = {};
+    Object.keys(value).forEach((key) => {
+      const cleaned = cleanupObject(value[key]);
+      const isEmptyArray = Array.isArray(cleaned) && !cleaned.length;
+      const isEmptyObject =
+        cleaned &&
+        typeof cleaned === "object" &&
+        !Array.isArray(cleaned) &&
+        !Object.keys(cleaned).length;
+      if (
+        cleaned !== undefined &&
+        cleaned !== null &&
+        cleaned !== "" &&
+        !isEmptyArray &&
+        !isEmptyObject
+      ) {
+        out[key] = cleaned;
+      }
+    });
+    return out;
+  }
+  return value;
+};
+
+const toAbsoluteImageUrl = (frontmatter) => {
+  if (frontmatter.image) return toAbsoluteUrl(frontmatter.image);
+  if (Array.isArray(frontmatter.scenes) && frontmatter.scenes.length) {
+    const firstScene = frontmatter.scenes[0];
+    if (firstScene && firstScene.slide_url)
+      return toAbsoluteUrl(firstScene.slide_url);
+  }
+  return toAbsoluteUrl(DEFAULT_SOCIAL_IMAGE);
+};
+
+const isAlbumEntryPage = ($page, frontmatter) =>
+  Array.isArray(frontmatter.scenes) &&
+  frontmatter.scenes.length > 0 &&
+  ($page.path.startsWith("/albums/") || frontmatter.edition || frontmatter.pr);
+
+const humanizeSegment = (segment) => {
+  const raw = decodeURIComponent(String(segment || "")).replace(
+    /\.[^/.]+$/,
+    ""
+  );
+  if (!raw) return "";
+  const seasonMatch = raw.match(/^s(\d+)$/i);
+  if (seasonMatch) return `Season ${seasonMatch[1]}`;
+  if (/^pr$/i.test(raw)) return "Power Rankings";
+  if (/^mk2$/i.test(raw)) return "Mk2";
+  if (/^albums$/i.test(raw)) return "Albums";
+  if (/^archive$/i.test(raw)) return "Archive";
+  return raw
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+const buildBreadcrumbJsonLd = ($page, frontmatter) => {
+  const pagePath = normalizePagePath($page.path);
+  if (pagePath === "/" || pagePath === "/404.html/") return null;
+  const segments = pagePath.split("/").filter(Boolean);
+  const items = [{ name: "Home", item: `${SITE_URL}/` }];
+  let runningPath = "";
+  segments.forEach((segment, index) => {
+    runningPath += `/${segment}`;
+    const isLast = index === segments.length - 1;
+    const name = isLast
+      ? frontmatter.title || $page.title || humanizeSegment(segment)
+      : humanizeSegment(segment);
+    items.push({
+      name,
+      item: `${SITE_URL}${runningPath}/`,
+    });
+  });
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.item,
+    })),
+  };
+};
+
+const buildArticleJsonLd = ($page, frontmatter) => {
+  if (!isAlbumEntryPage($page, frontmatter)) return null;
+  const canonicalUrl = toAbsolutePageUrl($page.path);
+  const fileLastMod = readFileLastModISO($page._filePath);
+  const published = pickFirstDate(
+    frontmatter.datePublished,
+    frontmatter.date,
+    frontmatter.release_date,
+    fileLastMod
+  );
+  const modified = pickFirstDate(
+    frontmatter.dateModified,
+    frontmatter.lastmod,
+    frontmatter.lastModified,
+    frontmatter.updated_at,
+    frontmatter.updatedAt,
+    fileLastMod,
+    published
+  );
+  const authorName = frontmatter.narrated_by || "Civilization Battle Royale";
+  return cleanupObject({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: frontmatter.title || $page.title || "Civilization Battle Royale",
+    author: {
+      "@type": "Person",
+      name: authorName,
+    },
+    datePublished: published,
+    dateModified: modified || published,
+    image: [toAbsoluteImageUrl(frontmatter)],
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  });
+};
+
+const buildOrganizationJsonLd = ($page, frontmatter) => {
+  const pagePath = normalizePagePath($page.path);
+  const isHome = frontmatter.home || pagePath === "/";
+  const isAbout = pagePath === ABOUT_PAGE_PATH;
+  if (!isHome && !isAbout) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Blue Cassette",
+    url: `${SITE_URL}/`,
+    logo: toAbsoluteUrl("/cbr_logo_color.svg"),
+    sameAs: SOCIAL_LINKS,
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "support",
+        url: "https://ko-fi.com/coiot",
+        availableLanguage: ["en"],
+      },
+    ],
+  };
+};
+
+const upsertStructuredData = (items, id, payload) => {
+  if (!payload) return items;
+  const nextItems = Array.isArray(items) ? [...items] : [];
+  const existingIndex = nextItems.findIndex((item) => item && item.id === id);
+  const entry = { id, payload };
+  if (existingIndex === -1) {
+    nextItems.push(entry);
+  } else {
+    nextItems[existingIndex] = entry;
+  }
+  return nextItems;
 };
 
 const formatSeasonLabel = (edition) => {
@@ -84,6 +305,9 @@ const socialMetaEnhancer = () => ({
   extendPageData($page) {
     const frontmatter = $page.frontmatter || {};
     const meta = frontmatter.meta || [];
+    let structuredData = Array.isArray(frontmatter.structuredData)
+      ? [...frontmatter.structuredData]
+      : [];
     const socialImage = toAbsoluteUrl(DEFAULT_SOCIAL_IMAGE);
     const episodeSlug = episodeSlugFromPath($page.path);
     const episodeSocialImage = episodeSlug
@@ -185,8 +409,108 @@ const socialMetaEnhancer = () => ({
       );
     }
 
+    const canonicalUrl = toAbsolutePageUrl($page.path);
+    frontmatter.canonicalUrl = canonicalUrl;
+
+    const breadcrumbJsonLd = buildBreadcrumbJsonLd($page, frontmatter);
+    if (breadcrumbJsonLd) {
+      structuredData = upsertStructuredData(
+        structuredData,
+        "breadcrumbs-jsonld",
+        breadcrumbJsonLd
+      );
+    }
+
+    const articleJsonLd = buildArticleJsonLd($page, frontmatter);
+    if (articleJsonLd) {
+      structuredData = upsertStructuredData(
+        structuredData,
+        "article-jsonld",
+        articleJsonLd
+      );
+    }
+
+    const organizationJsonLd = buildOrganizationJsonLd($page, frontmatter);
+    if (organizationJsonLd) {
+      structuredData = upsertStructuredData(
+        structuredData,
+        "organization-jsonld",
+        organizationJsonLd
+      );
+    }
+
+    const fileLastMod = readFileLastModISO($page._filePath);
+    const modifiedISO = pickFirstDate(
+      frontmatter.dateModified,
+      frontmatter.lastmod,
+      frontmatter.lastModified,
+      frontmatter.updated_at,
+      frontmatter.updatedAt,
+      fileLastMod,
+      frontmatter.date,
+      frontmatter.release_date
+    );
+    if (modifiedISO) {
+      frontmatter.lastmod = modifiedISO;
+      frontmatter.dateModified = modifiedISO;
+    }
+
     frontmatter.meta = meta;
+    frontmatter.structuredData = structuredData;
     $page.frontmatter = frontmatter;
+  },
+});
+
+const sitemapEnhancer = (_, ctx) => ({
+  name: "sitemap-enhancer",
+  async generated() {
+    const pages = Array.isArray(ctx.pages) ? ctx.pages : [];
+    const urls = pages
+      .filter((page) => page && page.path && page.path !== "/404.html")
+      .filter(
+        (page) =>
+          !(
+            page.frontmatter &&
+            Object.prototype.hasOwnProperty.call(page.frontmatter, "sitemap") &&
+            page.frontmatter.sitemap === false
+          )
+      )
+      .map((page) => {
+        const frontmatter = page.frontmatter || {};
+        const fileLastMod = readFileLastModISO(page._filePath);
+        const lastmod =
+          toISODate(
+            pickFirstDate(
+              frontmatter.lastmod,
+              frontmatter.dateModified,
+              frontmatter.lastModified,
+              frontmatter.updated_at,
+              frontmatter.updatedAt,
+              frontmatter.date,
+              frontmatter.release_date,
+              fileLastMod
+            )
+          ) || toISODate(new Date());
+        return {
+          loc: toAbsolutePageUrl(page.path),
+          lastmod,
+        };
+      })
+      .sort((a, b) => a.loc.localeCompare(b.loc));
+
+    const lines = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+      ...urls.map(
+        (url) =>
+          `  <url><loc>${url.loc}</loc><lastmod>${url.lastmod}</lastmod></url>`
+      ),
+      "</urlset>",
+      "",
+    ];
+    const sitemapXml = lines.join("\n");
+    fs.mkdirSync(ctx.outDir, { recursive: true });
+    fs.writeFileSync(path.join(ctx.outDir, "sitemap.xml"), sitemapXml, "utf8");
   },
 });
 module.exports = {
@@ -266,6 +590,11 @@ module.exports = {
   },
   plugins: [
     socialMetaEnhancer(),
+    {
+      name: "structured-data-root-mixin",
+      clientRootMixin: path.resolve(__dirname, "structuredDataRootMixin.js"),
+    },
+    sitemapEnhancer,
     "vuepress-plugin-janitor",
     ["vuepress-plugin-autometa", autometa_options],
     [
@@ -289,7 +618,6 @@ module.exports = {
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "msapplication-TileColor", content: "#FFBF46" }],
     ["meta", { name: "theme-color", content: "#FFBF46" }],
-    ["link", { rel: "canonical", href: "https://civbattleroyale.tv" }],
     ["meta", { name: "viewport", content: "initial-scale=1" }],
   ],
 };

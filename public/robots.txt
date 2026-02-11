@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://civbattleroyale.tv/sitemap.xml
