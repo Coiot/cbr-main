@@ -267,17 +267,6 @@ module.exports = {
   plugins: [
     socialMetaEnhancer(),
     "vuepress-plugin-janitor",
-    [
-      "vuepress-plugin-medium-zoom",
-      {
-        selector: ".medium img",
-        delay: 1000,
-        options: {
-          background: "rgba(27, 27, 27, 0.9)",
-          scrollOffset: 110,
-        },
-      },
-    ],
     ["vuepress-plugin-autometa", autometa_options],
     [
       "vuepress-plugin-clean-urls",
