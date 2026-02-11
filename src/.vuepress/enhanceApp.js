@@ -1,3 +1,5 @@
+import { getSupabaseClient } from "./theme/supabaseClient";
+
 const ASSET_VERSION =
   typeof __ASSET_VERSION__ !== "undefined" ? String(__ASSET_VERSION__) : "";
 
@@ -19,6 +21,10 @@ export default ({ Vue, router, siteData }) => {
 
   // This ensures the script runs only on the client side
   if (typeof window !== "undefined") {
+    // Initialize the shared client early so magic-link callbacks are consumed
+    // even before specific page/layout auth handlers mount.
+    getSupabaseClient();
+
     if (document.getElementById("kofi-overlay-widget-script")) {
       return;
     }

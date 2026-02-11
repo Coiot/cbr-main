@@ -301,6 +301,7 @@ import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
+  checkSupporterAccess,
   SUPABASE_ALBUM_PROGRESS_TABLE,
   SUPABASE_ALBUM_REACTIONS_TABLE,
   SUPABASE_ALBUM_COMMENTS_TABLE,
@@ -1086,7 +1087,20 @@ export default {
         console.warn("Unable to load profile.", error);
         return;
       }
-      this.authProfile = data || null;
+      let profile = data || null;
+      const shouldCheckSupporter = !profile || !profile.can_edit;
+      if (shouldCheckSupporter) {
+        const { allowed, error: supporterError } = await checkSupporterAccess(
+          this.supabase,
+          this.authUser
+        );
+        if (supporterError) {
+          console.warn("Unable to verify supporter status.", supporterError);
+        } else {
+          profile = { ...(profile || {}), can_edit: allowed };
+        }
+      }
+      this.authProfile = profile;
     },
     async loadCloudState() {
       if (!this.useCloud) {

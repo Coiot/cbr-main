@@ -1006,7 +1006,7 @@ export default {
       const redirectBase =
         window.location.origin +
         window.location.pathname +
-        window.location.hash;
+        window.location.search;
       const { error } = await this.supabase.auth.signInWithOtp({
         email,
         options: {
