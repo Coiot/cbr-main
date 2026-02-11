@@ -161,7 +161,7 @@
           :slide-ratio="9 / 16"
           fractions
           :touchable="false"
-          class="medium"
+          class="cbr-media"
           :transition-speed="900"
           style="background-size: contain"
         >

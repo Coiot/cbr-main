@@ -42,14 +42,14 @@
         @toggle="onToggleBookmark"
       />
     </h3>
-    <p class="narrations" v-html="scene.narration" tabindex="0"></p>
-    <p
+    <div class="narrations" v-html="scene.narration" tabindex="0"></div>
+    <div
       class="narrations"
       v-if="scene.reporter"
       v-html="scene.reporter"
       tabindex="0"
       v-bind:class="{ reporter: scene.reporter }"
-    ></p>
+    ></div>
     <ReactionPanel
       :scene-number="sceneNumber"
       :reaction-display="reactionDisplay"
@@ -150,7 +150,7 @@ export default {
   font-size: 1.1rem;
   font-weight: 400;
 }
-.h-narration p {
+.h-narration .narrations {
   max-height: 9.7rem;
   overflow: auto;
   padding: 0 !important;
@@ -162,14 +162,14 @@ export default {
   scrollbar-gutter: stable;
   overscroll-behavior: contain;
 }
-.h-narration p::-webkit-scrollbar {
+.h-narration .narrations::-webkit-scrollbar {
   inline-size: 8px;
 }
-.h-narration p::-webkit-scrollbar-track {
+.h-narration .narrations::-webkit-scrollbar-track {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
-.h-narration p::-webkit-scrollbar-thumb {
+.h-narration .narrations::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: rgba(255, 191, 70, 0.7);
 }

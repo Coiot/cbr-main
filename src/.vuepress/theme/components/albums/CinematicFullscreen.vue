@@ -24,7 +24,7 @@
           fixed-height="100%"
           fractions
           :touchable="false"
-          class="medium cinematic-primary"
+          class="cbr-media cinematic-primary"
           :transition-speed="900"
           style="background-size: contain"
         >

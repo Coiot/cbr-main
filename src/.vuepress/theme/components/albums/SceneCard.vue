@@ -1,14 +1,15 @@
 <template>
-  <article class="medium">
-    <object
+  <article class="cbr-media">
+    <img
       v-if="scene.slide_svg"
       class="scene-image scene-image--svg"
       :class="{ civdeathImage: scene.death }"
-      :data="$assetUrl(scene.slide_svg)"
-      type="image/svg+xml"
+      :src="$assetUrl(scene.slide_svg)"
+      loading="lazy"
+      decoding="async"
       tabindex="0"
-      :aria-label="sceneAlt"
-    ></object>
+      :alt="sceneAlt"
+    />
     <img
       v-else
       :src="$assetUrl(scene.slide_url)"

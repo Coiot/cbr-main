@@ -2,37 +2,16 @@ const ASSET_VERSION =
   typeof __ASSET_VERSION__ !== "undefined" ? String(__ASSET_VERSION__) : "";
 
 const withAssetVersion = (url) => {
-  if (!ASSET_VERSION || !url || typeof url !== "string") {
+  if (!url || typeof url !== "string") {
     return url;
   }
   const trimmed = url.trim();
   if (!trimmed) {
     return trimmed;
   }
-  if (
-    trimmed.startsWith("data:") ||
-    trimmed.startsWith("blob:") ||
-    trimmed.startsWith("mailto:") ||
-    trimmed.startsWith("tel:") ||
-    trimmed.startsWith("#")
-  ) {
-    return trimmed;
-  }
-  if (/^https?:\/\//i.test(trimmed)) {
-    // Keep absolute URLs untouched to avoid SSR/client hydration differences.
-    return trimmed;
-  }
-  const hasQuery = trimmed.includes("?");
-  const hasHash = trimmed.includes("#");
-  if (hasHash) {
-    const parts = trimmed.split("#");
-    const base = parts.shift();
-    const hash = parts.join("#");
-    return `${withAssetVersion(base)}#${hash}`;
-  }
-  return `${trimmed}${hasQuery ? "&" : "?"}v=${encodeURIComponent(
-    ASSET_VERSION
-  )}`;
+  // Temporarily disable runtime query-param cache busting to reduce
+  // client/cache mismatch risk across static deploys.
+  return trimmed;
 };
 
 export default ({ Vue, router, siteData }) => {
