@@ -11,7 +11,9 @@
     ></object>
     <img
       v-else
-      v-lazy="$assetUrl(scene.slide_url)"
+      :src="$assetUrl(scene.slide_url)"
+      loading="lazy"
+      decoding="async"
       tabindex="0"
       :alt="sceneAlt"
       class="scene-image"
