@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-const currentDateUTC = new Date().toUTCString();
 const ASSET_VERSION =
   process.env.ASSET_VERSION ||
   process.env.VERCEL_GIT_COMMIT_SHA ||
@@ -14,6 +13,12 @@ const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const EPISODE_SOCIAL_DIR = "/social/episodes";
 const ABOUT_PAGE_PATH = "/archive/what-is-the-civ-battle-royale/";
+const MEDIUM_ZOOM_SELECTOR = ".medium-zoom";
+const MEDIUM_ZOOM_DELAY = 1000;
+const MEDIUM_ZOOM_OPTIONS = {
+  background: "rgba(27, 27, 27, 0.9)",
+  scrollOffset: 110,
+};
 const SOCIAL_LINKS = [
   "https://old.reddit.com/r/civbattleroyale/",
   "https://discord.gg/565JwaMsuQ",
@@ -244,12 +249,6 @@ const upsertStructuredData = (items, id, payload) => {
     nextItems[existingIndex] = entry;
   }
   return nextItems;
-};
-
-const formatSeasonLabel = (edition) => {
-  if (!edition) return "";
-  const match = String(edition).match(/s(\\d+)/i);
-  return match ? `Season ${match[1]}` : String(edition);
 };
 
 const buildEpisodeDescription = (frontmatter) => {
@@ -554,6 +553,11 @@ module.exports = {
       {
         global: "window",
         __ASSET_VERSION__: JSON.stringify(ASSET_VERSION),
+        // Fallback compile-time defines for vuepress-plugin-medium-zoom.
+        // Some builds miss the plugin-provided define() injection and crash.
+        MZ_SELECTOR: JSON.stringify(MEDIUM_ZOOM_SELECTOR),
+        MZ_OPTIONS: JSON.stringify(JSON.stringify(MEDIUM_ZOOM_OPTIONS)),
+        MZ_DELAY: JSON.stringify(String(MEDIUM_ZOOM_DELAY)),
       },
     ]);
   },
@@ -589,6 +593,11 @@ module.exports = {
     ],
   },
   plugins: [
+    // Order matters:
+    // 1) `socialMetaEnhancer` populates frontmatter/meta/canonical/json-ld
+    // 2) `structured-data-root-mixin` injects JSON-LD in SSR/client
+    // 3) `sitemapEnhancer` consumes final page data to write sitemap.xml
+    // Keep autometa disabled so custom SEO injection is the single source.
     socialMetaEnhancer(),
     {
       name: "structured-data-root-mixin",
@@ -596,7 +605,16 @@ module.exports = {
     },
     sitemapEnhancer,
     "vuepress-plugin-janitor",
-    ["vuepress-plugin-autometa", autometa_options],
+    // Disabled intentionally; retained for quick rollback if needed.
+    // ["vuepress-plugin-autometa", autometa_options],
+    [
+      "vuepress-plugin-medium-zoom",
+      {
+        selector: MEDIUM_ZOOM_SELECTOR,
+        delay: MEDIUM_ZOOM_DELAY,
+        options: MEDIUM_ZOOM_OPTIONS,
+      },
+    ],
     [
       "vuepress-plugin-clean-urls",
       {

@@ -1,15 +1,13 @@
 <template>
   <article class="cbr-media">
-    <img
+    <object
       v-if="scene.slide_svg"
       class="scene-image scene-image--svg"
-      :class="{ civdeathImage: scene.death }"
-      :src="$assetUrl(scene.slide_svg)"
-      loading="lazy"
-      decoding="async"
+      :data="scene.slide_svg"
+      type="image/svg+xml"
       tabindex="0"
-      :alt="sceneAlt"
-    />
+      :aria-label="sceneAlt"
+    ></object>
     <img
       v-else
       :src="$assetUrl(scene.slide_url)"
@@ -17,10 +15,9 @@
       decoding="async"
       tabindex="0"
       :alt="sceneAlt"
-      class="scene-image"
-      :class="{ civdeathImage: scene.death }"
+      class="scene-image medium-zoom"
     />
-    <div class="text" :class="{ civdeathBorder: scene.death }">
+    <div class="text">
       <h3 v-if="scene.scene_number == scene.scene_title" class="scene-heading">
         <span class="scene-title">{{ scene.scene_number }}</span>
         <BookmarkButton

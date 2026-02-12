@@ -590,63 +590,67 @@ export default {
       }
       let syncSucceeded = false;
       this._localSyncPromise = (async () => {
-        const localState = this.collectLocalAlbumState();
-        const paths = Object.keys(localState);
-        if (!paths.length) {
-          syncSucceeded = true;
-          return;
-        }
-        const { data, error } = await this.supabase
-          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-          .select("page_path, bookmark_scene, resume_scene")
-          .eq("user_id", this.authUser.id)
-          .in("page_path", paths);
-        if (error) {
-          console.warn("Unable to sync local album state.", error);
-          return;
-        }
-        const cloudMap = new Map(
-          (data || []).map((row) => [row.page_path, row])
-        );
-        const rows = [];
-        paths.forEach((path) => {
-          const localEntry = localState[path] || {};
-          const cloudEntry = cloudMap.get(path) || {};
-          const cloudBookmark = parseInt(cloudEntry.bookmark_scene, 10);
-          const cloudResume = parseInt(cloudEntry.resume_scene, 10);
-          const bookmarkScene = Number.isFinite(cloudBookmark)
-            ? cloudBookmark
-            : localEntry.bookmark_scene;
-          const resumeScene = Number.isFinite(cloudResume)
-            ? cloudResume
-            : localEntry.resume_scene;
-          if (
-            !Number.isFinite(bookmarkScene) &&
-            !Number.isFinite(resumeScene)
-          ) {
+        try {
+          const localState = this.collectLocalAlbumState();
+          const paths = Object.keys(localState);
+          if (!paths.length) {
+            syncSucceeded = true;
             return;
           }
-          rows.push({
-            user_id: this.authUser.id,
-            page_path: path,
-            bookmark_scene: Number.isFinite(bookmarkScene)
-              ? bookmarkScene
-              : null,
-            resume_scene: Number.isFinite(resumeScene) ? resumeScene : null,
+          const { data, error } = await this.supabase
+            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .select("page_path, bookmark_scene, resume_scene")
+            .eq("user_id", this.authUser.id)
+            .in("page_path", paths);
+          if (error) {
+            console.warn("Unable to sync local album state.", error);
+            return;
+          }
+          const cloudMap = new Map(
+            (data || []).map((row) => [row.page_path, row])
+          );
+          const rows = [];
+          paths.forEach((path) => {
+            const localEntry = localState[path] || {};
+            const cloudEntry = cloudMap.get(path) || {};
+            const cloudBookmark = parseInt(cloudEntry.bookmark_scene, 10);
+            const cloudResume = parseInt(cloudEntry.resume_scene, 10);
+            const bookmarkScene = Number.isFinite(cloudBookmark)
+              ? cloudBookmark
+              : localEntry.bookmark_scene;
+            const resumeScene = Number.isFinite(cloudResume)
+              ? cloudResume
+              : localEntry.resume_scene;
+            if (
+              !Number.isFinite(bookmarkScene) &&
+              !Number.isFinite(resumeScene)
+            ) {
+              return;
+            }
+            rows.push({
+              user_id: this.authUser.id,
+              page_path: path,
+              bookmark_scene: Number.isFinite(bookmarkScene)
+                ? bookmarkScene
+                : null,
+              resume_scene: Number.isFinite(resumeScene) ? resumeScene : null,
+            });
           });
-        });
-        if (!rows.length) {
+          if (!rows.length) {
+            syncSucceeded = true;
+            return;
+          }
+          const { error: upsertError } = await this.supabase
+            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .upsert(rows, { onConflict: "user_id,page_path" });
+          if (upsertError) {
+            console.warn("Unable to sync local album state.", upsertError);
+            return;
+          }
           syncSucceeded = true;
-          return;
+        } catch (error) {
+          console.warn("Unable to sync local album state.", error);
         }
-        const { error: upsertError } = await this.supabase
-          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-          .upsert(rows, { onConflict: "user_id,page_path" });
-        if (upsertError) {
-          console.warn("Unable to sync local album state.", upsertError);
-          return;
-        }
-        syncSucceeded = true;
       })();
       try {
         await this._localSyncPromise;
@@ -1092,51 +1096,57 @@ export default {
         return;
       }
       if (this.useCloud) {
-        await this.syncLocalStateToCloud();
-        const { data, error } = await this.supabase
-          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-          .select("page_path, bookmark_scene")
-          .eq("user_id", this.authUser.id)
-          .not("bookmark_scene", "is", null);
-        if (error) {
+        try {
+          await this.syncLocalStateToCloud();
+          const { data, error } = await this.supabase
+            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .select("page_path, bookmark_scene")
+            .eq("user_id", this.authUser.id)
+            .not("bookmark_scene", "is", null);
+          if (error) {
+            console.warn("Unable to load cloud bookmarks.", error);
+            this.loadBookmarksLocal();
+            return;
+          }
+          const items = (data || [])
+            .map((row) => {
+              const path = row.page_path;
+              const scene = parseInt(row.bookmark_scene, 10);
+              if (!Number.isFinite(scene)) {
+                return null;
+              }
+              const page = this.$site.pages.find((p) => p.path === path);
+              const title =
+                (page && (page.frontmatter.title || page.title)) || path;
+              const edition =
+                page && page.frontmatter && page.frontmatter.edition;
+              const pr = page && page.frontmatter && page.frontmatter.pr;
+              return {
+                key: path,
+                path,
+                scene,
+                title,
+                edition,
+                pr,
+              };
+            })
+            .filter(Boolean);
+          items.sort((a, b) => {
+            const aGroup = a.edition || a.pr;
+            const bGroup = b.edition || b.pr;
+            if (aGroup && bGroup && aGroup !== bGroup) {
+              return aGroup.localeCompare(bGroup);
+            }
+            return a.title.localeCompare(b.title);
+          });
+          this.bookmarks = items;
+          this.updateLocalBookmarksCache(items);
+          return;
+        } catch (error) {
           console.warn("Unable to load cloud bookmarks.", error);
           this.loadBookmarksLocal();
           return;
         }
-        const items = (data || [])
-          .map((row) => {
-            const path = row.page_path;
-            const scene = parseInt(row.bookmark_scene, 10);
-            if (!Number.isFinite(scene)) {
-              return null;
-            }
-            const page = this.$site.pages.find((p) => p.path === path);
-            const title =
-              (page && (page.frontmatter.title || page.title)) || path;
-            const edition =
-              page && page.frontmatter && page.frontmatter.edition;
-            const pr = page && page.frontmatter && page.frontmatter.pr;
-            return {
-              key: path,
-              path,
-              scene,
-              title,
-              edition,
-              pr,
-            };
-          })
-          .filter(Boolean);
-        items.sort((a, b) => {
-          const aGroup = a.edition || a.pr;
-          const bGroup = b.edition || b.pr;
-          if (aGroup && bGroup && aGroup !== bGroup) {
-            return aGroup.localeCompare(bGroup);
-          }
-          return a.title.localeCompare(b.title);
-        });
-        this.bookmarks = items;
-        this.updateLocalBookmarksCache(items);
-        return;
       }
       this.loadBookmarksLocal();
     },

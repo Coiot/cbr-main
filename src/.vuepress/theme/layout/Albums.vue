@@ -314,7 +314,7 @@ const pageDir = (path) => {
   return parts.join("/") || "/";
 };
 
-const REACTION_POLL_INTERVAL = 30000;
+const REACTION_POLL_INTERVAL = 10000;
 const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
 const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
