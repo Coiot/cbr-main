@@ -78,11 +78,15 @@
         </div>
         <div ref="narrationContent" class="cinematic-narration-content">
           <SceneSlideContent
+            :key="`cinematic-scene-${activeSceneNumber}-${
+              activeUserReaction || 'none'
+            }-${reactionVersion}`"
             :scene="activeScene"
             :scene-number="activeSceneNumber"
             :bookmarked="activeBookmarked"
             :bookmark-aria="activeBookmarkAria"
             :reaction-display="activeReactionDisplay"
+            :scene-counts="activeSceneCounts"
             :user-reaction="activeUserReaction"
             :auth-user="authUser"
             :is-menu-open="activeMenuOpen"
@@ -153,6 +157,10 @@ export default {
       type: Object,
       required: true,
     },
+    activeSceneCounts: {
+      type: Object,
+      default: () => ({}),
+    },
     activeUserReaction: {
       type: String,
       default: null,
@@ -170,7 +178,7 @@ export default {
       required: true,
     },
     reactionVersion: {
-      type: Number,
+      type: [String, Number],
       default: 0,
     },
   },

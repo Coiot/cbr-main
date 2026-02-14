@@ -168,22 +168,26 @@
           <vueper-slide
             v-for="(scene, index) in $page.frontmatter.scenes"
             :image="$assetUrl(scene.slide_url || scene.slide_svg)"
-            :key="sceneKey(scene, index)"
+            :key="`primary-${sceneKey(scene, index)}`"
             :title="scene.scene_title"
-            :content="scene.narration"
             :class="{ civdeathBorder: scene.death }"
           >
             <template v-slot:content>
               <SceneSlideContent
+                :key="`slide-content-${sceneKey(
+                  scene,
+                  index
+                )}-${reactionSceneVersion(sceneNumber(index))}`"
                 :scene="scene"
                 :scene-number="sceneNumber(index)"
                 :bookmarked="isBookmarked(index)"
                 :bookmark-aria="bookmarkAria(index)"
                 :reaction-display="reactionDisplay(sceneNumber(index))"
+                :scene-counts="sceneReactionCounts(sceneNumber(index))"
                 :user-reaction="userReaction(sceneNumber(index))"
                 :auth-user="authUser"
                 :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
-                :reaction-version="reactionRenderVersion"
+                :reaction-version="reactionSceneVersion(sceneNumber(index))"
                 @toggle-bookmark="bookmarkScene(index)"
                 @toggle-reaction="toggleReaction"
                 @toggle-menu="toggleReactionMenu"
@@ -205,11 +209,14 @@
         :active-reaction-display="
           reactionDisplay(sceneNumber(activeSceneIndex))
         "
+        :active-scene-counts="
+          sceneReactionCounts(sceneNumber(activeSceneIndex))
+        "
         :active-user-reaction="userReaction(sceneNumber(activeSceneIndex))"
         :active-menu-open="isReactionMenuOpen(sceneNumber(activeSceneIndex))"
         :auth-user="authUser"
         :scene-key="sceneKey"
-        :reaction-version="reactionRenderVersion"
+        :reaction-version="reactionSceneVersion(sceneNumber(activeSceneIndex))"
         @set-layout="setCinematicNarrationLayout"
         @toggle-bookmark="bookmarkScene(activeSceneIndex)"
         @toggle-reaction="toggleReaction"
@@ -229,10 +236,11 @@
             :bookmarked="isBookmarked(index)"
             :bookmark-aria="bookmarkAria(index)"
             :reaction-display="reactionDisplay(sceneNumber(index))"
+            :scene-counts="sceneReactionCounts(sceneNumber(index))"
             :user-reaction="userReaction(sceneNumber(index))"
             :auth-user="authUser"
             :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
-            :reaction-version="reactionRenderVersion"
+            :reaction-version="reactionSceneVersion(sceneNumber(index))"
             @toggle-bookmark="bookmarkScene(index)"
             @toggle-reaction="toggleReaction"
             @toggle-menu="toggleReactionMenu"
@@ -377,9 +385,7 @@ export default {
       authUser: null,
       authProfile: null,
       reactionCounts: {},
-      reactionRows: [],
       userReactions: {},
-      reactionRenderVersion: 0,
       reactionLoading: false,
       reactionUpdating: false,
       reactionMenuOpen: {},
@@ -913,9 +919,9 @@ export default {
     },
     resetReactions() {
       this.reactionCounts = {};
-      this.reactionRows = [];
       this.userReactions = {};
       this.reactionMenuOpen = {};
+      this.emitReactionSnapshot({}, {});
     },
     startReactionPolling() {
       if (typeof window === "undefined") {
@@ -942,13 +948,6 @@ export default {
       }
       return key;
     },
-    reactionCount(sceneNumber, reactionKey) {
-      const scene = parseInt(sceneNumber, 10);
-      const sceneCounts =
-        this.reactionCounts[scene] || this.reactionCounts[sceneNumber] || {};
-      const key = this.normalizeReactionKey(reactionKey);
-      return sceneCounts[key] || 0;
-    },
     userReaction(sceneNumber) {
       const scene = parseInt(sceneNumber, 10);
       if (Number.isFinite(scene) && this.userReactions[scene]) {
@@ -956,27 +955,22 @@ export default {
       }
       return this.userReactions[sceneNumber] || null;
     },
-    reactionDisplay(sceneNumber) {
+    reactionSceneVersion(sceneNumber) {
       const scene = parseInt(sceneNumber, 10);
-      const counts = {};
-      if (Array.isArray(this.reactionRows) && this.reactionRows.length) {
-        this.reactionRows.forEach((row) => {
-          const rowScene = parseInt(row.scene_number, 10);
-          if (!Number.isFinite(rowScene) || rowScene !== scene) {
-            return;
-          }
-          const key = this.normalizeReactionKey(row.reaction_key);
-          if (!key) {
-            return;
-          }
-          counts[key] = (counts[key] || 0) + 1;
-        });
-      } else {
-        Object.assign(
-          counts,
-          this.reactionCounts[scene] || this.reactionCounts[sceneNumber] || {}
-        );
-      }
+      const counts = this.sceneReactionCounts(sceneNumber);
+      const userKey = this.userReaction(sceneNumber) || "none";
+      const signature = this.reactionOptions
+        .map((option) => {
+          const key = this.normalizeReactionKey(option.key);
+          return `${key}:${counts[key] || 0}`;
+        })
+        .join("|");
+      return `${
+        Number.isFinite(scene) ? scene : sceneNumber
+      }|${userKey}|${signature}`;
+    },
+    reactionDisplay(sceneNumber) {
+      const counts = this.sceneReactionCounts(sceneNumber);
       const userKey = this.userReaction(sceneNumber);
       const ranked = this.reactionOptions
         .map((option, index) => ({
@@ -1011,6 +1005,30 @@ export default {
       const topKeys = new Set(top.map((item) => item.key));
       const rest = ranked.filter((item) => !topKeys.has(item.key));
       return { top, rest };
+    },
+    sceneReactionCounts(sceneNumber) {
+      const scene = parseInt(sceneNumber, 10);
+      if (!Number.isFinite(scene)) {
+        return {};
+      }
+      return (
+        this.reactionCounts[scene] || this.reactionCounts[sceneNumber] || {}
+      );
+    },
+    emitReactionSnapshot(reactionCountsByScene, userReactionsByScene) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      window.dispatchEvent(
+        new CustomEvent("album-reactions-snapshot", {
+          detail: {
+            pagePath: this.$page && this.$page.path ? this.$page.path : "",
+            reactionCountsByScene: reactionCountsByScene || {},
+            userReactionsByScene:
+              userReactionsByScene || this.userReactions || {},
+          },
+        })
+      );
     },
     reactionPathCandidates() {
       const currentPath =
@@ -1088,7 +1106,6 @@ export default {
           return;
         }
         const counts = {};
-        const rows = [];
         (data || []).forEach((row) => {
           const scene = parseInt(row.scene_number, 10);
           if (!Number.isFinite(scene)) {
@@ -1098,7 +1115,6 @@ export default {
           if (!key) {
             return;
           }
-          rows.push({ scene_number: scene, reaction_key: key });
           if (!counts[scene]) {
             counts[scene] = {};
           }
@@ -1143,9 +1159,8 @@ export default {
           }
         }
         this.reactionCounts = counts;
-        this.reactionRows = rows;
         this.userReactions = userReactions;
-        this.reactionRenderVersion += 1;
+        this.emitReactionSnapshot(counts, userReactions);
       } finally {
         this.reactionLoading = false;
       }
@@ -1230,30 +1245,7 @@ export default {
         ...this.reactionCounts,
         [scene]: sceneCounts,
       };
-      let removedPrevious = false;
-      const nextRows = Array.isArray(this.reactionRows)
-        ? this.reactionRows.filter((row) => {
-            const rowScene = parseInt(row.scene_number, 10);
-            const rowKey = this.normalizeReactionKey(row.reaction_key);
-            if (!Number.isFinite(rowScene) || rowScene !== scene) {
-              return true;
-            }
-            if (
-              !normalizedPrevious ||
-              removedPrevious ||
-              rowKey !== normalizedPrevious
-            ) {
-              return true;
-            }
-            removedPrevious = true;
-            return false;
-          })
-        : [];
-      if (normalizedNext) {
-        nextRows.push({ scene_number: scene, reaction_key: normalizedNext });
-      }
-      this.reactionRows = nextRows;
-      this.reactionRenderVersion += 1;
+      this.emitReactionSnapshot(this.reactionCounts, this.userReactions);
     },
     async fetchProfile() {
       if (!this.useCloud) {

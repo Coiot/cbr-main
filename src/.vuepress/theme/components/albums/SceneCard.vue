@@ -73,6 +73,7 @@
         :key="`reaction-panel-${sceneNumber}-${authStateKey}-${reactionVersion}`"
         :scene-number="sceneNumber"
         :reaction-display="reactionDisplay"
+        :scene-counts="sceneCounts"
         :user-reaction="userReaction"
         :auth-user="authUser"
         :is-menu-open="isMenuOpen"
@@ -118,6 +119,10 @@ export default {
       type: Object,
       required: true,
     },
+    sceneCounts: {
+      type: Object,
+      default: () => ({}),
+    },
     userReaction: {
       type: String,
       default: null,
@@ -131,7 +136,7 @@ export default {
       default: false,
     },
     reactionVersion: {
-      type: Number,
+      type: [String, Number],
       default: 0,
     },
   },
