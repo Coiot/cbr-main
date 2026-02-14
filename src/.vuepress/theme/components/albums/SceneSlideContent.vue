@@ -51,16 +51,14 @@
       v-bind:class="{ reporter: scene.reporter }"
     ></div>
     <ReactionPanel
+      :key="`reaction-panel-${sceneNumber}-${authStateKey}-${reactionVersion}`"
       :scene-number="sceneNumber"
       :reaction-display="reactionDisplay"
       :user-reaction="userReaction"
       :auth-user="authUser"
       :is-menu-open="isMenuOpen"
-      @toggle-reaction="
-        (sceneNumber, reactionKey) =>
-          $emit('toggle-reaction', sceneNumber, reactionKey)
-      "
-      @toggle-menu="(sceneNumber) => $emit('toggle-menu', sceneNumber)"
+      @toggle-reaction="onToggleReaction"
+      @toggle-menu="onToggleMenu"
     />
   </article>
 </template>
@@ -108,10 +106,25 @@ export default {
       type: Boolean,
       default: false,
     },
+    reactionVersion: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+    authStateKey() {
+      return this.authUser && this.authUser.id ? this.authUser.id : "guest";
+    },
   },
   methods: {
     onToggleBookmark() {
       this.$emit("toggle-bookmark");
+    },
+    onToggleReaction(sceneNumber, reactionKey) {
+      this.$emit("toggle-reaction", sceneNumber, reactionKey);
+    },
+    onToggleMenu(sceneNumber) {
+      this.$emit("toggle-menu", sceneNumber);
     },
   },
 };

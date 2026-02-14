@@ -492,6 +492,19 @@ export default {
   },
 
   methods: {
+    broadcastAuthSession(session) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      window.dispatchEvent(
+        new CustomEvent("supabase-auth-session", {
+          detail: {
+            session: session || null,
+            user: session && session.user ? session.user : null,
+          },
+        })
+      );
+    },
     initSupabase() {
       if (this.supabase || typeof window === "undefined") {
         return;
@@ -522,6 +535,7 @@ export default {
     },
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
+      this.broadcastAuthSession(session || null);
       if (this.authUser && !this.authEmail) {
         this.authEmail = this.authUser.email || "";
       }
@@ -640,11 +654,38 @@ export default {
             syncSucceeded = true;
             return;
           }
-          const { error: upsertError } = await this.supabase
-            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-            .upsert(rows, { onConflict: "user_id,page_path" });
-          if (upsertError) {
-            console.warn("Unable to sync local album state.", upsertError);
+          let syncError = null;
+          for (const row of rows) {
+            try {
+              const { data: updatedRows, error: updateError } =
+                await this.supabase
+                  .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+                  .update(row)
+                  .eq("user_id", row.user_id)
+                  .eq("page_path", row.page_path)
+                  .select("user_id")
+                  .limit(1);
+              if (updateError) {
+                syncError = updateError;
+                break;
+              }
+              if (Array.isArray(updatedRows) && updatedRows.length) {
+                continue;
+              }
+              const { error: insertError } = await this.supabase
+                .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+                .insert(row);
+              if (insertError) {
+                syncError = insertError;
+                break;
+              }
+            } catch (error) {
+              syncError = error;
+              break;
+            }
+          }
+          if (syncError) {
+            console.warn("Unable to sync local album state.", syncError);
             return;
           }
           syncSucceeded = true;
@@ -1050,17 +1091,30 @@ export default {
         return;
       }
       if (this.useCloud) {
-        const { error } = await this.supabase
-          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-          .upsert(
-            {
-              user_id: this.authUser.id,
-              page_path: path,
-              bookmark_scene: null,
-            },
-            { onConflict: "user_id,page_path" }
-          );
-        if (error) {
+        const row = {
+          user_id: this.authUser.id,
+          page_path: path,
+          bookmark_scene: null,
+        };
+        try {
+          const { data: updatedRows, error: updateError } = await this.supabase
+            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .update(row)
+            .eq("user_id", row.user_id)
+            .eq("page_path", row.page_path)
+            .select("user_id")
+            .limit(1);
+          if (updateError) {
+            console.warn("Unable to remove cloud bookmark.", updateError);
+          } else if (!Array.isArray(updatedRows) || !updatedRows.length) {
+            const { error: insertError } = await this.supabase
+              .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+              .insert(row);
+            if (insertError) {
+              console.warn("Unable to remove cloud bookmark.", insertError);
+            }
+          }
+        } catch (error) {
           console.warn("Unable to remove cloud bookmark.", error);
         }
       }

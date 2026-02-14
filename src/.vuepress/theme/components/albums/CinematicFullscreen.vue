@@ -86,12 +86,10 @@
             :user-reaction="activeUserReaction"
             :auth-user="authUser"
             :is-menu-open="activeMenuOpen"
+            :reaction-version="reactionVersion"
             @toggle-bookmark="$emit('toggle-bookmark')"
-            @toggle-reaction="
-              (sceneNumber, reactionKey) =>
-                $emit('toggle-reaction', sceneNumber, reactionKey)
-            "
-            @toggle-menu="(sceneNumber) => $emit('toggle-menu', sceneNumber)"
+            @toggle-reaction="onToggleReaction"
+            @toggle-menu="onToggleMenu"
           />
         </div>
       </aside>
@@ -171,6 +169,10 @@ export default {
       type: Function,
       required: true,
     },
+    reactionVersion: {
+      type: Number,
+      default: 0,
+    },
   },
   computed: {
     hasScenes() {
@@ -229,6 +231,12 @@ export default {
     );
   },
   methods: {
+    onToggleReaction(sceneNumber, reactionKey) {
+      this.$emit("toggle-reaction", sceneNumber, reactionKey);
+    },
+    onToggleMenu(sceneNumber) {
+      this.$emit("toggle-menu", sceneNumber);
+    },
     getFullscreenElement() {
       if (typeof document === "undefined") {
         return null;

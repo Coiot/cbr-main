@@ -10,7 +10,6 @@
         :aria-pressed="userReaction === reaction.key"
         :aria-label="reaction.label"
         :title="reaction.label"
-        :disabled="!authUser"
         @click.stop="onToggleReaction(reaction.key)"
       >
         <span class="reaction-emoji">{{ reaction.emoji }}</span>
@@ -20,14 +19,14 @@
         v-if="reactionDisplay.rest.length"
         type="button"
         class="reaction-more"
-        :aria-expanded="isMenuOpen"
+        :aria-expanded="menuOpen"
         @click.stop="onToggleMenu"
       >
-        {{ isMenuOpen ? "Less" : `+${reactionDisplay.rest.length}` }}
+        {{ menuOpen ? "Less" : `+${reactionDisplay.rest.length}` }}
       </button>
     </div>
     <div
-      v-if="isMenuOpen && reactionDisplay.rest.length"
+      v-if="menuOpen && reactionDisplay.rest.length"
       class="reaction-more-panel"
     >
       <button
@@ -39,27 +38,23 @@
         :aria-pressed="userReaction === reaction.key"
         :aria-label="reaction.label"
         :title="reaction.label"
-        :disabled="!authUser"
         @click.stop="onToggleReaction(reaction.key)"
       >
         <span class="reaction-emoji">{{ reaction.emoji }}</span>
         <span class="reaction-count">{{ reaction.count }}</span>
       </button>
     </div>
-    <span
-      v-if="!authUser"
-      class="reaction-hint"
-      role="status"
-      aria-live="polite"
-    >
-      Sign in to react
-    </span>
   </div>
 </template>
 
 <script>
 export default {
   name: "ReactionPanel",
+  data() {
+    return {
+      menuOpenInternal: false,
+    };
+  },
   props: {
     reactionDisplay: {
       type: Object,
@@ -82,11 +77,24 @@ export default {
       required: true,
     },
   },
+  computed: {
+    menuOpen() {
+      return this.menuOpenInternal || this.isMenuOpen;
+    },
+  },
+  watch: {
+    isMenuOpen(next) {
+      if (next) {
+        this.menuOpenInternal = true;
+      }
+    },
+  },
   methods: {
     onToggleReaction(reactionKey) {
       this.$emit("toggle-reaction", this.sceneNumber, reactionKey);
     },
     onToggleMenu() {
+      this.menuOpenInternal = !this.menuOpenInternal;
       this.$emit("toggle-menu", this.sceneNumber);
     },
   },
@@ -155,7 +163,7 @@ export default {
   color: #1a1a1a;
 }
 .reaction-pill:disabled {
-  opacity: 0.55;
+  opacity: 0.65;
   cursor: not-allowed;
 }
 .reaction-emoji {

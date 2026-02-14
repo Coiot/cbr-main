@@ -183,6 +183,7 @@
                 :user-reaction="userReaction(sceneNumber(index))"
                 :auth-user="authUser"
                 :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+                :reaction-version="reactionRenderVersion"
                 @toggle-bookmark="bookmarkScene(index)"
                 @toggle-reaction="toggleReaction"
                 @toggle-menu="toggleReactionMenu"
@@ -208,6 +209,7 @@
         :active-menu-open="isReactionMenuOpen(sceneNumber(activeSceneIndex))"
         :auth-user="authUser"
         :scene-key="sceneKey"
+        :reaction-version="reactionRenderVersion"
         @set-layout="setCinematicNarrationLayout"
         @toggle-bookmark="bookmarkScene(activeSceneIndex)"
         @toggle-reaction="toggleReaction"
@@ -230,6 +232,7 @@
             :user-reaction="userReaction(sceneNumber(index))"
             :auth-user="authUser"
             :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+            :reaction-version="reactionRenderVersion"
             @toggle-bookmark="bookmarkScene(index)"
             @toggle-reaction="toggleReaction"
             @toggle-menu="toggleReactionMenu"
@@ -315,6 +318,25 @@ const pageDir = (path) => {
 };
 
 const REACTION_POLL_INTERVAL = 10000;
+const DEFAULT_REACTION_OPTIONS = [
+  { key: "smart", label: "Smart", emoji: "🧠" },
+  { key: "clap", label: "Clap", emoji: "👏" },
+  { key: "mindblown", label: "MindBlown", emoji: "🤯" },
+  { key: "pray", label: "Pray", emoji: "🙏" },
+  { key: "fire", label: "Fire", emoji: "🔥" },
+  { key: "facepalm", label: "FacePalm", emoji: "🤦" },
+  { key: "popcorn", label: "Popcorn", emoji: "🍿" },
+  { key: "star", label: "Star", emoji: "⭐" },
+  { key: "salt", label: "Salt", emoji: "🧂" },
+  { key: "hype", label: "Hype", emoji: "🚀" },
+  { key: "heart", label: "Heart", emoji: "❤️" },
+  { key: "laugh", label: "Laugh", emoji: "😂" },
+  { key: "stress", label: "Stress", emoji: "😰" },
+  { key: "scared", label: "Scared", emoji: "😱" },
+  { key: "tears", label: "Tears", emoji: "😭" },
+  { key: "rage", label: "Rage", emoji: "😡" },
+  { key: "rip", label: "RIP", emoji: "🪦" },
+];
 const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
 const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
@@ -355,7 +377,9 @@ export default {
       authUser: null,
       authProfile: null,
       reactionCounts: {},
+      reactionRows: [],
       userReactions: {},
+      reactionRenderVersion: 0,
       reactionLoading: false,
       reactionUpdating: false,
       reactionMenuOpen: {},
@@ -463,7 +487,9 @@ export default {
         this.$site &&
         this.$site.themeConfig &&
         this.$site.themeConfig.reactions;
-      return options || [];
+      return Array.isArray(options) && options.length
+        ? options
+        : DEFAULT_REACTION_OPTIONS;
     },
     isSeasonFive() {
       const edition =
@@ -687,6 +713,7 @@ export default {
       this.handleBookmarkUpdate
     );
     window.addEventListener("user-settings-synced", this.handleSettingsSync);
+    window.addEventListener("supabase-auth-session", this.handleExternalAuth);
   },
   beforeDestroy() {
     if (typeof window === "undefined") {
@@ -701,6 +728,10 @@ export default {
       this.handleBookmarkUpdate
     );
     window.removeEventListener("user-settings-synced", this.handleSettingsSync);
+    window.removeEventListener(
+      "supabase-auth-session",
+      this.handleExternalAuth
+    );
     this.teardownSnapshotObserver();
     this.teardownReactions();
     this.teardownSupabase();
@@ -805,6 +836,15 @@ export default {
     handleBookmarkUpdate() {
       this.loadBookmark();
     },
+    handleExternalAuth(event) {
+      const session =
+        event &&
+        event.detail &&
+        Object.prototype.hasOwnProperty.call(event.detail, "session")
+          ? event.detail.session
+          : null;
+      this.handleAuthSession(session || null);
+    },
     getLocalSceneNumber(key) {
       if (typeof window === "undefined") {
         return null;
@@ -873,6 +913,7 @@ export default {
     },
     resetReactions() {
       this.reactionCounts = {};
+      this.reactionRows = [];
       this.userReactions = {};
       this.reactionMenuOpen = {};
     },
@@ -890,22 +931,64 @@ export default {
     sceneNumber(index) {
       return index + 1;
     },
+    normalizeReactionKey(rawKey) {
+      if (rawKey === null || rawKey === undefined) {
+        return "";
+      }
+      let key = String(rawKey).trim().toLowerCase();
+      key = key.replace(/[\s_-]+/g, "");
+      if (key === "mindblow") {
+        return "mindblown";
+      }
+      return key;
+    },
     reactionCount(sceneNumber, reactionKey) {
-      const sceneCounts = this.reactionCounts[sceneNumber] || {};
-      return sceneCounts[reactionKey] || 0;
+      const scene = parseInt(sceneNumber, 10);
+      const sceneCounts =
+        this.reactionCounts[scene] || this.reactionCounts[sceneNumber] || {};
+      const key = this.normalizeReactionKey(reactionKey);
+      return sceneCounts[key] || 0;
     },
     userReaction(sceneNumber) {
+      const scene = parseInt(sceneNumber, 10);
+      if (Number.isFinite(scene) && this.userReactions[scene]) {
+        return this.userReactions[scene];
+      }
       return this.userReactions[sceneNumber] || null;
     },
     reactionDisplay(sceneNumber) {
-      const counts = this.reactionCounts[sceneNumber] || {};
+      const scene = parseInt(sceneNumber, 10);
+      const counts = {};
+      if (Array.isArray(this.reactionRows) && this.reactionRows.length) {
+        this.reactionRows.forEach((row) => {
+          const rowScene = parseInt(row.scene_number, 10);
+          if (!Number.isFinite(rowScene) || rowScene !== scene) {
+            return;
+          }
+          const key = this.normalizeReactionKey(row.reaction_key);
+          if (!key) {
+            return;
+          }
+          counts[key] = (counts[key] || 0) + 1;
+        });
+      } else {
+        Object.assign(
+          counts,
+          this.reactionCounts[scene] || this.reactionCounts[sceneNumber] || {}
+        );
+      }
       const userKey = this.userReaction(sceneNumber);
       const ranked = this.reactionOptions
         .map((option, index) => ({
           ...option,
-          count: counts[option.key] || 0,
+          key: this.normalizeReactionKey(option.key),
+          count: counts[this.normalizeReactionKey(option.key)] || 0,
           order: index,
-          isUser: option.key === userKey,
+          isUser: this.normalizeReactionKey(option.key) === userKey,
+        }))
+        .map((option) => ({
+          ...option,
+          count: option.isUser && !option.count ? 1 : option.count,
         }))
         .sort((a, b) => {
           if (b.count !== a.count) {
@@ -929,15 +1012,60 @@ export default {
       const rest = ranked.filter((item) => !topKeys.has(item.key));
       return { top, rest };
     },
+    reactionPathCandidates() {
+      const currentPath =
+        (this.$page &&
+          typeof this.$page.path === "string" &&
+          this.$page.path) ||
+        "/";
+      const candidates = new Set();
+      const trimmed = currentPath.trim() || "/";
+      candidates.add(trimmed);
+      const noSlash = trimmed === "/" ? "/" : trimmed.replace(/\/+$/, "");
+      candidates.add(noSlash);
+      if (noSlash !== "/" && !/\.html?$/i.test(noSlash)) {
+        candidates.add(`${noSlash}.html`);
+      }
+      if (noSlash !== "/") {
+        candidates.add(`${noSlash}/`);
+      }
+      return Array.from(candidates).filter(Boolean);
+    },
+    reactionPagePath() {
+      const currentPath =
+        (this.$page &&
+          typeof this.$page.path === "string" &&
+          this.$page.path) ||
+        "/";
+      const trimmed = currentPath.trim() || "/";
+      if (trimmed === "/") {
+        return "/";
+      }
+      if (/\/$/.test(trimmed)) {
+        return trimmed;
+      }
+      if (/\.html?$/i.test(trimmed)) {
+        return trimmed.replace(/\.html?$/i, "/");
+      }
+      return `${trimmed}/`;
+    },
     isReactionMenuOpen(sceneNumber) {
       return Boolean(this.reactionMenuOpen[sceneNumber]);
     },
     toggleReactionMenu(sceneNumber) {
-      this.$set(
-        this.reactionMenuOpen,
-        sceneNumber,
-        !this.reactionMenuOpen[sceneNumber]
-      );
+      const key = Number(sceneNumber);
+      if (!Number.isFinite(key)) {
+        return;
+      }
+      const nextValue = !Boolean(this.reactionMenuOpen[key]);
+      if (typeof this.$set === "function") {
+        this.$set(this.reactionMenuOpen, key, nextValue);
+        return;
+      }
+      this.reactionMenuOpen = {
+        ...this.reactionMenuOpen,
+        [key]: nextValue,
+      };
     },
     async loadReactionCounts() {
       if (typeof window === "undefined") {
@@ -954,21 +1082,23 @@ export default {
         const { data, error } = await this.supabase
           .from(SUPABASE_ALBUM_REACTIONS_TABLE)
           .select("scene_number, reaction_key")
-          .eq("page_path", this.$page.path);
+          .in("page_path", this.reactionPathCandidates());
         if (error) {
           console.warn("Unable to load reactions.", error);
           return;
         }
         const counts = {};
+        const rows = [];
         (data || []).forEach((row) => {
           const scene = parseInt(row.scene_number, 10);
           if (!Number.isFinite(scene)) {
             return;
           }
-          const key = row.reaction_key;
+          const key = this.normalizeReactionKey(row.reaction_key);
           if (!key) {
             return;
           }
+          rows.push({ scene_number: scene, reaction_key: key });
           if (!counts[scene]) {
             counts[scene] = {};
           }
@@ -979,7 +1109,7 @@ export default {
           const { data: userData, error: userError } = await this.supabase
             .from(SUPABASE_ALBUM_REACTIONS_TABLE)
             .select("scene_number, reaction_key")
-            .eq("page_path", this.$page.path)
+            .in("page_path", this.reactionPathCandidates())
             .eq("user_id", this.authUser.id);
           if (userError) {
             console.warn("Unable to load user reactions.", userError);
@@ -989,15 +1119,33 @@ export default {
               if (!Number.isFinite(scene)) {
                 return;
               }
-              if (!row.reaction_key) {
+              const key = this.normalizeReactionKey(row.reaction_key);
+              if (!key) {
                 return;
               }
-              userReactions[scene] = row.reaction_key;
+              userReactions[scene] = key;
             });
+            // Fallback: if aggregate query is empty/blocked by policy, at least
+            // render the authenticated user's reactions and counts.
+            if (!Object.keys(counts).length) {
+              (userData || []).forEach((row) => {
+                const scene = parseInt(row.scene_number, 10);
+                const key = this.normalizeReactionKey(row.reaction_key);
+                if (!Number.isFinite(scene) || !key) {
+                  return;
+                }
+                if (!counts[scene]) {
+                  counts[scene] = {};
+                }
+                counts[scene][key] = (counts[scene][key] || 0) + 1;
+              });
+            }
           }
         }
         this.reactionCounts = counts;
+        this.reactionRows = rows;
         this.userReactions = userReactions;
+        this.reactionRenderVersion += 1;
       } finally {
         this.reactionLoading = false;
       }
@@ -1012,20 +1160,31 @@ export default {
       if (!this.supabase || this.reactionUpdating) {
         return;
       }
+      const scene = parseInt(sceneNumber, 10);
+      if (!Number.isFinite(scene)) {
+        return;
+      }
+      const normalizedReactionKey = this.normalizeReactionKey(reactionKey);
+      if (!normalizedReactionKey) {
+        return;
+      }
       this.reactionUpdating = true;
-      const current = this.userReactions[sceneNumber] || null;
+      const current = this.userReaction(scene);
+      const nextReaction =
+        current === normalizedReactionKey ? null : normalizedReactionKey;
       this.userReactions = {
         ...this.userReactions,
-        [sceneNumber]: current === reactionKey ? null : reactionKey,
+        [scene]: nextReaction,
       };
+      this.applyReactionOptimistic(scene, current, nextReaction);
       try {
-        if (current === reactionKey) {
+        if (current === normalizedReactionKey) {
           const { error } = await this.supabase
             .from(SUPABASE_ALBUM_REACTIONS_TABLE)
             .delete()
             .eq("user_id", this.authUser.id)
-            .eq("page_path", this.$page.path)
-            .eq("scene_number", sceneNumber);
+            .in("page_path", this.reactionPathCandidates())
+            .eq("scene_number", scene);
           if (error) {
             console.warn("Unable to remove reaction.", error);
           }
@@ -1035,9 +1194,9 @@ export default {
             .upsert(
               {
                 user_id: this.authUser.id,
-                page_path: this.$page.path,
-                scene_number: sceneNumber,
-                reaction_key: reactionKey,
+                page_path: this.reactionPagePath(),
+                scene_number: scene,
+                reaction_key: normalizedReactionKey,
               },
               { onConflict: "user_id,page_path,scene_number" }
             );
@@ -1049,6 +1208,52 @@ export default {
         this.reactionUpdating = false;
         this.loadReactionCounts();
       }
+    },
+    applyReactionOptimistic(sceneNumber, previousKey, nextKey) {
+      const scene = Number(sceneNumber);
+      if (!Number.isFinite(scene)) {
+        return;
+      }
+      const normalizedPrevious = this.normalizeReactionKey(previousKey);
+      const normalizedNext = this.normalizeReactionKey(nextKey);
+      const sceneCounts = { ...(this.reactionCounts[scene] || {}) };
+      if (normalizedPrevious && sceneCounts[normalizedPrevious]) {
+        sceneCounts[normalizedPrevious] = Math.max(
+          0,
+          sceneCounts[normalizedPrevious] - 1
+        );
+      }
+      if (normalizedNext) {
+        sceneCounts[normalizedNext] = (sceneCounts[normalizedNext] || 0) + 1;
+      }
+      this.reactionCounts = {
+        ...this.reactionCounts,
+        [scene]: sceneCounts,
+      };
+      let removedPrevious = false;
+      const nextRows = Array.isArray(this.reactionRows)
+        ? this.reactionRows.filter((row) => {
+            const rowScene = parseInt(row.scene_number, 10);
+            const rowKey = this.normalizeReactionKey(row.reaction_key);
+            if (!Number.isFinite(rowScene) || rowScene !== scene) {
+              return true;
+            }
+            if (
+              !normalizedPrevious ||
+              removedPrevious ||
+              rowKey !== normalizedPrevious
+            ) {
+              return true;
+            }
+            removedPrevious = true;
+            return false;
+          })
+        : [];
+      if (normalizedNext) {
+        nextRows.push({ scene_number: scene, reaction_key: normalizedNext });
+      }
+      this.reactionRows = nextRows;
+      this.reactionRenderVersion += 1;
     },
     async fetchProfile() {
       if (!this.useCloud) {
@@ -1086,65 +1291,71 @@ export default {
         return this._cloudLoadPromise;
       }
       this._cloudLoadPromise = (async () => {
-        const localBookmark = this.getLocalSceneNumber(this.bookmarkKey);
-        const localResume = this.getLocalSceneNumber(this.resumeKey);
-        const { data, error } = await this.supabase
-          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-          .select("bookmark_scene, resume_scene")
-          .eq("user_id", this.authUser.id)
-          .eq("page_path", this.$page.path)
-          .maybeSingle();
-        if (error) {
+        try {
+          const localBookmark = this.getLocalSceneNumber(this.bookmarkKey);
+          const localResume = this.getLocalSceneNumber(this.resumeKey);
+          const { data, error } = await this.supabase
+            .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .select("bookmark_scene, resume_scene")
+            .eq("user_id", this.authUser.id)
+            .eq("page_path", this.$page.path)
+            .maybeSingle();
+          if (error) {
+            console.warn("Unable to load cloud album state.", error);
+            this.loadBookmarkLocal();
+            this.loadResumeLocal();
+            return;
+          }
+          const hasCloudRow = Boolean(data);
+          const cloudBookmark = data ? parseInt(data.bookmark_scene, 10) : null;
+          const cloudResume = data ? parseInt(data.resume_scene, 10) : null;
+          const mergedBookmark = Number.isFinite(cloudBookmark)
+            ? cloudBookmark
+            : hasCloudRow
+            ? null
+            : localBookmark;
+          const mergedResume = Number.isFinite(cloudResume)
+            ? cloudResume
+            : hasCloudRow
+            ? null
+            : localResume;
+          const needsUpsert =
+            (!hasCloudRow && Number.isFinite(localBookmark)) ||
+            (!hasCloudRow && Number.isFinite(localResume));
+          if (needsUpsert) {
+            await this.upsertCloudState({
+              bookmark_scene: Number.isFinite(mergedBookmark)
+                ? mergedBookmark
+                : null,
+              resume_scene: Number.isFinite(mergedResume) ? mergedResume : null,
+            });
+          }
+          this.bookmarkedScene = Number.isFinite(mergedBookmark)
+            ? mergedBookmark
+            : null;
+          this.lastSeenScene = Number.isFinite(mergedResume)
+            ? mergedResume
+            : null;
+          if (hasCloudRow) {
+            this.setLocalSceneNumber(this.bookmarkKey, null);
+            this.setLocalSceneNumber(this.resumeKey, null);
+          } else {
+            this.setLocalSceneNumber(this.bookmarkKey, mergedBookmark);
+            this.setLocalSceneNumber(this.resumeKey, mergedResume);
+          }
+          this._lastCloudResumeScene = Number.isFinite(mergedResume)
+            ? mergedResume
+            : null;
+          if (this.bookmarkedScene && !this.getHashSceneNumber()) {
+            this.jumpToScene = this.bookmarkedScene;
+            this.$nextTick(() => {
+              this.goToScene();
+            });
+          }
+        } catch (error) {
           console.warn("Unable to load cloud album state.", error);
           this.loadBookmarkLocal();
           this.loadResumeLocal();
-          return;
-        }
-        const hasCloudRow = Boolean(data);
-        const cloudBookmark = data ? parseInt(data.bookmark_scene, 10) : null;
-        const cloudResume = data ? parseInt(data.resume_scene, 10) : null;
-        const mergedBookmark = Number.isFinite(cloudBookmark)
-          ? cloudBookmark
-          : hasCloudRow
-          ? null
-          : localBookmark;
-        const mergedResume = Number.isFinite(cloudResume)
-          ? cloudResume
-          : hasCloudRow
-          ? null
-          : localResume;
-        const needsUpsert =
-          (!hasCloudRow && Number.isFinite(localBookmark)) ||
-          (!hasCloudRow && Number.isFinite(localResume));
-        if (needsUpsert) {
-          await this.upsertCloudState({
-            bookmark_scene: Number.isFinite(mergedBookmark)
-              ? mergedBookmark
-              : null,
-            resume_scene: Number.isFinite(mergedResume) ? mergedResume : null,
-          });
-        }
-        this.bookmarkedScene = Number.isFinite(mergedBookmark)
-          ? mergedBookmark
-          : null;
-        this.lastSeenScene = Number.isFinite(mergedResume)
-          ? mergedResume
-          : null;
-        if (hasCloudRow) {
-          this.setLocalSceneNumber(this.bookmarkKey, null);
-          this.setLocalSceneNumber(this.resumeKey, null);
-        } else {
-          this.setLocalSceneNumber(this.bookmarkKey, mergedBookmark);
-          this.setLocalSceneNumber(this.resumeKey, mergedResume);
-        }
-        this._lastCloudResumeScene = Number.isFinite(mergedResume)
-          ? mergedResume
-          : null;
-        if (this.bookmarkedScene && !this.getHashSceneNumber()) {
-          this.jumpToScene = this.bookmarkedScene;
-          this.$nextTick(() => {
-            this.goToScene();
-          });
         }
       })();
       try {
@@ -1167,10 +1378,28 @@ export default {
       if (Object.prototype.hasOwnProperty.call(payload, "resume_scene")) {
         row.resume_scene = payload.resume_scene;
       }
-      const { error } = await this.supabase
-        .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-        .upsert(row, { onConflict: "user_id,page_path" });
-      if (error) {
+      try {
+        const { data: updatedRows, error: updateError } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .update(row)
+          .eq("user_id", row.user_id)
+          .eq("page_path", row.page_path)
+          .select("user_id")
+          .limit(1);
+        if (updateError) {
+          console.warn("Unable to update cloud album state.", updateError);
+          return;
+        }
+        if (Array.isArray(updatedRows) && updatedRows.length) {
+          return;
+        }
+        const { error: insertError } = await this.supabase
+          .from(SUPABASE_ALBUM_PROGRESS_TABLE)
+          .insert(row);
+        if (insertError) {
+          console.warn("Unable to insert cloud album state.", insertError);
+        }
+      } catch (error) {
         console.warn("Unable to save cloud album state.", error);
       }
     },

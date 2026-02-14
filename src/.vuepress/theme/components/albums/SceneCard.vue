@@ -70,6 +70,7 @@
         :class="{ reporter: scene.reporter }"
       ></div>
       <ReactionPanel
+        :key="`reaction-panel-${sceneNumber}-${authStateKey}-${reactionVersion}`"
         :scene-number="sceneNumber"
         :reaction-display="reactionDisplay"
         :user-reaction="userReaction"
@@ -128,6 +129,15 @@ export default {
     isMenuOpen: {
       type: Boolean,
       default: false,
+    },
+    reactionVersion: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+    authStateKey() {
+      return this.authUser && this.authUser.id ? this.authUser.id : "guest";
     },
   },
   methods: {

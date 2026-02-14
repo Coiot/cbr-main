@@ -515,6 +515,10 @@ const sitemapEnhancer = (_, ctx) => ({
 module.exports = {
   title: "Civ Battle Royale",
   description: siteDescription,
+  // Keep VuePress temp artifacts in a stable project folder.
+  // This avoids intermittent ENOENT errors for palette/style files under
+  // node_modules/@vuepress/core/.temp during dev recompiles.
+  temp: path.resolve(__dirname, "../../.vuepress-temp"),
   dest: "./public",
   chainWebpack(config) {
     config.module
