@@ -223,7 +223,7 @@
                 :style="tileHexStyle(tile)"
               />
               <use
-                v-if="Number.isFinite(tile.owner)"
+                v-if="shouldShowOwnerOverlay(tile)"
                 class="tile-owner-overlay"
                 href="#hex-shape"
                 xlink:href="#hex-shape"
@@ -236,14 +236,14 @@
                 :points="elevationPoints(tile)"
               />
               <line
-                v-for="segment in tile.ownerBorderSegments"
+                v-for="segment in ownerBorderSegmentsForTile(tile)"
                 :key="segment.key"
                 class="tile-owner-border"
                 :x1="segment.x1"
                 :y1="segment.y1"
                 :x2="segment.x2"
                 :y2="segment.y2"
-                :style="{ stroke: segment.color }"
+                :style="{ stroke: ownerBorderColor(tile, segment) }"
               />
               <line
                 v-for="segment in showDecorations ? tile.riverSegments : []"
@@ -304,14 +304,21 @@
                 />
               </g>
               <use
-                v-if="showUnits && primaryUnit(tile)"
+                v-if="
+                  showUnits && shouldShowPrimaryUnit(tile) && primaryUnit(tile)
+                "
                 class="tile-unit"
                 href="#unit-icon"
                 xlink:href="#unit-icon"
                 :transform="`translate(${hexSize * 0.3}, ${-hexSize * 0.35})`"
               />
               <text
-                v-if="showUnits && primaryUnit(tile) && showLabels"
+                v-if="
+                  showUnits &&
+                  shouldShowPrimaryUnit(tile) &&
+                  primaryUnit(tile) &&
+                  showLabels
+                "
                 class="tile-unit-label"
                 :x="hexSize * 0.3"
                 :y="-hexSize * 0.35 + 1.5"
@@ -320,20 +327,20 @@
                 {{ unitLabel(primaryUnit(tile)) }}
               </text>
               <circle
-                v-if="tile.city && !tile.city.isCapital"
+                v-if="shouldShowCity(tile) && tile.city && !tile.city.isCapital"
                 class="tile-city"
                 :r="hexSize * 0.35"
                 cx="0"
                 cy="0"
               />
               <use
-                v-if="tile.city && tile.city.isCapital"
+                v-if="shouldShowCity(tile) && tile.city && tile.city.isCapital"
                 class="tile-city-capital"
                 href="#city-capital"
                 xlink:href="#city-capital"
               />
               <use
-                v-if="tile.civilianUnit && scale > 1"
+                v-if="showUnitMarker(tile, 'civilian')"
                 class="tile-unit-marker tile-unit-marker-civilian"
                 href="#unit-triangle"
                 xlink:href="#unit-triangle"
@@ -341,7 +348,7 @@
                 :style="unitMarkerStyle(tile.civilianUnit)"
               />
               <circle
-                v-if="tile.combatUnit && scale > 1"
+                v-if="showUnitMarker(tile, 'combat')"
                 class="tile-unit-marker tile-unit-marker-combat"
                 :r="unitMarkerRadius"
                 cx="0"
@@ -659,6 +666,14 @@
               @click="editPanelTab = 'snapshots'"
             >
               Snapshots
+            </button>
+            <button
+              type="button"
+              class="tile-edit-button"
+              :class="{ 'is-active': editPanelTab === 'overlays' }"
+              @click="editPanelTab = 'overlays'"
+            >
+              Overlays
             </button>
           </div>
         </div>
@@ -1649,6 +1664,229 @@
               </div>
             </div>
           </div>
+          <div
+            v-show="editPanelTab === 'overlays'"
+            class="tile-info-card tile-overlay-card"
+          >
+            <div class="tile-info-title">Overlays</div>
+            <div class="tile-overlay-body">
+              <div class="tile-map-toolbar-group tile-map-mode-toggle">
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  :class="{ 'is-active': overlayView === 'civilization' }"
+                  @click="overlayView = 'civilization'"
+                >
+                  Civilization
+                </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  :class="{ 'is-active': overlayView === 'population' }"
+                  @click="overlayView = 'population'"
+                >
+                  Population
+                </button>
+              </div>
+
+              <div
+                v-if="overlayView === 'civilization'"
+                class="tile-overlay-section"
+              >
+                <div class="tile-edit-group">
+                  <label class="tile-edit-label" for="overlay-civ-input">
+                    Civilization
+                  </label>
+                  <div class="tile-edit-row">
+                    <div class="tile-edit-combobox">
+                      <input
+                        id="overlay-civ-input"
+                        class="tile-edit-input"
+                        type="text"
+                        placeholder="Search civ..."
+                        v-model="overlayOwnerName"
+                        @focus="
+                          openCombo('overlayOwner', overlayOwnerOptionMatches)
+                        "
+                        @blur="handleComboBlur('overlayOwner')"
+                        @input="
+                          onComboInput(
+                            'overlayOwner',
+                            overlayOwnerOptionMatches
+                          )
+                        "
+                        @keydown="
+                          onComboKeydown(
+                            $event,
+                            'overlayOwner',
+                            overlayOwnerOptionMatches
+                          )
+                        "
+                        :style="ownerInputStyle(overlayOwnerName)"
+                      />
+                      <div
+                        v-if="comboOpen.overlayOwner"
+                        class="tile-edit-combobox-list"
+                      >
+                        <button
+                          v-for="(owner, index) in overlayOwnerOptionMatches"
+                          :key="`overlay-owner-${owner.name}-${index}`"
+                          type="button"
+                          class="tile-edit-combobox-option"
+                          :class="{
+                            'is-active': comboHighlight.overlayOwner === index,
+                          }"
+                          @mousedown.prevent="
+                            selectComboOption('overlayOwner', owner)
+                          "
+                          @mouseenter="setComboHighlight('overlayOwner', index)"
+                        >
+                          <span class="tile-edit-combobox-option-title">
+                            {{ owner.name }}
+                          </span>
+                          <span
+                            v-if="owner.leader"
+                            class="tile-edit-combobox-option-meta"
+                          >
+                            {{ owner.leader }}
+                          </span>
+                        </button>
+                        <div
+                          v-if="!overlayOwnerOptionMatches.length"
+                          class="tile-edit-combobox-empty"
+                        >
+                          No matches
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      class="tile-edit-button"
+                      @click="overlayOwnerName = ''"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </div>
+                <div
+                  v-if="civilizationOverlayMetrics"
+                  class="tile-info-list tile-overlay-metrics"
+                >
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Civilization</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.ownerLabel }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Tiles Owned</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.tilesOwned }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Cities</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.cities }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Total Population</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.population }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Avg City Size</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.avgCitySize }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Combat Units</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.combatUnits }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Civilian Units</div>
+                    <div class="tile-info-value">
+                      {{ civilizationOverlayMetrics.civilianUnits }}
+                    </div>
+                  </div>
+                </div>
+                <div v-else class="tile-info-empty">
+                  Select a civilization to isolate its owned tiles, cities, and
+                  units.
+                </div>
+              </div>
+
+              <div v-else class="tile-overlay-section">
+                <div class="tile-info-list tile-overlay-metrics">
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Total Population</div>
+                    <div class="tile-info-value">
+                      {{ populationOverlayMetrics.totalPopulation }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Total Cities</div>
+                    <div class="tile-info-value">
+                      {{ populationOverlayMetrics.totalCities }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Owned Tiles</div>
+                    <div class="tile-info-value">
+                      {{ populationOverlayMetrics.totalOwnedTiles }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Average Density</div>
+                    <div class="tile-info-value">
+                      {{
+                        formatOverlayDensity(
+                          populationOverlayMetrics.averageDensity
+                        )
+                      }}
+                    </div>
+                  </div>
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Highest Density</div>
+                    <div class="tile-info-value">
+                      {{
+                        populationOverlayMetrics.densestOwner
+                          ? `${
+                              populationOverlayMetrics.densestOwner.label
+                            } (${formatOverlayDensity(
+                              populationOverlayMetrics.densestOwner.density
+                            )})`
+                          : "None"
+                      }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  v-if="populationOverlayTopCivilizations.length"
+                  class="tile-overlay-ranking"
+                >
+                  <div class="tile-info-label">Top Density Civilizations</div>
+                  <div
+                    v-for="entry in populationOverlayTopCivilizations"
+                    :key="`density-${entry.owner}`"
+                    class="tile-overlay-ranking-item"
+                  >
+                    <span class="tile-overlay-ranking-label">
+                      {{ entry.label }}
+                    </span>
+                    <span class="tile-overlay-ranking-value">
+                      {{ formatOverlayDensity(entry.density) }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </aside>
     </div>
@@ -1977,6 +2215,8 @@ export default {
       // Panel UI state
       editPanelCollapsed: true,
       editPanelTab: "edit",
+      overlayView: "civilization",
+      overlayOwnerName: "",
       isMobileView: false,
       isMobileBrowser: false,
       lastPointerType: null,
@@ -2007,6 +2247,7 @@ export default {
         combatOwner: false,
         civilianUnit: false,
         civilianOwner: false,
+        overlayOwner: false,
       },
       comboHighlight: {
         owner: -1,
@@ -2015,6 +2256,7 @@ export default {
         combatOwner: -1,
         civilianUnit: -1,
         civilianOwner: -1,
+        overlayOwner: -1,
       },
       hasLoadedOverrides: false,
       ownerBrushEnabled: false,
@@ -2135,6 +2377,153 @@ export default {
         this.editAccessAllowed ||
         (this.selectedTile && !!this.selectedTile.notes)
       );
+    },
+    isOverlayTabActive() {
+      return this.editPanelTab === "overlays";
+    },
+    isCivilizationOverlayActive() {
+      return this.isOverlayTabActive && this.overlayView === "civilization";
+    },
+    isPopulationOverlayActive() {
+      return this.isOverlayTabActive && this.overlayView === "population";
+    },
+    activeOverlayOwnerId() {
+      const ownerId = resolveOwnerInput(this.overlayOwnerName);
+      return Number.isFinite(ownerId) ? ownerId : null;
+    },
+    babylonOwnerId() {
+      const index = (this.ownerOptions || []).findIndex((owner) =>
+        /babylon/i.test(String(owner && owner.name ? owner.name : ""))
+      );
+      return index >= 0 ? index : null;
+    },
+    hasActiveCivilizationOverlay() {
+      return (
+        this.isCivilizationOverlayActive &&
+        Number.isFinite(this.activeOverlayOwnerId)
+      );
+    },
+    civilizationOverlayMetrics() {
+      if (!this.hasActiveCivilizationOverlay) {
+        return null;
+      }
+      const ownerId = this.activeOverlayOwnerId;
+      let tilesOwned = 0;
+      let cities = 0;
+      let population = 0;
+      let combatUnits = 0;
+      let civilianUnits = 0;
+      (this.tiles || []).forEach((tile) => {
+        if (Number.isFinite(tile.owner) && tile.owner === ownerId) {
+          tilesOwned += 1;
+        }
+        const cityOwner = this.ownerIdForCity(tile);
+        if (tile.city && cityOwner === ownerId) {
+          cities += 1;
+          population += Number.isFinite(tile.city.size) ? tile.city.size : 0;
+        }
+        if (this.ownerIdForUnit(tile.combatUnit, tile) === ownerId) {
+          combatUnits += 1;
+        }
+        if (this.ownerIdForUnit(tile.civilianUnit, tile) === ownerId) {
+          civilianUnits += 1;
+        }
+      });
+      return {
+        owner: ownerId,
+        ownerLabel: this.ownerLabel(ownerId),
+        tilesOwned,
+        cities,
+        population,
+        combatUnits,
+        civilianUnits,
+        avgCitySize: cities ? (population / cities).toFixed(1) : "0.0",
+      };
+    },
+    populationOverlayMetrics() {
+      const ownerLookup = {};
+      let totalPopulation = 0;
+      let totalCities = 0;
+      let totalOwnedTiles = 0;
+      const ignoredOwner = this.babylonOwnerId;
+      (this.tiles || []).forEach((tile) => {
+        if (Number.isFinite(tile.owner)) {
+          if (Number.isFinite(ignoredOwner) && tile.owner === ignoredOwner) {
+            return;
+          }
+          totalOwnedTiles += 1;
+          if (!ownerLookup[tile.owner]) {
+            ownerLookup[tile.owner] = {
+              owner: tile.owner,
+              label: this.ownerLabel(tile.owner),
+              tiles: 0,
+              cities: 0,
+              population: 0,
+              density: 0,
+            };
+          }
+          ownerLookup[tile.owner].tiles += 1;
+        }
+        if (!tile.city) {
+          return;
+        }
+        const cityOwner = this.ownerIdForCity(tile);
+        if (!Number.isFinite(cityOwner)) {
+          return;
+        }
+        if (Number.isFinite(ignoredOwner) && cityOwner === ignoredOwner) {
+          return;
+        }
+        if (!ownerLookup[cityOwner]) {
+          ownerLookup[cityOwner] = {
+            owner: cityOwner,
+            label: this.ownerLabel(cityOwner),
+            tiles: 0,
+            cities: 0,
+            population: 0,
+            density: 0,
+          };
+        }
+        const size = Number.isFinite(tile.city.size) ? tile.city.size : 0;
+        ownerLookup[cityOwner].cities += 1;
+        ownerLookup[cityOwner].population += Math.max(0, size);
+        totalPopulation += Math.max(0, size);
+        totalCities += 1;
+      });
+      const owners = Object.values(ownerLookup).map((entry) => ({
+        ...entry,
+        density: entry.tiles ? entry.population / entry.tiles : 0,
+      }));
+      owners.sort(
+        (a, b) => b.density - a.density || b.population - a.population
+      );
+      const densestOwner = owners.find((entry) => entry.density > 0) || null;
+      return {
+        totalPopulation,
+        totalCities,
+        totalOwnedTiles,
+        averageDensity: totalOwnedTiles ? totalPopulation / totalOwnedTiles : 0,
+        maxDensity: owners.length
+          ? owners.reduce(
+              (maxDensity, entry) => Math.max(maxDensity, entry.density),
+              0
+            )
+          : 0,
+        owners,
+        densestOwner,
+      };
+    },
+    populationDensityByOwner() {
+      const lookup = {};
+      (this.populationOverlayMetrics.owners || []).forEach((entry) => {
+        lookup[entry.owner] = entry.density;
+      });
+      return lookup;
+    },
+    populationOverlayTopCivilizations() {
+      return (this.populationOverlayMetrics.owners || [])
+        .filter((entry) => entry.density > 0)
+        .slice(0, 6);
     },
     hexSize() {
       return this.mapConfig.hexSize;
@@ -2315,6 +2704,10 @@ export default {
       return this.filterOwnerOptions(this.editCivilianUnitOwnerName);
     },
 
+    overlayOwnerOptionMatches() {
+      return this.filterOwnerOptions(this.overlayOwnerName);
+    },
+
     combatUnitOptions() {
       return ALL_UNITS.filter((unit) => unit.role === "combat");
     },
@@ -2418,7 +2811,9 @@ export default {
       if (!this.showLabels) {
         return [];
       }
-      return this.visibleTiles.filter((tile) => tile.city && tile.city.name);
+      return this.visibleTiles.filter(
+        (tile) => tile.city && tile.city.name && this.shouldShowCity(tile)
+      );
     },
   },
 
@@ -2438,6 +2833,13 @@ export default {
       } else if (nextValue === "snapshots") {
         this.loadSnapshotsIfActive();
       }
+      this.handleOverlayVisualizationChange();
+    },
+    overlayView() {
+      this.handleOverlayVisualizationChange();
+    },
+    overlayOwnerName() {
+      this.handleOverlayVisualizationChange();
     },
     scale: "handleScaleChange",
     translate: {
@@ -3553,6 +3955,7 @@ export default {
         if (Number.isFinite(nextOwner)) {
           this.ensureOwnerColors(nextOwner);
         }
+        this.syncCityOwnerWithTileOwner(tile);
       }
       if (Object.prototype.hasOwnProperty.call(payload, "originalOwner")) {
         const nextOriginal = Number.isFinite(payload.originalOwner)
@@ -4732,36 +5135,52 @@ export default {
       this.tiles.forEach((tile) => {
         const fill = adjustedTerrainFill(tile, getColor);
         const previousAlpha = context.globalAlpha;
-        context.globalAlpha = Number.isFinite(fill.alpha)
+        let fillColor = fill.color;
+        let fillAlpha = Number.isFinite(fill.alpha)
           ? fill.alpha
           : previousAlpha;
+        if (
+          this.hasActiveCivilizationOverlay &&
+          !this.tileBelongsToOverlayCiv(tile)
+        ) {
+          fillColor = desaturateColor(fill.color, 0.6);
+          fillAlpha =
+            tile.terrainId === "ocean" || tile.terrainId === "coast"
+              ? 0.12
+              : 0.2;
+        } else if (this.isPopulationOverlayActive) {
+          fillColor = desaturateColor(fill.color, 0.35);
+        }
+        context.globalAlpha = fillAlpha;
         drawHexPath(tile);
-        context.fillStyle = fill.color;
+        context.fillStyle = fillColor;
         context.fill();
         context.globalAlpha = previousAlpha;
       });
 
       context.lineWidth = 0.2;
-      context.strokeStyle = "rgba(0, 0, 0, 0.2)";
+      context.strokeStyle = "rgba(0, 0, 0, 0.05)";
       this.tiles.forEach((tile) => {
         drawHexPath(tile);
         context.stroke();
       });
 
-      const overlayAlpha = 0.65;
-      const overlayWaterAlpha = 0.1;
       const previousAlpha = context.globalAlpha;
       const overlayTiles = this.tiles.filter((tile) =>
-        Number.isFinite(tile.owner)
+        this.shouldShowOwnerOverlay(tile)
       );
       if (overlayTiles.length) {
         overlayTiles.forEach((tile) => {
-          const isWater =
-            tile.terrainId === "ocean" || tile.terrainId === "coast";
-          context.globalAlpha = isWater ? overlayWaterAlpha : overlayAlpha;
-          const color = this.ownerColors[tile.owner] || "#ffffff";
+          const style = this.ownerOverlayStyle(tile);
+          if (!style || !style.fill || !Number.isFinite(style.fillOpacity)) {
+            return;
+          }
+          if (style.fillOpacity <= 0) {
+            return;
+          }
+          context.globalAlpha = style.fillOpacity;
           drawHexPath(tile);
-          context.fillStyle = color;
+          context.fillStyle = style.fill;
           context.fill();
         });
         context.globalAlpha = previousAlpha;
@@ -4770,20 +5189,21 @@ export default {
         context.lineJoin = "round";
         context.lineCap = "round";
         overlayTiles.forEach((tile) => {
-          if (!tile.ownerBorderSegments || !tile.ownerBorderSegments.length) {
+          const borderSegments = this.ownerBorderSegmentsForTile(tile);
+          if (!borderSegments.length) {
             return;
           }
-          tile.ownerBorderSegments.forEach((segment) => {
+          borderSegments.forEach((segment) => {
             context.beginPath();
             context.moveTo(tile.x + segment.x1, tile.y + segment.y1);
             context.lineTo(tile.x + segment.x2, tile.y + segment.y2);
-            context.strokeStyle = segment.color || "#ffffff";
+            context.strokeStyle = this.ownerBorderColor(tile, segment);
             context.stroke();
           });
         });
       }
 
-      const cityTiles = this.tiles.filter((tile) => tile.city);
+      const cityTiles = this.tiles.filter((tile) => this.shouldShowCity(tile));
       if (cityTiles.length) {
         const capitalOuter = this.hexSize * 0.44;
         const capitalInner = this.hexSize * 0.2;
@@ -5087,8 +5507,157 @@ export default {
       this.startRecentEditAnimation();
     },
 
+    handleOverlayVisualizationChange() {
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
+    },
+
+    ownerIdForCity(tile) {
+      if (!tile || !tile.city) {
+        return null;
+      }
+      if (Number.isFinite(tile.city.owner)) {
+        return tile.city.owner;
+      }
+      return Number.isFinite(tile.owner) ? tile.owner : null;
+    },
+
+    ownerIdForUnit(unit, tile) {
+      if (unit && Number.isFinite(unit.owner)) {
+        return unit.owner;
+      }
+      if (tile && Number.isFinite(tile.owner)) {
+        return tile.owner;
+      }
+      return null;
+    },
+
+    tileBelongsToOverlayCiv(tile) {
+      if (!tile || !this.hasActiveCivilizationOverlay) {
+        return false;
+      }
+      return tile.owner === this.activeOverlayOwnerId;
+    },
+
+    unitBelongsToOverlayCiv(unit, tile) {
+      if (!this.hasActiveCivilizationOverlay) {
+        return true;
+      }
+      return this.ownerIdForUnit(unit, tile) === this.activeOverlayOwnerId;
+    },
+
+    shouldShowOwnerOverlay(tile) {
+      if (!tile || !Number.isFinite(tile.owner)) {
+        return false;
+      }
+      if (!this.hasActiveCivilizationOverlay) {
+        return true;
+      }
+      return this.tileBelongsToOverlayCiv(tile);
+    },
+
+    ownerBorderSegmentsForTile(tile) {
+      if (!tile || !Array.isArray(tile.ownerBorderSegments)) {
+        return [];
+      }
+      if (!this.hasActiveCivilizationOverlay) {
+        return tile.ownerBorderSegments;
+      }
+      return this.tileBelongsToOverlayCiv(tile) ? tile.ownerBorderSegments : [];
+    },
+
+    ownerBorderColor(tile, segment) {
+      if (this.isPopulationOverlayActive) {
+        const style = this.populationOverlayStyle(tile);
+        return (style && style.fill) || "#ffffff";
+      }
+      return (segment && segment.color) || "#ffffff";
+    },
+
+    shouldShowCity(tile) {
+      if (!tile || !tile.city) {
+        return false;
+      }
+      if (!this.hasActiveCivilizationOverlay) {
+        return true;
+      }
+      return this.ownerIdForCity(tile) === this.activeOverlayOwnerId;
+    },
+
+    shouldShowPrimaryUnit(tile) {
+      if (!tile) {
+        return false;
+      }
+      const unit = this.primaryUnit(tile);
+      if (!unit) {
+        return false;
+      }
+      return this.unitBelongsToOverlayCiv(unit, tile);
+    },
+
+    showUnitMarker(tile, role) {
+      if (!tile || this.scale <= 1) {
+        return false;
+      }
+      const unit = role === "combat" ? tile.combatUnit : tile.civilianUnit;
+      if (!unit) {
+        return false;
+      }
+      return this.unitBelongsToOverlayCiv(unit, tile);
+    },
+
+    overlayDensityColor(ratio) {
+      const clamped = clampValue(Number(ratio) || 0, 0, 1);
+      const steps = [
+        "hsl(50 100% 70%)",
+        "hsl(30 90% 70%)",
+        "hsl(25 100% 57.5%)",
+        "hsl(0 75% 50%)",
+        "hsl(330 75% 50%)",
+        "hsl(305 60% 40%)",
+        "hsl(280 80% 40%)",
+        "hsl(280 80% 30%)",
+      ];
+      if (clamped >= 1) {
+        return steps[steps.length - 1];
+      }
+      const index = Math.min(
+        steps.length - 2,
+        Math.floor(clamped * (steps.length - 1))
+      );
+      return steps[index];
+    },
+
+    populationOverlayStyle(tile) {
+      if (!tile || !Number.isFinite(tile.owner)) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      if (
+        Number.isFinite(this.babylonOwnerId) &&
+        tile.owner === this.babylonOwnerId
+      ) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      const density = this.populationDensityByOwner[tile.owner] || 0;
+      const maxDensity = this.populationOverlayMetrics.maxDensity || 0;
+      const ratio = maxDensity > 0 ? clampValue(density / maxDensity, 0, 1) : 0;
+      const isWater = tile.terrainId === "ocean" || tile.terrainId === "coast";
+      return {
+        fill: this.overlayDensityColor(ratio),
+        fillOpacity: isWater ? 0.1 + ratio * 0.04 : 0.5 + ratio * 0.75,
+      };
+    },
+
+    formatOverlayDensity(value) {
+      if (!Number.isFinite(value)) {
+        return "0.00";
+      }
+      return Number(value).toFixed(2);
+    },
+
     tileStrokeStyle(tile) {
-      return { stroke: "rgba(0, 0, 0, 0.15)", strokeWidth: 1 };
+      return { stroke: "rgba(0, 0, 0, 0.05)", strokeWidth: 1 };
     },
 
     tileHexStyle(tile) {
@@ -5102,14 +5671,44 @@ export default {
       if (Number.isFinite(fill.alpha) && fill.alpha < 1) {
         nextStyle.fillOpacity = fill.alpha;
       }
+      if (
+        this.hasActiveCivilizationOverlay &&
+        !this.tileBelongsToOverlayCiv(tile)
+      ) {
+        nextStyle.fill = desaturateColor(fill.color, 0.6);
+        nextStyle.fillOpacity =
+          tile.terrainId === "ocean" || tile.terrainId === "coast" ? 0.12 : 0.3;
+      } else if (this.isPopulationOverlayActive) {
+        nextStyle.fill = desaturateColor(fill.color, 0.35);
+      }
       return nextStyle;
     },
 
     ownerOverlayStyle(tile) {
+      if (!tile || !Number.isFinite(tile.owner)) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      if (this.isPopulationOverlayActive) {
+        return this.populationOverlayStyle(tile);
+      }
       const color = this.ownerColors[tile.owner] || "#ffffff";
-      const isWater =
-        tile && (tile.terrainId === "ocean" || tile.terrainId === "coast");
-      return { fill: color, fillOpacity: isWater ? 0.1 : 0.5 };
+      const isWater = tile.terrainId === "ocean" || tile.terrainId === "coast";
+      if (
+        this.hasActiveCivilizationOverlay &&
+        !this.tileBelongsToOverlayCiv(tile)
+      ) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      return {
+        fill: color,
+        fillOpacity: this.hasActiveCivilizationOverlay
+          ? isWater
+            ? 0.2
+            : 0.8
+          : isWater
+          ? 0.1
+          : 0.6,
+      };
     },
 
     miniMapHexStyle(tile) {
@@ -5579,6 +6178,7 @@ export default {
       const normalized = Math.round(ownerId);
       this.selectedTile.owner = normalized;
       this.selectedTile.customOwner = true;
+      this.syncCityOwnerWithTileOwner(this.selectedTile);
       this.editOwnerName = ownerNameForId(normalized);
       this.ensureOwnerColors(normalized);
       this.rebuildOwnerBorders();
@@ -5822,6 +6422,8 @@ export default {
           return this.editCivilianUnitType;
         case "civilianOwner":
           return this.editCivilianUnitOwnerName;
+        case "overlayOwner":
+          return this.overlayOwnerName;
         default:
           return "";
       }
@@ -5847,6 +6449,9 @@ export default {
         case "civilianOwner":
           this.editCivilianUnitOwnerName = value;
           break;
+        case "overlayOwner":
+          this.overlayOwnerName = value;
+          break;
         default:
           break;
       }
@@ -5861,6 +6466,7 @@ export default {
         case "originalOwner":
         case "combatOwner":
         case "civilianOwner":
+        case "overlayOwner":
           return option.name || "";
         case "combatUnit":
         case "civilianUnit":
@@ -6046,6 +6652,7 @@ export default {
       }
       this.selectedTile.owner = null;
       this.selectedTile.customOwner = false;
+      this.syncCityOwnerWithTileOwner(this.selectedTile);
       this.editOwnerName = "";
       this.rebuildOwnerBorders();
       this.queueTileSave(this.selectedTile);
@@ -6228,6 +6835,7 @@ export default {
       if (Number.isFinite(tile.owner)) {
         this.ensureOwnerColors(tile.owner);
       }
+      this.syncCityOwnerWithTileOwner(tile);
       if (!options.deferBorders) {
         this.rebuildOwnerBorders();
       }
@@ -6560,6 +7168,20 @@ export default {
         this.ownerPalette,
         this.ownerSecondaryColors
       );
+    },
+
+    syncCityOwnerWithTileOwner(tile) {
+      if (!tile || !tile.city) {
+        return;
+      }
+      const nextOwner = Number.isFinite(tile.owner) ? tile.owner : null;
+      if (tile.city.owner === nextOwner) {
+        return;
+      }
+      tile.city = {
+        ...tile.city,
+        owner: nextOwner,
+      };
     },
 
     rebuildOwnerBorders() {
@@ -8850,6 +9472,67 @@ function toHex(value) {
 }
 .tile-map .tile-snapshot-card {
   margin-block-end: 0.75rem;
+}
+.tile-map .tile-overlay-card {
+  margin-block-end: 0.75rem;
+}
+.tile-map .tile-overlay-body {
+  display: grid;
+  gap: 0.75rem;
+}
+.tile-map .tile-overlay-body .tile-map-mode-toggle {
+  display: inline-flex;
+  inline-size: fit-content;
+  align-items: center;
+  gap: 0;
+}
+.tile-map .tile-overlay-body .tile-map-mode-toggle .tile-edit-button {
+  border-radius: 0;
+}
+.tile-map
+  .tile-overlay-body
+  .tile-map-mode-toggle
+  .tile-edit-button:first-child {
+  border-start-start-radius: 0.75rem;
+  border-end-start-radius: 0.75rem;
+}
+.tile-map
+  .tile-overlay-body
+  .tile-map-mode-toggle
+  .tile-edit-button:last-child {
+  border-start-end-radius: 0.75rem;
+  border-end-end-radius: 0.75rem;
+}
+.tile-map .tile-overlay-section {
+  display: grid;
+  gap: 0.65rem;
+}
+.tile-map .tile-overlay-metrics {
+  display: grid;
+  gap: 0.45rem;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block-start: 0.55rem;
+}
+.tile-map .tile-overlay-ranking {
+  display: grid;
+  gap: 0.4rem;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block-start: 0.55rem;
+}
+.tile-map .tile-overlay-ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--text-color), white 12%);
+  font-size: 0.82rem;
+}
+.tile-map .tile-overlay-ranking-label {
+  font-weight: 700;
+}
+.tile-map .tile-overlay-ranking-value {
+  color: color-mix(in srgb, var(--text-color), white 28%);
+  font-weight: 700;
 }
 .tile-map .tile-snapshot-body {
   display: grid;

@@ -4,7 +4,7 @@
       <h2 id="comments-title">Supporter Comments</h2>
       <p class="comments-subtitle">
         Supporters can leave one comment within a week of release.
-        <span v-if="commentWindowLabel"
+        <span v-if="commentWindowOpen && commentWindowLabel"
           >Comments close {{ commentWindowLabel }}.</span
         >
       </p>

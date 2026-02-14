@@ -319,8 +319,6 @@ const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
 const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
 const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
-const SEASON_FIVE_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
-const SEASON_FIVE_COMMENT_LABEL = new Date(2026, 1, 11);
 const RESUME_SYNC_DEBOUNCE = 4000;
 const CINEMATIC_NARRATION_LAYOUT_KEY = "albumsCinematicNarrationLayout";
 const normalizeEpisodeNumber = (value) => {
@@ -543,27 +541,22 @@ export default {
       return this.showComments && (!this.isToggle || this.isFinalScene);
     },
     commentPostedAt() {
-      const raw =
-        (this.$page && this.$page.frontmatter && this.$page.frontmatter.date) ||
-        null;
-      const date = raw ? new Date(raw) : null;
-      return date && Number.isFinite(date.getTime()) ? date : null;
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const rawCandidates = [frontmatter.release_date, frontmatter.date];
+      for (const raw of rawCandidates) {
+        if (!raw) {
+          continue;
+        }
+        const date = new Date(raw);
+        if (Number.isFinite(date.getTime())) {
+          return date;
+        }
+      }
+      return null;
     },
     commentWindowEndsAt() {
       if (!this.showComments) {
         return null;
-      }
-      if (this.isSeasonFive) {
-        if (!this.commentPostedAt) {
-          return SEASON_FIVE_COMMENT_CUTOFF;
-        }
-        const regularEnd = new Date(
-          this.commentPostedAt.getTime() +
-            COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
-        );
-        return regularEnd > SEASON_FIVE_COMMENT_CUTOFF
-          ? regularEnd
-          : SEASON_FIVE_COMMENT_CUTOFF;
       }
       if (!this.commentPostedAt) {
         return null;
@@ -578,16 +571,13 @@ export default {
         return false;
       }
       if (!this.commentWindowEndsAt) {
-        return true;
+        return false;
       }
       return Date.now() <= this.commentWindowEndsAt.getTime();
     },
     commentWindowLabel() {
       if (!this.showComments) {
         return "";
-      }
-      if (this.isSeasonFive) {
-        return SEASON_FIVE_COMMENT_LABEL.toLocaleDateString();
       }
       if (!this.commentWindowEndsAt) {
         return "";
@@ -2287,6 +2277,7 @@ export default {
   padding-inline: 0.2rem;
   border-radius: 999px;
   background: #2a2a2a;
+  overflow-x: clip;
 }
 .timeline-track::before {
   content: "";
