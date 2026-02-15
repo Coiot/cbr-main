@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/Futura.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --accent-color: #ffbf46;
   --text-color: #fff;

@@ -196,6 +196,7 @@ export default {
 .list {
   display: flex;
   flex: 0 0 auto;
+  overflow-x: clip;
 }
 
 .list-button {

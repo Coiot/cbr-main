@@ -19,7 +19,7 @@
     />
     <div class="text">
       <h3 v-if="scene.scene_number == scene.scene_title" class="scene-heading">
-        <span class="scene-title">{{ scene.scene_number }}</span>
+        <span class="scene-title">{{ displaySceneNumber }}</span>
         <BookmarkButton
           :active="bookmarked"
           :aria-label="bookmarkAria"
@@ -29,7 +29,7 @@
       </h3>
       <h3 v-else-if="scene.scene_title_html" class="scene-heading">
         <span class="scene-title">
-          {{ scene.scene_number }}:
+          {{ displaySceneNumber }}:
           <span v-html="scene.scene_title_html"></span>
         </span>
         <BookmarkButton
@@ -41,7 +41,7 @@
       </h3>
       <h3 v-else-if="scene.scene_title" class="scene-heading">
         <span class="scene-title">
-          {{ scene.scene_number }}:
+          {{ displaySceneNumber }}:
           {{ scene.scene_title }}
         </span>
         <BookmarkButton
@@ -52,7 +52,7 @@
         />
       </h3>
       <h3 v-else class="scene-heading">
-        <span class="scene-title">{{ scene.scene_number }}</span>
+        <span class="scene-title">{{ displaySceneNumber }}</span>
         <BookmarkButton
           :active="bookmarked"
           :aria-label="bookmarkAria"
@@ -143,6 +143,18 @@ export default {
   computed: {
     authStateKey() {
       return this.authUser && this.authUser.id ? this.authUser.id : "guest";
+    },
+    displaySceneNumber() {
+      const raw =
+        this.scene && this.scene.scene_number !== undefined
+          ? this.scene.scene_number
+          : "";
+      const text = String(raw).trim();
+      if (!/^[0-9]+$/.test(text)) {
+        return raw;
+      }
+      const parsed = Number.parseInt(text, 10);
+      return Number.isFinite(parsed) ? parsed : raw;
     },
   },
   methods: {

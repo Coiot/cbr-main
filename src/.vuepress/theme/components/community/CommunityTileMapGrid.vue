@@ -1867,17 +1867,83 @@
                   </div>
                 </div>
                 <div
-                  v-if="populationOverlayTopCivilizations.length"
+                  v-if="populationOverlayTopPopulationCivilizations.length"
                   class="tile-overlay-ranking"
                 >
-                  <div class="tile-info-label">Top Density Civilizations</div>
+                  <div class="tile-info-label">
+                    Top Population Civilizations
+                  </div>
                   <div
-                    v-for="entry in populationOverlayTopCivilizations"
+                    v-for="(
+                      entry, index
+                    ) in populationOverlayTopPopulationCivilizations"
+                    :key="`population-${entry.owner}`"
+                    class="tile-overlay-ranking-item"
+                  >
+                    <span class="tile-overlay-ranking-label">
+                      {{ index + 1 }}. {{ entry.label }}
+                    </span>
+                    <span class="tile-overlay-ranking-value">
+                      {{ formatOverlayCount(entry.population) }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  v-if="populationOverlayTopTilesCivilizations.length"
+                  class="tile-overlay-ranking"
+                >
+                  <div class="tile-info-label">Top Tiles Civilizations</div>
+                  <div
+                    v-for="(
+                      entry, index
+                    ) in populationOverlayTopTilesCivilizations"
+                    :key="`tiles-${entry.owner}`"
+                    class="tile-overlay-ranking-item"
+                  >
+                    <span class="tile-overlay-ranking-label">
+                      {{ index + 1 }}. {{ entry.label }}
+                    </span>
+                    <span class="tile-overlay-ranking-value">
+                      {{ formatOverlayCount(entry.tiles) }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  v-if="populationOverlayTopCitiesCivilizations.length"
+                  class="tile-overlay-ranking"
+                >
+                  <div class="tile-info-label">Top Cities Owned</div>
+                  <div
+                    v-for="(
+                      entry, index
+                    ) in populationOverlayTopCitiesCivilizations"
+                    :key="`cities-${entry.owner}`"
+                    class="tile-overlay-ranking-item"
+                  >
+                    <span class="tile-overlay-ranking-label">
+                      {{ index + 1 }}. {{ entry.label }}
+                    </span>
+                    <span class="tile-overlay-ranking-value">
+                      {{ formatOverlayCount(entry.cities) }}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  v-if="populationOverlayTopDensityCivilizations.length"
+                  class="tile-overlay-ranking"
+                >
+                  <div class="tile-info-label">
+                    Top Density (sans Water tiles)
+                  </div>
+                  <div
+                    v-for="(
+                      entry, index
+                    ) in populationOverlayTopDensityCivilizations"
                     :key="`density-${entry.owner}`"
                     class="tile-overlay-ranking-item"
                   >
                     <span class="tile-overlay-ranking-label">
-                      {{ entry.label }}
+                      {{ index + 1 }}. {{ entry.label }}
                     </span>
                     <span class="tile-overlay-ranking-value">
                       {{ formatOverlayDensity(entry.density) }}
@@ -2441,6 +2507,17 @@ export default {
       };
     },
     populationOverlayMetrics() {
+      if (!this.isPopulationOverlayActive) {
+        return {
+          totalPopulation: 0,
+          totalCities: 0,
+          totalOwnedTiles: 0,
+          averageDensity: 0,
+          maxDensity: 0,
+          owners: [],
+          densestOwner: null,
+        };
+      }
       const ownerLookup = {};
       let totalPopulation = 0;
       let totalCities = 0;
@@ -2451,18 +2528,24 @@ export default {
           if (Number.isFinite(ignoredOwner) && tile.owner === ignoredOwner) {
             return;
           }
+          const isWater =
+            tile.terrainId === "ocean" || tile.terrainId === "coast";
           totalOwnedTiles += 1;
           if (!ownerLookup[tile.owner]) {
             ownerLookup[tile.owner] = {
               owner: tile.owner,
               label: this.ownerLabel(tile.owner),
               tiles: 0,
+              densityTiles: 0,
               cities: 0,
               population: 0,
               density: 0,
             };
           }
           ownerLookup[tile.owner].tiles += 1;
+          if (!isWater) {
+            ownerLookup[tile.owner].densityTiles += 1;
+          }
         }
         if (!tile.city) {
           return;
@@ -2479,6 +2562,7 @@ export default {
             owner: cityOwner,
             label: this.ownerLabel(cityOwner),
             tiles: 0,
+            densityTiles: 0,
             cities: 0,
             population: 0,
             density: 0,
@@ -2492,7 +2576,7 @@ export default {
       });
       const owners = Object.values(ownerLookup).map((entry) => ({
         ...entry,
-        density: entry.tiles ? entry.population / entry.tiles : 0,
+        density: entry.densityTiles ? entry.population / entry.densityTiles : 0,
       }));
       owners.sort(
         (a, b) => b.density - a.density || b.population - a.population
@@ -2520,10 +2604,43 @@ export default {
       });
       return lookup;
     },
-    populationOverlayTopCivilizations() {
+    populationOverlayTopPopulationCivilizations() {
+      return [...(this.populationOverlayMetrics.owners || [])]
+        .filter((entry) => entry.population > 0)
+        .sort(
+          (a, b) =>
+            b.population - a.population ||
+            b.tiles - a.tiles ||
+            b.density - a.density
+        )
+        .slice(0, 5);
+    },
+    populationOverlayTopTilesCivilizations() {
+      return [...(this.populationOverlayMetrics.owners || [])]
+        .filter((entry) => entry.tiles > 0)
+        .sort(
+          (a, b) =>
+            b.tiles - a.tiles ||
+            b.population - a.population ||
+            b.density - a.density
+        )
+        .slice(0, 5);
+    },
+    populationOverlayTopCitiesCivilizations() {
+      return [...(this.populationOverlayMetrics.owners || [])]
+        .filter((entry) => entry.cities > 0)
+        .sort(
+          (a, b) =>
+            b.cities - a.cities ||
+            b.population - a.population ||
+            b.tiles - a.tiles
+        )
+        .slice(0, 5);
+    },
+    populationOverlayTopDensityCivilizations() {
       return (this.populationOverlayMetrics.owners || [])
         .filter((entry) => entry.density > 0)
-        .slice(0, 6);
+        .slice(0, 5);
     },
     hexSize() {
       return this.mapConfig.hexSize;
@@ -5612,10 +5729,10 @@ export default {
       const steps = [
         "hsl(50 100% 70%)",
         "hsl(30 90% 70%)",
-        "hsl(25 100% 57.5%)",
-        "hsl(0 75% 50%)",
-        "hsl(330 75% 50%)",
-        "hsl(305 60% 40%)",
+        "hsl(25 100% 62.5%)",
+        "hsl(0 75% 65%)",
+        "hsl(330 75% 55%)",
+        "hsl(305 60% 45%)",
         "hsl(280 80% 40%)",
         "hsl(280 80% 30%)",
       ];
@@ -5654,6 +5771,13 @@ export default {
         return "0.00";
       }
       return Number(value).toFixed(2);
+    },
+
+    formatOverlayCount(value) {
+      if (!Number.isFinite(value)) {
+        return "0";
+      }
+      return Math.round(value).toLocaleString("en-US");
     },
 
     tileStrokeStyle(tile) {
