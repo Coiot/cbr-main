@@ -22,7 +22,7 @@ scenes:
 - scene_number: 04
   scene_title: "In Case Of Emergency"
   slide_url: https://cdn.civbattleroyale.tv/s5ep5-supporters.svg
-  narration: "<p>Coiot’s been making some really cool updates to the site, and these donations pay for the server that hosts such a wonderful site! But fr check out all the stuff Coiot has been adding, it looks really nice. He should also finish the rest of those Tibetan civs he was working on wink wink nudge nudge.</p>"
+  narration: "<p>Coiot’s been making some really cool updates to the site, and these donations pay for the server that hosts such a wonderful site! But fr check out all the stuff Coiot has been adding, it looks really nice. He should also finish the rest of those Tibetan civs he was working on wink wink nudge nudge.</p><p>Coiot: Few more new features out you might stumble upon, announcements when I clear the bugs!</p>"
 - scene_number: 05
   scene_title: "Omop"
   slide_svg: https://cdn.civbattleroyale.tv/season5-pr4-scene53.jpeg
