@@ -100,7 +100,7 @@ export default {
 }
 .nav-links a:not(.external) {
   font-weight: 900;
-  text-shadow: 1px 1px #eee;
+  text-shadow: var(--nav-link-shadow);
 }
 .nav-links .nav-item {
   position: relative;

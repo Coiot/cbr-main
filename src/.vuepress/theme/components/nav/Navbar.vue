@@ -25,35 +25,7 @@
       }"
     >
       <NavLinks class="can-hide" />
-      <div class="search-wrapper" ref="searchWrapper">
-        <button
-          type="button"
-          class="search-trigger"
-          aria-label="Search"
-          aria-haspopup="true"
-          :aria-expanded="searchOpen ? 'true' : 'false'"
-          @click="toggleSearchMenu"
-        >
-          <svg
-            class="search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            aria-hidden="true"
-          >
-            <path
-              d="M208 80C137.3 80 80 137.3 80 208s57.3 128 128 128s128-57.3 128-128S278.7 80 208 80zM0 208C0 93.1 93.1 0 208 0s208 93.1 208 208c0 45.1-14.3 86.8-38.6 120.9l124.9 124.9c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L332.1 374.2C298.8 398.7 255.8 416 208 416C93.1 416 0 322.9 0 208z"
-            />
-          </svg>
-        </button>
-        <div
-          v-if="searchOpen"
-          class="search-dropdown"
-          @click.stop
-          @touchstart.stop
-        >
-          <SearchBox />
-        </div>
-      </div>
+      <QuickJumpPalette />
       <a
         class="social-trigger"
         href="https://old.reddit.com/r/civbattleroyale/"
@@ -202,6 +174,27 @@
               Sign in to sync bookmarks, reactions, comments, and live map
               editing.
             </p>
+            <div class="user-field">
+              <label class="user-label">Theme</label>
+              <div class="user-toggle">
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': themeMode === 'dark' }"
+                  @click="setThemeMode('dark')"
+                >
+                  Dark
+                </button>
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': themeMode === 'light' }"
+                  @click="setThemeMode('light')"
+                >
+                  Light
+                </button>
+              </div>
+            </div>
             <input
               class="user-input"
               type="email"
@@ -275,6 +268,27 @@
               </div>
             </div>
             <div class="user-field">
+              <label class="user-label">Theme</label>
+              <div class="user-toggle">
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': themeMode === 'dark' }"
+                  @click="setThemeMode('dark')"
+                >
+                  Dark
+                </button>
+                <button
+                  type="button"
+                  class="user-chip"
+                  :class="{ 'is-active': themeMode === 'light' }"
+                  @click="setThemeMode('light')"
+                >
+                  Light
+                </button>
+              </div>
+            </div>
+            <div class="user-field">
               <label class="user-label" for="user-civ-select"
                 >Favorite civ</label
               >
@@ -338,12 +352,12 @@
           <div class="help-section">
             <h4>Keyboard</h4>
             <ul class="help-list">
-              <li><kbd>J</kbd> / <kbd>→</kbd> Next scene</li>
-              <li><kbd>K</kbd> / <kbd>←</kbd> Previous scene</li>
+              <li><kbd>→</kbd> / <kbd>J</kbd> Next scene</li>
+              <li><kbd>←</kbd> / <kbd>K</kbd> Previous scene</li>
               <li><kbd>Home</kbd> / <kbd>End</kbd> First / Last scene</li>
               <li><kbd>B</kbd> Toggle bookmark</li>
               <li><kbd>R</kbd> Resume to bookmark</li>
-              <li><kbd>G</kbd> Jump to scene input</li>
+              <li><kbd>Cmd/Ctrl</kbd> + <kbd>K</kbd> Open quick jump</li>
               <li><kbd>T</kbd> Toggle view</li>
               <li><kbd>F</kbd> Toggle fullscreen</li>
               <!-- <li><kbd>C</kbd> Copy scene link</li> -->
@@ -364,8 +378,8 @@
 
 <script>
 import SidebarButton from "../sidebar/SidebarButton.vue";
-import SearchBox from "../search/SearchBox.vue";
 import NavLinks from "./NavLinks.vue";
+import QuickJumpPalette from "./QuickJumpPalette.vue";
 import { getEdition } from "../../../data/editions";
 import {
   getSupabaseClient,
@@ -373,13 +387,20 @@ import {
   SUPABASE_USER_SETTINGS_TABLE,
 } from "../../supabaseClient";
 
-const USER_SETTINGS_KEYS = ["albumsViewMode", "favoriteCiv", "customFlair"];
+const USER_SETTINGS_KEYS = [
+  "albumsViewMode",
+  "favoriteCiv",
+  "customFlair",
+  "themeMode",
+];
+const THEME_STORAGE_KEY = "themeMode";
+const DEFAULT_THEME_MODE = "dark";
 
 export default {
   components: {
     SidebarButton,
     NavLinks,
-    SearchBox,
+    QuickJumpPalette,
   },
 
   data() {
@@ -389,7 +410,6 @@ export default {
       bookmarkOpen: false,
       helpOpen: false,
       userOpen: false,
-      searchOpen: false,
       supabase: null,
       authUser: null,
       authProfile: null,
@@ -399,6 +419,7 @@ export default {
       usernameSaving: false,
       usernameMessage: "",
       albumsViewMode: "vertical",
+      themeMode: DEFAULT_THEME_MODE,
       favoriteCiv: "",
       customFlair: "",
       authLoading: false,
@@ -434,6 +455,9 @@ export default {
         this._bookmarkUpdateHandler
       );
       window.addEventListener("storage", this._bookmarkUpdateHandler);
+      this._themeStorageHandler = (event) =>
+        this.handleThemeStorageUpdate(event);
+      window.addEventListener("storage", this._themeStorageHandler);
       window.addEventListener(
         "user-settings-updated",
         this.handleSettingsUpdate
@@ -449,6 +473,10 @@ export default {
         this._bookmarkUpdateHandler
       );
       window.removeEventListener("storage", this._bookmarkUpdateHandler);
+      if (this._themeStorageHandler) {
+        window.removeEventListener("storage", this._themeStorageHandler);
+        this._themeStorageHandler = null;
+      }
       window.removeEventListener(
         "user-settings-updated",
         this.handleSettingsUpdate
@@ -744,6 +772,10 @@ export default {
           settings[key] = value;
           return;
         }
+        if (key === "themeMode") {
+          settings[key] = this.normalizeThemeMode(value);
+          return;
+        }
         settings[key] = value;
       });
       return settings;
@@ -782,6 +814,12 @@ export default {
           } else {
             window.localStorage.removeItem(key);
           }
+          return;
+        }
+        if (key === "themeMode") {
+          const mode = this.normalizeThemeMode(value);
+          window.localStorage.setItem(THEME_STORAGE_KEY, mode);
+          this.applyThemeMode(mode);
           return;
         }
         if (value == null) {
@@ -892,6 +930,11 @@ export default {
       if (Object.prototype.hasOwnProperty.call(settings, "customFlair")) {
         this.customFlair = settings.customFlair || "";
       }
+      if (Object.prototype.hasOwnProperty.call(settings, "themeMode")) {
+        const mode = this.normalizeThemeMode(settings.themeMode);
+        this.themeMode = mode;
+        this.applyThemeMode(mode);
+      }
       this.saveUserSettings(settings);
     },
     loadViewMode() {
@@ -904,6 +947,48 @@ export default {
       this.favoriteCiv = storedCiv || "";
       const storedFlair = window.localStorage.getItem("customFlair");
       this.customFlair = storedFlair || "";
+      const storedThemeMode = this.normalizeThemeMode(
+        window.localStorage.getItem(THEME_STORAGE_KEY)
+      );
+      this.themeMode = storedThemeMode;
+      this.applyThemeMode(storedThemeMode);
+    },
+    normalizeThemeMode(mode) {
+      return mode === "light" ? "light" : DEFAULT_THEME_MODE;
+    },
+    applyThemeMode(mode) {
+      if (typeof document === "undefined") {
+        return;
+      }
+      const normalized = this.normalizeThemeMode(mode);
+      this.themeMode = normalized;
+      const root = document.documentElement;
+      root.setAttribute("data-theme", normalized);
+      root.style.colorScheme = normalized;
+    },
+    setThemeMode(mode) {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const normalized = this.normalizeThemeMode(mode);
+      window.localStorage.setItem(THEME_STORAGE_KEY, normalized);
+      this.applyThemeMode(normalized);
+      window.dispatchEvent(
+        new CustomEvent("user-settings-updated", {
+          detail: { themeMode: normalized },
+        })
+      );
+    },
+    handleThemeStorageUpdate(event) {
+      if (
+        !event ||
+        event.storageArea !== window.localStorage ||
+        event.key !== THEME_STORAGE_KEY
+      ) {
+        return;
+      }
+      const mode = this.normalizeThemeMode(event.newValue);
+      this.applyThemeMode(mode);
     },
     setAlbumsViewMode(mode) {
       if (typeof window === "undefined") {
@@ -1023,20 +1108,6 @@ export default {
     toggleHelpMenu() {
       this.helpOpen = !this.helpOpen;
     },
-    toggleSearchMenu() {
-      this.searchOpen = !this.searchOpen;
-      if (this.searchOpen) {
-        this.$nextTick(() => {
-          if (!this.$refs.searchWrapper) {
-            return;
-          }
-          const input = this.$refs.searchWrapper.querySelector("input");
-          if (input) {
-            input.focus();
-          }
-        });
-      }
-    },
     async signInWithEmail() {
       if (!this.supabase) {
         return;
@@ -1075,6 +1146,9 @@ export default {
       this.userSettings = {};
       this.usernameInput = "";
       this.usernameMessage = "";
+      this.themeMode = this.normalizeThemeMode(
+        window.localStorage.getItem(THEME_STORAGE_KEY)
+      );
       this.favoriteCiv = "";
       this.customFlair = "";
       this.authMessage = "Signed out.";
@@ -1134,14 +1208,6 @@ export default {
       const helpWrapper = this.$refs.helpWrapper;
       if (this.helpOpen && helpWrapper && !helpWrapper.contains(event.target)) {
         this.helpOpen = false;
-      }
-      const searchWrapper = this.$refs.searchWrapper;
-      if (
-        this.searchOpen &&
-        searchWrapper &&
-        !searchWrapper.contains(event.target)
-      ) {
-        this.searchOpen = false;
       }
     },
     async loadBookmarks() {
@@ -1286,7 +1352,7 @@ function css(el, property) {
   font-size: 1.6rem;
   font-weight: 900;
   line-height: 1;
-  text-shadow: 2px 2px #eee;
+  text-shadow: var(--site-title-shadow);
 }
 .navbar .links {
   box-sizing: border-box;
@@ -1329,9 +1395,6 @@ function css(el, property) {
 .navbar .links .bookmark-wrapper {
   position: relative;
 }
-.navbar .links .search-wrapper {
-  position: relative;
-}
 .navbar .links .user-wrapper {
   position: relative;
 }
@@ -1355,41 +1418,6 @@ function css(el, property) {
 .navbar .links .bookmark-trigger:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
-}
-.navbar .links .search-trigger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 2.4rem;
-  block-size: 2.4rem;
-  color: var(--back-color);
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  padding: 0.3rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.navbar .links .search-trigger:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-}
-.navbar .links .search-icon {
-  inline-size: 1.05rem;
-  block-size: 1.05rem;
-  fill: currentColor;
-}
-.navbar .links .search-dropdown {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.65rem);
-  z-index: 40;
-  min-inline-size: min-content;
-  background: #fff;
-  border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  padding: 1rem;
 }
 .navbar .links .community-trigger {
   display: inline-flex;
@@ -1516,7 +1544,7 @@ function css(el, property) {
   min-inline-size: 22rem;
   max-inline-size: 90vw;
   color: var(--back-color);
-  background: #fff;
+  background: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
   border-radius: 6px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -1531,7 +1559,7 @@ function css(el, property) {
   inline-size: 20rem;
   max-inline-size: 90vw;
   color: var(--back-color);
-  background: #fff;
+  background: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -1546,7 +1574,7 @@ function css(el, property) {
   inline-size: 20rem;
   max-inline-size: 90vw;
   color: var(--back-color);
-  background: #fff;
+  background: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -1572,7 +1600,9 @@ function css(el, property) {
 .navbar .links .user-input {
   font-size: 0.95rem;
   font-weight: 600;
-  border: 1px solid #ddd;
+  color: var(--back-color);
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border-color);
   border-radius: 6px;
   padding: 0.5rem 0.7rem;
 }
@@ -1610,7 +1640,7 @@ function css(el, property) {
 }
 .navbar .links .user-button--ghost {
   color: var(--accent-color);
-  background: #fff;
+  background: var(--surface-color);
 }
 .navbar .links .user-button--ghost:hover {
   background: color-mix(in srgb, var(--accent-color), white 38%);
@@ -1633,9 +1663,9 @@ function css(el, property) {
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.35rem 0.6rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--surface-border-color);
   border-radius: 999px;
-  background: #f7f5f0;
+  background: var(--surface-muted-color);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -1704,9 +1734,9 @@ function css(el, property) {
 .navbar .links .help-list kbd {
   min-inline-size: 1.2rem;
   display: inline-block;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--surface-border-color);
   border-radius: 6px;
-  background: #f3f3f3;
+  background: var(--surface-muted-color);
   color: #1a1a1a;
   font-size: 0.75rem;
   font-weight: 800;
@@ -1738,9 +1768,9 @@ function css(el, property) {
   align-items: stretch;
   inline-size: 100%;
   box-sizing: border-box;
-  border: 1px solid #ddd;
+  border: 1px solid var(--surface-border-color);
   border-radius: 6px;
-  background: #fefefe;
+  background: var(--surface-color);
   overflow: hidden;
 }
 .navbar .links .bookmark-link {
@@ -1756,7 +1786,7 @@ function css(el, property) {
   padding-inline: 0.8rem;
 }
 .navbar .links .bookmark-link:hover {
-  background: #f6f6f6;
+  background: var(--surface-muted-color);
 }
 .navbar .links .bookmark-title {
   font-size: 0.95rem;
@@ -1779,8 +1809,8 @@ function css(el, property) {
   flex: 0 0 3rem;
   color: color-mix(in srgb, var(--back-color), white 10%);
   border: 0;
-  border-inline-start: 1px solid #e3e3e3;
-  background: #f3f3f3;
+  border-inline-start: 1px solid var(--surface-border-color);
+  background: var(--surface-muted-color);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
@@ -1827,15 +1857,6 @@ function css(el, property) {
     min-inline-size: 0;
     box-sizing: border-box;
     transform: translateX(-75%);
-  }
-  .navbar .search-dropdown {
-    position: fixed;
-    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-    inset-inline-end: 1rem;
-    inline-size: 20rem;
-    max-inline-size: 95vw;
-    min-inline-size: 0;
-    box-sizing: border-box;
   }
   .navbar .user-dropdown,
   .navbar .help-dropdown {

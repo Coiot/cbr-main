@@ -444,6 +444,52 @@
                 />
               </g>
             </g>
+            <g
+              v-if="visibleMapPinTiles.length"
+              class="tile-map-pin-overlays"
+              aria-hidden="true"
+            >
+              <g
+                v-for="pin in visibleMapPinTiles"
+                :key="`map-pin-overlay-${pin.nameKey}`"
+                class="tile-map-pin-overlay"
+                :transform="`translate(${pin.tile.x}, ${pin.tile.y})`"
+              >
+                <path class="tile-map-pin-overlay-tip" :d="mapPinTipPath()" />
+                <circle
+                  class="tile-map-pin-overlay-dot"
+                  cx="0"
+                  :cy="mapPinDotY()"
+                  :r="mapPinDotRadius()"
+                />
+                <circle
+                  class="tile-map-pin-overlay-core"
+                  cx="0"
+                  :cy="mapPinDotY()"
+                  :r="mapPinCoreRadius()"
+                />
+                <g v-if="showMapPinLabels" class="tile-map-pin-overlay-label">
+                  <rect
+                    class="tile-map-pin-overlay-pill"
+                    :x="-mapPinLabelWidth(pin.name) / 2"
+                    :y="mapPinLabelY()"
+                    :width="mapPinLabelWidth(pin.name)"
+                    :height="mapPinLabelHeight()"
+                    :rx="hexSize * 0.22"
+                    :ry="hexSize * 0.22"
+                  />
+                  <text
+                    class="tile-map-pin-overlay-text"
+                    x="0"
+                    :y="mapPinLabelTextY()"
+                    dominant-baseline="middle"
+                    text-anchor="middle"
+                  >
+                    {{ mapPinLabelText(pin.name) }}
+                  </text>
+                </g>
+              </g>
+            </g>
           </svg>
         </div>
         <div
@@ -709,6 +755,7 @@
                 </button>
               </span>
             </div>
+
             <div
               v-if="selectedTile"
               class="tile-edit-form"
@@ -1065,7 +1112,7 @@
                     </button>
                   </div>
                 </div>
-                <div class="tile-edit-group tile-edit-units">
+                <!-- <div class="tile-edit-group tile-edit-units">
                   <div class="tile-edit-units-grid">
                     <div class="tile-edit-unit-group">
                       <div class="tile-edit-unit-header">
@@ -1372,7 +1419,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div v-if="!selectedTile.city" class="tile-edit-group">
                   <div class="tile-edit-label tile-edit-label-inline">
                     <label class="tile-edit-checkbox-inline">
@@ -1403,6 +1450,62 @@
                       Ruins
                     </label>
                   </div>
+                </div>
+                <div class="tile-map-pins">
+                  <div class="tile-map-pins-head">
+                    <span class="tile-map-pins-label">Map Pins</span>
+                    <span class="tile-map-pins-hint">
+                      Save named jump points for tiles/cities.
+                    </span>
+                  </div>
+                  <div class="tile-map-pins-save">
+                    <input
+                      class="tile-edit-input tile-map-pin-input"
+                      type="text"
+                      maxlength="40"
+                      placeholder="homefront"
+                      v-model.trim="mapPinInput"
+                      @keydown.enter.prevent="saveCurrentMapPin"
+                    />
+                    <button
+                      type="button"
+                      class="tile-edit-button"
+                      :disabled="!selectedTile || !mapPinInput"
+                      @click="saveCurrentMapPin"
+                    >
+                      Save Pin
+                    </button>
+                  </div>
+                  <div
+                    v-if="mapPinStatus"
+                    class="tile-edit-hint tile-map-pin-status"
+                  >
+                    {{ mapPinStatus }}
+                  </div>
+                  <div v-if="mapPins.length" class="tile-map-pins-list">
+                    <div
+                      v-for="pin in mapPins"
+                      :key="pin.nameKey"
+                      class="tile-map-pin-row"
+                    >
+                      <button
+                        type="button"
+                        class="tile-edit-button tile-map-pin-jump"
+                        @click="jumpToMapPin(pin.name)"
+                      >
+                        {{ pin.name }}
+                      </button>
+                      <span class="tile-map-pin-meta">{{ pin.label }}</span>
+                      <button
+                        type="button"
+                        class="tile-edit-button tile-map-pin-remove"
+                        @click="removeMapPin(pin.name)"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                  <div v-else class="tile-edit-hint">No pins saved yet.</div>
                 </div>
               </fieldset>
               <p class="tile-edit-hint">
@@ -1802,7 +1905,7 @@
                       {{ civilizationOverlayMetrics.avgCitySize }}
                     </div>
                   </div>
-                  <div class="tile-info-row">
+                  <!-- <div class="tile-info-row">
                     <div class="tile-info-label">Combat Units</div>
                     <div class="tile-info-value">
                       {{ civilizationOverlayMetrics.combatUnits }}
@@ -1813,7 +1916,7 @@
                     <div class="tile-info-value">
                       {{ civilizationOverlayMetrics.civilianUnits }}
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div v-else class="tile-info-empty">
                   Select a civilization to isolate its owned tiles, cities, and
@@ -2167,6 +2270,8 @@ const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
 const MINI_MAP_MAX_WIDTH = 180;
 const MINI_MAP_MAX_HEIGHT = 120;
 const COMBO_MAX_RESULTS = 20;
+const QUICK_JUMP_FOCUS_SCALE = 1.5;
+const MAP_PINS_STORAGE_KEY = "cbr.mapPins.v1";
 
 export default {
   props: {
@@ -2254,6 +2359,16 @@ export default {
       hoverTooltipPosition: { x: 0, y: 0 },
       hoverTooltipSize: { width: 0, height: 0 },
       selectedTile: null,
+      pendingRouteTileKey: "",
+      quickJumpRequestedTileKey: "",
+      quickJumpRequestedCityName: "",
+      quickJumpRequestedOwnerName: "",
+      quickJumpRequestedSnapshotId: "",
+      ownerJumpCycleByOwner: {},
+      mapPins: [],
+      mapPinInput: "",
+      mapPinStatus: "",
+      mapPinStatusTimer: null,
       tileLookup: null,
       showUnits: false,
       ownerSecondaryColors: {},
@@ -2932,9 +3047,50 @@ export default {
         (tile) => tile.city && tile.city.name && this.shouldShowCity(tile)
       );
     },
+
+    mapPinTiles() {
+      if (!this.mapPins.length || !this.tileLookup) {
+        return [];
+      }
+      return this.mapPins
+        .map((pin) => {
+          if (!pin || !pin.nameKey) {
+            return null;
+          }
+          const tile = pin.tileKey ? this.tileLookup.get(pin.tileKey) : null;
+          if (!tile) {
+            return null;
+          }
+          return {
+            ...pin,
+            tile,
+          };
+        })
+        .filter(Boolean);
+    },
+
+    visibleMapPinTiles() {
+      if (this.useTerrainCanvas || !this.mapPinTiles.length) {
+        return [];
+      }
+      if (!this.visibleTiles.length) {
+        return this.mapPinTiles;
+      }
+      const visibleKeys = new Set(this.visibleTiles.map((tile) => tile.key));
+      return this.mapPinTiles.filter(
+        (pin) => pin.tile && visibleKeys.has(pin.tile.key)
+      );
+    },
+
+    showMapPinLabels() {
+      return this.scale >= 1.2;
+    },
   },
 
   watch: {
+    $route() {
+      this.applyRequestedTileFromRoute();
+    },
     useTerrainCanvas(nextValue) {
       if (nextValue) {
         this.$nextTick(() => {
@@ -2944,10 +3100,7 @@ export default {
       this.scheduleMiniMapDrawIfVisible();
     },
     editPanelTab(nextValue) {
-      if (nextValue !== "snapshots" && this.snapshotViewId) {
-        this.snapshotViewId = "";
-        this.snapshotCompareId = "";
-      } else if (nextValue === "snapshots") {
+      if (nextValue === "snapshots") {
         this.loadSnapshotsIfActive();
       }
       this.handleOverlayVisualizationChange();
@@ -2968,6 +3121,14 @@ export default {
       handler: "scheduleMiniMapDrawIfVisible",
     },
     viewportSize: "scheduleMiniMapDrawIfVisible",
+    mapPins: {
+      deep: true,
+      handler() {
+        if (this.useTerrainCanvas) {
+          this.drawTerrainCanvas();
+        }
+      },
+    },
     hoveredTile(nextTile) {
       if (!nextTile) {
         if (this.hoverTooltipVisible) {
@@ -2995,13 +3156,6 @@ export default {
       }
     },
     snapshotViewId() {
-      if (this.editPanelTab !== "snapshots") {
-        if (this.snapshotViewId) {
-          this.snapshotViewId = "";
-          this.snapshotCompareId = "";
-        }
-        return;
-      }
       this.applySnapshotView();
       this.computeSnapshotDiffs();
     },
@@ -3039,14 +3193,20 @@ export default {
     if (useLiveMap) {
       this.initSupabase();
     }
+    this.loadMapPins();
     this.loadMap();
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("online", this.handleOnline);
+    window.addEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
+    window.addEventListener("storage", this.handleMapPinStorageChange);
+    this.applyRequestedTileFromRoute();
   },
 
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
     window.removeEventListener("online", this.handleOnline);
+    window.removeEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
+    window.removeEventListener("storage", this.handleMapPinStorageChange);
     this.teardownSupabase();
     if (this.canvasDrawFrameId) {
       window.cancelAnimationFrame(this.canvasDrawFrameId);
@@ -3073,6 +3233,10 @@ export default {
     if (this.brushFrameId) {
       window.cancelAnimationFrame(this.brushFrameId);
       this.brushFrameId = null;
+    }
+    if (this.mapPinStatusTimer) {
+      window.clearTimeout(this.mapPinStatusTimer);
+      this.mapPinStatusTimer = null;
     }
   },
 
@@ -3641,9 +3805,6 @@ export default {
     },
 
     applySnapshotView() {
-      if (this.editPanelTab !== "snapshots") {
-        return;
-      }
       if (!this.snapshotViewId) {
         this.restoreLiveView();
         return;
@@ -4503,8 +4664,949 @@ export default {
         this.$nextTick(() => {
           this.updateViewportSize();
           this.fitToView();
+          this.applyRequestedTileFromRoute();
         });
       }
+    },
+
+    normalizeMapPinName(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+    },
+
+    mapPinLabel(pin) {
+      if (!pin) {
+        return "";
+      }
+      const parts = [];
+      if (pin.cityName) {
+        parts.push(pin.cityName);
+      } else if (pin.ownerName) {
+        parts.push(pin.ownerName);
+      }
+      if (pin.tileKey) {
+        parts.push(`Tile ${pin.tileKey}`);
+      }
+      return parts.join(" · ");
+    },
+
+    sanitizeStoredMapPin(entry) {
+      if (!entry || typeof entry !== "object") {
+        return null;
+      }
+      const name = String(entry.name || "").trim();
+      const nameKey = this.normalizeMapPinName(name);
+      if (!name || !nameKey) {
+        return null;
+      }
+      const tileKey = this.parseTileKeyFromInput(entry.tileKey || entry.tile);
+      const cityName = this.parseCityNameFromInput(entry.cityName);
+      const ownerName = this.parseOwnerNameFromInput(entry.ownerName);
+      if (!tileKey && !cityName && !ownerName) {
+        return null;
+      }
+      return {
+        name,
+        nameKey,
+        tileKey,
+        cityName,
+        ownerName,
+        updatedAt: Number(entry.updatedAt) || Date.now(),
+      };
+    },
+
+    readMapPinsFromStorage() {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return [];
+      }
+      try {
+        const raw = window.localStorage.getItem(MAP_PINS_STORAGE_KEY);
+        if (!raw) {
+          return [];
+        }
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) {
+          return [];
+        }
+        const seen = new Set();
+        return parsed
+          .map((entry) => this.sanitizeStoredMapPin(entry))
+          .filter((entry) => {
+            if (!entry || seen.has(entry.nameKey)) {
+              return false;
+            }
+            seen.add(entry.nameKey);
+            return true;
+          })
+          .sort((a, b) => {
+            if ((b.updatedAt || 0) !== (a.updatedAt || 0)) {
+              return (b.updatedAt || 0) - (a.updatedAt || 0);
+            }
+            return a.name.localeCompare(b.name, "en");
+          })
+          .map((entry) => ({
+            ...entry,
+            label: this.mapPinLabel(entry),
+          }));
+      } catch (error) {
+        return [];
+      }
+    },
+
+    handleMapPinStorageChange(event) {
+      if (!event || event.key !== MAP_PINS_STORAGE_KEY) {
+        return;
+      }
+      this.loadMapPins();
+    },
+
+    notifyMapPinsUpdated() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      window.dispatchEvent(new CustomEvent("community-map-pins-updated"));
+    },
+
+    loadMapPins() {
+      this.mapPins = this.readMapPinsFromStorage();
+    },
+
+    setMapPinStatus(message) {
+      this.mapPinStatus = String(message || "").trim();
+      if (this.mapPinStatusTimer) {
+        window.clearTimeout(this.mapPinStatusTimer);
+        this.mapPinStatusTimer = null;
+      }
+      if (!this.mapPinStatus) {
+        return;
+      }
+      this.mapPinStatusTimer = window.setTimeout(() => {
+        this.mapPinStatus = "";
+        this.mapPinStatusTimer = null;
+      }, 2600);
+    },
+
+    persistMapPins(pins) {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return false;
+      }
+      try {
+        const storedPins = Array.isArray(pins)
+          ? pins.map((pin) => ({
+              name: pin.name,
+              tileKey: pin.tileKey || "",
+              cityName: pin.cityName || "",
+              ownerName: pin.ownerName || "",
+              updatedAt: pin.updatedAt || Date.now(),
+            }))
+          : [];
+        window.localStorage.setItem(
+          MAP_PINS_STORAGE_KEY,
+          JSON.stringify(storedPins)
+        );
+        this.loadMapPins();
+        this.notifyMapPinsUpdated();
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+
+    pinPayloadFromSelectedTile(name) {
+      if (!this.selectedTile || !name) {
+        return null;
+      }
+      const tile = this.selectedTile;
+      const tileKey = this.parseTileKeyFromInput(tile.key);
+      if (!tileKey) {
+        return null;
+      }
+      const cityName =
+        tile && tile.city && tile.city.name
+          ? String(tile.city.name).trim()
+          : "";
+      const ownerId = tile.city ? this.ownerIdForCity(tile) : tile.owner;
+      const ownerName = Number.isFinite(ownerId) ? ownerNameForId(ownerId) : "";
+      const normalizedName = String(name).trim();
+      return {
+        name: normalizedName,
+        nameKey: this.normalizeMapPinName(normalizedName),
+        tileKey,
+        cityName,
+        ownerName: String(ownerName || "").trim(),
+        updatedAt: Date.now(),
+      };
+    },
+
+    saveCurrentMapPin() {
+      const name = String(this.mapPinInput || "").trim();
+      if (!name) {
+        this.setMapPinStatus("Enter a pin name.");
+        return;
+      }
+      const pin = this.pinPayloadFromSelectedTile(name);
+      if (!pin) {
+        this.setMapPinStatus("Select a tile before saving a pin.");
+        return;
+      }
+      const existing = this.readMapPinsFromStorage();
+      const withoutCurrent = existing.filter(
+        (entry) => entry && entry.nameKey !== pin.nameKey
+      );
+      const didPersist = this.persistMapPins([pin, ...withoutCurrent]);
+      if (!didPersist) {
+        this.setMapPinStatus("Unable to save pin.");
+        return;
+      }
+      this.mapPinInput = "";
+      this.setMapPinStatus(`Saved pin "${pin.name}".`);
+    },
+
+    removeMapPin(name) {
+      const nameKey = this.normalizeMapPinName(name);
+      if (!nameKey) {
+        return;
+      }
+      const existing = this.readMapPinsFromStorage();
+      const nextPins = existing.filter((entry) => entry.nameKey !== nameKey);
+      if (nextPins.length === existing.length) {
+        return;
+      }
+      const didPersist = this.persistMapPins(nextPins);
+      if (!didPersist) {
+        this.setMapPinStatus("Unable to remove pin.");
+        return;
+      }
+      this.setMapPinStatus(`Removed pin "${String(name).trim()}".`);
+    },
+
+    jumpToMapPin(name) {
+      const nameKey = this.normalizeMapPinName(name);
+      if (!nameKey) {
+        return false;
+      }
+      const pin = this.mapPins.find((entry) => entry.nameKey === nameKey);
+      if (!pin) {
+        this.setMapPinStatus("Pin not found.");
+        return false;
+      }
+      let focused = false;
+      if (pin.cityName) {
+        focused = this.focusTileByCityName(pin.cityName, {
+          forceCenter: true,
+          enforceSearchZoom: true,
+        });
+      }
+      if (!focused && pin.tileKey) {
+        focused = this.focusTileByKey(pin.tileKey, {
+          forceCenter: true,
+          enforceSearchZoom: true,
+        });
+      }
+      if (!focused && pin.ownerName) {
+        focused = this.focusOwnerByName(pin.ownerName, {
+          forceCenter: true,
+          enforceSearchZoom: true,
+          cycle: false,
+        });
+      }
+      if (!focused) {
+        this.setMapPinStatus("Pin target not found on this map.");
+        return false;
+      }
+      this.setMapPinStatus(`Jumped to "${pin.name}".`);
+      return true;
+    },
+
+    mapPinTipPath() {
+      const yTop = this.mapPinTipTopY();
+      const yBase = this.mapPinTipBaseY();
+      const width = this.mapPinTipWidth();
+      return `M 0 ${yTop} L ${width} ${yBase} L ${-width} ${yBase} Z`;
+    },
+
+    mapPinLabelText(value) {
+      const name = String(value || "").trim();
+      if (!name) {
+        return "Pin";
+      }
+      return name.length > 18 ? `${name.slice(0, 17)}…` : name;
+    },
+
+    mapPinLabelWidth(value) {
+      const text = this.mapPinLabelText(value);
+      return Math.max(
+        this.hexSize * 1.5,
+        text.length * (this.hexSize * 0.34) + this.hexSize * 0.3
+      );
+    },
+
+    mapPinTipTopY() {
+      return -this.hexSize * 0.15;
+    },
+
+    mapPinTipBaseY() {
+      return -this.hexSize * 0.5;
+    },
+
+    mapPinTipWidth() {
+      return this.hexSize * 0.28;
+    },
+
+    mapPinDotY() {
+      return -this.hexSize * 0.74;
+    },
+
+    mapPinDotRadius() {
+      return this.hexSize * 0.24;
+    },
+
+    mapPinCoreRadius() {
+      return this.hexSize * 0.11;
+    },
+
+    mapPinLabelHeight() {
+      return this.hexSize * 0.9;
+    },
+
+    mapPinLabelY() {
+      return -this.hexSize * 1.45;
+    },
+
+    mapPinLabelTextY() {
+      return this.mapPinLabelY() + this.mapPinLabelHeight() / 2;
+    },
+
+    drawCanvasMapPins(context) {
+      if (!context || !this.mapPinTiles.length) {
+        return;
+      }
+      const viewportPadding = this.hexSize * 4;
+      const minX = -this.translate.x / this.scale - viewportPadding;
+      const minY = -this.translate.y / this.scale - viewportPadding;
+      const maxX =
+        minX + this.viewportSize.width / this.scale + viewportPadding * 2;
+      const maxY =
+        minY + this.viewportSize.height / this.scale + viewportPadding * 2;
+      const visiblePins = this.mapPinTiles.filter((pin) => {
+        const tile = pin && pin.tile ? pin.tile : null;
+        if (!tile) {
+          return false;
+        }
+        return (
+          tile.x >= minX && tile.x <= maxX && tile.y >= minY && tile.y <= maxY
+        );
+      });
+      if (!visiblePins.length) {
+        return;
+      }
+      const showLabel = this.scale >= 0.9;
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.font = '700 6.6px "Avenir Next", "Segoe UI", sans-serif';
+      visiblePins.forEach((pin) => {
+        const tile = pin.tile;
+        const dotY = tile.y + this.mapPinDotY();
+        const tipY = tile.y + this.mapPinTipTopY();
+        const tipBaseY = tile.y + this.mapPinTipBaseY();
+        const tipWidth = this.mapPinTipWidth();
+
+        context.beginPath();
+        context.moveTo(tile.x, tipY);
+        context.lineTo(tile.x + tipWidth, tipBaseY);
+        context.lineTo(tile.x - tipWidth, tipBaseY);
+        context.closePath();
+        context.fillStyle = "#f2b84f";
+        context.fill();
+
+        context.beginPath();
+        context.arc(tile.x, dotY, this.mapPinDotRadius(), 0, Math.PI * 2);
+        context.fillStyle = "#ffd37a";
+        context.fill();
+        context.lineWidth = 0.8;
+        context.strokeStyle = "rgba(0, 0, 0, 0.65)";
+        context.stroke();
+
+        context.beginPath();
+        context.arc(tile.x, dotY, this.mapPinCoreRadius(), 0, Math.PI * 2);
+        context.fillStyle = "#16120a";
+        context.fill();
+
+        if (!showLabel) {
+          return;
+        }
+        const text = this.mapPinLabelText(pin.name);
+        const labelWidth = this.mapPinLabelWidth(pin.name);
+        const labelHeight = this.mapPinLabelHeight();
+        const labelX = tile.x - labelWidth / 2;
+        const labelY = tile.y + this.mapPinLabelY();
+        context.fillStyle = "rgba(10, 10, 10, 0.88)";
+        context.fillRect(labelX, labelY, labelWidth, labelHeight);
+        context.strokeStyle = "rgba(255, 211, 122, 0.6)";
+        context.lineWidth = 0.5;
+        context.strokeRect(labelX, labelY, labelWidth, labelHeight);
+        context.fillStyle = "#f6d99a";
+        context.fillText(text, tile.x, tile.y + this.mapPinLabelTextY() + 0.2);
+      });
+    },
+
+    parseTileKeyFromInput(value) {
+      const input = String(value || "").trim();
+      if (!input) {
+        return "";
+      }
+      const match = input.match(
+        /(?:tile[\s#:,-]*)?(-?\d{1,3})\s*[, ]\s*(-?\d{1,3})/i
+      );
+      if (!match) {
+        return "";
+      }
+      const x = parseInt(match[1], 10);
+      const y = parseInt(match[2], 10);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) {
+        return "";
+      }
+      return `${x},${y}`;
+    },
+
+    normalizeMapCityName(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    },
+
+    parseCityNameFromInput(value) {
+      const decoded = String(value || "").trim();
+      if (!decoded) {
+        return "";
+      }
+      try {
+        return decodeURIComponent(decoded);
+      } catch (error) {
+        return decoded;
+      }
+    },
+
+    parseOwnerNameFromInput(value) {
+      const decoded = String(value || "").trim();
+      if (!decoded) {
+        return "";
+      }
+      try {
+        return decodeURIComponent(decoded);
+      } catch (error) {
+        return decoded;
+      }
+    },
+
+    parseSnapshotIdFromInput(value) {
+      const decoded = String(value || "").trim();
+      if (!decoded) {
+        return "";
+      }
+      try {
+        return decodeURIComponent(decoded);
+      } catch (error) {
+        return decoded;
+      }
+    },
+
+    resolveRouteSnapshotId() {
+      if (this.embedded) {
+        return "";
+      }
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        return "";
+      }
+      if (
+        route.query &&
+        Object.prototype.hasOwnProperty.call(route.query, "snapshot")
+      ) {
+        return this.parseSnapshotIdFromInput(route.query.snapshot);
+      }
+      return "";
+    },
+
+    async ensureSnapshotSelection(snapshotId) {
+      const nextSnapshotId = this.parseSnapshotIdFromInput(snapshotId);
+      if (!nextSnapshotId) {
+        if (this.snapshotViewId) {
+          this.snapshotViewId = "";
+          this.snapshotCompareId = "";
+        }
+        return true;
+      }
+      let availableSnapshots = Array.isArray(this.snapshots)
+        ? this.snapshots
+        : [];
+      if (!availableSnapshots.length) {
+        await this.loadSnapshots();
+        availableSnapshots = Array.isArray(this.snapshots)
+          ? this.snapshots
+          : [];
+      }
+      const hasSnapshot = availableSnapshots.some(
+        (snapshot) => snapshot && snapshot.id === nextSnapshotId
+      );
+      if (!hasSnapshot) {
+        return false;
+      }
+      if (this.snapshotViewId !== nextSnapshotId) {
+        this.snapshotViewId = nextSnapshotId;
+      }
+      if (!this.snapshotCompareId) {
+        this.snapshotCompareId = "__live__";
+      }
+      return true;
+    },
+
+    resolveRouteTileKey() {
+      if (this.embedded) {
+        return "";
+      }
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        return "";
+      }
+      const queryTile =
+        route.query && Object.prototype.hasOwnProperty.call(route.query, "tile")
+          ? this.parseTileKeyFromInput(route.query.tile)
+          : "";
+      if (queryTile) {
+        return queryTile;
+      }
+      let hash = String(route.hash || "");
+      try {
+        hash = decodeURIComponent(hash);
+      } catch (error) {
+        // Ignore malformed hash and fall back to raw value.
+      }
+      if (!hash) {
+        return "";
+      }
+      return this.parseTileKeyFromInput(hash.replace(/^#/, ""));
+    },
+
+    resolveRouteCityName() {
+      if (this.embedded) {
+        return "";
+      }
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        return "";
+      }
+      if (
+        route.query &&
+        Object.prototype.hasOwnProperty.call(route.query, "city")
+      ) {
+        return this.parseCityNameFromInput(route.query.city);
+      }
+      return "";
+    },
+
+    resolveRouteOwnerName() {
+      if (this.embedded) {
+        return "";
+      }
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        return "";
+      }
+      if (
+        route.query &&
+        Object.prototype.hasOwnProperty.call(route.query, "owner")
+      ) {
+        return this.parseOwnerNameFromInput(route.query.owner);
+      }
+      return "";
+    },
+
+    centerTileInViewport(tile) {
+      if (!tile) {
+        return;
+      }
+      if (!this.viewportSize.width || !this.viewportSize.height) {
+        this.updateViewportSize();
+      }
+      if (!this.viewportSize.width || !this.viewportSize.height) {
+        return;
+      }
+      const nextTranslate = {
+        x: this.viewportSize.width / 2 - tile.x * this.scale,
+        y: this.viewportSize.height / 2 - tile.y * this.scale,
+      };
+      this.translate = this.clampTranslate(nextTranslate, this.scale);
+    },
+
+    ensureTileInViewport(tile, forceCenter = false) {
+      if (!tile) {
+        return;
+      }
+      if (!this.viewportSize.width || !this.viewportSize.height) {
+        this.updateViewportSize();
+      }
+      if (!this.viewportSize.width || !this.viewportSize.height) {
+        return;
+      }
+      const tileScreenX = tile.x * this.scale + this.translate.x;
+      const tileScreenY = tile.y * this.scale + this.translate.y;
+      const padX = Math.min(120, Math.max(36, this.viewportSize.width * 0.14));
+      const padY = Math.min(96, Math.max(28, this.viewportSize.height * 0.14));
+      const outOfView =
+        tileScreenX < padX ||
+        tileScreenX > this.viewportSize.width - padX ||
+        tileScreenY < padY ||
+        tileScreenY > this.viewportSize.height - padY;
+      if (forceCenter || outOfView) {
+        this.centerTileInViewport(tile);
+      }
+    },
+
+    focusTileByKey(tileKey, options = {}) {
+      const normalizedOptions =
+        typeof options === "boolean" ? { forceCenter: options } : options || {};
+      const forceCenter = normalizedOptions.forceCenter !== false;
+      const enforceSearchZoom = !!normalizedOptions.enforceSearchZoom;
+      const normalizedKey = this.parseTileKeyFromInput(tileKey);
+      if (!normalizedKey) {
+        return false;
+      }
+      if (!this.tileLookup) {
+        this.pendingRouteTileKey = normalizedKey;
+        return false;
+      }
+      const tile = this.tileLookup.get(normalizedKey);
+      if (!tile) {
+        this.pendingRouteTileKey = normalizedKey;
+        return false;
+      }
+      this.pendingRouteTileKey = "";
+      this.selectedTile = tile;
+      this.syncEditFieldsFromTile(tile);
+      if (this.isMobileView && this.editPanelCollapsed) {
+        this.editPanelCollapsed = false;
+      }
+      this.$nextTick(() => {
+        if (enforceSearchZoom) {
+          this.updateViewportSize();
+          const targetScale = Math.min(
+            this.maxScale,
+            Math.max(this.minScale, QUICK_JUMP_FOCUS_SCALE)
+          );
+          if (Math.abs(this.scale - targetScale) > 0.001) {
+            this.applyZoom(targetScale, {
+              x: this.viewportSize.width / 2,
+              y: this.viewportSize.height / 2,
+            });
+          }
+        }
+        this.ensureTileInViewport(tile, forceCenter);
+        window.requestAnimationFrame(() => {
+          if (enforceSearchZoom) {
+            const targetScale = Math.min(
+              this.maxScale,
+              Math.max(this.minScale, QUICK_JUMP_FOCUS_SCALE)
+            );
+            if (Math.abs(this.scale - targetScale) > 0.001) {
+              this.applyZoom(targetScale, {
+                x: this.viewportSize.width / 2,
+                y: this.viewportSize.height / 2,
+              });
+            }
+          }
+          this.ensureTileInViewport(tile, false);
+        });
+        if (this.useTerrainCanvas) {
+          this.drawTerrainCanvas();
+        }
+      });
+      return true;
+    },
+
+    focusTileByCityName(cityName, options = {}) {
+      const needle = this.normalizeMapCityName(cityName);
+      if (!needle || !Array.isArray(this.tiles) || !this.tiles.length) {
+        return false;
+      }
+      const match = this.tiles.find((tile) => {
+        if (!tile || !tile.city || !tile.city.name) {
+          return false;
+        }
+        return this.normalizeMapCityName(tile.city.name) === needle;
+      });
+      if (!match || !match.key) {
+        return false;
+      }
+      return this.focusTileByKey(match.key, options);
+    },
+
+    buildOwnerFocusTargets(ownerId) {
+      if (
+        !Number.isFinite(ownerId) ||
+        !Array.isArray(this.tiles) ||
+        !this.tiles.length
+      ) {
+        return [];
+      }
+      const cityTargets = this.tiles
+        .filter(
+          (tile) =>
+            tile &&
+            tile.city &&
+            tile.city.name &&
+            this.ownerIdForCity(tile) === ownerId
+        )
+        .slice()
+        .sort((a, b) => {
+          const aCapital = a.city && a.city.isCapital ? 1 : 0;
+          const bCapital = b.city && b.city.isCapital ? 1 : 0;
+          if (aCapital !== bCapital) {
+            return bCapital - aCapital;
+          }
+          const aSize = Number(a.city && a.city.size) || 0;
+          const bSize = Number(b.city && b.city.size) || 0;
+          if (aSize !== bSize) {
+            return bSize - aSize;
+          }
+          const aName = String((a.city && a.city.name) || "");
+          const bName = String((b.city && b.city.name) || "");
+          return aName.localeCompare(bName, "en");
+        });
+      const tileTargets = this.tiles
+        .filter((tile) => tile && !tile.city && tile.owner === ownerId)
+        .slice()
+        .sort((a, b) => {
+          if (a.row !== b.row) {
+            return a.row - b.row;
+          }
+          return a.col - b.col;
+        });
+      const seen = new Set();
+      return [...cityTargets, ...tileTargets].filter((tile) => {
+        if (!tile || !tile.key || seen.has(tile.key)) {
+          return false;
+        }
+        seen.add(tile.key);
+        return true;
+      });
+    },
+
+    focusOwnerByName(ownerName, options = {}) {
+      const normalizedOptions =
+        typeof options === "boolean" ? { forceCenter: options } : options || {};
+      const forceCenter = normalizedOptions.forceCenter !== false;
+      const enforceSearchZoom = !!normalizedOptions.enforceSearchZoom;
+      const cycle = !!normalizedOptions.cycle;
+      const ownerId = resolveOwnerInput(ownerName);
+      if (!Number.isFinite(ownerId) || ownerId < 0) {
+        return false;
+      }
+      const targets = this.buildOwnerFocusTargets(ownerId);
+      if (!targets.length) {
+        return false;
+      }
+      let nextIndex = 0;
+      if (cycle) {
+        const currentIndex = Number(this.ownerJumpCycleByOwner[ownerId]);
+        nextIndex = Number.isFinite(currentIndex)
+          ? (currentIndex + 1) % targets.length
+          : 0;
+      }
+      this.ownerJumpCycleByOwner = {
+        ...this.ownerJumpCycleByOwner,
+        [ownerId]: nextIndex,
+      };
+      const target = targets[nextIndex];
+      if (!target || !target.key) {
+        return false;
+      }
+      return this.focusTileByKey(target.key, {
+        forceCenter,
+        enforceSearchZoom,
+      });
+    },
+
+    async handleQuickJumpTile(event) {
+      if (this.embedded) {
+        return;
+      }
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        return;
+      }
+      const tileKey =
+        event && event.detail
+          ? this.parseTileKeyFromInput(event.detail.tileKey)
+          : "";
+      const cityName =
+        event && event.detail
+          ? this.parseCityNameFromInput(event.detail.cityName)
+          : "";
+      const ownerName =
+        event && event.detail
+          ? this.parseOwnerNameFromInput(event.detail.ownerName)
+          : "";
+      const snapshotId =
+        event && event.detail
+          ? this.parseSnapshotIdFromInput(event.detail.snapshotId)
+          : "";
+      if (!tileKey && !cityName && !ownerName && !snapshotId) {
+        return;
+      }
+      if (snapshotId) {
+        this.quickJumpRequestedSnapshotId = snapshotId;
+        await this.ensureSnapshotSelection(snapshotId);
+      } else {
+        this.quickJumpRequestedSnapshotId = "";
+      }
+      if (ownerName) {
+        const currentOwnerQuery = this.resolveRouteOwnerName();
+        const requestedOwnerId = resolveOwnerInput(ownerName);
+        const currentOwnerId = resolveOwnerInput(currentOwnerQuery);
+        if (
+          Number.isFinite(requestedOwnerId) &&
+          Number.isFinite(currentOwnerId) &&
+          requestedOwnerId === currentOwnerId
+        ) {
+          this.focusOwnerByName(ownerName, {
+            forceCenter: true,
+            enforceSearchZoom: true,
+            cycle: true,
+          });
+          return;
+        }
+        this.quickJumpRequestedOwnerName = ownerName;
+        if (!tileKey && !cityName) {
+          return;
+        }
+      }
+      this.quickJumpRequestedTileKey = tileKey;
+      this.quickJumpRequestedCityName = cityName;
+      if (cityName) {
+        const focusedCity = this.focusTileByCityName(cityName, {
+          forceCenter: true,
+          enforceSearchZoom: true,
+        });
+        if (focusedCity) {
+          return;
+        }
+      }
+      if (tileKey) {
+        this.focusTileByKey(tileKey, {
+          forceCenter: true,
+          enforceSearchZoom: true,
+        });
+      }
+    },
+
+    async applyRequestedTileFromRoute() {
+      const route = this.$route || {};
+      const path = String(route.path || "");
+      if (!path.includes("/community-tile-map")) {
+        this.pendingRouteTileKey = "";
+        this.quickJumpRequestedCityName = "";
+        this.quickJumpRequestedOwnerName = "";
+        this.quickJumpRequestedSnapshotId = "";
+        return;
+      }
+      const snapshotId = this.resolveRouteSnapshotId();
+      if (snapshotId) {
+        const snapshotApplied = await this.ensureSnapshotSelection(snapshotId);
+        if (snapshotApplied) {
+          this.quickJumpRequestedSnapshotId = "";
+        }
+      } else if (
+        this.snapshotViewId &&
+        (!this.quickJumpRequestedSnapshotId ||
+          this.quickJumpRequestedSnapshotId !== this.snapshotViewId)
+      ) {
+        await this.ensureSnapshotSelection("");
+      }
+      const query = route.query || {};
+      const hasSearchQuery =
+        Object.prototype.hasOwnProperty.call(query, "owner") ||
+        Object.prototype.hasOwnProperty.call(query, "city") ||
+        Object.prototype.hasOwnProperty.call(query, "tile");
+      const ownerName = this.resolveRouteOwnerName();
+      if (ownerName) {
+        const requestedOwnerId = resolveOwnerInput(
+          this.quickJumpRequestedOwnerName
+        );
+        const routeOwnerId = resolveOwnerInput(ownerName);
+        const enforceSearchZoomRequested =
+          Number.isFinite(requestedOwnerId) &&
+          Number.isFinite(routeOwnerId) &&
+          requestedOwnerId === routeOwnerId;
+        const enforceSearchZoom = enforceSearchZoomRequested || hasSearchQuery;
+        if (enforceSearchZoomRequested) {
+          this.quickJumpRequestedOwnerName = "";
+          this.quickJumpRequestedCityName = "";
+          this.quickJumpRequestedTileKey = "";
+        }
+        const focusedOwner = this.focusOwnerByName(ownerName, {
+          forceCenter: true,
+          enforceSearchZoom,
+          cycle: false,
+        });
+        if (focusedOwner) {
+          return;
+        }
+      }
+      const cityName = this.resolveRouteCityName();
+      if (cityName) {
+        const enforceSearchZoomRequested =
+          !!this.quickJumpRequestedCityName &&
+          this.normalizeMapCityName(this.quickJumpRequestedCityName) ===
+            this.normalizeMapCityName(cityName);
+        const enforceSearchZoom = enforceSearchZoomRequested || hasSearchQuery;
+        if (enforceSearchZoomRequested) {
+          this.quickJumpRequestedCityName = "";
+          this.quickJumpRequestedTileKey = "";
+        }
+        const focusedCity = this.focusTileByCityName(cityName, {
+          forceCenter: true,
+          enforceSearchZoom,
+        });
+        if (focusedCity) {
+          return;
+        }
+      }
+      const tileKey = this.resolveRouteTileKey();
+      if (tileKey) {
+        const enforceSearchZoomRequested =
+          !!this.quickJumpRequestedTileKey &&
+          this.quickJumpRequestedTileKey === tileKey;
+        const enforceSearchZoom =
+          enforceSearchZoomRequested ||
+          hasSearchQuery ||
+          String(route.hash || "").includes("tile-");
+        if (enforceSearchZoomRequested) {
+          this.quickJumpRequestedTileKey = "";
+        }
+        this.focusTileByKey(tileKey, {
+          forceCenter: true,
+          enforceSearchZoom,
+        });
+        return;
+      }
+      if (!this.pendingRouteTileKey) {
+        return;
+      }
+      this.focusTileByKey(this.pendingRouteTileKey, {
+        forceCenter: true,
+        enforceSearchZoom: false,
+      });
     },
 
     async loadJson(url) {
@@ -5356,6 +6458,8 @@ export default {
           }
         });
       }
+
+      this.drawCanvasMapPins(context);
 
       const recentTiles = this.tiles.filter((tile) =>
         this.isRecentlyEdited(tile)
@@ -8551,13 +9655,13 @@ function toHex(value) {
   margin-block-end: 1rem;
 }
 .tile-map .tile-map-subtitle {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   font-size: 0.95rem;
   margin-block: 0.2rem 0;
   margin-inline: 0;
 }
 .tile-map .tile-map-subtitle-hint {
-  color: color-mix(in srgb, var(--text-color), white 40%);
+  color: color-mix(in srgb, var(--page-text-color), white 40%);
   font-size: 0.85rem;
 }
 .tile-map .tile-map-controls {
@@ -8577,8 +9681,8 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(8, 10, 14, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel-bg-soft-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 1rem;
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
@@ -8656,7 +9760,7 @@ function toHex(value) {
   margin: 0;
 }
 .tile-map .tile-map-controls .tile-map-control-label {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--panel-muted-color);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -8666,8 +9770,8 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  background: rgba(8, 10, 14, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--panel-bg-elevated-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 999px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   padding-block: 0.25rem;
@@ -8676,11 +9780,11 @@ function toHex(value) {
 .tile-map .tile-map-controls .tile-map-control {
   block-size: 2.4rem;
   min-inline-size: 2.4rem;
-  color: var(--text-color);
+  color: var(--panel-text-color);
   font-size: 0.85rem;
   font-weight: 700;
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid var(--border-color);
+  background: var(--panel-bg-soft-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 999px;
   padding-inline: 0.8rem;
   cursor: pointer;
@@ -8695,13 +9799,13 @@ function toHex(value) {
   min-inline-size: 2.1rem;
   font-size: 1.1rem;
   border-radius: 50%;
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--panel-border-color);
   padding: 0;
 }
 .tile-map .tile-map-controls .tile-map-control-ghost {
   white-space: nowrap;
-  background: rgba(20, 20, 20, 0.6);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: var(--panel-bg-elevated-color);
+  border-color: var(--panel-border-color);
 }
 .tile-map .tile-map-controls .tile-map-control-ghost:hover {
   color: #111;
@@ -8709,7 +9813,7 @@ function toHex(value) {
 }
 .tile-map .tile-map-controls .tile-map-scale {
   min-inline-size: 3.2rem;
-  color: color-mix(in srgb, var(--text-color), white 15%);
+  color: var(--panel-muted-color);
   text-align: center;
   font-size: 0.9rem;
   font-weight: 800;
@@ -8754,7 +9858,7 @@ function toHex(value) {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: color-mix(in srgb, var(--text-color), white 20%);
+  color: var(--panel-muted-color);
   text-align: center;
   font-weight: 700;
   padding: 1rem;
@@ -9082,6 +10186,34 @@ function toHex(value) {
   font-weight: 800;
   fill: #e6c07a;
 }
+.tile-map .tile-map-viewport .tile-map-pin-overlays,
+.tile-map .tile-map-viewport .tile-map-pin-overlay {
+  pointer-events: none;
+}
+.tile-map .tile-map-viewport .tile-map-pin-overlay-tip {
+  fill: rgba(242, 184, 79, 0.95);
+  stroke: rgba(45, 24, 8, 0.9);
+  stroke-width: 0.5;
+}
+.tile-map .tile-map-viewport .tile-map-pin-overlay-dot {
+  fill: #ffd37a;
+  stroke: rgba(30, 15, 6, 0.9);
+  stroke-width: 0.55;
+}
+.tile-map .tile-map-viewport .tile-map-pin-overlay-core {
+  fill: #181005;
+}
+.tile-map .tile-map-viewport .tile-map-pin-overlay-pill {
+  fill: rgba(10, 10, 10, 0.9);
+  stroke: rgba(255, 211, 122, 0.72);
+  stroke-width: 0.5;
+}
+.tile-map .tile-map-viewport .tile-map-pin-overlay-text {
+  fill: #f6d99a;
+  font-size: 6.6px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
 @-moz-keyframes recent-pulse {
   0% {
     stroke-opacity: 0.35;
@@ -9150,9 +10282,9 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color);
-  background: rgba(8, 10, 14, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--panel-text-color);
+  background: var(--panel-bg-soft-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 999px;
   padding: 0;
   cursor: pointer;
@@ -9170,15 +10302,15 @@ function toHex(value) {
 .tile-map .tile-map-toolbar-divider {
   block-size: 1.8rem;
   inline-size: 1px;
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--panel-border-color);
   margin-inline: 0.5rem;
 }
 .tile-map .tile-map-info-tabs {
   display: inline-flex;
   align-items: center;
   gap: 0;
-  background: rgba(8, 10, 14, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--panel-bg-soft-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -9197,10 +10329,16 @@ function toHex(value) {
   display: grid;
   gap: 1rem;
 }
-.tile-map .tile-info-card,
+.tile-map .tile-info-card {
+  color: var(--panel-text-color);
+  background: var(--panel-bg-color);
+  border: 1px solid var(--panel-border-color);
+  border-radius: 14px;
+  padding: 1rem;
+}
 .tile-map .tile-legend-card {
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--map-legend-card-bg);
+  border: 1px solid var(--map-legend-card-border);
   border-radius: 14px;
   padding: 1rem;
 }
@@ -9223,12 +10361,12 @@ function toHex(value) {
   align-items: center;
   align-self: center;
   gap: 0.35rem;
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--panel-bg-elevated-color);
   border-radius: 999px;
   padding-block: 0.25rem;
   padding-inline: 0.75rem;
@@ -9238,10 +10376,72 @@ function toHex(value) {
   color: #1f2b26;
   background: rgba(122, 230, 171, 0.8);
 }
+.tile-map .tile-map-pins {
+  display: grid;
+  gap: 0.5rem;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 12px;
+  background: var(--panel-bg-elevated-color);
+  padding: 0.7rem;
+  margin-block-end: 0.9rem;
+}
+.tile-map .tile-map-pins-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+}
+.tile-map .tile-map-pins-label {
+  color: var(--panel-text-color);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tile-map .tile-map-pins-hint {
+  color: var(--panel-muted-color);
+  font-size: 0.74rem;
+}
+.tile-map .tile-map-pins-save {
+  display: flex;
+  gap: 0.5rem;
+}
+.tile-map .tile-map-pin-input {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+.tile-map .tile-map-pin-status {
+  margin: 0;
+}
+.tile-map .tile-map-pins-list {
+  display: grid;
+  gap: 0.4rem;
+}
+.tile-map .tile-map-pin-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
+}
+.tile-map .tile-map-pin-jump {
+  min-inline-size: 0;
+  justify-content: flex-start;
+}
+.tile-map .tile-map-pin-meta {
+  color: var(--panel-muted-color);
+  font-size: 0.72rem;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tile-map .tile-map-pin-remove {
+  font-size: 0.68rem;
+}
 .tile-map .tile-edit-auth {
   display: grid;
   gap: 0.5rem;
-  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-end: 1px solid var(--panel-border-color);
   padding-block-end: 0.75rem;
   margin-block-end: 1rem;
 }
@@ -9252,19 +10452,19 @@ function toHex(value) {
   gap: 0.5rem;
 }
 .tile-map .tile-edit-auth-label {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .tile-map .tile-edit-auth-status {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--panel-bg-elevated-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 999px;
   padding-block: 0.2rem;
   padding-inline: 0.6rem;
@@ -9280,9 +10480,9 @@ function toHex(value) {
   border-color: rgba(255, 161, 161, 0.5);
 }
 .tile-map .tile-edit-auth-status.is-loading {
-  color: color-mix(in srgb, var(--text-color), white 35%);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--panel-muted-color);
+  background: var(--panel-bg-elevated-color);
+  border-color: var(--panel-border-color);
 }
 .tile-map .tile-edit-auth-actions {
   display: flex;
@@ -9291,7 +10491,7 @@ function toHex(value) {
   gap: 0.4rem;
 }
 .tile-map .tile-edit-auth-user {
-  color: color-mix(in srgb, var(--text-color), white 10%);
+  color: var(--panel-text-color);
   font-size: 0.8rem;
   font-weight: 700;
 }
@@ -9306,13 +10506,13 @@ function toHex(value) {
   font-size: 0.9rem;
 }
 .tile-map .tile-info-label {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
 }
 .tile-map .tile-info-value {
   font-weight: 700;
 }
 .tile-map .tile-info-empty {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--panel-muted-color);
   font-size: 0.9rem;
 }
 .tile-map .tile-edit-form {
@@ -9338,7 +10538,7 @@ function toHex(value) {
   gap: 0.25rem;
 }
 .tile-map .tile-edit-label {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--field-label-color);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -9363,7 +10563,7 @@ function toHex(value) {
   gap: 0.5rem;
 }
 .tile-map .tile-edit-unit-label {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--field-label-color);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -9401,12 +10601,12 @@ function toHex(value) {
   display: inline-flex;
   align-items: center;
   gap: 0.15rem;
-  color: color-mix(in srgb, var(--text-color), white 15%);
+  color: var(--panel-text-color);
   font-size: 0.35rem;
   letter-spacing: 0;
   text-transform: none;
-  background: rgba(8, 8, 8, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--panel-bg-elevated-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 999px;
   padding-block: 0.2rem;
   padding-inline: 0.5rem;
@@ -9421,7 +10621,7 @@ function toHex(value) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: color-mix(in srgb, var(--text-color), white 15%);
+  color: var(--panel-text-color);
   font-size: 0.85rem;
   letter-spacing: 0;
   text-transform: none;
@@ -9440,10 +10640,10 @@ function toHex(value) {
   min-inline-size: 0;
   inline-size: -webkit-fill-available;
   flex: 1;
-  color: var(--text-color);
+  color: var(--panel-text-color);
   font-weight: 700;
-  background: rgba(5, 5, 5, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--panel-bg-elevated-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 8px;
   padding-block: 0.35rem;
   padding-inline: 0.5rem;
@@ -9451,7 +10651,10 @@ function toHex(value) {
 .tile-map .tile-edit-input:focus {
   outline: none;
   border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.25);
+}
+.tile-map .tile-edit-input::placeholder {
+  color: var(--panel-muted-color);
 }
 .tile-map .tile-edit-input:disabled {
   cursor: not-allowed;
@@ -9471,8 +10674,8 @@ function toHex(value) {
   display: grid;
   gap: 0.2rem;
   overflow: auto;
-  background: rgba(8, 8, 8, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--panel-bg-color);
+  border: 1px solid var(--panel-border-color);
   border-radius: 0.65rem;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
   padding: 0.35rem;
@@ -9483,7 +10686,7 @@ function toHex(value) {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  color: var(--text-color);
+  color: var(--panel-text-color);
   font-size: 0.75rem;
   font-weight: 700;
   text-align: left;
@@ -9505,17 +10708,17 @@ function toHex(value) {
   opacity: 0.7;
 }
 .tile-map .tile-edit-combobox-empty {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
   font-size: 0.7rem;
   padding-block: 0.35rem;
   padding-inline: 0.5rem;
 }
 .tile-map .tile-edit-button {
-  color: var(--text-color);
+  color: var(--panel-text-color);
   font-size: 0.75rem;
   font-weight: 700;
-  background: rgba(15, 15, 15, 0.9);
-  border: 1px solid var(--border-color);
+  background: var(--panel-bg-soft-color);
+  border: 1px solid var(--field-label-color);
   border-radius: 999px;
   padding-block: 0.35rem;
   padding-inline: 0.6rem;
@@ -9527,8 +10730,8 @@ function toHex(value) {
   background: var(--accent-color);
 }
 .tile-map .tile-edit-button:disabled {
-  color: color-mix(in srgb, var(--text-color), white 20%);
-  background: rgba(15, 15, 15, 0.6);
+  color: var(--panel-muted-color);
+  background: var(--panel-bg-elevated-color);
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -9538,13 +10741,14 @@ function toHex(value) {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
 }
 .tile-map .tile-edit-hint {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--panel-muted-color);
   font-size: 0.75rem;
   margin-block: 0.2rem 0;
   margin-inline: 0;
 }
 .tile-map .tile-map-legend {
   margin-block-start: 0.5rem;
+  color: var(--map-legend-text-color);
 }
 .tile-map .tile-map-legend .terrain-grass {
   background-color: #6b973e;
@@ -9577,7 +10781,7 @@ function toHex(value) {
   margin-block-end: 0.6rem;
 }
 .tile-map .tile-notes-text {
-  color: color-mix(in srgb, var(--text-color), white 10%);
+  color: var(--panel-text-color);
   font-size: 0.9rem;
   line-height: 1.45;
   white-space: pre-wrap;
@@ -9634,13 +10838,13 @@ function toHex(value) {
 .tile-map .tile-overlay-metrics {
   display: grid;
   gap: 0.45rem;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-start: 1px solid var(--panel-border-color);
   padding-block-start: 0.55rem;
 }
 .tile-map .tile-overlay-ranking {
   display: grid;
   gap: 0.4rem;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-start: 1px solid var(--panel-border-color);
   padding-block-start: 0.55rem;
 }
 .tile-map .tile-overlay-ranking-item {
@@ -9648,14 +10852,14 @@ function toHex(value) {
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  color: color-mix(in srgb, var(--text-color), white 12%);
+  color: var(--panel-text-color);
   font-size: 0.82rem;
 }
 .tile-map .tile-overlay-ranking-label {
   font-weight: 700;
 }
 .tile-map .tile-overlay-ranking-value {
-  color: color-mix(in srgb, var(--text-color), white 28%);
+  color: var(--panel-muted-color);
   font-weight: 700;
 }
 .tile-map .tile-snapshot-body {
@@ -9665,7 +10869,7 @@ function toHex(value) {
 .tile-map .tile-snapshot-diff {
   display: grid;
   gap: 0.4rem;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-start: 1px solid var(--panel-border-color);
   padding-block-start: 0.5rem;
 }
 .tile-map .tile-snapshot-legend {
@@ -9676,13 +10880,13 @@ function toHex(value) {
   font-size: 0.75rem;
 }
 .tile-map .tile-snapshot-legend-label {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--field-label-color);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .tile-map .tile-snapshot-chip {
-  color: #f7db9a;
+  color: var(--field-label-color);
   font-weight: 700;
   background: rgba(255, 210, 90, 0.15);
   border-radius: 999px;
@@ -9694,7 +10898,7 @@ function toHex(value) {
   display: grid;
   gap: 0.25rem;
   overflow: auto;
-  color: color-mix(in srgb, var(--text-color), white 10%);
+  color: var(--panel-text-color);
   font-size: 0.8rem;
   padding-inline-end: 0.35rem;
 }
@@ -9704,7 +10908,7 @@ function toHex(value) {
 .tile-map .tile-snapshot-diff-section {
   display: grid;
   gap: 0.25rem;
-  border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+  border-block-end: 1px solid var(--panel-border-color);
   padding-block-end: 0.4rem;
 }
 .tile-map .tile-snapshot-diff-section summary {
@@ -9723,7 +10927,7 @@ function toHex(value) {
   inline-size: 0;
   border-block-start: 5px solid transparent;
   border-block-end: 5px solid transparent;
-  border-inline-start: 7px solid rgba(255, 255, 255, 0.6);
+  border-inline-start: 7px solid var(--panel-muted-color);
   transition: transform 0.2s ease;
 }
 .tile-map .tile-snapshot-diff-section[open] summary::before {
@@ -9734,18 +10938,18 @@ function toHex(value) {
   padding-block-end: 0;
 }
 .tile-map .tile-snapshot-diff-title {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--field-label-color);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .tile-map .tile-snapshot-diff-empty {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--panel-muted-color);
   font-size: 0.75rem;
 }
 .tile-map .tile-snapshot-diff-more {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
   font-size: 0.75rem;
 }
 .tile-map .tile-snapshot-admin-list {
@@ -9766,7 +10970,7 @@ function toHex(value) {
   gap: 0.4rem;
 }
 .tile-map .tile-snapshot-admin-label {
-  color: color-mix(in srgb, var(--text-color), white 10%);
+  color: var(--panel-text-color);
   font-size: 0.8rem;
   font-weight: 700;
 }
@@ -9787,29 +10991,30 @@ function toHex(value) {
   border: 1px solid rgba(255, 191, 70, 0.45);
 }
 .tile-map .tile-snapshot-admin-status.is-draft {
-  background: rgba(255, 255, 255, 0.08);
-  color: color-mix(in srgb, var(--text-color), white 30%);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--panel-bg-elevated-color);
+  color: var(--panel-muted-color);
+  border: 1px solid var(--panel-border-color);
 }
 .tile-map .tile-legend-section {
   margin-block-start: 1rem;
 }
 .tile-map .tile-legend-accordion {
-  background: rgba(8, 10, 14, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--map-legend-section-bg);
+  border: 1px solid var(--map-legend-section-border);
   border-radius: 12px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
   padding-block: 0.6rem 0.75rem;
   padding-inline: 0.75rem;
 }
 .tile-map .tile-legend-accordion[open] {
-  background: rgba(14, 17, 24, 0.7);
+  background: var(--map-legend-section-open-bg);
 }
 .tile-map .tile-legend-summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
+  color: var(--map-legend-text-color);
   outline: none;
   cursor: pointer;
   list-style: none;
@@ -9822,7 +11027,7 @@ function toHex(value) {
   box-shadow: 0 0 0 2px var(--accent-color);
 }
 .tile-map .tile-legend-title {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--map-legend-text-color);
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -9845,12 +11050,16 @@ function toHex(value) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--map-legend-text-color);
   font-size: 0.85rem;
+}
+.tile-map .legend-label {
+  color: var(--map-legend-text-color);
 }
 .tile-map .legend-swatch {
   block-size: 1rem;
   inline-size: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--map-legend-swatch-border);
   border-radius: 4px;
 }
 .tile-map .legend-hex,
@@ -10046,7 +11255,7 @@ function toHex(value) {
     align-items: center;
     justify-content: space-between;
     gap: 0.6rem;
-    color: color-mix(in srgb, var(--text-color), white 25%);
+    color: var(--panel-muted-color);
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -10063,11 +11272,80 @@ function toHex(value) {
   .tile-map .tile-info-accordion[open] .tile-info-summary {
     margin-block-end: 0.75rem;
   }
+  .tile-map .tile-map-info-tabs {
+    inline-size: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem;
+    padding: 0.35rem;
+  }
+  .tile-map .tile-map-info-tabs .tile-edit-button {
+    border-radius: 0.65rem;
+    min-block-size: 2.15rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    padding-inline: 0.5rem;
+  }
+  .tile-map .tile-map-info-tabs .tile-edit-button:first-child,
+  .tile-map .tile-map-info-tabs .tile-edit-button:last-child {
+    border-radius: 0.65rem;
+  }
+  .tile-map .tile-info-card,
+  .tile-map .tile-legend-card {
+    padding: 0.85rem;
+  }
+  .tile-map .tile-edit-input,
+  .tile-map .tile-edit-button {
+    min-block-size: 2.15rem;
+    font-size: 0.9rem;
+  }
+  .tile-map .tile-edit-unit-clear {
+    font-size: 0.68rem;
+    padding-inline: 0.55rem;
+  }
+  .tile-map .tile-edit-checkbox-inline {
+    font-size: 0.72rem;
+    gap: 0.35rem;
+    padding-block: 0.3rem;
+    padding-inline: 0.6rem;
+  }
+  .tile-map .tile-info-row,
+  .tile-map .tile-overlay-ranking-item {
+    font-size: 0.92rem;
+  }
+  .tile-map .tile-info-label,
+  .tile-map .tile-overlay-ranking-label {
+    max-inline-size: 75%;
+    overflow-wrap: anywhere;
+  }
+  .tile-map .tile-info-value,
+  .tile-map .tile-overlay-ranking-value {
+    flex: 0 0 auto;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .tile-map .tile-snapshot-diff-list {
+    max-block-size: 10rem;
+  }
   .tile-map .tile-edit-units-grid {
     grid-template-columns: minmax(0, 1fr);
   }
   .tile-map .tile-edit-row-split {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .tile-map .tile-map-pin-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3rem 0.45rem;
+  }
+  .tile-map .tile-map-pin-jump {
+    grid-column: 1 / 2;
+  }
+  .tile-map .tile-map-pin-remove {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .tile-map .tile-map-pin-meta {
+    grid-column: 1 / 3;
   }
 }
 @media (max-width: 799px) {
@@ -10090,6 +11368,38 @@ function toHex(value) {
   .tile-map .tile-map-toolbar-toggle,
   .tile-map .tile-map-toolbar-divider {
     display: none;
+  }
+  .tile-map .tile-map-info {
+    gap: 0.75rem;
+  }
+  .tile-map .tile-edit-form,
+  .tile-map .tile-overlay-body,
+  .tile-map .tile-snapshot-body {
+    gap: 0.85rem;
+  }
+  .tile-map .tile-edit-row {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .tile-map .tile-edit-row > .tile-edit-button {
+    flex: 0 0 auto;
+  }
+  .tile-map .tile-edit-group {
+    gap: 0.4rem;
+  }
+  .tile-map .tile-edit-label {
+    font-size: 0.72rem;
+  }
+  .tile-map .tile-overlay-ranking,
+  .tile-map .tile-overlay-metrics {
+    gap: 0.55rem;
+  }
+  .tile-map .tile-snapshot-diff-title {
+    font-size: 0.78rem;
+  }
+  .tile-map .tile-snapshot-diff-list {
+    max-block-size: 12rem;
+    font-size: 0.84rem;
   }
   .tile-map .tile-mini-map {
     inset-block-end: 0.5rem;

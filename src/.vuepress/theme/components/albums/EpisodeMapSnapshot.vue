@@ -240,8 +240,12 @@ export default {
   margin-block: 2.5rem 1.5rem;
   padding: 1.4rem;
   border-radius: 18px;
-  border: 1px solid rgba(255, 191, 70, 0.25);
-  background: linear-gradient(135deg, #0b0b0b 0%, #17130a 100%);
+  border: 1px solid var(--panel-border-color);
+  background: linear-gradient(
+    135deg,
+    var(--panel-bg-color) 0%,
+    var(--panel-bg-soft-color) 100%
+  );
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.2);
 }
 
@@ -257,12 +261,12 @@ export default {
   margin: 0 0 0.4rem;
   font-size: 1.8rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--page-text-color);
 }
 
 .episode-snapshot-copy p {
   margin: 0;
-  color: color-mix(in srgb, #fff, transparent 35%);
+  color: var(--panel-muted-color);
   max-width: 60ch;
 }
 
@@ -300,7 +304,7 @@ export default {
   justify-content: center;
   min-block-size: 22rem;
   padding: 1.5rem;
-  background: rgba(10, 10, 10, 0.9);
+  background: var(--panel-bg-elevated-color);
 }
 
 .episode-snapshot-placeholder-card {
@@ -308,7 +312,7 @@ export default {
   gap: 0.9rem;
   max-inline-size: 32ch;
   text-align: center;
-  color: color-mix(in srgb, #fff, transparent 30%);
+  color: var(--panel-muted-color);
 }
 
 .episode-snapshot-placeholder-card p {
@@ -370,9 +374,9 @@ export default {
   inline-size: 2.4rem;
   block-size: 2.4rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(12, 12, 12, 0.7);
-  color: #fff;
+  border: 1px solid var(--panel-border-color);
+  background: var(--panel-bg-soft-color);
+  color: var(--panel-text-color);
   font-size: 1.4rem;
   font-weight: 800;
   cursor: pointer;
@@ -382,7 +386,7 @@ export default {
 
 .episode-snapshot-zoom-button:hover {
   transform: translateY(-1px);
-  background: rgba(20, 20, 20, 0.85);
+  background: var(--panel-bg-color);
 }
 
 .episode-snapshot :deep(.tile-map-viewport) {

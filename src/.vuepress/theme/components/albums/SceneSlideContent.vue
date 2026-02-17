@@ -153,7 +153,8 @@ export default {
   padding-block: 0.5rem;
   padding-inline: 1rem;
   border-block-end: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
-  background-color: #1a1a1a;
+  color: var(--panel-text-color);
+  background-color: var(--panel-bg-color);
 }
 .h-narration h3 {
   font-size: 1.2rem;
@@ -172,7 +173,7 @@ export default {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.25;
-  text-shadow: 2px 2px #08201d;
+  text-shadow: var(--narration-shadow);
   padding: 0;
   margin: 0;
 }

@@ -34,7 +34,7 @@ export default {
   word-break: keep-all;
 }
 .archive .footer {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   text-align: center;
   border-top: 2px solid var(--border-color);
   padding: 1.5rem 2.5rem 2.5rem;

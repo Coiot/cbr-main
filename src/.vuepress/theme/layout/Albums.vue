@@ -2397,7 +2397,7 @@ export default {
 }
 .blog {
   margin-block: 2rem;
-  text-shadow: 2px 2px #083832;
+  text-shadow: var(--heading-shadow-sm);
 }
 .blog h1 {
   padding-block-start: 2rem;
@@ -2444,18 +2444,18 @@ export default {
   flex: 1 0 25%;
 }
 .label {
-  color: var(--nav-color);
+  color: var(--page-text-color);
   font-size: 1.6rem;
   font-weight: 800;
 }
 .value {
-  color: var(--accent-color);
+  color: var(--meta-value-color);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
 }
 .value a {
-  color: #fff;
+  color: var(--page-text-color);
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
@@ -2472,7 +2472,7 @@ export default {
   margin-block: 1.2em 2em;
 }
 .scene-count {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -2481,10 +2481,11 @@ export default {
   z-index: 5;
   inset-block-start: 0;
   overflow-x: auto;
-  background: #111;
+  background: var(--timeline-surface-bg);
   padding-block: 0.5rem;
   padding-inline: 0;
   margin-block: 0 2rem;
+  overflow-x: clip;
 }
 .timeline-track {
   position: relative;
@@ -2497,8 +2498,7 @@ export default {
   padding-block: 0;
   padding-inline: 0.2rem;
   border-radius: 999px;
-  background: #2a2a2a;
-  overflow-x: clip;
+  background: var(--timeline-track-bg);
 }
 .timeline-track::before {
   content: "";
@@ -2517,15 +2517,15 @@ export default {
   inline-size: 0.65rem;
   block-size: 0.65rem;
   padding: 0;
-  border: 1px solid #1f1f1f;
+  border: 1px solid var(--timeline-dot-border);
   border-radius: 50%;
-  background: #3a3a3a;
+  background: var(--timeline-dot-bg);
   cursor: pointer;
   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     background 0.15s ease-in-out;
 }
 .timeline-dot.completed:not(.death):not(.reporter) {
-  border-color: #2a2a2a;
+  border-color: var(--timeline-track-bg);
   background: #e67300;
 }
 .timeline-dot.active {
@@ -2550,7 +2550,7 @@ export default {
   flex-wrap: wrap;
   gap: 1rem;
   margin-block-start: 0.6rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   font-size: 0.85rem;
 }
 .legend-item {
@@ -2562,9 +2562,9 @@ export default {
   display: inline-block;
   inline-size: 0.6rem;
   block-size: 0.6rem;
-  border: 1px solid #1a1a1a;
+  border: 1px solid var(--timeline-dot-border);
   border-radius: 50%;
-  background: #444;
+  background: var(--timeline-dot-bg);
 }
 .legend-dot.bookmarked {
   box-shadow: 0 0 0 2px #ffbf46;
@@ -2590,7 +2590,7 @@ h2 {
   margin-block: 1.5rem 1rem;
   font-size: 3.5rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--page-text-color);
 }
 :global(.vueperslide) {
   background-size: contain;
@@ -2603,7 +2603,7 @@ h2 {
   background: hsla(38.3, 42.2%, 63.4%, 0.9) !important;
   font-weight: 800;
   color: #fff;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: var(--narration-shadow);
   box-shadow: 2px 2px 2px 0 hsla(56.5, 75%, 13.3%, 0.3);
   padding: 0.5em 1em;
   transition: opacity 0.2s ease-in-out;

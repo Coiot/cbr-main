@@ -122,10 +122,9 @@ h2 {
 
 .section-subtitle {
   font-size: 1rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   margin: 0;
 }
-
 .album-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -218,7 +217,7 @@ h2 {
   flex-direction: column;
   gap: 0.2rem;
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--text-color), white 20%);
+  color: color-mix(in srgb, var(--back-color), white 20%);
 }
 
 @media (max-width: 719px) {

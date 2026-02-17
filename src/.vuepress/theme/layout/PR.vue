@@ -2469,16 +2469,16 @@ export default {
 .label {
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--nav-color);
+  color: var(--page-text-color);
 }
 .value {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.5;
-  color: var(--accent-color);
+  color: var(--meta-value-color);
 }
 .value a {
-  color: #fff;
+  color: var(--page-text-color);
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
@@ -2498,7 +2498,7 @@ export default {
   position: sticky;
   z-index: 5;
   overflow-x: auto;
-  background: #111;
+  background: var(--timeline-surface-bg);
   padding-block: 0.5rem;
   padding-inline: 0;
   margin-block: 0 2rem;
@@ -2509,7 +2509,7 @@ export default {
   width: 100%;
   min-width: 520px;
   height: 6px;
-  background: #2a2a2a;
+  background: var(--timeline-track-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2533,8 +2533,8 @@ export default {
   height: 0.65rem;
   position: relative;
   z-index: 1;
-  background: #3a3a3a;
-  border: 1px solid #1f1f1f;
+  background: var(--timeline-dot-bg);
+  border: 1px solid var(--timeline-dot-border);
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
@@ -2543,7 +2543,7 @@ export default {
 }
 .timeline-dot.completed:not(.death):not(.reporter) {
   background: #e67300;
-  border-color: #2a2a2a;
+  border-color: var(--timeline-track-bg);
 }
 .timeline-dot.active {
   transform: scale(1.35);
@@ -2567,7 +2567,7 @@ export default {
   flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   margin-block-start: 0.6rem;
 }
 .legend-item {
@@ -2578,9 +2578,9 @@ export default {
 .legend-dot {
   width: 0.6rem;
   height: 0.6rem;
-  border: 1px solid #1a1a1a;
+  border: 1px solid var(--timeline-dot-border);
   border-radius: 50%;
-  background: #444;
+  background: var(--timeline-dot-bg);
   display: inline-block;
 }
 .legend-dot.bookmarked {
@@ -2595,7 +2595,8 @@ export default {
 .h-narration {
   position: relative;
   border-bottom: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
-  background-color: #1a1a1a;
+  color: var(--panel-text-color);
+  background-color: var(--panel-bg-color);
   padding-block: 0.5rem;
   padding-inline: 1rem;
 }
@@ -2617,7 +2618,7 @@ export default {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   background: transparent;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -2660,7 +2661,7 @@ article + article {
 h2 {
   font-size: 3.5rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--page-text-color);
   margin: 1.5rem 0 1rem;
 }
 .scene-image {
@@ -2675,7 +2676,8 @@ h2 {
 }
 .text {
   border-bottom: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
-  background-color: #1a1a1a;
+  color: var(--panel-text-color);
+  background-color: var(--panel-bg-color);
   padding: 2rem 2rem 1rem;
 }
 .scenes h3 {
@@ -2687,7 +2689,7 @@ h2 {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.25;
-  text-shadow: 2px 2px #08201d;
+  text-shadow: var(--narration-shadow);
   padding: 0;
   margin: 0;
 }

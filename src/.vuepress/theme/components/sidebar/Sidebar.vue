@@ -170,7 +170,7 @@ function resolveOpenGroupIndex(route, items) {
     justify-content: center;
     border-radius: 999px;
     border: 1px solid transparent;
-    color: var(--text-color);
+    color: var(--back-color);
     transition: all 0.2s ease-in-out;
   }
   .sidebar .sidebar-social-link:hover {

@@ -39,6 +39,7 @@ const SITE_TITLE =
   process.env.SOCIAL_CARD_SITE_TITLE || "Civilization Battle Royale";
 const KICKER = process.env.SOCIAL_CARD_KICKER || "Latest Episode";
 const SITE_URL = process.env.SOCIAL_CARD_SITE_URL || "civbattleroyale.tv";
+let sharpModule = null;
 
 function escapeXml(value) {
   return String(value)
@@ -219,19 +220,76 @@ function wrapText(text, maxWidth, fontSize, widthFactor = 0.58) {
   return lines;
 }
 
-async function writePngFromSvg(svg) {
-  let sharp;
-  try {
-    // eslint-disable-next-line global-require
-    sharp = require("sharp");
-  } catch (error) {
-    console.warn("sharp not installed; skipping social-card.png generation.");
-    return;
+function getSharp() {
+  if (sharpModule) {
+    return sharpModule;
   }
   try {
-    await sharp(Buffer.from(svg)).png().toFile(OUTPUT_PNG_PATH);
+    // eslint-disable-next-line global-require
+    sharpModule = require("sharp");
+    return sharpModule;
+  } catch (error) {
+    return null;
+  }
+}
+
+function buffersEqual(a, b) {
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
+    return false;
+  }
+  if (a.length !== b.length) {
+    return false;
+  }
+  return a.equals(b);
+}
+
+function writeTextIfChanged(filePath, text) {
+  const next = String(text);
+  if (fs.existsSync(filePath)) {
+    const prev = fs.readFileSync(filePath, "utf8");
+    if (prev === next) {
+      return { wrote: false, skipped: true, reason: "unchanged" };
+    }
+  }
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, next, "utf8");
+  return { wrote: true, skipped: false };
+}
+
+function writeBufferIfChanged(filePath, nextBuffer) {
+  if (!Buffer.isBuffer(nextBuffer)) {
+    return { wrote: false, skipped: true, reason: "invalid-buffer" };
+  }
+  if (fs.existsSync(filePath)) {
+    const prevBuffer = fs.readFileSync(filePath);
+    if (buffersEqual(prevBuffer, nextBuffer)) {
+      return { wrote: false, skipped: true, reason: "unchanged" };
+    }
+  }
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, nextBuffer);
+  return { wrote: true, skipped: false };
+}
+
+async function renderPngBufferFromSvg(svg) {
+  const sharp = getSharp();
+  if (!sharp) {
+    return null;
+  }
+  return sharp(Buffer.from(svg)).png().toBuffer();
+}
+
+async function writePngFromSvg(svg) {
+  const pngBuffer = await renderPngBufferFromSvg(svg);
+  if (!pngBuffer) {
+    console.warn("sharp not installed; skipping social-card.png generation.");
+    return { wrote: false, skipped: true, reason: "sharp-missing" };
+  }
+  try {
+    return writeBufferIfChanged(OUTPUT_PNG_PATH, pngBuffer);
   } catch (error) {
     console.warn("Failed to write social-card.png.", error);
+    return { wrote: false, skipped: true, reason: "write-failed" };
   }
 }
 
@@ -533,20 +591,38 @@ async function buildSocialCard() {
     fontFace,
   });
 
-  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
-  fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
-  await writePngFromSvg(svg);
+  const svgWrite = writeTextIfChanged(OUTPUT_PATH, svg);
+  const pngWrite = await writePngFromSvg(svg);
   if (latest) {
-    console.log(`Wrote social card for ${latest.title} to ${OUTPUT_PATH}`);
+    if (svgWrite.wrote) {
+      console.log(`Wrote social card for ${latest.title} to ${OUTPUT_PATH}`);
+    } else {
+      console.log(
+        `Skipped social card for ${latest.title}; SVG is unchanged at ${OUTPUT_PATH}`
+      );
+    }
   } else {
-    console.log(`Wrote fallback social card to ${OUTPUT_PATH}`);
+    if (svgWrite.wrote) {
+      console.log(`Wrote fallback social card to ${OUTPUT_PATH}`);
+    } else {
+      console.log(
+        `Skipped fallback social card; SVG is unchanged at ${OUTPUT_PATH}`
+      );
+    }
   }
-  if (fs.existsSync(OUTPUT_PNG_PATH)) {
+  if (pngWrite && pngWrite.wrote) {
     console.log(`Wrote social card PNG to ${OUTPUT_PNG_PATH}`);
+  } else if (fs.existsSync(OUTPUT_PNG_PATH)) {
+    console.log(`Skipped social card PNG; unchanged at ${OUTPUT_PNG_PATH}`);
   }
 
   const latestEpisodes = episodes.slice(0, EPISODE_CARD_LIMIT);
   if (!latestEpisodes.length) {
+    return;
+  }
+  const sharp = getSharp();
+  if (!sharp) {
+    console.warn("sharp not installed; skipping episode social cards.");
     return;
   }
   fs.mkdirSync(EPISODE_CARD_DIR, { recursive: true });
@@ -598,17 +674,14 @@ async function buildSocialCard() {
       siteY,
       fontFace,
     });
-    let sharp;
     try {
-      // eslint-disable-next-line global-require
-      sharp = require("sharp");
-    } catch (error) {
-      console.warn("sharp not installed; skipping episode social cards.");
-      break;
-    }
-    try {
-      await sharp(Buffer.from(episodeSvg)).png().toFile(outputPng);
-      console.log(`Wrote episode social card to ${outputPng}`);
+      const pngBuffer = await sharp(Buffer.from(episodeSvg)).png().toBuffer();
+      const writeResult = writeBufferIfChanged(outputPng, pngBuffer);
+      if (writeResult.wrote) {
+        console.log(`Wrote episode social card to ${outputPng}`);
+      } else {
+        console.log(`Skipped episode social card; unchanged at ${outputPng}`);
+      }
     } catch (error) {
       console.warn(`Failed to write episode social card for ${slug}.`, error);
     }

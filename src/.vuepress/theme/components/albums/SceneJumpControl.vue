@@ -12,7 +12,9 @@
           Scene {{ index }}
         </option>
       </select>
-      <button type="button" class="scene-button" @click="$emit('go')">Go</button>
+      <button type="button" class="scene-button" @click="$emit('go')">
+        Go
+      </button>
     </div>
   </div>
 </template>
@@ -52,7 +54,7 @@ export default {
   gap: 0.75rem;
 }
 .jump-label {
-  color: var(--nav-color);
+  color: var(--page-text-color);
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -67,15 +69,19 @@ export default {
   inline-size: 7rem;
   padding-block: 0.5rem;
   padding-inline: 0.6rem 1.4rem;
-  border: 1px solid #ffbf46;
+  border: 1px solid var(--meta-value-color);
   border-radius: 8px;
-  color: #fff;
-  background: #1a1a1a;
+  color: var(--panel-text-color);
+  background: var(--panel-bg-color);
   font-size: 1rem;
   font-weight: 600;
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, #ffbf46 50%),
-    linear-gradient(135deg, #ffbf46 50%, transparent 50%);
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--meta-value-color) 50%
+    ),
+    linear-gradient(135deg, var(--meta-value-color) 50%, transparent 50%);
   background-position: calc(100% - 0.9rem) calc(50% - 0.1rem),
     calc(100% - 0.6rem) calc(50% - 0.1rem);
   background-size: 6px 6px, 6px 6px;
@@ -88,10 +94,10 @@ export default {
 .scene-button {
   padding-block: 0.5rem;
   padding-inline: 1rem;
-  border: 1px solid #ffbf46;
+  border: 1px solid var(--meta-value-color);
   border-radius: 999px;
-  background: #1a1a1a;
-  color: #ffbf46;
+  background: var(--panel-bg-color);
+  color: var(--meta-value-color);
   font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;

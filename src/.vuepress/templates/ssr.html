@@ -8,6 +8,19 @@
     {{{ userHeadTags }}}
     {{{ pageMeta }}}
     {{{ canonicalLink }}}
+    <script>
+      (function () {
+        var mode = "dark";
+        try {
+          var saved = window.localStorage.getItem("themeMode");
+          if (saved === "light") {
+            mode = "light";
+          }
+        } catch (error) {}
+        document.documentElement.setAttribute("data-theme", mode);
+        document.documentElement.style.colorScheme = mode;
+      })();
+    </script>
     {{{ structuredDataTags }}}
     {{{ renderResourceHints() }}}
     {{{ renderStyles() }}}

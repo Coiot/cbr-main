@@ -274,16 +274,20 @@ export default {
   font-size: 1.75rem;
 }
 .comments-subtitle {
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   font-size: 0.95rem;
   margin: 0.5rem 0 1rem;
 }
 .comment-form {
   position: relative;
   padding: 1rem;
-  border: 1px solid #2b2b2b;
+  border: 1px solid var(--panel-border-color);
   border-radius: 12px;
-  background: linear-gradient(145deg, #0f0f0f 0%, #171717 100%);
+  background: linear-gradient(
+    145deg,
+    var(--panel-bg-color) 0%,
+    var(--panel-bg-soft-color) 100%
+  );
   margin-block-end: 1rem;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
@@ -291,10 +295,14 @@ export default {
   inline-size: -webkit-fill-available;
   min-height: 110px;
   padding: 0.75rem 0.9rem;
-  border: 1px solid rgba(255, 191, 70, 0.25);
+  border: 1px solid var(--panel-border-color);
   border-radius: 8px;
-  background: radial-gradient(circle at top, #161616 0%, #0b0b0b 70%);
-  color: #f5f1e6;
+  background: radial-gradient(
+    circle at top,
+    var(--panel-bg-elevated-color) 0%,
+    var(--panel-bg-soft-color) 75%
+  );
+  color: var(--panel-text-color);
   font-size: 1rem;
   font-family: inherit;
   resize: vertical;
@@ -307,6 +315,10 @@ export default {
   border-color: color-mix(in srgb, var(--accent-color), white 5%);
   box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.18),
     0 10px 18px rgba(0, 0, 0, 0.35);
+}
+.comment-input::placeholder {
+  color: var(--panel-muted-color);
+  opacity: 1;
 }
 .comment-actions {
   display: flex;
@@ -336,12 +348,12 @@ export default {
 }
 .comment-button--ghost {
   border-color: rgba(255, 191, 70, 0.5);
-  background: rgba(255, 191, 70, 0.3);
-  color: #ffcf70;
+  background: color-mix(in srgb, var(--accent-color), transparent 72%);
+  color: var(--field-label-color);
   box-shadow: none;
 }
 .comment-button--ghost:hover {
-  background: rgba(255, 191, 70, 0.4);
+  background: color-mix(in srgb, var(--accent-color), transparent 62%);
   transform: translateY(-1px);
 }
 .comment-button:disabled {
@@ -362,17 +374,17 @@ export default {
 .comment-count {
   margin-inline-start: auto;
   font-size: 0.8rem;
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
 }
 .comment-preview {
   margin-block-start: 0.9rem;
   padding: 0.85rem;
   border-radius: 10px;
-  border: 1px dashed rgba(255, 191, 70, 0.35);
-  background: #121212;
+  border: 1px dashed color-mix(in srgb, var(--accent-color), transparent 45%);
+  background: var(--panel-bg-elevated-color);
 }
 .comment-preview-label {
-  color: color-mix(in srgb, var(--text-color), white 30%);
+  color: var(--panel-muted-color);
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -390,9 +402,13 @@ export default {
   display: flex;
   gap: 0.85rem;
   padding: 0.9rem 1rem;
-  border: 1px solid #2a2a2a;
+  border: 1px solid var(--panel-border-color);
   border-radius: 12px;
-  background: linear-gradient(145deg, #111 0%, #191919 100%);
+  background: linear-gradient(
+    145deg,
+    var(--panel-bg-color) 0%,
+    var(--panel-bg-soft-color) 100%
+  );
   margin-block: 0;
 }
 .comment-civ {
@@ -412,8 +428,8 @@ export default {
   padding: 0.5rem 0.75rem;
   border-radius: 0.375rem;
   border: 1px solid rgba(255, 191, 70, 0.3);
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--panel-bg-soft-color);
+  color: var(--panel-text-color);
   white-space: nowrap;
   font-size: 0.95rem;
   font-weight: 500;
@@ -433,7 +449,7 @@ export default {
   block-size: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #1a1a1a;
+  border-top: 5px solid var(--panel-bg-soft-color);
   filter: drop-shadow(0 1px 0px rgba(255, 191, 70, 0.3));
   inset-block-start: 100%;
   inset-inline-start: 50%;
@@ -453,7 +469,7 @@ export default {
   margin-block-end: 0.25rem;
 }
 .comment-name {
-  color: #fff;
+  color: var(--panel-text-color);
   font-size: 1.25rem;
   font-weight: 800;
   min-width: 0;
@@ -461,10 +477,10 @@ export default {
 }
 .comment-flair {
   padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(255, 191, 70, 0.35);
+  border: 1px solid var(--panel-border-color);
   border-radius: 1rem;
-  background: #171717;
-  color: #fff;
+  background: var(--panel-bg-elevated-color);
+  color: var(--panel-text-color);
   font-size: 0.8rem;
   font-weight: 600;
   text-shadow: none;
@@ -473,13 +489,13 @@ export default {
 .comment-text {
   margin: 0;
   line-height: 1.4;
-  color: #f0f0f0;
+  color: var(--panel-text-color);
   white-space: pre-line;
 }
 .comment-note {
   margin: 0;
   font-size: 0.9rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
 }
 .comment-note--error {
   color: #f08c7a;

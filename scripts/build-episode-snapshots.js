@@ -17,6 +17,7 @@ const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
 const SUPABASE_MAP_ID = "s5";
 const SUPABASE_SNAPSHOT_TABLE = "map_snapshots";
+const FORCE_SNAPSHOT_REBUILD = process.env.FORCE_SNAPSHOT_REBUILD === "1";
 
 const normalizeEpisodeNumber = (value) => {
   if (value === null || value === undefined) {
@@ -43,6 +44,9 @@ const snapshotSlug = (episodeNumber) => {
   const safe = String(episodeNumber || "").replace(/\./g, "-");
   return `s5-episode-${safe}`;
 };
+
+const snapshotOutputPathForEpisode = (episodeNumber) =>
+  path.join(OUTPUT_DIR, `${snapshotSlug(episodeNumber)}.json`);
 
 const getSeasonFiveEpisodes = () => {
   if (!fs.existsSync(EPISODES_DIR)) {
@@ -155,19 +159,35 @@ const buildEpisodeZeroPayload = () => {
 
 const writeSnapshotFile = (episodeNumber, payload) => {
   if (!Array.isArray(payload) || !payload.length) {
-    return false;
+    return { wrote: false, skipped: false, outputPath: null };
   }
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const slug = snapshotSlug(episodeNumber);
-  const outputPath = path.join(OUTPUT_DIR, `${slug}.json`);
+  const outputPath = snapshotOutputPathForEpisode(episodeNumber);
+  if (!FORCE_SNAPSHOT_REBUILD && fs.existsSync(outputPath)) {
+    return { wrote: false, skipped: true, outputPath };
+  }
   fs.writeFileSync(outputPath, JSON.stringify(payload), "utf8");
-  return outputPath;
+  return { wrote: true, skipped: false, outputPath };
 };
 
 const buildSnapshots = async () => {
   const episodes = getSeasonFiveEpisodes();
   if (!episodes.length) {
     console.log("No Season 5 episodes found for snapshots.");
+    return;
+  }
+  const episodesNeedingWrite = FORCE_SNAPSHOT_REBUILD
+    ? episodes
+    : episodes.filter(
+        (episode) =>
+          !fs.existsSync(snapshotOutputPathForEpisode(episode.number))
+      );
+  const episodeZeroNeedsWrite =
+    FORCE_SNAPSHOT_REBUILD || !fs.existsSync(snapshotOutputPathForEpisode("0"));
+  if (!episodesNeedingWrite.length && !episodeZeroNeedsWrite) {
+    console.log(
+      "Episode snapshots already present locally. Skipping snapshot rebuild."
+    );
     return;
   }
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -186,7 +206,8 @@ const buildSnapshots = async () => {
     }
   });
   let wrote = 0;
-  episodes.forEach((episode) => {
+  let skipped = 0;
+  episodesNeedingWrite.forEach((episode) => {
     const label = buildSnapshotLabel(episode.number);
     const padded =
       episode.rawNumber && episode.rawNumber !== episode.number
@@ -197,21 +218,31 @@ const buildSnapshots = async () => {
     if (!snapshot) {
       return;
     }
-    const outputPath = writeSnapshotFile(episode.number, snapshot.payload);
-    if (outputPath) {
+    const result = writeSnapshotFile(episode.number, snapshot.payload);
+    if (result.wrote) {
       wrote += 1;
-      console.log(`Wrote snapshot for ${label} to ${outputPath}`);
+      console.log(`Wrote snapshot for ${label} to ${result.outputPath}`);
+    } else if (result.skipped) {
+      skipped += 1;
+      console.log(`Skipped ${label}; snapshot already exists.`);
     }
   });
-  const episodeZeroPayload = buildEpisodeZeroPayload();
-  if (episodeZeroPayload) {
-    const outputPath = writeSnapshotFile("0", episodeZeroPayload);
-    if (outputPath) {
-      wrote += 1;
-      console.log(`Wrote snapshot for Episode 0 Snapshot to ${outputPath}`);
+  if (episodeZeroNeedsWrite) {
+    const episodeZeroPayload = buildEpisodeZeroPayload();
+    if (episodeZeroPayload) {
+      const result = writeSnapshotFile("0", episodeZeroPayload);
+      if (result.wrote) {
+        wrote += 1;
+        console.log(
+          `Wrote snapshot for Episode 0 Snapshot to ${result.outputPath}`
+        );
+      } else if (result.skipped) {
+        skipped += 1;
+        console.log("Skipped Episode 0 Snapshot; snapshot already exists.");
+      }
     }
   }
-  if (!wrote) {
+  if (!wrote && !skipped) {
     console.log("No matching snapshots found for Season 5 episodes.");
   }
 };

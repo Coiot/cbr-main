@@ -110,9 +110,13 @@ export default {
 
 <style scoped>
 .home-map {
-  border: 1px solid rgba(255, 191, 70, 0.25);
+  border: 1px solid var(--panel-border-color);
   border-radius: 18px;
-  background: linear-gradient(135deg, #0b0b0b 0%, #17130a 100%);
+  background: linear-gradient(
+    135deg,
+    var(--panel-bg-color) 0%,
+    var(--panel-bg-soft-color) 100%
+  );
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.25);
   padding: 1.5rem;
   margin-block: 3rem 0;
@@ -127,7 +131,7 @@ export default {
 }
 
 .home-map-copy h2 {
-  color: #fff;
+  color: var(--page-text-color);
   font-size: 2rem;
   font-weight: 900;
   margin: 0 0 0.4rem;
@@ -135,7 +139,7 @@ export default {
 
 .home-map-copy p {
   max-width: 70ch;
-  color: color-mix(in srgb, #fff, transparent 35%);
+  color: var(--panel-muted-color);
   margin: 0;
 }
 
@@ -178,7 +182,7 @@ export default {
   justify-content: center;
   min-block-size: 24rem;
   padding: 1.5rem;
-  background: rgba(10, 10, 10, 0.9);
+  background: var(--panel-bg-elevated-color);
 }
 
 .home-map-placeholder-card {
@@ -186,7 +190,7 @@ export default {
   gap: 0.9rem;
   max-inline-size: 32ch;
   text-align: center;
-  color: color-mix(in srgb, #fff, transparent 30%);
+  color: var(--panel-muted-color);
 }
 
 .home-map-placeholder-card p {
@@ -241,9 +245,9 @@ export default {
   inline-size: 2.4rem;
   block-size: 2.4rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(12, 12, 12, 0.7);
-  color: #fff;
+  border: 1px solid var(--panel-border-color);
+  background: var(--panel-bg-soft-color);
+  color: var(--panel-text-color);
   font-size: 1.4rem;
   font-weight: 800;
   cursor: pointer;
@@ -253,7 +257,7 @@ export default {
 
 .home-map-zoom-button:hover {
   transform: translateY(-1px);
-  background: rgba(20, 20, 20, 0.85);
+  background: var(--panel-bg-color);
 }
 
 .home-map :deep(.tile-map) {

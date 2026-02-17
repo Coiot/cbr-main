@@ -105,7 +105,7 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  color: var(--nav-color);
+  color: var(--page-text-color);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -120,8 +120,8 @@ export default {
   padding-inline: 1rem;
   border: 1px solid #70284f;
   border-radius: 999px;
-  background: #1a1a1a;
-  color: #f3d8e9;
+  background: var(--panel-bg-color);
+  color: var(--panel-text-color);
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.2;
@@ -152,10 +152,10 @@ export default {
 .scene-button {
   padding-block: 0.5rem;
   padding-inline: 1rem;
-  border: 1px solid #ffbf46;
+  border: 1px solid var(--meta-value-color);
   border-radius: 999px;
-  background: #1a1a1a;
-  color: #ffbf46;
+  background: var(--panel-bg-color);
+  color: var(--meta-value-color);
   font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;

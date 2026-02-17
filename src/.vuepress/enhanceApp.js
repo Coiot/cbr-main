@@ -21,6 +21,11 @@ export default ({ Vue, router, siteData }) => {
 
   // This ensures the script runs only on the client side
   if (typeof window !== "undefined") {
+    const storedThemeMode = window.localStorage.getItem("themeMode");
+    const themeMode = storedThemeMode === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", themeMode);
+    document.documentElement.style.colorScheme = themeMode;
+
     // Initialize the shared client early so magic-link callbacks are consumed
     // even before specific page/layout auth handlers mount.
     getSupabaseClient();

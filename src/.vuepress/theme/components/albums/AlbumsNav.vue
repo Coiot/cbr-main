@@ -63,14 +63,17 @@ export default {
   gap: 0.35rem;
   padding-block: 0.95rem 1.05rem;
   padding-inline: 1.3rem;
-  border: 1px solid #242424;
+  border: 1px solid var(--panel-border-color);
   border-radius: 0 0 14px 14px;
-  background: linear-gradient(145deg, #111 0%, #161616 100%);
-  color: #fff;
+  background: linear-gradient(
+    145deg,
+    var(--panel-bg-color) 0%,
+    var(--panel-bg-soft-color) 100%
+  );
+  color: var(--panel-text-color);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .nav-card::after {
   content: "";
@@ -93,12 +96,13 @@ export default {
   text-align: right;
 }
 .nav-kicker {
-  color: color-mix(in srgb, var(--text-color), white 20%);
+  color: var(--panel-muted-color);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .nav-title {
+  color: var(--panel-text-color);
   font-size: 1.1rem;
   font-weight: 800;
   line-height: 1.2;

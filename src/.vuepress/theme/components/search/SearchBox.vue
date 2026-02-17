@@ -441,12 +441,17 @@ export default {
   padding: 0 0.5rem 0 2rem;
   outline: none;
   transition: all 0.2s ease;
-  background: #fff url("../../assets/search.svg") 0.6rem 0.5rem no-repeat;
+  background: var(--search-input-bg) url("../../assets/search.svg") 0.6rem
+    0.5rem no-repeat;
   background-size: 1rem;
 }
 .search-box input:focus {
   cursor: auto;
   border-color: var(--accent-color);
+}
+.search-box input::placeholder {
+  color: var(--search-input-placeholder-color);
+  opacity: 1;
 }
 .search-box .suggestions {
   position: absolute;
@@ -456,7 +461,7 @@ export default {
   min-width: 16.5rem;
   width: 100%;
   overflow-y: auto;
-  background: #fff;
+  background: var(--search-dropdown-bg);
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
   border-radius: 4px;
   padding: 0.5rem;
@@ -494,14 +499,14 @@ export default {
 }
 .search-box .suggestion.focused {
   font-weight: 700;
-  background-color: #f1f1f1;
+  background-color: var(--search-suggestion-focus-bg);
 }
 .search-box .suggestion.focused a {
   color: color-mix(in srgb, var(--back-color), black 15%);
 }
 .search-box .suggestion:hover {
-  background-color: #ddd;
-  border-color: #ccc;
+  background-color: var(--search-suggestion-hover-bg);
+  border-color: var(--search-suggestion-hover-border);
 }
 .search-box .suggestion:hover a {
   color: color-mix(in srgb, var(--back-color), black 20%);

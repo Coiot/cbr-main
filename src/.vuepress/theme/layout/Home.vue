@@ -181,7 +181,7 @@ export default {
   margin-block: 0 1.5rem;
 }
 .home .hero-tagline {
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: color-mix(in srgb, var(--page-text-color), white 35%);
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -297,7 +297,7 @@ export default {
 }
 .home .footer {
   text-align: center;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   border-block-start: 2px solid var(--border-color);
   padding-block: 1.5rem 2.5rem;
   padding-inline: 2.5rem;

@@ -132,7 +132,7 @@ h2 {
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: color-mix(in srgb, var(--page-text-color), white 25%);
   margin: 0;
 }
 
@@ -182,9 +182,10 @@ h2 {
   z-index: 1;
   inset-block-start: 2rem;
   inset-inline-start: 0;
-  text-shadow: 1px 2px rgba(8, 56, 50, 0.6);
-  background: rgba(16, 16, 16, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--edition-overlay-text);
+  text-shadow: var(--heading-shadow-soft);
+  background: var(--edition-overlay-bg);
+  border: 1px solid var(--edition-overlay-border);
   border-inline-start: 0;
   border-radius: 0 12px 12px 0;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);

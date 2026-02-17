@@ -242,7 +242,7 @@ export default {
   gap: 0.75rem 1rem;
   margin-block-start: 1.5rem;
   padding-block: 1.5rem 0.75rem;
-  border-block-start: 1px solid rgba(255, 255, 255, 0.12);
+  border-block-start: 1px solid var(--panel-border-color);
 }
 .reaction-list {
   display: flex;
@@ -257,13 +257,13 @@ export default {
   background: transparent;
   font-size: 0.85rem;
   font-weight: 700;
-  color: color-mix(in srgb, var(--text-color), white 25%);
+  color: var(--panel-muted-color);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .reaction-more:hover {
   border-color: rgba(255, 191, 70, 0.8);
-  color: #fff;
+  color: var(--panel-text-color);
 }
 .reaction-more-panel {
   display: flex;
@@ -279,20 +279,23 @@ export default {
   padding-inline: 0.6rem;
   border: 1px solid rgba(255, 191, 70, 0.35);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--panel-bg-elevated-color);
   font-size: 0.9rem;
-  color: color-mix(in srgb, var(--text-color), white 20%);
+  color: var(--panel-text-color);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 .reaction-pill:hover {
   border-color: rgba(255, 191, 70, 0.9);
-  color: #fff;
-  background: #222;
+  color: var(--panel-text-color);
+  background: var(--panel-bg-soft-color);
 }
 .reaction-pill.active {
   border-color: #ffbf46;
   background: #ffbf46;
+  color: #1a1a1a;
+}
+.reaction-pill.active .reaction-count {
   color: #1a1a1a;
 }
 .reaction-pill:disabled {
@@ -306,9 +309,10 @@ export default {
 .reaction-count {
   font-size: 0.75rem;
   font-weight: 700;
+  color: var(--panel-muted-color);
 }
 .reaction-hint {
   font-size: 0.75rem;
-  color: color-mix(in srgb, var(--text-color), white 35%);
+  color: var(--panel-muted-color);
 }
 </style>
