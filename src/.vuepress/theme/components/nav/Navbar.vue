@@ -247,7 +247,7 @@
               </p>
             </div>
             <div class="user-field">
-              <label class="user-label">View Mode Preference</label>
+              <label class="user-label">View Mode</label>
               <div class="user-toggle">
                 <button
                   type="button"
