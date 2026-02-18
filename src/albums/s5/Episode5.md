@@ -102,7 +102,7 @@ scenes:
 - scene_number: 24
   scene_title: "AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene24.jpeg
-  narration: "<p>I’m writing this while in the CBR voice chat with EmeraldRange (he gets no spoilers of course) and the slide title is the sound I made when I saw this slide. For fuck’s sake Joseph Maria, for fuck’s sake.</p>"
+  narration: "<p>I’m writing this while in the CBR voice chat with EmeraldRange (he gets no spoilers of course) and the slide title is the sound I made when I saw this slide. For fuck’s sake Joseph Maria, <em>for fuck’s sake.</em></p>"
 - scene_number: 25
   scene_title: "Large Dogs, Beware!"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene25.jpeg
@@ -346,7 +346,7 @@ scenes:
 - scene_number: 85
   scene_title: "Triple Shot"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene85.jpeg
-  narration: "<p>We stay focused on Maravi once more, though the turn has ticked over, as yet another neighbor jumps on the pile. Luba attacks, and they will also still do nothing. Please don’t tell me this will somehow be a win for Maravi.</p>"
+  narration: "<p>We stay focused on Maravi once more, though the turn has ticked over, as yet another neighbor jumps on the pile. Luba attacks, and they will also still do nothing. <em>Please don’t tell me this will somehow be a win for Maravi.</em></p>"
 - scene_number: 86
   scene_title: "The Northern Hordes"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene86.jpeg
@@ -406,7 +406,7 @@ scenes:
 - scene_number: 100
   scene_title: "In The Middle Eastern Africa Of Our House"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene100.jpeg
-  narration: "<p>Maravi’s final neighbor bids Maravi “Hello” and “Goodbye”, choosing to send a settler guarded by a spearman as their choice of attack. Please don’t tell me this will somehow be a win for Maravi.</p>"
+  narration: "<p>Maravi’s final neighbor bids Maravi “Hello” and “Goodbye”, choosing to send a settler guarded by a spearman as their choice of attack. <strong>Please don’t tell me this will somehow be a win for Maravi.</strong></p>"
 - scene_number: 101
   scene_title: "Chef Bayardee"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene101.jpeg
