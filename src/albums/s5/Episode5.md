@@ -21,11 +21,11 @@ scenes:
   narration: "<p>After all, why shouldn’t I give myself a second OC slot? I’m sorry to those who want a map here but I’ve actually rushed out two comics this week, my weekly one and another Lazy Portugal Show! (Well, I finished it earlier today, but I’ll be posting it tomorrow morning (Saturday)). The original Lazy Portugal Show was what pushed me to make my comics, and I have been so happy to see all the OC this season. Thank you Archimedes and Sketo and Nope and Emerald and anyone else making civball comics and other OCs, though also lmao I get to be a selfish bitch. :3</p>"
 - scene_number: 04
   scene_title: "In Case Of Emergency"
-  slide_url: https://cdn.civbattleroyale.tv/s5ep5-supporters.svg
+  slide_svg: https://cdn.civbattleroyale.tv/s5ep5-supporters.svg
   narration: "<p>Coiot’s been making some really cool updates to the site, and these donations pay for the server that hosts such a wonderful site! But fr check out all the stuff Coiot has been adding, it looks really nice. He should also finish the rest of those Tibetan civs he was working on wink wink nudge nudge.</p><p>Coiot: Few more new features out you might stumble upon, announcements when I clear the bugs!</p>"
 - scene_number: 05
   scene_title: "Omop"
-  slide_svg: https://cdn.civbattleroyale.tv/season5-pr4-scene53.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season5-pr4-scene53.jpeg
   narration: "<p>Look it’s gotta be Pomo, again I get to be egotistical like this. Wow good job Pomo on settling again, and beating back Tlingit, and being all around cool. </p>"
 - scene_number: 06
   scene_title: "Top Teched Theologian"
