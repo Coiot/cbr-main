@@ -378,7 +378,7 @@ scenes:
 - scene_number: 93
   scene_title: "I Pomo, You Pomo, He She Me Pomo, Pomo, Pomology, The Study Of Pomo?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene93.jpeg
-  narration: "<p>The Pomo enhance their religion as Behe’pal gets attacked fruitlessly yet again. Their current settler is heading north to settle above Kadi’u presumably, though there is space east of the capital and northwest of the Ponca capital. Teo down south continues to move their settler north at a pace of two tiles a part. Checking back, we first saw it on turn 78 in Bejacul itself; it has moved three tiles northeast in 11 turns.</p><p></p><p>Also yes Pomology does exist, it is the study of fruits. What a great thing, perfect for me, who goes by Orange, who made a Pomo mod.</p>"
+  narration: "<p>The Pomo enhance their religion as Behe’pal gets attacked fruitlessly yet again. Their current settler is heading north to settle above Kadi’u presumably, though there is space east of the capital and northwest of the Ponca capital. Teo down south continues to move their settler north at a pace of two tiles an episode. Checking back, we first saw it on turn 78 in Bejacul itself; it has moved three tiles northeast in 11 turns.</p><p></p><p>Also yes Pomology does exist, it is the study of fruits. What a great thing, perfect for me, who goes by Orange, who made a Pomo mod.</p>"
 - scene_number: 94
   scene_title: "The Land Of Lost Sailors"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode5-scene94.jpeg
