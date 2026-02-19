@@ -235,6 +235,7 @@ export default {
         label: "",
       },
       snapshotListLoaded: false,
+      snapshotListLoading: false,
       snapshotList: [],
       snapshotSearchItems: [],
       snapshotIndexesById: {},
@@ -706,12 +707,16 @@ export default {
       return label || "Snapshot";
     },
 
-    async loadSnapshotList() {
-      if (this.snapshotListLoaded) {
+    async loadSnapshotList(force = false) {
+      if (
+        this.snapshotListLoading ||
+        (!force && this.snapshotListLoaded && this.snapshotList.length)
+      ) {
         return;
       }
-      this.snapshotListLoaded = true;
+      this.snapshotListLoading = true;
       if (typeof window === "undefined") {
+        this.snapshotListLoading = false;
         return;
       }
       try {
@@ -723,10 +728,11 @@ export default {
           },
         });
         if (!response.ok) {
-          return;
+          throw new Error("Snapshot list request failed");
         }
         const data = await response.json();
         this.snapshotList = Array.isArray(data) ? data : [];
+        this.snapshotListLoaded = true;
         this.snapshotSearchItems = this.snapshotList.map((entry) => ({
           id: `snapshot:${entry.id}`,
           type: "mapSnapshot",
@@ -741,7 +747,9 @@ export default {
           ),
         }));
       } catch (error) {
-        // No-op: snapshot scope remains unavailable.
+        this.snapshotListLoaded = false;
+      } finally {
+        this.snapshotListLoading = false;
       }
     },
 
@@ -1067,6 +1075,13 @@ export default {
     },
 
     handleInput() {
+      if (
+        this.query &&
+        !this.snapshotList.length &&
+        !this.snapshotListLoading
+      ) {
+        this.loadSnapshotList();
+      }
       if (this.results.length && this.activeIndex < 0) {
         this.activeIndex = 0;
       }

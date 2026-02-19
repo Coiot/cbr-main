@@ -243,7 +243,7 @@
                 :y1="segment.y1"
                 :x2="segment.x2"
                 :y2="segment.y2"
-                :style="{ stroke: ownerBorderColor(tile, segment) }"
+                :style="ownerBorderStyle(tile, segment)"
               />
               <line
                 v-for="segment in showDecorations ? tile.riverSegments : []"
@@ -1790,6 +1790,14 @@
                 >
                   Population
                 </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
+                  :class="{ 'is-active': overlayView === 'contrast' }"
+                  @click="overlayView = 'contrast'"
+                >
+                  Contrast
+                </button>
               </div>
 
               <div
@@ -1924,7 +1932,10 @@
                 </div>
               </div>
 
-              <div v-else class="tile-overlay-section">
+              <div
+                v-else-if="overlayView === 'population'"
+                class="tile-overlay-section"
+              >
                 <div class="tile-info-list tile-overlay-metrics">
                   <div class="tile-info-row">
                     <div class="tile-info-label">Total Population</div>
@@ -2052,6 +2063,50 @@
                       {{ formatOverlayDensity(entry.density) }}
                     </span>
                   </div>
+                </div>
+              </div>
+              <div v-else class="tile-overlay-section">
+                <!-- <div class="tile-info-list tile-overlay-metrics">
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">Active Contrast Toggles</div>
+                    <div class="tile-info-value">
+                      {{ activeContrastToggleCount }}
+                    </div>
+                  </div>
+                </div> -->
+                <div class="tile-overlay-contrast-toggles">
+                  <label class="tile-edit-checkbox">
+                    <input type="checkbox" v-model="contrastHideDecorations" />
+                    Hide Terrain Details
+                  </label>
+                  <label class="tile-edit-checkbox">
+                    <input type="checkbox" v-model="contrastFlattenLandWater" />
+                    Flatten Terrain Colors
+                  </label>
+                  <label class="tile-edit-checkbox">
+                    <input type="checkbox" v-model="contrastGrayscaleTerrain" />
+                    Grayscale Terrain
+                  </label>
+                  <label class="tile-edit-checkbox">
+                    <input
+                      type="checkbox"
+                      v-model="contrastBoostOwnerOpacity"
+                    />
+                    Increase Civilization Opacity
+                  </label>
+                  <label class="tile-edit-checkbox">
+                    <input type="checkbox" v-model="contrastLargeCityBanners" />
+                    Larger City Banners
+                  </label>
+                </div>
+                <div class="tile-edit-row">
+                  <button
+                    type="button"
+                    class="tile-edit-button"
+                    @click="resetContrastOptions"
+                  >
+                    Reset Contrasts
+                  </button>
                 </div>
               </div>
             </div>
@@ -2256,6 +2311,7 @@ import {
   getBrushOwnerChange,
   getBrushOverlayStyle,
 } from "./communityTileMapBrushUtils";
+import { SUPABASE_USER_SETTINGS_TABLE } from "../../supabaseClient";
 const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
 const SUPABASE_MAP_ID = "s5";
@@ -2272,6 +2328,14 @@ const MINI_MAP_MAX_HEIGHT = 120;
 const COMBO_MAX_RESULTS = 20;
 const QUICK_JUMP_FOCUS_SCALE = 1.5;
 const MAP_PINS_STORAGE_KEY = "cbr.mapPins.v1";
+const MAP_CONTRAST_SETTINGS_KEY = "cbr.mapContrast.v1";
+const MAP_CONTRAST_CLOUD_KEYS = Object.freeze({
+  contrastHideDecorations: "mapContrastHideDecorations",
+  contrastFlattenLandWater: "mapContrastFlattenLandWater",
+  contrastGrayscaleTerrain: "mapContrastGrayscaleTerrain",
+  contrastBoostOwnerOpacity: "mapContrastBoostOwnerOpacity",
+  contrastLargeCityBanners: "mapContrastLargeCityBanners",
+});
 
 export default {
   props: {
@@ -2328,6 +2392,8 @@ export default {
       tileSaveTimer: null,
       tileSaveRetryTimer: null,
       tileSaveRetryCount: 0,
+      contrastSettingsSaveTimer: null,
+      contrastSettingsSyncing: false,
       tileOverrideSubscription: null,
       authSubscription: null,
       modeSwitching: false,
@@ -2398,6 +2464,12 @@ export default {
       editPanelTab: "edit",
       overlayView: "civilization",
       overlayOwnerName: "",
+      contrastHideDecorations: false,
+      contrastFlattenLandWater: false,
+      contrastGrayscaleTerrain: false,
+      contrastBoostOwnerOpacity: false,
+      contrastLargeCityBanners: false,
+      contrastSettingsLoading: false,
       isMobileView: false,
       isMobileBrowser: false,
       lastPointerType: null,
@@ -2567,6 +2639,27 @@ export default {
     },
     isPopulationOverlayActive() {
       return this.isOverlayTabActive && this.overlayView === "population";
+    },
+    isContrastOverlayActive() {
+      return this.isOverlayTabActive && this.overlayView === "contrast";
+    },
+    contrastVisualizationKey() {
+      return [
+        this.contrastHideDecorations ? "details-off" : "details-on",
+        this.contrastFlattenLandWater ? "flat" : "terrain",
+        this.contrastGrayscaleTerrain ? "grayscale" : "color",
+        this.contrastBoostOwnerOpacity ? "owner-strong" : "owner-normal",
+        this.contrastLargeCityBanners ? "cities-large" : "cities-normal",
+      ].join("|");
+    },
+    activeContrastToggleCount() {
+      return [
+        this.contrastHideDecorations,
+        this.contrastFlattenLandWater,
+        this.contrastGrayscaleTerrain,
+        this.contrastBoostOwnerOpacity,
+        this.contrastLargeCityBanners,
+      ].filter(Boolean).length;
     },
     activeOverlayOwnerId() {
       const ownerId = resolveOwnerInput(this.overlayOwnerName);
@@ -2891,7 +2984,7 @@ export default {
     },
 
     showDecorations() {
-      return this.scale >= 0.55;
+      return this.scale >= 0.55 && !this.contrastHideDecorations;
     },
 
     showLabels() {
@@ -3111,6 +3204,10 @@ export default {
     overlayOwnerName() {
       this.handleOverlayVisualizationChange();
     },
+    contrastVisualizationKey() {
+      this.handleOverlayVisualizationChange();
+      this.persistContrastSettingsForAuthUser();
+    },
     scale: "handleScaleChange",
     translate: {
       deep: true,
@@ -3238,6 +3335,10 @@ export default {
       window.clearTimeout(this.mapPinStatusTimer);
       this.mapPinStatusTimer = null;
     }
+    if (this.contrastSettingsSaveTimer) {
+      window.clearTimeout(this.contrastSettingsSaveTimer);
+      this.contrastSettingsSaveTimer = null;
+    }
   },
 
   methods: {
@@ -3284,6 +3385,7 @@ export default {
 
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
+      this.restoreContrastSettingsForAuthUser();
       if (this.authUser) {
         if (!this.authEmail) {
           this.authEmail = this.authUser.email || "";
@@ -3335,6 +3437,10 @@ export default {
     async signOut() {
       if (!this.supabase) {
         return;
+      }
+      if (this.contrastSettingsSaveTimer) {
+        window.clearTimeout(this.contrastSettingsSaveTimer);
+        this.contrastSettingsSaveTimer = null;
       }
       await this.supabase.auth.signOut();
       this.authUser = null;
@@ -4812,6 +4918,243 @@ export default {
       } catch (error) {
         return false;
       }
+    },
+
+    contrastSettingsStorageKeyForUser(userId) {
+      const id = String(userId || "").trim();
+      if (!id) {
+        return "";
+      }
+      return `${MAP_CONTRAST_SETTINGS_KEY}:${SUPABASE_MAP_ID}:${id}`;
+    },
+
+    currentContrastSettings() {
+      return {
+        contrastHideDecorations: !!this.contrastHideDecorations,
+        contrastFlattenLandWater: !!this.contrastFlattenLandWater,
+        contrastGrayscaleTerrain: !!this.contrastGrayscaleTerrain,
+        contrastBoostOwnerOpacity: !!this.contrastBoostOwnerOpacity,
+        contrastLargeCityBanners: !!this.contrastLargeCityBanners,
+      };
+    },
+
+    toCloudContrastSettings(settings) {
+      const source =
+        settings && typeof settings === "object"
+          ? settings
+          : this.currentContrastSettings();
+      return {
+        [MAP_CONTRAST_CLOUD_KEYS.contrastHideDecorations]:
+          !!source.contrastHideDecorations,
+        [MAP_CONTRAST_CLOUD_KEYS.contrastFlattenLandWater]:
+          !!source.contrastFlattenLandWater,
+        [MAP_CONTRAST_CLOUD_KEYS.contrastGrayscaleTerrain]:
+          !!source.contrastGrayscaleTerrain,
+        [MAP_CONTRAST_CLOUD_KEYS.contrastBoostOwnerOpacity]:
+          !!source.contrastBoostOwnerOpacity,
+        [MAP_CONTRAST_CLOUD_KEYS.contrastLargeCityBanners]:
+          !!source.contrastLargeCityBanners,
+      };
+    },
+
+    fromCloudContrastSettings(settings) {
+      if (!settings || typeof settings !== "object") {
+        return { values: null, hasAny: false };
+      }
+      const values = {};
+      let hasAny = false;
+      Object.keys(MAP_CONTRAST_CLOUD_KEYS).forEach((localKey) => {
+        const cloudKey = MAP_CONTRAST_CLOUD_KEYS[localKey];
+        if (Object.prototype.hasOwnProperty.call(settings, cloudKey)) {
+          values[localKey] = !!settings[cloudKey];
+          hasAny = true;
+        }
+      });
+      return { values: hasAny ? values : null, hasAny };
+    },
+
+    applyContrastSettings(settings) {
+      const source =
+        settings && typeof settings === "object"
+          ? settings
+          : Object.create(null);
+      this.contrastSettingsLoading = true;
+      this.contrastHideDecorations = !!source.contrastHideDecorations;
+      this.contrastFlattenLandWater = !!source.contrastFlattenLandWater;
+      this.contrastGrayscaleTerrain = !!source.contrastGrayscaleTerrain;
+      this.contrastBoostOwnerOpacity = !!source.contrastBoostOwnerOpacity;
+      this.contrastLargeCityBanners = !!source.contrastLargeCityBanners;
+      this.$nextTick(() => {
+        this.contrastSettingsLoading = false;
+      });
+    },
+
+    readLocalContrastSettingsForAuthUser() {
+      if (
+        typeof window === "undefined" ||
+        !window.localStorage ||
+        !this.authUser ||
+        !this.authUser.id
+      ) {
+        return null;
+      }
+      const key = this.contrastSettingsStorageKeyForUser(this.authUser.id);
+      if (!key) {
+        return null;
+      }
+      try {
+        const raw = window.localStorage.getItem(key);
+        if (!raw) {
+          return null;
+        }
+        const parsed = JSON.parse(raw);
+        return parsed && typeof parsed === "object" ? parsed : null;
+      } catch (error) {
+        return null;
+      }
+    },
+
+    writeLocalContrastSettingsForAuthUser(settings) {
+      if (
+        typeof window === "undefined" ||
+        !window.localStorage ||
+        !this.authUser ||
+        !this.authUser.id
+      ) {
+        return false;
+      }
+      const key = this.contrastSettingsStorageKeyForUser(this.authUser.id);
+      if (!key) {
+        return false;
+      }
+      try {
+        window.localStorage.setItem(key, JSON.stringify(settings));
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+
+    restoreContrastSettingsForAuthUser() {
+      if (!this.supabase || !this.authUser || !this.authUser.id) {
+        return;
+      }
+      if (this.contrastSettingsSyncing) {
+        return;
+      }
+      this.contrastSettingsSyncing = true;
+      (async () => {
+        let didApplyCloud = false;
+        try {
+          const { data, error } = await this.supabase
+            .from(SUPABASE_USER_SETTINGS_TABLE)
+            .select("settings")
+            .eq("user_id", this.authUser.id)
+            .maybeSingle();
+          if (!error) {
+            const cloudSettings =
+              data && data.settings && typeof data.settings === "object"
+                ? data.settings
+                : {};
+            const mapped = this.fromCloudContrastSettings(cloudSettings);
+            if (mapped.hasAny && mapped.values) {
+              this.applyContrastSettings(mapped.values);
+              this.writeLocalContrastSettingsForAuthUser(mapped.values);
+              didApplyCloud = true;
+            } else {
+              const localFallback = this.readLocalContrastSettingsForAuthUser();
+              if (localFallback) {
+                this.applyContrastSettings(localFallback);
+                const merged = {
+                  ...cloudSettings,
+                  ...this.toCloudContrastSettings(localFallback),
+                };
+                await this.supabase
+                  .from(SUPABASE_USER_SETTINGS_TABLE)
+                  .upsert(
+                    { user_id: this.authUser.id, settings: merged },
+                    { onConflict: "user_id" }
+                  );
+              }
+            }
+          }
+        } catch (error) {
+          // Fall back to local settings only when cloud read fails.
+        }
+        if (!didApplyCloud) {
+          const localFallback = this.readLocalContrastSettingsForAuthUser();
+          if (localFallback) {
+            this.applyContrastSettings(localFallback);
+          }
+        }
+      })().finally(() => {
+        this.contrastSettingsSyncing = false;
+      });
+    },
+
+    queueContrastSettingsCloudSave() {
+      if (
+        typeof window === "undefined" ||
+        !this.supabase ||
+        !this.authUser ||
+        !this.authUser.id
+      ) {
+        return;
+      }
+      if (this.contrastSettingsSaveTimer) {
+        window.clearTimeout(this.contrastSettingsSaveTimer);
+      }
+      this.contrastSettingsSaveTimer = window.setTimeout(() => {
+        this.contrastSettingsSaveTimer = null;
+        this.persistContrastSettingsToCloud();
+      }, 250);
+    },
+
+    async persistContrastSettingsToCloud() {
+      if (!this.supabase || !this.authUser || !this.authUser.id) {
+        return false;
+      }
+      try {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_USER_SETTINGS_TABLE)
+          .select("settings")
+          .eq("user_id", this.authUser.id)
+          .maybeSingle();
+        if (error) {
+          return false;
+        }
+        const existing =
+          data && data.settings && typeof data.settings === "object"
+            ? data.settings
+            : {};
+        const merged = {
+          ...existing,
+          ...this.toCloudContrastSettings(this.currentContrastSettings()),
+        };
+        const { error: upsertError } = await this.supabase
+          .from(SUPABASE_USER_SETTINGS_TABLE)
+          .upsert(
+            {
+              user_id: this.authUser.id,
+              settings: merged,
+            },
+            { onConflict: "user_id" }
+          );
+        return !upsertError;
+      } catch (error) {
+        return false;
+      }
+    },
+
+    persistContrastSettingsForAuthUser() {
+      if (this.contrastSettingsLoading || !this.authUser || !this.authUser.id) {
+        return false;
+      }
+      const savedLocal = this.writeLocalContrastSettingsForAuthUser(
+        this.currentContrastSettings()
+      );
+      this.queueContrastSettingsCloudSave();
+      return savedLocal;
     },
 
     pinPayloadFromSelectedTile(name) {
@@ -6352,24 +6695,12 @@ export default {
         context.closePath();
       };
       this.tiles.forEach((tile) => {
-        const fill = adjustedTerrainFill(tile, getColor);
+        const fill = this.tileTerrainFillStyle(tile, getColor);
         const previousAlpha = context.globalAlpha;
-        let fillColor = fill.color;
-        let fillAlpha = Number.isFinite(fill.alpha)
+        const fillColor = fill.color;
+        const fillAlpha = Number.isFinite(fill.alpha)
           ? fill.alpha
           : previousAlpha;
-        if (
-          this.hasActiveCivilizationOverlay &&
-          !this.tileBelongsToOverlayCiv(tile)
-        ) {
-          fillColor = desaturateColor(fill.color, 0.6);
-          fillAlpha =
-            tile.terrainId === "ocean" || tile.terrainId === "coast"
-              ? 0.12
-              : 0.2;
-        } else if (this.isPopulationOverlayActive) {
-          fillColor = desaturateColor(fill.color, 0.35);
-        }
         context.globalAlpha = fillAlpha;
         drawHexPath(tile);
         context.fillStyle = fillColor;
@@ -6407,19 +6738,30 @@ export default {
         context.lineWidth = 2;
         context.lineJoin = "round";
         context.lineCap = "round";
+        const previousBorderAlpha = context.globalAlpha;
         overlayTiles.forEach((tile) => {
           const borderSegments = this.ownerBorderSegmentsForTile(tile);
           if (!borderSegments.length) {
             return;
           }
           borderSegments.forEach((segment) => {
+            const borderStyle = this.ownerBorderStyle(tile, segment);
             context.beginPath();
             context.moveTo(tile.x + segment.x1, tile.y + segment.y1);
             context.lineTo(tile.x + segment.x2, tile.y + segment.y2);
-            context.strokeStyle = this.ownerBorderColor(tile, segment);
+            context.strokeStyle =
+              (borderStyle && borderStyle.stroke) ||
+              this.ownerBorderColor(tile, segment);
+            context.lineWidth =
+              (borderStyle && Number(borderStyle.strokeWidth)) || 2;
+            context.globalAlpha =
+              borderStyle && Number.isFinite(borderStyle.opacity)
+                ? borderStyle.opacity
+                : previousBorderAlpha;
             context.stroke();
           });
         });
+        context.globalAlpha = previousBorderAlpha;
       }
 
       const cityTiles = this.tiles.filter((tile) => this.shouldShowCity(tile));
@@ -6734,6 +7076,50 @@ export default {
       }
     },
 
+    resetContrastOptions() {
+      this.contrastHideDecorations = false;
+      this.contrastFlattenLandWater = false;
+      this.contrastGrayscaleTerrain = false;
+      this.contrastBoostOwnerOpacity = false;
+      this.contrastLargeCityBanners = false;
+    },
+
+    isWaterTile(tile) {
+      return (
+        !!tile && (tile.terrainId === "ocean" || tile.terrainId === "coast")
+      );
+    },
+
+    contrastTerrainColor(tile, color) {
+      let nextColor = color;
+      if (this.contrastFlattenLandWater) {
+        nextColor = this.isWaterTile(tile) ? "#294a5f" : "#8e8e69";
+      }
+      if (this.contrastGrayscaleTerrain) {
+        nextColor = desaturateColor(nextColor, 1);
+      }
+      return nextColor;
+    },
+
+    tileTerrainFillStyle(tile, getColor) {
+      const fill = adjustedTerrainFill(tile, getColor);
+      let fillColor = this.contrastTerrainColor(tile, fill.color);
+      let fillAlpha = Number.isFinite(fill.alpha) ? fill.alpha : 1;
+      if (
+        this.hasActiveCivilizationOverlay &&
+        !this.tileBelongsToOverlayCiv(tile)
+      ) {
+        fillColor = desaturateColor(fillColor, 0.6);
+        fillAlpha = this.isWaterTile(tile) ? 0.12 : 0.3;
+      } else if (this.isPopulationOverlayActive) {
+        fillColor = desaturateColor(fillColor, 0.35);
+      }
+      return {
+        color: fillColor,
+        alpha: fillAlpha,
+      };
+    },
+
     ownerIdForCity(tile) {
       if (!tile || !tile.city) {
         return null;
@@ -6796,6 +7182,11 @@ export default {
       return (segment && segment.color) || "#ffffff";
     },
 
+    ownerBorderStyle(tile, segment) {
+      const stroke = this.ownerBorderColor(tile, segment);
+      return { stroke };
+    },
+
     shouldShowCity(tile) {
       if (!tile || !tile.city) {
         return false;
@@ -6831,14 +7222,14 @@ export default {
     overlayDensityColor(ratio) {
       const clamped = clampValue(Number(ratio) || 0, 0, 1);
       const steps = [
-        "hsl(50 100% 70%)",
-        "hsl(30 90% 70%)",
-        "hsl(25 100% 62.5%)",
-        "hsl(0 75% 65%)",
-        "hsl(330 75% 55%)",
-        "hsl(305 60% 45%)",
-        "hsl(280 80% 40%)",
-        "hsl(280 80% 30%)",
+        "hsl(50, 100%, 77.5%)",
+        "hsl(30, 90%, 70%)",
+        "hsl(25, 100%, 62.5%)",
+        "hsl(0, 75%, 57.5%)",
+        "hsl(340, 75%, 52.5%)",
+        "hsl(315, 60%, 45%)",
+        "hsl(290, 80%, 37.5%)",
+        "hsl(280, 80%, 22.5%)",
       ];
       if (clamped >= 1) {
         return steps[steps.length - 1];
@@ -6863,10 +7254,15 @@ export default {
       const density = this.populationDensityByOwner[tile.owner] || 0;
       const maxDensity = this.populationOverlayMetrics.maxDensity || 0;
       const ratio = maxDensity > 0 ? clampValue(density / maxDensity, 0, 1) : 0;
-      const isWater = tile.terrainId === "ocean" || tile.terrainId === "coast";
+      const isWater = this.isWaterTile(tile);
+      const fillOpacity = clampValue(
+        isWater ? 0.1 + ratio * 0.04 : 0.5 + ratio * 0.75,
+        0,
+        1
+      );
       return {
         fill: this.overlayDensityColor(ratio),
-        fillOpacity: isWater ? 0.1 + ratio * 0.04 : 0.5 + ratio * 0.75,
+        fillOpacity,
       };
     },
 
@@ -6894,20 +7290,10 @@ export default {
         return stroke;
       }
       const baseColor = terrainColor(tile.terrainId);
-      const fill = adjustedTerrainFill(tile, () => baseColor);
+      const fill = this.tileTerrainFillStyle(tile, () => baseColor);
       const nextStyle = { ...stroke, fill: fill.color };
       if (Number.isFinite(fill.alpha) && fill.alpha < 1) {
         nextStyle.fillOpacity = fill.alpha;
-      }
-      if (
-        this.hasActiveCivilizationOverlay &&
-        !this.tileBelongsToOverlayCiv(tile)
-      ) {
-        nextStyle.fill = desaturateColor(fill.color, 0.6);
-        nextStyle.fillOpacity =
-          tile.terrainId === "ocean" || tile.terrainId === "coast" ? 0.12 : 0.3;
-      } else if (this.isPopulationOverlayActive) {
-        nextStyle.fill = desaturateColor(fill.color, 0.35);
       }
       return nextStyle;
     },
@@ -6920,22 +7306,26 @@ export default {
         return this.populationOverlayStyle(tile);
       }
       const color = this.ownerColors[tile.owner] || "#ffffff";
-      const isWater = tile.terrainId === "ocean" || tile.terrainId === "coast";
+      const isWater = this.isWaterTile(tile);
       if (
         this.hasActiveCivilizationOverlay &&
         !this.tileBelongsToOverlayCiv(tile)
       ) {
         return { fill: "transparent", fillOpacity: 0 };
       }
+      let fillOpacity = this.hasActiveCivilizationOverlay
+        ? isWater
+          ? 0.2
+          : 0.9
+        : isWater
+        ? 0.1
+        : 0.72;
+      if (this.contrastBoostOwnerOpacity) {
+        fillOpacity = isWater ? fillOpacity : 1;
+      }
       return {
         fill: color,
-        fillOpacity: this.hasActiveCivilizationOverlay
-          ? isWater
-            ? 0.2
-            : 0.8
-          : isWater
-          ? 0.1
-          : 0.6,
+        fillOpacity,
       };
     },
 
@@ -7075,7 +7465,8 @@ export default {
     },
 
     cityLabelHeight() {
-      return Math.max(10, this.hexSize * 0.8);
+      const base = Math.max(10, this.hexSize * 0.8);
+      return this.contrastLargeCityBanners ? base * 1.75 : base;
     },
 
     cityLabelBadgeRadius() {
@@ -7096,6 +7487,11 @@ export default {
 
     cityLabelPopTextY() {
       return this.cityLabelTextY() + 0.5;
+    },
+
+    cityLabelTextFontSize() {
+      const size = this.cityLabelHeight() * 0.52;
+      return Math.max(6, Math.round(size * 10) / 10);
     },
 
     cityLabelWidth(tile) {
@@ -7189,7 +7585,11 @@ export default {
       if (!colors) {
         return null;
       }
-      return { fill: colors.secondary, stroke: "none" };
+      return {
+        fill: colors.secondary,
+        stroke: "none",
+        fontSize: `${this.cityLabelTextFontSize()}px`,
+      };
     },
 
     cityLabelPopTextStyle(tile) {
@@ -7202,7 +7602,11 @@ export default {
         return null;
       }
       const fill = "#ffffff";
-      return { fill, ...textStrokeStyleForFill(fill) };
+      return {
+        fill,
+        ...textStrokeStyleForFill(fill),
+        fontSize: `${this.cityLabelTextFontSize()}px`,
+      };
     },
 
     cityHasOriginalOwnerBadge(tile) {
@@ -9986,6 +10390,9 @@ function toHex(value) {
 .tile-map .tile-map-viewport .tile-map-tooltip .tile-info-label {
   color: color-mix(in srgb, var(--text-color), white 30%);
 }
+.tile-map .tile-map-viewport .tile-map-tooltip .tile-info-value {
+  color: rgba(245, 247, 250, 0.92);
+}
 .tile-map .tile-map-viewport .tile-map-tooltip .tile-info-notes {
   display: grid;
   gap: 0.35rem;
@@ -10834,6 +11241,15 @@ function toHex(value) {
 .tile-map .tile-overlay-section {
   display: grid;
   gap: 0.65rem;
+}
+.tile-map .tile-overlay-contrast-toggles {
+  display: grid;
+  gap: 0.45rem;
+  border-block-start: 1px solid var(--panel-border-color);
+  padding-block-start: 0.55rem;
+}
+.tile-map .tile-overlay-contrast-toggles .tile-edit-checkbox {
+  font-size: 0.78rem;
 }
 .tile-map .tile-overlay-metrics {
   display: grid;

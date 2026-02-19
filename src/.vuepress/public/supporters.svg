@@ -278,9 +278,9 @@
     <text class="name" x="848.6666666666666" y="569" dominant-baseline="middle">sundevil_062005</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="607" r="10" fill="#d6683f" stroke="#000000" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="777.4666666666666" y="543.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="567.4" text-anchor="middle" dominant-baseline="middle">Pomo</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="607" r="10" fill="#deb057" stroke="#073c42" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="766.6666666666666" y="543.8" width="124" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="567.4" text-anchor="middle" dominant-baseline="middle">Aures</text>
     <text class="name" x="848.6666666666666" y="607" dominant-baseline="middle">venice enjoyer</text>
   </g>
   <g class="supporter">
@@ -300,11 +300,11 @@
   <text class="counts-label" x="700" y="848" text-anchor="middle">Top 5 Supporters Choice</text>
   <g class="counts" transform="translate(354.4, 0)">
   <circle class="count-badge" cx="8" cy="877" r="8" fill="#d6683f" stroke="#000000" stroke-width="3" />
-  <text class="count" x="24" y="877" dominant-baseline="middle">Pomo 20</text>
-  <circle class="count-badge" cx="125.3" cy="877" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
-  <text class="count" x="141.3" y="877" dominant-baseline="middle">Hanseatic League 2</text>
-  <circle class="count-badge" cx="351.5" cy="877" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />
-  <text class="count" x="367.5" y="877" dominant-baseline="middle">Aures 1</text>
+  <text class="count" x="24" y="877" dominant-baseline="middle">Pomo 19</text>
+  <circle class="count-badge" cx="125.3" cy="877" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />
+  <text class="count" x="141.3" y="877" dominant-baseline="middle">Aures 2</text>
+  <circle class="count-badge" cx="242.6" cy="877" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+  <text class="count" x="258.6" y="877" dominant-baseline="middle">Hanseatic League 2</text>
   <circle class="count-badge" cx="468.8" cy="877" r="8" fill="#9db5e3" stroke="#0c0d7d" stroke-width="3" />
   <text class="count" x="484.8" y="877" dominant-baseline="middle">Bactria 1</text>
   <circle class="count-badge" cx="605.9000000000001" cy="877" r="8" fill="#6d3026" stroke="#9edaef" stroke-width="3" />

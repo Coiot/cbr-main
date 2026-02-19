@@ -171,9 +171,25 @@
           <!-- <div class="user-header">Account</div> -->
           <div v-if="!authUser" class="user-section">
             <p class="user-copy">
-              Sign in to sync bookmarks, reactions, comments, and live map
-              editing.
+              Sign in to sync settings, write reactions, leave comments, and
+              more!
             </p>
+
+            <input
+              class="user-input"
+              type="email"
+              placeholder="Email linked with Ko-Fi"
+              v-model="authEmail"
+              autocomplete="email"
+            />
+            <button
+              type="button"
+              class="user-button"
+              :disabled="authLoading"
+              @click="signInWithEmail"
+            >
+              {{ authLoading ? "Sending..." : "Send Link" }}
+            </button>
             <div class="user-field">
               <label class="user-label">Theme</label>
               <div class="user-toggle">
@@ -195,21 +211,6 @@
                 </button>
               </div>
             </div>
-            <input
-              class="user-input"
-              type="email"
-              placeholder="Email linked with Ko-Fi"
-              v-model="authEmail"
-              autocomplete="email"
-            />
-            <button
-              type="button"
-              class="user-button"
-              :disabled="authLoading"
-              @click="signInWithEmail"
-            >
-              {{ authLoading ? "Sending..." : "Send Link" }}
-            </button>
             <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
             <p class="user-cta">
               Support the show and get exclusive features.
@@ -1698,8 +1699,8 @@ function css(el, property) {
 }
 .navbar .links .user-cta a {
   color: var(--accent-color);
-  font-size: 1.125rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 900;
   padding-block-start: 0.5rem;
 }
 .navbar .links .help-header {

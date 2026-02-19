@@ -9,6 +9,10 @@ const ASSET_VERSION =
 const siteDescription =
   "Image Archive for the Civilization Battle Royale (CBR)";
 const SITE_URL = "https://civbattleroyale.tv";
+const SITE_NAME = "Civ Battle Royale";
+const SITE_LANGUAGE = "en-US";
+const OG_LOCALE = "en_US";
+const TWITTER_SITE = "@isaacvolpe";
 const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const EPISODE_SOCIAL_DIR = "/social/episodes";
@@ -238,6 +242,28 @@ const buildOrganizationJsonLd = ($page, frontmatter) => {
   };
 };
 
+const buildWebsiteJsonLd = ($page, frontmatter) => {
+  const pagePath = normalizePagePath($page.path);
+  const isHome = frontmatter.home || pagePath === "/";
+  if (!isHome) return null;
+  const description =
+    (frontmatter.description && String(frontmatter.description).trim()) ||
+    siteDescription;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    description,
+    inLanguage: SITE_LANGUAGE,
+    publisher: {
+      "@type": "Organization",
+      name: "Blue Cassette",
+      url: `${SITE_URL}/`,
+    },
+  };
+};
+
 const upsertStructuredData = (items, id, payload) => {
   if (!payload) return items;
   const nextItems = Array.isArray(items) ? [...items] : [];
@@ -299,11 +325,29 @@ const addMetaOnce = (meta, entry, key) => {
   }
 };
 
+const addHeadOnce = (head, tagName, attrs, matcher) => {
+  if (!Array.isArray(head)) return;
+  const exists = head.some(
+    (item) =>
+      Array.isArray(item) &&
+      item[0] === tagName &&
+      matcher &&
+      matcher(item[1] || {})
+  );
+  if (!exists) {
+    head.push([tagName, attrs]);
+  }
+};
+
 const socialMetaEnhancer = () => ({
   name: "social-meta-enhancer",
   extendPageData($page) {
     const frontmatter = $page.frontmatter || {};
+    const pagePath = normalizePagePath($page.path);
+    const isHome = frontmatter.home || pagePath === "/";
+    const canonicalUrl = toAbsolutePageUrl($page.path);
     const meta = frontmatter.meta || [];
+    const head = Array.isArray(frontmatter.head) ? [...frontmatter.head] : [];
     let structuredData = Array.isArray(frontmatter.structuredData)
       ? [...frontmatter.structuredData]
       : [];
@@ -354,6 +398,128 @@ const socialMetaEnhancer = () => ({
       frontmatter.descriptionAuto = true;
     } else {
       frontmatter.descriptionAuto = false;
+    }
+    const socialDescription =
+      (frontmatter.description && String(frontmatter.description).trim()) ||
+      siteDescription;
+
+    if (isHome) {
+      addMetaOnce(
+        meta,
+        {
+          name: "robots",
+          content:
+            "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        },
+        "name"
+      );
+      addMetaOnce(
+        meta,
+        {
+          name: "googlebot",
+          content:
+            "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+        },
+        "name"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:locale", content: OG_LOCALE },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:type", content: "website" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:site_name", content: SITE_NAME },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:title", content: SITE_NAME },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:description", content: socialDescription },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:url", content: canonicalUrl },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image", content: socialImage },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:secure_url", content: socialImage },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:type", content: "image/png" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:width", content: "1200" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { property: "og:image:height", content: "630" },
+        "property"
+      );
+      addMetaOnce(
+        meta,
+        { name: "twitter:card", content: "summary_large_image" },
+        "name"
+      );
+      addMetaOnce(
+        meta,
+        { name: "twitter:site", content: TWITTER_SITE },
+        "name"
+      );
+      addMetaOnce(meta, { name: "twitter:title", content: SITE_NAME }, "name");
+      addMetaOnce(
+        meta,
+        { name: "twitter:description", content: socialDescription },
+        "name"
+      );
+      addMetaOnce(meta, { name: "twitter:url", content: canonicalUrl }, "name");
+      addMetaOnce(
+        meta,
+        { name: "twitter:image", content: socialImage },
+        "name"
+      );
+
+      addHeadOnce(
+        head,
+        "link",
+        {
+          rel: "alternate",
+          hreflang: SITE_LANGUAGE,
+          href: canonicalUrl,
+        },
+        (attrs) => attrs.rel === "alternate" && attrs.hreflang === SITE_LANGUAGE
+      );
+      addHeadOnce(
+        head,
+        "link",
+        {
+          rel: "alternate",
+          hreflang: "x-default",
+          href: `${SITE_URL}/`,
+        },
+        (attrs) => attrs.rel === "alternate" && attrs.hreflang === "x-default"
+      );
     }
 
     if (episodeSocialImage && $page.path && $page.path.startsWith("/albums/")) {
@@ -408,7 +574,6 @@ const socialMetaEnhancer = () => ({
       );
     }
 
-    const canonicalUrl = toAbsolutePageUrl($page.path);
     frontmatter.canonicalUrl = canonicalUrl;
 
     const breadcrumbJsonLd = buildBreadcrumbJsonLd($page, frontmatter);
@@ -437,6 +602,14 @@ const socialMetaEnhancer = () => ({
         organizationJsonLd
       );
     }
+    const websiteJsonLd = buildWebsiteJsonLd($page, frontmatter);
+    if (websiteJsonLd) {
+      structuredData = upsertStructuredData(
+        structuredData,
+        "website-jsonld",
+        websiteJsonLd
+      );
+    }
 
     const fileLastMod = readFileLastModISO($page._filePath);
     const modifiedISO = pickFirstDate(
@@ -455,6 +628,7 @@ const socialMetaEnhancer = () => ({
     }
 
     frontmatter.meta = meta;
+    frontmatter.head = head;
     frontmatter.structuredData = structuredData;
     $page.frontmatter = frontmatter;
   },
@@ -640,6 +814,5 @@ module.exports = {
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "msapplication-TileColor", content: "#FFBF46" }],
     ["meta", { name: "theme-color", content: "#FFBF46" }],
-    ["meta", { name: "viewport", content: "initial-scale=1" }],
   ],
 };
