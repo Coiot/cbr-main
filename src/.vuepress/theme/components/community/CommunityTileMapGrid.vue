@@ -2472,12 +2472,15 @@ export default {
       contrastSettingsLoading: false,
       isMobileView: false,
       isMobileBrowser: false,
+      lowMemoryMode: false,
       lastPointerType: null,
       deferOwnerBorders: false,
       // Render timers
       recentEditTick: 0,
       recentEditFrameId: null,
       canvasDrawFrameId: null,
+      terrainBaseCanvas: null,
+      terrainBaseCacheKey: "",
       ownerBordersRebuildId: null,
       miniMapFrameId: null,
       unitEditTimers: {
@@ -2528,8 +2531,12 @@ export default {
       improvementLegend: [],
       // Snapshots
       snapshots: [],
+      snapshotPayloadCache: Object.create(null),
+      snapshotPayloadRequests: Object.create(null),
       snapshotViewId: "",
       snapshotCompareId: "",
+      snapshotApplyRequestId: 0,
+      snapshotDiffRequestId: 0,
       snapshotDiffLookup: {},
       snapshotDiffList: [],
       snapshotLoading: false,
@@ -2577,6 +2584,9 @@ export default {
       return this.embedded && this.resolvedEmbeddedMode === "snapshot";
     },
     canvasRenderScale() {
+      if (this.lowMemoryMode) {
+        return this.isSnapshotEmbed ? 0.4 : 0.6;
+      }
       if (this.isSnapshotEmbed && this.isMobileBrowser) {
         return 0.45;
       }
@@ -2612,7 +2622,18 @@ export default {
       if (this.snapshotCompareId === "__live__") {
         return this.liveSnapshotPayload || [];
       }
-      return this.snapshotCompare ? this.snapshotCompare.payload : [];
+      if (!this.snapshotCompareId) {
+        return [];
+      }
+      if (
+        this.snapshotPayloadCache &&
+        Array.isArray(this.snapshotPayloadCache[this.snapshotCompareId])
+      ) {
+        return this.snapshotPayloadCache[this.snapshotCompareId];
+      }
+      return this.snapshotCompare && Array.isArray(this.snapshotCompare.payload)
+        ? this.snapshotCompare.payload
+        : [];
     },
     snapshotDiffLegend() {
       const summary = this.snapshotDiffSummary || {};
@@ -2988,6 +3009,9 @@ export default {
     },
 
     showLabels() {
+      if (this.lowMemoryMode && this.useTerrainCanvas) {
+        return false;
+      }
       return this.scale >= 0.75;
     },
 
@@ -3006,7 +3030,11 @@ export default {
     },
 
     useTerrainCanvas() {
-      return this.scale <= 1;
+      return this.lowMemoryMode || this.scale <= 1;
+    },
+
+    renderOwnerBorders() {
+      return !this.lowMemoryMode;
     },
 
     ownerOptions() {
@@ -3213,18 +3241,12 @@ export default {
       deep: true,
       handler: "scheduleMiniMapDrawIfVisible",
     },
-    tiles: {
-      deep: true,
-      handler: "scheduleMiniMapDrawIfVisible",
-    },
+    tiles: "scheduleMiniMapDrawIfVisible",
     viewportSize: "scheduleMiniMapDrawIfVisible",
-    mapPins: {
-      deep: true,
-      handler() {
-        if (this.useTerrainCanvas) {
-          this.drawTerrainCanvas();
-        }
-      },
+    mapPins() {
+      if (this.useTerrainCanvas) {
+        this.drawTerrainCanvas();
+      }
     },
     hoveredTile(nextTile) {
       if (!nextTile) {
@@ -3281,6 +3303,14 @@ export default {
     if (typeof navigator !== "undefined") {
       const ua = navigator.userAgent || "";
       this.isMobileBrowser = /Mobi|Android|iP(hone|ad|od)/.test(ua);
+      const deviceMemory = Number(navigator.deviceMemory || 0);
+      const hardwareThreads = Number(navigator.hardwareConcurrency || 0);
+      const hasBudgetSignals = !!(deviceMemory || hardwareThreads);
+      const isLikelyLowMemory =
+        (deviceMemory > 0 && deviceMemory <= 4) ||
+        (hardwareThreads > 0 && hardwareThreads <= 4) ||
+        (!hasBudgetSignals && this.isMobileBrowser);
+      this.lowMemoryMode = this.isMobileBrowser && isLikelyLowMemory;
     }
     if (this.isMobileView) {
       this.editPanelCollapsed = false;
@@ -3339,6 +3369,7 @@ export default {
       window.clearTimeout(this.contrastSettingsSaveTimer);
       this.contrastSettingsSaveTimer = null;
     }
+    this.resetTerrainBaseCache();
   },
 
   methods: {
@@ -3347,6 +3378,118 @@ export default {
         return;
       }
       this.loadSnapshots();
+    },
+
+    resetTerrainBaseCache() {
+      this.terrainBaseCanvas = null;
+      this.terrainBaseCacheKey = "";
+    },
+
+    shouldUseTerrainBaseCache() {
+      if (this.lowMemoryMode) {
+        return false;
+      }
+      if (this.hasActiveCivilizationOverlay || this.isPopulationOverlayActive) {
+        return false;
+      }
+      return true;
+    },
+
+    terrainBaseLayerKey(width, height, scale) {
+      return [
+        width,
+        height,
+        Number(scale || 1).toFixed(4),
+        this.hexSize,
+        this.gridWidth,
+        this.gridHeight,
+        this.tiles.length,
+        this.contrastFlattenLandWater ? 1 : 0,
+        this.contrastGrayscaleTerrain ? 1 : 0,
+      ].join("|");
+    },
+
+    clearSnapshotPayloadCache(validIds) {
+      const source = this.snapshotPayloadCache || Object.create(null);
+      if (!source || !Object.keys(source).length) {
+        return;
+      }
+      const next = Object.create(null);
+      Object.keys(source).forEach((id) => {
+        if (validIds && !validIds.has(id)) {
+          return;
+        }
+        next[id] = source[id];
+      });
+      this.snapshotPayloadCache = next;
+    },
+
+    async getSnapshotPayloadById(snapshotId) {
+      const id = String(snapshotId || "").trim();
+      if (!id) {
+        return null;
+      }
+      if (id === "__live__") {
+        if (!this.liveSnapshotPayload || !this.liveSnapshotPayload.length) {
+          this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
+            this.liveOverrideLookup
+          );
+        }
+        return this.liveSnapshotPayload || [];
+      }
+      if (id === "episode-0-base") {
+        return this.getBaseSnapshotPayload();
+      }
+      const cache = this.snapshotPayloadCache || Object.create(null);
+      if (Array.isArray(cache[id])) {
+        return cache[id];
+      }
+      const currentRequests =
+        this.snapshotPayloadRequests || Object.create(null);
+      if (currentRequests[id]) {
+        return currentRequests[id];
+      }
+      const snapshot = Array.isArray(this.snapshots)
+        ? this.snapshots.find((entry) => entry && entry.id === id)
+        : null;
+      if (snapshot && Array.isArray(snapshot.payload)) {
+        this.snapshotPayloadCache = {
+          ...cache,
+          [id]: snapshot.payload,
+        };
+        return snapshot.payload;
+      }
+      if (!this.supabase) {
+        return null;
+      }
+      const request = (async () => {
+        const { data, error } = await this.supabase
+          .from(SUPABASE_SNAPSHOT_TABLE)
+          .select("payload")
+          .eq("map_id", SUPABASE_MAP_ID)
+          .eq("id", id)
+          .maybeSingle();
+        if (error || !data) {
+          return null;
+        }
+        const payload = Array.isArray(data.payload) ? data.payload : [];
+        this.snapshotPayloadCache = {
+          ...(this.snapshotPayloadCache || Object.create(null)),
+          [id]: payload,
+        };
+        return payload;
+      })();
+      this.snapshotPayloadRequests = {
+        ...currentRequests,
+        [id]: request,
+      };
+      try {
+        return await request;
+      } finally {
+        const nextRequests = { ...(this.snapshotPayloadRequests || {}) };
+        delete nextRequests[id];
+        this.snapshotPayloadRequests = nextRequests;
+      }
     },
     initSupabase() {
       if (this.supabase) {
@@ -3750,9 +3893,7 @@ export default {
           ? this.filterOverrideRows(allRows)
           : allRows;
         this.liveOverrideLookup = buildSnapshotLookup(filtered);
-        this.liveSnapshotPayload = this.buildLiveSnapshotPayload(
-          this.liveOverrideLookup
-        );
+        this.liveSnapshotPayload = [];
         if (!this.snapshotViewId) {
           this.applyTileOverrides(filtered, { markRecent: false });
         }
@@ -3768,7 +3909,7 @@ export default {
       this.snapshotLoading = true;
       let query = this.supabase
         .from(SUPABASE_SNAPSHOT_TABLE)
-        .select("id,episode_label,episode_at,created_at,payload,is_published")
+        .select("id,episode_label,episode_at,created_at,is_published")
         .eq("map_id", SUPABASE_MAP_ID);
       if (!this.isAdmin) {
         query = query.eq("is_published", true);
@@ -3781,6 +3922,9 @@ export default {
         return;
       }
       this.snapshots = this.withBaseSnapshot(data);
+      this.clearSnapshotPayloadCache(
+        new Set((this.snapshots || []).map((snapshot) => snapshot.id))
+      );
       if (
         this.snapshotViewId &&
         !this.snapshots.find((snapshot) => snapshot.id === this.snapshotViewId)
@@ -3856,7 +4000,6 @@ export default {
       if (existingBase) {
         return snapshots;
       }
-      const payload = this.getBaseSnapshotPayload();
       snapshots.push({
         id: "episode-0-base",
         map_id: SUPABASE_MAP_ID,
@@ -3865,7 +4008,6 @@ export default {
         created_at: null,
         is_published: true,
         is_virtual: true,
-        payload,
       });
       return snapshots;
     },
@@ -3910,7 +4052,9 @@ export default {
       };
     },
 
-    applySnapshotView() {
+    async applySnapshotView() {
+      const requestId = this.snapshotApplyRequestId + 1;
+      this.snapshotApplyRequestId = requestId;
       if (!this.snapshotViewId) {
         this.restoreLiveView();
         return;
@@ -3920,12 +4064,15 @@ export default {
           this.liveOverrideLookup
         );
       }
-      const snapshot = this.snapshotView;
-      if (!snapshot || !Array.isArray(snapshot.payload)) {
+      const payload = await this.getSnapshotPayloadById(this.snapshotViewId);
+      if (this.snapshotApplyRequestId !== requestId) {
+        return;
+      }
+      if (!Array.isArray(payload)) {
         return;
       }
       this.resetTilesToBaseState();
-      this.applyTileOverrides(snapshot.payload, {
+      this.applyTileOverrides(payload, {
         markRecent: false,
         applyLocal: false,
       });
@@ -3944,7 +4091,9 @@ export default {
       this.snapshotDiffList = [];
     },
 
-    computeSnapshotDiffs() {
+    async computeSnapshotDiffs() {
+      const requestId = this.snapshotDiffRequestId + 1;
+      this.snapshotDiffRequestId = requestId;
       if (!this.snapshotViewId || !this.snapshotCompareId) {
         this.snapshotDiffLookup = {};
         this.snapshotDiffList = [];
@@ -3960,16 +4109,23 @@ export default {
           this.liveOverrideLookup
         );
       }
-      const view = this.snapshotView;
-      const comparePayload = this.snapshotComparePayload;
-      if (!view || !Array.isArray(comparePayload)) {
+      const viewPayload = await this.getSnapshotPayloadById(
+        this.snapshotViewId
+      );
+      const comparePayload = await this.getSnapshotPayloadById(
+        this.snapshotCompareId
+      );
+      if (this.snapshotDiffRequestId !== requestId) {
+        return;
+      }
+      if (!Array.isArray(viewPayload) || !Array.isArray(comparePayload)) {
         this.snapshotDiffLookup = {};
         this.snapshotDiffList = [];
         this.snapshotDiffSummary = { owner: 0, city: 0, units: 0, other: 0 };
         this.snapshotCityChanges = { founded: [], captured: [], removed: [] };
         return;
       }
-      const viewLookup = buildSnapshotLookup(view.payload);
+      const viewLookup = buildSnapshotLookup(viewPayload);
       const compareLookup = buildSnapshotLookup(comparePayload);
       const keys = new Set([
         ...Object.keys(viewLookup),
@@ -4728,6 +4884,68 @@ export default {
         .subscribe();
     },
 
+    async parseMapBuffer(buffer) {
+      if (!(buffer instanceof ArrayBuffer)) {
+        throw new Error("Unable to parse map data.");
+      }
+      if (typeof window === "undefined" || typeof Worker === "undefined") {
+        return parseCiv5Map(buffer);
+      }
+      const workerPath = this.$withBase
+        ? this.$withBase("/community/civ5map-parser-worker.js")
+        : "/community/civ5map-parser-worker.js";
+      if (!workerPath) {
+        return parseCiv5Map(buffer);
+      }
+      let worker = null;
+      try {
+        worker = new Worker(workerPath);
+      } catch (error) {
+        return parseCiv5Map(buffer);
+      }
+      try {
+        return await new Promise((resolve, reject) => {
+          let settled = false;
+          const cleanup = () => {
+            if (worker) {
+              worker.onmessage = null;
+              worker.onerror = null;
+              worker.terminate();
+              worker = null;
+            }
+          };
+          const finalize = (fn) => {
+            if (settled) {
+              return;
+            }
+            settled = true;
+            cleanup();
+            fn();
+          };
+          worker.onmessage = (event) => {
+            const payload = event && event.data ? event.data : {};
+            if (!payload || payload.ok === false || !payload.result) {
+              const message =
+                (payload && payload.error) || "Unable to parse map data.";
+              finalize(() => reject(new Error(message)));
+              return;
+            }
+            finalize(() => resolve(payload.result));
+          };
+          worker.onerror = () => {
+            finalize(() => reject(new Error("Unable to parse map data.")));
+          };
+          try {
+            worker.postMessage({ buffer });
+          } catch (error) {
+            finalize(() => reject(error));
+          }
+        });
+      } catch (error) {
+        return parseCiv5Map(buffer);
+      }
+    },
+
     async loadMap() {
       this.isLoading = true;
       this.loadError = "";
@@ -4742,7 +4960,7 @@ export default {
             throw new Error("Unable to load map data.");
           }
           const buffer = await response.arrayBuffer();
-          mapData = parseCiv5Map(buffer);
+          mapData = await this.parseMapBuffer(buffer);
         }
         const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
         await this.applyMapData(mapData, stateData);
@@ -5333,24 +5551,22 @@ export default {
         minX + this.viewportSize.width / this.scale + viewportPadding * 2;
       const maxY =
         minY + this.viewportSize.height / this.scale + viewportPadding * 2;
-      const visiblePins = this.mapPinTiles.filter((pin) => {
+      const showLabel = this.scale >= 0.9;
+      let didDrawPin = false;
+      this.mapPinTiles.forEach((pin) => {
         const tile = pin && pin.tile ? pin.tile : null;
         if (!tile) {
-          return false;
+          return;
         }
-        return (
-          tile.x >= minX && tile.x <= maxX && tile.y >= minY && tile.y <= maxY
-        );
-      });
-      if (!visiblePins.length) {
-        return;
-      }
-      const showLabel = this.scale >= 0.9;
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.font = '700 6.6px "Avenir Next", "Segoe UI", sans-serif';
-      visiblePins.forEach((pin) => {
-        const tile = pin.tile;
+        if (tile.x < minX || tile.x > maxX || tile.y < minY || tile.y > maxY) {
+          return;
+        }
+        if (!didDrawPin) {
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.font = '700 6.6px "Avenir Next", "Segoe UI", sans-serif';
+          didDrawPin = true;
+        }
         const dotY = tile.y + this.mapPinDotY();
         const tipY = tile.y + this.mapPinTipTopY();
         const tipBaseY = tile.y + this.mapPinTipBaseY();
@@ -5976,6 +6192,10 @@ export default {
       this.mapDescription = mergedMapData.mapDescription || "";
       this.hoveredTile = null;
       this.selectedTile = null;
+      this.resetTerrainBaseCache();
+      this.baseSnapshotPayload = null;
+      this.snapshotPayloadCache = Object.create(null);
+      this.snapshotPayloadRequests = Object.create(null);
 
       this.terrainLegend = buildLegendItems(mergedMapData.terrainList);
       this.featureLegend = buildLegendItems(mergedMapData.featureTerrainList);
@@ -6013,7 +6233,6 @@ export default {
         improvementColors
       );
       this.tiles = tiles;
-      this.baseSnapshotPayload = null;
       this.nextUnitId = nextUnitIdFromTiles(tiles);
       this.tileLookup = buildTileLookup(tiles);
       this.ownerColors = ownerColors;
@@ -6027,7 +6246,8 @@ export default {
       );
       await this.loadLiveBaseSnapshot();
       this.applyLiveBaseSnapshot();
-      this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
+      this.deferOwnerBorders =
+        this.lowMemoryMode || (this.isSnapshotEmbed && this.isMobileBrowser);
       this.scheduleOwnerBordersRebuild();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
@@ -6327,6 +6547,12 @@ export default {
         height: tooltip.offsetHeight,
       };
       if (this.hoverTooltipTile) {
+        if (this.hoverTooltipSizeCache.size >= 256) {
+          const oldestKey = this.hoverTooltipSizeCache.keys().next().value;
+          if (oldestKey !== undefined) {
+            this.hoverTooltipSizeCache.delete(oldestKey);
+          }
+        }
         this.hoverTooltipSizeCache.set(this.hoverTooltipTile.key, {
           ...this.hoverTooltipSize,
         });
@@ -6678,6 +6904,7 @@ export default {
       context.setTransform(1, 0, 0, 1, 0, 0);
       context.clearRect(0, 0, width, height);
       context.setTransform(scale, 0, 0, scale, 0, 0);
+      const tiles = this.tiles;
       const vertices = buildHexVertices(this.hexSize);
       const terrainCache = new Map();
       const getColor = (terrainId) => {
@@ -6694,52 +6921,111 @@ export default {
         }
         context.closePath();
       };
-      this.tiles.forEach((tile) => {
-        const fill = this.tileTerrainFillStyle(tile, getColor);
-        const previousAlpha = context.globalAlpha;
-        const fillColor = fill.color;
-        const fillAlpha = Number.isFinite(fill.alpha)
-          ? fill.alpha
-          : previousAlpha;
-        context.globalAlpha = fillAlpha;
-        drawHexPath(tile);
-        context.fillStyle = fillColor;
-        context.fill();
-        context.globalAlpha = previousAlpha;
-      });
-
-      context.lineWidth = 0.2;
-      context.strokeStyle = "rgba(0, 0, 0, 0.05)";
-      this.tiles.forEach((tile) => {
-        drawHexPath(tile);
-        context.stroke();
-      });
+      const drawTerrainLayer = (targetContext) => {
+        tiles.forEach((tile) => {
+          const fill = this.tileTerrainFillStyle(tile, getColor);
+          const previousAlpha = targetContext.globalAlpha;
+          const fillColor = fill.color;
+          const fillAlpha = Number.isFinite(fill.alpha)
+            ? fill.alpha
+            : previousAlpha;
+          targetContext.globalAlpha = fillAlpha;
+          targetContext.beginPath();
+          targetContext.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
+          for (let i = 1; i < vertices.length; i += 1) {
+            targetContext.lineTo(
+              tile.x + vertices[i].x,
+              tile.y + vertices[i].y
+            );
+          }
+          targetContext.closePath();
+          targetContext.fillStyle = fillColor;
+          targetContext.fill();
+          targetContext.globalAlpha = previousAlpha;
+        });
+        targetContext.lineWidth = 0.2;
+        targetContext.strokeStyle = "rgba(0, 0, 0, 0.05)";
+        tiles.forEach((tile) => {
+          targetContext.beginPath();
+          targetContext.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
+          for (let i = 1; i < vertices.length; i += 1) {
+            targetContext.lineTo(
+              tile.x + vertices[i].x,
+              tile.y + vertices[i].y
+            );
+          }
+          targetContext.closePath();
+          targetContext.stroke();
+        });
+      };
+      const shouldCacheTerrainBase = this.shouldUseTerrainBaseCache();
+      if (shouldCacheTerrainBase) {
+        const cacheKey = this.terrainBaseLayerKey(width, height, scale);
+        if (!this.terrainBaseCanvas || this.terrainBaseCacheKey !== cacheKey) {
+          const baseCanvas =
+            this.terrainBaseCanvas || document.createElement("canvas");
+          if (baseCanvas.width !== width) {
+            baseCanvas.width = width;
+          }
+          if (baseCanvas.height !== height) {
+            baseCanvas.height = height;
+          }
+          const baseContext = baseCanvas.getContext("2d");
+          if (baseContext) {
+            baseContext.setTransform(1, 0, 0, 1, 0, 0);
+            baseContext.clearRect(0, 0, width, height);
+            baseContext.setTransform(scale, 0, 0, scale, 0, 0);
+            drawTerrainLayer(baseContext);
+            this.terrainBaseCanvas = baseCanvas;
+            this.terrainBaseCacheKey = cacheKey;
+          } else {
+            this.resetTerrainBaseCache();
+          }
+        }
+        if (this.terrainBaseCanvas && this.terrainBaseCacheKey === cacheKey) {
+          context.setTransform(1, 0, 0, 1, 0, 0);
+          context.drawImage(this.terrainBaseCanvas, 0, 0);
+          context.setTransform(scale, 0, 0, scale, 0, 0);
+        } else {
+          drawTerrainLayer(context);
+        }
+      } else {
+        if (this.terrainBaseCanvas || this.terrainBaseCacheKey) {
+          this.resetTerrainBaseCache();
+        }
+        drawTerrainLayer(context);
+      }
 
       const previousAlpha = context.globalAlpha;
-      const overlayTiles = this.tiles.filter((tile) =>
-        this.shouldShowOwnerOverlay(tile)
-      );
-      if (overlayTiles.length) {
-        overlayTiles.forEach((tile) => {
-          const style = this.ownerOverlayStyle(tile);
-          if (!style || !style.fill || !Number.isFinite(style.fillOpacity)) {
-            return;
-          }
-          if (style.fillOpacity <= 0) {
-            return;
-          }
-          context.globalAlpha = style.fillOpacity;
-          drawHexPath(tile);
-          context.fillStyle = style.fill;
-          context.fill();
-        });
-        context.globalAlpha = previousAlpha;
+      let hasOverlayTiles = false;
+      tiles.forEach((tile) => {
+        if (!this.shouldShowOwnerOverlay(tile)) {
+          return;
+        }
+        const style = this.ownerOverlayStyle(tile);
+        if (!style || !style.fill || !Number.isFinite(style.fillOpacity)) {
+          return;
+        }
+        if (style.fillOpacity <= 0) {
+          return;
+        }
+        hasOverlayTiles = true;
+        context.globalAlpha = style.fillOpacity;
+        drawHexPath(tile);
+        context.fillStyle = style.fill;
+        context.fill();
+      });
+      context.globalAlpha = previousAlpha;
 
+      if (hasOverlayTiles && this.renderOwnerBorders) {
         context.lineWidth = 2;
         context.lineJoin = "round";
         context.lineCap = "round";
         const previousBorderAlpha = context.globalAlpha;
-        overlayTiles.forEach((tile) => {
+        tiles.forEach((tile) => {
+          if (!this.shouldShowOwnerOverlay(tile)) {
+            return;
+          }
           const borderSegments = this.ownerBorderSegmentsForTile(tile);
           if (!borderSegments.length) {
             return;
@@ -6764,71 +7050,78 @@ export default {
         context.globalAlpha = previousBorderAlpha;
       }
 
-      const cityTiles = this.tiles.filter((tile) => this.shouldShowCity(tile));
-      if (cityTiles.length) {
-        const capitalOuter = this.hexSize * 0.44;
-        const capitalInner = this.hexSize * 0.2;
-        const capitalVertices = buildStarVertices(capitalOuter, capitalInner);
-        context.globalAlpha = 1;
-        cityTiles.forEach((tile) => {
-          if (tile.city.isCapital) {
-            context.beginPath();
-            context.moveTo(
-              tile.x + capitalVertices[0].x,
-              tile.y + capitalVertices[0].y
+      const capitalOuter = this.hexSize * 0.44;
+      const capitalInner = this.hexSize * 0.2;
+      const capitalVertices = buildStarVertices(capitalOuter, capitalInner);
+      context.globalAlpha = 1;
+      tiles.forEach((tile) => {
+        if (!this.shouldShowCity(tile)) {
+          return;
+        }
+        if (tile.city.isCapital) {
+          context.beginPath();
+          context.moveTo(
+            tile.x + capitalVertices[0].x,
+            tile.y + capitalVertices[0].y
+          );
+          for (let i = 1; i < capitalVertices.length; i += 1) {
+            context.lineTo(
+              tile.x + capitalVertices[i].x,
+              tile.y + capitalVertices[i].y
             );
-            for (let i = 1; i < capitalVertices.length; i += 1) {
-              context.lineTo(
-                tile.x + capitalVertices[i].x,
-                tile.y + capitalVertices[i].y
-              );
-            }
-            context.closePath();
-            context.fillStyle = "#fff";
-            context.fill();
-            context.strokeStyle = "rgba(0, 0, 0, 0.9)";
-            context.lineWidth = 1.25;
-            context.stroke();
-          } else {
-            context.beginPath();
-            context.arc(tile.x, tile.y, this.hexSize * 0.35, 0, Math.PI * 2);
-            context.fillStyle = "#fff";
-            context.fill();
-            context.strokeStyle = "rgba(0, 0, 0, 0.9)";
-            context.lineWidth = 1.5;
-            context.stroke();
           }
-        });
-      }
+          context.closePath();
+          context.fillStyle = "#fff";
+          context.fill();
+          context.strokeStyle = "rgba(0, 0, 0, 0.9)";
+          context.lineWidth = 1.25;
+          context.stroke();
+          return;
+        }
+        context.beginPath();
+        context.arc(tile.x, tile.y, this.hexSize * 0.35, 0, Math.PI * 2);
+        context.fillStyle = "#fff";
+        context.fill();
+        context.strokeStyle = "rgba(0, 0, 0, 0.9)";
+        context.lineWidth = 1.5;
+        context.stroke();
+      });
 
       this.drawCanvasMapPins(context);
 
-      const recentTiles = this.tiles.filter((tile) =>
-        this.isRecentlyEdited(tile)
-      );
-      if (recentTiles.length) {
+      context.lineJoin = "round";
+      context.lineCap = "round";
+      tiles.forEach((tile) => {
+        if (!this.isRecentlyEdited(tile)) {
+          return;
+        }
+        const pulse = this.recentEditPulse(tile);
+        if (!pulse) {
+          return;
+        }
+        drawHexPath(tile);
+        context.strokeStyle = `rgba(255, 255, 255, ${pulse})`;
+        context.lineWidth = 1.25 + pulse * 1.75;
+        context.stroke();
+      });
+
+      const diffKeys = this.snapshotDiffLookup || null;
+      let hasDiffKeys = false;
+      if (diffKeys) {
+        for (const key in diffKeys) {
+          if (diffKeys[key]) {
+            hasDiffKeys = true;
+            break;
+          }
+        }
+      }
+      if (hasDiffKeys) {
         context.lineJoin = "round";
         context.lineCap = "round";
-        recentTiles.forEach((tile) => {
-          const pulse = this.recentEditPulse(tile);
-          if (!pulse) {
+        tiles.forEach((tile) => {
+          if (!diffKeys[tile.key]) {
             return;
           }
-          drawHexPath(tile);
-          context.strokeStyle = `rgba(255, 255, 255, ${pulse})`;
-          context.lineWidth = 1.25 + pulse * 1.75;
-          context.stroke();
-        });
-      }
-
-      const diffKeys = this.snapshotDiffLookup || {};
-      const diffTiles = Object.keys(diffKeys).length
-        ? this.tiles.filter((tile) => diffKeys[tile.key])
-        : [];
-      if (diffTiles.length) {
-        context.lineJoin = "round";
-        context.lineCap = "round";
-        diffTiles.forEach((tile) => {
           drawHexPath(tile);
           context.strokeStyle = "rgba(255, 210, 90, 0.9)";
           context.lineWidth = 2.5;
@@ -6838,30 +7131,17 @@ export default {
 
       // Unit markers render in SVG at higher zoom levels.
 
-      const outlineTiles = [];
       if (this.hoveredTile) {
-        outlineTiles.push({
-          tile: this.hoveredTile,
-          color: "rgba(255, 255, 255, 0.65)",
-          width: 1.5,
-        });
+        drawHexPath(this.hoveredTile);
+        context.strokeStyle = "rgba(255, 255, 255, 0.65)";
+        context.lineWidth = 1.5;
+        context.stroke();
       }
       if (this.selectedTile) {
-        outlineTiles.push({
-          tile: this.selectedTile,
-          color: "#ffffff",
-          width: 2.5,
-        });
-      }
-      if (outlineTiles.length) {
-        context.lineJoin = "round";
-        context.lineCap = "round";
-        outlineTiles.forEach(({ tile, color, width }) => {
-          drawHexPath(tile);
-          context.strokeStyle = color;
-          context.lineWidth = width;
-          context.stroke();
-        });
+        drawHexPath(this.selectedTile);
+        context.strokeStyle = "#ffffff";
+        context.lineWidth = 2.5;
+        context.stroke();
       }
     },
 
@@ -7165,6 +7445,9 @@ export default {
     },
 
     ownerBorderSegmentsForTile(tile) {
+      if (!this.renderOwnerBorders) {
+        return [];
+      }
       if (!tile || !Array.isArray(tile.ownerBorderSegments)) {
         return [];
       }
@@ -8817,6 +9100,20 @@ export default {
     },
 
     rebuildOwnerBorders() {
+      if (!this.renderOwnerBorders) {
+        if (Array.isArray(this.tiles)) {
+          this.tiles.forEach((tile) => {
+            if (
+              tile &&
+              Array.isArray(tile.ownerBorderSegments) &&
+              tile.ownerBorderSegments.length
+            ) {
+              tile.ownerBorderSegments = [];
+            }
+          });
+        }
+        return;
+      }
       this.tiles = buildOwnerBorders(
         this.tiles,
         this.mapConfig.columns,

@@ -743,6 +743,7 @@ module.exports = {
     nav: [
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
+      { text: "Spotlight", link: "/spotlight/" },
     ],
     logo: "/cbr_logo_color.svg",
     assetVersion: ASSET_VERSION,

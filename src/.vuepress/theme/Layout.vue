@@ -37,6 +37,7 @@ import Home from "./layout/Home.vue";
 import Page from "./layout/Page.vue";
 import Other from "./layout/Other.vue";
 import CommunityTileMap from "./layout/CommunityTileMap.vue";
+import CommunitySpotlight from "./layout/CommunitySpotlight.vue";
 import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 import { resolveSidebarItems } from "./util";
@@ -58,6 +59,7 @@ export default {
     Page,
     Other,
     CommunityTileMap,
+    CommunitySpotlight,
     Sidebar,
     Navbar,
   },

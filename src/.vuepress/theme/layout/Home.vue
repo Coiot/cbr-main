@@ -153,7 +153,7 @@ export default {
 
 <style scoped>
 .home {
-  max-inline-size: 1200px;
+  max-inline-size: 1400px;
   padding-block-start: 3rem;
   padding-block-end: 0;
   padding-inline: 1rem;

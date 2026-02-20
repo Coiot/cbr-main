@@ -401,6 +401,21 @@ export default {
 <style scoped>
 .cinematic-mode {
   display: none;
+  --cinematic-shell-bg: #000;
+  --cinematic-stage-bg: #050505;
+  --cinematic-surface-bg: #141414;
+  --cinematic-controls-bg: #101010;
+  --cinematic-border: color-mix(in oklch, var(--accent-color), black 40%);
+  --cinematic-controls-border: color-mix(
+    in oklch,
+    var(--accent-color),
+    black 50%
+  );
+  --cinematic-control-bg: #1a1a1a;
+  --cinematic-control-fg: #ffbf46;
+  --cinematic-control-border: #ffbf46;
+  --cinematic-control-active-bg: #ffbf46;
+  --cinematic-control-active-fg: #1a1a1a;
 }
 .cinematic-mode.is-active {
   display: block;
@@ -410,7 +425,7 @@ export default {
   inset: 0;
   z-index: 2000;
   padding: 1rem;
-  background: #000;
+  background: var(--cinematic-shell-bg);
 }
 .cinematic-stage {
   display: grid;
@@ -427,10 +442,10 @@ export default {
 .cinematic-control-button {
   padding-block: 0.3rem;
   padding-inline: 0.9rem;
-  border: 1px solid #ffbf46;
+  border: 1px solid var(--cinematic-control-border);
   border-radius: 999px;
-  background: #1a1a1a;
-  color: #ffbf46;
+  background: var(--cinematic-control-bg);
+  color: var(--cinematic-control-fg);
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -438,8 +453,8 @@ export default {
 }
 .cinematic-control-button:hover,
 .cinematic-control-button.is-active {
-  color: #1a1a1a;
-  background: #ffbf46;
+  color: var(--cinematic-control-active-fg);
+  background: var(--cinematic-control-active-bg);
 }
 .layout-toggle-group {
   display: inline-flex;
@@ -464,8 +479,8 @@ export default {
   justify-content: flex-end;
   gap: 0.5rem;
   padding: 0.6rem;
-  border-block-end: 1px solid color-mix(in srgb, var(--accent-color), black 50%);
-  background: #101010;
+  border-block-end: 1px solid var(--cinematic-controls-border);
+  background: var(--cinematic-controls-bg);
 }
 .cinematic-stage:fullscreen,
 .cinematic-stage:-webkit-full-screen {
@@ -473,7 +488,7 @@ export default {
   block-size: 100vh;
   min-block-size: 100vh;
   padding: 1rem;
-  background: #000;
+  background: var(--cinematic-shell-bg);
 }
 .cinematic-stage--bottom {
   grid-template-columns: 1fr;
@@ -489,7 +504,7 @@ export default {
   block-size: 100%;
   border-radius: 12px;
   overflow: hidden;
-  background: #050505;
+  background: var(--cinematic-stage-bg);
 }
 .cinematic-stage:fullscreen .cinematic-slides,
 .cinematic-stage:-webkit-full-screen .cinematic-slides {
@@ -502,7 +517,7 @@ export default {
   inline-size: 100%;
   block-size: 100%;
   overflow: hidden;
-  background: #050505;
+  background: var(--cinematic-stage-bg);
 }
 .scene-slide-svg {
   display: block;
@@ -513,7 +528,7 @@ export default {
   object-fit: contain;
 }
 :global(.cinematic-primary .vueperslide) {
-  background-color: #050505;
+  background-color: var(--cinematic-stage-bg);
   background-position: center center;
 }
 :global(.cinematic-primary .vueperslide__image) {
@@ -537,16 +552,19 @@ export default {
   flex-direction: column;
   min-inline-size: 0;
   min-block-size: 0;
-  border: 1px solid color-mix(in srgb, var(--accent-color), black 40%);
+  border: 1px solid var(--cinematic-border);
   border-radius: 12px;
   overflow: hidden;
-  background: #141414;
+  background: var(--cinematic-surface-bg);
 }
 .cinematic-narration-content {
+  flex: 1 1 auto;
   min-block-size: 0;
-  block-size: 100%;
-  overflow: auto;
+  block-size: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
 }
@@ -563,11 +581,15 @@ export default {
 }
 :global(.cinematic-narration .h-narration) {
   block-size: auto;
-  min-block-size: 100%;
+  min-block-size: 0;
   display: flex;
   flex-direction: column;
   border: none;
   background: transparent;
+}
+:global(.cinematic-narration .h-narration .narrations) {
+  max-height: none !important;
+  overflow: visible !important;
 }
 :global(.cinematic-narration .h-narration p) {
   max-height: none;
@@ -578,6 +600,21 @@ export default {
       .narrations
   ) {
   max-height: 100% !important;
+  min-height: 0;
+}
+/* Light theme tuning for cinematic fullscreen UI */
+:root[data-theme="light"] .cinematic-mode {
+  --cinematic-shell-bg: var(--panel-bg-soft-color);
+  --cinematic-stage-bg: var(--panel-bg-color);
+  --cinematic-surface-bg: var(--panel-bg-elevated-color);
+  --cinematic-controls-bg: var(--panel-bg-soft-color);
+  --cinematic-border: var(--panel-border-color);
+  --cinematic-controls-border: var(--panel-border-color);
+  --cinematic-control-bg: var(--panel-bg-elevated-color);
+  --cinematic-control-fg: var(--panel-text-color);
+  --cinematic-control-border: var(--panel-border-color);
+  --cinematic-control-active-bg: var(--accent-color);
+  --cinematic-control-active-fg: #1a1a1a;
 }
 @media (max-width: 799px) {
   .cinematic-mode.is-pseudo-fullscreen {
