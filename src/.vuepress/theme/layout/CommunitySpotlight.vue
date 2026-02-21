@@ -1677,14 +1677,13 @@ export default {
     font-weight: 700;
     color: var(--spotlight-text);
     background: var(--spotlight-surface-elevated);
-    text-box-trim: ;
   }
 
   .spotlight-toolbar {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 0 0 2rem;
   }
 
@@ -2001,7 +2000,7 @@ export default {
     li {
       display: flex;
       flex-direction: column;
-      gap: 0.12rem;
+      gap: 0.15rem;
     }
 
     .spotlight-scene-secondary-link {
@@ -2009,7 +2008,7 @@ export default {
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
       min-width: 0;
 
       &:hover {
@@ -2313,7 +2312,7 @@ export default {
 
     .spotlight-toolbar {
       flex-wrap: wrap;
-      gap: 0.55rem;
+      gap: 0.4rem;
       margin-bottom: 1rem;
     }
 
@@ -2371,9 +2370,9 @@ export default {
     }
 
     .spotlight-scene-secondary-list {
-      .spotlight-scene-secondary-link {
+      /*.spotlight-scene-secondary-link {
         display: block;
-      }
+      }*/
       .spotlight-scene-secondary-thumb {
         display: none;
       }

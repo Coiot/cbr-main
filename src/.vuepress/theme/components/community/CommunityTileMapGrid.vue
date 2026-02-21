@@ -1793,6 +1793,14 @@
                 <button
                   type="button"
                   class="tile-edit-button"
+                  :class="{ 'is-active': overlayView === 'religion' }"
+                  @click="overlayView = 'religion'"
+                >
+                  Religion
+                </button>
+                <button
+                  type="button"
+                  class="tile-edit-button"
                   :class="{ 'is-active': overlayView === 'contrast' }"
                   @click="overlayView = 'contrast'"
                 >
@@ -2065,6 +2073,54 @@
                   </div>
                 </div>
               </div>
+              <div
+                v-else-if="overlayView === 'religion'"
+                class="tile-overlay-section"
+              >
+                <div class="tile-info-list tile-overlay-metrics">
+                  <!-- <div class="tile-info-row">
+                    <div class="tile-info-label">Founded Religions</div>
+                    <div class="tile-info-value">
+                      {{ religionOverlaySummary.length }}
+                    </div>
+                  </div> -->
+                  <div class="tile-info-row">
+                    <div class="tile-info-label">
+                      Civilizations With Religion
+                    </div>
+                    <div class="tile-info-value">
+                      {{ religionOverlayCivilizationCount }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  v-if="religionOverlaySummary.length"
+                  class="tile-overlay-ranking"
+                >
+                  <div class="tile-info-label">Active Religions</div>
+                  <div
+                    v-for="entry in religionOverlaySummary"
+                    :key="`religion-${entry.key}`"
+                    class="tile-overlay-ranking-item"
+                  >
+                    <span class="tile-overlay-ranking-label">
+                      <span
+                        class="tile-overlay-religion-swatch"
+                        :style="{ backgroundColor: entry.color }"
+                      />
+                      {{ entry.religion }}
+                    </span>
+                    <span class="tile-overlay-ranking-value">
+                      {{ entry.civilizations }} civ{{
+                        entry.civilizations === 1 ? "" : "s"
+                      }}
+                    </span>
+                  </div>
+                </div>
+                <div v-else class="tile-info-empty">
+                  No capitals currently have a religion assigned.
+                </div>
+              </div>
               <div v-else class="tile-overlay-section">
                 <!-- <div class="tile-info-list tile-overlay-metrics">
                   <div class="tile-info-row">
@@ -2252,27 +2308,6 @@
             </div>
           </div>
         </details>
-        <details
-          class="tile-legend-section tile-legend-accordion"
-          v-if="routeLegend.length"
-        >
-          <summary class="tile-legend-summary">
-            <span class="tile-legend-title">Routes</span>
-          </summary>
-          <div class="tile-legend-grid">
-            <div
-              v-for="route in routeLegend"
-              :key="route.id"
-              class="tile-legend-item"
-            >
-              <span
-                class="legend-swatch legend-route legend-line"
-                :class="`route-${route.id}`"
-              ></span>
-              <span class="legend-label">{{ route.label }}</span>
-            </div>
-          </div>
-        </details>
       </div>
     </div>
   </section>
@@ -2336,6 +2371,126 @@ const MAP_CONTRAST_CLOUD_KEYS = Object.freeze({
   contrastBoostOwnerOpacity: "mapContrastBoostOwnerOpacity",
   contrastLargeCityBanners: "mapContrastLargeCityBanners",
 });
+const RELIGION_OVERLAY_DEFINITIONS = Object.freeze([
+  {
+    religion: "Anito",
+    holyCity: "Singhapala",
+    controlledBy: "Cebu",
+    color: "hsl(210deg 100% 15%)",
+  },
+  {
+    religion: "Bogomilism",
+    holyCity: "Targoviste",
+    controlledBy: "Wallachia",
+    color: "hsl(179deg 75% 21%)",
+  },
+  {
+    religion: "Bole Maru",
+    holyCity: "Co'kadjal",
+    controlledBy: "Pomo",
+    color: "hsl(16deg 65% 54%)",
+  },
+  {
+    religion: "Catholicism",
+    holyCity: "Gelonus",
+    controlledBy: "Scythia",
+    color: "hsl(37deg 85% 40%)",
+  },
+  {
+    religion: "Eastern Orthodoxy",
+    holyCity: "Shache",
+    controlledBy: "Circassia",
+    color: "hsl(226deg 100% 65%)",
+  },
+  {
+    religion: "Forn Sidr",
+    holyCity: "Vina",
+    controlledBy: "Bjarmians",
+    color: "hsl(295deg 99% 11%)",
+  },
+  {
+    religion: "Methodism",
+    holyCity: "Michilimackinac",
+    controlledBy: "Anishinaabe",
+    color: "hsl(328deg 100% 13%)",
+  },
+  {
+    religion: "Midewiwin",
+    holyCity: "Onondaga",
+    controlledBy: "Onondaga",
+    color: "hsl(19deg 30% 90%)",
+  },
+  {
+    religion: "Ngarranggarni",
+    holyCity: "Junjuwa",
+    controlledBy: "Bunuba",
+    color: "hsl(359deg 95% 25%)",
+  },
+  {
+    religion: "Pachaism",
+    holyCity: "Caral",
+    controlledBy: "Caral",
+    color: "hsl(332deg 45% 35%)",
+  },
+  {
+    religion: "Pesedjet",
+    holyCity: "Avaris",
+    controlledBy: "Hyksos",
+    color: "hsl(5deg 100% 17.5%)",
+  },
+  {
+    religion: "Pohakantenna",
+    holyCity: "Nanza",
+    controlledBy: "Ponca",
+    color: "hsl(46deg 69% 64%)",
+  },
+  {
+    religion: "Puata Tupuna",
+    holyCity: "Anakena",
+    controlledBy: "Rapa Nui",
+    color: "hsl(211deg 35% 65%)",
+  },
+  {
+    religion: "Samanism",
+    holyCity: "Kellog",
+    controlledBy: "Ket",
+    color: "hsl(167deg 20% 50%)",
+  },
+  {
+    religion: "Sgaanaang",
+    holyCity: "Kaachxana Aak'w",
+    controlledBy: "Tlingit",
+    color: "hsl(44deg 35% 70%)",
+  },
+  {
+    religion: "Shaktism",
+    holyCity: "Dhaka",
+    controlledBy: "Bangladesh",
+    color: "hsl(164deg 88% 16%)",
+  },
+  {
+    religion: "Sunni",
+    holyCity: "Karachi",
+    controlledBy: "Pakistan",
+    color: "hsl(86deg 95% 45%)",
+  },
+  {
+    religion: "Tlateomatiliztli",
+    holyCity: "Teotihuacan",
+    controlledBy: "Teotihuacan",
+    color: "hsl(186deg 100% 15%)",
+  },
+]);
+const RELIGION_OVERLAY_FALLBACK_COLORS = [
+  "#d8cf67",
+  "#b277d9",
+  "#f39b4a",
+  "#71c5ef",
+  "#e5744d",
+  "#7ac65c",
+  "#cd4f99",
+  "#5a9dd9",
+];
 
 export default {
   props: {
@@ -2661,6 +2816,9 @@ export default {
     isPopulationOverlayActive() {
       return this.isOverlayTabActive && this.overlayView === "population";
     },
+    isReligionOverlayActive() {
+      return this.isOverlayTabActive && this.overlayView === "religion";
+    },
     isContrastOverlayActive() {
       return this.isOverlayTabActive && this.overlayView === "contrast";
     },
@@ -2697,6 +2855,85 @@ export default {
         this.isCivilizationOverlayActive &&
         Number.isFinite(this.activeOverlayOwnerId)
       );
+    },
+    religionOverlayPresetByKey() {
+      const lookup = Object.create(null);
+      RELIGION_OVERLAY_DEFINITIONS.forEach((entry) => {
+        const key = normalizeReligionKey(entry.religion);
+        if (!key) {
+          return;
+        }
+        lookup[key] = { ...entry };
+      });
+      return lookup;
+    },
+    religionOverlayByOwner() {
+      const ownerLookup = Object.create(null);
+      (this.tiles || []).forEach((tile) => {
+        if (!tile || !tile.city || !tile.city.isCapital) {
+          return;
+        }
+        const ownerId = this.ownerIdForCity(tile);
+        if (!Number.isFinite(ownerId) || ownerLookup[ownerId]) {
+          return;
+        }
+        const religionInput = String(tile.city.religion || "").trim();
+        const key = normalizeReligionKey(religionInput);
+        if (!key) {
+          return;
+        }
+        const preset = this.religionOverlayPresetByKey[key] || null;
+        const religion = preset ? preset.religion : religionInput;
+        const color = preset
+          ? preset.color
+          : colorFromString(religion, RELIGION_OVERLAY_FALLBACK_COLORS);
+        ownerLookup[ownerId] = {
+          key,
+          owner: ownerId,
+          religion,
+          color,
+          holyCity:
+            tile.city && tile.city.name ? String(tile.city.name).trim() : "",
+        };
+      });
+      return ownerLookup;
+    },
+    religionOverlaySummary() {
+      const summaryLookup = Object.create(null);
+      Object.values(this.religionOverlayByOwner || {}).forEach((entry) => {
+        if (!entry || !entry.key) {
+          return;
+        }
+        if (!summaryLookup[entry.key]) {
+          summaryLookup[entry.key] = {
+            key: entry.key,
+            religion: entry.religion,
+            color: entry.color,
+            civilizations: 0,
+            tiles: 0,
+          };
+        }
+        summaryLookup[entry.key].civilizations += 1;
+      });
+      (this.tiles || []).forEach((tile) => {
+        if (!tile || !Number.isFinite(tile.owner)) {
+          return;
+        }
+        const religion = this.religionOverlayByOwner[tile.owner];
+        if (!religion || !summaryLookup[religion.key]) {
+          return;
+        }
+        summaryLookup[religion.key].tiles += 1;
+      });
+      return Object.values(summaryLookup).sort(
+        (a, b) =>
+          b.civilizations - a.civilizations ||
+          b.tiles - a.tiles ||
+          a.religion.localeCompare(b.religion)
+      );
+    },
+    religionOverlayCivilizationCount() {
+      return Object.keys(this.religionOverlayByOwner || {}).length;
     },
     civilizationOverlayMetrics() {
       if (!this.hasActiveCivilizationOverlay) {
@@ -7462,6 +7699,10 @@ export default {
         const style = this.populationOverlayStyle(tile);
         return (style && style.fill) || "#ffffff";
       }
+      if (this.isReligionOverlayActive) {
+        const style = this.religionOverlayStyle(tile);
+        return (style && style.fill) || "#ffffff";
+      }
       return (segment && segment.color) || "#ffffff";
     },
 
@@ -7549,6 +7790,25 @@ export default {
       };
     },
 
+    religionOverlayStyle(tile) {
+      if (!tile || !Number.isFinite(tile.owner)) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      const religion = this.religionOverlayByOwner[tile.owner];
+      if (!religion || !religion.color) {
+        return { fill: "transparent", fillOpacity: 0 };
+      }
+      const isWater = this.isWaterTile(tile);
+      let fillOpacity = isWater ? 0.14 : 0.8;
+      if (this.contrastBoostOwnerOpacity) {
+        fillOpacity = isWater ? fillOpacity : 1;
+      }
+      return {
+        fill: religion.color,
+        fillOpacity,
+      };
+    },
+
     formatOverlayDensity(value) {
       if (!Number.isFinite(value)) {
         return "0.00";
@@ -7587,6 +7847,9 @@ export default {
       }
       if (this.isPopulationOverlayActive) {
         return this.populationOverlayStyle(tile);
+      }
+      if (this.isReligionOverlayActive) {
+        return this.religionOverlayStyle(tile);
       }
       const color = this.ownerColors[tile.owner] || "#ffffff";
       const isWater = this.isWaterTile(tile);
@@ -9223,6 +9486,27 @@ function normalizeId(name) {
   return name
     .replace(/^(TERRAIN|FEATURE|RESOURCE|IMPROVEMENT|UNIT)_/, "")
     .replace(/[^A-Za-z0-9]+/g, "-")
+    .toLowerCase();
+}
+
+function normalizeReligionKey(value) {
+  if (!value) {
+    return "";
+  }
+  const input = String(value).trim();
+  if (!input) {
+    return "";
+  }
+  return input
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[ðÐ]/g, "d")
+    .replace(/[þÞ]/g, "th")
+    .replace(/[æÆ]/g, "ae")
+    .replace(/[øØ]/g, "o")
+    .replace(/[œŒ]/g, "oe")
+    .replace(/ß/g, "ss")
+    .replace(/[^A-Za-z0-9]+/g, "")
     .toLowerCase();
 }
 
@@ -11569,11 +11853,20 @@ function toHex(value) {
   font-size: 0.82rem;
 }
 .tile-map .tile-overlay-ranking-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-weight: 700;
 }
 .tile-map .tile-overlay-ranking-value {
   color: var(--panel-muted-color);
   font-weight: 700;
+}
+.tile-map .tile-overlay-religion-swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 .tile-map .tile-snapshot-body {
   display: grid;
