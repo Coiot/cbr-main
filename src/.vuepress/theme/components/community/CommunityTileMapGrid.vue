@@ -2567,6 +2567,9 @@ export default {
       pinchStartDistance: 0,
       pinchStartScale: 1,
       pinchCenter: { x: 0, y: 0 },
+      hasUserViewportInteraction: false,
+      initialFitTimer: null,
+      initialFitAttempts: 0,
       miniMapEnabled: false,
       // Hover + selection
       hoveredTile: null,
@@ -2627,7 +2630,6 @@ export default {
       contrastSettingsLoading: false,
       isMobileView: false,
       isMobileBrowser: false,
-      lowMemoryMode: false,
       lastPointerType: null,
       deferOwnerBorders: false,
       // Render timers
@@ -2739,9 +2741,6 @@ export default {
       return this.embedded && this.resolvedEmbeddedMode === "snapshot";
     },
     canvasRenderScale() {
-      if (this.lowMemoryMode) {
-        return this.isSnapshotEmbed ? 0.4 : 0.6;
-      }
       if (this.isSnapshotEmbed && this.isMobileBrowser) {
         return 0.45;
       }
@@ -3246,9 +3245,6 @@ export default {
     },
 
     showLabels() {
-      if (this.lowMemoryMode && this.useTerrainCanvas) {
-        return false;
-      }
       return this.scale >= 0.75;
     },
 
@@ -3267,11 +3263,11 @@ export default {
     },
 
     useTerrainCanvas() {
-      return this.lowMemoryMode || this.scale <= 1;
+      return this.scale <= 1;
     },
 
     renderOwnerBorders() {
-      return !this.lowMemoryMode;
+      return true;
     },
 
     ownerOptions() {
@@ -3532,22 +3528,11 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {
-      this.updateViewportSize();
-      this.fitToView();
-    });
+    this.scheduleInitialFitToView();
     this.isMobileView = window.innerWidth <= 900;
     if (typeof navigator !== "undefined") {
       const ua = navigator.userAgent || "";
       this.isMobileBrowser = /Mobi|Android|iP(hone|ad|od)/.test(ua);
-      const deviceMemory = Number(navigator.deviceMemory || 0);
-      const hardwareThreads = Number(navigator.hardwareConcurrency || 0);
-      const hasBudgetSignals = !!(deviceMemory || hardwareThreads);
-      const isLikelyLowMemory =
-        (deviceMemory > 0 && deviceMemory <= 4) ||
-        (hardwareThreads > 0 && hardwareThreads <= 4) ||
-        (!hasBudgetSignals && this.isMobileBrowser);
-      this.lowMemoryMode = this.isMobileBrowser && isLikelyLowMemory;
     }
     if (this.isMobileView) {
       this.editPanelCollapsed = false;
@@ -3606,10 +3591,53 @@ export default {
       window.clearTimeout(this.contrastSettingsSaveTimer);
       this.contrastSettingsSaveTimer = null;
     }
+    if (this.initialFitTimer) {
+      window.clearTimeout(this.initialFitTimer);
+      this.initialFitTimer = null;
+    }
     this.resetTerrainBaseCache();
   },
 
   methods: {
+    hasRouteFocusRequest() {
+      if (this.embedded) {
+        return false;
+      }
+      return !!(
+        this.resolveRouteTileKey() ||
+        this.resolveRouteCityName() ||
+        this.resolveRouteOwnerName()
+      );
+    },
+
+    scheduleInitialFitToView() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (this.initialFitTimer) {
+        window.clearTimeout(this.initialFitTimer);
+        this.initialFitTimer = null;
+      }
+      this.initialFitAttempts = 0;
+      const runAttempt = () => {
+        if (this.hasUserViewportInteraction || this.hasRouteFocusRequest()) {
+          this.initialFitTimer = null;
+          return;
+        }
+        this.$nextTick(() => {
+          this.updateViewportSize();
+          this.fitToView();
+        });
+        if (this.initialFitAttempts >= 6) {
+          this.initialFitTimer = null;
+          return;
+        }
+        this.initialFitAttempts += 1;
+        this.initialFitTimer = window.setTimeout(runAttempt, 180);
+      };
+      runAttempt();
+    },
+
     loadSnapshotsIfActive() {
       if (this.editPanelTab !== "snapshots") {
         return;
@@ -3623,9 +3651,6 @@ export default {
     },
 
     shouldUseTerrainBaseCache() {
-      if (this.lowMemoryMode) {
-        return false;
-      }
       if (this.hasActiveCivilizationOverlay || this.isPopulationOverlayActive) {
         return false;
       }
@@ -4096,7 +4121,7 @@ export default {
       }
       try {
         const pageSize = 1000;
-        const allRows = [];
+        const mergedRowsByKey = new Map();
         let page = 0;
         while (page < 50) {
           const from = page * pageSize;
@@ -4120,15 +4145,22 @@ export default {
           if (!data.length) {
             break;
           }
-          allRows.push(...data);
+          const pageRows = ENABLE_OVERRIDE_CLEANUP
+            ? this.filterOverrideRows(data)
+            : data;
+          pageRows.forEach((row) => {
+            const key = row && (row.tile_key || row.tileKey);
+            if (!key) {
+              return;
+            }
+            mergedRowsByKey.set(key, row);
+          });
           if (data.length < pageSize) {
             break;
           }
           page += 1;
         }
-        const filtered = ENABLE_OVERRIDE_CLEANUP
-          ? this.filterOverrideRows(allRows)
-          : allRows;
+        const filtered = Array.from(mergedRowsByKey.values());
         this.liveOverrideLookup = buildSnapshotLookup(filtered);
         this.liveSnapshotPayload = [];
         if (!this.snapshotViewId) {
@@ -4178,13 +4210,17 @@ export default {
       }
     },
 
-    async loadLiveBaseSnapshot() {
+    async loadLiveBaseSnapshot(options = {}) {
       if (!this.supabase) {
         return;
       }
+      const includePayload = options.includePayload !== false;
+      const selectFields = includePayload
+        ? "id,episode_label,episode_at,created_at,payload,is_published"
+        : "id,episode_label,episode_at,created_at,is_published";
       const { data, error } = await this.supabase
         .from(SUPABASE_SNAPSHOT_TABLE)
-        .select("id,episode_label,episode_at,created_at,payload,is_published")
+        .select(selectFields)
         .eq("map_id", SUPABASE_MAP_ID)
         .eq("is_published", true)
         .order("episode_at", { ascending: false })
@@ -4197,9 +4233,10 @@ export default {
       }
       const snapshot = data[0];
       this.liveBaseSnapshotId = snapshot.id || null;
-      this.liveBaseSnapshotPayload = Array.isArray(snapshot.payload)
-        ? snapshot.payload
-        : null;
+      this.liveBaseSnapshotPayload =
+        includePayload && Array.isArray(snapshot.payload)
+          ? snapshot.payload
+          : null;
     },
 
     applyLiveBaseSnapshot() {
@@ -5224,7 +5261,7 @@ export default {
         this.isLoading = false;
         this.$nextTick(() => {
           this.updateViewportSize();
-          this.fitToView();
+          this.scheduleInitialFitToView();
           this.applyRequestedTileFromRoute();
         });
       }
@@ -6481,10 +6518,11 @@ export default {
         this.ownerPalette,
         this.ownerSecondaryColors
       );
-      await this.loadLiveBaseSnapshot();
+      await this.loadLiveBaseSnapshot({
+        includePayload: !this.isMobileBrowser,
+      });
       this.applyLiveBaseSnapshot();
-      this.deferOwnerBorders =
-        this.lowMemoryMode || (this.isSnapshotEmbed && this.isMobileBrowser);
+      this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
       this.scheduleOwnerBordersRebuild();
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();
@@ -6502,7 +6540,11 @@ export default {
         this.editPanelCollapsed = false;
       }
       this.updateViewportSize();
-      this.clampView();
+      if (this.hasUserViewportInteraction) {
+        this.clampView();
+      } else {
+        this.fitToView();
+      }
     },
 
     updateViewportSize() {
@@ -6549,10 +6591,12 @@ export default {
     },
 
     zoomIn() {
+      this.hasUserViewportInteraction = true;
       this.applyZoom(this.scale * 1.15);
     },
 
     zoomOut() {
+      this.hasUserViewportInteraction = true;
       this.applyZoom(this.scale * 0.85);
     },
 
@@ -6908,6 +6952,7 @@ export default {
     },
 
     onPointerDown(event) {
+      this.hasUserViewportInteraction = true;
       this.lastPointerType = event.pointerType || null;
       if (event.pointerType === "mouse" && event.button !== 0) {
         return;

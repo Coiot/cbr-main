@@ -1420,6 +1420,13 @@ function css(el, property) {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
+.navbar .links .bookmark-trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), white 45%);
+}
 .navbar .links .community-trigger {
   display: inline-flex;
   align-items: center;
@@ -1437,6 +1444,13 @@ function css(el, property) {
 .navbar .links .community-trigger:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
+}
+.navbar .links .community-trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), white 45%);
 }
 .navbar .links .community-icon {
   inline-size: 1.2rem;
@@ -1461,6 +1475,13 @@ function css(el, property) {
   border-color: var(--accent-color);
   color: var(--accent-color);
 }
+.navbar .links .social-trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), white 45%);
+}
 .navbar .links .social-icon {
   display: block;
   inline-size: 1.2rem;
@@ -1484,6 +1505,13 @@ function css(el, property) {
 .navbar .links .user-trigger:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
+}
+.navbar .links .user-trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), white 45%);
 }
 .navbar .links .user-icon {
   display: block;
@@ -1513,6 +1541,13 @@ function css(el, property) {
 .navbar .links .help-trigger:hover {
   color: var(--accent-color);
   border-color: var(--accent-color);
+}
+.navbar .links .help-trigger:focus-visible {
+  outline: none;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color), white 45%);
 }
 .navbar .links .help-icon {
   inline-size: 1.15rem;
