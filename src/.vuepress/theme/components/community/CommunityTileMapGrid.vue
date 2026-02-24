@@ -189,6 +189,9 @@
               <symbol id="unit-triangle" overflow="visible">
                 <polygon :points="unitTrianglePoints" />
               </symbol>
+              <symbol id="feature-hex" overflow="visible">
+                <polygon :points="featureHexPoints" />
+              </symbol>
               <symbol id="citadel-star" overflow="visible">
                 <polygon :points="citadelStarPoints" />
               </symbol>
@@ -229,6 +232,13 @@
                 xlink:href="#hex-shape"
                 :style="ownerOverlayStyle(tile)"
               />
+              <use
+                v-if="showDecorations && tile.feature"
+                class="tile-feature"
+                href="#feature-hex"
+                xlink:href="#feature-hex"
+                :style="featureStyle(tile)"
+              />
               <polygon
                 v-if="showDecorations && tile.elevation"
                 class="tile-elevation"
@@ -244,23 +254,6 @@
                 :x2="segment.x2"
                 :y2="segment.y2"
                 :style="ownerBorderStyle(tile, segment)"
-              />
-              <line
-                v-for="segment in showDecorations ? tile.riverSegments : []"
-                :key="segment.key"
-                class="tile-river"
-                :x1="segment.x1"
-                :y1="segment.y1"
-                :x2="segment.x2"
-                :y2="segment.y2"
-              />
-              <circle
-                v-if="showDecorations && tile.feature"
-                class="tile-feature"
-                :r="featureRadius"
-                :cx="-hexSize * 0.4"
-                :cy="-hexSize * 0.25"
-                :style="featureStyle(tile)"
               />
               <use
                 v-if="showDecorations && tile.wonder"
@@ -369,6 +362,32 @@
                   :opacity="pinPath.opacity"
                 />
               </g>
+            </g>
+            <g
+              v-if="showDecorations && visibleRiverOverlay.paths.length"
+              class="tile-river-overlay"
+            >
+              <path
+                v-for="(path, index) in visibleRiverOverlay.paths"
+                :key="`river-back-${index}`"
+                class="tile-river tile-river-back"
+                :d="riverOverlayPathData(path)"
+                :style="riverOverlayLayerStyle('back')"
+              />
+              <path
+                v-for="(path, index) in visibleRiverOverlay.paths"
+                :key="`river-mid-${index}`"
+                class="tile-river tile-river-mid"
+                :d="riverOverlayPathData(path)"
+                :style="riverOverlayLayerStyle('mid')"
+              />
+              <path
+                v-for="(path, index) in visibleRiverOverlay.paths"
+                :key="`river-top-${index}`"
+                class="tile-river tile-river-top"
+                :d="riverOverlayPathData(path)"
+                :style="riverOverlayLayerStyle('top')"
+              />
             </g>
             <g
               v-if="hoveredTile"
@@ -2131,28 +2150,58 @@
                   </div>
                 </div> -->
                 <div class="tile-overlay-contrast-toggles">
-                  <label class="tile-edit-checkbox">
+                  <label class="tile-edit-checkbox check-row">
                     <input type="checkbox" v-model="contrastHideDecorations" />
-                    Hide Terrain Details
+                    <span class="check-row-copy">
+                      <span class="check-row-title">Hide Terrain Details</span>
+                      <span class="check-row-hint">
+                        Simplifies the map by removing terrain glyph overlays.
+                      </span>
+                    </span>
                   </label>
-                  <label class="tile-edit-checkbox">
+                  <label class="tile-edit-checkbox check-row">
                     <input type="checkbox" v-model="contrastFlattenLandWater" />
-                    Flatten Terrain Colors
+                    <span class="check-row-copy">
+                      <span class="check-row-title"
+                        >Flatten Terrain Colors</span
+                      >
+                      <span class="check-row-hint">
+                        Uses a simpler land/water palette for stronger contrast.
+                      </span>
+                    </span>
                   </label>
-                  <label class="tile-edit-checkbox">
+                  <label class="tile-edit-checkbox check-row">
                     <input type="checkbox" v-model="contrastGrayscaleTerrain" />
-                    Grayscale Terrain
+                    <span class="check-row-copy">
+                      <span class="check-row-title">Grayscale Terrain</span>
+                      <span class="check-row-hint">
+                        Desaturates terrain colors so ownership overlays stand
+                        out.
+                      </span>
+                    </span>
                   </label>
-                  <label class="tile-edit-checkbox">
+                  <label class="tile-edit-checkbox check-row">
                     <input
                       type="checkbox"
                       v-model="contrastBoostOwnerOpacity"
                     />
-                    Increase Civilization Opacity
+                    <span class="check-row-copy">
+                      <span class="check-row-title">
+                        Increase Civilization Opacity
+                      </span>
+                      <span class="check-row-hint">
+                        Makes owner overlays denser and easier to compare.
+                      </span>
+                    </span>
                   </label>
-                  <label class="tile-edit-checkbox">
+                  <label class="tile-edit-checkbox check-row">
                     <input type="checkbox" v-model="contrastLargeCityBanners" />
-                    Larger City Banners
+                    <span class="check-row-copy">
+                      <span class="check-row-title">Larger City Banners</span>
+                      <span class="check-row-hint">
+                        Enlarges city labels for quicker scanning at a glance.
+                      </span>
+                    </span>
                   </label>
                 </div>
                 <div class="tile-edit-row">
@@ -2364,6 +2413,11 @@ const COMBO_MAX_RESULTS = 20;
 const QUICK_JUMP_FOCUS_SCALE = 1.5;
 const MAP_PINS_STORAGE_KEY = "cbr.mapPins.v1";
 const MAP_CONTRAST_SETTINGS_KEY = "cbr.mapContrast.v1";
+const MAP_SNAPSHOT_LIST_STORAGE_KEY = "cbr.mapSnapshots.v1";
+const MAP_SNAPSHOT_PAYLOAD_STORAGE_KEY = "cbr.mapSnapshotPayloads.v1";
+const SNAPSHOT_LIST_CACHE_TTL_MS = 30 * 1000;
+const SNAPSHOT_PAYLOAD_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const SNAPSHOT_PAYLOAD_CACHE_MAX_ITEMS = 3;
 const MAP_CONTRAST_CLOUD_KEYS = Object.freeze({
   contrastHideDecorations: "mapContrastHideDecorations",
   contrastFlattenLandWater: "mapContrastFlattenLandWater",
@@ -3214,8 +3268,8 @@ export default {
       return `${Math.round(this.scale * 100)}%`;
     },
 
-    featureRadius() {
-      return this.hexSize * 0.25;
+    featureHexPoints() {
+      return buildHexPoints(this.hexSize * 0.5);
     },
 
     unitPath() {
@@ -3391,6 +3445,13 @@ export default {
           tile.y + halfHeight >= minY &&
           tile.y - halfHeight <= maxY
       );
+    },
+
+    visibleRiverOverlay() {
+      if (!this.showDecorations || !this.visibleTiles.length) {
+        return { paths: [], endpoints: [] };
+      }
+      return buildRiverOverlayFromTiles(this.visibleTiles);
     },
 
     visibleCityLabels() {
@@ -3671,6 +3732,276 @@ export default {
       ].join("|");
     },
 
+    snapshotListStorageKey() {
+      return `${MAP_SNAPSHOT_LIST_STORAGE_KEY}:${SUPABASE_MAP_ID}:${
+        this.isAdmin ? "admin" : "published"
+      }`;
+    },
+
+    snapshotPayloadStorageKey() {
+      return `${MAP_SNAPSHOT_PAYLOAD_STORAGE_KEY}:${SUPABASE_MAP_ID}`;
+    },
+
+    sanitizeSnapshotListEntry(entry) {
+      if (!entry || typeof entry !== "object") {
+        return null;
+      }
+      const id = String(entry.id || "").trim();
+      if (!id) {
+        return null;
+      }
+      const episodeLabel =
+        entry.episode_label != null
+          ? String(entry.episode_label).trim()
+          : entry.episodeLabel != null
+          ? String(entry.episodeLabel).trim()
+          : "";
+      const episodeAt =
+        entry.episode_at != null ? entry.episode_at : entry.episodeAt || null;
+      const createdAt =
+        entry.created_at != null ? entry.created_at : entry.createdAt || null;
+      const isPublished =
+        entry.is_published != null
+          ? !!entry.is_published
+          : entry.isPublished != null
+          ? !!entry.isPublished
+          : true;
+      return {
+        id,
+        episode_label: episodeLabel,
+        episode_at: episodeAt,
+        created_at: createdAt,
+        is_published: isPublished,
+      };
+    },
+
+    readSnapshotListFromStorage() {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return null;
+      }
+      const key = this.snapshotListStorageKey();
+      if (!key) {
+        return null;
+      }
+      try {
+        const raw = window.localStorage.getItem(key);
+        if (!raw) {
+          return null;
+        }
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") {
+          return null;
+        }
+        const rows = Array.isArray(parsed.rows)
+          ? parsed.rows
+              .map((entry) => this.sanitizeSnapshotListEntry(entry))
+              .filter((entry) => !!entry)
+          : null;
+        if (!rows) {
+          return null;
+        }
+        const savedAt = Number(parsed.savedAt);
+        return {
+          rows,
+          savedAt: Number.isFinite(savedAt) ? savedAt : 0,
+        };
+      } catch (error) {
+        return null;
+      }
+    },
+
+    writeSnapshotListToStorage(rows) {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return false;
+      }
+      const key = this.snapshotListStorageKey();
+      if (!key) {
+        return false;
+      }
+      try {
+        const cleanedRows = Array.isArray(rows)
+          ? rows
+              .map((entry) => this.sanitizeSnapshotListEntry(entry))
+              .filter((entry) => !!entry)
+          : [];
+        window.localStorage.setItem(
+          key,
+          JSON.stringify({
+            savedAt: Date.now(),
+            rows: cleanedRows,
+          })
+        );
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+
+    readSnapshotPayloadStore() {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return null;
+      }
+      const key = this.snapshotPayloadStorageKey();
+      if (!key) {
+        return null;
+      }
+      try {
+        const raw = window.localStorage.getItem(key);
+        if (!raw) {
+          return null;
+        }
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== "object") {
+          return null;
+        }
+        const entries = Array.isArray(parsed.entries)
+          ? parsed.entries
+              .map((entry) => {
+                if (!entry || typeof entry !== "object") {
+                  return null;
+                }
+                const id = String(entry.id || "").trim();
+                if (!id || !Array.isArray(entry.payload)) {
+                  return null;
+                }
+                const savedAt = Number(entry.savedAt);
+                return {
+                  id,
+                  payload: entry.payload,
+                  savedAt: Number.isFinite(savedAt) ? savedAt : 0,
+                };
+              })
+              .filter((entry) => !!entry)
+          : [];
+        return { entries };
+      } catch (error) {
+        return null;
+      }
+    },
+
+    writeSnapshotPayloadStore(entries) {
+      if (typeof window === "undefined" || !window.localStorage) {
+        return false;
+      }
+      const key = this.snapshotPayloadStorageKey();
+      if (!key) {
+        return false;
+      }
+      try {
+        window.localStorage.setItem(
+          key,
+          JSON.stringify({
+            savedAt: Date.now(),
+            entries,
+          })
+        );
+        return true;
+      } catch (error) {
+        return false;
+      }
+    },
+
+    readSnapshotPayloadFromStorage(snapshotId) {
+      const id = String(snapshotId || "").trim();
+      if (!id) {
+        return null;
+      }
+      const store = this.readSnapshotPayloadStore();
+      if (!store || !Array.isArray(store.entries) || !store.entries.length) {
+        return null;
+      }
+      const now = Date.now();
+      const entry = store.entries.find((item) => item && item.id === id);
+      if (!entry || !Array.isArray(entry.payload)) {
+        return null;
+      }
+      if (
+        entry.savedAt &&
+        now - entry.savedAt > SNAPSHOT_PAYLOAD_CACHE_TTL_MS
+      ) {
+        return null;
+      }
+      return entry.payload;
+    },
+
+    writeSnapshotPayloadToStorage(snapshotId, payload) {
+      const id = String(snapshotId || "").trim();
+      if (!id || !Array.isArray(payload)) {
+        return false;
+      }
+      const now = Date.now();
+      const store = this.readSnapshotPayloadStore();
+      const entries = Array.isArray(store && store.entries)
+        ? store.entries.filter((entry) => entry && entry.id !== id)
+        : [];
+      entries.unshift({
+        id,
+        payload,
+        savedAt: now,
+      });
+      const filtered = entries
+        .filter((entry) => {
+          if (!entry || !entry.id || !Array.isArray(entry.payload)) {
+            return false;
+          }
+          if (!entry.savedAt) {
+            return true;
+          }
+          return now - entry.savedAt <= SNAPSHOT_PAYLOAD_CACHE_TTL_MS;
+        })
+        .slice(0, SNAPSHOT_PAYLOAD_CACHE_MAX_ITEMS);
+      return this.writeSnapshotPayloadStore(filtered);
+    },
+
+    pruneSnapshotPayloadStorage(validIds) {
+      const store = this.readSnapshotPayloadStore();
+      if (!store || !Array.isArray(store.entries)) {
+        return;
+      }
+      const now = Date.now();
+      const filtered = store.entries
+        .filter((entry) => {
+          if (!entry || !entry.id || !Array.isArray(entry.payload)) {
+            return false;
+          }
+          if (validIds && !validIds.has(entry.id)) {
+            return false;
+          }
+          if (
+            entry.savedAt &&
+            now - entry.savedAt > SNAPSHOT_PAYLOAD_CACHE_TTL_MS
+          ) {
+            return false;
+          }
+          return true;
+        })
+        .slice(0, SNAPSHOT_PAYLOAD_CACHE_MAX_ITEMS);
+      this.writeSnapshotPayloadStore(filtered);
+    },
+
+    applySnapshotRows(rows) {
+      this.snapshots = this.withBaseSnapshot(rows);
+      const validIds = new Set(
+        (this.snapshots || []).map((snapshot) => snapshot.id)
+      );
+      this.clearSnapshotPayloadCache(validIds);
+      this.pruneSnapshotPayloadStorage(validIds);
+      if (
+        this.snapshotViewId &&
+        !this.snapshots.find((snapshot) => snapshot.id === this.snapshotViewId)
+      ) {
+        this.snapshotViewId = "";
+      }
+      if (
+        this.snapshotCompareId &&
+        !this.snapshots.find(
+          (snapshot) => snapshot.id === this.snapshotCompareId
+        )
+      ) {
+        this.snapshotCompareId = "";
+      }
+    },
+
     clearSnapshotPayloadCache(validIds) {
       const source = this.snapshotPayloadCache || Object.create(null);
       if (!source || !Object.keys(source).length) {
@@ -3719,7 +4050,16 @@ export default {
           ...cache,
           [id]: snapshot.payload,
         };
+        this.writeSnapshotPayloadToStorage(id, snapshot.payload);
         return snapshot.payload;
+      }
+      const localPayload = this.readSnapshotPayloadFromStorage(id);
+      if (Array.isArray(localPayload)) {
+        this.snapshotPayloadCache = {
+          ...cache,
+          [id]: localPayload,
+        };
+        return localPayload;
       }
       if (!this.supabase) {
         return null;
@@ -3739,6 +4079,7 @@ export default {
           ...(this.snapshotPayloadCache || Object.create(null)),
           [id]: payload,
         };
+        this.writeSnapshotPayloadToStorage(id, payload);
         return payload;
       })();
       this.snapshotPayloadRequests = {
@@ -4172,10 +4513,22 @@ export default {
     },
 
     async loadSnapshots() {
+      const cached = this.readSnapshotListFromStorage();
+      const hasCachedRows = !!cached && Array.isArray(cached.rows);
+      const offline =
+        typeof navigator !== "undefined" && navigator.onLine === false;
+      if (hasCachedRows) {
+        this.applySnapshotRows(cached.rows);
+        const age = Date.now() - (cached.savedAt || 0);
+        if (offline || age <= SNAPSHOT_LIST_CACHE_TTL_MS) {
+          this.snapshotLoading = false;
+          return;
+        }
+      }
       if (!this.supabase) {
         return;
       }
-      this.snapshotLoading = true;
+      this.snapshotLoading = !hasCachedRows;
       let query = this.supabase
         .from(SUPABASE_SNAPSHOT_TABLE)
         .select("id,episode_label,episode_at,created_at,is_published")
@@ -4190,24 +4543,8 @@ export default {
       if (error || !Array.isArray(data)) {
         return;
       }
-      this.snapshots = this.withBaseSnapshot(data);
-      this.clearSnapshotPayloadCache(
-        new Set((this.snapshots || []).map((snapshot) => snapshot.id))
-      );
-      if (
-        this.snapshotViewId &&
-        !this.snapshots.find((snapshot) => snapshot.id === this.snapshotViewId)
-      ) {
-        this.snapshotViewId = "";
-      }
-      if (
-        this.snapshotCompareId &&
-        !this.snapshots.find(
-          (snapshot) => snapshot.id === this.snapshotCompareId
-        )
-      ) {
-        this.snapshotCompareId = "";
-      }
+      this.applySnapshotRows(data);
+      this.writeSnapshotListToStorage(data);
     },
 
     async loadLiveBaseSnapshot(options = {}) {
@@ -7332,6 +7669,10 @@ export default {
         context.globalAlpha = previousBorderAlpha;
       }
 
+      if (this.showDecorations) {
+        this.drawCanvasRiverOverlay(context, tiles);
+      }
+
       const capitalOuter = this.hexSize * 0.44;
       const capitalInner = this.hexSize * 0.2;
       const capitalVertices = buildStarVertices(capitalOuter, capitalInner);
@@ -7933,9 +8274,95 @@ export default {
       return tile.elevation === 2 ? "elevation-mountain" : "elevation-hill";
     },
 
+    riverOverlayLayerConfig(layer) {
+      const grayscale = !!this.contrastGrayscaleTerrain;
+      const layers = {
+        back: {
+          width: Math.max(1.8, this.hexSize * 0.3),
+          color: grayscale
+            ? "hsl(0deg 0% 12% / 0.72)"
+            : "hsl(207deg 90% 15% / 0.72)",
+        },
+        mid: {
+          width: Math.max(1, this.hexSize * 0.2),
+          color: grayscale
+            ? "hsl(0deg 0% 85% / 0.98)"
+            : "hsl(202deg 95% 50% / 0.98)",
+        },
+        top: {
+          width: Math.max(0.7, this.hexSize * 0.125),
+          color: "hsl(200deg 100% 90% / 0.95)",
+        },
+      };
+      return layers[layer] || layers.mid;
+    },
+
+    riverOverlayLayerStyle(layer) {
+      const config = this.riverOverlayLayerConfig(layer);
+      return {
+        fill: "none",
+        stroke: config.color,
+        strokeWidth: config.width,
+      };
+    },
+
+    riverOverlayPathData(points) {
+      const pathPoints = riverPathPointsForStroke(
+        points,
+        Math.max(0.6, this.hexSize * 0.08)
+      );
+      if (!Array.isArray(pathPoints) || pathPoints.length < 2) {
+        return "";
+      }
+      if (pathPoints.length === 2) {
+        return `M ${pathPoints[0].x} ${pathPoints[0].y} L ${pathPoints[1].x} ${pathPoints[1].y}`;
+      }
+      let d = `M ${pathPoints[0].x} ${pathPoints[0].y}`;
+      for (let index = 1; index < pathPoints.length - 1; index += 1) {
+        const current = pathPoints[index];
+        const next = pathPoints[index + 1];
+        const midX = (current.x + next.x) / 2;
+        const midY = (current.y + next.y) / 2;
+        d += ` Q ${current.x} ${current.y} ${midX} ${midY}`;
+      }
+      const last = pathPoints[pathPoints.length - 1];
+      d += ` L ${last.x} ${last.y}`;
+      return d;
+    },
+
+    drawCanvasRiverOverlay(context, tiles) {
+      if (!context || !Array.isArray(tiles) || !tiles.length) {
+        return;
+      }
+      const overlay = buildRiverOverlayFromTiles(tiles);
+      if (!overlay.paths.length) {
+        return;
+      }
+      context.save();
+      context.lineJoin = "round";
+      context.lineCap = "butt";
+      const trimDistance = Math.max(0.6, this.hexSize * 0.08);
+      ["back", "mid", "top"].forEach((layer) => {
+        const config = this.riverOverlayLayerConfig(layer);
+        context.lineWidth = config.width;
+        context.strokeStyle = config.color;
+        strokeRiverPathsOnCanvas(context, overlay.paths, trimDistance);
+      });
+      context.restore();
+    },
+
     featureStyle(tile) {
-      const color = featureColor(tile.featureId);
-      return { fill: color, stroke: "rgba(0, 0, 0, 0.4)" };
+      let color = featureColor(tile.featureId);
+      if (tile && Number.isFinite(tile.owner)) {
+        const override = ownerColorEntryById(tile.owner);
+        const ownerColor =
+          (override && override.primary) || this.ownerColors[tile.owner];
+        if (ownerColor) {
+          color = blendHexColors(color, ownerColor, 0.2);
+          color = desaturateColor(color, 0.15);
+        }
+      }
+      return { fill: color, stroke: "rgba(0, 0, 0, 0.32)", fillOpacity: 0.3 };
     },
 
     wonderStyle(tile) {
@@ -8369,7 +8796,7 @@ export default {
     },
 
     elevationPoints(tile) {
-      const size = this.hexSize * 0.38;
+      const size = this.hexSize * 0.3;
       const isMountain = tile && tile.elevation === 2;
       if (isMountain) {
         return `0 ${-size} ${size} ${size} ${-size} ${size}`;
@@ -9624,12 +10051,31 @@ function terrainColor(id) {
       grass: "#6b973e",
       plains: "#a0b24d",
       desert: "#d5b866",
-      tundra: "#95a994",
+      tundra: "#b6b6aa",
       snow: "#d9e4e7",
       coast: "#4796b6",
       ocean: "#28658c",
     }[id] || "#3c3c3c"
   );
+}
+
+const FEATURE_TINTS = Object.freeze({
+  forest: "#4f7f48",
+  jungle: "#2f6f44",
+  marsh: "#597b52",
+  ice: "#e2f3ff",
+});
+
+function blendHexColors(baseHex, tintHex, amount) {
+  const base = parseHexColor(baseHex);
+  const tint = parseHexColor(tintHex);
+  if (!base || !tint) {
+    return baseHex;
+  }
+  const clamped = Math.min(Math.max(Number(amount) || 0, 0), 1);
+  const mix = (channel) =>
+    Math.round(base[channel] + (tint[channel] - base[channel]) * clamped);
+  return `#${toHex(mix("r"))}${toHex(mix("g"))}${toHex(mix("b"))}`;
 }
 
 function collectImprovementNames(improvementList, stateData) {
@@ -9897,6 +10343,322 @@ function insetSegment(start, end, inset) {
     x2: end.x + offsetX,
     y2: end.y + offsetY,
   };
+}
+
+function buildRiverOverlayFromTiles(tiles) {
+  const segments = [];
+  (tiles || []).forEach((tile) => {
+    if (
+      !tile ||
+      !Array.isArray(tile.riverSegments) ||
+      !tile.riverSegments.length
+    ) {
+      return;
+    }
+    tile.riverSegments.forEach((segment) => {
+      segments.push({
+        x1: tile.x + segment.x1,
+        y1: tile.y + segment.y1,
+        x2: tile.x + segment.x2,
+        y2: tile.y + segment.y2,
+      });
+    });
+  });
+  if (!segments.length) {
+    return { paths: [], endpoints: [] };
+  }
+  return buildRiverPaths(segments);
+}
+
+function buildRiverPaths(segments) {
+  const pointByKey = new Map();
+  const adjacency = new Map();
+  const edges = [];
+  const nodeRef = { nextId: 0 };
+  (segments || []).forEach((segment, index) => {
+    const a = resolveRiverNodeKey(
+      pointByKey,
+      segment.x1,
+      segment.y1,
+      2.2,
+      nodeRef
+    );
+    const b = resolveRiverNodeKey(
+      pointByKey,
+      segment.x2,
+      segment.y2,
+      2.2,
+      nodeRef
+    );
+    if (!adjacency.has(a)) {
+      adjacency.set(a, new Set());
+    }
+    if (!adjacency.has(b)) {
+      adjacency.set(b, new Set());
+    }
+    adjacency.get(a).add(index);
+    adjacency.get(b).add(index);
+    edges.push({ a, b });
+  });
+
+  const visited = new Set();
+  const paths = [];
+  const endpoints = [];
+  adjacency.forEach((linked, key) => {
+    if (linked.size !== 1) {
+      return;
+    }
+    const point = pointByKey.get(key);
+    if (point) {
+      endpoints.push(point);
+    }
+  });
+
+  const walkPath = (startEdgeIndex, startKey) => {
+    const first = pointByKey.get(startKey);
+    if (!first) {
+      return null;
+    }
+    const path = [first];
+    const keys = [startKey];
+    let currentEdgeIndex = startEdgeIndex;
+    let currentKey = startKey;
+    while (
+      Number.isInteger(currentEdgeIndex) &&
+      !visited.has(currentEdgeIndex)
+    ) {
+      visited.add(currentEdgeIndex);
+      const edge = edges[currentEdgeIndex];
+      if (!edge) {
+        break;
+      }
+      const nextKey = edge.a === currentKey ? edge.b : edge.a;
+      const nextPoint = pointByKey.get(nextKey);
+      if (!nextPoint) {
+        break;
+      }
+      path.push(nextPoint);
+      keys.push(nextKey);
+      const nextOptions = [...(adjacency.get(nextKey) || [])].filter(
+        (candidate) => !visited.has(candidate)
+      );
+      if (!nextOptions.length) {
+        break;
+      }
+      currentEdgeIndex = pickRiverContinuationEdge(
+        currentKey,
+        nextKey,
+        nextOptions,
+        edges,
+        pointByKey
+      );
+      currentKey = nextKey;
+    }
+    const endKey = keys[keys.length - 1];
+    return {
+      points: path,
+      startKey,
+      endKey,
+      startIsEndpoint: (adjacency.get(startKey) || new Set()).size === 1,
+      endIsEndpoint: (adjacency.get(endKey) || new Set()).size === 1,
+    };
+  };
+
+  adjacency.forEach((linked, key) => {
+    if (linked.size !== 1) {
+      return;
+    }
+    const edgeIndex = [...linked][0];
+    if (visited.has(edgeIndex)) {
+      return;
+    }
+    const path = walkPath(edgeIndex, key);
+    if (path && path.points.length >= 2) {
+      paths.push(path);
+    }
+  });
+
+  for (let edgeIndex = 0; edgeIndex < edges.length; edgeIndex += 1) {
+    if (visited.has(edgeIndex)) {
+      continue;
+    }
+    const path = walkPath(edgeIndex, edges[edgeIndex].a);
+    if (path && path.points.length >= 2) {
+      paths.push(path);
+    }
+  }
+
+  return { paths, endpoints };
+}
+
+function pickRiverContinuationEdge(
+  previousKey,
+  currentKey,
+  candidateEdgeIndexes,
+  edges,
+  pointByKey
+) {
+  if (!Array.isArray(candidateEdgeIndexes) || !candidateEdgeIndexes.length) {
+    return null;
+  }
+  if (candidateEdgeIndexes.length === 1) {
+    return candidateEdgeIndexes[0];
+  }
+  const previous = pointByKey.get(previousKey);
+  const current = pointByKey.get(currentKey);
+  if (!previous || !current) {
+    return candidateEdgeIndexes[0];
+  }
+  const inX = current.x - previous.x;
+  const inY = current.y - previous.y;
+  const inLength = Math.hypot(inX, inY) || 1;
+  let bestEdge = candidateEdgeIndexes[0];
+  let bestScore = -Infinity;
+  candidateEdgeIndexes.forEach((edgeIndex) => {
+    const edge = edges[edgeIndex];
+    if (!edge) {
+      return;
+    }
+    const nextKey = edge.a === currentKey ? edge.b : edge.a;
+    const next = pointByKey.get(nextKey);
+    if (!next) {
+      return;
+    }
+    const outX = next.x - current.x;
+    const outY = next.y - current.y;
+    const outLength = Math.hypot(outX, outY) || 1;
+    const score = (inX * outX + inY * outY) / (inLength * outLength);
+    if (score > bestScore) {
+      bestScore = score;
+      bestEdge = edgeIndex;
+    }
+  });
+  return bestEdge;
+}
+
+function riverPointKey(x, y) {
+  return `${Number(x).toFixed(2)}:${Number(y).toFixed(2)}`;
+}
+
+function resolveRiverNodeKey(pointByKey, x, y, tolerance, nodeRef) {
+  let bestKey = "";
+  let bestDistanceSq = Infinity;
+  pointByKey.forEach((point, key) => {
+    const distanceSq = riverDistanceSq(point, { x, y });
+    if (distanceSq > tolerance * tolerance) {
+      return;
+    }
+    if (distanceSq < bestDistanceSq) {
+      bestDistanceSq = distanceSq;
+      bestKey = key;
+    }
+  });
+  if (bestKey) {
+    const existing = pointByKey.get(bestKey);
+    if (existing) {
+      existing.x = (existing.x + x) / 2;
+      existing.y = (existing.y + y) / 2;
+    }
+    return bestKey;
+  }
+  const key = `river-${nodeRef.nextId}:${riverPointKey(x, y)}`;
+  nodeRef.nextId += 1;
+  pointByKey.set(key, { x, y });
+  return key;
+}
+
+function riverDistanceSq(a, b) {
+  const dx = (a && Number(a.x)) || 0;
+  const dy = (a && Number(a.y)) || 0;
+  const tx = (b && Number(b.x)) || 0;
+  const ty = (b && Number(b.y)) || 0;
+  const x = dx - tx;
+  const y = dy - ty;
+  return x * x + y * y;
+}
+
+function trimRiverPathPoint(points, index, towardIndex, trimDistance) {
+  if (
+    !Array.isArray(points) ||
+    index < 0 ||
+    towardIndex < 0 ||
+    index >= points.length ||
+    towardIndex >= points.length
+  ) {
+    return;
+  }
+  const point = points[index];
+  const toward = points[towardIndex];
+  if (!point || !toward) {
+    return;
+  }
+  const dx = toward.x - point.x;
+  const dy = toward.y - point.y;
+  const distance = Math.hypot(dx, dy) || 0;
+  if (distance <= 0) {
+    return;
+  }
+  const amount = Math.min(trimDistance, distance * 0.45);
+  point.x += (dx / distance) * amount;
+  point.y += (dy / distance) * amount;
+}
+
+function riverPathPointsForStroke(pathEntry, trimDistance = 0) {
+  const rawPoints = Array.isArray(pathEntry)
+    ? pathEntry
+    : pathEntry && Array.isArray(pathEntry.points)
+    ? pathEntry.points
+    : [];
+  if (!rawPoints.length) {
+    return [];
+  }
+  const shouldTrimStart = !!(pathEntry && pathEntry.startIsEndpoint);
+  const shouldTrimEnd = !!(pathEntry && pathEntry.endIsEndpoint);
+  if (!trimDistance || (!shouldTrimStart && !shouldTrimEnd)) {
+    return rawPoints;
+  }
+  const points = rawPoints.map((point) => ({ x: point.x, y: point.y }));
+  if (shouldTrimStart && points.length > 1) {
+    trimRiverPathPoint(points, 0, 1, trimDistance);
+  }
+  if (shouldTrimEnd && points.length > 1) {
+    trimRiverPathPoint(
+      points,
+      points.length - 1,
+      points.length - 2,
+      trimDistance
+    );
+  }
+  return points;
+}
+
+function strokeRiverPathsOnCanvas(context, paths, trimDistance = 0) {
+  if (!context || !Array.isArray(paths) || !paths.length) {
+    return;
+  }
+  paths.forEach((pathEntry) => {
+    const path = riverPathPointsForStroke(pathEntry, trimDistance);
+    if (!Array.isArray(path) || path.length < 2) {
+      return;
+    }
+    context.beginPath();
+    context.moveTo(path[0].x, path[0].y);
+    if (path.length === 2) {
+      context.lineTo(path[1].x, path[1].y);
+      context.stroke();
+      return;
+    }
+    for (let index = 1; index < path.length - 1; index += 1) {
+      const current = path[index];
+      const next = path[index + 1];
+      const midX = (current.x + next.x) / 2;
+      const midY = (current.y + next.y) / 2;
+      context.quadraticCurveTo(current.x, current.y, midX, midY);
+    }
+    const last = path[path.length - 1];
+    context.lineTo(last.x, last.y);
+    context.stroke();
+  });
 }
 
 function buildTiles(
@@ -10642,7 +11404,18 @@ function adjustedTerrainFill(tile, getColor) {
   const baseColor = getColor
     ? getColor(tile.terrainId)
     : terrainColor(tile.terrainId);
-  const color = tile.pillaged ? desaturateColor(baseColor, 0.3) : baseColor;
+  let color = baseColor;
+  if (tile.featureId && FEATURE_TINTS[tile.featureId]) {
+    color = blendHexColors(color, FEATURE_TINTS[tile.featureId], 0.25);
+  }
+  if (Number(tile.elevation) === 2) {
+    color = blendHexColors(color, "#eef3f8", 0.62);
+  } else if (Number(tile.elevation) === 1) {
+    color = blendHexColors(color, "#e4ebf0", 0.28);
+  }
+  if (tile.pillaged) {
+    color = desaturateColor(color, 0.3);
+  }
   return { color, alpha: 1 };
 }
 
@@ -11151,12 +11924,14 @@ function toHex(value) {
   stroke: rgba(0, 0, 0, 0.75);
   stroke-width: 1.2;
 }
+.tile-map .tile-map-viewport .tile-river-overlay {
+  pointer-events: none;
+}
 .tile-map .tile-map-viewport .tile-river {
   fill: none;
-  stroke: #4fc3f7;
-  stroke-width: 1.2;
-  stroke-linecap: round;
+  stroke-linecap: butt;
   stroke-linejoin: round;
+  pointer-events: none;
 }
 .tile-map .tile-map-viewport .tile-unit {
   fill: #111;
@@ -11876,6 +12651,35 @@ function toHex(value) {
 }
 .tile-map .tile-overlay-contrast-toggles .tile-edit-checkbox {
   font-size: 0.78rem;
+}
+.tile-map .tile-overlay-contrast-toggles .check-row {
+  align-items: flex-start;
+  gap: 0.6rem;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 0.65rem;
+  background: var(--panel-bg-elevated-color);
+  padding-block: 0.4rem;
+  padding-inline: 0.55rem;
+}
+.tile-map .tile-overlay-contrast-toggles .check-row:hover {
+  border-color: var(--field-label-color);
+}
+.tile-map .tile-overlay-contrast-toggles .check-row input {
+  align-self: center;
+}
+.tile-map .tile-overlay-contrast-toggles .check-row-copy {
+  display: grid;
+  gap: 0.12rem;
+}
+.tile-map .tile-overlay-contrast-toggles .check-row-title {
+  color: var(--panel-text-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.tile-map .tile-overlay-contrast-toggles .check-row-hint {
+  color: var(--panel-muted-color);
+  font-size: 0.69rem;
+  line-height: 1.35;
 }
 .tile-map .tile-overlay-metrics {
   display: grid;
