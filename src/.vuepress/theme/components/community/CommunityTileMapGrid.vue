@@ -144,6 +144,7 @@
         @pointerup="onPointerUp"
         @pointerleave="onPointerUp"
         @pointercancel="onPointerUp"
+        @wheel.prevent="onWheel"
         @keydown="onKeydown"
       >
         <div v-if="isLoading" class="tile-map-loading">Loading map data...</div>
@@ -2621,6 +2622,9 @@ export default {
       pinchStartDistance: 0,
       pinchStartScale: 1,
       pinchCenter: { x: 0, y: 0 },
+      wheelZoomRafId: null,
+      wheelZoomDelta: 0,
+      wheelZoomFocus: null,
       hasUserViewportInteraction: false,
       initialFitTimer: null,
       initialFitAttempts: 0,
@@ -3650,6 +3654,7 @@ export default {
       window.cancelAnimationFrame(this.canvasDrawFrameId);
       this.canvasDrawFrameId = null;
     }
+    this.clearWheelZoomFrame();
     if (this.ownerBordersRebuildId) {
       window.cancelAnimationFrame(this.ownerBordersRebuildId);
       this.ownerBordersRebuildId = null;
@@ -7179,6 +7184,58 @@ export default {
         y: viewport.height / 2 - worldY * this.scale,
       };
       this.translate = this.clampTranslate(nextTranslate, this.scale);
+    },
+
+    onWheel(event) {
+      if (!this.gridWidth || !this.gridHeight) {
+        return;
+      }
+      const viewport = this.$refs.viewport;
+      if (!viewport) {
+        return;
+      }
+      this.hasUserViewportInteraction = true;
+      const rect = viewport.getBoundingClientRect();
+      this.wheelZoomFocus = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+      this.wheelZoomDelta += event.deltaY;
+      this.scheduleWheelZoomFrame();
+    },
+
+    scheduleWheelZoomFrame() {
+      if (typeof window === "undefined" || this.wheelZoomRafId !== null) {
+        return;
+      }
+      this.wheelZoomRafId = window.requestAnimationFrame(() => {
+        this.wheelZoomRafId = null;
+        this.flushWheelZoom();
+      });
+    },
+
+    clearWheelZoomFrame() {
+      if (typeof window !== "undefined" && this.wheelZoomRafId !== null) {
+        window.cancelAnimationFrame(this.wheelZoomRafId);
+      }
+      this.wheelZoomRafId = null;
+      this.wheelZoomDelta = 0;
+      this.wheelZoomFocus = null;
+    },
+
+    flushWheelZoom() {
+      if (!this.gridWidth || !this.gridHeight || !this.wheelZoomDelta) {
+        this.wheelZoomDelta = 0;
+        return;
+      }
+      const normalizedDelta = clampValue(this.wheelZoomDelta / 120, -4, 4);
+      const multiplier = Math.pow(1.12, -normalizedDelta);
+      const focus = this.wheelZoomFocus || {
+        x: this.viewportSize.width / 2,
+        y: this.viewportSize.height / 2,
+      };
+      this.wheelZoomDelta = 0;
+      this.applyZoom(this.scale * multiplier, focus);
     },
 
     scheduleMiniMapDraw() {
