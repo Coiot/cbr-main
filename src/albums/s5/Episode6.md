@@ -22,7 +22,7 @@ scenes:
 - scene_number: 04
   scene_title: ""
   slide_svg: https://cdn.civbattleroyale.tv/s5ep6-supporters.svg
-  narration: "<p>Wow! Look at all these gorgeous, beautiful, intelligent donors to the sub! (cept for that Nirosat guy…he’s a dummy). You too can join and become one of the Adonis.</p><p>Also, the team has been adding lots of new features to the sites such as reactions and website comments.</p><p>Coiot: Pomo so lovely, even our narrator today reps them. Applause!</p>"
+  narration: "<p>Wow! Look at all these gorgeous, beautiful, intelligent donors to the sub! (cept for that Nirosat guy…he’s a dummy). You too can join and become one of the Adonis.</p><p>Also, the team has been adding lots of new features to the sites such as reactions and website comments.</p><p>Coiot: Pomo so lovely, can now confirm most supporters love them, even our narrator today reps them. Applause!</p>"
 - scene_number: 05
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/season5-pr5-scene23.jpeg
