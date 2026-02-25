@@ -2764,6 +2764,7 @@ export default {
       baseSnapshotPayload: null,
       liveBaseSnapshotId: null,
       liveBaseSnapshotPayload: null,
+      liveBaseSnapshotAppliedId: null,
       liveOverrideLookup: {},
       liveSnapshotPayload: [],
       lastSupabaseError: "",
@@ -4508,6 +4509,12 @@ export default {
       if (!this.supabase) {
         return;
       }
+      if (!this.liveBaseSnapshotId && !this.liveBaseSnapshotPayload) {
+        await this.loadLiveBaseSnapshot({
+          includePayload: !this.isMobileBrowser,
+        });
+      }
+      await this.ensureLiveBaseSnapshotApplied();
       try {
         const pageSize = 1000;
         const mergedRowsByKey = new Map();
@@ -4614,6 +4621,7 @@ export default {
       if (error || !Array.isArray(data) || !data.length) {
         this.liveBaseSnapshotId = null;
         this.liveBaseSnapshotPayload = null;
+        this.liveBaseSnapshotAppliedId = null;
         return;
       }
       const snapshot = data[0];
@@ -4622,6 +4630,28 @@ export default {
         includePayload && Array.isArray(snapshot.payload)
           ? snapshot.payload
           : null;
+    },
+
+    async ensureLiveBaseSnapshotApplied() {
+      if (!this.liveBaseSnapshotId) {
+        return;
+      }
+      if (this.liveBaseSnapshotAppliedId === this.liveBaseSnapshotId) {
+        return;
+      }
+      if (!Array.isArray(this.liveBaseSnapshotPayload)) {
+        const payload = await this.getSnapshotPayloadById(
+          this.liveBaseSnapshotId
+        );
+        if (Array.isArray(payload)) {
+          this.liveBaseSnapshotPayload = payload;
+        }
+      }
+      if (!Array.isArray(this.liveBaseSnapshotPayload)) {
+        return;
+      }
+      this.applyLiveBaseSnapshot();
+      this.liveBaseSnapshotAppliedId = this.liveBaseSnapshotId;
     },
 
     applyLiveBaseSnapshot() {
@@ -4646,6 +4676,7 @@ export default {
       }
       this.liveOverrideLookup = {};
       this.liveSnapshotPayload = [];
+      this.liveBaseSnapshotAppliedId = this.liveBaseSnapshotId || null;
     },
 
     withBaseSnapshot(rows) {
@@ -6900,6 +6931,7 @@ export default {
       this.baseSnapshotPayload = null;
       this.snapshotPayloadCache = Object.create(null);
       this.snapshotPayloadRequests = Object.create(null);
+      this.liveBaseSnapshotAppliedId = null;
 
       this.terrainLegend = buildLegendItems(mergedMapData.terrainList);
       this.featureLegend = buildLegendItems(mergedMapData.featureTerrainList);
@@ -6952,7 +6984,7 @@ export default {
         await this.loadLiveBaseSnapshot({
           includePayload: !this.isMobileBrowser,
         });
-        this.applyLiveBaseSnapshot();
+        await this.ensureLiveBaseSnapshotApplied();
       }
       this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
       this.scheduleOwnerBordersRebuild();
