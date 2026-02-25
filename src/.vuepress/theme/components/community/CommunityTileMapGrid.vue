@@ -2684,8 +2684,12 @@ export default {
       contrastSettingsLoading: false,
       isMobileView: false,
       isMobileBrowser: false,
+      isMobileSafari: false,
       lastPointerType: null,
       deferOwnerBorders: false,
+      mobileLoadTimer: null,
+      mobileSupabaseInitTimer: null,
+      deferredStateLoadTimer: null,
       // Render timers
       recentEditTick: 0,
       recentEditFrameId: null,
@@ -2795,6 +2799,12 @@ export default {
       return this.embedded && this.resolvedEmbeddedMode === "snapshot";
     },
     canvasRenderScale() {
+      if (this.isMobileSafari) {
+        const pixels = this.gridWidth * this.gridHeight;
+        const maxPixels = this.isSnapshotEmbed ? 900000 : 1300000;
+        const scale = pixels > 0 ? Math.sqrt(maxPixels / pixels) : 1;
+        return Math.max(0.42, Math.min(1, scale));
+      }
       if (this.isSnapshotEmbed && this.isMobileBrowser) {
         return 0.45;
       }
@@ -3594,17 +3604,34 @@ export default {
     if (typeof navigator !== "undefined") {
       const ua = navigator.userAgent || "";
       this.isMobileBrowser = /Mobi|Android|iP(hone|ad|od)/.test(ua);
+      const isIOS = /iP(hone|ad|od)/.test(ua);
+      const isSafariEngine = /WebKit/i.test(ua) && /Safari/i.test(ua);
+      const isOtherIOSBrowser = /CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/i.test(ua);
+      this.isMobileSafari = isIOS && isSafariEngine && !isOtherIOSBrowser;
     }
     if (this.isMobileView) {
       this.editPanelCollapsed = false;
     }
     const useLiveMap =
       !this.snapshotPayload && this.resolvedEmbeddedMode !== "snapshot";
-    if (useLiveMap) {
-      this.initSupabase();
-    }
     this.loadMapPins();
-    this.loadMap();
+    if (this.isMobileSafari) {
+      this.mobileLoadTimer = window.setTimeout(() => {
+        this.mobileLoadTimer = null;
+        this.loadMap({ deferStateData: true });
+      }, 60);
+      if (useLiveMap) {
+        this.mobileSupabaseInitTimer = window.setTimeout(() => {
+          this.mobileSupabaseInitTimer = null;
+          this.initSupabase();
+        }, 320);
+      }
+    } else {
+      if (useLiveMap) {
+        this.initSupabase();
+      }
+      this.loadMap();
+    }
     window.addEventListener("resize", this.handleResize);
     window.addEventListener("online", this.handleOnline);
     window.addEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
@@ -3651,6 +3678,18 @@ export default {
     if (this.contrastSettingsSaveTimer) {
       window.clearTimeout(this.contrastSettingsSaveTimer);
       this.contrastSettingsSaveTimer = null;
+    }
+    if (this.mobileLoadTimer) {
+      window.clearTimeout(this.mobileLoadTimer);
+      this.mobileLoadTimer = null;
+    }
+    if (this.mobileSupabaseInitTimer) {
+      window.clearTimeout(this.mobileSupabaseInitTimer);
+      this.mobileSupabaseInitTimer = null;
+    }
+    if (this.deferredStateLoadTimer) {
+      window.clearTimeout(this.deferredStateLoadTimer);
+      this.deferredStateLoadTimer = null;
     }
     if (this.initialFitTimer) {
       window.clearTimeout(this.initialFitTimer);
@@ -3712,6 +3751,9 @@ export default {
     },
 
     shouldUseTerrainBaseCache() {
+      if (this.isMobileSafari) {
+        return false;
+      }
       if (this.hasActiveCivilizationOverlay || this.isPopulationOverlayActive) {
         return false;
       }
@@ -3838,6 +3880,9 @@ export default {
     },
 
     readSnapshotPayloadStore() {
+      if (this.isMobileSafari) {
+        return null;
+      }
       if (typeof window === "undefined" || !window.localStorage) {
         return null;
       }
@@ -3880,6 +3925,9 @@ export default {
     },
 
     writeSnapshotPayloadStore(entries) {
+      if (this.isMobileSafari) {
+        return false;
+      }
       if (typeof window === "undefined" || !window.localStorage) {
         return false;
       }
@@ -5499,6 +5547,9 @@ export default {
       if (!(buffer instanceof ArrayBuffer)) {
         throw new Error("Unable to parse map data.");
       }
+      if (this.isMobileSafari) {
+        return parseCiv5Map(buffer);
+      }
       if (typeof window === "undefined" || typeof Worker === "undefined") {
         return parseCiv5Map(buffer);
       }
@@ -5547,9 +5598,13 @@ export default {
             finalize(() => reject(new Error("Unable to parse map data.")));
           };
           try {
-            worker.postMessage({ buffer });
+            worker.postMessage({ buffer }, [buffer]);
           } catch (error) {
-            finalize(() => reject(error));
+            try {
+              worker.postMessage({ buffer });
+            } catch (nextError) {
+              finalize(() => reject(nextError));
+            }
           }
         });
       } catch (error) {
@@ -5557,7 +5612,54 @@ export default {
       }
     },
 
-    async loadMap() {
+    applyConfiguredSnapshotPayload() {
+      if (Array.isArray(this.snapshotPayload) && this.snapshotPayload.length) {
+        this.applyTileOverrides(this.snapshotPayload, {
+          markRecent: false,
+          applyLocal: false,
+        });
+      } else if (this.useBaseSnapshot) {
+        const payload = this.getBaseSnapshotPayload();
+        if (payload && payload.length) {
+          this.applyTileOverrides(payload, {
+            markRecent: false,
+            applyLocal: false,
+          });
+        }
+      }
+    },
+
+    scheduleDeferredStateHydration(mapData) {
+      if (!this.isMobileSafari || !mapData) {
+        return;
+      }
+      if (this.deferredStateLoadTimer) {
+        window.clearTimeout(this.deferredStateLoadTimer);
+        this.deferredStateLoadTimer = null;
+      }
+      this.deferredStateLoadTimer = window.setTimeout(async () => {
+        this.deferredStateLoadTimer = null;
+        try {
+          const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
+          if (!stateData) {
+            return;
+          }
+          await this.applyMapData(mapData, stateData);
+          this.applyConfiguredSnapshotPayload();
+        } catch (error) {
+          // Keep the base map usable if deferred hydration fails.
+        } finally {
+          this.$nextTick(() => {
+            this.updateViewportSize();
+            this.scheduleInitialFitToView();
+            this.applyRequestedTileFromRoute();
+          });
+        }
+      }, 280);
+    },
+
+    async loadMap(options = {}) {
+      const deferStateData = !!(options && options.deferStateData);
       this.isLoading = true;
       this.loadError = "";
       try {
@@ -5573,24 +5675,14 @@ export default {
           const buffer = await response.arrayBuffer();
           mapData = await this.parseMapBuffer(buffer);
         }
-        const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
-        await this.applyMapData(mapData, stateData);
-        if (
-          Array.isArray(this.snapshotPayload) &&
-          this.snapshotPayload.length
-        ) {
-          this.applyTileOverrides(this.snapshotPayload, {
-            markRecent: false,
-            applyLocal: false,
-          });
-        } else if (this.useBaseSnapshot) {
-          const payload = this.getBaseSnapshotPayload();
-          if (payload && payload.length) {
-            this.applyTileOverrides(payload, {
-              markRecent: false,
-              applyLocal: false,
-            });
-          }
+        if (deferStateData && this.isMobileSafari) {
+          await this.applyMapData(mapData, null, { deferLiveSync: true });
+          this.applyConfiguredSnapshotPayload();
+          this.scheduleDeferredStateHydration(mapData);
+        } else {
+          const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
+          await this.applyMapData(mapData, stateData);
+          this.applyConfiguredSnapshotPayload();
         }
       } catch (error) {
         this.loadError = error.message || "Unable to load map data.";
@@ -6795,7 +6887,8 @@ export default {
       }
     },
 
-    async applyMapData(mapData, stateData) {
+    async applyMapData(mapData, stateData, options = {}) {
+      const deferLiveSync = !!(options && options.deferLiveSync);
       const mergedMapData = mergeMapState(mapData, stateData);
       this.mapConfig.columns = mergedMapData.width;
       this.mapConfig.rows = mergedMapData.height;
@@ -6855,15 +6948,19 @@ export default {
         this.ownerPalette,
         this.ownerSecondaryColors
       );
-      await this.loadLiveBaseSnapshot({
-        includePayload: !this.isMobileBrowser,
-      });
-      this.applyLiveBaseSnapshot();
+      if (!deferLiveSync) {
+        await this.loadLiveBaseSnapshot({
+          includePayload: !this.isMobileBrowser,
+        });
+        this.applyLiveBaseSnapshot();
+      }
       this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
       this.scheduleOwnerBordersRebuild();
-      this.hasLoadedOverrides = false;
-      this.loadTileOverrides();
-      this.subscribeToTileOverrides();
+      if (!deferLiveSync) {
+        this.hasLoadedOverrides = false;
+        this.loadTileOverrides();
+        this.subscribeToTileOverrides();
+      }
       this.$nextTick(() => {
         if (this.useTerrainCanvas) {
           this.drawTerrainCanvas();

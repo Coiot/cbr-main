@@ -73,9 +73,9 @@
 
   <text class="kicker" x="50" y="121">Latest Episode</text>
   <text class="title" x="50" y="201" dominant-baseline="hanging">
-    <tspan x="50" dy="0">Episode 5: The</tspan><tspan x="50" dy="55">Call Of The Land</tspan>
+    <tspan x="50" dy="0">Episode 6: It’s</tspan><tspan x="50" dy="55">Business Time or</tspan><tspan x="50" dy="55">Everyone Hates</tspan><tspan x="50" dy="55">Maravi</tspan>
   </text>
-  <text class="meta" x="50" y="311">S5 • February 17, 2026</text>
+  <text class="meta" x="50" y="421">S5 • February 24, 2026</text>
   <text class="site" x="50" y="560">civbattleroyale.tv</text>
 
   
