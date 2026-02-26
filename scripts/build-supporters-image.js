@@ -13,6 +13,10 @@ if (fs.existsSync(envPath)) {
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;
 const SHEET_GID = process.env.GOOGLE_SHEET_GID || "0";
 const PUBLISHED_ID = process.env.GOOGLE_SHEET_PUB_ID;
+const PUBLISHED_URL = process.env.GOOGLE_SHEET_PUB_URL || "";
+const SUPPORTERS_CSV_FILE = process.env.SUPPORTERS_CSV_FILE || "";
+const ALLOW_STALE_ON_FETCH_ERROR =
+  (process.env.SUPPORTERS_ALLOW_STALE_ON_FETCH_ERROR || "true") === "true";
 
 const EMAIL_COLUMN = Number.parseInt(
   process.env.SUPPORTERS_EMAIL_COLUMN || "1",
@@ -224,20 +228,79 @@ function parseCsv(csv) {
 }
 
 async function fetchSheetCsv() {
+  if (SUPPORTERS_CSV_FILE) {
+    const csvPath = path.isAbsolute(SUPPORTERS_CSV_FILE)
+      ? SUPPORTERS_CSV_FILE
+      : path.join(process.cwd(), SUPPORTERS_CSV_FILE);
+    if (!fs.existsSync(csvPath)) {
+      throw new Error(`SUPPORTERS_CSV_FILE not found: ${csvPath}`);
+    }
+    return {
+      csv: fs.readFileSync(csvPath, "utf8"),
+      source: `local CSV (${csvPath})`,
+    };
+  }
   if (!SHEET_ID) {
-    throw new Error("Missing GOOGLE_SHEET_ID.");
+    throw new Error(
+      "Missing GOOGLE_SHEET_ID. Set GOOGLE_SHEET_ID or SUPPORTERS_CSV_FILE."
+    );
   }
   const primaryUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
-  let response = await fetch(primaryUrl);
-  if (!response.ok && PUBLISHED_ID) {
-    const publishedUrl = `https://docs.google.com/spreadsheets/d/e/${PUBLISHED_ID}/pub?output=csv`;
-    response = await fetch(publishedUrl);
+  const publishedCsvUrl = PUBLISHED_URL
+    ? PUBLISHED_URL.replace(/\/pubhtml(?:\?.*)?$/i, "/pub?output=csv")
+    : PUBLISHED_ID
+    ? `https://docs.google.com/spreadsheets/d/e/${PUBLISHED_ID}/pub?output=csv`
+    : "";
+  let response;
+  let sourceUrl = primaryUrl;
+  try {
+    response = await fetch(primaryUrl);
+  } catch (error) {
+    if (publishedCsvUrl) {
+      try {
+        response = await fetch(publishedCsvUrl);
+        sourceUrl = publishedCsvUrl;
+      } catch (publishedError) {
+        const detail =
+          publishedError && publishedError.message
+            ? publishedError.message
+            : String(publishedError);
+        throw new Error(
+          `Unable to fetch Google Sheet (${primaryUrl}) and published backup (${publishedCsvUrl}). ${detail}. ` +
+            "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
+        );
+      }
+    } else {
+      const detail = error && error.message ? error.message : String(error);
+      throw new Error(
+        `Unable to fetch Google Sheet (${primaryUrl}). ${detail}. ` +
+          "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
+      );
+    }
+  }
+  if (!response.ok && publishedCsvUrl && sourceUrl !== publishedCsvUrl) {
+    try {
+      response = await fetch(publishedCsvUrl);
+      sourceUrl = publishedCsvUrl;
+    } catch (error) {
+      const detail = error && error.message ? error.message : String(error);
+      throw new Error(
+        `Unable to fetch published Google Sheet (${publishedCsvUrl}). ${detail}. ` +
+          "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
+      );
+    }
   }
   const csv = await response.text();
   if (!response.ok) {
-    throw new Error("Unable to read Google Sheet.");
+    throw new Error(
+      `Unable to read Google Sheet (status ${response.status}). ` +
+        "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
+    );
   }
-  return csv;
+  return {
+    csv,
+    source: `Google Sheet (${sourceUrl})`,
+  };
 }
 
 async function loadCivColors() {
@@ -682,7 +745,25 @@ ${countsNodes}
 }
 
 async function run() {
-  const csv = await fetchSheetCsv();
+  let csv;
+  let source;
+  try {
+    const fetchResult = await fetchSheetCsv();
+    csv = fetchResult.csv;
+    source = fetchResult.source;
+  } catch (error) {
+    if (ALLOW_STALE_ON_FETCH_ERROR && fs.existsSync(OUTPUT_PATH)) {
+      const detail = error && error.message ? error.message : String(error);
+      console.warn(
+        `Skipping supporters rebuild and keeping existing output at ${OUTPUT_PATH}.`
+      );
+      console.warn("Using supporters source: existing output (stale fallback)");
+      console.warn(detail);
+      return;
+    }
+    throw error;
+  }
+  console.log(`Using supporters source: ${source}`);
   const rows = parseCsv(csv);
   const { OWNER_COLOR_MAP, normalizeOwnerKey } = await loadCivColors();
   const civOverrides = await fetchSupabaseCivOverrides();

@@ -338,7 +338,16 @@
             <button type="button" class="user-button" @click="signOut">
               Sign out
             </button>
-            <p class="user-cta">Thank you for supporting the show!</p>
+            <p class="user-cta" v-if="canEditSupporterFields">
+              Thank you for supporting the show!
+            </p>
+            <p class="user-cta" v-else>
+              You are signed in as a non-supporter.
+              <br />
+              <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
+                >Become a supporter on Ko-Fi</a
+              >
+            </p>
           </div>
         </div>
       </div>
@@ -784,9 +793,14 @@ export default {
         .maybeSingle();
       if (error) {
         console.warn("Unable to load profile.", error);
+        this.authMessage = "Signed in. Unable to verify supporter status.";
         return;
       }
       this.authProfile = data || null;
+      this.authMessage =
+        this.authProfile && this.authProfile.can_edit === true
+          ? "Supporter account. Thank you!"
+          : "Signed in. Consider donating!";
       if (this.authProfile && this.authProfile.username) {
         this.usernameInput = this.authProfile.username;
       }
@@ -1588,17 +1602,10 @@ function css(el, property) {
   position: absolute;
   inset-block-start: -0.2rem;
   inset-inline-end: -0.2rem;
-  min-inline-size: 1rem;
-  block-size: 1rem;
+  font-size: 0.7rem;
+  font-weight: 800;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--surface-color), black 10%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.58rem;
-  font-weight: 900;
-  line-height: 1;
-  padding-inline: 0.2rem;
+  padding: 0.1rem 0.35rem;
 }
 .navbar .links .user-status-badge.is-supporter {
   color: #1a1a1a;
@@ -1606,7 +1613,7 @@ function css(el, property) {
 }
 .navbar .links .user-status-badge.is-non-supporter {
   color: #f7f8fb;
-  background: #5f6c86;
+  background: #444;
 }
 .navbar .links .bookmark-icon {
   inline-size: 1.2rem;
@@ -1730,6 +1737,13 @@ function css(el, property) {
   border: 1px solid var(--surface-border-color);
   border-radius: 6px;
   padding: 0.5rem 0.7rem;
+}
+.navbar .links .user-input:disabled {
+  color: color-mix(in srgb, var(--back-color), white 45%);
+  background: color-mix(in srgb, var(--surface-color), black 12%);
+  border-color: color-mix(in srgb, var(--surface-border-color), black 18%);
+  opacity: 0.75;
+  cursor: not-allowed;
 }
 .navbar .links .user-label {
   color: color-mix(in srgb, var(--back-color), white 25%);
