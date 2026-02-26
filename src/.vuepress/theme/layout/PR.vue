@@ -1291,12 +1291,15 @@ export default {
         .select("username, can_edit")
         .eq("id", this.authUser.id)
         .maybeSingle();
-      if (error) {
-        console.warn("Unable to load profile.", error);
-        return;
-      }
       let profile = data || null;
-      const shouldCheckSupporter = !profile || !profile.can_edit;
+      if (error) {
+        console.warn(
+          "Unable to load profile; attempting supporter verification fallback.",
+          error
+        );
+      }
+      const shouldCheckSupporter =
+        Boolean(error) || !profile || !profile.can_edit;
       if (shouldCheckSupporter) {
         const { allowed, error: supporterError } = await checkSupporterAccess(
           this.supabase,

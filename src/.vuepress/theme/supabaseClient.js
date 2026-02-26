@@ -71,8 +71,30 @@ export async function checkSupporterAccess(
         headers: token ? { Authorization: `Bearer ${token}` } : undefined,
       }
     );
+    const parseAllowed = (value) => {
+      if (typeof value === "boolean") {
+        return value;
+      }
+      if (typeof value === "string") {
+        const normalized = value.trim().toLowerCase();
+        if (normalized === "true") {
+          return true;
+        }
+        if (normalized === "false") {
+          return false;
+        }
+      }
+      return Boolean(value);
+    };
+    const allowed = data
+      ? parseAllowed(
+          Object.prototype.hasOwnProperty.call(data, "allowed")
+            ? data.allowed
+            : data.can_edit
+        )
+      : false;
     return {
-      allowed: !!(data && data.allowed),
+      allowed,
       error: error || null,
       data: data || null,
     };
