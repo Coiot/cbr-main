@@ -3543,7 +3543,7 @@ export default {
     },
     contrastVisualizationKey() {
       this.handleOverlayVisualizationChange();
-      this.persistContrastSettingsForAuthUser();
+      this.persistContrastSettingsForCurrentUser();
     },
     scale: "handleScaleChange",
     translate: {
@@ -3620,6 +3620,7 @@ export default {
     const useLiveMap =
       !this.snapshotPayload && this.resolvedEmbeddedMode !== "snapshot";
     this.loadMapPins();
+    this.restoreContrastSettingsForAnonymous();
     if (this.isMobileSafari) {
       this.mobileLoadTimer = window.setTimeout(() => {
         this.mobileLoadTimer = null;
@@ -4193,7 +4194,11 @@ export default {
 
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
-      this.restoreContrastSettingsForAuthUser();
+      if (this.authUser && this.authUser.id) {
+        this.restoreContrastSettingsForAuthUser();
+      } else {
+        this.restoreContrastSettingsForAnonymous();
+      }
       if (this.authUser) {
         if (!this.authEmail) {
           this.authEmail = this.authUser.email || "";
@@ -5907,6 +5912,17 @@ export default {
       return `${MAP_CONTRAST_SETTINGS_KEY}:${SUPABASE_MAP_ID}:${id}`;
     },
 
+    contrastSettingsStorageKeyForGuest() {
+      return `${MAP_CONTRAST_SETTINGS_KEY}:${SUPABASE_MAP_ID}:guest`;
+    },
+
+    contrastSettingsStorageKeyForCurrentUser() {
+      if (this.authUser && this.authUser.id) {
+        return this.contrastSettingsStorageKeyForUser(this.authUser.id);
+      }
+      return this.contrastSettingsStorageKeyForGuest();
+    },
+
     currentContrastSettings() {
       return {
         contrastHideDecorations: !!this.contrastHideDecorations,
@@ -5968,16 +5984,10 @@ export default {
       });
     },
 
-    readLocalContrastSettingsForAuthUser() {
-      if (
-        typeof window === "undefined" ||
-        !window.localStorage ||
-        !this.authUser ||
-        !this.authUser.id
-      ) {
+    readLocalContrastSettings(key) {
+      if (typeof window === "undefined" || !window.localStorage) {
         return null;
       }
-      const key = this.contrastSettingsStorageKeyForUser(this.authUser.id);
       if (!key) {
         return null;
       }
@@ -5993,16 +6003,10 @@ export default {
       }
     },
 
-    writeLocalContrastSettingsForAuthUser(settings) {
-      if (
-        typeof window === "undefined" ||
-        !window.localStorage ||
-        !this.authUser ||
-        !this.authUser.id
-      ) {
+    writeLocalContrastSettings(key, settings) {
+      if (typeof window === "undefined" || !window.localStorage) {
         return false;
       }
-      const key = this.contrastSettingsStorageKeyForUser(this.authUser.id);
       if (!key) {
         return false;
       }
@@ -6011,6 +6015,23 @@ export default {
         return true;
       } catch (error) {
         return false;
+      }
+    },
+
+    readLocalContrastSettingsForCurrentUser() {
+      const key = this.contrastSettingsStorageKeyForCurrentUser();
+      return this.readLocalContrastSettings(key);
+    },
+
+    writeLocalContrastSettingsForCurrentUser(settings) {
+      const key = this.contrastSettingsStorageKeyForCurrentUser();
+      return this.writeLocalContrastSettings(key, settings);
+    },
+
+    restoreContrastSettingsForAnonymous() {
+      const localFallback = this.readLocalContrastSettingsForCurrentUser();
+      if (localFallback) {
+        this.applyContrastSettings(localFallback);
       }
     },
 
@@ -6038,10 +6059,11 @@ export default {
             const mapped = this.fromCloudContrastSettings(cloudSettings);
             if (mapped.hasAny && mapped.values) {
               this.applyContrastSettings(mapped.values);
-              this.writeLocalContrastSettingsForAuthUser(mapped.values);
+              this.writeLocalContrastSettingsForCurrentUser(mapped.values);
               didApplyCloud = true;
             } else {
-              const localFallback = this.readLocalContrastSettingsForAuthUser();
+              const localFallback =
+                this.readLocalContrastSettingsForCurrentUser();
               if (localFallback) {
                 this.applyContrastSettings(localFallback);
                 const merged = {
@@ -6061,7 +6083,7 @@ export default {
           // Fall back to local settings only when cloud read fails.
         }
         if (!didApplyCloud) {
-          const localFallback = this.readLocalContrastSettingsForAuthUser();
+          const localFallback = this.readLocalContrastSettingsForCurrentUser();
           if (localFallback) {
             this.applyContrastSettings(localFallback);
           }
@@ -6125,14 +6147,16 @@ export default {
       }
     },
 
-    persistContrastSettingsForAuthUser() {
-      if (this.contrastSettingsLoading || !this.authUser || !this.authUser.id) {
+    persistContrastSettingsForCurrentUser() {
+      if (this.contrastSettingsLoading) {
         return false;
       }
-      const savedLocal = this.writeLocalContrastSettingsForAuthUser(
+      const savedLocal = this.writeLocalContrastSettingsForCurrentUser(
         this.currentContrastSettings()
       );
-      this.queueContrastSettingsCloudSave();
+      if (this.authUser && this.authUser.id) {
+        this.queueContrastSettingsCloudSave();
+      }
       return savedLocal;
     },
 

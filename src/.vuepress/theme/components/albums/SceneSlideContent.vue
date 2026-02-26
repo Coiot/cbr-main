@@ -182,7 +182,7 @@ export default {
   font-weight: 400;
 }
 .h-narration .narrations {
-  max-height: 9.7rem;
+  max-height: 16rem;
   overflow: auto;
   padding: 0 !important;
   margin: 0;
