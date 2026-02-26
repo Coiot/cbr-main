@@ -384,6 +384,7 @@ import QuickJumpPalette from "./QuickJumpPalette.vue";
 import { getEdition } from "../../../data/editions";
 import {
   getSupabaseClient,
+  ensureProfileRow,
   SUPABASE_ALBUM_PROGRESS_TABLE,
   SUPABASE_USER_SETTINGS_TABLE,
 } from "../../supabaseClient";
@@ -735,6 +736,13 @@ export default {
       if (!this.useCloud) {
         return;
       }
+      const { error: ensureError } = await ensureProfileRow(
+        this.supabase,
+        this.authUser
+      );
+      if (ensureError) {
+        console.warn("Unable to ensure profile row.", ensureError);
+      }
       const { data, error } = await this.supabase
         .from("profiles")
         .select("username")
@@ -846,6 +854,14 @@ export default {
       }
       let syncSucceeded = false;
       this._settingsSyncPromise = (async () => {
+        const { error: ensureError } = await ensureProfileRow(
+          this.supabase,
+          this.authUser
+        );
+        if (ensureError) {
+          console.warn("Unable to ensure profile row.", ensureError);
+          return;
+        }
         const localSettings = this.collectLocalUserSettings();
         const { data, error } = await this.supabase
           .from(SUPABASE_USER_SETTINGS_TABLE)
@@ -900,6 +916,14 @@ export default {
     },
     async saveUserSettings(patch) {
       if (!this.useCloud || !patch || typeof patch !== "object") {
+        return;
+      }
+      const { error: ensureError } = await ensureProfileRow(
+        this.supabase,
+        this.authUser
+      );
+      if (ensureError) {
+        console.warn("Unable to ensure profile row.", ensureError);
         return;
       }
       this.userSettings = { ...this.userSettings, ...patch };

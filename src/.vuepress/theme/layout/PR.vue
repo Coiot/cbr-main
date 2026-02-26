@@ -312,6 +312,7 @@ import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
+  ensureProfileRow,
   checkSupporterAccess,
   SUPABASE_ALBUM_PROGRESS_TABLE,
   SUPABASE_ALBUM_REACTIONS_TABLE,
@@ -391,6 +392,7 @@ export default {
       timelineFocusTimeoutId: null,
       supabase: null,
       authUser: null,
+      authSession: null,
       authProfile: null,
       reactionCounts: {},
       userReactions: {},
@@ -849,6 +851,7 @@ export default {
     },
     handleAuthSession(session) {
       this.authUser = session ? session.user : null;
+      this.authSession = session || null;
       this.authProfile = null;
       this.loadReactionCounts();
       if (this.authUser) {
@@ -858,6 +861,7 @@ export default {
       }
       this.loadBookmarkLocal();
       this.loadResumeLocal();
+      this.authSession = null;
       this.authProfile = null;
       this.commentEditing = false;
       this.commentDraft = "";
@@ -1275,6 +1279,13 @@ export default {
       if (!this.useCloud) {
         return;
       }
+      const { error: ensureError } = await ensureProfileRow(
+        this.supabase,
+        this.authUser
+      );
+      if (ensureError) {
+        console.warn("Unable to ensure profile row.", ensureError);
+      }
       const { data, error } = await this.supabase
         .from("profiles")
         .select("username, can_edit")
@@ -1289,7 +1300,8 @@ export default {
       if (shouldCheckSupporter) {
         const { allowed, error: supporterError } = await checkSupporterAccess(
           this.supabase,
-          this.authUser
+          this.authUser,
+          this.authSession ? this.authSession.access_token : ""
         );
         if (supporterError) {
           console.warn("Unable to verify supporter status.", supporterError);

@@ -7,10 +7,55 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+function parseCsv(csv: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let current = "";
+  let inQuotes = false;
+  for (let index = 0; index < csv.length; index += 1) {
+    const char = csv[index];
+    const next = csv[index + 1];
+    if (char === '"') {
+      if (inQuotes && next === '"') {
+        current += '"';
+        index += 1;
+      } else {
+        inQuotes = !inQuotes;
+      }
+      continue;
+    }
+    if (char === "," && !inQuotes) {
+      row.push(current);
+      current = "";
+      continue;
+    }
+    if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && next === "\n") {
+        index += 1;
+      }
+      row.push(current);
+      rows.push(row);
+      row = [];
+      current = "";
+      continue;
+    }
+    current += char;
+  }
+  if (current.length || row.length) {
+    row.push(current);
+    rows.push(row);
+  }
+  return rows;
+}
+
 async function fetchSheetEmails() {
   const sheetId = Deno.env.get("GOOGLE_SHEET_ID");
   const sheetGid = Deno.env.get("GOOGLE_SHEET_GID") || "0";
   const publishedId = Deno.env.get("GOOGLE_SHEET_PUB_ID");
+  const emailColumn = Number.parseInt(
+    Deno.env.get("SUPPORTERS_EMAIL_COLUMN") || "1",
+    10
+  );
   if (!sheetId) {
     throw new Error("Missing GOOGLE_SHEET_ID.");
   }
@@ -26,17 +71,14 @@ async function fetchSheetEmails() {
   if (!response.ok) {
     throw new Error("Unable to read Google Sheet.");
   }
-  const rows = csv
-    .split(/\r?\n/)
-    .map((row) => row.split(","))
-    .filter((row) => row.length);
+  const rows = parseCsv(csv).filter((row) => row.length);
   if (rows.length <= 1) {
     return [];
   }
   return rows
     .slice(1)
     .map((row) =>
-      String(row?.[1] || "")
+      String(row?.[emailColumn] || "")
         .trim()
         .toLowerCase()
     )

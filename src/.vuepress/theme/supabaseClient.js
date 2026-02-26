@@ -22,16 +22,45 @@ export function getSupabaseClient() {
   return supabaseClient;
 }
 
-export async function checkSupporterAccess(supabase, authUser) {
+export async function ensureProfileRow(supabase, authUser) {
+  if (!supabase || !authUser || !authUser.id) {
+    return { ok: false, error: null };
+  }
+  try {
+    const email = String(authUser.email || "").trim();
+    const row = {
+      id: authUser.id,
+      updated_at: new Date().toISOString(),
+    };
+    if (email) {
+      row.email = email;
+    }
+    const { error } = await supabase.from("profiles").upsert(row, {
+      onConflict: "id",
+    });
+    return { ok: !error, error: error || null };
+  } catch (error) {
+    return { ok: false, error };
+  }
+}
+
+export async function checkSupporterAccess(
+  supabase,
+  authUser,
+  accessToken = ""
+) {
   if (!supabase || !authUser) {
     return { allowed: false, error: null };
   }
   try {
-    const { data: sessionData } = await supabase.auth.getSession();
-    const accessToken =
-      sessionData && sessionData.session
-        ? sessionData.session.access_token
-        : "";
+    let token = typeof accessToken === "string" ? accessToken.trim() : "";
+    if (!token) {
+      const { data: sessionData } = await supabase.auth.getSession();
+      token =
+        sessionData && sessionData.session
+          ? String(sessionData.session.access_token || "").trim()
+          : "";
+    }
     const { data, error } = await supabase.functions.invoke(
       SUPABASE_SUPPORTER_CHECK_FUNCTION,
       {
@@ -39,9 +68,7 @@ export async function checkSupporterAccess(supabase, authUser) {
           map_id: SUPABASE_SUPPORTER_MAP_ID,
           email: authUser.email || "",
         },
-        headers: accessToken
-          ? { Authorization: `Bearer ${accessToken}` }
-          : undefined,
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
       }
     );
     return {

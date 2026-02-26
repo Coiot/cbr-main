@@ -341,21 +341,28 @@ function pickEntries(rows, civOverrides = new Map()) {
       return;
     }
     const nameKey = rawName.trim().toLowerCase();
-    if (byName.has(nameKey)) {
-      return;
-    }
     const overrideCiv = rawEmail ? civOverrides.get(rawEmail) : "";
+    const hasOverride = Boolean(overrideCiv && String(overrideCiv).trim());
     const rawCiv = overrideCiv
       ? String(overrideCiv).trim()
       : String(row[CIV_COLUMN] || "").trim();
     const name = UPPERCASE ? rawName.toUpperCase() : rawName;
     const civLabel = rawCiv ? (UPPERCASE ? rawCiv.toUpperCase() : rawCiv) : "";
-    byName.set(nameKey, { name, civ: rawCiv, civLabel });
+    const existing = byName.get(nameKey);
+    if (!existing) {
+      byName.set(nameKey, { name, civ: rawCiv, civLabel, hasOverride });
+      return;
+    }
+    if (hasOverride && !existing.hasOverride) {
+      byName.set(nameKey, { name, civ: rawCiv, civLabel, hasOverride });
+    }
   });
 
-  return Array.from(byName.values()).sort((a, b) =>
-    a.name.localeCompare(b.name, "en", { sensitivity: "base" })
-  );
+  return Array.from(byName.values())
+    .map(({ hasOverride: _hasOverride, ...entry }) => entry)
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, "en", { sensitivity: "base" })
+    );
 }
 
 function hydrateEntries(entries, civColors, normalizeOwnerKey) {
