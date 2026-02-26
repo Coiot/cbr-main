@@ -338,11 +338,9 @@
             <button type="button" class="user-button" @click="signOut">
               Sign out
             </button>
-            <p class="user-cta" v-if="canEditSupporterFields">
-              Thank you for supporting the show!
-            </p>
+            <p class="user-cta" v-if="canEditSupporterFields">n.n <3</p>
             <p class="user-cta" v-else>
-              You are signed in as a non-supporter.
+              Signed in. Consider donating!
               <br />
               <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
                 >Become a supporter on Ko-Fi</a
@@ -800,7 +798,7 @@ export default {
       this.authMessage =
         this.authProfile && this.authProfile.can_edit === true
           ? "Supporter account. Thank you!"
-          : "Signed in. Consider donating!";
+          : "Signed in.";
       if (this.authProfile && this.authProfile.username) {
         this.usernameInput = this.authProfile.username;
       }
@@ -1605,7 +1603,7 @@ function css(el, property) {
   font-size: 0.7rem;
   font-weight: 800;
   border-radius: 999px;
-  padding: 0.1rem 0.35rem;
+  padding: 0.1rem 0.375rem;
 }
 .navbar .links .user-status-badge.is-supporter {
   color: #1a1a1a;

@@ -2364,7 +2364,6 @@
 </template>
 
 <script>
-import { createClient } from "@supabase/supabase-js";
 import { mapConfig, ownerPalette } from "../../../data/communityTileMap";
 import { parseCiv5Map } from "./civ5MapParser";
 import {
@@ -2396,9 +2395,10 @@ import {
   getBrushOwnerChange,
   getBrushOverlayStyle,
 } from "./communityTileMapBrushUtils";
-import { SUPABASE_USER_SETTINGS_TABLE } from "../../supabaseClient";
-const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
+import {
+  getSupabaseClient,
+  SUPABASE_USER_SETTINGS_TABLE,
+} from "../../supabaseClient";
 const SUPABASE_MAP_ID = "s5";
 const SUPABASE_OVERRIDE_TABLE = "tile_overrides";
 const SUPABASE_EDIT_LOG_TABLE = "tile_edits";
@@ -3641,6 +3641,7 @@ export default {
     window.addEventListener("online", this.handleOnline);
     window.addEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
     window.addEventListener("storage", this.handleMapPinStorageChange);
+    window.addEventListener("supabase-auth-session", this.handleExternalAuth);
     this.applyRequestedTileFromRoute();
   },
 
@@ -3649,6 +3650,10 @@ export default {
     window.removeEventListener("online", this.handleOnline);
     window.removeEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
     window.removeEventListener("storage", this.handleMapPinStorageChange);
+    window.removeEventListener(
+      "supabase-auth-session",
+      this.handleExternalAuth
+    );
     this.teardownSupabase();
     if (this.canvasDrawFrameId) {
       window.cancelAnimationFrame(this.canvasDrawFrameId);
@@ -4149,10 +4154,13 @@ export default {
       }
     },
     initSupabase() {
-      if (this.supabase) {
+      if (this.supabase || typeof window === "undefined") {
         return;
       }
-      this.supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      this.supabase = getSupabaseClient();
+      if (!this.supabase) {
+        return;
+      }
       const { data } = this.supabase.auth.onAuthStateChange(
         (_event, session) => {
           this.handleAuthSession(session);
@@ -4202,6 +4210,20 @@ export default {
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
       }
+    },
+
+    handleExternalAuth(event) {
+      const session =
+        event &&
+        event.detail &&
+        Object.prototype.hasOwnProperty.call(event.detail, "session")
+          ? event.detail.session
+          : null;
+      if (!session && event && event.detail && event.detail.user) {
+        this.handleAuthSession({ user: event.detail.user });
+        return;
+      }
+      this.handleAuthSession(session || null);
     },
 
     async signInWithEmail() {
