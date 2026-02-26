@@ -68,6 +68,7 @@
 import CommunityTileMapGrid from "../community/CommunityTileMapGrid.vue";
 
 const snapshotCache = new Map();
+const missingSnapshotCache = new Set();
 
 export default {
   name: "EpisodeMapSnapshot",
@@ -101,6 +102,7 @@ export default {
       mapRequested: false,
       isMobileBrowser,
       isLoadingSnapshot: false,
+      snapshotAvailability: this.snapshotPath ? "unknown" : "available",
     };
   },
   computed: {
@@ -114,8 +116,13 @@ export default {
       if (!this.hasSnapshotSource) {
         return false;
       }
+      if (this.requiresPayload && this.snapshotAvailability === "missing") {
+        return false;
+      }
       if (this.isMobileBrowser) {
-        return true;
+        return this.requiresPayload
+          ? this.snapshotAvailability === "available"
+          : true;
       }
       return this.requiresPayload ? this.isReady : true;
     },
@@ -140,6 +147,10 @@ export default {
       this.isReady = !this.isMobileBrowser;
       return;
     }
+    if (this.isMobileBrowser && this.requiresPayload) {
+      this.checkSnapshotAvailability();
+      return;
+    }
     if (!this.isMobileBrowser) {
       this.loadSnapshot(this.useBaseSnapshot);
     }
@@ -155,6 +166,11 @@ export default {
       this.isLoadingSnapshot = false;
       this.mapMounted = false;
       this.mapRequested = false;
+      this.snapshotAvailability = this.snapshotPath ? "unknown" : "available";
+      if (this.isMobileBrowser && this.requiresPayload) {
+        this.checkSnapshotAvailability();
+        return;
+      }
       if (!this.isMobileBrowser) {
         this.loadSnapshot(this.useBaseSnapshot);
       }
@@ -188,8 +204,53 @@ export default {
         map.zoomOut();
       }
     },
+    async checkSnapshotAvailability() {
+      if (!this.snapshotPath) {
+        this.snapshotAvailability = "available";
+        return;
+      }
+      if (missingSnapshotCache.has(this.snapshotPath)) {
+        this.snapshotAvailability = "missing";
+        return;
+      }
+      const cached = snapshotCache.get(this.snapshotPath);
+      if (Array.isArray(cached) && cached.length) {
+        this.snapshotAvailability = "available";
+        return;
+      }
+      this.abortSnapshotFetch();
+      try {
+        const resolved = this.$withBase
+          ? this.$withBase(this.snapshotPath)
+          : this.snapshotPath;
+        this.fetchController = new AbortController();
+        const response = await fetch(resolved, {
+          method: "HEAD",
+          signal: this.fetchController.signal,
+        });
+        if (response.status === 404 || response.status === 410) {
+          missingSnapshotCache.add(this.snapshotPath);
+          this.snapshotAvailability = "missing";
+          return;
+        }
+        this.snapshotAvailability = "available";
+      } catch (error) {
+        if (error && error.name === "AbortError") {
+          return;
+        }
+        this.snapshotAvailability = "available";
+      } finally {
+        this.fetchController = null;
+      }
+    },
     async loadSnapshot(allowFallback = false) {
       if (!this.snapshotPath) {
+        this.isReady = allowFallback;
+        this.snapshotAvailability = allowFallback ? "available" : "unknown";
+        return;
+      }
+      if (missingSnapshotCache.has(this.snapshotPath)) {
+        this.snapshotAvailability = "missing";
         this.isReady = allowFallback;
         return;
       }
@@ -197,6 +258,7 @@ export default {
       if (Array.isArray(cached) && cached.length) {
         this.snapshotPayload = cached;
         this.isReady = true;
+        this.snapshotAvailability = "available";
         return;
       }
       this.abortSnapshotFetch();
@@ -210,21 +272,29 @@ export default {
           signal: this.fetchController.signal,
         });
         if (!response.ok) {
+          if (response.status === 404 || response.status === 410) {
+            missingSnapshotCache.add(this.snapshotPath);
+            this.snapshotAvailability = "missing";
+          }
           this.isReady = allowFallback;
           return;
         }
         const payload = await response.json();
         if (!Array.isArray(payload) || !payload.length) {
+          missingSnapshotCache.add(this.snapshotPath);
+          this.snapshotAvailability = "missing";
           this.isReady = allowFallback;
           return;
         }
         this.snapshotPayload = payload;
         snapshotCache.set(this.snapshotPath, payload);
         this.isReady = true;
+        this.snapshotAvailability = "available";
       } catch (error) {
         if (error && error.name === "AbortError") {
           return;
         }
+        this.snapshotAvailability = "unknown";
         this.isReady = allowFallback;
       } finally {
         this.fetchController = null;

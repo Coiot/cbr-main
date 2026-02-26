@@ -166,6 +166,18 @@
             <circle cx="12" cy="10" r="4" />
             <circle cx="12" cy="12" r="10" />
           </svg>
+          <span
+            v-if="userStatusBadge"
+            class="user-status-badge"
+            :class="{
+              'is-supporter': userStatusBadge === 'supporter',
+              'is-non-supporter': userStatusBadge === 'non-supporter',
+            }"
+            :title="userStatusBadgeTitle"
+            aria-hidden="true"
+          >
+            {{ userStatusBadge === "supporter" ? "$" : "!" }}
+          </span>
         </button>
         <div v-if="userOpen" class="user-dropdown">
           <!-- <div class="user-header">Account</div> -->
@@ -297,6 +309,7 @@
                 id="user-civ-select"
                 class="user-input"
                 v-model="favoriteCiv"
+                :disabled="!canEditSupporterFields"
                 @change="saveFavoriteCiv"
               >
                 <option value="">No preference</option>
@@ -316,6 +329,7 @@
                 placeholder="Add a short flair"
                 v-model="customFlair"
                 maxlength="40"
+                :disabled="!canEditSupporterFields"
                 @change="saveCustomFlair"
               />
               <p class="user-hint">Shown next to your supporter comment.</p>
@@ -509,6 +523,26 @@ export default {
         names.push("Babylon");
       }
       return names.sort((a, b) => a.localeCompare(b, "en"));
+    },
+    userStatusBadge() {
+      if (!this.authUser || !this.authProfile) {
+        return "";
+      }
+      return this.authProfile.can_edit === true ? "supporter" : "non-supporter";
+    },
+    canEditSupporterFields() {
+      return Boolean(
+        this.authUser && this.authProfile && this.authProfile.can_edit === true
+      );
+    },
+    userStatusBadgeTitle() {
+      if (this.userStatusBadge === "supporter") {
+        return "Supporter account. Thank you!";
+      }
+      if (this.userStatusBadge === "non-supporter") {
+        return "Signed in (non-supporter)";
+      }
+      return "";
     },
   },
 
@@ -745,7 +779,7 @@ export default {
       }
       const { data, error } = await this.supabase
         .from("profiles")
-        .select("username")
+        .select("username, can_edit")
         .eq("id", this.authUser.id)
         .maybeSingle();
       if (error) {
@@ -1031,6 +1065,9 @@ export default {
       );
     },
     saveFavoriteCiv() {
+      if (this.authUser && !this.canEditSupporterFields) {
+        return;
+      }
       if (typeof window === "undefined") {
         return;
       }
@@ -1047,6 +1084,9 @@ export default {
       );
     },
     saveCustomFlair() {
+      if (this.authUser && !this.canEditSupporterFields) {
+        return;
+      }
       if (typeof window === "undefined") {
         return;
       }
@@ -1513,6 +1553,7 @@ function css(el, property) {
   fill: currentColor;
 }
 .navbar .links .user-trigger {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1542,6 +1583,30 @@ function css(el, property) {
   inline-size: 1.15rem;
   block-size: 1.15rem;
   stroke: currentColor;
+}
+.navbar .links .user-status-badge {
+  position: absolute;
+  inset-block-start: -0.2rem;
+  inset-inline-end: -0.2rem;
+  min-inline-size: 1rem;
+  block-size: 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--surface-color), black 10%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-inline: 0.2rem;
+}
+.navbar .links .user-status-badge.is-supporter {
+  color: #1a1a1a;
+  background: #f4c14f;
+}
+.navbar .links .user-status-badge.is-non-supporter {
+  color: #f7f8fb;
+  background: #5f6c86;
 }
 .navbar .links .bookmark-icon {
   inline-size: 1.2rem;

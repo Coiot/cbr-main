@@ -156,7 +156,7 @@ serve(async (req) => {
     const adminClient = createClient(supabaseUrl, serviceKey, {
       auth: { persistSession: false },
     });
-    await adminClient.from("profiles").upsert(
+    const { error: upsertError } = await adminClient.from("profiles").upsert(
       {
         id: user.id,
         email: user.email,
@@ -165,6 +165,18 @@ serve(async (req) => {
       },
       { onConflict: "id" }
     );
+    if (upsertError) {
+      return new Response(
+        JSON.stringify({
+          error: "Failed to persist profile state.",
+          details: upsertError.message,
+        }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
 
     return new Response(JSON.stringify({ allowed }), {
       status: 200,

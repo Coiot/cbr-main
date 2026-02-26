@@ -24,17 +24,13 @@
         >
           <span>You already left a comment.</span>
           <div class="comment-inline-actions" v-if="commentWindowOpen">
-            <button
-              type="button"
-              class="comment-link"
-              @click="$emit('start-edit')"
-            >
+            <button type="button" class="comment-link" @click="emitStartEdit">
               Edit comment
             </button>
             <button
               type="button"
               class="comment-link comment-link--danger"
-              @click="$emit('delete-comment')"
+              @click="emitDeleteComment"
             >
               Delete
             </button>
@@ -48,13 +44,14 @@
             rows="4"
             placeholder="Post a comment for all posterity..."
             @input="$emit('update:commentDraft', $event.target.value)"
+            :disabled="!canSupporterComment"
           ></textarea>
           <div class="comment-actions">
             <button
               type="button"
               class="comment-button comment-button--ghost"
               :disabled="commentSaving || !commentDraft.trim()"
-              @click="$emit('preview-comment')"
+              @click="emitPreviewComment"
             >
               Preview before Posting
             </button>
@@ -63,7 +60,7 @@
               class="comment-button"
               :disabled="commentSaving || !canSubmitComment"
               :title="submitHint"
-              @click="$emit('submit-comment')"
+              @click="emitSubmitComment"
             >
               {{ submitLabel }}
             </button>
@@ -79,7 +76,7 @@
               v-if="userComment"
               type="button"
               class="comment-link comment-link--danger"
-              @click="$emit('delete-comment')"
+              @click="emitDeleteComment"
             >
               Delete
             </button>
@@ -258,6 +255,32 @@ export default {
     },
     messageIsSuccess() {
       return this.commentMessageType === "success";
+    },
+  },
+  methods: {
+    emitPreviewComment() {
+      if (!this.canSupporterComment) {
+        return;
+      }
+      this.$emit("preview-comment");
+    },
+    emitSubmitComment() {
+      if (!this.canSupporterComment) {
+        return;
+      }
+      this.$emit("submit-comment");
+    },
+    emitStartEdit() {
+      if (!this.canSupporterComment) {
+        return;
+      }
+      this.$emit("start-edit");
+    },
+    emitDeleteComment() {
+      if (!this.canSupporterComment) {
+        return;
+      }
+      this.$emit("delete-comment");
     },
   },
 };
