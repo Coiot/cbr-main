@@ -51,7 +51,9 @@ function parseCsv(csv: string): string[][] {
 async function fetchSheetEmails() {
   const sheetId = Deno.env.get("GOOGLE_SHEET_ID");
   const sheetGid = Deno.env.get("GOOGLE_SHEET_GID") || "0";
-  const publishedId = Deno.env.get("GOOGLE_SHEET_PUB_ID");
+  const publishedId =
+    Deno.env.get("GOOGLE_SHEET_PUB_ID") ||
+    "2PACX-1vQ-tkKRpaaetTuSekXz43IKKlEU4lrvYAgRQz6qeP1r760_a7sHm2AzAeG9lU9iuPn0grd2TiuS7Cdz";
   const emailColumn = Number.parseInt(
     Deno.env.get("SUPPORTERS_EMAIL_COLUMN") || "1",
     10
@@ -59,23 +61,49 @@ async function fetchSheetEmails() {
   if (!sheetId) {
     throw new Error("Missing GOOGLE_SHEET_ID.");
   }
-  let response = await fetch(
-    `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${sheetGid}`
-  );
-  if (!response.ok && publishedId) {
-    response = await fetch(
-      `https://docs.google.com/spreadsheets/d/e/${publishedId}/pub?output=csv`
-    );
+  const exportUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${sheetGid}`;
+  const pubUrl = publishedId
+    ? `https://docs.google.com/spreadsheets/d/e/${publishedId}/pub?output=csv`
+    : "";
+
+  const fetchCsv = async (url: string) => {
+    const response = await fetch(url);
+    const csv = await response.text();
+    const looksHtml = /<html/i.test(csv);
+    return {
+      ok: response.ok && !looksHtml,
+      csv,
+      source: url,
+      status: response.status,
+      looksHtml,
+    };
+  };
+
+  let response = null;
+  if (pubUrl) {
+    response = await fetchCsv(pubUrl);
   }
-  const csv = await response.text();
+  if (!response || !response.ok) {
+    response = await fetchCsv(exportUrl);
+  }
   if (!response.ok) {
-    throw new Error("Unable to read Google Sheet.");
+    console.warn("Supporter list fetch failed.", {
+      source: response.source,
+      status: response.status,
+      looksHtml: response.looksHtml,
+    });
+    return { emails: [], ok: false, source: response.source };
   }
+  const csv = response.csv;
   const rows = parseCsv(csv).filter((row) => row.length);
   if (rows.length <= 1) {
-    return [];
+    console.warn("Supporter list fetch returned no data.", {
+      source: response.source,
+      rows: rows.length,
+    });
+    return { emails: [], ok: false, source: response.source };
   }
-  return rows
+  const emails = rows
     .slice(1)
     .map((row) =>
       String(row?.[emailColumn] || "")
@@ -83,6 +111,7 @@ async function fetchSheetEmails() {
         .toLowerCase()
     )
     .filter(Boolean);
+  return { emails, ok: true, source: response.source };
 }
 
 serve(async (req) => {
@@ -148,7 +177,19 @@ serve(async (req) => {
       );
     }
 
-    const emails = await fetchSheetEmails();
+    const { emails, ok: emailFetchOk, source } = await fetchSheetEmails();
+    if (!emailFetchOk) {
+      return new Response(
+        JSON.stringify({
+          error: "Unable to load supporter list.",
+          source,
+        }),
+        {
+          status: 503,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
     const allowed = user.email
       ? emails.includes(user.email.trim().toLowerCase())
       : false;

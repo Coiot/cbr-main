@@ -2397,6 +2397,7 @@ import {
 } from "./communityTileMapBrushUtils";
 import {
   getSupabaseClient,
+  checkSupporterAccess,
   SUPABASE_USER_SETTINGS_TABLE,
 } from "../../supabaseClient";
 const SUPABASE_MAP_ID = "s5";
@@ -2404,7 +2405,6 @@ const SUPABASE_OVERRIDE_TABLE = "tile_overrides";
 const SUPABASE_EDIT_LOG_TABLE = "tile_edits";
 const SUPABASE_SNAPSHOT_TABLE = "map_snapshots";
 const SUPABASE_ADMIN_TABLE = "map_admins";
-const SUPABASE_CHECK_FUNCTION = "check-kofi-subscriber";
 const REQUIRE_AUTH_FOR_LOCAL = false;
 const ENABLE_OVERRIDE_CLEANUP = false;
 const SUPABASE_UNDO_FUNCTION = "undo-tile-edits";
@@ -2546,6 +2546,36 @@ const RELIGION_OVERLAY_FALLBACK_COLORS = [
   "#cd4f99",
   "#5a9dd9",
 ];
+
+function serializeSupabaseError(error) {
+  if (!error) {
+    return null;
+  }
+  const fallbackMessage =
+    typeof error === "string" ? error : "Unknown Supabase error.";
+  const payload = {
+    message:
+      error && typeof error.message === "string"
+        ? error.message
+        : fallbackMessage,
+  };
+  if (error && typeof error.name === "string") {
+    payload.name = error.name;
+  }
+  if (error && typeof error.code !== "undefined") {
+    payload.code = error.code;
+  }
+  if (error && typeof error.status !== "undefined") {
+    payload.status = error.status;
+  }
+  if (error && typeof error.details !== "undefined") {
+    payload.details = error.details;
+  }
+  if (error && typeof error.hint !== "undefined") {
+    payload.hint = error.hint;
+  }
+  return payload;
+}
 
 export default {
   props: {
@@ -4337,38 +4367,77 @@ export default {
       }
       this.authChecking = true;
       this.authMessage = "";
-      const { data: sessionData } = await this.supabase.auth.getSession();
-      const accessToken =
-        sessionData && sessionData.session
-          ? sessionData.session.access_token
-          : null;
-      const { data, error } = await this.supabase.functions.invoke(
-        SUPABASE_CHECK_FUNCTION,
-        {
-          body: {
-            map_id: SUPABASE_MAP_ID,
-            email: this.authUser.email,
-          },
-          headers: accessToken
-            ? { Authorization: `Bearer ${accessToken}` }
-            : undefined,
+      const debugMeta = {
+        mapId: SUPABASE_MAP_ID,
+        userId: this.authUser.id || null,
+        email: this.authUser.email || "",
+      };
+      try {
+        const { data: profile, error: profileError } = await this.supabase
+          .from("profiles")
+          .select("can_edit")
+          .eq("id", this.authUser.id)
+          .maybeSingle();
+        if (profileError) {
+          console.warn(
+            "[CommunityTileMapGrid] profiles.can_edit lookup failed; trying supporter function.",
+            {
+              ...debugMeta,
+              error: serializeSupabaseError(profileError),
+            }
+          );
         }
-      );
-      this.authChecking = false;
-      if (error) {
-        this.canEdit = false;
-        this.authMessage =
-          error.message || "Unable to verify edit permissions.";
-        return;
-      }
-      this.canEdit = !!(data && data.allowed);
-      if (!this.canEdit) {
-        this.ownerBrushEnabled = false;
-        this.isPaintingOwner = false;
-        this.ownerBrushId = null;
-        this.authMessage = "Viewer mode: this email is not on the edit list.";
-      } else {
-        this.authMessage = "Editing enabled for this account.";
+
+        let allowed = Boolean(profile && profile.can_edit);
+        let supporterError = null;
+
+        if (!allowed || profileError) {
+          const { allowed: supporterAllowed, error } =
+            await checkSupporterAccess(this.supabase, this.authUser);
+          supporterError = error || null;
+          if (supporterError) {
+            console.warn(
+              "[CommunityTileMapGrid] supporter permission check failed.",
+              {
+                ...debugMeta,
+                profileCanEdit: Boolean(profile && profile.can_edit),
+                error: serializeSupabaseError(supporterError),
+              }
+            );
+          }
+          if (!supporterError) {
+            allowed = Boolean(supporterAllowed);
+          }
+        }
+
+        this.canEdit = allowed;
+        if (!this.canEdit) {
+          this.ownerBrushEnabled = false;
+          this.isPaintingOwner = false;
+          this.ownerBrushId = null;
+          this.authMessage =
+            supporterError && profileError
+              ? supporterError.message || "Unable to verify edit permissions."
+              : "Viewer mode: this email is not on the edit list.";
+          if (supporterError || profileError) {
+            console.warn(
+              "[CommunityTileMapGrid] edit permission unresolved; keeping viewer mode.",
+              {
+                ...debugMeta,
+                profileCanEdit: Boolean(profile && profile.can_edit),
+                profileError: serializeSupabaseError(profileError),
+                supporterError: serializeSupabaseError(supporterError),
+              }
+            );
+          }
+          return;
+        }
+
+        this.authMessage = supporterError
+          ? "Editing enabled for this account (using cached supporter access)."
+          : "Editing enabled for this account.";
+      } finally {
+        this.authChecking = false;
       }
     },
 
@@ -4397,6 +4466,13 @@ export default {
       );
       this.undoLoading = false;
       if (error) {
+        console.warn("[CommunityTileMapGrid] undo-tile-edits failed.", {
+          mapId: SUPABASE_MAP_ID,
+          userId: this.authUser && this.authUser.id ? this.authUser.id : null,
+          email:
+            this.authUser && this.authUser.email ? this.authUser.email : "",
+          error: serializeSupabaseError(error),
+        });
         this.authMessage = error.message || "Unable to undo edits.";
         return;
       }
