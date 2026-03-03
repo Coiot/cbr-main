@@ -213,6 +213,46 @@ export default {
   padding: 0;
   margin: 0;
 }
+:deep(.narrations details) {
+  margin: 0.75rem 0 0;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 72%);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--panel-bg-color), white 4%);
+  overflow: hidden;
+}
+:deep(.narrations details > summary) {
+  position: relative;
+  padding: 0.55rem 0.85rem;
+  font-weight: 700;
+  text-shadow: none;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  list-style: none;
+  background: color-mix(in srgb, var(--accent-color), transparent 88%);
+  transition: background-color 0.2s ease;
+}
+:deep(.narrations details > summary:hover),
+:deep(.narrations details[open] > summary) {
+  background: color-mix(in srgb, var(--accent-color), transparent 82%);
+}
+:deep(.narrations details > summary::-webkit-details-marker) {
+  display: none;
+}
+:deep(.narrations details > summary::before) {
+  content: "▸";
+  display: inline-block;
+  margin-inline-end: 0.45rem;
+  color: color-mix(in srgb, var(--accent-color), white 24%);
+  transform-origin: 45% 55%;
+  transition: transform 0.2s ease;
+}
+:deep(.narrations details[open] > summary::before) {
+  transform: rotate(90deg);
+}
+:deep(.narrations details > :not(summary)) {
+  margin: 0;
+  padding: 0.7rem 0.85rem 0.85rem;
+}
 .reporter {
   font-size: 1.1rem;
   font-weight: 400;
@@ -233,6 +273,12 @@ export default {
     word-break: break-word;
     margin: 0;
     border-block-start: 0;
+  }
+  :deep(.narrations details > summary) {
+    padding: 0.5rem 0.75rem;
+  }
+  :deep(.narrations details > :not(summary)) {
+    padding: 0.6rem 0.75rem 0.75rem;
   }
   .reporter {
     padding-block-end: 1rem;
