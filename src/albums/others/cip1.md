@@ -439,8 +439,8 @@ scenes:
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/ci-part1-scene108.jpg
   narration: "<p>And then the beliefs of Catholicism and Arianism, plus the last of the Pantheons.</p>"
-- scene_number: 110
-  scene_title: "109"
+- scene_number: 109
+  scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/ci-part1-scene110.jpg
   narration: "<p>And finally, here’s a general overview of the religions founded thus far!</p><p></p><p>Thank you very much for reading! There’s plenty of excitement yet to come, so be sure to check back for the next part soon. Until then, I’ve been NopeCopter aka u/daXfactorz, and thank you for reading.</p>"
 ---
