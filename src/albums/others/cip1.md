@@ -3,7 +3,7 @@ title: "Part 1"
 narrated_by: "NopeCopter"
 description: "Empires are born and religions are founded as civilizations struggle to stake their claim on key parts of the continent, be it through settling… or through force."
 release_date: March 06, 2026
-edition: S5
+edition: CI
 date: 2026-03-06T00:00:00.000Z
 image: https://cdn.civbattleroyale.tv/ci-part1-scene01.jpg
 scenes:
@@ -440,7 +440,7 @@ scenes:
   slide_url: https://cdn.civbattleroyale.tv/ci-part1-scene108.jpg
   narration: "<p>And then the beliefs of Catholicism and Arianism, plus the last of the Pantheons.</p>"
 - scene_number: 110
-  scene_title: ""
+  scene_title: "109"
   slide_url: https://cdn.civbattleroyale.tv/ci-part1-scene110.jpg
   narration: "<p>And finally, here’s a general overview of the religions founded thus far!</p><p></p><p>Thank you very much for reading! There’s plenty of excitement yet to come, so be sure to check back for the next part soon. Until then, I’ve been NopeCopter aka u/daXfactorz, and thank you for reading.</p>"
 ---
