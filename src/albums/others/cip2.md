@@ -339,4 +339,48 @@ scenes:
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene83.jpg
   narration: "<p>And with that, folks, it is time to wrap up the part! We’ve seen some shake-ups to the global stage, some more settlement and consolidation, and a few juicy hooks to tide us over to part 3. I think it’s worth noting that much of the infamous TSL deadzone that is Chhattisgarh remains largely unsettled - with the amount of civs still churning out settlers around the map we could possibly see some ludicrous borders in this big central chunk. I don’t have much more to say, except thanks for reading through the part with me today, I hope you’ve enjoyed, I’ve been Senshi, and until next time, cheers!</p><p></p><p>I’ll leave you with the stats if you’re into that kind of thing, but regardless, stay tuned for the next part folks, have a good one.</p>"
+- scene_number: 84
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene84.jpg
+  narration: ""
+- scene_number: 85
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene85.jpg
+  narration: ""
+- scene_number: 86
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene86.jpg
+  narration: ""
+- scene_number: 87
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene87.jpg
+  narration: ""
+- scene_number: 88	
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene88.jpg
+  narration: ""
+- scene_number: 89
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene89.jpg
+  narration: ""
+- scene_number: 90	
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene90.jpg
+  narration: ""
+- scene_number: 91
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene91.jpg
+  narration: ""
+- scene_number: 92
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene92.jpg
+  narration: ""
+- scene_number: 93
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene93.jpg
+  narration: ""
+- scene_number: 94
+  scene_title: ""
+  slide_url: https://cdn.civbattleroyale.tv/ci-part2-scene94.jpg
+  narration: ""
 ---
