@@ -16,7 +16,7 @@
           d="M208 80C137.3 80 80 137.3 80 208s57.3 128 128 128s128-57.3 128-128S278.7 80 208 80zM0 208C0 93.1 93.1 0 208 0s208 93.1 208 208c0 45.1-14.3 86.8-38.6 120.9l124.9 124.9c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L332.1 374.2C298.8 398.7 255.8 416 208 416C93.1 416 0 322.9 0 208z"
         />
       </svg>
-      <span class="quick-jump-trigger-label">Jump</span>
+      <span class="quick-jump-trigger-label">Search</span>
       <kbd class="quick-jump-trigger-shortcut">{{ shortcutLabel }}</kbd>
     </button>
 
@@ -1297,9 +1297,9 @@ export default {
 }
 
 .quick-jump-trigger-label {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
