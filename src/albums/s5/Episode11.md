@@ -270,7 +270,7 @@ scenes:
 - scene_number: 66
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode11-scene66.jpeg
-  narration: "<p>It’s turn 153 and Xarugua makes peace with Teo, giving up a city in the bargain, but crucially not one containing a wonder. On the plus side the city of Mamey has a nice population and makes an excellent staging point should Spearthrower Owl wish to resume hostilities with Anacaona in the future. Or, for that matter, attack the southern coast of North America.</p>"
+  narration: "<p>It’s turn 153 and Xarugua makes peace with Teo, giving up a city in the bargain, but crucially not one containing a wonder. On the plus side the city of Mamey has a nice population and makes an excellent staging point should Spearthrower Owl wish to resume hostilities with Anacaona in the future. Or, for that matter, attack the southern coast of North America.</p><p>Coiot: No Mameys, Gua</p>"
 - scene_number: 67
   scene_title: "“One thing about Central Europe I never could stand, all the damn vampires!” - Jurgen Wullenwever"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode11-scene67.jpeg
