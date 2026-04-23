@@ -118,7 +118,7 @@ scenes:
 - scene_number: 28
   scene_title: "Aloha Oe"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene28.jpeg
-  narration: "<p>We take a look at Hawaii, now almost entirely controlled by Cebu. Karnapo is the sole holdout, but it is entirely besieged by Cebu triremes, and should fall in due time. The amount of aura Cebu farms every single part is frankly impressive, and the Hawaii play really is the top of the list for that. It was completely out of left field, and surprisingly pertinent. For now though, they settle on the ashes of that high. </p>"
+  narration: "<p>We take a look at Hawaii, now almost entirely controlled by Cebu. Karnapo is the sole holdout, but it is entirely besieged by Cebu triremes, and should fall in due time. The amount of aura Cebu farms every single episode is frankly impressive, and the Hawaii play really is the top of the list for that. It was completely out of left field, and surprisingly pertinent. For now though, they settle on the ashes of that high. </p>"
 - scene_number: 29
   scene_title: "Money For Nothing"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene29.jpeg
@@ -174,7 +174,7 @@ scenes:
 - scene_number: 42
   scene_title: "wtf"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene42.jpeg
-  narration: "<p>In a very shocking development, Estonia has somehow managed to flip Rostock towards them, another chance for Lennart to try to make up for his original buttfumble of a war several parts back. To see if he can hold onto this however, he’ll first need to roll a big volition check in the midst of overwhelming Hanseatic reinforcements. </p>"
+  narration: "<p>In a very shocking development, Estonia has somehow managed to flip Rostock towards them, another chance for Lennart to try to make up for his original buttfumble of a war several episodes back. To see if he can hold onto this however, he’ll first need to roll a big volition check in the midst of overwhelming Hanseatic reinforcements. </p>"
 - scene_number: 43
   scene_title: "Something"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene43.jpeg
@@ -182,7 +182,7 @@ scenes:
 - scene_number: 44
   scene_title: "Spanish Bombs"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene44.jpeg
-  narration: "<p>We take a full look over the state of Portugal. Its a fine state of things, considering how disastrously the war with France went a few parts ago and how hemmed in they are between France and the Aures. While their navy is more prominent than their army, theres a decent enough military force on the mainland to contest any attempts at incursion. Joao had firmly beaten the Lazy allegations last episode by successfully conquering cities from Wassalou. What remains to be seen is if theres anyone else he can actually do that again onto. </p>"
+  narration: "<p>We take a full look over the state of Portugal. Its a fine state of things, considering how disastrously the war with France went a few episodes ago and how hemmed in they are between France and the Aures. While their navy is more prominent than their army, theres a decent enough military force on the mainland to contest any attempts at incursion. Joao had firmly beaten the Lazy allegations last episode by successfully conquering cities from Wassalou. What remains to be seen is if theres anyone else he can actually do that again onto. </p>"
 - scene_number: 45
   scene_title: "Road To Nowhere"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode13-scene45.jpeg
