@@ -27,10 +27,10 @@ scenes:
   scene_title: "The Mets of CBRX season 5"
   slide_url: https://cdn.civbattleroyale.tv/season5-pr14-scene16.jpeg
   narration: "<p>Everybody wrote Vyatka off. They said they couldn’t do it, they got off to too slow of a start. But they forgot the underlying grit in Vyatka, and they will overcome this start. It’s all about Myshkin. Let’s go Myshkin. Love da Myshkin.</p>"
-- scene_number: 06
-  scene_title: "Cafeteria New Zealand"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode15-scene06.jpeg
-  narration: "<p>Where is that Chono settler going? I have no clue. What I do know is that an Australian civ settling New Zealand is a travesty. Caral may only have two tiles of the north island, but Carretaria is the only thing preventing our New Zealand viewers from crashing out and quitting CBR. Shoutout the AI, however, for making Shellharbour a coastal city.</p>"
+# - scene_number: 06
+#   scene_title: "Cafeteria New Zealand"
+#   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode15-scene06.jpeg
+#   narration: "<p>Where is that Chono settler going? I have no clue. What I do know is that an Australian civ settling New Zealand is a travesty. Caral may only have two tiles of the north island, but Carretaria is the only thing preventing our New Zealand viewers from crashing out and quitting CBR. Shoutout the AI, however, for making Shellharbour a coastal city.</p>"
 - scene_number: 07
   scene_title: "Premature Glazing"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode15-scene07.jpeg
