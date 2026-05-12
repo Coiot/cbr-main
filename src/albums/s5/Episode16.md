@@ -13,7 +13,7 @@ scenes:
   narration: "<p>Hello everyone, this is Semi, newly of the Power Ranking team, back to narrate another episode after I did a couple last season. Thank you, as always, for coming back week after week to see some bots scramble around a world map pretending to be historical leaders. Let’s get into it - it’s a long one, at 109 slides.</p>"
 - scene_number: 02
   scene_title: "But first…"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode16-scene02.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode16-scene02.jpg
   narration: "<p>Since nobody else has so far this season, I’d like to call out the Stats Sheet for always being a great tool to check out who’s ahead and who’s behind on the behind-the-scenes stuff. Tlingit’s domination of science and production is why we on the PR team have consistently kept them at number one, even despite the loss of the Greenland city and the fumbling of the Pomo war. Pakistan is the real stats darling, though - all the way up at #3 after last episode. </p>"
 - scene_number: 03
   scene_title: "OC!"
