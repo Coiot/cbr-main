@@ -14,7 +14,7 @@ scenes:
 - scene_number: 02
   scene_title: "Pomo Woes"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene02.jpeg
-  narration: "<p>The Sub’s premiere Pomologist and comic creator Orangechrisy’s latest creation shows just how rough the Pomo have had it lately. </p><p></p><p>Perhaps their luck will improve this part…</p>"
+  narration: "<p>The Sub’s premiere Pomologist and comic creator Orangechrisy’s latest creation shows just how rough the Pomo have had it lately. </p><p></p><p>Perhaps their luck will improve this episode…</p>"
 - scene_number: 03
   scene_title: "Lots of Lazy People"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene03.jpeg
@@ -38,7 +38,7 @@ scenes:
 - scene_number: 08
   scene_title: "Did you know that Fernando Alonso made his debut in the 1730 Lanfang GP?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene08.jpeg
-  narration: "<p>The constant warring and frequent successes of the last few parts have left Luo Fangbo with a taste for dopamine and adrenaline. Now, things are quiet and the great Lawspeaker is bored, so he’s taken up racing. He orders the construction of a long, twisty strip of road and names it Sepang. Perhaps, one day, people will be able to One perfect Formula of that new-fangled gunpowder stuff and he’ll be able to race a rocket around Sepang, or something.</p><p>Lanfang infills a little. While they have plenty of boats, rather too many of them are still relying on oars for propulsion. Luo has one of the healthiest treasuries on the cylinder, so I’m not sure why he’s still sporting any Galleasses at all. </p>"
+  narration: "<p>The constant warring and frequent successes of the last few episodes have left Luo Fangbo with a taste for dopamine and adrenaline. Now, things are quiet and the great Lawspeaker is bored, so he’s taken up racing. He orders the construction of a long, twisty strip of road and names it Sepang. Perhaps, one day, people will be able to One perfect Formula of that new-fangled gunpowder stuff and he’ll be able to race a rocket around Sepang, or something.</p><p>Lanfang infills a little. While they have plenty of boats, rather too many of them are still relying on oars for propulsion. Luo has one of the healthiest treasuries on the cylinder, so I’m not sure why he’s still sporting any Galleasses at all. </p>"
 - scene_number: 09
   scene_title: "The Citydel"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene09.jpeg
@@ -210,7 +210,7 @@ scenes:
 - scene_number: 51
   scene_title: "Advance of the Warrior Queen"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene51.jpeg
-  narration: "<p>Amina of the Zazzau surprised many pundits by successfully taking Kerouane off the Wassoulou last part. Now she looks to go one better, and knocks forcefully on the door of Bissandugu, the Wassoulou capital. </p><p></p><p>Samori Ture may be ejected from the Cylinder sooner rather than later. That’s fine though, it will give him more time to practice his route tree for the Philadelphia Eagles. </p>"
+  narration: "<p>Amina of the Zazzau surprised many pundits by successfully taking Kerouane off the Wassoulou last episode. Now she looks to go one better, and knocks forcefully on the door of Bissandugu, the Wassoulou capital. </p><p></p><p>Samori Ture may be ejected from the Cylinder sooner rather than later. That’s fine though, it will give him more time to practice his route tree for the Philadelphia Eagles. </p>"
 - scene_number: 52
   scene_title: "Another W for the People’s Champ"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene52.jpeg
@@ -238,7 +238,7 @@ scenes:
 - scene_number: 58
   scene_title: "This Slide is Actually About the Kipchaks"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene58.jpeg
-  narration: "<p>In “Oh right, I guess I kinda forgot that was happening” news, Dihya and Robespierre make peace. The packed nature of the Mediterranean meant that the Aures never stood much chance of doing serious damage to Bordeaux. </p><p></p><p>For his part, Robespierre has *technically* dealt with simultaneous invasions on three fronts. Exactly how impressive this feat really is, I’ll let you all be the judges.</p><p></p><p>Of significance to nobody but myself, I believe this is the first sighting of the singular Kipchak trireme who was forcibly ejected from the Caspian several parts ago by border expansions. My white whale is slain. </p>"
+  narration: "<p>In “Oh right, I guess I kinda forgot that was happening” news, Dihya and Robespierre make peace. The packed nature of the Mediterranean meant that the Aures never stood much chance of doing serious damage to Bordeaux. </p><p></p><p>For his part, Robespierre has *technically* dealt with simultaneous invasions on three fronts. Exactly how impressive this feat really is, I’ll let you all be the judges.</p><p></p><p>Of significance to nobody but myself, I believe this is the first sighting of the singular Kipchak trireme who was forcibly ejected from the Caspian several episodes ago by border expansions. My white whale is slain. </p>"
 - scene_number: 59
   scene_title: "Frozen Conflict, Frozen Peace"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene59.jpeg
@@ -274,7 +274,7 @@ scenes:
 - scene_number: 67
   scene_title: "Opportunity Slips Away"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene67.jpeg
-  narration: "<p>Demetrius of Bactria finds the flattest plot of land he can, and names it after a mountain range. </p><p></p><p>Looking at the state of play here, I fear the Kipchaks have missed their moment. They’ve slowly been building up a top 10 military on the Cylinder in the last few parts (at least in terms of numbers). The Bactrians had been one of their two truly viable targets, but Demetrius has clearly given the order to replenish the Bactrian army as well. Worse still, the Bactrians have researched machinery and the crossbows which come with it. </p><p></p><p>It’s fine though. What I *really* want Togortak to do is punish the hubris of the Scythians, whose lands lie bare of defenders. </p>"
+  narration: "<p>Demetrius of Bactria finds the flattest plot of land he can, and names it after a mountain range. </p><p></p><p>Looking at the state of play here, I fear the Kipchaks have missed their moment. They’ve slowly been building up a top 10 military on the Cylinder in the last few episodes (at least in terms of numbers). The Bactrians had been one of their two truly viable targets, but Demetrius has clearly given the order to replenish the Bactrian army as well. Worse still, the Bactrians have researched machinery and the crossbows which come with it. </p><p></p><p>It’s fine though. What I *really* want Togortak to do is punish the hubris of the Scythians, whose lands lie bare of defenders. </p>"
 - scene_number: 68
   scene_title: "Queen of Clean"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene68.jpeg
@@ -338,7 +338,7 @@ scenes:
 - scene_number: 83
   scene_title: "Someone forgot to say “green light”"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene83.jpeg
-  narration: "<p>Lapu-Lapu is a Great General, he even has the badge to prove it - which was given to him by Felipe Camarao himself, by the way! </p><p></p><p>But that doesn’t make him a *good* general. In fact, judging by his botched siege of Catu, he’s nowhere near.</p><p></p><p>Despite having had their former city mostly encircled for this whole part, the Potiguarans have made precisely 0 inroads. It’s like the whole war has been frozen in time and space for the last 15 turns. Even though they’ve had ample time to do so, the Guaycuru haven’t done much in the way of producing units to defend themselves either. Just pathetic all round. </p>"
+  narration: "<p>Lapu-Lapu is a Great General, he even has the badge to prove it - which was given to him by Felipe Camarao himself, by the way! </p><p></p><p>But that doesn’t make him a *good* general. In fact, judging by his botched siege of Catu, he’s nowhere near.</p><p></p><p>Despite having had their former city mostly encircled for this whole episode, the Potiguarans have made precisely 0 inroads. It’s like the whole war has been frozen in time and space for the last 15 turns. Even though they’ve had ample time to do so, the Guaycuru haven’t done much in the way of producing units to defend themselves either. Just pathetic all round. </p>"
 - scene_number: 84
   scene_title: "The Forgotten War"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode19-scene84.jpeg
