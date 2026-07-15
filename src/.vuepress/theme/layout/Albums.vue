@@ -123,15 +123,26 @@
           class="floating-scene-jump"
           aria-label="Jump to scene"
         >
-          <SceneJumpControl
-            v-model.number="jumpToScene"
-            :scene-count="sceneCount"
-            :scenes="$page.frontmatter.scenes || []"
-            :show-scene-titles="isPowerRanking"
-            select-id="floating-scene-jump"
-            compact
-            @go="goToScene"
-          />
+          <button
+            type="button"
+            class="floating-scene-trigger"
+            aria-label="Open jump to scene control"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M4 12h10M4 18h7" />
+            </svg>
+          </button>
+          <div class="floating-scene-panel">
+            <SceneJumpControl
+              v-model.number="jumpToScene"
+              :scene-count="sceneCount"
+              :scenes="$page.frontmatter.scenes || []"
+              :show-scene-titles="isPowerRanking"
+              select-id="floating-scene-jump"
+              compact
+              @go="goToScene"
+            />
+          </div>
         </aside>
       </transition>
 
@@ -2727,23 +2738,75 @@ export default {
 }
 .floating-scene-jump {
   position: fixed;
-  right: 1rem;
-  bottom: 5.25rem;
   right: calc(1rem + env(safe-area-inset-right, 0px));
   bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
   z-index: 7;
-  max-inline-size: calc(100vw - 2rem);
+  inline-size: 3rem;
+  block-size: 3rem;
+  box-sizing: border-box;
+}
+.floating-scene-trigger {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--meta-value-color);
+  background: color-mix(in srgb, var(--timeline-surface-bg), transparent 22%);
+  border: 1px solid color-mix(in srgb, var(--meta-value-color), transparent 18%);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  padding: 0;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.16s ease, background-color 0.16s ease;
+}
+.floating-scene-trigger svg {
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.floating-scene-trigger:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+.floating-scene-panel {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  inline-size: min(16rem, calc(100vw - 2rem));
   box-sizing: border-box;
   color: var(--page-text-color);
-  background: var(--timeline-surface-bg);
   background: color-mix(in srgb, var(--timeline-surface-bg), #111 12%);
-  border: 1px solid var(--meta-value-color);
   border: 1px solid color-mix(in srgb, var(--meta-value-color), transparent 18%);
   border-radius: 14px;
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
   padding: 0.7rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(0.5rem) scale(0.97);
+  transform-origin: bottom right;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: opacity 0.16s ease, transform 0.16s ease,
+    visibility 0s linear 0.16s;
+}
+.floating-scene-jump:hover .floating-scene-panel,
+.floating-scene-jump:focus-within .floating-scene-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+  transition-delay: 0s;
+}
+.floating-scene-jump:hover .floating-scene-trigger,
+.floating-scene-jump:focus-within .floating-scene-trigger {
+  opacity: 0;
 }
 .floating-scene-jump-enter-active,
 .floating-scene-jump-leave-active {

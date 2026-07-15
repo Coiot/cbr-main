@@ -6,15 +6,11 @@
         :id="selectId"
         :value="value"
         @change="handleChange"
-        @keyup.enter="$emit('go')"
       >
         <option v-for="index in sceneCount" :key="index" :value="index">
           {{ optionLabel(index) }}
         </option>
       </select>
-      <button type="button" class="scene-button" @click="$emit('go')">
-        Go
-      </button>
     </div>
   </div>
 </template>
@@ -120,22 +116,6 @@ export default {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 191, 70, 0.3);
 }
-.scene-button {
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  border: 1px solid var(--meta-value-color);
-  border-radius: 999px;
-  background: var(--panel-bg-color);
-  color: var(--meta-value-color);
-  font-size: 1.125rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-.scene-button:hover {
-  color: #1a1a1a;
-  background: #ffbf46;
-}
 .scene-jump.compact {
   min-inline-size: 0;
   gap: 0.4rem;
@@ -151,11 +131,6 @@ export default {
   max-inline-size: 15rem;
   padding-block: 0.42rem;
   font-size: 0.9rem;
-}
-.scene-jump.compact .scene-button {
-  padding-block: 0.42rem;
-  padding-inline: 0.85rem;
-  font-size: 0.95rem;
 }
 @media (max-width: 799px) {
   .scene-jump {
