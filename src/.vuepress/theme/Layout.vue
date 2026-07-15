@@ -25,6 +25,15 @@
 
       <Page v-else> </Page>
     </main>
+
+    <a
+      class="site-support-link"
+      href="https://ko-fi.com/coiot"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Keep the Show Going!
+    </a>
   </div>
 </template>
 
@@ -145,8 +154,6 @@ export default {
         }
       });
     });
-
-    this.$on("sw-updated", this.onSWUpdated);
   },
 
   beforeDestroy() {
@@ -163,10 +170,6 @@ export default {
   methods: {
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
-    },
-
-    onSWUpdated(e) {
-      this.swUpdateEvent = e;
     },
   },
 };
@@ -200,5 +203,43 @@ export default {
   font-weight: 800;
   text-decoration: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.site-support-link {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  right: calc(1rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  color: #323842;
+  background: #fcbf47;
+  border: 1px solid rgba(50, 56, 66, 0.24);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  padding: 0.65rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-support-link:hover,
+.site-support-link:focus-visible {
+  color: #1f242b;
+  background: #ffd067;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .site-support-link {
+    display: none;
+  }
 }
 </style>

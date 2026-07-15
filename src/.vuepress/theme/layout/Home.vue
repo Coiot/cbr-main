@@ -10,26 +10,6 @@
         </div>
         <aside class="link-column">
           <div class="quick-panel">
-            <router-link
-              v-if="latestEpisode"
-              class="latest-card"
-              :to="latestEpisode.path"
-            >
-              <div class="latest-kicker">Latest Episode</div>
-              <div class="latest-title">
-                {{ latestEpisode.frontmatter.title }}
-              </div>
-              <div class="latest-meta">
-                <span v-if="latestEpisode.frontmatter.edition">
-                  {{ latestEpisode.frontmatter.edition }}
-                </span>
-                <span v-if="latestEpisode.frontmatter.release_date">
-                  Released {{ latestEpisode.frontmatter.release_date }}
-                </span>
-              </div>
-              <!-- <span class="latest-cta">Open Episode</span> -->
-            </router-link>
-
             <HomePowerRankings />
 
             <a href="https://civbattleroyale.tv/albums/pr/" class="list">
@@ -77,7 +57,7 @@
               </span>
               <span class="list-text">Episode Audio Narrations</span>
             </a>
-            <a href="https://www.youtube.com/@cchassey" class="list">
+            <a href="https://www.youtube.com/@iniocl" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8 5v14l11-7-11-7z" />
@@ -117,20 +97,6 @@ export default {
   computed: {
     data() {
       return this.$page.frontmatter;
-    },
-    latestEpisode() {
-      const pages = (this.$site && this.$site.pages) || [];
-      return (
-        pages
-          .filter(
-            (page) =>
-              page.path.startsWith("/albums/s") && !page.frontmatter.exclude
-          )
-          .sort(
-            (a, b) =>
-              new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
-          )[0] || null
-      );
     },
     footerText() {
       const footer = this.data && this.data.footer;
@@ -208,46 +174,6 @@ export default {
   font-size: 1.3rem;
   font-weight: 900;
   margin-block: 0 0.9rem;
-}
-.home .latest-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  color: #1a1a1a;
-  text-decoration: none;
-  background: linear-gradient(135deg, #fff, #fff, #fff4d8);
-  border: 1px solid #d9a62b;
-  border-radius: 12px;
-  padding-block: 0.9rem;
-  padding-inline: 1rem;
-  margin-block-end: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.home .latest-card:hover {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-}
-.home .latest-kicker {
-  color: #6b5b3b;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.home .latest-title {
-  font-size: 1.1rem;
-  font-weight: 900;
-}
-.home .latest-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  color: #4f4f4f;
-  font-size: 0.85rem;
-}
-.home .latest-cta {
-  color: #1a1a1a;
-  font-size: 0.85rem;
-  font-weight: 700;
 }
 .home .link-column .album-list {
   margin-block: 0.8rem 0;

@@ -9,7 +9,7 @@
         @keyup.enter="$emit('go')"
       >
         <option v-for="index in sceneCount" :key="index" :value="index">
-          Scene {{ index }}
+          {{ optionLabel(index) }}
         </option>
       </select>
       <button type="button" class="scene-button" @click="$emit('go')">
@@ -31,12 +31,35 @@ export default {
       type: Number,
       default: 0,
     },
+    scenes: {
+      type: Array,
+      default: () => [],
+    },
+    showSceneTitles: {
+      type: Boolean,
+      default: false,
+    },
     selectId: {
       type: String,
       default: "scene-jump",
     },
   },
   methods: {
+    optionLabel(index) {
+      const base = `Scene ${index}`;
+      if (!this.showSceneTitles) {
+        return base;
+      }
+      const scene = this.scenes[index - 1] || {};
+      const rawTitle = scene.scene_title_html || scene.scene_title || "";
+      const title = String(rawTitle)
+        .replace(/<[^>]*>/g, " ")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&amp;/gi, "&")
+        .replace(/\s+/g, " ")
+        .trim();
+      return title ? `${base}: ${title}` : base;
+    },
     handleChange(event) {
       const parsed = parseInt(event.target.value, 10);
       this.$emit("input", Number.isFinite(parsed) ? parsed : 1);
@@ -66,7 +89,9 @@ export default {
   gap: 0.6rem;
 }
 .jump-controls select {
-  inline-size: 7rem;
+  inline-size: 100%;
+  min-inline-size: 12rem;
+  max-inline-size: 24rem;
   padding-block: 0.5rem;
   padding-inline: 0.6rem 1.4rem;
   border: 1px solid var(--meta-value-color);

@@ -1,8 +1,5 @@
 import { getSupabaseClient } from "./theme/supabaseClient";
 
-const ASSET_VERSION =
-  typeof __ASSET_VERSION__ !== "undefined" ? String(__ASSET_VERSION__) : "";
-
 const withAssetVersion = (url) => {
   if (!url || typeof url !== "string") {
     return url;
@@ -14,6 +11,43 @@ const withAssetVersion = (url) => {
   // Temporarily disable runtime query-param cache busting to reduce
   // client/cache mismatch risk across static deploys.
   return trimmed;
+};
+
+const retireLegacyServiceWorkers = async () => {
+  if (!("serviceWorker" in navigator)) {
+    return;
+  }
+
+  try {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    if (!registrations.length) {
+      return;
+    }
+
+    const wasControlled = Boolean(navigator.serviceWorker.controller);
+    const results = await Promise.all(
+      registrations.map((registration) => registration.unregister())
+    );
+
+    if ("caches" in window) {
+      const cacheNames = await window.caches.keys();
+      await Promise.all(cacheNames.map((name) => window.caches.delete(name)));
+    }
+
+    if (wasControlled && results.some(Boolean)) {
+      const reloadKey = "cbr.legacyServiceWorkerReloaded.v1";
+      try {
+        if (!window.sessionStorage.getItem(reloadKey)) {
+          window.sessionStorage.setItem(reloadKey, "true");
+          window.location.reload();
+        }
+      } catch (error) {
+        // Storage can be unavailable in Safari private browsing; avoid a loop.
+      }
+    }
+  } catch (error) {
+    console.warn("Unable to retire a legacy service worker.", error);
+  }
 };
 
 export default ({ Vue, router, siteData }) => {
@@ -30,30 +64,12 @@ export default ({ Vue, router, siteData }) => {
     // even before specific page/layout auth handlers mount.
     getSupabaseClient();
 
-    if (document.getElementById("kofi-overlay-widget-script")) {
-      return;
+    if (document.readyState === "complete") {
+      retireLegacyServiceWorkers();
+    } else {
+      window.addEventListener("load", retireLegacyServiceWorkers, {
+        once: true,
+      });
     }
-    const script = document.createElement("script");
-    script.id = "kofi-overlay-widget-script";
-    script.src = "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js";
-    script.onload = () => {
-      try {
-        if (
-          typeof window.kofiWidgetOverlay !== "undefined" &&
-          window.kofiWidgetOverlay &&
-          typeof window.kofiWidgetOverlay.draw === "function"
-        ) {
-          window.kofiWidgetOverlay.draw("coiot", {
-            type: "floating-chat",
-            "floating-chat.donateButton.text": "Support Us",
-            "floating-chat.donateButton.background-color": "#fcbf47",
-            "floating-chat.donateButton.text-color": "#323842",
-          });
-        }
-      } catch (error) {
-        console.warn("Unable to initialize Ko-fi widget.", error);
-      }
-    };
-    document.body.appendChild(script);
   }
 };

@@ -133,10 +133,18 @@ function buildCityChangeSummary(currentLookup, previousLookup) {
         });
       }
     }
+    const currentOwner = currentCity
+      ? currentCity.owner ?? current.owner ?? null
+      : null;
+    const previousOwner = previousCity
+      ? previousCity.owner ?? previous.owner ?? null
+      : null;
     if (
       currentCity &&
-      (current.originalOwner ?? null) !== null &&
-      current.owner !== current.originalOwner
+      previousCity &&
+      currentOwner !== null &&
+      previousOwner !== null &&
+      currentOwner !== previousOwner
     ) {
       const entryKey = key;
       if (!captured.has(entryKey)) {

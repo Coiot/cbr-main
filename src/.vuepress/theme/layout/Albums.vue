@@ -84,6 +84,8 @@
         <SceneJumpControl
           v-model.number="jumpToScene"
           :scene-count="sceneCount"
+          :scenes="$page.frontmatter.scenes || []"
+          :show-scene-titles="isPowerRanking"
           select-id="scene-jump"
           @go="goToScene"
         />
@@ -289,7 +291,9 @@
       <EpisodeMapSnapshot
         v-if="shouldRenderSnapshot"
         :snapshot-path="episodeSnapshotPath"
+        :previous-snapshot-path="previousEpisodeSnapshotPath"
         :snapshot-title="episodeSnapshotTitle"
+        :snapshot-date="commentPostedAt"
         :use-base-snapshot="episodeSnapshotIsBase"
       />
 
@@ -555,6 +559,13 @@ export default {
       }
       const safeNumber = this.episodeSnapshotNumber.replace(/\./g, "-");
       return `/community/snapshots/s5-episode-${safeNumber}.json`;
+    },
+    previousEpisodeSnapshotPath() {
+      const episode = Number(this.episodeSnapshotNumber);
+      if (!Number.isInteger(episode) || episode <= 0) {
+        return "";
+      }
+      return `/community/snapshots/s5-episode-${episode - 1}.json`;
     },
     episodeSnapshotIsBase() {
       return this.isSeasonFive && this.episodeSnapshotNumber === "0";

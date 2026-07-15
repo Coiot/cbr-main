@@ -7,10 +7,30 @@
     <div class="episode-snapshot-header">
       <div class="episode-snapshot-copy">
         <h2 id="snapshot-title">{{ snapshotTitle }}</h2>
-        <p>Snapshot from the community tile map for this episode.</p>
+        <p>{{ snapshotContext }}</p>
+        <div
+          v-if="cityChangeItems.length"
+          class="episode-snapshot-changes"
+          aria-label="City changes since the previous episode"
+        >
+          <span
+            v-for="item in cityChangeItems"
+            :key="item.key"
+            class="episode-snapshot-change"
+            :class="`is-${item.key}`"
+          >
+            <strong>{{ item.count }}</strong> {{ item.label }}
+          </span>
+        </div>
+        <p
+          v-else-if="citySummaryStatus === 'ready'"
+          class="episode-snapshot-change-empty"
+        >
+          No city changes detected since the previous snapshot.
+        </p>
       </div>
-      <router-link class="episode-snapshot-link" to="/community-tile-map/">
-        Open Live Map
+      <router-link class="episode-snapshot-link" :to="fullMapLink">
+        Open This Snapshot
       </router-link>
     </div>
     <div class="episode-snapshot-map">
@@ -66,6 +86,10 @@
 
 <script>
 import CommunityTileMapGrid from "../community/CommunityTileMapGrid.vue";
+import {
+  buildSnapshotLookup,
+  buildCityChangeSummary,
+} from "../community/communityTileMapSnapshotUtils.js";
 
 const snapshotCache = new Map();
 const missingSnapshotCache = new Set();
@@ -84,6 +108,14 @@ export default {
       type: String,
       default: "Episode Map Snapshot",
     },
+    snapshotDate: {
+      type: [String, Date],
+      default: "",
+    },
+    previousSnapshotPath: {
+      type: String,
+      default: "",
+    },
     useBaseSnapshot: {
       type: Boolean,
       default: false,
@@ -96,8 +128,11 @@ export default {
         : false;
     return {
       snapshotPayload: null,
+      cityChanges: { founded: [], captured: [], removed: [] },
+      citySummaryStatus: "idle",
       isReady: false,
       fetchController: null,
+      summaryFetchController: null,
       mapMounted: false,
       mapRequested: false,
       isMobileBrowser,
@@ -141,6 +176,61 @@ export default {
       }
       return "Tap to load the snapshot map. It can use more memory on mobile devices.";
     },
+    formattedSnapshotDate() {
+      if (!this.snapshotDate) {
+        return "";
+      }
+      const date = new Date(this.snapshotDate);
+      if (!Number.isFinite(date.getTime())) {
+        return String(this.snapshotDate);
+      }
+      return date.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    },
+    snapshotContext() {
+      const base = "Snapshot from the community tile map for this episode.";
+      return this.formattedSnapshotDate
+        ? `${base} Episode date: ${this.formattedSnapshotDate}.`
+        : base;
+    },
+    staticSnapshotId() {
+      const match = String(this.snapshotPath || "").match(
+        /\/(s5-episode-[0-9-]+)\.json(?:$|\?)/i
+      );
+      return match ? match[1].toLowerCase() : "";
+    },
+    fullMapLink() {
+      if (!this.staticSnapshotId) {
+        return "/community-tile-map/";
+      }
+      return {
+        path: "/community-tile-map/",
+        query: { snapshot: this.staticSnapshotId },
+      };
+    },
+    cityChangeItems() {
+      const changes = this.cityChanges || {};
+      return [
+        {
+          key: "founded",
+          label: "founded",
+          count: (changes.founded || []).length,
+        },
+        {
+          key: "captured",
+          label: "captured",
+          count: (changes.captured || []).length,
+        },
+        {
+          key: "removed",
+          label: "razed/removed",
+          count: (changes.removed || []).length,
+        },
+      ].filter((item) => item.count > 0);
+    },
   },
   mounted() {
     if (this.useBaseSnapshot && !this.snapshotPath) {
@@ -157,11 +247,14 @@ export default {
   },
   beforeDestroy() {
     this.abortSnapshotFetch();
+    this.abortSummaryFetch();
   },
   watch: {
     snapshotPath() {
       this.abortSnapshotFetch();
       this.snapshotPayload = null;
+      this.cityChanges = { founded: [], captured: [], removed: [] };
+      this.citySummaryStatus = "idle";
       this.isReady = false;
       this.isLoadingSnapshot = false;
       this.mapMounted = false;
@@ -190,6 +283,12 @@ export default {
       if (this.fetchController) {
         this.fetchController.abort();
         this.fetchController = null;
+      }
+    },
+    abortSummaryFetch() {
+      if (this.summaryFetchController) {
+        this.summaryFetchController.abort();
+        this.summaryFetchController = null;
       }
     },
     zoomIn() {
@@ -259,6 +358,7 @@ export default {
         this.snapshotPayload = cached;
         this.isReady = true;
         this.snapshotAvailability = "available";
+        this.loadCityChangeSummary();
         return;
       }
       this.abortSnapshotFetch();
@@ -290,6 +390,7 @@ export default {
         snapshotCache.set(this.snapshotPath, payload);
         this.isReady = true;
         this.snapshotAvailability = "available";
+        this.loadCityChangeSummary();
       } catch (error) {
         if (error && error.name === "AbortError") {
           return;
@@ -299,6 +400,48 @@ export default {
       } finally {
         this.fetchController = null;
         this.isLoadingSnapshot = false;
+      }
+    },
+    async loadCityChangeSummary() {
+      if (!this.previousSnapshotPath || !Array.isArray(this.snapshotPayload)) {
+        this.citySummaryStatus = "unavailable";
+        return;
+      }
+      this.abortSummaryFetch();
+      this.citySummaryStatus = "loading";
+      try {
+        let previousPayload = snapshotCache.get(this.previousSnapshotPath);
+        if (!Array.isArray(previousPayload) || !previousPayload.length) {
+          const resolved = this.$withBase
+            ? this.$withBase(this.previousSnapshotPath)
+            : this.previousSnapshotPath;
+          this.summaryFetchController = new AbortController();
+          const response = await fetch(resolved, {
+            signal: this.summaryFetchController.signal,
+          });
+          if (!response.ok) {
+            this.citySummaryStatus = "unavailable";
+            return;
+          }
+          previousPayload = await response.json();
+          if (!Array.isArray(previousPayload) || !previousPayload.length) {
+            this.citySummaryStatus = "unavailable";
+            return;
+          }
+          snapshotCache.set(this.previousSnapshotPath, previousPayload);
+        }
+        this.cityChanges = buildCityChangeSummary(
+          buildSnapshotLookup(this.snapshotPayload),
+          buildSnapshotLookup(previousPayload)
+        );
+        this.citySummaryStatus = "ready";
+      } catch (error) {
+        if (error && error.name === "AbortError") {
+          return;
+        }
+        this.citySummaryStatus = "unavailable";
+      } finally {
+        this.summaryFetchController = null;
       }
     },
   },
@@ -338,6 +481,35 @@ export default {
   margin: 0;
   color: var(--panel-muted-color);
   max-width: 60ch;
+}
+
+.episode-snapshot-changes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-block-start: 0.8rem;
+}
+
+.episode-snapshot-change {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--panel-border-color);
+  border-radius: 999px;
+  color: var(--panel-text-color);
+  background: var(--panel-bg-elevated-color);
+  font-size: 0.82rem;
+}
+
+.episode-snapshot-change strong {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+}
+
+.episode-snapshot-change-empty {
+  margin-block-start: 0.7rem !important;
+  font-size: 0.82rem;
 }
 
 .episode-snapshot-link {

@@ -4151,6 +4151,43 @@ export default {
         };
         return localPayload;
       }
+      const staticPath = this.staticSnapshotPathFromId(id);
+      if (staticPath) {
+        const request = (async () => {
+          try {
+            const resolved = this.$withBase
+              ? this.$withBase(staticPath)
+              : staticPath;
+            const response = await fetch(resolved);
+            if (!response.ok) {
+              return null;
+            }
+            const payload = await response.json();
+            if (!Array.isArray(payload) || !payload.length) {
+              return null;
+            }
+            this.snapshotPayloadCache = {
+              ...(this.snapshotPayloadCache || Object.create(null)),
+              [id]: payload,
+            };
+            this.writeSnapshotPayloadToStorage(id, payload);
+            return payload;
+          } catch (error) {
+            return null;
+          }
+        })();
+        this.snapshotPayloadRequests = {
+          ...currentRequests,
+          [id]: request,
+        };
+        try {
+          return await request;
+        } finally {
+          const nextRequests = { ...(this.snapshotPayloadRequests || {}) };
+          delete nextRequests[id];
+          this.snapshotPayloadRequests = nextRequests;
+        }
+      }
       if (!this.supabase) {
         return null;
       }
@@ -6536,6 +6573,21 @@ export default {
       }
     },
 
+    staticSnapshotPathFromId(snapshotId) {
+      const id = String(snapshotId || "").trim().toLowerCase();
+      return /^s5-episode-[0-9]+(?:-[0-9]+)?$/.test(id)
+        ? `/community/snapshots/${id}.json`
+        : "";
+    },
+
+    staticSnapshotLabelFromId(snapshotId) {
+      const id = String(snapshotId || "").trim().toLowerCase();
+      const match = id.match(/^s5-episode-([0-9]+(?:-[0-9]+)?)$/);
+      return match
+        ? `Episode ${match[1].replace(/-/g, ".")} Snapshot`
+        : "Snapshot";
+    },
+
     resolveRouteSnapshotId() {
       if (this.embedded) {
         return "";
@@ -6572,10 +6624,23 @@ export default {
           ? this.snapshots
           : [];
       }
-      const hasSnapshot = availableSnapshots.some(
+      let selectedSnapshot = availableSnapshots.find(
         (snapshot) => snapshot && snapshot.id === nextSnapshotId
       );
-      if (!hasSnapshot) {
+      if (!selectedSnapshot && this.staticSnapshotPathFromId(nextSnapshotId)) {
+        selectedSnapshot = {
+          id: nextSnapshotId,
+          map_id: SUPABASE_MAP_ID,
+          episode_label: this.staticSnapshotLabelFromId(nextSnapshotId),
+          episode_at: null,
+          created_at: null,
+          is_published: true,
+          is_virtual: true,
+          is_static: true,
+        };
+        this.snapshots = [...availableSnapshots, selectedSnapshot];
+      }
+      if (!selectedSnapshot) {
         return false;
       }
       if (this.snapshotViewId !== nextSnapshotId) {

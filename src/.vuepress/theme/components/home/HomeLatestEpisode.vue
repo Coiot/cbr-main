@@ -168,6 +168,7 @@ h2 {
 .hero-overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background: linear-gradient(
     140deg,
     rgba(0, 0, 0, 0.15) 0%,

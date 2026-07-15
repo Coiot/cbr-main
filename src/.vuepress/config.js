@@ -750,7 +750,7 @@ module.exports = {
     socialImage: DEFAULT_SOCIAL_IMAGE,
     socialImageAlt: DEFAULT_SOCIAL_ALT,
     docsDir: "src",
-    serviceWorker: true,
+    serviceWorker: false,
     reactions: [
       { key: "smart", label: "Smart", emoji: "🧠" },
       { key: "clap", label: "Clap", emoji: "👏" },

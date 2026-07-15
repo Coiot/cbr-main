@@ -664,8 +664,13 @@ export default {
       }
       await this.loadSnapshotList();
       const snapshot = this.snapshotList.find((entry) => entry.id === nextId);
+      const staticMatch = nextId.match(
+        /^s5-episode-([0-9]+(?:-[0-9]+)?)$/i
+      );
       const label = snapshot
         ? this.formatSnapshotTitle(snapshot)
+        : staticMatch
+        ? `Episode ${staticMatch[1].replace(/-/g, ".")} Snapshot`
         : this.snapshotScope.label || "Snapshot";
       this.snapshotScope = {
         mode: "snapshot",
@@ -760,6 +765,29 @@ export default {
       }
       this.snapshotIndexLoading = true;
       try {
+        const staticMatch = id.match(
+          /^s5-episode-([0-9]+(?:-[0-9]+)?)$/i
+        );
+        if (staticMatch) {
+          const response = await fetch(`/community/snapshots/${id}.json`);
+          if (!response.ok) {
+            return;
+          }
+          const payload = await response.json();
+          const snapshot = {
+            id,
+            episode_label: `Episode ${staticMatch[1].replace(
+              /-/g,
+              "."
+            )} Snapshot`,
+            payload,
+          };
+          this.snapshotIndexesById = {
+            ...this.snapshotIndexesById,
+            [id]: this.buildSnapshotScopedItems(snapshot),
+          };
+          return;
+        }
         const endpoint = `${SUPABASE_URL}/rest/v1/${SNAPSHOT_TABLE}?id=eq.${encodeURIComponent(
           id
         )}&map_id=eq.${SNAPSHOT_MAP_ID}&is_published=eq.true&select=id,episode_label,payload&limit=1`;
