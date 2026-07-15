@@ -26,6 +26,8 @@
       <Page v-else> </Page>
     </main>
 
+    <SiteFooter :footer="$page.frontmatter.footer" />
+
     <a
       class="site-support-link"
       href="https://ko-fi.com/coiot"
@@ -49,6 +51,7 @@ import CommunityTileMap from "./layout/CommunityTileMap.vue";
 import CommunitySpotlight from "./layout/CommunitySpotlight.vue";
 import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
+import SiteFooter from "./components/SiteFooter.vue";
 import { resolveSidebarItems } from "./util";
 import VueLazyload from "vue-lazyload";
 
@@ -71,6 +74,7 @@ export default {
     CommunitySpotlight,
     Sidebar,
     Navbar,
+    SiteFooter,
   },
 
   data() {

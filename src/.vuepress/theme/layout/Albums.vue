@@ -82,6 +82,7 @@
           @set-layout="setCinematicNarrationLayout"
         />
         <SceneJumpControl
+          ref="sceneJumpControl"
           v-model.number="jumpToScene"
           :scene-count="sceneCount"
           :scenes="$page.frontmatter.scenes || []"
@@ -90,6 +91,24 @@
           @go="goToScene"
         />
       </div>
+
+      <transition name="floating-scene-jump">
+        <aside
+          v-if="showFloatingSceneJump && !isCinematicFullscreen"
+          class="floating-scene-jump"
+          aria-label="Jump to scene"
+        >
+          <SceneJumpControl
+            v-model.number="jumpToScene"
+            :scene-count="sceneCount"
+            :scenes="$page.frontmatter.scenes || []"
+            :show-scene-titles="isPowerRanking"
+            select-id="floating-scene-jump"
+            compact
+            @go="goToScene"
+          />
+        </aside>
+      </transition>
 
       <div v-if="hasScenes" class="scene-timeline">
         <div
@@ -413,6 +432,7 @@ export default {
       siblingPagesCache: [],
       sceneTimelineCache: [],
       snapshotInView: false,
+      showFloatingSceneJump: false,
     };
   },
   components: {
@@ -696,6 +716,8 @@ export default {
       this.activeSceneIndex = 0;
       this.copiedScene = null;
       this.snapshotInView = false;
+      this.showFloatingSceneJump = false;
+      this.teardownSceneJumpObserver();
       this.teardownSnapshotObserver();
       this.resetReactions();
       this.comments = [];
@@ -711,6 +733,7 @@ export default {
           this.loadComments();
         }
         this.cacheSceneElements();
+        this.setupSceneJumpObserver();
         this.setupSnapshotObserver();
       });
     },
@@ -756,6 +779,7 @@ export default {
       this.cacheSceneElements();
       this.applyHashScene();
       this.updateActiveFromScroll();
+      this.setupSceneJumpObserver();
       this.setupSnapshotObserver();
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
@@ -787,6 +811,7 @@ export default {
       this.handleExternalAuth
     );
     this.teardownSnapshotObserver();
+    this.teardownSceneJumpObserver();
     this.teardownReactions();
     this.teardownSupabase();
     this.flushPendingResume(true);
@@ -2248,7 +2273,9 @@ export default {
       }
       if (key === "g" || key === "G") {
         event.preventDefault();
-        const jumpInput = document.getElementById("scene-jump");
+        const jumpInput = document.getElementById(
+          this.showFloatingSceneJump ? "floating-scene-jump" : "scene-jump"
+        );
         if (jumpInput && typeof jumpInput.focus === "function") {
           jumpInput.focus();
         }
@@ -2288,6 +2315,9 @@ export default {
       this.goToScene();
     },
     handleScroll() {
+      if (!this._sceneJumpObserver) {
+        this.updateFloatingSceneJump();
+      }
       if (this.isToggle || typeof window === "undefined") {
         return;
       }
@@ -2299,6 +2329,49 @@ export default {
         this.updateActiveFromScroll();
         this.checkSnapshotInView();
       });
+    },
+    setupSceneJumpObserver() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      this.teardownSceneJumpObserver();
+      this.showFloatingSceneJump = false;
+      const control = this.$refs.sceneJumpControl;
+      const target = control && control.$el;
+      if (!target) {
+        return;
+      }
+      if (!("IntersectionObserver" in window)) {
+        this.updateFloatingSceneJump();
+        return;
+      }
+      this._sceneJumpObserver = new IntersectionObserver((entries) => {
+        const entry = entries && entries[0];
+        if (!entry) {
+          return;
+        }
+        this.showFloatingSceneJump =
+          !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
+      });
+      this._sceneJumpObserver.observe(target);
+    },
+    teardownSceneJumpObserver() {
+      if (this._sceneJumpObserver) {
+        this._sceneJumpObserver.disconnect();
+        this._sceneJumpObserver = null;
+      }
+    },
+    updateFloatingSceneJump() {
+      if (typeof window === "undefined") {
+        return;
+      }
+      const control = this.$refs.sceneJumpControl;
+      const target = control && control.$el;
+      if (!target) {
+        this.showFloatingSceneJump = false;
+        return;
+      }
+      this.showFloatingSceneJump = target.getBoundingClientRect().bottom <= 0;
     },
     setupSnapshotObserver() {
       if (typeof window === "undefined") {
@@ -2532,6 +2605,35 @@ export default {
   gap: 1.5rem 2.5rem;
   margin-block: 1.2em 2em;
 }
+.floating-scene-jump {
+  position: fixed;
+  right: 1rem;
+  bottom: 5.25rem;
+  right: calc(1rem + env(safe-area-inset-right, 0px));
+  bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
+  z-index: 7;
+  max-inline-size: calc(100vw - 2rem);
+  box-sizing: border-box;
+  color: var(--page-text-color);
+  background: var(--timeline-surface-bg);
+  background: color-mix(in srgb, var(--timeline-surface-bg), #111 12%);
+  border: 1px solid var(--meta-value-color);
+  border: 1px solid color-mix(in srgb, var(--meta-value-color), transparent 18%);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+  padding: 0.7rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.floating-scene-jump-enter-active,
+.floating-scene-jump-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.floating-scene-jump-enter,
+.floating-scene-jump-leave-to {
+  opacity: 0;
+  transform: translateY(0.75rem) scale(0.98);
+}
 .scene-count {
   color: var(--panel-muted-color);
   font-size: 0.95rem;
@@ -2716,6 +2818,9 @@ h2 {
   }
 }
 @media (max-width: 600px) {
+  .floating-scene-jump {
+    display: none;
+  }
   :global(.vueperslides__fractions) {
     display: none;
   }

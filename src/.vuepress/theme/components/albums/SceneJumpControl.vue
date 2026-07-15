@@ -1,5 +1,5 @@
 <template>
-  <div class="scene-jump">
+  <div class="scene-jump" :class="{ compact }">
     <label class="jump-label" :for="selectId">Jump to scene</label>
     <div class="jump-controls">
       <select
@@ -42,6 +42,10 @@ export default {
     selectId: {
       type: String,
       default: "scene-jump",
+    },
+    compact: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -131,6 +135,27 @@ export default {
 .scene-button:hover {
   color: #1a1a1a;
   background: #ffbf46;
+}
+.scene-jump.compact {
+  min-inline-size: 0;
+  gap: 0.4rem;
+}
+.scene-jump.compact .jump-label {
+  font-size: 0.7rem;
+}
+.scene-jump.compact .jump-controls {
+  gap: 0.45rem;
+}
+.scene-jump.compact .jump-controls select {
+  min-inline-size: 10.5rem;
+  max-inline-size: 15rem;
+  padding-block: 0.42rem;
+  font-size: 0.9rem;
+}
+.scene-jump.compact .scene-button {
+  padding-block: 0.42rem;
+  padding-inline: 0.85rem;
+  font-size: 0.95rem;
 }
 @media (max-width: 799px) {
   .scene-jump {

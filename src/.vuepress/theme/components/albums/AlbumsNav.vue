@@ -40,8 +40,8 @@ export default {
 
 <style scoped>
 .page-nav {
-  padding-block-start: 0.2rem;
-  margin-block: 0.6rem 1.6rem;
+  padding-block-start: 1.5rem;
+  margin-block: 0.5rem 0.25rem;
 }
 .nextprev {
   display: grid;
