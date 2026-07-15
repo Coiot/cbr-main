@@ -3065,9 +3065,6 @@ h2 {
     opacity: 0.35;
     cursor: default;
   }
-  :global(.theme-container.sidebar-open) .mobile-album-bar {
-    display: none;
-  }
   :global(.vueperslides__fractions) {
     display: none;
   }

@@ -241,6 +241,10 @@ export default {
   transform: translateY(-1px);
 }
 
+.theme-container.sidebar-open .mobile-album-bar {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .site-support-link {
     display: none;
