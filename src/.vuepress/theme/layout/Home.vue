@@ -12,6 +12,24 @@
           <div class="quick-panel">
             <HomePowerRankings />
 
+            <router-link
+              v-if="readingReturn"
+              :to="readingReturn.to"
+              class="list reading-return"
+            >
+              <span class="list-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"
+                  />
+                </svg>
+              </span>
+              <span class="list-copy">
+                <span class="list-text">{{ readingReturn.label }}</span>
+                <small>{{ readingReturn.meta }}</small>
+              </span>
+            </router-link>
+
             <a href="https://civbattleroyale.tv/albums/pr/" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -84,12 +102,81 @@ import HomeRecentEpisodes from "../components/home/HomeRecentEpisodes.vue";
 import HomePowerRankings from "../components/home/HomePowerRankings.vue";
 import HomeCommunityMap from "../components/home/HomeCommunityMap.vue";
 
+const READING_KEYS = [
+  {
+    prefix: "albumsResume:",
+    updatedPrefix: "albumsResumeUpdated:",
+    label: "Continue Reading",
+  },
+  {
+    prefix: "albumsBookmark:",
+    updatedPrefix: "albumsBookmarkUpdated:",
+    label: "Return to Bookmark",
+  },
+];
+
+function isAlbumPage(page) {
+  return Boolean(
+    page &&
+      page.path &&
+      page.path.startsWith("/albums/") &&
+      page.frontmatter &&
+      Array.isArray(page.frontmatter.scenes)
+  );
+}
+
+function pageTimestamp(page) {
+  const frontmatter = (page && page.frontmatter) || {};
+  const date = Date.parse(frontmatter.date || frontmatter.release_date || "");
+  return Number.isFinite(date) ? date : 0;
+}
+
 export default {
   components: {
     HomeLatestEpisode,
     HomeRecentEpisodes,
     HomePowerRankings,
     HomeCommunityMap,
+  },
+
+  data() {
+    return {
+      readingStateReady: false,
+      readingStateVersion: 0,
+    };
+  },
+
+  mounted() {
+    this.readingStateReady = true;
+    window.addEventListener("storage", this.refreshReadingState);
+    window.addEventListener(
+      "albums-bookmark-updated",
+      this.refreshReadingState
+    );
+    window.addEventListener(
+      "albums-bookmarks-cache-updated",
+      this.refreshReadingState
+    );
+    window.addEventListener(
+      "albums-reading-progress-updated",
+      this.refreshReadingState
+    );
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("storage", this.refreshReadingState);
+    window.removeEventListener(
+      "albums-bookmark-updated",
+      this.refreshReadingState
+    );
+    window.removeEventListener(
+      "albums-bookmarks-cache-updated",
+      this.refreshReadingState
+    );
+    window.removeEventListener(
+      "albums-reading-progress-updated",
+      this.refreshReadingState
+    );
   },
 
   computed: {
@@ -101,6 +188,45 @@ export default {
         link: this.data.actionLink,
         text: this.data.actionText,
       };
+    },
+    readingReturn() {
+      this.readingStateVersion;
+      if (!this.readingStateReady || typeof window === "undefined") {
+        return null;
+      }
+      const pages = (this.$site && this.$site.pages) || [];
+      const candidates = [];
+      READING_KEYS.forEach((type) => {
+        Object.keys(window.localStorage || {}).forEach((key) => {
+          if (!key.startsWith(type.prefix)) {
+            return;
+          }
+          const path = key.slice(type.prefix.length);
+          const scene = parseInt(window.localStorage.getItem(key), 10);
+          const page = pages.find((item) => item.path === path);
+          if (!Number.isFinite(scene) || !isAlbumPage(page)) {
+            return;
+          }
+          const updated = parseInt(
+            window.localStorage.getItem(`${type.updatedPrefix}${path}`),
+            10
+          );
+          candidates.push({
+            label: type.label,
+            meta: `${page.frontmatter.title || page.title} · Scene ${scene}`,
+            score: Number.isFinite(updated) ? updated : pageTimestamp(page),
+            to: { path, hash: `#scene-${scene}` },
+          });
+        });
+      });
+      candidates.sort((a, b) => b.score - a.score);
+      return candidates[0] || null;
+    },
+  },
+
+  methods: {
+    refreshReadingState() {
+      this.readingStateVersion += 1;
     },
   },
 };
@@ -209,6 +335,26 @@ export default {
 }
 .home .list-text {
   flex: 1;
+}
+.home .list-copy {
+  min-inline-size: 0;
+  display: grid;
+  gap: 0.08rem;
+}
+.home .list-copy .list-text {
+  line-height: 1.15;
+}
+.home .list-copy small {
+  overflow: hidden;
+  color: #626262;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home .reading-return {
+  background: linear-gradient(135deg, #fff9e9, #fff, #fff3cf);
 }
 @media (max-width: 799px) {
   .home .home-content {

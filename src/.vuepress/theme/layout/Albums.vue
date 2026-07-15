@@ -14,7 +14,31 @@
         </button>
       </div>
 
-      <div class="albumInfo">
+      <section
+        class="episode-details"
+        :class="{ 'is-open': episodeDetailsOpen }"
+      >
+        <button
+          type="button"
+          class="episode-details-toggle"
+          :aria-expanded="episodeDetailsOpen ? 'true' : 'false'"
+          aria-controls="episode-details-content"
+          @click="episodeDetailsOpen = !episodeDetailsOpen"
+        >
+          <span>Episode details</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="m7 9 5 5 5-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div id="episode-details-content" class="albumInfo">
         <div class="column" tabindex="0">
           <Label class="label">Release Date:</Label>
           <p>
@@ -63,7 +87,8 @@
             </span>
           </p>
         </div>
-      </div>
+        </div>
+      </section>
 
       <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
       <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">
@@ -110,6 +135,75 @@
         </aside>
       </transition>
 
+      <nav
+        v-if="hasScenes && !isCinematicFullscreen"
+        class="mobile-album-bar"
+        aria-label="Scene navigation"
+      >
+        <div v-if="mobileJumpOpen" class="mobile-jump-panel">
+          <SceneJumpControl
+            v-model.number="jumpToScene"
+            :scene-count="sceneCount"
+            :scenes="$page.frontmatter.scenes || []"
+            :show-scene-titles="isPowerRanking"
+            select-id="mobile-scene-jump"
+            compact
+            @go="goToSceneFromMobileBar"
+          />
+        </div>
+
+        <button
+          type="button"
+          class="mobile-album-action"
+          :disabled="activeSceneIndex <= 0"
+          aria-label="Previous scene"
+          @click="jumpRelative(-1)"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <span>Previous</span>
+        </button>
+        <button
+          type="button"
+          class="mobile-album-action"
+          :class="{ active: mobileJumpOpen }"
+          :aria-expanded="mobileJumpOpen ? 'true' : 'false'"
+          aria-controls="mobile-scene-jump"
+          @click="mobileJumpOpen = !mobileJumpOpen"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h10M4 18h7" />
+          </svg>
+          <span>Jump</span>
+        </button>
+        <button
+          type="button"
+          class="mobile-album-action"
+          :class="{ active: isBookmarked(activeSceneIndex) }"
+          :aria-pressed="isBookmarked(activeSceneIndex) ? 'true' : 'false'"
+          :aria-label="bookmarkAria(activeSceneIndex)"
+          @click="bookmarkScene(activeSceneIndex)"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 3h12v18l-6-4-6 4V3z" />
+          </svg>
+          <span>Bookmark</span>
+        </button>
+        <button
+          type="button"
+          class="mobile-album-action"
+          :disabled="activeSceneIndex >= sceneCount - 1"
+          aria-label="Next scene"
+          @click="jumpRelative(1)"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+          <span>Next</span>
+        </button>
+      </nav>
+
       <div v-if="hasScenes" class="scene-timeline">
         <div
           ref="timelineTrack"
@@ -131,7 +225,6 @@
               reporter: scene.hasReporter,
             }"
             :aria-label="sceneTooltip(scene, index)"
-            :title="sceneTooltip(scene, index)"
             @click="jumpToIndex(index)"
           ></button>
         </div>
@@ -433,6 +526,8 @@ export default {
       sceneTimelineCache: [],
       snapshotInView: false,
       showFloatingSceneJump: false,
+      episodeDetailsOpen: false,
+      mobileJumpOpen: false,
     };
   },
   components: {
@@ -717,6 +812,8 @@ export default {
       this.copiedScene = null;
       this.snapshotInView = false;
       this.showFloatingSceneJump = false;
+      this.episodeDetailsOpen = false;
+      this.mobileJumpOpen = false;
       this.teardownSceneJumpObserver();
       this.teardownSnapshotObserver();
       this.resetReactions();
@@ -958,11 +1055,20 @@ export default {
       if (typeof window === "undefined") {
         return;
       }
+      const updatedKey = key
+        .replace(/^albumsBookmark:/, "albumsBookmarkUpdated:")
+        .replace(/^albumsResume:/, "albumsResumeUpdated:");
       if (!Number.isFinite(sceneNumber)) {
         window.localStorage.removeItem(key);
+        if (updatedKey !== key) {
+          window.localStorage.removeItem(updatedKey);
+        }
         return;
       }
       window.localStorage.setItem(key, String(sceneNumber));
+      if (updatedKey !== key) {
+        window.localStorage.setItem(updatedKey, String(Date.now()));
+      }
     },
     setSessionSceneNumber(key, sceneNumber) {
       if (typeof window === "undefined") {
@@ -1907,6 +2013,10 @@ export default {
       }
       this.scrollToScene(index);
     },
+    goToSceneFromMobileBar() {
+      this.mobileJumpOpen = false;
+      this.goToScene();
+    },
     focusTimelineDot(index) {
       this.$nextTick(() => {
         const track = this.$refs.timelineTrack;
@@ -2128,6 +2238,7 @@ export default {
       }
       this.lastSeenScene = safeScene;
       this.setLocalSceneNumber(this.resumeKey, safeScene);
+      window.dispatchEvent(new CustomEvent("albums-reading-progress-updated"));
       if (this.useCloud) {
         this.queueCloudResumeUpdate(safeScene);
       }
@@ -2207,10 +2318,15 @@ export default {
         return;
       }
       const key = event.key;
+      if (key === "Escape" && this.mobileJumpOpen) {
+        this.mobileJumpOpen = false;
+        return;
+      }
       const tagName = event.target && event.target.tagName;
       const isInput =
         tagName === "INPUT" ||
         tagName === "TEXTAREA" ||
+        tagName === "SELECT" ||
         (event.target && event.target.isContentEditable);
       if (isInput) {
         return;
@@ -2307,6 +2423,7 @@ export default {
       if (!this.sceneCount) {
         return;
       }
+      this.mobileJumpOpen = false;
       const nextIndex = Math.min(
         Math.max(this.activeSceneIndex + delta, 0),
         this.sceneCount - 1
@@ -2565,6 +2682,9 @@ export default {
   font-weight: 700;
   line-height: 1.3;
 }
+.episode-details-toggle {
+  display: none;
+}
 .albumInfo {
   display: flex;
   flex-flow: row nowrap;
@@ -2633,6 +2753,9 @@ export default {
 .floating-scene-jump-leave-to {
   opacity: 0;
   transform: translateY(0.75rem) scale(0.98);
+}
+.mobile-album-bar {
+  display: none;
 }
 .scene-count {
   color: var(--panel-muted-color);
@@ -2806,8 +2929,47 @@ h2 {
   .episode-tools {
     align-items: flex-start;
   }
+  .episode-details {
+    margin-block: 1rem 1.6rem;
+  }
+  .episode-details-toggle {
+    inline-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--page-text-color);
+    background: color-mix(in srgb, var(--timeline-surface-bg), #111 8%);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+    border-radius: 10px;
+    padding: 0.8rem 0.9rem;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .episode-details-toggle svg {
+    inline-size: 1.2rem;
+    block-size: 1.2rem;
+    transition: transform 0.2s ease;
+  }
+  .episode-details.is-open .episode-details-toggle svg {
+    transform: rotate(180deg);
+  }
+  .episode-details:not(.is-open) .albumInfo {
+    display: none;
+  }
   .albumInfo {
     flex-flow: column nowrap;
+    gap: 0.7rem;
+    background: color-mix(in srgb, var(--timeline-surface-bg), transparent 12%);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 55%);
+    border-block-start: 0;
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 0;
   }
   .column {
     flex: 0 1 auto;
@@ -2819,6 +2981,91 @@ h2 {
 }
 @media (max-width: 600px) {
   .floating-scene-jump {
+    display: none;
+  }
+  .blog {
+    padding-block-end: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-album-bar {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 14;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.2rem;
+    box-sizing: border-box;
+    color: var(--panel-text-color);
+    background: color-mix(in srgb, var(--timeline-surface-bg), transparent 5%);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--accent-color), transparent 30%);
+    box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.28);
+    padding: 0.35rem 0.4rem
+      calc(0.35rem + env(safe-area-inset-bottom, 0px));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .mobile-jump-panel {
+    position: absolute;
+    inset-inline: 0.5rem;
+    inset-block-end: calc(100% + 0.5rem);
+    box-sizing: border-box;
+    color: var(--page-text-color);
+    background: color-mix(in srgb, var(--timeline-surface-bg), #111 10%);
+    border: 1px solid color-mix(in srgb, var(--accent-color), transparent 18%);
+    border-radius: 12px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
+    padding: 0.75rem;
+  }
+  .mobile-album-action {
+    min-inline-size: 0;
+    min-block-size: 3.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    color: var(--panel-muted-color);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 0.25rem 0.15rem;
+    font: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .mobile-album-action svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mobile-album-action span {
+    overflow: hidden;
+    max-inline-size: 100%;
+    font-size: 0.62rem;
+    font-weight: 800;
+    line-height: 1;
+    text-overflow: ellipsis;
+  }
+  .mobile-album-action.active {
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 88%);
+    border-color: color-mix(in srgb, var(--accent-color), transparent 65%);
+  }
+  .mobile-album-action:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+  }
+  .mobile-album-action:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  :global(.theme-container.sidebar-open) .mobile-album-bar {
     display: none;
   }
   :global(.vueperslides__fractions) {

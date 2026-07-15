@@ -1169,6 +1169,9 @@ export default {
           window.localStorage.removeItem(key);
         }
       });
+      window.dispatchEvent(
+        new CustomEvent("albums-bookmarks-cache-updated")
+      );
     },
     toggleBookmarkMenu() {
       this.bookmarkOpen = !this.bookmarkOpen;
