@@ -5,7 +5,7 @@
 
       <h1 class>
         {{ $page.frontmatter.title }}
-        <span>– {{ $page.frontmatter.edition }}</span>
+        <span v-if="albumEditionLabel">– {{ albumEditionLabel }}</span>
       </h1>
 
       <div v-if="resumeScene" class="resume-banner">
@@ -180,6 +180,7 @@
                 )}-${reactionSceneVersion(sceneNumber(index))}`"
                 :scene="scene"
                 :scene-number="sceneNumber(index)"
+                :show-scene-number="!isPowerRanking"
                 :bookmarked="isBookmarked(index)"
                 :bookmark-aria="bookmarkAria(index)"
                 :reaction-display="reactionDisplay(sceneNumber(index))"
@@ -204,6 +205,7 @@
         :active-scene="activeScene"
         :active-scene-index="activeSceneIndex"
         :active-scene-number="sceneNumber(activeSceneIndex)"
+        :show-scene-number="!isPowerRanking"
         :active-bookmarked="isBookmarked(activeSceneIndex)"
         :active-bookmark-aria="bookmarkAria(activeSceneIndex)"
         :active-reaction-display="
@@ -233,6 +235,7 @@
             :scene="scene"
             :scene-alt="sceneAlt(scene)"
             :scene-number="sceneNumber(index)"
+            :show-scene-number="!isPowerRanking"
             :bookmarked="isBookmarked(index)"
             :bookmark-aria="bookmarkAria(index)"
             :reaction-display="reactionDisplay(sceneNumber(index))"
@@ -350,6 +353,8 @@ const COMMENT_WINDOW_DAYS = 7;
 const COMMENT_MAX_LENGTH = 600;
 const COMMENT_FALLBACK_PRIMARY = "#6c6c6c";
 const COMMENT_FALLBACK_SECONDARY = "#d1c3a1";
+const SEASON_FIVE_PR_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
+const SEASON_FIVE_PR_COMMENT_LABEL = new Date(2026, 1, 11);
 const RESUME_SYNC_DEBOUNCE = 4000;
 const CINEMATIC_NARRATION_LAYOUT_KEY = "albumsCinematicNarrationLayout";
 const normalizeEpisodeNumber = (value) => {
@@ -422,6 +427,15 @@ export default {
     this.rebuildPageCaches();
   },
   computed: {
+    isPowerRanking() {
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const pagePath = (this.$page && this.$page.path) || "";
+      return Boolean(frontmatter.pr) || /^\/albums\/pr\//i.test(pagePath);
+    },
+    albumEditionLabel() {
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      return frontmatter.edition || frontmatter.pr || "";
+    },
     siblingPages() {
       return this.siblingPagesCache;
     },
@@ -503,13 +517,14 @@ export default {
       const edition =
         (this.$page &&
           this.$page.frontmatter &&
-          this.$page.frontmatter.edition) ||
+          (this.$page.frontmatter.edition || this.$page.frontmatter.pr)) ||
         "";
       const normalized = String(edition).trim().toLowerCase();
       return (
         normalized === "s5" ||
         normalized === "season5" ||
-        normalized === "season 5"
+        normalized === "season 5" ||
+        normalized.includes("s5")
       );
     },
     episodeSnapshotNumber() {
@@ -526,10 +541,13 @@ export default {
       }
       const title = frontmatter.title || "";
       const match = String(title).match(/episode\s*([0-9]+(?:\.[0-9]+)?)/i);
-      if (!match) {
-        return "";
+      if (match) {
+        return normalizeEpisodeNumber(match[1]);
       }
-      return normalizeEpisodeNumber(match[1]);
+      const prMatch = String(frontmatter.pr || "").match(
+        /([0-9]+(?:\.[0-9]+)?)/
+      );
+      return prMatch ? normalizeEpisodeNumber(prMatch[1]) : "";
     },
     episodeSnapshotPath() {
       if (!this.isSeasonFive || !this.episodeSnapshotNumber) {
@@ -569,14 +587,16 @@ export default {
       return this.snapshotInView;
     },
     showComments() {
-      return this.isSeasonFive;
+      return this.isPowerRanking || this.isSeasonFive;
     },
     shouldShowComments() {
       return this.showComments && (!this.isToggle || this.isFinalScene);
     },
     commentPostedAt() {
       const frontmatter = (this.$page && this.$page.frontmatter) || {};
-      const rawCandidates = [frontmatter.release_date, frontmatter.date];
+      const rawCandidates = this.isPowerRanking
+        ? [frontmatter.date]
+        : [frontmatter.release_date, frontmatter.date];
       for (const raw of rawCandidates) {
         if (!raw) {
           continue;
@@ -592,6 +612,18 @@ export default {
       if (!this.showComments) {
         return null;
       }
+      if (this.isPowerRanking && this.isSeasonFive) {
+        if (!this.commentPostedAt) {
+          return SEASON_FIVE_PR_COMMENT_CUTOFF;
+        }
+        const regularEnd = new Date(
+          this.commentPostedAt.getTime() +
+            COMMENT_WINDOW_DAYS * 24 * 60 * 60 * 1000
+        );
+        return regularEnd > SEASON_FIVE_PR_COMMENT_CUTOFF
+          ? regularEnd
+          : SEASON_FIVE_PR_COMMENT_CUTOFF;
+      }
       if (!this.commentPostedAt) {
         return null;
       }
@@ -605,13 +637,16 @@ export default {
         return false;
       }
       if (!this.commentWindowEndsAt) {
-        return false;
+        return this.isPowerRanking;
       }
       return Date.now() <= this.commentWindowEndsAt.getTime();
     },
     commentWindowLabel() {
       if (!this.showComments) {
         return "";
+      }
+      if (this.isPowerRanking && this.isSeasonFive) {
+        return SEASON_FIVE_PR_COMMENT_LABEL.toLocaleDateString();
       }
       if (!this.commentWindowEndsAt) {
         return "";
