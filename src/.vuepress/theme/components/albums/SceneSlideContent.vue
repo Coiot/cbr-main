@@ -1,6 +1,9 @@
 <template>
   <article class="h-narration" style="flex-direction: column">
-    <h3 v-if="scene.scene_number == scene.scene_title" class="scene-heading">
+    <h3
+      v-if="scene.scene_number == scene.scene_title && showSceneNumber"
+      class="scene-heading"
+    >
       <span class="scene-title">{{ displaySceneNumber }}</span>
       <BookmarkButton
         :active="bookmarked"
@@ -11,7 +14,7 @@
     </h3>
     <h3 v-else-if="scene.scene_title_html" class="scene-heading">
       <span class="scene-title">
-        {{ displaySceneNumber }}:
+        <template v-if="showSceneNumber">{{ displaySceneNumber }}: </template>
         <span v-html="scene.scene_title_html"></span>
       </span>
       <BookmarkButton
@@ -21,9 +24,12 @@
         @toggle="onToggleBookmark"
       />
     </h3>
-    <h3 v-else-if="scene.scene_title" class="scene-heading">
+    <h3
+      v-else-if="scene.scene_title && scene.scene_number != scene.scene_title"
+      class="scene-heading"
+    >
       <span class="scene-title">
-        {{ displaySceneNumber }}:
+        <template v-if="showSceneNumber">{{ displaySceneNumber }}: </template>
         {{ scene.scene_title }}
       </span>
       <BookmarkButton
@@ -33,7 +39,7 @@
         @toggle="onToggleBookmark"
       />
     </h3>
-    <h3 v-else class="scene-heading">
+    <h3 v-else-if="showSceneNumber" class="scene-heading">
       <span class="scene-title">{{ displaySceneNumber }}</span>
       <BookmarkButton
         :active="bookmarked"
@@ -82,6 +88,10 @@ export default {
     sceneNumber: {
       type: Number,
       required: true,
+    },
+    showSceneNumber: {
+      type: Boolean,
+      default: true,
     },
     bookmarked: {
       type: Boolean,

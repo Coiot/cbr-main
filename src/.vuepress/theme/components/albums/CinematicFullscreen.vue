@@ -83,6 +83,7 @@
             }-${reactionVersion}`"
             :scene="activeScene"
             :scene-number="activeSceneNumber"
+            :show-scene-number="showSceneNumber"
             :bookmarked="activeBookmarked"
             :bookmark-aria="activeBookmarkAria"
             :reaction-display="activeReactionDisplay"
@@ -144,6 +145,10 @@ export default {
     activeSceneNumber: {
       type: Number,
       default: 1,
+    },
+    showSceneNumber: {
+      type: Boolean,
+      default: true,
     },
     activeBookmarked: {
       type: Boolean,

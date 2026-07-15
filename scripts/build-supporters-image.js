@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const dotenv = require("dotenv");
 const { pathToFileURL } = require("url");
@@ -44,6 +45,9 @@ const SUPABASE_SETTINGS_TABLE =
 const OUTPUT_PATH =
   process.env.SUPPORTERS_OUTPUT ||
   path.join(__dirname, "../src/.vuepress/public/supporters.svg");
+const ALBUMS_DIR = path.join(__dirname, "../src/albums");
+const DOWNLOADS_DIR =
+  process.env.SUPPORTERS_DOWNLOADS_DIR || path.join(os.homedir(), "Downloads");
 
 const TITLE = process.env.SUPPORTERS_TITLE || "Supporters";
 const FONT_FAMILY = process.env.SUPPORTERS_FONT || '"Teko","Impact",sans-serif';
@@ -181,6 +185,48 @@ function escapeXml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
+}
+
+function findLatestSeasonEpisode() {
+  const seasons = fs
+    .readdirSync(ALBUMS_DIR, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^s\d+$/i.test(entry.name))
+    .map((entry) => ({
+      directory: entry.name,
+      season: Number.parseInt(entry.name.slice(1), 10),
+    }))
+    .filter((entry) => Number.isFinite(entry.season))
+    .sort((a, b) => b.season - a.season);
+
+  for (const season of seasons) {
+    const episodes = fs
+      .readdirSync(path.join(ALBUMS_DIR, season.directory), {
+        withFileTypes: true,
+      })
+      .filter((entry) => entry.isFile())
+      .map((entry) => entry.name.match(/^Episode(\d+(?:\.\d+)?)\.md$/i))
+      .filter(Boolean)
+      .map((match) => Number.parseFloat(match[1]))
+      .filter(Number.isFinite)
+      .sort((a, b) => b - a);
+
+    if (episodes.length) {
+      return { season: season.season, episode: episodes[0] };
+    }
+  }
+
+  throw new Error(`No season episode files found in ${ALBUMS_DIR}.`);
+}
+
+function copySupportersToDownloads() {
+  const { season, episode } = findLatestSeasonEpisode();
+  const downloadPath = path.join(
+    DOWNLOADS_DIR,
+    `s${season}ep${episode}-supporters.svg`
+  );
+  fs.mkdirSync(DOWNLOADS_DIR, { recursive: true });
+  fs.copyFileSync(OUTPUT_PATH, downloadPath);
+  console.log(`Copied supporters SVG to ${downloadPath}`);
 }
 
 function parseCsv(csv) {
@@ -759,6 +805,7 @@ async function run() {
       );
       console.warn("Using supporters source: existing output (stale fallback)");
       console.warn(detail);
+      copySupportersToDownloads();
       return;
     }
     throw error;
@@ -777,6 +824,7 @@ async function run() {
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
   console.log(`Wrote ${entries.length} supporters to ${OUTPUT_PATH}`);
+  copySupportersToDownloads();
 }
 
 run().catch((error) => {
