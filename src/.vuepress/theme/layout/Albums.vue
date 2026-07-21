@@ -2789,7 +2789,7 @@ export default {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(0.5rem) scale(0.97);
+  transform: scale(0.97);
   transform-origin: bottom right;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -2801,7 +2801,7 @@ export default {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(0) scale(1);
+  transform: scale(1);
   transition-delay: 0s;
 }
 .floating-scene-jump:hover .floating-scene-trigger,
@@ -2928,9 +2928,14 @@ export default {
   display: grid;
   inline-size: 100%;
   max-inline-size: 1050px;
+  min-inline-size: 0;
   block-size: auto;
   margin-block-start: 1rem;
   gap: 3rem;
+}
+.scenes > * {
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 .episode-snapshot-sentinel {
   height: 1px;

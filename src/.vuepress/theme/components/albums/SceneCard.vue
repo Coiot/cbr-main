@@ -182,9 +182,16 @@ export default {
 </script>
 
 <style scoped>
+.cbr-media {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: clip;
+}
 .scene-image {
   display: block;
   inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
   line-height: 0;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -198,6 +205,9 @@ export default {
   transform: scale(1.007);
 }
 .text {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
   padding: 2rem 2rem 1rem;
   border-block-end: 3px solid color-mix(in srgb, var(--accent-color), black 20%);
   color: var(--panel-text-color);
@@ -216,6 +226,9 @@ export default {
   display: inline-block;
 }
 .narrations {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.25;
