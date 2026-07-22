@@ -23,7 +23,7 @@
           :bullets="true"
           fixed-height="100%"
           fractions
-          :touchable="false"
+          :touchable="zoomScale === 1"
           class="cbr-media cinematic-primary"
           :transition-speed="900"
           style="background-size: contain"
@@ -45,10 +45,13 @@
                 @dblclick="toggleZoom"
               >
                 <img
+                  v-if="shouldRenderSlideImage(index)"
                   class="scene-slide-image"
                   :src="$assetUrl(scene.slide_svg || scene.slide_url)"
                   :alt="String(scene.scene_title || `Scene ${index + 1}`)"
                   :style="zoomTransformStyle"
+                  :loading="index === activeSceneIndex ? 'eager' : 'lazy'"
+                  decoding="async"
                   draggable="false"
                 />
               </div>
@@ -318,6 +321,7 @@ export default {
       this.zoomTranslateY = this.clampZoomValue(translateY, -maxY, maxY);
     },
     resetZoom() {
+      this.releaseZoomPointers();
       this.zoomPointers.clear();
       this.zoomGesture = null;
       this.zoomScale = 1;
@@ -339,6 +343,29 @@ export default {
         return;
       }
       this.applyZoom(2, 0, 0, event.currentTarget);
+    },
+    shouldRenderSlideImage(index) {
+      const count = this.scenes.length;
+      if (count <= 3) return true;
+      const active = this.activeSceneIndex;
+      const previous = (active - 1 + count) % count;
+      const next = (active + 1) % count;
+      return index === active || index === previous || index === next;
+    },
+    releaseZoomPointers() {
+      this.zoomPointers.forEach((pointer) => {
+        const media = pointer && pointer.media;
+        if (!media || typeof media.releasePointerCapture !== "function") {
+          return;
+        }
+        try {
+          if (media.hasPointerCapture(pointer.id)) {
+            media.releasePointerCapture(pointer.id);
+          }
+        } catch (error) {
+          // A slide transition may detach the captured element first.
+        }
+      });
     },
     pointerPair() {
       return Array.from(this.zoomPointers.values()).slice(0, 2);
@@ -386,9 +413,16 @@ export default {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        media,
       });
-      if (typeof media.setPointerCapture === "function") {
-        media.setPointerCapture(event.pointerId);
+      if (this.zoomScale > 1 || this.zoomPointers.size >= 2) {
+        if (typeof media.setPointerCapture === "function") {
+          try {
+            media.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // Pointer capture is optional and can fail during slide transitions.
+          }
+        }
       }
       if (this.zoomPointers.size >= 2) {
         this.beginPinch(media);
@@ -400,11 +434,14 @@ export default {
       if (!this.zoomPointers.has(event.pointerId)) {
         return;
       }
-      event.preventDefault();
+      if (this.zoomScale > 1 || this.zoomPointers.size >= 2) {
+        event.preventDefault();
+      }
       this.zoomPointers.set(event.pointerId, {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        media: event.currentTarget,
       });
       const media = event.currentTarget;
       if (this.zoomPointers.size >= 2) {
@@ -441,11 +478,14 @@ export default {
     onZoomPointerEnd(event) {
       const media = event.currentTarget;
       this.zoomPointers.delete(event.pointerId);
-      if (
-        typeof media.hasPointerCapture === "function" &&
-        media.hasPointerCapture(event.pointerId)
-      ) {
-        media.releasePointerCapture(event.pointerId);
+      if (typeof media.releasePointerCapture === "function") {
+        try {
+          if (media.hasPointerCapture(event.pointerId)) {
+            media.releasePointerCapture(event.pointerId);
+          }
+        } catch (error) {
+          // The browser may already have released capture during navigation.
+        }
       }
       const remaining = Array.from(this.zoomPointers.values())[0];
       if (remaining) {
@@ -606,8 +646,14 @@ export default {
       });
     },
     handlePrimarySlide(event) {
+      const index = Number(
+        event && event.currentSlide && event.currentSlide.index
+      );
+      if (!Number.isInteger(index) || index < 0 || index >= this.scenes.length) {
+        return;
+      }
       this.resetNarrationScroll();
-      this.$emit("slide-change", event);
+      this.$emit("slide-change", { currentSlide: { index } });
     },
   },
 };
@@ -898,7 +944,7 @@ export default {
     padding: 0.45rem;
   }
   .cinematic-narration-controls .layout-toggle-group {
-    display: none;
+    display: inline-flex;
   }
   .cinematic-slides {
     min-block-size: 240px;
@@ -926,14 +972,19 @@ export default {
 
 @media (max-width: 799px) and (orientation: landscape) {
   .cinematic-stage,
-  .cinematic-stage--bottom,
   .cinematic-stage:fullscreen,
   .cinematic-stage:-webkit-full-screen,
-  .cinematic-stage--bottom:fullscreen,
-  .cinematic-stage--bottom:-webkit-full-screen {
+  .cinematic-mode.is-pseudo-fullscreen .cinematic-stage {
     grid-template-columns: minmax(0, 1fr) minmax(230px, 34%);
     grid-template-rows: minmax(0, 1fr);
     min-block-size: min(82vh, 760px);
+  }
+  .cinematic-stage--bottom,
+  .cinematic-stage--bottom:fullscreen,
+  .cinematic-stage--bottom:-webkit-full-screen,
+  .cinematic-mode.is-pseudo-fullscreen .cinematic-stage--bottom {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(110px, 28vh);
   }
   .cinematic-stage .cinematic-narration,
   .cinematic-stage--bottom .cinematic-narration {
