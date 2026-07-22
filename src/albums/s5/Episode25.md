@@ -25,7 +25,7 @@ scenes:
   narration: "<p>And once again, thank you to every single one of the Ko-Fi donators to the CBR! You are the champs who manage to make this whole project run!</p>"
 - scene_number: 05
   scene_title: "Flawless"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode25-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season5-pr24-scene56.jpeg
   narration: "<p>As a PR, I must highlight a large milestone in the X5 rankings. For the first time ever this season, a civ managed to achieve 0 standard deviation. The Tlingit have secured the top spot with not a single dissenter. There is only one word to describe what the Tlingit are doing right now - dominance. Whether they can keep this up, in the midst of the time of monsters, is another question, but regardless, they are very good.</p>"
 - scene_number: 06
   scene_title: "Tactical Failures"
