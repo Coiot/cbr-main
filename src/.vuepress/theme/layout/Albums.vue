@@ -95,6 +95,14 @@
         {{ $page.frontmatter.description }}
       </p>
 
+      <div v-if="scenesLoading" class="album-scenes-status" role="status">
+        Loading scenes…
+      </div>
+      <div v-else-if="scenesLoadError" class="album-scenes-status is-error">
+        <span>{{ scenesLoadError }}</span>
+        <button type="button" @click="retryAlbumScenes">Retry</button>
+      </div>
+
       <div class="episode-tools" v-if="hasScenes">
         <EpisodeViewControls
           :current-view-label="currentViewLabel"
@@ -110,7 +118,7 @@
           ref="sceneJumpControl"
           v-model.number="jumpToScene"
           :scene-count="sceneCount"
-          :scenes="$page.frontmatter.scenes || []"
+          :scenes="scenes"
           :show-scene-titles="isPowerRanking"
           select-id="scene-jump"
           @go="goToScene"
@@ -136,7 +144,7 @@
             <SceneJumpControl
               v-model.number="jumpToScene"
               :scene-count="sceneCount"
-              :scenes="$page.frontmatter.scenes || []"
+              :scenes="scenes"
               :show-scene-titles="isPowerRanking"
               select-id="floating-scene-jump"
               compact
@@ -155,7 +163,7 @@
           <SceneJumpControl
             v-model.number="jumpToScene"
             :scene-count="sceneCount"
-            :scenes="$page.frontmatter.scenes || []"
+            :scenes="scenes"
             :show-scene-titles="isPowerRanking"
             select-id="mobile-scene-jump"
             compact
@@ -266,7 +274,7 @@
           style="margin-bottom: 1rem"
         >
           <vueper-slide
-            v-for="(scene, index) in $page.frontmatter.scenes"
+            v-for="(scene, index) in scenes"
             :image="$assetUrl(scene.slide_url || scene.slide_svg)"
             :key="sceneKey(scene, index)"
             @keyup.left="previous()"
@@ -291,7 +299,7 @@
           style="background-size: contain"
         >
           <vueper-slide
-            v-for="(scene, index) in $page.frontmatter.scenes"
+            v-for="(scene, index) in scenes"
             :image="$assetUrl(scene.slide_url || scene.slide_svg)"
             :key="`primary-${sceneKey(scene, index)}`"
             :title="scene.scene_title"
@@ -324,7 +332,7 @@
       </div>
       <CinematicFullscreen
         ref="cinematicOverlay"
-        :scenes="$page.frontmatter.scenes || []"
+        :scenes="scenes"
         :is-fullscreen="isCinematicFullscreen"
         :narration-layout="cinematicNarrationLayout"
         :active-scene="activeScene"
@@ -354,7 +362,7 @@
       <div v-if="isVerticalView" :key="`scenes-${$page.path}`">
         <section class="scenes">
           <SceneCard
-            v-for="(scene, index) in $page.frontmatter.scenes"
+            v-for="(scene, index) in scenes"
             :key="sceneKey(scene, index)"
             :id="sceneAnchor(index)"
             :scene="scene"
@@ -484,6 +492,7 @@ const SEASON_FIVE_PR_COMMENT_CUTOFF = new Date(2026, 1, 11, 23, 59, 59, 999);
 const SEASON_FIVE_PR_COMMENT_LABEL = new Date(2026, 1, 11);
 const RESUME_SYNC_DEBOUNCE = 4000;
 const CINEMATIC_NARRATION_LAYOUT_KEY = "albumsCinematicNarrationLayout";
+const albumSceneCache = new Map();
 const normalizeEpisodeNumber = (value) => {
   if (value === null || value === undefined) {
     return "";
@@ -539,6 +548,9 @@ export default {
       showFloatingSceneJump: false,
       episodeDetailsOpen: false,
       mobileJumpOpen: false,
+      albumScenes: [],
+      scenesLoading: false,
+      scenesLoadError: "",
     };
   },
   components: {
@@ -585,14 +597,17 @@ export default {
         return this.siblingPages[index + 1];
       }
     },
+    scenes() {
+      const inlineScenes = this.$page.frontmatter.scenes;
+      return Array.isArray(inlineScenes) ? inlineScenes : this.albumScenes;
+    },
     hasScenes() {
-      return (
-        this.$page.frontmatter.scenes &&
-        this.$page.frontmatter.scenes.length > 0
-      );
+      return this.scenes.length > 0;
     },
     sceneCount() {
-      return this.hasScenes ? this.$page.frontmatter.scenes.length : 0;
+      if (this.hasScenes) return this.scenes.length;
+      const count = Number(this.$page.frontmatter.scene_count);
+      return Number.isFinite(count) && count > 0 ? count : 0;
     },
     sceneTimeline() {
       return this.sceneTimelineCache;
@@ -611,8 +626,8 @@ export default {
         return null;
       }
       return (
-        this.$page.frontmatter.scenes[this.activeSceneIndex] ||
-        this.$page.frontmatter.scenes[0] ||
+        this.scenes[this.activeSceneIndex] ||
+        this.scenes[0] ||
         null
       );
     },
@@ -815,7 +830,9 @@ export default {
   },
   watch: {
     "$page.path"() {
-      this.rebuildPageCaches();
+      this.albumScenes = [];
+      this.scenesLoading = false;
+      this.scenesLoadError = "";
       this.jumpToScene = 1;
       this.bookmarkedScene = null;
       this.lastSeenScene = null;
@@ -833,16 +850,13 @@ export default {
       this.commentPreview = null;
       this.clearCommentMessage();
       this.commentEditing = false;
-      this.$nextTick(() => {
-        this.loadBookmark();
-        this.loadResume();
+      this.loadAlbumScenes().then((loaded) => {
+        if (!loaded) return;
+        this.initializeAlbumScenes();
         this.loadReactionCounts();
         if (this.showComments) {
           this.loadComments();
         }
-        this.cacheSceneElements();
-        this.setupSceneJumpObserver();
-        this.setupSnapshotObserver();
       });
     },
     isToggle() {
@@ -880,15 +894,8 @@ export default {
     }
     const saved = window.localStorage.getItem("albumsViewMode");
     this.applyViewMode(saved);
-    this.loadBookmark();
-    this.loadResume();
-    this.rebuildPageCaches();
-    this.$nextTick(() => {
-      this.cacheSceneElements();
-      this.applyHashScene();
-      this.updateActiveFromScroll();
-      this.setupSceneJumpObserver();
-      this.setupSnapshotObserver();
+    this.loadAlbumScenes().then((loaded) => {
+      if (loaded) this.initializeAlbumScenes();
     });
     window.addEventListener("scroll", this.handleScroll, { passive: true });
     window.addEventListener("keydown", this.handleKeydown, true);
@@ -935,6 +942,66 @@ export default {
     }
   },
   methods: {
+    async loadAlbumScenes() {
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      if (Array.isArray(frontmatter.scenes)) {
+        this.albumScenes = frontmatter.scenes;
+        return true;
+      }
+      const dataUrl = String(frontmatter.scene_data_url || "").trim();
+      if (!dataUrl || typeof window === "undefined") {
+        this.albumScenes = [];
+        return false;
+      }
+      if (albumSceneCache.has(dataUrl)) {
+        this.albumScenes = albumSceneCache.get(dataUrl);
+        return true;
+      }
+      this.scenesLoading = true;
+      this.scenesLoadError = "";
+      try {
+        const response = await fetch(this.$withBase(dataUrl), {
+          credentials: "same-origin",
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const payload = await response.json();
+        const scenes = Array.isArray(payload) ? payload : payload.scenes;
+        if (!Array.isArray(scenes)) {
+          throw new Error("Invalid scene data");
+        }
+        albumSceneCache.set(dataUrl, scenes);
+        const currentUrl = String(
+          (this.$page.frontmatter && this.$page.frontmatter.scene_data_url) || ""
+        ).trim();
+        if (currentUrl !== dataUrl) return false;
+        this.albumScenes = scenes;
+        return true;
+      } catch (error) {
+        this.albumScenes = [];
+        this.scenesLoadError = "Scenes could not be loaded.";
+        return false;
+      } finally {
+        this.scenesLoading = false;
+      }
+    },
+    async retryAlbumScenes() {
+      const loaded = await this.loadAlbumScenes();
+      if (loaded) this.initializeAlbumScenes();
+    },
+    initializeAlbumScenes() {
+      this.rebuildPageCaches();
+      this.loadBookmark();
+      this.loadResume();
+      this.$nextTick(() => {
+        this.cacheSceneElements();
+        this.applyHashScene();
+        this.updateActiveFromScroll();
+        this.setupSceneJumpObserver();
+        this.setupSnapshotObserver();
+      });
+    },
     rebuildPageCaches() {
       this.siblingPagesCache = this.computeSiblingPages();
       this.sceneTimelineCache = this.computeSceneTimeline();
@@ -958,7 +1025,7 @@ export default {
       if (!this.hasScenes) {
         return [];
       }
-      return this.$page.frontmatter.scenes.map((scene, index) => ({
+      return this.scenes.map((scene, index) => ({
         index,
         key: `${this.sceneKey(scene, index)}-${index}`,
         number: scene.scene_number || index + 1,
@@ -2727,6 +2794,27 @@ export default {
 .abstract {
   font-size: 1.8rem;
   line-height: 1.4;
+}
+.album-scenes-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  margin: 1.25rem 0;
+  color: var(--text-color);
+  font-weight: 700;
+}
+.album-scenes-status.is-error {
+  color: #f1c15f;
+}
+.album-scenes-status button {
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font: inherit;
+  cursor: pointer;
 }
 .episode-tools {
   display: flex;

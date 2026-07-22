@@ -686,6 +686,24 @@ const sitemapEnhancer = (_, ctx) => ({
     fs.writeFileSync(path.join(ctx.outDir, "sitemap.xml"), sitemapXml, "utf8");
   },
 });
+
+const albumSceneDataExtractor = () => ({
+  name: "album-scene-data-extractor",
+  extendPageData($page) {
+    const frontmatter = $page.frontmatter || {};
+    if (!Array.isArray(frontmatter.scenes) || !frontmatter.scenes.length) {
+      return;
+    }
+    const relativePath = String($page.path || "")
+      .replace(/^\/albums\//, "")
+      .replace(/\/$/, "");
+    if (!relativePath) return;
+    frontmatter.scene_count = frontmatter.scenes.length;
+    frontmatter.scene_data_url = `/data/albums/${relativePath}.json`;
+    delete frontmatter.scenes;
+    $page.frontmatter = frontmatter;
+  },
+});
 module.exports = {
   title: "Civ Battle Royale",
   description: siteDescription,
@@ -800,6 +818,8 @@ module.exports = {
         normalSuffix: "/",
       },
     ],
+    // Keep this last: metadata plugins need scenes before the global payload is trimmed.
+    albumSceneDataExtractor(),
   ],
   head: [
     [

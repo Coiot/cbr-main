@@ -121,7 +121,9 @@ function isAlbumPage(page) {
       page.path &&
       page.path.startsWith("/albums/") &&
       page.frontmatter &&
-      Array.isArray(page.frontmatter.scenes)
+      (Number(page.frontmatter.scene_count) > 0 ||
+        (Array.isArray(page.frontmatter.scenes) &&
+          page.frontmatter.scenes.length > 0))
   );
 }
 

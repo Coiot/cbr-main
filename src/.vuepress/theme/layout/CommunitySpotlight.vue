@@ -585,6 +585,7 @@ export default {
       loadError: "",
       episodeSpotlights: [],
       episodeLookup: {},
+      albumSceneIndex: {},
       latestSeasonToken: "",
       selectedSeasonToken: "",
       availableSeasonTokens: [],
@@ -1091,19 +1092,22 @@ export default {
         }
         const scenesByNumber = {};
         const scenePreviewByNumber = {};
-        const scenes = Array.isArray(frontmatter.scenes)
-          ? frontmatter.scenes
-          : [];
+        const compactAlbum = this.albumSceneIndex[path];
+        const scenes =
+          compactAlbum && Array.isArray(compactAlbum.scenes)
+            ? compactAlbum.scenes
+            : [];
         scenes.forEach((scene, index) => {
-          const sceneNumber = parseSceneNumber(scene, index + 1);
-          const sceneTitle = stripHtml(
-            (scene && (scene.scene_title || scene.scene_title_html)) || ""
+          const sceneNumber = parseSceneNumber(
+            { scene_number: scene.number },
+            index + 1
           );
+          const sceneTitle = stripHtml(scene.title || "");
           if (sceneTitle) {
             scenesByNumber[sceneNumber] = sceneTitle;
           }
           const previewUrl = String(
-            (scene && (scene.slide_url || scene.slide_svg || "")) || ""
+            (scene && scene.previewUrl) || ""
           ).trim();
           if (previewUrl) {
             scenePreviewByNumber[sceneNumber] = previewUrl;
@@ -1151,6 +1155,25 @@ export default {
         }
       });
       return filtered;
+    },
+    async loadAlbumSceneIndex() {
+      if (Object.keys(this.albumSceneIndex).length) return;
+      try {
+        const response = await fetch(
+          this.$withBase("/data/albums/scene-index.json"),
+          { credentials: "same-origin" }
+        );
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        const albums = Array.isArray(payload.albums) ? payload.albums : [];
+        this.albumSceneIndex = albums.reduce((lookup, album) => {
+          const albumPath = normalizePagePath(album && album.path);
+          if (albumPath) lookup[albumPath] = album;
+          return lookup;
+        }, {});
+      } catch (error) {
+        this.albumSceneIndex = {};
+      }
     },
     async fetchAggregatedReactionRows() {
       const tableName = this.spotlightAggregateTableName;
@@ -1561,6 +1584,7 @@ export default {
       this.isLoading = true;
       this.loadError = "";
       try {
+        await this.loadAlbumSceneIndex();
         const episodes = this.buildEpisodeLookup();
         this.episodeLookup = episodes;
 

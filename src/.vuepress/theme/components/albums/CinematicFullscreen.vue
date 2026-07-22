@@ -30,22 +30,57 @@
         >
           <vueper-slide
             v-for="(scene, index) in scenes"
-            :image="scene.slide_svg ? null : $assetUrl(scene.slide_url)"
+            :image="null"
             :key="sceneKey(scene, index)"
             :title="String(scene.scene_title || '')"
             :class="{ civdeathBorder: scene.death }"
           >
-            <template v-if="scene.slide_svg" v-slot:content>
-              <div class="scene-slide-media">
+            <template v-slot:content>
+              <div
+                class="scene-slide-media"
+                @pointerdown="onZoomPointerDown"
+                @pointermove="onZoomPointerMove"
+                @pointerup="onZoomPointerEnd"
+                @pointercancel="onZoomPointerEnd"
+                @dblclick="toggleZoom"
+              >
                 <img
-                  class="scene-slide-svg"
-                  :src="$assetUrl(scene.slide_svg)"
-                  alt="Scene slide"
+                  class="scene-slide-image"
+                  :src="$assetUrl(scene.slide_svg || scene.slide_url)"
+                  :alt="String(scene.scene_title || `Scene ${index + 1}`)"
+                  :style="zoomTransformStyle"
+                  draggable="false"
                 />
               </div>
             </template>
           </vueper-slide>
         </vueper-slides>
+        <div class="cinematic-zoom-controls" aria-label="Slide zoom controls">
+          <button
+            type="button"
+            :disabled="zoomScale <= 1"
+            aria-label="Zoom out"
+            @click="zoomBy(-0.5)"
+          >
+            −
+          </button>
+          <button
+            type="button"
+            class="zoom-level"
+            aria-label="Reset slide zoom"
+            @click="resetZoom"
+          >
+            {{ Math.round(zoomScale * 100) }}%
+          </button>
+          <button
+            type="button"
+            :disabled="zoomScale >= 4"
+            aria-label="Zoom in"
+            @click="zoomBy(0.5)"
+          >
+            +
+          </button>
+        </div>
       </div>
       <aside class="cinematic-narration" v-if="activeScene">
         <div class="cinematic-narration-controls">
@@ -119,6 +154,11 @@ export default {
     return {
       pseudoFullscreen: false,
       previousBodyOverflow: null,
+      zoomScale: 1,
+      zoomTranslateX: 0,
+      zoomTranslateY: 0,
+      zoomPointers: new Map(),
+      zoomGesture: null,
     };
   },
   props: {
@@ -191,10 +231,16 @@ export default {
     hasScenes() {
       return this.scenes && this.scenes.length > 0;
     },
+    zoomTransformStyle() {
+      return {
+        transform: `translate3d(${this.zoomTranslateX}px, ${this.zoomTranslateY}px, 0) scale(${this.zoomScale})`,
+      };
+    },
   },
   watch: {
     isFullscreen(next) {
       if (!next) {
+        this.resetZoom();
         this.pseudoFullscreen = false;
         this.unlockBodyScroll();
         this.setFullscreenBodyClass(false);
@@ -213,6 +259,7 @@ export default {
       if (!this.isFullscreen) {
         return;
       }
+      this.resetZoom();
       this.$nextTick(() => {
         this.resetNarrationScroll();
       });
@@ -244,6 +291,169 @@ export default {
     );
   },
   methods: {
+    clampZoomValue(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    },
+    getActiveZoomMedia() {
+      if (!this.$el) {
+        return null;
+      }
+      return this.$el.querySelector(
+        ".vueperslide--active .scene-slide-media"
+      );
+    },
+    applyZoom(scale, translateX, translateY, media = null) {
+      const nextScale = this.clampZoomValue(scale, 1, 4);
+      const target = media || this.getActiveZoomMedia();
+      if (nextScale === 1 || !target) {
+        this.zoomScale = nextScale;
+        this.zoomTranslateX = 0;
+        this.zoomTranslateY = 0;
+        return;
+      }
+      const maxX = (target.clientWidth * (nextScale - 1)) / 2;
+      const maxY = (target.clientHeight * (nextScale - 1)) / 2;
+      this.zoomScale = nextScale;
+      this.zoomTranslateX = this.clampZoomValue(translateX, -maxX, maxX);
+      this.zoomTranslateY = this.clampZoomValue(translateY, -maxY, maxY);
+    },
+    resetZoom() {
+      this.zoomPointers.clear();
+      this.zoomGesture = null;
+      this.zoomScale = 1;
+      this.zoomTranslateX = 0;
+      this.zoomTranslateY = 0;
+    },
+    zoomBy(delta) {
+      const nextScale = this.clampZoomValue(this.zoomScale + delta, 1, 4);
+      const ratio = nextScale / this.zoomScale;
+      this.applyZoom(
+        nextScale,
+        this.zoomTranslateX * ratio,
+        this.zoomTranslateY * ratio
+      );
+    },
+    toggleZoom(event) {
+      if (this.zoomScale > 1) {
+        this.resetZoom();
+        return;
+      }
+      this.applyZoom(2, 0, 0, event.currentTarget);
+    },
+    pointerPair() {
+      return Array.from(this.zoomPointers.values()).slice(0, 2);
+    },
+    pointerDistance(first, second) {
+      return Math.hypot(second.x - first.x, second.y - first.y);
+    },
+    pointerCenter(first, second, media) {
+      const rect = media.getBoundingClientRect();
+      return {
+        x: (first.x + second.x) / 2 - rect.left - rect.width / 2,
+        y: (first.y + second.y) / 2 - rect.top - rect.height / 2,
+      };
+    },
+    beginPan(pointer) {
+      this.zoomGesture = {
+        type: "pan",
+        pointerId: pointer.id,
+        startX: pointer.x,
+        startY: pointer.y,
+        translateX: this.zoomTranslateX,
+        translateY: this.zoomTranslateY,
+      };
+    },
+    beginPinch(media) {
+      const [first, second] = this.pointerPair();
+      if (!first || !second) {
+        return;
+      }
+      const center = this.pointerCenter(first, second, media);
+      this.zoomGesture = {
+        type: "pinch",
+        distance: Math.max(this.pointerDistance(first, second), 1),
+        scale: this.zoomScale,
+        worldX: (center.x - this.zoomTranslateX) / this.zoomScale,
+        worldY: (center.y - this.zoomTranslateY) / this.zoomScale,
+      };
+    },
+    onZoomPointerDown(event) {
+      if (event.pointerType === "mouse" && event.button !== 0) {
+        return;
+      }
+      const media = event.currentTarget;
+      this.zoomPointers.set(event.pointerId, {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+      });
+      if (typeof media.setPointerCapture === "function") {
+        media.setPointerCapture(event.pointerId);
+      }
+      if (this.zoomPointers.size >= 2) {
+        this.beginPinch(media);
+      } else {
+        this.beginPan(this.zoomPointers.get(event.pointerId));
+      }
+    },
+    onZoomPointerMove(event) {
+      if (!this.zoomPointers.has(event.pointerId)) {
+        return;
+      }
+      event.preventDefault();
+      this.zoomPointers.set(event.pointerId, {
+        id: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+      });
+      const media = event.currentTarget;
+      if (this.zoomPointers.size >= 2) {
+        if (!this.zoomGesture || this.zoomGesture.type !== "pinch") {
+          this.beginPinch(media);
+        }
+        const [first, second] = this.pointerPair();
+        const center = this.pointerCenter(first, second, media);
+        const distance = this.pointerDistance(first, second);
+        const nextScale =
+          this.zoomGesture.scale * (distance / this.zoomGesture.distance);
+        this.applyZoom(
+          nextScale,
+          center.x - this.zoomGesture.worldX * nextScale,
+          center.y - this.zoomGesture.worldY * nextScale,
+          media
+        );
+        return;
+      }
+      const pointer = this.zoomPointers.get(event.pointerId);
+      if (
+        this.zoomScale > 1 &&
+        this.zoomGesture &&
+        this.zoomGesture.type === "pan"
+      ) {
+        this.applyZoom(
+          this.zoomScale,
+          this.zoomGesture.translateX + pointer.x - this.zoomGesture.startX,
+          this.zoomGesture.translateY + pointer.y - this.zoomGesture.startY,
+          media
+        );
+      }
+    },
+    onZoomPointerEnd(event) {
+      const media = event.currentTarget;
+      this.zoomPointers.delete(event.pointerId);
+      if (
+        typeof media.hasPointerCapture === "function" &&
+        media.hasPointerCapture(event.pointerId)
+      ) {
+        media.releasePointerCapture(event.pointerId);
+      }
+      const remaining = Array.from(this.zoomPointers.values())[0];
+      if (remaining) {
+        this.beginPan(remaining);
+      } else {
+        this.zoomGesture = null;
+      }
+    },
     onToggleReaction(sceneNumber, reactionKey) {
       this.$emit("toggle-reaction", sceneNumber, reactionKey);
     },
@@ -505,6 +715,7 @@ export default {
   grid-template-rows: minmax(0, 1fr) minmax(120px, 12vh);
 }
 .cinematic-slides {
+  position: relative;
   min-inline-size: 0;
   block-size: 100%;
   border-radius: 12px;
@@ -523,14 +734,65 @@ export default {
   block-size: 100%;
   overflow: hidden;
   background: var(--cinematic-stage-bg);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.scene-slide-svg {
+.scene-slide-image {
   display: block;
   inline-size: 100%;
   block-size: 100%;
   max-inline-size: 100%;
   max-block-size: 100%;
   object-fit: contain;
+  transform-origin: center center;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.cinematic-zoom-controls {
+  position: absolute;
+  inset-block-start: 0.55rem;
+  inset-inline-end: 0.55rem;
+  z-index: 6;
+  display: none;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--cinematic-control-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cinematic-control-bg), transparent 8%);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.cinematic-zoom-controls button {
+  min-inline-size: 2.4rem;
+  min-block-size: 2.4rem;
+  color: var(--cinematic-control-fg);
+  background: transparent;
+  border: 0;
+  padding: 0.3rem 0.55rem;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.cinematic-zoom-controls button + button {
+  border-inline-start: 1px solid var(--cinematic-controls-border);
+}
+.cinematic-zoom-controls .zoom-level {
+  min-inline-size: 3.5rem;
+  font-size: 0.72rem;
+}
+.cinematic-zoom-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.cinematic-zoom-controls button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+}
+:global(.cinematic-primary .vueperslide__content-wrapper) {
+  pointer-events: auto !important;
 }
 :global(.cinematic-primary .vueperslide) {
   background-color: var(--cinematic-stage-bg);
@@ -640,6 +902,9 @@ export default {
   }
   .cinematic-slides {
     min-block-size: 240px;
+  }
+  .cinematic-zoom-controls {
+    display: flex;
   }
   .cinematic-stage .cinematic-narration {
     max-block-size: 30vh;

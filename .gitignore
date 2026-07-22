@@ -6,6 +6,8 @@ node_modules
 # Build directory
 /public/albums
 /public/assets
+/public/data/albums
+/src/.vuepress/public/data/albums
 .DS_Store
 yarn-error.log
 package-lock.json

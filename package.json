@@ -7,11 +7,13 @@
     "node": ">=20.17 <23"
   },
   "scripts": {
+    "predev": "npm run build:album-data",
     "dev": "vuepress dev src",
     "dev:docs": "vuepress dev docs",
+    "build:album-data": "node scripts/build-album-data.js",
     "build:social-card": "node scripts/build-home-social-card.js",
     "build:episode-snapshots": "node scripts/build-episode-snapshots.js",
-    "build": "npm run build:social-card && npm run build:episode-snapshots && vuepress build src",
+    "build": "npm run build:album-data && npm run build:social-card && npm run build:episode-snapshots && vuepress build src",
     "build:docs": "vuepress build docs",
     "build:map-cache": "node scripts/build-community-map-cache.js",
     "build:supporters": "node scripts/build-supporters-image.js"

@@ -228,6 +228,8 @@ export default {
       activeIndex: 0,
       allItems: [],
       defaultItems: [],
+      sceneIndexLoaded: false,
+      sceneIndexLoading: false,
       mapCitiesLoaded: false,
       snapshotScope: {
         mode: "live",
@@ -456,7 +458,6 @@ export default {
       const pages = (this.$site && this.$site.pages) || [];
       const items = [];
       const episodes = [];
-      const scenes = [];
 
       pages.forEach((page) => {
         if (!page || typeof page.path !== "string") {
@@ -498,30 +499,6 @@ export default {
           ),
         });
 
-        const pageScenes = Array.isArray(frontmatter.scenes)
-          ? frontmatter.scenes
-          : [];
-        pageScenes.forEach((scene, index) => {
-          const sceneNumber = parseSceneNumber(scene, index + 1);
-          const rawTitle =
-            (scene && (scene.scene_title || scene.scene_title_html)) || "";
-          const sceneTitle = stripHtml(rawTitle);
-          const sceneLabel =
-            sceneTitle && sceneTitle !== String(sceneNumber)
-              ? `Scene ${sceneNumber}: ${sceneTitle}`
-              : `Scene ${sceneNumber}`;
-          scenes.push({
-            id: `scene:${path}#${sceneNumber}`,
-            type: "scene",
-            title: `${title} · ${sceneLabel}`,
-            subtitle: subtitleBits.join(" · "),
-            path: `${path}#scene-${sceneNumber}`,
-            sortDate,
-            searchText: normalizeText(
-              `${title} ${sceneLabel} ${sceneTitle} ${subtitleBits.join(" ")}`
-            ),
-          });
-        });
       });
 
       const competitors = [];
@@ -602,7 +579,7 @@ export default {
         path: MAP_PATH,
         searchText: normalizeText("community tile map live overlays snapshots"),
       });
-      items.push(...episodes, ...scenes, ...competitors, ...mapOwners);
+      items.push(...episodes, ...competitors, ...mapOwners);
       this.allItems = items;
       this.defaultItems = [
         items[0],
@@ -611,6 +588,54 @@ export default {
           .sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0))
           .slice(0, DEFAULT_RESULTS - 1),
       ].filter(Boolean);
+    },
+
+    async loadSceneIndex() {
+      if (this.sceneIndexLoaded || this.sceneIndexLoading) return;
+      this.sceneIndexLoading = true;
+      try {
+        const response = await fetch(
+          this.$withBase("/data/albums/scene-index.json"),
+          { credentials: "same-origin" }
+        );
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        const albums = Array.isArray(payload.albums) ? payload.albums : [];
+        const sceneItems = [];
+        albums.forEach((album) => {
+          const scenes = Array.isArray(album.scenes) ? album.scenes : [];
+          scenes.forEach((scene, index) => {
+            const sceneNumber = parseSceneNumber(
+              { scene_number: scene.number },
+              index + 1
+            );
+            const sceneTitle = stripHtml(scene.title);
+            const sceneLabel =
+              sceneTitle && sceneTitle !== String(sceneNumber)
+                ? `Scene ${sceneNumber}: ${sceneTitle}`
+                : `Scene ${sceneNumber}`;
+            sceneItems.push({
+              id: `scene:${album.path}#${sceneNumber}`,
+              type: "scene",
+              title: `${album.title} · ${sceneLabel}`,
+              subtitle: album.subtitle || "",
+              path: `${album.path}#scene-${sceneNumber}`,
+              sortDate: album.sortDate || 0,
+              searchText: normalizeText(
+                `${album.title} ${sceneLabel} ${sceneTitle} ${
+                  album.subtitle || ""
+                }`
+              ),
+            });
+          });
+        });
+        this.allItems = [...this.allItems, ...sceneItems];
+        this.sceneIndexLoaded = true;
+      } catch (error) {
+        // Episode and map search remain available if the optional index fails.
+      } finally {
+        this.sceneIndexLoading = false;
+      }
     },
 
     isMapScopedItem(item) {
@@ -1084,6 +1109,7 @@ export default {
     openPalette() {
       this.isOpen = true;
       this.activeIndex = 0;
+      this.loadSceneIndex();
       this.loadSnapshotList();
       if (this.snapshotScope.mode === "snapshot" && this.snapshotScope.id) {
         this.ensureSnapshotScope(this.snapshotScope.id);
