@@ -18,7 +18,7 @@ scenes:
 - scene_number: 03
   scene_title: "Maps"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode25-scene03.jpeg
-  narration: "<p>And for the second OC, we can showcase the map of the cylinder done by Sonicfan! He puts in lots of effort weekly to make these things, so you better thank him for being our premier map maker!</p>"
+  narration: "<p>And for the second OC, we can showcase the map of the cylinder done by Sonicfan! She puts in lots of effort weekly to make these things, so you better thank her for being our premier map maker!</p>"
 - scene_number: 04
   scene_title: "Money"
   slide_svg: https://cdn.civbattleroyale.tv/s5ep25-supporters.svg
