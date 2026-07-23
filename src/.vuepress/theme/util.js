@@ -34,18 +34,24 @@ export function isTel(path) {
 }
 
 export function ensureExt(path) {
-	if (isExternal(path)) {
+	if (!path || isExternal(path) || isXml(path) || /^[?#]/.test(path)) {
 		return path
 	}
-	const hashMatch = path.match(hashRE)
-	const hash = hashMatch ? hashMatch[0] : ''
-	const normalized = normalize(path)
 
-	if (endingSlashRE.test(normalized) || isXml(normalized)) {
+	const match = String(path).match(/^([^?#]*)(\?[^#]*)?(#.*)?$/)
+	if (!match) {
 		return path
-	} else {
-		return normalized + '.html' + hash
 	}
+
+	let normalized = normalize(match[1])
+	const query = match[2] || ''
+	const hash = match[3] || ''
+
+	if (!endingSlashRE.test(normalized)) {
+		normalized += '/'
+	}
+
+	return normalized + query + hash
 }
 
 export function isActive(route, path) {
@@ -117,7 +123,9 @@ function resolvePath(relative, base, append) {
 }
 
 export function resolveSidebarItems(page, route, site, localePath) {
-	const { pages, themeConfig } = site
+	const pages = (site && site.pages) || []
+	const themeConfig = (site && site.themeConfig) || {}
+	const frontmatter = (page && page.frontmatter) || {}
 
 	const localeConfig =
 		localePath && themeConfig.locales
@@ -125,7 +133,7 @@ export function resolveSidebarItems(page, route, site, localePath) {
 			: themeConfig
 
 	const pageSidebarConfig =
-		page.frontmatter.sidebar || localeConfig.sidebar || themeConfig.sidebar
+		frontmatter.sidebar || localeConfig.sidebar || themeConfig.sidebar
 	if (pageSidebarConfig === 'auto') {
 		return resolveHeaders(page)
 	}

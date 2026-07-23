@@ -165,9 +165,9 @@
                   v-for="selectedReaction in [
                     selectedReactionForEpisode(episode),
                   ]"
+                  :key="`${episode.path}:${selectedReaction.key}`"
                 >
                   <header
-                    :key="`${episode.path}:header:${selectedReaction.key}`"
                     class="spotlight-reaction-head"
                   >
                     <span class="spotlight-reaction-left">
@@ -181,7 +181,6 @@
                   </header>
 
                   <figure
-                    :key="`${episode.path}:figure:${selectedReaction.key}`"
                     class="spotlight-reaction-figure"
                   >
                     <img
@@ -742,7 +741,7 @@ export default {
     this.loadSpotlights();
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window !== "undefined") {
       window.removeEventListener(
         "supabase-auth-session",

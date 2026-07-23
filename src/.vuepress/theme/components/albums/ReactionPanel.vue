@@ -168,7 +168,7 @@ export default {
       this.handleReactionSnapshot
     );
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window === "undefined") {
       return;
     }

@@ -112,7 +112,7 @@
               <router-link
                 class="bookmark-link"
                 :to="bookmark.path"
-                @click.native="closeBookmarkMenu"
+                @click="closeBookmarkMenu"
               >
                 <span class="bookmark-title">{{ bookmark.title }}</span>
                 <span class="bookmark-meta">
@@ -489,7 +489,7 @@ export default {
     }
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window !== "undefined") {
       window.removeEventListener(
         "albums-bookmark-updated",

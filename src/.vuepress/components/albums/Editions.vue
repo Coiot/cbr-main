@@ -67,7 +67,7 @@ export default {
       window.addEventListener("popstate", this.syncFromRoute);
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window !== "undefined") {
       window.removeEventListener("popstate", this.syncFromRoute);
     }
@@ -126,7 +126,7 @@ export default {
         const query = Object.assign({}, this.$route.query, {
           edition: nextId,
         });
-        this.$router.push({ query }).catch(() => {});
+        this.$router.push({ path: "/albums/", query }).catch(() => {});
       }
     },
     normalizeEditionId(id) {
@@ -150,7 +150,7 @@ export default {
         const query = Object.assign({}, this.$route.query, {
           edition: nextId,
         });
-        this.$router.replace({ query }).catch(() => {});
+        this.$router.replace({ path: "/albums/", query }).catch(() => {});
       }
     },
     scrollToActiveEdition() {

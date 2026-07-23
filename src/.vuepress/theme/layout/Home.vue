@@ -165,7 +165,7 @@ export default {
     );
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("storage", this.refreshReadingState);
     window.removeEventListener(
       "albums-bookmark-updated",

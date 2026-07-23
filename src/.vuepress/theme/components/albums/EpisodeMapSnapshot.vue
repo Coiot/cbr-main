@@ -245,7 +245,7 @@ export default {
       this.loadSnapshot(this.useBaseSnapshot);
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.abortSnapshotFetch();
     this.abortSummaryFetch();
   },

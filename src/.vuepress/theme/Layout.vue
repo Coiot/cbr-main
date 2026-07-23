@@ -8,14 +8,16 @@
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
-      <slot name="sidebar-top" slot="top" />
-      <slot name="sidebar-bottom" slot="bottom" />
+      <template #top>
+        <slot name="sidebar-top" />
+      </template>
+      <template #bottom>
+        <slot name="sidebar-bottom" />
+      </template>
     </Sidebar>
 
     <main id="main-content" tabindex="-1">
-      <Albums v-if="$page.frontmatter.edition" />
-
-      <PR v-if="$page.frontmatter.pr" />
+      <Albums v-if="$page.frontmatter.edition || $page.frontmatter.pr" />
 
       <div v-else-if="$page.frontmatter.layout">
         <component :is="$page.frontmatter.layout" />
@@ -40,33 +42,27 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { defineAsyncComponent } from "vue";
 import nprogress from "nprogress";
-import Albums from "./layout/Albums.vue";
-import PR from "./layout/PR.vue";
-import Home from "./layout/Home.vue";
-import Page from "./layout/Page.vue";
-import Other from "./layout/Other.vue";
-import CommunityTileMap from "./layout/CommunityTileMap.vue";
-import CommunitySpotlight from "./layout/CommunitySpotlight.vue";
 import Navbar from "./components/nav/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 import { resolveSidebarItems } from "./util";
-import VueLazyload from "vue-lazyload";
 
-Vue.use(VueLazyload, {
-  observer: true,
-  observerOptions: {
-    rootMargin: "3000px",
-    threshold: 0.0,
-  },
-});
+const Albums = defineAsyncComponent(() => import("./layout/Albums.vue"));
+const Home = defineAsyncComponent(() => import("./layout/Home.vue"));
+const Page = defineAsyncComponent(() => import("./layout/Page.vue"));
+const Other = defineAsyncComponent(() => import("./layout/Other.vue"));
+const CommunityTileMap = defineAsyncComponent(() =>
+  import("./layout/CommunityTileMap.vue")
+);
+const CommunitySpotlight = defineAsyncComponent(() =>
+  import("./layout/CommunitySpotlight.vue")
+);
 
 export default {
   components: {
     Albums,
-    PR,
     Home,
     Page,
     Other,
@@ -85,8 +81,10 @@ export default {
 
   computed: {
     shouldShowNavbar() {
-      const { themeConfig } = this.$site;
-      const { frontmatter } = this.$page;
+      const site = this.$site || {};
+      const themeConfig = site.themeConfig || this.$themeConfig || {};
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const localeThemeConfig = this.$themeLocaleConfig || {};
       if (frontmatter.navbar === false || themeConfig.navbar === false) {
         return false;
       }
@@ -95,12 +93,12 @@ export default {
         themeConfig.logo ||
         themeConfig.repo ||
         themeConfig.nav ||
-        this.$themeLocaleConfig.nav
+        localeThemeConfig.nav
       );
     },
 
     shouldShowSidebar() {
-      const { frontmatter } = this.$page;
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
       return (
         !frontmatter.layout &&
         !frontmatter.home &&
@@ -114,16 +112,21 @@ export default {
     },
 
     sidebarItems() {
+      const site = this.$site || {
+        pages: [],
+        themeConfig: this.$themeConfig || {},
+      };
       return resolveSidebarItems(
-        this.$page,
+        this.$page || { frontmatter: {} },
         this.$route,
-        this.$site,
+        site,
         this.$localePath
       );
     },
 
     pageClasses() {
-      const userPageClass = this.$page.frontmatter.pageClass;
+      const frontmatter = (this.$page && this.$page.frontmatter) || {};
+      const userPageClass = frontmatter.pageClass;
       return [
         {
           "no-navbar": !this.shouldShowNavbar,
@@ -142,7 +145,7 @@ export default {
     });
 
     this.removeBeforeEach = this.$router.beforeEach((to, from, next) => {
-      if (to.path !== from.path && !Vue.component(to.name)) {
+      if (to.path !== from.path) {
         nprogress.start();
       }
       next();
@@ -160,7 +163,7 @@ export default {
     });
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof this.removeBeforeEach === "function") {
       this.removeBeforeEach();
       this.removeBeforeEach = null;

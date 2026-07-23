@@ -3688,7 +3688,7 @@ export default {
     this.applyRequestedTileFromRoute();
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("resize", this.handleResize);
     window.removeEventListener("online", this.handleOnline);
     window.removeEventListener("quick-jump-map-tile", this.handleQuickJumpTile);

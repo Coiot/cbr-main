@@ -107,7 +107,7 @@ export default {
     );
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window === "undefined") {
       return;
     }
@@ -135,7 +135,7 @@ export default {
       const { locales } = this.$site;
       if (locales && Object.keys(locales).length > 1) {
         const currentLink = this.$page.path;
-        const routes = this.$router.options.routes;
+        const routes = this.$site.pages || [];
         const themeLocales = this.$site.themeConfig.locales || {};
         const languageDropdown = {
           text: this.$themeLocaleConfig.selectText || "Languages",

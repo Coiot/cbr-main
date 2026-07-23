@@ -413,7 +413,7 @@ export default {
     },
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (this.queryTimer) {
       clearTimeout(this.queryTimer);
       this.queryTimer = null;

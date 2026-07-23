@@ -1,5 +1,11 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { defineUserConfig } from "vuepress";
+import { viteBundler } from "@vuepress/bundler-vite";
+import { localTheme } from "./theme/index.mjs";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ASSET_VERSION =
   process.env.ASSET_VERSION ||
@@ -17,31 +23,11 @@ const DEFAULT_SOCIAL_IMAGE = "/social-card.png";
 const DEFAULT_SOCIAL_ALT = "Civ Battle Royale";
 const EPISODE_SOCIAL_DIR = "/social/episodes";
 const ABOUT_PAGE_PATH = "/archive/what-is-the-civ-battle-royale/";
-const MEDIUM_ZOOM_SELECTOR = ".medium-zoom";
-const MEDIUM_ZOOM_DELAY = 1000;
-const MEDIUM_ZOOM_OPTIONS = {
-  background: "rgba(27, 27, 27, 0.9)",
-  scrollOffset: 110,
-};
 const SOCIAL_LINKS = [
   "https://old.reddit.com/r/civbattleroyale/",
   "https://discord.gg/565JwaMsuQ",
   "https://ko-fi.com/coiot",
 ];
-const autometa_options = {
-  enable: true,
-  image: true,
-  twitter: true,
-  og: true,
-  schema: true,
-  site: {
-    name: "Civilization Battle Royale",
-    twitter: "isaacvolpe",
-  },
-  canonical_base: SITE_URL,
-  description_sources: ["frontmatter"],
-  image_sources: ["frontmatter"],
-};
 
 const toISODateTime = (value) => {
   if (!value) return "";
@@ -184,7 +170,7 @@ const buildBreadcrumbJsonLd = ($page, frontmatter) => {
 const buildArticleJsonLd = ($page, frontmatter) => {
   if (!isAlbumEntryPage($page, frontmatter)) return null;
   const canonicalUrl = toAbsolutePageUrl($page.path);
-  const fileLastMod = readFileLastModISO($page._filePath);
+  const fileLastMod = readFileLastModISO($page.filePath);
   const published = pickFirstDate(
     frontmatter.datePublished,
     frontmatter.date,
@@ -341,7 +327,7 @@ const addHeadOnce = (head, tagName, attrs, matcher) => {
 
 const socialMetaEnhancer = () => ({
   name: "social-meta-enhancer",
-  extendPageData($page) {
+  extendsPage($page) {
     const frontmatter = $page.frontmatter || {};
     const pagePath = normalizePagePath($page.path);
     const isHome = frontmatter.home || pagePath === "/";
@@ -356,6 +342,10 @@ const socialMetaEnhancer = () => ({
     const episodeSocialImage = episodeSlug
       ? toAbsoluteUrl(`${EPISODE_SOCIAL_DIR}/${episodeSlug}.png`)
       : "";
+    const preferredSocialImage =
+      episodeSocialImage && $page.path && $page.path.startsWith("/albums/")
+        ? episodeSocialImage
+        : socialImage;
     const socialAlt =
       frontmatter.image_alt ||
       frontmatter.imageAlt ||
@@ -402,6 +392,68 @@ const socialMetaEnhancer = () => ({
     const socialDescription =
       (frontmatter.description && String(frontmatter.description).trim()) ||
       siteDescription;
+    const socialTitle =
+      frontmatter.title || $page.title || (isHome ? SITE_NAME : "Civ Battle Royale");
+
+    addMetaOnce(meta, { property: "og:locale", content: OG_LOCALE }, "property");
+    addMetaOnce(
+      meta,
+      { property: "og:type", content: isHome ? "website" : "article" },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      { property: "og:site_name", content: SITE_NAME },
+      "property"
+    );
+    addMetaOnce(meta, { property: "og:title", content: socialTitle }, "property");
+    addMetaOnce(
+      meta,
+      { property: "og:description", content: socialDescription },
+      "property"
+    );
+    addMetaOnce(meta, { property: "og:url", content: canonicalUrl }, "property");
+    addMetaOnce(
+      meta,
+      { property: "og:image", content: preferredSocialImage },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      {
+        property: "og:image:secure_url",
+        content: preferredSocialImage,
+      },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      { property: "og:image:width", content: "1200" },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      { property: "og:image:height", content: "630" },
+      "property"
+    );
+    addMetaOnce(
+      meta,
+      { name: "twitter:card", content: "summary_large_image" },
+      "name"
+    );
+    addMetaOnce(meta, { name: "twitter:site", content: TWITTER_SITE }, "name");
+    addMetaOnce(meta, { name: "twitter:title", content: socialTitle }, "name");
+    addMetaOnce(
+      meta,
+      { name: "twitter:description", content: socialDescription },
+      "name"
+    );
+    addMetaOnce(meta, { name: "twitter:url", content: canonicalUrl }, "name");
+    addMetaOnce(
+      meta,
+      { name: "twitter:image", content: preferredSocialImage },
+      "name"
+    );
 
     if (isHome) {
       addMetaOnce(
@@ -611,7 +663,7 @@ const socialMetaEnhancer = () => ({
       );
     }
 
-    const fileLastMod = readFileLastModISO($page._filePath);
+    const fileLastMod = readFileLastModISO($page.filePath);
     const modifiedISO = pickFirstDate(
       frontmatter.dateModified,
       frontmatter.lastmod,
@@ -627,17 +679,53 @@ const socialMetaEnhancer = () => ({
       frontmatter.dateModified = modifiedISO;
     }
 
+    addHeadOnce(
+      head,
+      "link",
+      { rel: "canonical", href: canonicalUrl },
+      (attrs) => attrs.rel === "canonical"
+    );
+    meta.forEach((entry) => {
+      const identifier = entry.name
+        ? `name:${entry.name}`
+        : `property:${entry.property}`;
+      addHeadOnce(
+        head,
+        "meta",
+        entry,
+        (attrs) =>
+          (attrs.name ? `name:${attrs.name}` : `property:${attrs.property}`) ===
+          identifier
+      );
+    });
+    structuredData.forEach((item, index) => {
+      const payload =
+        item && item.payload && typeof item.payload === "object"
+          ? item.payload
+          : item;
+      if (!payload || typeof payload !== "object") return;
+      head.push([
+        "script",
+        {
+          type: "application/ld+json",
+          "data-vuepress-jsonld": String(index),
+        },
+        JSON.stringify(payload).replace(/</g, "\\u003c"),
+      ]);
+    });
+
     frontmatter.meta = meta;
     frontmatter.head = head;
     frontmatter.structuredData = structuredData;
+    $page.data.frontmatter = frontmatter;
     $page.frontmatter = frontmatter;
   },
 });
 
-const sitemapEnhancer = (_, ctx) => ({
+const sitemapEnhancer = () => ({
   name: "sitemap-enhancer",
-  async generated() {
-    const pages = Array.isArray(ctx.pages) ? ctx.pages : [];
+  async onGenerated(app) {
+    const pages = Array.isArray(app.pages) ? app.pages : [];
     const urls = pages
       .filter((page) => page && page.path && page.path !== "/404.html")
       .filter(
@@ -650,7 +738,7 @@ const sitemapEnhancer = (_, ctx) => ({
       )
       .map((page) => {
         const frontmatter = page.frontmatter || {};
-        const fileLastMod = readFileLastModISO(page._filePath);
+        const fileLastMod = readFileLastModISO(page.filePath);
         const lastmod =
           toISODate(
             pickFirstDate(
@@ -682,14 +770,15 @@ const sitemapEnhancer = (_, ctx) => ({
       "",
     ];
     const sitemapXml = lines.join("\n");
-    fs.mkdirSync(ctx.outDir, { recursive: true });
-    fs.writeFileSync(path.join(ctx.outDir, "sitemap.xml"), sitemapXml, "utf8");
+    const outDir = app.dir.dest();
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemapXml, "utf8");
   },
 });
 
 const albumSceneDataExtractor = () => ({
   name: "album-scene-data-extractor",
-  extendPageData($page) {
+  extendsPage($page) {
     const frontmatter = $page.frontmatter || {};
     if (!Array.isArray(frontmatter.scenes) || !frontmatter.scenes.length) {
       return;
@@ -701,63 +790,91 @@ const albumSceneDataExtractor = () => ({
     frontmatter.scene_count = frontmatter.scenes.length;
     frontmatter.scene_data_url = `/data/albums/${relativePath}.json`;
     delete frontmatter.scenes;
+    $page.data.frontmatter = frontmatter;
     $page.frontmatter = frontmatter;
   },
 });
-module.exports = {
+
+const cleanUrls = () => ({
+  name: "clean-urls",
+  extendsPageOptions(options, app) {
+    if (!options.filePath || options.path) return;
+    const relativePath = path.relative(app.dir.source(), options.filePath);
+    const parsed = path.parse(relativePath);
+    const directory = parsed.dir.split(path.sep).join("/");
+    const isReadme = parsed.name.toLowerCase() === "readme";
+    const routePath = isReadme
+      ? `/${directory}${directory ? "/" : ""}`
+      : `/${directory ? `${directory}/` : ""}${parsed.name}/`;
+    options.path = routePath.replace(/\/{2,}/g, "/");
+  },
+});
+
+const legacyPageIndex = () => ({
+  name: "legacy-page-index",
+  async onPrepared(app) {
+    const frontmatterKeys = [
+      "audio_narration",
+      "date",
+      "description",
+      "edition",
+      "episode",
+      "episodeNumber",
+      "episode_number",
+      "exclude",
+      "fullvideo",
+      "image",
+      "narrated_by",
+      "pr",
+      "release_date",
+      "scene_count",
+      "scene_data_url",
+      "starting_turn",
+      "title",
+    ];
+    const pages = app.pages.map((page) => ({
+      path: page.path,
+      title: page.title,
+      frontmatter: Object.fromEntries(
+        frontmatterKeys
+          .filter((key) => page.frontmatter[key] !== undefined)
+          .map((key) => [key, page.frontmatter[key]])
+      ),
+    }));
+    await app.writeTemp(
+      "legacyPages.js",
+      `export const legacyPages = JSON.parse(${JSON.stringify(
+        JSON.stringify(pages)
+      )})\n`
+    );
+  },
+});
+
+export default defineUserConfig({
   title: "Civ Battle Royale",
   description: siteDescription,
   // Keep VuePress temp artifacts in a stable project folder.
   // This avoids intermittent ENOENT errors for palette/style files under
   // node_modules/@vuepress/core/.temp during dev recompiles.
   temp: path.resolve(__dirname, "../../.vuepress-temp"),
-  dest: "./public",
-  chainWebpack(config) {
-    config.module
-      .rule("mjs")
-      .test(/\.mjs$/)
-      .include.add(/node_modules/)
-      .end()
-      .type("javascript/auto");
-
-    config.module
-      .rule("iceberg-js")
-      .test(/\.(mjs|js)$/)
-      .include.add(/node_modules\/iceberg-js/)
-      .end()
-      .use("babel")
-      .loader("babel-loader")
-      .options({
-        babelrc: false,
-        configFile: false,
-        presets: [
-          [
-            "@babel/preset-env",
-            {
-              targets: { esmodules: true },
-              modules: false,
-            },
-          ],
-        ],
-        plugins: [
-          "@babel/plugin-proposal-optional-chaining",
-          "@babel/plugin-proposal-nullish-coalescing-operator",
-        ],
-      });
-
-    config.plugin("define-global").use(require("webpack").DefinePlugin, [
-      {
-        global: "window",
-        __ASSET_VERSION__: JSON.stringify(ASSET_VERSION),
-        // Fallback compile-time defines for vuepress-plugin-medium-zoom.
-        // Some builds miss the plugin-provided define() injection and crash.
-        MZ_SELECTOR: JSON.stringify(MEDIUM_ZOOM_SELECTOR),
-        MZ_OPTIONS: JSON.stringify(JSON.stringify(MEDIUM_ZOOM_OPTIONS)),
-        MZ_DELAY: JSON.stringify(String(MEDIUM_ZOOM_DELAY)),
-      },
-    ]);
+  dest: path.resolve(__dirname, "../../public"),
+  shouldPrefetch: false,
+  markdown: {
+    anchor: false,
   },
-  themeConfig: {
+  bundler: viteBundler({
+    viteOptions: {
+      define: {
+        __ASSET_VERSION__: JSON.stringify(ASSET_VERSION),
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: true,
+      },
+      build: {
+        emptyOutDir: true,
+        target: "es2020",
+      },
+    },
+  }),
+  theme: localTheme({
     nav: [
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
@@ -788,40 +905,20 @@ module.exports = {
       { key: "rage", label: "Rage", emoji: "😡" },
       { key: "rip", label: "RIP", emoji: "🪦" },
     ],
-  },
+  }),
   plugins: [
-    // Order matters:
-    // 1) `socialMetaEnhancer` populates frontmatter/meta/canonical/json-ld
-    // 2) `structured-data-root-mixin` injects JSON-LD in SSR/client
-    // 3) `sitemapEnhancer` consumes final page data to write sitemap.xml
-    // Keep autometa disabled so custom SEO injection is the single source.
+    cleanUrls(),
     socialMetaEnhancer(),
-    {
-      name: "structured-data-root-mixin",
-      clientRootMixin: path.resolve(__dirname, "structuredDataRootMixin.js"),
-    },
-    sitemapEnhancer,
-    "vuepress-plugin-janitor",
-    // Disabled intentionally; retained for quick rollback if needed.
-    // ["vuepress-plugin-autometa", autometa_options],
-    [
-      "vuepress-plugin-medium-zoom",
-      {
-        selector: MEDIUM_ZOOM_SELECTOR,
-        delay: MEDIUM_ZOOM_DELAY,
-        options: MEDIUM_ZOOM_OPTIONS,
-      },
-    ],
-    [
-      "vuepress-plugin-clean-urls",
-      {
-        normalSuffix: "/",
-      },
-    ],
-    // Keep this last: metadata plugins need scenes before the global payload is trimmed.
     albumSceneDataExtractor(),
+    legacyPageIndex(),
+    sitemapEnhancer(),
   ],
   head: [
+    [
+      "script",
+      {},
+      `(function(){var mode="dark";try{if(window.localStorage.getItem("themeMode")==="light")mode="light"}catch(error){}document.documentElement.setAttribute("data-theme",mode);document.documentElement.style.colorScheme=mode})()`,
+    ],
     [
       "link",
       {
@@ -836,4 +933,4 @@ module.exports = {
     ["meta", { name: "msapplication-TileColor", content: "#FFBF46" }],
     ["meta", { name: "theme-color", content: "#FFBF46" }],
   ],
-};
+});

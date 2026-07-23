@@ -16,50 +16,39 @@
       }"
     >
       <div class="cinematic-slides">
-        <vueper-slides
+        <SceneCarousel
           ref="cinematicSlides"
-          @slide="handlePrimarySlide"
-          arrows-inside
-          :bullets="true"
-          fixed-height="100%"
-          fractions
-          :touchable="false"
           class="cbr-media cinematic-primary"
-          :transition-speed="900"
-          style="background-size: contain"
+          :scenes="scenes"
+          :active-index="activeSceneIndex"
+          :scene-key="sceneKey"
+          :touchable="false"
+          fill-height
+          show-fraction
+          label="Fullscreen episode scenes"
+          @change="handlePrimarySlide"
         >
-          <vueper-slide
-            v-for="(scene, index) in scenes"
-            :image="null"
-            :key="sceneKey(scene, index)"
-            :title="String(scene.scene_title || '')"
-            :class="{ civdeathBorder: scene.death }"
-          >
-            <template v-slot:content>
-              <div
-                class="scene-slide-media"
-                @pointerdown="onZoomPointerDown"
-                @pointermove="onZoomPointerMove"
-                @pointerup="onZoomPointerEnd"
-                @pointercancel="onZoomPointerEnd"
-                @dblclick="toggleZoom"
-              >
-                <img
-                  v-if="shouldRenderSlideImage(index)"
-                  class="scene-slide-image"
-                  :src="$assetUrl(scene.slide_svg || scene.slide_url)"
-                  :alt="String(scene.scene_title || `Scene ${index + 1}`)"
-                  :style="
-                    index === activeSceneIndex ? zoomTransformStyle : null
-                  "
-                  :loading="index === activeSceneIndex ? 'eager' : 'lazy'"
-                  decoding="async"
-                  draggable="false"
-                />
-              </div>
-            </template>
-          </vueper-slide>
-        </vueper-slides>
+          <template #media="{ scene, index }">
+            <div
+              class="scene-slide-media"
+              @pointerdown="onZoomPointerDown"
+              @pointermove="onZoomPointerMove"
+              @pointerup="onZoomPointerEnd"
+              @pointercancel="onZoomPointerEnd"
+              @dblclick="toggleZoom"
+            >
+              <img
+                class="scene-slide-image"
+                :src="$assetUrl(scene.slide_svg || scene.slide_url)"
+                :alt="String(scene.scene_title || `Scene ${index + 1}`)"
+                :style="zoomTransformStyle"
+                loading="eager"
+                decoding="async"
+                draggable="false"
+              />
+            </div>
+          </template>
+        </SceneCarousel>
         <div class="cinematic-zoom-controls" aria-label="Slide zoom controls">
           <button
             type="button"
@@ -143,16 +132,13 @@
 </template>
 
 <script>
-const VueperSlides = () =>
-  import("vueperslides").then((mod) => mod.VueperSlides);
-const VueperSlide = () => import("vueperslides").then((mod) => mod.VueperSlide);
+import SceneCarousel from "./SceneCarousel.vue";
 import SceneSlideContent from "./SceneSlideContent.vue";
 
 export default {
   name: "CinematicFullscreen",
   components: {
-    VueperSlides,
-    VueperSlide,
+    SceneCarousel,
     SceneSlideContent,
   },
   data() {
@@ -280,7 +266,7 @@ export default {
       this.handleFullscreenChange
     );
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof document === "undefined") {
       return;
     }
@@ -303,9 +289,7 @@ export default {
       if (!this.$el) {
         return null;
       }
-      return this.$el.querySelector(
-        ".vueperslide--active .scene-slide-media"
-      );
+      return this.$el.querySelector(".scene-slide-media");
     },
     applyZoom(scale, translateX, translateY, media = null) {
       const nextScale = this.clampZoomValue(scale, 1, 4);
@@ -345,14 +329,6 @@ export default {
         return;
       }
       this.applyZoom(2, 0, 0, event.currentTarget);
-    },
-    shouldRenderSlideImage(index) {
-      const count = this.scenes.length;
-      if (count <= 3) return true;
-      const active = this.activeSceneIndex;
-      const previous = (active - 1 + count) % count;
-      const next = (active + 1) % count;
-      return index === active || index === previous || index === next;
     },
     releaseZoomPointers() {
       this.zoomPointers.forEach((pointer) => {
@@ -684,9 +660,9 @@ export default {
       });
     },
     handlePrimarySlide(event) {
-      const index = Number(
-        event && event.currentSlide && event.currentSlide.index
-      );
+      const index = Number.isInteger(event)
+        ? event
+        : Number(event && event.currentSlide && event.currentSlide.index);
       if (!Number.isInteger(index) || index < 0 || index >= this.scenes.length) {
         return;
       }
@@ -875,28 +851,15 @@ export default {
   outline: 2px solid var(--accent-color);
   outline-offset: -2px;
 }
-:global(.cinematic-primary .vueperslide__content-wrapper) {
-  pointer-events: auto !important;
+.cinematic-primary {
+  block-size: 100%;
+  min-block-size: 0;
 }
-:global(.cinematic-primary .vueperslide) {
-  background-color: var(--cinematic-stage-bg);
-  background-position: center center;
-}
-:global(.cinematic-primary .vueperslide__image) {
-  background-size: contain !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-:global(.cinematic-primary .vueperslide__title) {
-  display: none !important;
-}
-:global(.cinematic-primary.vueperslides--fixed-height .vueperslides__inner),
-:global(
-    .cinematic-primary.vueperslides--fixed-height
-      .vueperslides__parallax-wrapper
-  ),
-:global(.cinematic-primary.vueperslides--fixed-height .vueperslide) {
-  height: 100% !important;
+:deep(.cinematic-primary .scene-carousel-stage),
+:deep(.cinematic-primary .scene-carousel-active) {
+  block-size: 100%;
+  min-block-size: 0;
+  background: var(--cinematic-stage-bg);
 }
 .cinematic-narration {
   display: flex;
@@ -971,7 +934,7 @@ export default {
   .cinematic-mode.is-pseudo-fullscreen {
     padding: 0.6rem;
   }
-  :global(.cinematic-primary .vueperslides__fractions) {
+  :deep(.cinematic-primary .scene-carousel-fraction) {
     display: none !important;
   }
   .cinematic-control-button {

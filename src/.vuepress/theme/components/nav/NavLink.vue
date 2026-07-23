@@ -3,7 +3,6 @@
     class="nav-link"
     :to="link"
     v-if="!isExternal(link) && !isXml(link)"
-    :exact="exact"
     >{{ item.text }}</router-link
   >
   <a v-else-if="isXml(link)" :href="link" class="nav-link">{{ item.text }}</a>
@@ -30,15 +29,6 @@ export default {
   computed: {
     link() {
       return ensureExt(this.item.link);
-    },
-
-    exact() {
-      if (this.$site.locales) {
-        return Object.keys(this.$site.locales).some(
-          (rootLink) => rootLink === this.link
-        );
-      }
-      return this.link === "/";
     },
   },
 

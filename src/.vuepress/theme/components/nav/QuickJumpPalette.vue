@@ -443,7 +443,7 @@ export default {
     }
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window !== "undefined") {
       window.removeEventListener("keydown", this.handleWindowKeydown, true);
       window.removeEventListener(

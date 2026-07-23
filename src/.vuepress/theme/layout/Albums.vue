@@ -40,21 +40,21 @@
 
         <div id="episode-details-content" class="albumInfo">
         <div class="column" tabindex="0">
-          <Label class="label">Release Date:</Label>
+          <span class="label">Release Date:</span>
           <p>
             <span class="value">{{ $page.frontmatter.release_date }}</span>
           </p>
         </div>
 
         <div class="column" tabindex="0">
-          <Label class="label">Narrated by:</Label>
+          <span class="label">Narrated by:</span>
           <p>
             <span class="value">{{ $page.frontmatter.narrated_by }}</span>
           </p>
         </div>
 
         <div v-if="$page.frontmatter.starting_turn" class="column" tabindex="0">
-          <Label class="label">Starting Turn:</Label>
+          <span class="label">Starting Turn:</span>
           <p>
             <span class="value">{{ $page.frontmatter.starting_turn }}</span>
           </p>
@@ -65,7 +65,7 @@
           class="column"
           tabindex="0"
         >
-          <Label class="label">Video:</Label>
+          <span class="label">Video:</span>
           <p>
             <span class="value">
               <a
@@ -261,74 +261,39 @@
       </div>
 
       <div v-if="isHorizontalView" :key="`slides-${$page.path}`">
-        <vueper-slides
-          ref="vueperslides2"
-          @slide="handleThumbSlide"
-          :slide-ratio="1 / 8"
-          :dragging-distance="10"
-          :visible-slides="8"
-          fixed-height="80px"
-          :arrows="false"
-          :bullets="false"
-          class="first"
-          style="margin-bottom: 1rem"
-        >
-          <vueper-slide
-            v-for="(scene, index) in scenes"
-            :image="$assetUrl(scene.slide_url || scene.slide_svg)"
-            :key="sceneKey(scene, index)"
-            @keyup.left="previous()"
-            @keyup.right="next()"
-            @click.native="
-              $refs.vueperslides1 && $refs.vueperslides1.goToSlide(index)
-            "
-            style="margin: 0 0.2rem"
-          ></vueper-slide>
-        </vueper-slides>
-        <vueper-slides
-          ref="vueperslides1"
-          @slide="handlePrimarySlide"
-          :slide-content-outside="'bottom'"
-          arrows-inside
-          :bullets="true"
-          :slide-ratio="9 / 16"
-          fractions
-          :touchable="false"
+        <SceneCarousel
+          ref="horizontalCarousel"
           class="cbr-media"
-          :transition-speed="900"
-          style="background-size: contain"
+          :scenes="scenes"
+          :active-index="activeSceneIndex"
+          :scene-key="sceneKey"
+          show-thumbnails
+          show-fraction
+          @change="handlePrimarySlide"
         >
-          <vueper-slide
-            v-for="(scene, index) in scenes"
-            :image="$assetUrl(scene.slide_url || scene.slide_svg)"
-            :key="`primary-${sceneKey(scene, index)}`"
-            :title="scene.scene_title"
-            :class="{ civdeathBorder: scene.death }"
-          >
-            <template v-slot:content>
-              <SceneSlideContent
-                :key="`slide-content-${sceneKey(
-                  scene,
-                  index
-                )}-${reactionSceneVersion(sceneNumber(index))}`"
-                :scene="scene"
-                :scene-number="sceneNumber(index)"
-                :show-scene-number="!isPowerRanking"
-                :bookmarked="isBookmarked(index)"
-                :bookmark-aria="bookmarkAria(index)"
-                :reaction-display="reactionDisplay(sceneNumber(index))"
-                :scene-counts="sceneReactionCounts(sceneNumber(index))"
-                :user-reaction="userReaction(sceneNumber(index))"
-                :auth-user="authUser"
-                :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
-                :reaction-version="reactionSceneVersion(sceneNumber(index))"
-                @toggle-bookmark="bookmarkScene(index)"
-                @toggle-reaction="toggleReaction"
-                @toggle-menu="toggleReactionMenu"
-              />
-            </template>
-          </vueper-slide>
-        </vueper-slides>
+          <template #content="{ scene, index }">
+            <SceneSlideContent
+              :key="`slide-content-${sceneKey(
+                scene,
+                index
+              )}-${reactionSceneVersion(sceneNumber(index))}`"
+              :scene="scene"
+              :scene-number="sceneNumber(index)"
+              :show-scene-number="!isPowerRanking"
+              :bookmarked="isBookmarked(index)"
+              :bookmark-aria="bookmarkAria(index)"
+              :reaction-display="reactionDisplay(sceneNumber(index))"
+              :scene-counts="sceneReactionCounts(sceneNumber(index))"
+              :user-reaction="userReaction(sceneNumber(index))"
+              :auth-user="authUser"
+              :is-menu-open="isReactionMenuOpen(sceneNumber(index))"
+              :reaction-version="reactionSceneVersion(sceneNumber(index))"
+              @toggle-bookmark="bookmarkScene(index)"
+              @toggle-reaction="toggleReaction"
+              @toggle-menu="toggleReactionMenu"
+            />
+          </template>
+        </SceneCarousel>
       </div>
       <CinematicFullscreen
         ref="cinematicOverlay"
@@ -435,12 +400,9 @@
 
 <script>
 import { normalize } from "../util.js";
-const VueperSlides = () =>
-  import("vueperslides").then((mod) => mod.VueperSlides);
-const VueperSlide = () => import("vueperslides").then((mod) => mod.VueperSlide);
-import "vueperslides/dist/vueperslides.css";
 import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
+import SceneCarousel from "../components/albums/SceneCarousel.vue";
 import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
 import CinematicFullscreen from "../components/albums/CinematicFullscreen.vue";
 import EpisodeViewControls from "../components/albums/EpisodeViewControls.vue";
@@ -554,10 +516,9 @@ export default {
     };
   },
   components: {
-    VueperSlides,
-    VueperSlide,
     AlbumsNav,
     SceneCard,
+    SceneCarousel,
     SceneSlideContent,
     CinematicFullscreen,
     EpisodeViewControls,
@@ -908,7 +869,7 @@ export default {
     window.addEventListener("user-settings-synced", this.handleSettingsSync);
     window.addEventListener("supabase-auth-session", this.handleExternalAuth);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (typeof window === "undefined") {
       return;
     }
@@ -1336,7 +1297,7 @@ export default {
       }
       const nextValue = !Boolean(this.reactionMenuOpen[key]);
       if (typeof this.$set === "function") {
-        this.$set(this.reactionMenuOpen, key, nextValue);
+        this.reactionMenuOpen[key] = nextValue;
         return;
       }
       this.reactionMenuOpen = {
@@ -2023,23 +1984,15 @@ export default {
       this.jumpToScene = index + 1;
       this.goToScene();
     },
-    handleThumbSlide(event) {
-      if (this.$refs.vueperslides1) {
-        this.$refs.vueperslides1.goToSlide(event.currentSlide.index, {
-          emit: false,
-        });
-      }
-      this.jumpToScene = event.currentSlide.index + 1;
-      this.setActiveScene(event.currentSlide.index);
-    },
     handlePrimarySlide(event) {
-      if (this.$refs.vueperslides2) {
-        this.$refs.vueperslides2.goToSlide(event.currentSlide.index, {
-          emit: false,
-        });
+      const index = Number.isInteger(event)
+        ? event
+        : Number(event && event.currentSlide && event.currentSlide.index);
+      if (!Number.isInteger(index) || index < 0 || index >= this.sceneCount) {
+        return;
       }
-      this.jumpToScene = event.currentSlide.index + 1;
-      this.setActiveScene(event.currentSlide.index);
+      this.jumpToScene = index + 1;
+      this.setActiveScene(index);
     },
     syncSlidesToActiveScene() {
       if (!this.sceneCount) {
@@ -2057,11 +2010,8 @@ export default {
       ) {
         overlay.syncToIndex(targetIndex);
       }
-      if (this.$refs.vueperslides1) {
-        this.$refs.vueperslides1.goToSlide(targetIndex, { emit: false });
-      }
-      if (this.$refs.vueperslides2) {
-        this.$refs.vueperslides2.goToSlide(targetIndex, { emit: false });
+      if (this.$refs.horizontalCarousel) {
+        this.$refs.horizontalCarousel.goToSlide(targetIndex, { emit: false });
       }
     },
     goToScene() {
@@ -2085,8 +2035,8 @@ export default {
         overlay.goToIndex(index);
         return;
       }
-      if (this.isToggle && this.$refs.vueperslides1) {
-        this.$refs.vueperslides1.goToSlide(index);
+      if (this.isToggle && this.$refs.horizontalCarousel) {
+        this.$refs.horizontalCarousel.goToSlide(index, { emit: false });
         return;
       }
       this.scrollToScene(index);
@@ -3034,43 +2984,6 @@ h2 {
   font-weight: 900;
   color: var(--page-text-color);
 }
-:global(.vueperslide) {
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-:global(.vueperslides__fractions) {
-  border: 1px solid hsl(53.7, 89.4%, 51.3%) !important;
-  border-radius: 0.3em !important;
-  background: hsla(38.3, 42.2%, 63.4%, 0.9) !important;
-  font-weight: 800;
-  color: #fff;
-  text-shadow: var(--narration-shadow);
-  box-shadow: 2px 2px 2px 0 hsla(56.5, 75%, 13.3%, 0.3);
-  padding: 0.5em 1em;
-  transition: opacity 0.2s ease-in-out;
-}
-
-:global(.vueperslides__fractions:hover) {
-  opacity: 0;
-}
-
-:global(.first .vueperslide--active) {
-  box-shadow: inset 0 4px 0 0 hsl(40, 100%, 60%) !important;
-}
-
-:global(.vueperslides--touchable .vueperslides__track--dragging),
-:global(.vueperslides--touchable .vueperslides__track--mousedown),
-:global(.vueperslides--touchable .vueperslides__track),
-:global(.vueperslides--touchable) {
-  cursor: default !important;
-}
-
-:global(.vueperslides__bullet),
-:global(.vueperslides__bullets) {
-  opacity: 0;
-  width: 0;
-}
 @media (max-width: 799px) {
   .scene-timeline {
     margin-block-end: 1.4rem;
@@ -3220,9 +3133,6 @@ h2 {
   .mobile-album-action:disabled {
     opacity: 0.35;
     cursor: default;
-  }
-  :global(.vueperslides__fractions) {
-    display: none;
   }
 }
 @media (max-width: 980px) {
