@@ -23,7 +23,7 @@
           :bullets="true"
           fixed-height="100%"
           fractions
-          :touchable="zoomScale === 1"
+          :touchable="false"
           class="cbr-media cinematic-primary"
           :transition-speed="900"
           style="background-size: contain"
@@ -49,7 +49,9 @@
                   class="scene-slide-image"
                   :src="$assetUrl(scene.slide_svg || scene.slide_url)"
                   :alt="String(scene.scene_title || `Scene ${index + 1}`)"
-                  :style="zoomTransformStyle"
+                  :style="
+                    index === activeSceneIndex ? zoomTransformStyle : null
+                  "
                   :loading="index === activeSceneIndex ? 'eager' : 'lazy'"
                   decoding="async"
                   draggable="false"
@@ -380,10 +382,11 @@ export default {
         y: (first.y + second.y) / 2 - rect.top - rect.height / 2,
       };
     },
-    beginPan(pointer) {
+    beginPan(pointer, suppressSwipe = false) {
       this.zoomGesture = {
         type: "pan",
         pointerId: pointer.id,
+        suppressSwipe,
         startX: pointer.x,
         startY: pointer.y,
         translateX: this.zoomTranslateX,
@@ -413,15 +416,14 @@ export default {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        pointerType: event.pointerType,
         media,
       });
-      if (this.zoomScale > 1 || this.zoomPointers.size >= 2) {
-        if (typeof media.setPointerCapture === "function") {
-          try {
-            media.setPointerCapture(event.pointerId);
-          } catch (error) {
-            // Pointer capture is optional and can fail during slide transitions.
-          }
+      if (typeof media.setPointerCapture === "function") {
+        try {
+          media.setPointerCapture(event.pointerId);
+        } catch (error) {
+          // Pointer capture is optional and can fail during slide transitions.
         }
       }
       if (this.zoomPointers.size >= 2) {
@@ -434,13 +436,15 @@ export default {
       if (!this.zoomPointers.has(event.pointerId)) {
         return;
       }
-      if (this.zoomScale > 1 || this.zoomPointers.size >= 2) {
+      if (event.cancelable) {
         event.preventDefault();
       }
+      const previous = this.zoomPointers.get(event.pointerId);
       this.zoomPointers.set(event.pointerId, {
         id: event.pointerId,
         x: event.clientX,
         y: event.clientY,
+        pointerType: previous.pointerType,
         media: event.currentTarget,
       });
       const media = event.currentTarget;
@@ -477,6 +481,21 @@ export default {
     },
     onZoomPointerEnd(event) {
       const media = event.currentTarget;
+      const pointer = this.zoomPointers.get(event.pointerId);
+      const gesture = this.zoomGesture;
+      const isSinglePointer = this.zoomPointers.size === 1;
+      const canSwipe = Boolean(
+        pointer &&
+          event.type === "pointerup" &&
+          isSinglePointer &&
+          this.zoomScale === 1 &&
+          gesture &&
+          gesture.type === "pan" &&
+          !gesture.suppressSwipe &&
+          gesture.pointerId === event.pointerId
+      );
+      const deltaX = canSwipe ? pointer.x - gesture.startX : 0;
+      const deltaY = canSwipe ? pointer.y - gesture.startY : 0;
       this.zoomPointers.delete(event.pointerId);
       if (typeof media.releasePointerCapture === "function") {
         try {
@@ -489,10 +508,29 @@ export default {
       }
       const remaining = Array.from(this.zoomPointers.values())[0];
       if (remaining) {
-        this.beginPan(remaining);
+        this.beginPan(
+          remaining,
+          Boolean(gesture && (gesture.type === "pinch" || gesture.suppressSwipe))
+        );
       } else {
         this.zoomGesture = null;
       }
+      if (
+        canSwipe &&
+        Math.abs(deltaX) >= 48 &&
+        Math.abs(deltaX) > Math.abs(deltaY) * 1.25
+      ) {
+        this.goToAdjacentScene(deltaX < 0 ? 1 : -1);
+      }
+    },
+    goToAdjacentScene(direction) {
+      if (!this.scenes.length || !this.$refs.cinematicSlides) {
+        return;
+      }
+      const nextIndex =
+        (this.activeSceneIndex + direction + this.scenes.length) %
+        this.scenes.length;
+      this.$refs.cinematicSlides.goToSlide(nextIndex);
     },
     onToggleReaction(sceneNumber, reactionKey) {
       this.$emit("toggle-reaction", sceneNumber, reactionKey);
