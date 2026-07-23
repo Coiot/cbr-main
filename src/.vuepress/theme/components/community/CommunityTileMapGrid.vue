@@ -155,22 +155,23 @@
           No tile data found.
         </div>
         <div v-else class="tile-map-canvas" :style="canvasStyle">
-          <canvas
-            v-if="useTerrainCanvas"
-            ref="terrainCanvas"
-            class="tile-map-canvas-layer"
-            :width="canvasWidth"
-            :height="canvasHeight"
-            aria-hidden="true"
-          ></canvas>
-          <canvas
-            v-if="useTerrainCanvas"
-            ref="brushCanvas"
-            class="tile-map-canvas-layer tile-map-brush-layer"
-            :width="canvasWidth"
-            :height="canvasHeight"
-            aria-hidden="true"
-          ></canvas>
+          <template v-if="useTerrainCanvas">
+            <canvas
+              ref="terrainCanvas"
+              class="tile-map-canvas-layer"
+              :width="canvasWidth"
+              :height="canvasHeight"
+              aria-hidden="true"
+            ></canvas>
+            <canvas
+              v-if="ownerBrushEnabled"
+              ref="brushCanvas"
+              class="tile-map-canvas-layer tile-map-brush-layer"
+              :width="canvasWidth"
+              :height="canvasHeight"
+              aria-hidden="true"
+            ></canvas>
+          </template>
           <svg
             v-else
             class="tile-map-svg"
@@ -2652,6 +2653,12 @@ export default {
       pinchStartDistance: 0,
       pinchStartScale: 1,
       pinchCenter: { x: 0, y: 0 },
+      pinchZoomRafId: null,
+      pendingPinchScale: null,
+      pendingPinchFocus: null,
+      touchGestureHadPinch: false,
+      zoomRendererMode: null,
+      zoomRendererReleaseTimer: null,
       wheelZoomRafId: null,
       wheelZoomDelta: 0,
       wheelZoomFocus: null,
@@ -2834,14 +2841,11 @@ export default {
       return this.embedded && this.resolvedEmbeddedMode === "snapshot";
     },
     canvasRenderScale() {
-      if (this.isMobileSafari) {
+      if (this.isMobileBrowser) {
         const pixels = this.gridWidth * this.gridHeight;
         const maxPixels = this.isSnapshotEmbed ? 900000 : 1300000;
         const scale = pixels > 0 ? Math.sqrt(maxPixels / pixels) : 1;
         return Math.max(0.42, Math.min(1, scale));
-      }
-      if (this.isSnapshotEmbed && this.isMobileBrowser) {
-        return 0.45;
       }
       return 1;
     },
@@ -3362,6 +3366,9 @@ export default {
     },
 
     useTerrainCanvas() {
+      if (this.zoomRendererMode) {
+        return this.zoomRendererMode === "canvas";
+      }
       return this.scale <= 1;
     },
 
@@ -3556,6 +3563,8 @@ export default {
         this.$nextTick(() => {
           this.drawTerrainCanvas();
         });
+      } else {
+        this.resetTerrainBaseCache();
       }
       this.scheduleMiniMapDrawIfVisible();
     },
@@ -3638,8 +3647,11 @@ export default {
     this.isMobileView = window.innerWidth <= 900;
     if (typeof navigator !== "undefined") {
       const ua = navigator.userAgent || "";
-      this.isMobileBrowser = /Mobi|Android|iP(hone|ad|od)/.test(ua);
-      const isIOS = /iP(hone|ad|od)/.test(ua);
+      const isDesktopModeIPad =
+        /Macintosh/i.test(ua) && navigator.maxTouchPoints > 1;
+      this.isMobileBrowser =
+        /Mobi|Android|iP(hone|ad|od)/.test(ua) || isDesktopModeIPad;
+      const isIOS = /iP(hone|ad|od)/.test(ua) || isDesktopModeIPad;
       const isSafariEngine = /WebKit/i.test(ua) && /Safari/i.test(ua);
       const isOtherIOSBrowser = /CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/i.test(ua);
       this.isMobileSafari = isIOS && isSafariEngine && !isOtherIOSBrowser;
@@ -3691,6 +3703,9 @@ export default {
       this.canvasDrawFrameId = null;
     }
     this.clearWheelZoomFrame();
+    this.clearPinchZoomFrame();
+    this.clearZoomRendererRelease();
+    this.activePointers.clear();
     if (this.ownerBordersRebuildId) {
       window.cancelAnimationFrame(this.ownerBordersRebuildId);
       this.ownerBordersRebuildId = null;
@@ -3788,12 +3803,16 @@ export default {
     },
 
     resetTerrainBaseCache() {
+      if (this.terrainBaseCanvas) {
+        this.terrainBaseCanvas.width = 0;
+        this.terrainBaseCanvas.height = 0;
+      }
       this.terrainBaseCanvas = null;
       this.terrainBaseCacheKey = "";
     },
 
     shouldUseTerrainBaseCache() {
-      if (this.isMobileSafari) {
+      if (this.isMobileBrowser) {
         return false;
       }
       if (this.hasActiveCivilizationOverlay || this.isPopulationOverlayActive) {
@@ -7250,12 +7269,16 @@ export default {
 
     zoomIn() {
       this.hasUserViewportInteraction = true;
+      this.lockZoomRenderer();
       this.applyZoom(this.scale * 1.15);
+      this.scheduleZoomRendererRelease();
     },
 
     zoomOut() {
       this.hasUserViewportInteraction = true;
+      this.lockZoomRenderer();
       this.applyZoom(this.scale * 0.85);
+      this.scheduleZoomRendererRelease();
     },
 
     handleScaleChange() {
@@ -7382,6 +7405,7 @@ export default {
         return;
       }
       this.hasUserViewportInteraction = true;
+      this.lockZoomRenderer();
       const rect = viewport.getBoundingClientRect();
       this.wheelZoomFocus = {
         x: event.clientX - rect.left,
@@ -7389,6 +7413,128 @@ export default {
       };
       this.wheelZoomDelta += event.deltaY;
       this.scheduleWheelZoomFrame();
+      this.scheduleZoomRendererRelease();
+    },
+
+    lockZoomRenderer() {
+      this.clearZoomRendererRelease();
+      if (!this.zoomRendererMode) {
+        this.zoomRendererMode = this.scale <= 1 ? "canvas" : "svg";
+      }
+    },
+
+    scheduleZoomRendererRelease(delay = 160) {
+      this.clearZoomRendererRelease();
+      this.zoomRendererReleaseTimer = window.setTimeout(() => {
+        this.zoomRendererReleaseTimer = null;
+        this.zoomRendererMode = null;
+      }, delay);
+    },
+
+    clearZoomRendererRelease() {
+      if (this.zoomRendererReleaseTimer) {
+        window.clearTimeout(this.zoomRendererReleaseTimer);
+      }
+      this.zoomRendererReleaseTimer = null;
+    },
+
+    schedulePinchZoom(nextScale, focus) {
+      this.pendingPinchScale = nextScale;
+      this.pendingPinchFocus = focus ? { ...focus } : null;
+      if (this.pinchZoomRafId !== null) {
+        return;
+      }
+      this.pinchZoomRafId = window.requestAnimationFrame(() => {
+        this.pinchZoomRafId = null;
+        this.flushPinchZoom();
+      });
+    },
+
+    flushPinchZoom() {
+      const nextScale = this.pendingPinchScale;
+      const focus = this.pendingPinchFocus;
+      this.pendingPinchScale = null;
+      this.pendingPinchFocus = null;
+      if (Number.isFinite(nextScale)) {
+        this.applyZoom(nextScale, focus);
+      }
+    },
+
+    clearPinchZoomFrame(flushPending = false) {
+      if (this.pinchZoomRafId !== null) {
+        window.cancelAnimationFrame(this.pinchZoomRafId);
+      }
+      this.pinchZoomRafId = null;
+      if (flushPending) {
+        this.flushPinchZoom();
+        return;
+      }
+      this.pendingPinchScale = null;
+      this.pendingPinchFocus = null;
+    },
+
+    captureMapPointer(event) {
+      const target = event.currentTarget;
+      if (!target || typeof target.setPointerCapture !== "function") {
+        return;
+      }
+      try {
+        target.setPointerCapture(event.pointerId);
+      } catch (error) {
+        // A pointer can end before capture is applied during multi-touch changes.
+      }
+    },
+
+    releaseMapPointer(event) {
+      const target = event.currentTarget;
+      if (
+        !target ||
+        typeof target.hasPointerCapture !== "function" ||
+        typeof target.releasePointerCapture !== "function"
+      ) {
+        return;
+      }
+      try {
+        if (target.hasPointerCapture(event.pointerId)) {
+          target.releasePointerCapture(event.pointerId);
+        }
+      } catch (error) {
+        // Pointer capture may already have been released by the browser.
+      }
+    },
+
+    beginPinchGesture() {
+      const points = Array.from(this.activePointers.values()).slice(0, 2);
+      if (points.length < 2) {
+        return;
+      }
+      const distance = Math.hypot(
+        points[0].x - points[1].x,
+        points[0].y - points[1].y
+      );
+      if (!distance) {
+        return;
+      }
+      this.lockZoomRenderer();
+      this.isPinching = true;
+      this.touchGestureHadPinch = true;
+      this.pinchStartDistance = distance;
+      this.pinchStartScale = this.scale;
+      const viewport = this.$refs.viewport;
+      if (viewport) {
+        const rect = viewport.getBoundingClientRect();
+        this.pinchCenter = {
+          x: (points[0].x + points[1].x) / 2 - rect.left,
+          y: (points[0].y + points[1].y) / 2 - rect.top,
+        };
+      }
+      if (this.isPaintingOwner) {
+        this.isPaintingOwner = false;
+        this.ownerBrushId = null;
+        this.flushBrushEdits();
+      }
+      this.isDragging = false;
+      this.dragMoved = true;
     },
 
     scheduleWheelZoomFrame() {
@@ -7669,28 +7815,27 @@ export default {
       }
       this.hideHoverTooltip();
       if (event.pointerType === "touch") {
-        this.activePointers.set(event.pointerId, {
-          x: event.clientX,
-          y: event.clientY,
-        });
-        if (this.activePointers.size === 2) {
-          const points = Array.from(this.activePointers.values());
-          this.isPinching = true;
-          this.pinchStartDistance = Math.hypot(
-            points[0].x - points[1].x,
-            points[0].y - points[1].y
-          );
-          this.pinchStartScale = this.scale;
-          const viewport = this.$refs.viewport;
-          if (viewport) {
-            const rect = viewport.getBoundingClientRect();
-            this.pinchCenter = {
-              x: (points[0].x + points[1].x) / 2 - rect.left,
-              y: (points[0].y + points[1].y) / 2 - rect.top,
-            };
-          }
-          this.isDragging = false;
-          this.dragMoved = true;
+        if (event.cancelable) {
+          event.preventDefault();
+        }
+        this.captureMapPointer(event);
+        if (
+          !this.activePointers.has(event.pointerId) &&
+          this.activePointers.size < 2
+        ) {
+          this.activePointers.set(event.pointerId, {
+            x: event.clientX,
+            y: event.clientY,
+          });
+        }
+        if (this.activePointers.size === 2 && !this.isPinching) {
+          this.beginPinchGesture();
+        }
+        if (
+          this.activePointers.size >= 2 ||
+          this.isPinching ||
+          this.touchGestureHadPinch
+        ) {
           return;
         }
       }
@@ -7707,9 +7852,7 @@ export default {
         }
         this.isPaintingOwner = true;
         this.ownerBrushId = ownerId;
-        if (event.currentTarget && event.currentTarget.setPointerCapture) {
-          event.currentTarget.setPointerCapture(event.pointerId);
-        }
+        this.captureMapPointer(event);
         this.clearBrushOverlay();
         const tile = this.getTileAtPointer(event);
         if (tile) {
@@ -7721,7 +7864,7 @@ export default {
       this.dragMoved = false;
       this.dragStart = { x: event.clientX, y: event.clientY };
       this.dragTranslate = { ...this.translate };
-      event.currentTarget.setPointerCapture(event.pointerId);
+      this.captureMapPointer(event);
     },
 
     onPointerMove(event) {
@@ -7730,6 +7873,9 @@ export default {
         this.updateTooltipPosition(event);
       }
       if (event.pointerType === "touch") {
+        if (event.cancelable) {
+          event.preventDefault();
+        }
         if (this.activePointers.has(event.pointerId)) {
           this.activePointers.set(event.pointerId, {
             x: event.clientX,
@@ -7744,8 +7890,14 @@ export default {
           );
           if (this.pinchStartDistance > 0) {
             const ratio = distance / this.pinchStartDistance;
-            this.applyZoom(this.pinchStartScale * ratio, this.pinchCenter);
+            this.schedulePinchZoom(
+              this.pinchStartScale * ratio,
+              this.pinchCenter
+            );
           }
+          return;
+        }
+        if (this.touchGestureHadPinch) {
           return;
         }
       }
@@ -7793,49 +7945,48 @@ export default {
 
     onPointerUp(event) {
       this.lastPointerType = event.pointerType || this.lastPointerType;
-      if (event.type === "pointerleave") {
-        if (this.isPaintingOwner) {
-          this.isPaintingOwner = false;
-          this.ownerBrushId = null;
-          this.flushBrushEdits();
+      const wasPinchGesture = this.touchGestureHadPinch;
+      const wasCancelled = event.type !== "pointerup";
+      const isTrackedTouch =
+        event.pointerType === "touch" ||
+        this.activePointers.has(event.pointerId);
+      if (isTrackedTouch) {
+        if (event.cancelable) {
+          event.preventDefault();
         }
-        if (this.hoveredTile) {
-          this.hoveredTile = null;
-          if (this.useTerrainCanvas) {
-            this.drawTerrainCanvas();
-          }
-        }
-        return;
-      }
-      if (event.pointerType === "touch") {
         this.activePointers.delete(event.pointerId);
+        this.releaseMapPointer(event);
         if (this.activePointers.size < 2) {
+          this.clearPinchZoomFrame(true);
           this.isPinching = false;
           this.pinchStartDistance = 0;
+        }
+        if (!this.activePointers.size) {
+          this.touchGestureHadPinch = false;
+          this.scheduleZoomRendererRelease();
+        }
+      }
+      if (event.type === "pointerleave" && this.hoveredTile) {
+        this.hoveredTile = null;
+        if (this.useTerrainCanvas) {
+          this.drawTerrainCanvas();
         }
       }
       if (this.isPaintingOwner) {
         this.isPaintingOwner = false;
         this.ownerBrushId = null;
         this.flushBrushEdits();
-        if (
-          event.currentTarget &&
-          event.currentTarget.hasPointerCapture &&
-          event.currentTarget.hasPointerCapture(event.pointerId)
-        ) {
-          event.currentTarget.releasePointerCapture(event.pointerId);
-        }
+        this.releaseMapPointer(event);
+        return;
+      }
+      if (wasPinchGesture || wasCancelled) {
+        this.isDragging = false;
+        this.releaseMapPointer(event);
         return;
       }
       if (this.isDragging) {
         this.isDragging = false;
-        if (
-          event.currentTarget &&
-          event.currentTarget.hasPointerCapture &&
-          event.currentTarget.hasPointerCapture(event.pointerId)
-        ) {
-          event.currentTarget.releasePointerCapture(event.pointerId);
-        }
+        this.releaseMapPointer(event);
       }
       if (!this.dragMoved && event.button === 0) {
         if (this.ownerBrushEnabled) {
