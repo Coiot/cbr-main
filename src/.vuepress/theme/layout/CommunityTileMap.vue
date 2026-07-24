@@ -10,7 +10,11 @@
 </template>
 
 <script>
-import CommunityTileMapGrid from "../components/community/CommunityTileMapGrid.vue";
+import { defineAsyncComponent } from "vue";
+
+const CommunityTileMapGrid = defineAsyncComponent(() =>
+  import("../components/community/CommunityTileMapGrid.vue")
+);
 
 export default {
   components: {

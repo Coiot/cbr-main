@@ -403,12 +403,14 @@ import SidebarButton from "../sidebar/SidebarButton.vue";
 import NavLinks from "./NavLinks.vue";
 import QuickJumpPalette from "./QuickJumpPalette.vue";
 import { getEdition } from "../../../data/editions";
-import {
-  getSupabaseClient,
-  ensureProfileRow,
-  SUPABASE_ALBUM_PROGRESS_TABLE,
-  SUPABASE_USER_SETTINGS_TABLE,
-} from "../../supabaseClient";
+
+const loadSupabaseModule = () => import("../../supabaseClient");
+const ensureProfileRow = async (...args) => {
+  const module = await loadSupabaseModule();
+  return module.ensureProfileRow(...args);
+};
+const SUPABASE_ALBUM_PROGRESS_TABLE = "album_progress";
+const SUPABASE_USER_SETTINGS_TABLE = "user_settings";
 
 const USER_SETTINGS_KEYS = [
   "albumsViewMode",
@@ -576,10 +578,11 @@ export default {
         })
       );
     },
-    initSupabase() {
+    async initSupabase() {
       if (this.supabase || typeof window === "undefined") {
         return;
       }
+      const { getSupabaseClient } = await loadSupabaseModule();
       this.supabase = getSupabaseClient();
       if (!this.supabase) {
         return;

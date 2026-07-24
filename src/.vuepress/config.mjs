@@ -29,6 +29,36 @@ const SOCIAL_LINKS = [
   "https://ko-fi.com/coiot",
 ];
 
+const viteManualChunks = (id) => {
+  const normalized = id.replaceAll("\\", "/");
+
+  if (normalized.endsWith("/.vuepress-temp/legacyPages.js")) {
+    return "site-index";
+  }
+  if (
+    normalized.includes("/node_modules/@supabase/") ||
+    normalized.includes("/node_modules/@realtime/") ||
+    normalized.includes("/node_modules/@ecies/") ||
+    normalized.includes("/node_modules/eciesjs/")
+  ) {
+    return "vendor-supabase";
+  }
+  if (
+    normalized.includes("/node_modules/vue/") ||
+    normalized.includes("/node_modules/@vue/") ||
+    normalized.includes("/node_modules/vue-router/") ||
+    normalized.includes("/node_modules/@vuepress/client/")
+  ) {
+    return "vendor-vue";
+  }
+  if (
+    normalized.includes("/node_modules/medium-zoom/") ||
+    normalized.includes("/node_modules/nprogress/")
+  ) {
+    return "vendor-interactions";
+  }
+};
+
 const toISODateTime = (value) => {
   if (!value) return "";
   const date = value instanceof Date ? value : new Date(value);
@@ -871,6 +901,11 @@ export default defineUserConfig({
       build: {
         emptyOutDir: true,
         target: "es2020",
+        rollupOptions: {
+          output: {
+            manualChunks: viteManualChunks,
+          },
+        },
       },
     },
   }),

@@ -85,11 +85,15 @@
 </template>
 
 <script>
-import CommunityTileMapGrid from "../community/CommunityTileMapGrid.vue";
+import { defineAsyncComponent } from "vue";
 import {
   buildSnapshotLookup,
   buildCityChangeSummary,
 } from "../community/communityTileMapSnapshotUtils.js";
+
+const CommunityTileMapGrid = defineAsyncComponent(() =>
+  import("../community/CommunityTileMapGrid.vue")
+);
 
 const snapshotCache = new Map();
 const missingSnapshotCache = new Set();

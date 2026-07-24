@@ -533,6 +533,40 @@ body {
   background-color: var(--page-background-color);
   background-image: var(--page-background-image);
 }
+.chunk-recovery {
+  position: fixed;
+  z-index: 5000;
+  inset-inline: 1rem;
+  inset-block-end: calc(1rem + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-inline-size: 46rem;
+  margin-inline: auto;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 14px;
+  color: var(--panel-text-color);
+  background: var(--panel-bg-elevated-color);
+  box-shadow: 0 16px 36px oklch(0 0 0 / 0.4);
+}
+.chunk-recovery button {
+  flex: 0 0 auto;
+  min-block-size: 2.25rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  color: oklch(0.2 0 0);
+  background: var(--accent-color);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.chunk-recovery button:focus-visible {
+  outline: 2px solid var(--page-text-color);
+  outline-offset: 2px;
+}
 .theme-container,
 main {
   min-inline-size: 0;

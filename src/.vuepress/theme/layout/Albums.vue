@@ -399,6 +399,7 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import { normalize } from "../util.js";
 import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
@@ -407,8 +408,6 @@ import SceneSlideContent from "../components/albums/SceneSlideContent.vue";
 import CinematicFullscreen from "../components/albums/CinematicFullscreen.vue";
 import EpisodeViewControls from "../components/albums/EpisodeViewControls.vue";
 import SceneJumpControl from "../components/albums/SceneJumpControl.vue";
-import CommentsSection from "../components/albums/CommentsSection.vue";
-import EpisodeMapSnapshot from "../components/albums/EpisodeMapSnapshot.vue";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../data/civColors.mjs";
 import {
   getSupabaseClient,
@@ -418,6 +417,13 @@ import {
   SUPABASE_ALBUM_REACTIONS_TABLE,
   SUPABASE_ALBUM_COMMENTS_TABLE,
 } from "../supabaseClient";
+
+const CommentsSection = defineAsyncComponent(() =>
+  import("../components/albums/CommentsSection.vue")
+);
+const EpisodeMapSnapshot = defineAsyncComponent(() =>
+  import("../components/albums/EpisodeMapSnapshot.vue")
+);
 
 const pageDir = (path) => {
   const normalized = normalize(path).replace(/\/$/, "");
@@ -2014,11 +2020,13 @@ export default {
         this.$refs.horizontalCarousel.goToSlide(targetIndex, { emit: false });
       }
     },
-    goToScene() {
+    goToScene(requestedScene) {
       if (!this.sceneCount) {
         return;
       }
-      let target = parseInt(this.jumpToScene, 10);
+      const requested =
+        requestedScene === undefined ? this.jumpToScene : requestedScene;
+      let target = parseInt(requested, 10);
       if (!Number.isFinite(target)) {
         target = 1;
       }
@@ -2041,9 +2049,9 @@ export default {
       }
       this.scrollToScene(index);
     },
-    goToSceneFromMobileBar() {
+    goToSceneFromMobileBar(requestedScene) {
       this.mobileJumpOpen = false;
-      this.goToScene();
+      this.goToScene(requestedScene);
     },
     focusTimelineDot(index) {
       this.$nextTick(() => {

@@ -4,7 +4,7 @@
     <div class="jump-controls">
       <select
         :id="selectId"
-        :value="value"
+        :value="modelValue"
         @change="handleChange"
       >
         <option v-for="index in sceneCount" :key="index" :value="index">
@@ -18,8 +18,9 @@
 <script>
 export default {
   name: "SceneJumpControl",
+  emits: ["update:modelValue", "go"],
   props: {
-    value: {
+    modelValue: {
       type: Number,
       default: 1,
     },
@@ -62,8 +63,9 @@ export default {
     },
     handleChange(event) {
       const parsed = parseInt(event.target.value, 10);
-      this.$emit("input", Number.isFinite(parsed) ? parsed : 1);
-      this.$emit("go");
+      const sceneNumber = Number.isFinite(parsed) ? parsed : 1;
+      this.$emit("update:modelValue", sceneNumber);
+      this.$emit("go", sceneNumber);
     },
   },
 };

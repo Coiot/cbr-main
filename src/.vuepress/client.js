@@ -8,7 +8,7 @@ import mediumZoom from "medium-zoom";
 import { legacyPages } from "@temp/legacyPages.js";
 import Layout from "./theme/Layout.vue";
 import NotFound from "./theme/NotFound.vue";
-import { getSupabaseClient } from "./theme/supabaseClient";
+import { installChunkLoadRecovery } from "./chunkLoadRecovery";
 
 const markdownComponents = {
   "albums-Editions": () => import("./components/albums/Editions.vue"),
@@ -136,6 +136,7 @@ export default defineClientConfig({
 
   enhance({ app, router, siteData }) {
     installLegacyGlobals(app, siteData);
+    installChunkLoadRecovery({ app, router });
     app.component("Content", Content);
     app.component("ClientOnly", ClientOnly);
     Object.entries(markdownComponents).forEach(([name, loader]) => {
@@ -153,7 +154,6 @@ export default defineClientConfig({
     const themeMode = storedThemeMode === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", themeMode);
     document.documentElement.style.colorScheme = themeMode;
-    getSupabaseClient();
 
     router.afterEach(() => {
       if (zoomInstance) zoomInstance.detach();

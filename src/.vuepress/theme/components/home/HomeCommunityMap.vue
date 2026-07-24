@@ -1,5 +1,5 @@
 <template>
-  <section class="home-map" aria-labelledby="home-map-title">
+  <section ref="mapSection" class="home-map" aria-labelledby="home-map-title">
     <div class="home-map-header">
       <div class="home-map-copy">
         <h2 id="home-map-title">Community Tile Map</h2>
@@ -27,11 +27,7 @@
       </div>
       <ClientOnly v-else>
         <keep-alive>
-          <CommunityTileMapGrid
-            ref="map"
-            embedded
-            @hook:mounted="onMapMounted"
-          />
+          <CommunityTileMapGrid ref="map" embedded @vue:mounted="onMapMounted" />
         </keep-alive>
       </ClientOnly>
       <div
@@ -62,7 +58,11 @@
 </template>
 
 <script>
-import CommunityTileMapGrid from "../community/CommunityTileMapGrid.vue";
+import { defineAsyncComponent } from "vue";
+
+const CommunityTileMapGrid = defineAsyncComponent(() =>
+  import("../community/CommunityTileMapGrid.vue")
+);
 
 export default {
   name: "HomeCommunityMap",
@@ -77,13 +77,38 @@ export default {
     return {
       mapMounted: false,
       mapRequested: false,
+      mapInRange: false,
+      mapObserver: null,
       isMobileBrowser,
     };
   },
   computed: {
     shouldRenderMap() {
-      return !this.isMobileBrowser || this.mapRequested;
+      return this.mapRequested || (!this.isMobileBrowser && this.mapInRange);
     },
+  },
+  mounted() {
+    if (typeof IntersectionObserver === "undefined") {
+      this.mapInRange = true;
+      return;
+    }
+    this.mapObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          this.mapInRange = true;
+          this.mapObserver.disconnect();
+          this.mapObserver = null;
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+    this.mapObserver.observe(this.$refs.mapSection);
+  },
+  beforeUnmount() {
+    if (this.mapObserver) {
+      this.mapObserver.disconnect();
+      this.mapObserver = null;
+    }
   },
   methods: {
     onMapMounted() {
