@@ -13,7 +13,7 @@ scenes:
   narration: "<p>Hello everybody and welcome to Episode 28 of the Civ Battle Royale X Season 5! I’ll be your host for today, thom148, as we explore all of the goofy mishaps, vengeful backstabs, and clever machinations the cylinder has to offer us. I suppose I should introduce myself - I’m a longtime lurker from the Mk. 2 days, I rediscovered CBR around the beginning of X4 and have been following ever since. I wanted to get more involved with the community which brought me to narration! I’m super excited and privileged to be bringing you all a narration today.</p>"
 - scene_number: 02
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene02.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene02.png
   narration: "<p>Firstly, we’re going to spotlight this excellent Ma’in ghostball created by u/Orangechrisy. Ma’in was one of the first rumped civs of the game, and they just kept getting beaten down by Phoenicia all the way until their last breath. RIP.</p>"
 - scene_number: 03
   scene_title: ""
