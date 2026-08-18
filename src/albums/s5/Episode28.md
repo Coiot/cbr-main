@@ -25,7 +25,7 @@ scenes:
   narration: "<p>As always, a special thanks to all the Ko-Fi supporters without whom this niche little internet curiosity wouldn’t be possible.</p>"
 - scene_number: 05
   scene_title: ""
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene05.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season5-pr27-scene07.jpeg
   narration: "<p>I don’t have the PRs yet so I’m going to guess that the spotlighted civ will be Guaycuru. Having been DoWed by Chono on the final turn of last episode, their rank has surely plummeted as they now face the impossible task of defending against one of the largest civs on the cylinder that basically encircles them. </p>"
 - scene_number: 06
   scene_title: ""
