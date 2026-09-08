@@ -90,7 +90,7 @@ scenes:
 - scene_number: 21
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene21.jpeg
-  narration: "<p>Farther south, the Chono fleet descends upon Guaycuru’s Antarctic colonies. In a cruel twist of fate, Eso’s last stand might take place in the very same Antarctic colonies he eliminated Xaragua in merely two parts ago.</p>"
+  narration: "<p>Farther south, the Chono fleet descends upon Guaycuru’s Antarctic colonies. In a cruel twist of fate, Eso’s last stand might take place in the very same Antarctic colonies he eliminated Xaragua in merely two episodes ago.</p>"
 - scene_number: 22
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene22.jpeg
@@ -202,7 +202,7 @@ scenes:
 - scene_number: 49
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene49.jpeg
-  narration: "<p>Pescado Negro falls and Guaycuru is eliminated in 52nd place. As the 7th ranked civ in Episode 0 they had a lot of expectations going in, expectations that they utterly failed to live up to. Passive and disjunct settling in the early game left them completely outscaled by Chono and at their mercy for essentially their whole lifespan. Guaycuru’s game could have ended 15 parts ago if Chono ever decided to hit the big red button, but Chono allowed them some life. With that time, Guaycuru fought some long back and forth wars with Potiguara, cleaned up Xaragua’s Antarctic escape plan, and didn’t do much of anything else. I will personally not miss them. Edward Corvan, a former Guaycuru Great Musician captured by Chono, is in our world a 19th-century English songwriter known for writing songs in the traditional Tyneside dialect of English. Perhaps he will keep the traditional forms of Guaycuru song alive on the cylinder.</p>"
+  narration: "<p>Pescado Negro falls and Guaycuru is eliminated in 52nd place. As the 7th ranked civ in Episode 0 they had a lot of expectations going in, expectations that they utterly failed to live up to. Passive and disjunct settling in the early game left them completely outscaled by Chono and at their mercy for essentially their whole lifespan. Guaycuru’s game could have ended 15 episodes ago if Chono ever decided to hit the big red button, but Chono allowed them some life. With that time, Guaycuru fought some long back and forth wars with Potiguara, cleaned up Xaragua’s Antarctic escape plan, and didn’t do much of anything else. I will personally not miss them. Edward Corvan, a former Guaycuru Great Musician captured by Chono, is in our world a 19th-century English songwriter known for writing songs in the traditional Tyneside dialect of English. Perhaps he will keep the traditional forms of Guaycuru song alive on the cylinder.</p>"
 - scene_number: 50
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene50.jpeg
@@ -310,7 +310,7 @@ scenes:
 - scene_number: 76
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene76.jpeg
-  narration: "<p>Robbie Robertson, an Canadian guitarist IRL known for among other things being the lead guitar for Bob Dylan’s backing band, goes on an international tour in the Bay of Bengal. Except that actually just means playing one show on the Andaman Islands tile owned by NSW.</p><p>Bangladesh had a pretty solid-looking empire maybe 15 parts ago, but hundreds of turns of inactivity have left them utterly outscaled by their neighbours. If they were in Europe, they’d probably be a top 15 civ though.</p>"
+  narration: "<p>Robbie Robertson, an Canadian guitarist IRL known for among other things being the lead guitar for Bob Dylan’s backing band, goes on an international tour in the Bay of Bengal. Except that actually just means playing one show on the Andaman Islands tile owned by NSW.</p><p>Bangladesh had a pretty solid-looking empire maybe 15 episodes ago, but hundreds of turns of inactivity have left them utterly outscaled by their neighbours. If they were in Europe, they’d probably be a top 15 civ though.</p>"
 - scene_number: 77
   scene_title: ""
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode28-scene77.jpeg

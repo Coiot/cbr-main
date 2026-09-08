@@ -70,11 +70,11 @@ scenes:
 - scene_number: 16
   scene_title: "No Contest"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode25-scene16.jpeg
-  narration: "<p>And we get yet another brutal citadel with Pakistan completely cutting off Mangalore and Channapatna, all but ensuring that those two cities would get conquered promptly in a conflict between Mysore and Pakistan. Mysore has been thoroughly ripped geographically by Pakistan over the past few parts. Their strong stats are increasingly become irrelevant in the face of just how disjointed their empire is, and how vulnerable it is to Pakistan in particular. We shall see soon however, if this doomering is justified at all.</p>"
+  narration: "<p>And we get yet another brutal citadel with Pakistan completely cutting off Mangalore and Channapatna, all but ensuring that those two cities would get conquered promptly in a conflict between Mysore and Pakistan. Mysore has been thoroughly ripped geographically by Pakistan over the past few episodes. Their strong stats are increasingly become irrelevant in the face of just how disjointed their empire is, and how vulnerable it is to Pakistan in particular. We shall see soon however, if this doomering is justified at all.</p>"
 - scene_number: 17
   scene_title: "Wait Something Is Happening Here For Once?"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode25-scene17.jpeg
-  narration: "<p>For the first time in 25 parts, something actually happens in the Herero-Luba war, with Luba flipping the Herero city of Okakarara with superior line infantry and lancers. Of course, there are ample reinforcements ready to try to take back the city from the Herero side. But still, this has been more action than these two bickering idiots have gotten against each other for so long. </p>"
+  narration: "<p>For the first time in 25 episodes, something actually happens in the Herero-Luba war, with Luba flipping the Herero city of Okakarara with superior line infantry and lancers. Of course, there are ample reinforcements ready to try to take back the city from the Herero side. But still, this has been more action than these two bickering idiots have gotten against each other for so long. </p>"
 - scene_number: 18
   scene_title: "Tella Hun Gingeet"
   slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode25-scene18.jpeg
