@@ -146,9 +146,9 @@
     <text class="name" x="30" y="721" dominant-baseline="middle">ECH</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="10" cy="759" r="10" fill="#b21b2a" stroke="#fff398" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="-41.199999999999996" y="695.8" width="102.39999999999999" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="10" y="719.4" text-anchor="middle" dominant-baseline="middle">Pegu</text>
+    <circle class="civ-badge" cx="10" cy="759" r="10" fill="#e0d4b4" stroke="#404a4e" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="-73.6" y="695.8" width="167.2" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="10" y="719.4" text-anchor="middle" dominant-baseline="middle">Tlingit</text>
     <text class="name" x="30" y="759" dominant-baseline="middle">EmeraldRange</text>
   </g>
   <g class="supporter">
