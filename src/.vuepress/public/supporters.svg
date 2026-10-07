@@ -248,9 +248,9 @@
     <text class="name" x="848.6666666666666" y="379" dominant-baseline="middle">QuantumBotany</text>
   </g>
   <g class="supporter">
-    <circle class="civ-badge" cx="828.6666666666666" cy="417" r="10" fill="#42102a" stroke="#b3c5ed" stroke-width="3" />
-    <rect class="civ-tooltip-bg" x="701.8666666666667" y="353.8" width="253.6" height="47.2" rx="6" ry="6" />
-    <text class="civ-tooltip" x="828.6666666666666" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">Anishinaabe</text>
+    <circle class="civ-badge" cx="828.6666666666666" cy="417" r="10" fill="#e6c7cb" stroke="#67120a" stroke-width="3" />
+    <rect class="civ-tooltip-bg" x="658.6666666666666" y="353.8" width="340" height="47.2" rx="6" ry="6" />
+    <text class="civ-tooltip" x="828.6666666666666" y="377.40000000000003" text-anchor="middle" dominant-baseline="middle">New South Wales</text>
     <text class="name" x="848.6666666666666" y="417" dominant-baseline="middle">Semiconscious</text>
   </g>
   <g class="supporter">
@@ -296,18 +296,18 @@
     <text class="name" x="848.6666666666666" y="683" dominant-baseline="middle">Vijver</text>
   </g>
   </g>
-  <rect class="counts-panel" x="293.85" y="812" width="812.3" height="94" rx="10" ry="10" />
+  <rect class="counts-panel" x="274.04999999999995" y="812" width="851.9000000000001" height="94" rx="10" ry="10" />
   <text class="counts-label" x="700" y="848" text-anchor="middle">Top 5 Supporters Choice</text>
-  <g class="counts" transform="translate(309.85, 0)">
+  <g class="counts" transform="translate(290.04999999999995, 0)">
   <circle class="count-badge" cx="8" cy="877" r="8" fill="#d6683f" stroke="#000000" stroke-width="3" />
   <text class="count" x="24" y="877" dominant-baseline="middle">Pomo 15</text>
-  <circle class="count-badge" cx="125.3" cy="877" r="8" fill="#42102a" stroke="#b3c5ed" stroke-width="3" />
-  <text class="count" x="141.3" y="877" dominant-baseline="middle">Anishinaabe 2</text>
-  <circle class="count-badge" cx="302" cy="877" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />
-  <text class="count" x="318" y="877" dominant-baseline="middle">Aures 2</text>
-  <circle class="count-badge" cx="419.3" cy="877" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
-  <text class="count" x="435.3" y="877" dominant-baseline="middle">Hanseatic League 2</text>
-  <circle class="count-badge" cx="645.5" cy="877" r="8" fill="#3accc7" stroke="#0c3856" stroke-width="3" />
-  <text class="count" x="661.5" y="877" dominant-baseline="middle">Seychelles 2</text>
+  <circle class="count-badge" cx="125.3" cy="877" r="8" fill="#deb057" stroke="#073c42" stroke-width="3" />
+  <text class="count" x="141.3" y="877" dominant-baseline="middle">Aures 2</text>
+  <circle class="count-badge" cx="242.6" cy="877" r="8" fill="#f0e5dd" stroke="#912316" stroke-width="3" />
+  <text class="count" x="258.6" y="877" dominant-baseline="middle">Hanseatic League 2</text>
+  <circle class="count-badge" cx="468.8" cy="877" r="8" fill="#e6c7cb" stroke="#67120a" stroke-width="3" />
+  <text class="count" x="484.8" y="877" dominant-baseline="middle">New South Wales 2</text>
+  <circle class="count-badge" cx="685.1" cy="877" r="8" fill="#3accc7" stroke="#0c3856" stroke-width="3" />
+  <text class="count" x="701.1" y="877" dominant-baseline="middle">Seychelles 2</text>
   </g>
 </svg>
