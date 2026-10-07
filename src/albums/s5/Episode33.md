@@ -17,7 +17,7 @@ scenes:
   narration: "<p>But first as ever, a check-in on the Church of the Cylinder! What whimsical jaunt in the world of faith shall be spotlighted tod- holy hell, Bunuba is dead dead, there’s Bunuba chunks everywhere, oh golly I’m gonna throw up! Clearly the CBR should be immediately banned in every nation.</p>"
 - scene_number: 03
   scene_title: "Back to Black"
-  slide_url: https://cdn.civbattleroyale.tv/cbrx-season5-episode33-scene03.jpeg
+  slide_url: https://cdn.civbattleroyale.tv/season5-pr32-scene03.jpeg
   narration: "<p>Next, I’d like to shoutout something that’s been highlighted in pieces, to my knowledge, but never as a whole: the PR Graveyard! As an inside man, I’ve seen the creative rush and amount of effort that occurs to get these arts made within a week of each elimination; designing a ghostball that tries to convey each civs essence as players into a clear commemorative image; whether mockingly, sincerely, or celebratory. It’s awesome stuff, especially when, for example, 4 civs die in the same episode and suddenly the community artists have to rush to have the Graveyard ready by next PR. A warm thanks is extended to everyone whose contributed so far, and if you, dear reader, have an artistic bone and a passion for the CBR, why not give it a shot yourself?!</p>"
 - scene_number: 04
   scene_title: "Young and Beautiful"
