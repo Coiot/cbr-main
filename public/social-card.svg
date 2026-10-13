@@ -73,9 +73,9 @@
 
   <text class="kicker" x="50" y="121">Latest Episode</text>
   <text class="title" x="50" y="201" dominant-baseline="hanging">
-    <tspan x="50" dy="0">Episode 33: Live</tspan><tspan x="50" dy="55">and Let Die</tspan>
+    <tspan x="50" dy="0">Episode 34: Those</tspan><tspan x="50" dy="55">Who Remain</tspan>
   </text>
-  <text class="meta" x="50" y="311">S5 • October 06, 2026</text>
+  <text class="meta" x="50" y="311">S5 • October 13, 2026</text>
   <text class="site" x="50" y="560">civbattleroyale.tv</text>
 
   
