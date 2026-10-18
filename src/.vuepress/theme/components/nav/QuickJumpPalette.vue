@@ -63,6 +63,13 @@
               </button>
             </span>
           </div>
+          <p v-if="sceneSearchLoading" class="quick-jump-hint" role="status">
+            Searching scenes…
+          </p>
+          <p v-if="sceneSearchError" class="quick-jump-hint" role="status">
+            Scene search is temporarily unavailable.
+            <button type="button" @click="searchScenes">Retry</button>
+          </p>
           <ul v-if="results.length" class="quick-jump-results">
             <li
               v-for="(item, index) in results"
@@ -84,7 +91,7 @@
               </button>
             </li>
           </ul>
-          <p v-else class="quick-jump-empty">No matching items.</p>
+          <p v-else-if="!sceneSearchLoading" class="quick-jump-empty">No matching items.</p>
         </div>
       </div>
     </transition>
@@ -92,6 +99,9 @@
 </template>
 
 <script>
+import { normalizeText, compareSearchResults } from "./search/sceneSearch.mjs";
+import { createSceneSearchClient } from "./search/sceneSearchClient.mjs";
+import publicConfig from "../../../../shared/publicConfig.json";
 import { editionNavItems } from "../../../data/editions";
 import { mapConfig } from "../../../data/communityTileMap";
 import { s5OwnerList } from "../community/communityTileMapConstants";
@@ -101,33 +111,10 @@ const DEFAULT_RESULTS = 12;
 const MAP_PATH = "/community-tile-map/";
 const UNKNOWN_CITY_ID = 65535;
 const MAP_PINS_STORAGE_KEY = "cbr.mapPins.v1";
-const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
-const SNAPSHOT_TABLE = "map_snapshots";
-const SNAPSHOT_MAP_ID = "s5";
-
-function normalizeText(value) {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function stripHtml(value) {
-  return String(value || "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function parseSceneNumber(scene, fallback) {
-  const raw =
-    scene && scene.scene_number !== undefined && scene.scene_number !== null
-      ? scene.scene_number
-      : fallback;
-  const number = parseInt(raw, 10);
-  return Number.isFinite(number) && number > 0 ? number : fallback;
-}
+const SUPABASE_URL = publicConfig.SUPABASE_URL;
+const SUPABASE_ANON_KEY = publicConfig.SUPABASE_ANON_KEY;
+const SNAPSHOT_TABLE = publicConfig.SNAPSHOT_TABLE;
+const SNAPSHOT_MAP_ID = publicConfig.MAP_ID;
 
 function normalizePathPrefix(value) {
   const prefix = String(value || "").trim();
@@ -228,8 +215,10 @@ export default {
       activeIndex: 0,
       allItems: [],
       defaultItems: [],
-      sceneIndexLoaded: false,
-      sceneIndexLoading: false,
+      sceneResults: [],
+      sceneResultsQuery: "",
+      sceneSearchLoading: false,
+      sceneSearchError: false,
       mapCitiesLoaded: false,
       snapshotScope: {
         mode: "live",
@@ -392,16 +381,9 @@ export default {
         }
         matches.push({ ...item, score });
       });
+      if (this.sceneResultsQuery === normalizedQuery) matches.push(...this.sceneResults);
       return matches
-        .sort((a, b) => {
-          if (b.score !== a.score) {
-            return b.score - a.score;
-          }
-          if ((b.sortDate || 0) !== (a.sortDate || 0)) {
-            return (b.sortDate || 0) - (a.sortDate || 0);
-          }
-          return a.title.localeCompare(b.title, "en");
-        })
+        .sort(compareSearchResults)
         .slice(0, MAX_RESULTS);
     },
     shortcutLabel() {
@@ -414,6 +396,10 @@ export default {
   },
 
   watch: {
+    query() {
+      this.activeIndex = 0;
+      this.searchScenes();
+    },
     results(nextResults) {
       if (!nextResults.length) {
         this.activeIndex = -1;
@@ -444,6 +430,8 @@ export default {
   },
 
   beforeUnmount() {
+    this._sceneSearchClient?.dispose();
+    this._sceneSearchClient = null;
     if (typeof window !== "undefined") {
       window.removeEventListener("keydown", this.handleWindowKeydown, true);
       window.removeEventListener(
@@ -590,52 +578,30 @@ export default {
       ].filter(Boolean);
     },
 
-    async loadSceneIndex() {
-      if (this.sceneIndexLoaded || this.sceneIndexLoading) return;
-      this.sceneIndexLoading = true;
-      try {
-        const response = await fetch(
-          this.$withBase("/data/albums/scene-index.json"),
-          { credentials: "same-origin" }
-        );
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const payload = await response.json();
-        const albums = Array.isArray(payload.albums) ? payload.albums : [];
-        const sceneItems = [];
-        albums.forEach((album) => {
-          const scenes = Array.isArray(album.scenes) ? album.scenes : [];
-          scenes.forEach((scene, index) => {
-            const sceneNumber = parseSceneNumber(
-              { scene_number: scene.number },
-              index + 1
-            );
-            const sceneTitle = stripHtml(scene.title);
-            const sceneLabel =
-              sceneTitle && sceneTitle !== String(sceneNumber)
-                ? `Scene ${sceneNumber}: ${sceneTitle}`
-                : `Scene ${sceneNumber}`;
-            sceneItems.push({
-              id: `scene:${album.path}#${sceneNumber}`,
-              type: "scene",
-              title: `${album.title} · ${sceneLabel}`,
-              subtitle: album.subtitle || "",
-              path: `${album.path}#scene-${sceneNumber}`,
-              sortDate: album.sortDate || 0,
-              searchText: normalizeText(
-                `${album.title} ${sceneLabel} ${sceneTitle} ${
-                  album.subtitle || ""
-                }`
-              ),
-            });
-          });
-        });
-        this.allItems = [...this.allItems, ...sceneItems];
-        this.sceneIndexLoaded = true;
-      } catch (error) {
-        // Episode and map search remain available if the optional index fails.
-      } finally {
-        this.sceneIndexLoading = false;
+    searchScenes() {
+      this.sceneResults = [];
+      this.sceneResultsQuery = "";
+      const query = normalizeText(this.query);
+      if (!this.isOpen || !query) {
+        this._sceneSearchClient?.cancel();
+        return;
       }
+      if (!this._sceneSearchClient) {
+        this._sceneSearchClient = createSceneSearchClient({
+          createWorker: () => new Worker(new URL("./search/sceneSearch.worker.js", import.meta.url), { type: "module" }),
+          onResults: (results, resultQuery) => {
+            if (!this.isOpen || normalizeText(this.query) !== resultQuery) return;
+            this.sceneResults = results;
+            this.sceneResultsQuery = resultQuery;
+          },
+          onState: ({ loading, error }) => {
+            this.sceneSearchLoading = loading;
+            this.sceneSearchError = error;
+          },
+        });
+      }
+      const path = this.$withBase("/data/albums/search-manifest.json");
+      this._sceneSearchClient.search(query, new URL(path, window.location.href).href);
     },
 
     isMapScopedItem(item) {
@@ -1109,7 +1075,6 @@ export default {
     openPalette() {
       this.isOpen = true;
       this.activeIndex = 0;
-      this.loadSceneIndex();
       this.loadSnapshotList();
       if (this.snapshotScope.mode === "snapshot" && this.snapshotScope.id) {
         this.ensureSnapshotScope(this.snapshotScope.id);
@@ -1123,6 +1088,9 @@ export default {
     },
 
     closePalette() {
+      this._sceneSearchClient?.cancel();
+      this.sceneResults = [];
+      this.sceneResultsQuery = "";
       this.isOpen = false;
       this.query = "";
       this.activeIndex = 0;

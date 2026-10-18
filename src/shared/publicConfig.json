@@ -1,0 +1,7 @@
+{
+  "SUPABASE_URL": "https://ndgkvyldchkgyyoaeukt.supabase.co",
+  "SUPABASE_ANON_KEY": "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_",
+  "MAP_ID": "s5",
+  "SNAPSHOT_TABLE": "map_snapshots",
+  "TILE_OVERRIDE_TABLE": "tile_overrides"
+}

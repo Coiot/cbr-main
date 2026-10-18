@@ -1,14 +1,15 @@
+import publicConfig from "../../shared/publicConfig.json";
 import { createClient } from "@supabase/supabase-js";
 
-const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
+const SUPABASE_URL = publicConfig.SUPABASE_URL;
+const SUPABASE_ANON_KEY = publicConfig.SUPABASE_ANON_KEY;
 
 const SUPABASE_ALBUM_PROGRESS_TABLE = "album_progress";
 const SUPABASE_ALBUM_REACTIONS_TABLE = "album_reactions";
 const SUPABASE_ALBUM_COMMENTS_TABLE = "album_comments";
 const SUPABASE_USER_SETTINGS_TABLE = "user_settings";
 const SUPABASE_SUPPORTER_CHECK_FUNCTION = "check-kofi-subscriber";
-const SUPABASE_SUPPORTER_MAP_ID = "s5";
+const SUPABASE_SUPPORTER_MAP_ID = publicConfig.MAP_ID;
 
 let supabaseClient = null;
 

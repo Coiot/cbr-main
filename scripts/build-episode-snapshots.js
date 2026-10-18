@@ -4,6 +4,8 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const yamlFrontMatter = require("yaml-front-matter");
 const { createClient } = require("@supabase/supabase-js");
+const publicConfig = require("../src/shared/publicConfig.json");
+const { normalizeEpisodeNumber } = require("../src/shared/episode.mjs");
 
 const ROOT_DIR = path.join(__dirname, "..");
 const EPISODES_DIR = path.join(ROOT_DIR, "src/albums/s5");
@@ -15,11 +17,11 @@ const STATE_CACHE_PATH = path.join(
   "community/CBRXMapOct62025_V2.state.json"
 );
 
-const SUPABASE_URL = "https://ndgkvyldchkgyyoaeukt.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_EHgYIUVagLDrS166HDpv3g_seLG2CN_";
-const SUPABASE_MAP_ID = "s5";
-const SUPABASE_SNAPSHOT_TABLE = "map_snapshots";
-const SUPABASE_OVERRIDE_TABLE = "tile_overrides";
+const SUPABASE_URL = publicConfig.SUPABASE_URL;
+const SUPABASE_ANON_KEY = publicConfig.SUPABASE_ANON_KEY;
+const SUPABASE_MAP_ID = publicConfig.MAP_ID;
+const SUPABASE_SNAPSHOT_TABLE = publicConfig.SNAPSHOT_TABLE;
+const SUPABASE_OVERRIDE_TABLE = publicConfig.TILE_OVERRIDE_TABLE;
 const FORCE_SNAPSHOT_REBUILD = process.env.FORCE_SNAPSHOT_REBUILD === "1";
 const BUILD_COMMIT =
   process.env.COMMIT_REF ||
@@ -27,22 +29,6 @@ const BUILD_COMMIT =
   process.env.COMMIT_SHA ||
   "HEAD";
 let automaticSnapshotRequired = false;
-
-const normalizeEpisodeNumber = (value) => {
-  if (value === null || value === undefined) {
-    return "";
-  }
-  const raw = String(value).trim();
-  if (!raw) {
-    return "";
-  }
-  if (raw.includes(".")) {
-    const numeric = Number.parseFloat(raw);
-    return Number.isFinite(numeric) ? String(numeric) : raw;
-  }
-  const numeric = Number.parseInt(raw, 10);
-  return Number.isFinite(numeric) ? String(numeric) : raw;
-};
 
 const episodeNumberFromTitle = (title) => {
   const match = String(title || "").match(/episode\s*([0-9]+(?:\.[0-9]+)?)/i);

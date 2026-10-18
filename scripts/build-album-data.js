@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const { createHash } = require("node:crypto");
+const { sceneSearchPayload } = require("../src/.vuepress/theme/components/nav/search/sceneSearch.mjs");
 const yamlFront = require("yaml-front-matter");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -150,6 +152,15 @@ function run() {
     `${JSON.stringify({ version: 1, albums: sceneAlbums })}\n`,
     "utf8"
   );
+  const searchData = `${JSON.stringify(sceneSearchPayload(sceneAlbums))}\n`;
+  const searchHash = createHash("sha256").update(searchData).digest("hex").slice(0, 20);
+  const searchFile = path.join(OUTPUT_DIR, "search", `${searchHash}.json`);
+  const searchManifest = path.join(OUTPUT_DIR, "search-manifest.json");
+  fs.mkdirSync(path.dirname(searchFile), { recursive: true });
+  fs.writeFileSync(searchFile, searchData, "utf8");
+  fs.writeFileSync(searchManifest, `${JSON.stringify({ version: 1, url: `search/${searchHash}.json` })}\n`, "utf8");
+  expectedFiles.add(searchFile);
+  expectedFiles.add(searchManifest);
   removeStaleJsonFiles(OUTPUT_DIR, expectedFiles);
 
   const bytes = Array.from(expectedFiles).reduce(

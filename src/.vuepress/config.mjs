@@ -913,6 +913,7 @@ export default defineUserConfig({
     nav: [
       { text: "About", link: "/archive/what-is-the-civ-battle-royale/" },
       { text: "Albums", link: "/albums/" },
+      { text: "Map", link: "/community-tile-map/" },
       { text: "Spotlight", link: "/spotlight/" },
     ],
     logo: "/cbr_logo_color.svg",

@@ -15,3 +15,7 @@ package-lock.json
 docs/
 nova/
 .env.supporters
+.env.releases
+.venv-release/
+__pycache__/
+.tools/

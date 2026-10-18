@@ -219,7 +219,7 @@ function findLatestSeasonEpisode() {
 }
 
 function copySupportersToDownloads() {
-  const { season, episode } = findLatestSeasonEpisode();
+  const { season, episode } = supportersEpisode();
   const downloadPath = path.join(
     DOWNLOADS_DIR,
     `s${season}ep${episode}-supporters.svg`
@@ -227,6 +227,18 @@ function copySupportersToDownloads() {
   fs.mkdirSync(DOWNLOADS_DIR, { recursive: true });
   fs.copyFileSync(OUTPUT_PATH, downloadPath);
   console.log(`Copied supporters SVG to ${downloadPath}`);
+}
+
+function supportersEpisode() {
+  const season = process.env.SUPPORTERS_SEASON;
+  const episode = process.env.SUPPORTERS_EPISODE;
+  if (season === undefined && episode === undefined) {
+    return findLatestSeasonEpisode();
+  }
+  if (!/^[1-9]\d*$/.test(season || "") || !/^\d+(?:\.\d+)?$/.test(episode || "")) {
+    throw new Error("Set both SUPPORTERS_SEASON and SUPPORTERS_EPISODE to valid numbers.");
+  }
+  return { season, episode };
 }
 
 function parseCsv(csv) {
@@ -791,6 +803,8 @@ ${countsNodes}
 }
 
 async function run() {
+  // Validate explicit identity before fetching data or writing output.
+  supportersEpisode();
   let csv;
   let source;
   try {
