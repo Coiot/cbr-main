@@ -16,7 +16,25 @@
             placeholder="Title, narrator, date, episode"
           />
         </label>
-        <div v-if="episodeQuery" class="control-meta">
+        <label class="filter">
+          <span>Sort episodes</span>
+          <select v-model="albumSort">
+            <option value="">{{ edition.sortOrder === 'desc' ? 'Newest first' : 'Oldest first' }} (default)</option>
+            <option value="asc">Oldest first</option>
+            <option value="desc">Newest first</option>
+          </select>
+        </label>
+        <label v-if="library.userId" class="filter">
+          <span>Reading status</span>
+          <select ref="readingFilter" v-model="readingFilter" :disabled="!library.loaded">
+            <option value="all">All episodes</option>
+            <option value="unread">Unread</option>
+            <option value="not_started">Not started</option>
+            <option value="in_progress">In progress</option>
+            <option value="finished">Finished</option>
+          </select>
+        </label>
+        <div v-if="hasEpisodeFilter" class="control-meta">
           <span>
             {{ filteredAlbums.length }} match{{
               filteredAlbums.length === 1 ? "" : "es"
@@ -25,74 +43,86 @@
           <button
             type="button"
             class="control-button"
-            @click="episodeQuery = ''"
+            @click="episodeQuery = ''; albumSort = ''; readingFilter = 'all'"
           >
-            Clear
+            Clear filters
           </button>
         </div>
       </div>
 
-      <template v-if="!hasEpisodeFilter">
-        <router-link
-          v-for="post in featuredAlbums"
-          :to="post.path"
-          :key="post.path"
-          class="post"
-          :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
-        >
-          <div class="hero-overlay"></div>
-          <div class="title-info">
-            <p>{{ post.frontmatter.title }}</p>
-            <span v-if="titleSuffix(post)">{{ titleSuffix(post) }}</span>
-          </div>
+      <div class="library-summary">
+        <span v-if="!library.authReady || library.loading" role="status">Loading your reading library…</span>
+        <template v-else-if="library.userId && library.error">
+          <span role="status">{{ library.error }}</span>
+          <button type="button" class="control-button" @click="refreshReadingLibrary">Retry</button>
+        </template>
+        <span v-else-if="library.userId && library.loaded">{{ librarySummary }}</span>
+        <template v-else-if="!library.userId">
+          <button type="button" class="control-button" @click="openLibrarySignIn">Sign in to track your reading</button>
+        </template>
+      </div>
 
-          <div class="album-info">
-            <p>{{ post.frontmatter.narrated_by }}</p>
-            <span>
-              <template
-                v-if="heroMeta.showStartingTurn && hasStartingTurn(post)"
-              >
-                Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
-              </template>
-              Release Date: {{ post.frontmatter.release_date }}
-            </span>
-          </div>
-        </router-link>
+      <template v-if="!hasEpisodeFilter">
+        <div v-for="post in featuredAlbums" :key="post.path" class="library-entry" :data-reading-path="post.path" :class="{ 'has-reading': library.userId && library.loaded }">
+          <router-link :to="episodeTarget(post)" @click="rememberReadingLocation(post)"
+            class="post"
+            :style="{ backgroundImage: `url(${post.frontmatter.image})` }"
+          >
+            <div class="hero-overlay"></div>
+            <div class="title-info">
+              <p>{{ post.frontmatter.title }}</p>
+              <span v-if="titleSuffix(post)">{{ titleSuffix(post) }}</span>
+            </div>
+
+            <div class="album-info">
+              <p>{{ post.frontmatter.narrated_by }}</p>
+              <span>
+                <template
+                  v-if="heroMeta.showStartingTurn && hasStartingTurn(post)"
+                >
+                  Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
+                </template>
+                Release Date: {{ post.frontmatter.release_date }}
+              </span>
+            </div>
+          </router-link>
+          <LibraryEpisodeState :post="post" @open="rememberReadingLocation(post)" />
+        </div>
       </template>
 
       <template v-else>
         <div class="filter-results">
           <h3 v-once class="section-title">Results</h3>
           <div v-if="filteredAlbums.length">
-            <router-link
-              v-for="post in filteredAlbums"
-              :to="post.path"
-              :key="post.path"
-            >
-              <div class="list">
-                <p class="list-title">
-                  {{ post.frontmatter.title }}
-                  <span v-if="titleSuffix(post)" class="list-suffix">
-                    {{ listSuffixPrefix }}{{ titleSuffix(post) }}
-                  </span>
-                </p>
+            <div v-for="post in filteredAlbums" :key="post.path" class="library-entry" :data-reading-path="post.path" :class="{ 'has-reading': library.userId && library.loaded }">
+              <router-link :to="episodeTarget(post)" @click="rememberReadingLocation(post)"
+              >
+                <div class="list">
+                  <p class="list-title">
+                    {{ post.frontmatter.title }}
+                    <span v-if="titleSuffix(post)" class="list-suffix">
+                      {{ listSuffixPrefix }}{{ titleSuffix(post) }}
+                    </span>
+                  </p>
 
-                <p class="list-meta">
-                  {{ post.frontmatter.narrated_by }}
-                  <span>
-                    <template
-                      v-if="listMeta.showStartingTurn && hasStartingTurn(post)"
-                    >
-                      Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
-                    </template>
-                    Release Date: {{ post.frontmatter.release_date }}
-                  </span>
-                </p>
-              </div>
-            </router-link>
+                  <p class="list-meta">
+                    {{ post.frontmatter.narrated_by }}
+                    <span>
+                      <template
+                        v-if="listMeta.showStartingTurn && hasStartingTurn(post)"
+                      >
+                        Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
+                      </template>
+                      Release Date: {{ post.frontmatter.release_date }}
+                    </span>
+                  </p>
+                </div>
+              </router-link>
+              <LibraryEpisodeState :post="post" @open="rememberReadingLocation(post)" />
+            </div>
           </div>
           <p v-else class="empty-state">
-            No episodes match "{{ episodeQuery }}".
+            {{ episodeQuery ? `No episodes match “${episodeQuery}” with these filters.` : 'No episodes match this reading filter.' }}
           </p>
         </div>
       </template>
@@ -187,71 +217,71 @@
                     {{ arc.label }}
                   </span>
                 </div>
-                <router-link
-                  v-for="post in arcItems(arc)"
-                  :to="post.path"
-                  :key="post.path"
-                >
-                  <div class="list">
-                    <p class="list-title">
-                      {{ post.frontmatter.title }}
-                      <span v-if="titleSuffix(post)" class="list-suffix">
-                        {{ listSuffixPrefix }}{{ titleSuffix(post) }}
-                      </span>
-                    </p>
+                <div v-for="post in arcItems(arc)" :key="post.path" class="library-entry" :data-reading-path="post.path" :class="{ 'has-reading': library.userId && library.loaded }">
+                  <router-link :to="episodeTarget(post)" @click="rememberReadingLocation(post)"
+                  >
+                    <div class="list">
+                      <p class="list-title">
+                        {{ post.frontmatter.title }}
+                        <span v-if="titleSuffix(post)" class="list-suffix">
+                          {{ listSuffixPrefix }}{{ titleSuffix(post) }}
+                        </span>
+                      </p>
 
-                    <p class="list-meta">
-                      {{ post.frontmatter.narrated_by }}
-                      <span>
-                        <template
-                          v-if="
-                            listMeta.showStartingTurn && hasStartingTurn(post)
-                          "
-                        >
-                          Starting Turn:
-                          {{ post.frontmatter.starting_turn }}&emsp;
-                        </template>
-                        Release Date: {{ post.frontmatter.release_date }}
-                      </span>
-                    </p>
+                      <p class="list-meta">
+                        {{ post.frontmatter.narrated_by }}
+                        <span>
+                          <template
+                            v-if="
+                              listMeta.showStartingTurn && hasStartingTurn(post)
+                            "
+                          >
+                            Starting Turn:
+                            {{ post.frontmatter.starting_turn }}&emsp;
+                          </template>
+                          Release Date: {{ post.frontmatter.release_date }}
+                        </span>
+                      </p>
 
-                    <p v-if="post.frontmatter.description" class="list-summary">
-                      {{ post.frontmatter.description }}
-                    </p>
-                  </div>
-                </router-link>
+                      <p v-if="post.frontmatter.description" class="list-summary">
+                        {{ post.frontmatter.description }}
+                      </p>
+                    </div>
+                  </router-link>
+                  <LibraryEpisodeState :post="post" @open="rememberReadingLocation(post)" />
+                </div>
               </article>
             </div>
           </section>
         </template>
 
         <div v-else>
-          <router-link
-            v-for="post in listAlbums"
-            :to="post.path"
-            :key="post.path"
-          >
-            <div class="list">
-              <p class="list-title">
-                {{ post.frontmatter.title }}
-                <span v-if="titleSuffix(post)" class="list-suffix">
-                  {{ listSuffixPrefix }}{{ titleSuffix(post) }}
-                </span>
-              </p>
+          <div v-for="post in listAlbums" :key="post.path" class="library-entry" :data-reading-path="post.path" :class="{ 'has-reading': library.userId && library.loaded }">
+            <router-link :to="episodeTarget(post)" @click="rememberReadingLocation(post)"
+            >
+              <div class="list">
+                <p class="list-title">
+                  {{ post.frontmatter.title }}
+                  <span v-if="titleSuffix(post)" class="list-suffix">
+                    {{ listSuffixPrefix }}{{ titleSuffix(post) }}
+                  </span>
+                </p>
 
-              <p class="list-meta">
-                {{ post.frontmatter.narrated_by }}
-                <span>
-                  <template
-                    v-if="listMeta.showStartingTurn && hasStartingTurn(post)"
-                  >
-                    Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
-                  </template>
-                  Release Date: {{ post.frontmatter.release_date }}
-                </span>
-              </p>
-            </div>
-          </router-link>
+                <p class="list-meta">
+                  {{ post.frontmatter.narrated_by }}
+                  <span>
+                    <template
+                      v-if="listMeta.showStartingTurn && hasStartingTurn(post)"
+                    >
+                      Starting Turn: {{ post.frontmatter.starting_turn }}&emsp;
+                    </template>
+                    Release Date: {{ post.frontmatter.release_date }}
+                  </span>
+                </p>
+              </div>
+            </router-link>
+            <LibraryEpisodeState :post="post" @open="rememberReadingLocation(post)" />
+          </div>
         </div>
       </template>
     </div>
@@ -259,12 +289,16 @@
 </template>
 
 <script>
+import LibraryEpisodeState from "./library/LibraryEpisodeState.vue";
+import { readingLibrary, readingTarget, matchesReadingFilter, readingStatus } from "./library/readingLibrary.js";
+import { archiveControls, archiveQuery, rememberArchive, takeArchiveScroll } from "./library/archiveState.mjs";
 import { getEdition } from "../../../data/editions";
 
 const defaultTitleFields = ["edition", "pr"];
 
 export default {
   name: "EditionList",
+  components: { LibraryEpisodeState },
   props: {
     editionId: {
       type: String,
@@ -273,13 +307,12 @@ export default {
   },
   data() {
     return {
-      episodeQuery: "",
+      ...archiveControls(this.$route?.query),
+      library: readingLibrary.state,
       competitorQuery: "",
       competitorsOpen: true,
       memoSortedKey: "",
       memoSortedAlbums: [],
-      memoFilteredKey: "",
-      memoFilteredAlbums: [],
       memoCompetitorsKey: "",
       memoFilteredCompetitors: [],
     };
@@ -323,7 +356,7 @@ export default {
       }
       const siteTime = (this.$site && this.$site.time) || "";
       const prefixes = this.edition.pathPrefixes || [];
-      const sortOrder = this.edition.sortOrder || "asc";
+      const sortOrder = this.albumSort || this.edition.sortOrder || "asc";
       const key = `${this.editionId}:${siteTime}:${sortOrder}:${prefixes.join(
         ","
       )}`;
@@ -348,7 +381,7 @@ export default {
       return sorted;
     },
     hasEpisodeFilter() {
-      return this.episodeTokens.length > 0;
+      return this.episodeTokens.length > 0 || Boolean(this.albumSort) || this.effectiveReadingFilter !== "all";
     },
     episodeTokens() {
       const query = this.episodeQuery.trim().toLowerCase();
@@ -357,36 +390,23 @@ export default {
       }
       return query.split(/\s+/).filter(Boolean);
     },
+    effectiveReadingFilter() {
+      return this.library.userId && this.library.loaded ? this.readingFilter : "all";
+    },
+    librarySummary() {
+      const rows = this.sortedAlbums.map(post => this.library.records[post.path]);
+      return `${rows.filter(row => readingStatus(row) === 'finished').length} finished · ${rows.filter(row => readingStatus(row) === 'in_progress').length} in progress`;
+    },
     filteredAlbums() {
       const tokens = this.episodeTokens;
-      const key = `${this.editionId}:${tokens.join("|")}:${
-        this.sortedAlbums.length
-      }`;
-      if (this.memoFilteredKey === key && this.memoFilteredAlbums.length) {
-        return this.memoFilteredAlbums;
-      }
-      if (!tokens.length) {
-        this.memoFilteredKey = key;
-        this.memoFilteredAlbums = this.sortedAlbums;
-        return this.sortedAlbums;
-      }
-      const filtered = this.sortedAlbums.filter((post) => {
-        const fields = [
-          post.frontmatter && post.frontmatter.title,
-          post.title,
-          post.frontmatter && post.frontmatter.narrated_by,
-          post.frontmatter && post.frontmatter.release_date,
-          post.frontmatter && post.frontmatter.edition,
-          post.frontmatter && post.frontmatter.pr,
-          post.frontmatter && post.frontmatter.starting_turn,
-          post.path,
-        ];
+      return this.sortedAlbums.filter(post => {
+        if (!matchesReadingFilter(this.library.records[post.path], this.effectiveReadingFilter)) return false;
+        const fields = [post.frontmatter?.title, post.title, post.frontmatter?.narrated_by,
+          post.frontmatter?.release_date, post.frontmatter?.edition, post.frontmatter?.pr,
+          post.frontmatter?.starting_turn, post.path];
         const haystack = fields.filter(Boolean).join(" ").toLowerCase();
-        return tokens.every((token) => haystack.indexOf(token) > -1);
+        return tokens.every(token => haystack.includes(token));
       });
-      this.memoFilteredKey = key;
-      this.memoFilteredAlbums = filtered;
-      return filtered;
     },
     competitorTokens() {
       const query = this.competitorQuery.trim().toLowerCase();
@@ -440,8 +460,18 @@ export default {
     },
   },
   watch: {
+    filteredAlbums(albums) {
+      const path = this.$el?.querySelector('.library-entry:focus-within')?.dataset.readingPath;
+      if (path && !albums.some(post => post.path === path)) {
+        this.$nextTick(() => this.$refs.readingFilter?.focus());
+      }
+    },
+    "$route.query"() { this.syncArchiveControls(); },
+    episodeQuery: "persistArchiveControls",
+    albumSort: "persistArchiveControls",
+    readingFilter: "persistArchiveControls",
     editionId() {
-      this.episodeQuery = "";
+      this.syncArchiveControls();
       this.competitorQuery = "";
       this.restoreCompetitorsOpen();
     },
@@ -451,8 +481,42 @@ export default {
   },
   mounted() {
     this.restoreCompetitorsOpen();
+    this.syncArchiveControls();
+    const libraryLoad = this.library.authReady ? readingLibrary.refresh() : readingLibrary.initialize();
+    libraryLoad.finally(() => {
+      this.$nextTick(() => {
+        if (this._archiveDisposed) return;
+        const top = takeArchiveScroll(this.$route);
+        if (top !== null) window.requestAnimationFrame(() => {
+          if (!this._archiveDisposed) window.scrollTo({ top });
+        });
+      });
+    });
+    window.addEventListener("focus", this.refreshReadingLibrary);
+  },
+  beforeUnmount() {
+    this._archiveDisposed = true;
+    window.removeEventListener("focus", this.refreshReadingLibrary);
   },
   methods: {
+    refreshReadingLibrary() { readingLibrary.refresh(); },
+    syncArchiveControls() {
+      this._syncingArchiveControls = true;
+      Object.assign(this, archiveControls(this.$route?.query));
+      this.$nextTick(() => { this._syncingArchiveControls = false; });
+    },
+    persistArchiveControls() {
+      if (this._syncingArchiveControls || !this.$router) return;
+      const query = archiveQuery(this.$route, this, this.editionId);
+      if (JSON.stringify(query) !== JSON.stringify(this.$route.query)) {
+        this.$router.replace({ path: this.$route.path, query }).catch(() => {});
+      }
+    },
+    rememberReadingLocation(post) { rememberArchive(post.path, { path: this.$route.path, query: archiveQuery(this.$route, this, this.editionId) }, window.scrollY); },
+    episodeTarget(post) {
+      return this.library.userId && this.library.loaded ? readingTarget(post, this.library.records[post.path]) : post.path;
+    },
+    openLibrarySignIn() { window.dispatchEvent(new CustomEvent("open-account-menu")); },
     restoreCompetitorsOpen() {
       if (typeof window === "undefined" || !window.localStorage) {
         this.competitorsOpen = true;
@@ -558,6 +622,7 @@ export default {
   text-transform: uppercase;
 }
 
+.edition-controls select,
 .edition-controls input,
 .competitor-controls input {
   color: var(--panel-text-color);
@@ -1153,4 +1218,12 @@ img {
     word-break: break-word;
   }
 }
+</style>
+
+<style scoped>
+.library-summary { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem; color: var(--panel-muted-color); font-size: 0.9rem; margin-block: -1.2rem 1.2rem; }
+.library-entry.has-reading .post, .library-entry.has-reading .list { margin-block-end: 0; }
+.edition-controls select, .edition-controls input { min-block-size: 2.75rem; box-sizing: border-box; font-family: inherit; }
+.edition-controls select:focus-visible, .library-summary button:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }
+@media (max-width: 600px) { .edition-controls .filter, .edition-controls select { min-inline-size: 0; max-inline-size: 100%; } }
 </style>

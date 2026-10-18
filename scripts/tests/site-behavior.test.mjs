@@ -1,4 +1,8 @@
+import './supporter-payments.test.mjs';
 import './search.test.mjs';
+import './reading-library.test.mjs';
+import './account-sync.test.mjs';
+import './search-filters.test.mjs';
 import './map-performance.test.mjs';
 import './map-view.test.mjs';
 import assert from 'node:assert/strict';

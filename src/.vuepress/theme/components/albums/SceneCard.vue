@@ -5,7 +5,7 @@
       class="scene-image scene-image--svg"
       :data="scene.slide_svg"
       type="image/svg+xml"
-      tabindex="0"
+      tabindex="-1"
       :aria-label="sceneAlt"
     ></object>
     <img
@@ -14,6 +14,10 @@
       loading="lazy"
       decoding="async"
       tabindex="0"
+      role="button"
+      :aria-label="`Enlarge image: ${sceneAlt}`"
+      @keydown.enter.prevent="openImageZoom"
+      @keydown.space.prevent="openImageZoom"
       :alt="sceneAlt"
       class="scene-image medium-zoom"
     />
@@ -67,12 +71,11 @@
         />
       </h3>
 
-      <div class="narrations" v-html="scene.narration" tabindex="0"></div>
+      <div class="narrations" v-html="scene.narration"></div>
       <div
         class="narrations"
         v-if="scene.reporter"
         v-html="scene.reporter"
-        tabindex="0"
         :class="{ reporter: scene.reporter }"
       ></div>
       <ReactionPanel
@@ -168,6 +171,13 @@ export default {
     },
   },
   methods: {
+    openImageZoom(event) {
+      const image = event.currentTarget;
+      image.addEventListener("medium-zoom:closed", () => {
+        if (image.isConnected) image.focus({ preventScroll: true });
+      }, { once: true });
+      image.click();
+    },
     onToggleBookmark() {
       this.$emit("toggle-bookmark");
     },

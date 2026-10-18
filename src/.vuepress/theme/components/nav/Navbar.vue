@@ -183,11 +183,11 @@
           <!-- <div class="user-header">Account</div> -->
           <div v-if="!authUser" class="user-section">
             <p class="user-copy">
-              Sign in to sync settings, write reactions, leave comments, and
-              more!
+              Sign in to sync your reading progress and settings, react, and comment.
             </p>
 
             <input
+              ref="accountEmailInput"
               class="user-input"
               type="email"
               placeholder="Email linked with Ko-Fi"
@@ -234,6 +234,7 @@
           </div>
           <div v-else class="user-section">
             <p class="user-email">{{ displayName }}</p>
+            <p v-if="authProfile?.username" class="user-hint">Signed in as {{ authUser.email }}</p>
             <div class="user-field">
               <label class="user-label" for="user-name-input">Username</label>
               <div class="user-row">
@@ -243,6 +244,7 @@
                   type="text"
                   placeholder="Set display name"
                   v-model="usernameInput"
+                  @input="usernameDirty = true"
                   maxlength="32"
                   autocomplete="nickname"
                 />
@@ -334,16 +336,21 @@
               />
               <p class="user-hint">Shown next to your supporter comment.</p>
             </div>
-            <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
+            <p v-if="settingsMessage" class="user-message" role="status">{{ settingsMessage }}</p>
+            <button v-if="settingsFailed" type="button" class="user-button" :disabled="settingsSaving" @click="retrySettings">Retry saving preferences</button>
+            <p v-if="authMessage" class="user-message" role="status">{{ authMessage }}</p>
+            <button v-if="!canEditSupporterFields" type="button" class="user-button" :disabled="supporterChecking" @click="fetchProfile(true)">
+              {{ supporterChecking ? 'Checking donation access…' : 'Check donation access' }}
+            </button>
             <button type="button" class="user-button" @click="signOut">
               Sign out
             </button>
             <p class="user-cta" v-if="canEditSupporterFields">n.n <3</p>
-            <p class="user-cta" v-else>
-              Signed in. Consider donating!
+            <p class="user-cta" v-else-if="!supporterChecking && !supporterCheckFailed">
+              {{ authProfile?.supporter_status === 'expired' ? 'You’re always welcome back.' : 'Enjoying CBR? Help keep the show going.' }}
               <br />
               <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
-                >Become a supporter on Ko-Fi</a
+                >{{ authProfile?.supporter_status === 'expired' ? 'Support CBR again on Ko-fi' : 'Become a supporter on Ko-fi' }}</a
               >
             </p>
           </div>
@@ -399,18 +406,15 @@
 </template>
 
 <script>
+import { supporterMessage, EXPIRED_SUPPORTER_MESSAGE } from "../../account/supporterMessage.mjs";
 import SidebarButton from "../sidebar/SidebarButton.vue";
 import NavLinks from "./NavLinks.vue";
 import QuickJumpPalette from "./QuickJumpPalette.vue";
 import { getEdition } from "../../../data/editions";
 
 const loadSupabaseModule = () => import("../../supabaseClient");
-const ensureProfileRow = async (...args) => {
-  const module = await loadSupabaseModule();
-  return module.ensureProfileRow(...args);
-};
+const loadAccountModule = () => import("../../account/accountSync.js");
 const SUPABASE_ALBUM_PROGRESS_TABLE = "album_progress";
-const SUPABASE_USER_SETTINGS_TABLE = "user_settings";
 
 const USER_SETTINGS_KEYS = [
   "albumsViewMode",
@@ -441,8 +445,14 @@ export default {
       userSettings: {},
       authEmail: "",
       usernameInput: "",
+      usernameDirty: false,
       usernameSaving: false,
       usernameMessage: "",
+      supporterChecking: false,
+      supporterCheckFailed: false,
+      settingsMessage: "",
+      settingsSaving: false,
+      settingsFailed: false,
       albumsViewMode: "vertical",
       themeMode: DEFAULT_THEME_MODE,
       favoriteCiv: "",
@@ -470,6 +480,11 @@ export default {
     handleLinksWrapWidth();
     window.addEventListener("resize", handleLinksWrapWidth, false);
 
+    window.addEventListener("open-account-menu", this.openAccountMenu);
+    window.addEventListener("account-profile-updated", this.handleAccountProfile);
+    document.addEventListener("visibilitychange", this.refreshVisibleSupporter);
+    window.addEventListener("focus", this.refreshVisibleSupporter);
+    window.addEventListener("user-settings-synced", this.handleAccountSettings);
     this.initSupabase();
     this.loadBookmarks();
     this.loadViewMode();
@@ -493,6 +508,11 @@ export default {
 
   beforeUnmount() {
     if (typeof window !== "undefined") {
+      window.removeEventListener("open-account-menu", this.openAccountMenu);
+      window.removeEventListener("account-profile-updated", this.handleAccountProfile);
+      document.removeEventListener("visibilitychange", this.refreshVisibleSupporter);
+      window.removeEventListener("focus", this.refreshVisibleSupporter);
+      window.removeEventListener("user-settings-synced", this.handleAccountSettings);
       window.removeEventListener(
         "albums-bookmark-updated",
         this._bookmarkUpdateHandler
@@ -537,6 +557,8 @@ export default {
       if (!this.authUser || !this.authProfile) {
         return "";
       }
+      if (this.authProfile.can_edit === true) return "supporter";
+      if (this.supporterChecking || this.supporterCheckFailed) return "";
       return this.authProfile.can_edit === true ? "supporter" : "non-supporter";
     },
     canEditSupporterFields() {
@@ -587,15 +609,10 @@ export default {
       if (!this.supabase) {
         return;
       }
-      const { data } = this.supabase.auth.onAuthStateChange(
-        (_event, session) => {
-          this.handleAuthSession(session);
-        }
-      );
-      this._authSubscription = data ? data.subscription : null;
-      this.supabase.auth.getSession().then(({ data: sessionData }) => {
-        this.handleAuthSession(sessionData ? sessionData.session : null);
-      });
+      const { getAccountSync, subscribeAccountAuth } = await loadAccountModule();
+      this._accountSync = getAccountSync(this.supabase);
+      this._authSubscription = subscribeAccountAuth(this.supabase, this.handleAuthSession);
+
     },
     teardownSupabase() {
       if (this._authSubscription) {
@@ -604,36 +621,41 @@ export default {
       }
       this._localSyncDone = false;
       this._localSyncPromise = null;
-      this._settingsSyncDone = false;
-      this._settingsSyncPromise = null;
     },
     handleAuthSession(session) {
-      this.authUser = session ? session.user : null;
-      this.broadcastAuthSession(session || null);
-      if (this.authUser && !this.authEmail) {
-        this.authEmail = this.authUser.email || "";
-      }
-      this._localSyncDone = false;
-      this._settingsSyncDone = false;
-      if (this.authUser) {
-        this.authMessage = "Signed in.";
-        this.fetchProfile();
-        this.syncLocalStateToCloud().then(() => {
-          this.loadBookmarks();
-        });
-        this.syncLocalSettingsToCloud();
-        return;
-      }
-      if (this.authMessage && this.authMessage !== "Signed out.") {
-        this.authMessage = "";
-      }
+      const previousId = this.authUser?.id, user = session?.user || null;
+      this.authUser = user;
+      if (this._authInitialized && previousId === user?.id) return;
+      this._authInitialized = true;
+      if (previousId) this._accountSync?.clear(previousId);
       this.authProfile = null;
       this.userSettings = {};
       this.usernameInput = "";
+      this.usernameDirty = false;
       this.usernameMessage = "";
-      this.favoriteCiv = "";
-      this.customFlair = "";
-      this.loadBookmarks();
+      this.usernameSaving = false;
+      this.settingsMessage = "";
+      this.settingsSaving = false;
+      this.settingsFailed = false;
+      this.supporterChecking = false;
+      this.supporterCheckFailed = false;
+      this._localSyncDone = false;
+      this._localSyncPromise = null;
+      this.broadcastAuthSession(session || null);
+      if (user) {
+        this.authEmail = user.email || "";
+        this.authMessage = "Checking donation access…";
+        this.fetchProfile();
+        this.syncLocalStateToCloud().then(() => {
+          if (this.authUser?.id === user.id) this.loadBookmarks();
+        });
+        this.syncLocalSettingsToCloud();
+      } else {
+        if (this.authMessage !== "Signed out.") this.authMessage = "";
+        this.favoriteCiv = "";
+        this.customFlair = "";
+        this.loadBookmarks();
+      }
     },
     collectLocalAlbumState() {
       if (typeof window === "undefined") {
@@ -676,8 +698,10 @@ export default {
       if (this._localSyncPromise) {
         return this._localSyncPromise;
       }
+      const userId = this.authUser.id;
+      const isCurrent = () => this.authUser?.id === userId;
       let syncSucceeded = false;
-      this._localSyncPromise = (async () => {
+      const request = (async () => {
         try {
           const localState = this.collectLocalAlbumState();
           const paths = Object.keys(localState);
@@ -688,8 +712,9 @@ export default {
           const { data, error } = await this.supabase
             .from(SUPABASE_ALBUM_PROGRESS_TABLE)
             .select("page_path, bookmark_scene, resume_scene")
-            .eq("user_id", this.authUser.id)
+            .eq("user_id", userId)
             .in("page_path", paths);
+          if (!isCurrent()) return;
           if (error) {
             console.warn("Unable to sync local album state.", error);
             return;
@@ -700,15 +725,16 @@ export default {
           const rows = [];
           paths.forEach((path) => {
             const localEntry = localState[path] || {};
+            const hasCloudRow = cloudMap.has(path);
             const cloudEntry = cloudMap.get(path) || {};
             const cloudBookmark = parseInt(cloudEntry.bookmark_scene, 10);
             const cloudResume = parseInt(cloudEntry.resume_scene, 10);
             const bookmarkScene = Number.isFinite(cloudBookmark)
               ? cloudBookmark
-              : localEntry.bookmark_scene;
+              : hasCloudRow ? null : localEntry.bookmark_scene;
             const resumeScene = Number.isFinite(cloudResume)
               ? cloudResume
-              : localEntry.resume_scene;
+              : hasCloudRow ? null : localEntry.resume_scene;
             if (
               !Number.isFinite(bookmarkScene) &&
               !Number.isFinite(resumeScene)
@@ -716,7 +742,7 @@ export default {
               return;
             }
             rows.push({
-              user_id: this.authUser.id,
+              user_id: userId,
               page_path: path,
               bookmark_scene: Number.isFinite(bookmarkScene)
                 ? bookmarkScene
@@ -730,6 +756,7 @@ export default {
           }
           let syncError = null;
           for (const row of rows) {
+            if (!isCurrent()) return;
             try {
               const { data: updatedRows, error: updateError } =
                 await this.supabase
@@ -739,6 +766,7 @@ export default {
                   .eq("page_path", row.page_path)
                   .select("user_id")
                   .limit(1);
+              if (!isCurrent()) return;
               if (updateError) {
                 syncError = updateError;
                 break;
@@ -767,44 +795,39 @@ export default {
           console.warn("Unable to sync local album state.", error);
         }
       })();
+      this._localSyncPromise = request;
       try {
-        await this._localSyncPromise;
+        await request;
       } finally {
-        this._localSyncPromise = null;
-        if (syncSucceeded) {
+        if (this._localSyncPromise === request) this._localSyncPromise = null;
+        if (isCurrent() && syncSucceeded) {
           this._localSyncDone = true;
         }
       }
     },
-    async fetchProfile() {
-      if (!this.useCloud) {
-        return;
-      }
-      const { error: ensureError } = await ensureProfileRow(
-        this.supabase,
-        this.authUser
-      );
-      if (ensureError) {
-        console.warn("Unable to ensure profile row.", ensureError);
-      }
-      const { data, error } = await this.supabase
-        .from("profiles")
-        .select("username, can_edit")
-        .eq("id", this.authUser.id)
-        .maybeSingle();
-      if (error) {
-        console.warn("Unable to load profile.", error);
-        this.authMessage = "Signed in. Unable to verify supporter status.";
-        return;
-      }
-      this.authProfile = data || null;
-      this.authMessage =
-        this.authProfile && this.authProfile.can_edit === true
-          ? "Supporter account. Thank you!"
-          : "Signed in.";
-      if (this.authProfile && this.authProfile.username) {
-        this.usernameInput = this.authProfile.username;
-      }
+    handleAccountProfile(event) {
+      const { userId, profile } = event.detail || {};
+      if (userId !== this.authUser?.id || !profile) return;
+      this.authProfile = { ...this.authProfile, ...profile };
+      if (profile.supporter_status === 'expired') this.authMessage = EXPIRED_SUPPORTER_MESSAGE;
+      if (!this.usernameDirty && !this.usernameSaving) this.usernameInput = this.authProfile.username || "";
+    },
+    refreshVisibleSupporter() {
+      if (document.visibilityState === 'visible' && this.authUser) this.fetchProfile();
+    },
+    async fetchProfile(force = false) {
+      if (!this.useCloud || !this._accountSync) return;
+      const user = this.authUser;
+      this.supporterChecking = true;
+      this.supporterCheckFailed = false;
+      try {
+        const result = await this._accountSync.refreshSupporter(user, { force: force === true });
+        if (this.authUser?.id !== user.id) return;
+        this.supporterCheckFailed = Boolean(result.error);
+        this.authMessage = result.error
+          ? result.error.message || "Donation access could not be verified. Please retry."
+          : supporterMessage({ ...result.data, allowed: result.allowed });
+      } finally { if (this.authUser?.id === user.id) this.supporterChecking = false; }
     },
     collectLocalUserSettings() {
       if (typeof window === "undefined") {
@@ -892,109 +915,46 @@ export default {
       }
     },
     async syncLocalSettingsToCloud() {
-      if (!this.useCloud) {
-        return;
-      }
-      if (this._settingsSyncDone) {
-        return;
-      }
-      if (this._settingsSyncPromise) {
-        return this._settingsSyncPromise;
-      }
-      let syncSucceeded = false;
-      this._settingsSyncPromise = (async () => {
-        const { error: ensureError } = await ensureProfileRow(
-          this.supabase,
-          this.authUser
-        );
-        if (ensureError) {
-          console.warn("Unable to ensure profile row.", ensureError);
-          return;
-        }
-        const localSettings = this.collectLocalUserSettings();
-        const { data, error } = await this.supabase
-          .from(SUPABASE_USER_SETTINGS_TABLE)
-          .select("settings")
-          .eq("user_id", this.authUser.id)
-          .maybeSingle();
-        if (error) {
-          console.warn("Unable to sync user settings.", error);
-          return;
-        }
-        const cloudSettings = (data && data.settings) || {};
-        const merged = { ...localSettings, ...cloudSettings };
-        this.userSettings = merged;
-        this.applyUserSettings(merged, true);
-        this.loadViewMode();
-        let needsUpsert = !data;
-        USER_SETTINGS_KEYS.forEach((key) => {
-          if (
-            Object.prototype.hasOwnProperty.call(localSettings, key) &&
-            !Object.prototype.hasOwnProperty.call(cloudSettings, key)
-          ) {
-            needsUpsert = true;
-          }
-        });
-        if (!needsUpsert) {
-          syncSucceeded = true;
-          return;
-        }
-        const { error: upsertError } = await this.supabase
-          .from(SUPABASE_USER_SETTINGS_TABLE)
-          .upsert(
-            {
-              user_id: this.authUser.id,
-              settings: merged,
-            },
-            { onConflict: "user_id" }
-          );
-        if (upsertError) {
-          console.warn("Unable to sync user settings.", upsertError);
-          return;
-        }
-        syncSucceeded = true;
-      })();
-      try {
-        await this._settingsSyncPromise;
-      } finally {
-        this._settingsSyncPromise = null;
-        if (syncSucceeded) {
-          this._settingsSyncDone = true;
-        }
+      if (!this.useCloud || !this._accountSync) return;
+      const user = this.authUser;
+      const { error } = await this._accountSync.loadSettings(user, this.collectLocalUserSettings());
+      if (this.authUser?.id !== user.id) return;
+      if (error) {
+        this.settingsMessage = "Your saved settings could not load. Please retry.";
+        this.settingsFailed = true;
       }
     },
-    async saveUserSettings(patch) {
-      if (!this.useCloud || !patch || typeof patch !== "object") {
-        return;
-      }
-      const { error: ensureError } = await ensureProfileRow(
-        this.supabase,
-        this.authUser
-      );
-      if (ensureError) {
-        console.warn("Unable to ensure profile row.", ensureError);
-        return;
-      }
-      this.userSettings = { ...this.userSettings, ...patch };
-      const { error } = await this.supabase
-        .from(SUPABASE_USER_SETTINGS_TABLE)
-        .upsert(
-          {
-            user_id: this.authUser.id,
-            settings: this.userSettings,
-          },
-          { onConflict: "user_id" }
-        );
-      if (error) {
-        console.warn("Unable to save user settings.", error);
-      }
+    handleAccountSettings(event) {
+      const { userId, ...settings } = event.detail || {};
+      if (userId !== this.authUser?.id) return;
+      this.userSettings = settings;
+      this.applyUserSettings(settings, false);
+      this.loadViewMode();
+    },
+    async saveUserSettings(patch, retry = false) {
+      if (!this.useCloud || !this._accountSync || !patch || typeof patch !== "object") return;
+      const user = this.authUser, version = (this._settingsSaveVersion || 0) + 1;
+      this._settingsSaveVersion = version;
+      this.settingsSaving = true;
+      this.settingsMessage = "Saving preferences…";
+      const result = retry
+        ? await this._accountSync.retrySettings(user)
+        : await this._accountSync.saveSettings(user, patch);
+      if (this.authUser?.id !== user.id || this._settingsSaveVersion !== version) return;
+      this.settingsSaving = false;
+      this.settingsFailed = Boolean(result.error) || this._accountSync.hasUnsavedSettings(user);
+      this.settingsMessage = this.settingsFailed ? "Some preferences could not be saved. Please retry." : "Preferences saved.";
+    },
+    async retrySettings() {
+      await this.saveUserSettings({}, true);
+      if (!this.settingsFailed) await this.syncLocalSettingsToCloud();
     },
     handleSettingsUpdate(event) {
       if (!event || !event.detail) {
         return;
       }
       const settings = event.detail;
-      this.applyUserSettings(settings, false);
+      this.applyUserSettings(settings, true);
       if (Object.prototype.hasOwnProperty.call(settings, "albumsViewMode")) {
         this.albumsViewMode = settings.albumsViewMode;
       }
@@ -1118,7 +1078,7 @@ export default {
       );
     },
     async saveUsername() {
-      if (!this.useCloud) {
+      if (!this.useCloud || this.usernameSaving) {
         return;
       }
       const trimmed = String(this.usernameInput || "").trim();
@@ -1136,21 +1096,16 @@ export default {
       }
       this.usernameSaving = true;
       this.usernameMessage = "";
-      const { error } = await this.supabase.from("profiles").upsert(
-        {
-          id: this.authUser.id,
-          username: trimmed,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "id" }
-      );
+      const user = this.authUser;
+      const { data, error } = await this._accountSync.saveUsername(user, trimmed);
+      if (this.authUser?.id !== user.id) return;
       this.usernameSaving = false;
       if (error) {
-        console.warn("Unable to save username.", error);
-        this.usernameMessage = "Unable to save username.";
+        this.usernameMessage = "Unable to save username. Please try again.";
         return;
       }
-      this.authProfile = { ...(this.authProfile || {}), username: trimmed };
+      this.authProfile = { ...this.authProfile, ...data };
+      if (this.usernameInput.trim() === trimmed) this.usernameDirty = false;
       this.usernameMessage = "Username saved.";
     },
     updateLocalBookmarksCache(items) {
@@ -1182,8 +1137,13 @@ export default {
     closeBookmarkMenu() {
       this.bookmarkOpen = false;
     },
+    openAccountMenu() {
+      this.userOpen = true; this.bookmarkOpen = false; this.helpOpen = false;
+      this.$nextTick(() => this.$refs.accountEmailInput?.focus());
+    },
     toggleUserMenu() {
       this.userOpen = !this.userOpen;
+      if (this.userOpen && this.authUser) this.fetchProfile(true);
     },
     closeUserMenu() {
       this.userOpen = false;
@@ -1223,19 +1183,10 @@ export default {
       if (!this.supabase) {
         return;
       }
-      await this.supabase.auth.signOut();
-      this.authUser = null;
-      this.authProfile = null;
-      this.userSettings = {};
-      this.usernameInput = "";
-      this.usernameMessage = "";
-      this.themeMode = this.normalizeThemeMode(
-        window.localStorage.getItem(THEME_STORAGE_KEY)
-      );
-      this.favoriteCiv = "";
-      this.customFlair = "";
+      const { error } = await this.supabase.auth.signOut();
+      if (error) { this.authMessage = "Unable to sign out. Please retry."; return; }
+      this.handleAuthSession(null);
       this.authMessage = "Signed out.";
-      this.loadBookmarks();
     },
     async removeBookmark(key) {
       if (typeof window === "undefined") {
@@ -1694,6 +1645,10 @@ function css(el, property) {
   inset-inline-end: 0;
   inline-size: 20rem;
   max-inline-size: 90vw;
+  max-block-size: calc(100dvh - var(--navbar-height) - 1rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
   color: var(--back-color);
   background: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--border-color), black 10%);
@@ -1766,6 +1721,7 @@ function css(el, property) {
 }
 .navbar .links .user-row .user-input {
   flex: 1;
+  min-inline-size: 0;
 }
 .navbar .links .user-button {
   display: inline-flex;

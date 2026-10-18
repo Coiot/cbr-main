@@ -469,6 +469,7 @@
 </template>
 
 <script>
+import { getAccountSync, subscribeAccountAuth } from "../account/accountSync.js";
 import {
   getSupabaseClient,
   SUPABASE_ALBUM_REACTIONS_TABLE,
@@ -748,6 +749,7 @@ export default {
         this.handleAuthBroadcast
       );
       window.removeEventListener("resize", this.handleViewportChange);
+      window.removeEventListener("account-profile-updated", this.handleAccountProfile);
     }
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
@@ -1366,6 +1368,10 @@ export default {
         });
     },
 
+    handleAccountProfile(event) {
+      const { userId, profile } = event.detail || {};
+      if (userId === this.authUser?.id && profile?.username) this.authDisplayName = profile.username;
+    },
     async bindAuth() {
       if (!this.supabase) {
         return;
@@ -1376,16 +1382,11 @@ export default {
           this.handleAuthBroadcast
         );
       }
-      const { data } = this.supabase.auth.onAuthStateChange(
-        (_event, session) => {
-          this.setAuthUser(session && session.user ? session.user : null);
-        }
-      );
-      this.authSubscription = data ? data.subscription : null;
-      const { data: sessionData } = await this.supabase.auth.getSession();
-      this.setAuthUser(
-        sessionData && sessionData.session ? sessionData.session.user : null
-      );
+      window.addEventListener("account-profile-updated", this.handleAccountProfile);
+      this.authSubscription = subscribeAccountAuth(this.supabase, session => {
+        this.setAuthUser(session?.user || null);
+      });
+
     },
 
     handleAuthBroadcast(event) {
@@ -1421,25 +1422,11 @@ export default {
         this.authDisplayName = "";
         return;
       }
-      let fallback = String(this.authUser.email || "").trim();
-      if (fallback.includes("@")) {
-        fallback = fallback.split("@")[0];
-      }
-      try {
-        const { data, error } = await this.supabase
-          .from("profiles")
-          .select("username")
-          .eq("id", this.authUser.id)
-          .maybeSingle();
-        if (!error && data && data.username) {
-          this.authDisplayName =
-            String(data.username).trim() || fallback || "User";
-          return;
-        }
-      } catch (error) {
-        // fall through to fallback
-      }
-      this.authDisplayName = fallback || "User";
+      const user = this.authUser;
+      const fallback = String(user.email || "").trim().split("@")[0] || "User";
+      const { data } = await getAccountSync(this.supabase).loadProfile(user);
+      if (this.authUser?.id === user.id) this.authDisplayName = data?.username || fallback;
+
     },
 
     buildUserReactionSummaries(rows, episodeLookup) {

@@ -145,6 +145,12 @@ export default defineClientConfig({
 
     if (typeof window === "undefined") return;
 
+    const defaultScrollBehavior = router.options.scrollBehavior;
+    router.options.scrollBehavior = (to, from, savedPosition) => {
+      if (!savedPosition && to.path === from.path && /^\/albums\/(?:(?:s\d+|mk2|pr|others)\/)?$/.test(to.path)) return false;
+      return defaultScrollBehavior?.(to, from, savedPosition);
+    };
+
     let storedThemeMode = "";
     try {
       storedThemeMode = window.localStorage.getItem("themeMode");

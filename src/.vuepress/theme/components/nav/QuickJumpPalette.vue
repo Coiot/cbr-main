@@ -39,24 +39,32 @@
               class="quick-jump-input"
               type="search"
               v-model="query"
-              placeholder="Search episodes, scenes, competitors, tile 72,32"
+              aria-label="Search the archive"
+              :placeholder="searchPlaceholder"
               autocomplete="off"
               @input="handleInput"
             />
+          </div>
+          <div class="quick-jump-filters" role="group" aria-label="Search category">
+            <button v-for="category in searchCategories" :key="category.id" type="button"
+              class="quick-jump-filter" :aria-pressed="activeCategory === category.id"
+              aria-controls="quick-jump-results" @click="setSearchCategory(category.id)">
+              {{ category.label }}
+            </button>
           </div>
           <div class="quick-jump-hint">
             Press <kbd>Enter</kbd> to jump, <kbd>Esc</kbd> to close.
           </div>
           <div
-            v-if="snapshotScope.mode === 'snapshot' && snapshotScope.id"
+            v-if="canClearSnapshotScope"
             class="quick-jump-scope"
           >
             <span class="quick-jump-scope-chip">
-              Scope: {{ snapshotScope.label || "Snapshot" }}
+              Map scope: {{ snapshotScope.label || "Snapshot" }}
               <button
                 type="button"
                 class="quick-jump-scope-clear"
-                aria-label="Use live scope"
+                aria-label="Clear snapshot scope and search the live map"
                 @click="clearSnapshotScope"
               >
                 ×
@@ -68,30 +76,44 @@
           </p>
           <p v-if="sceneSearchError" class="quick-jump-hint" role="status">
             Scene search is temporarily unavailable.
-            <button type="button" @click="searchScenes">Retry</button>
+            <button type="button" @click="searchScenes(true)">Retry</button>
           </p>
-          <ul v-if="results.length" class="quick-jump-results">
-            <li
-              v-for="(item, index) in results"
-              :key="item.id"
-              class="quick-jump-item"
-            >
-              <button
-                type="button"
-                class="quick-jump-item-button"
-                :class="{ 'is-active': index === activeIndex }"
-                @mouseenter="setActiveIndex(index)"
-                @click="activateItem(item)"
+          <p v-if="canClearSnapshotScope && snapshotIndexLoading" class="quick-jump-hint" role="status">
+            Searching this map snapshot…
+          </p>
+          <div id="quick-jump-results" :aria-busy="searchPending">
+            <ul v-if="results.length" class="quick-jump-results">
+              <li
+                v-for="(item, index) in results"
+                :key="item.id"
+                class="quick-jump-item"
               >
-                <span class="quick-jump-item-meta">{{ typeLabel(item) }}</span>
-                <span class="quick-jump-item-title">{{ item.title }}</span>
-                <span v-if="item.subtitle" class="quick-jump-item-subtitle">
-                  {{ item.subtitle }}
-                </span>
-              </button>
-            </li>
-          </ul>
-          <p v-else-if="!sceneSearchLoading" class="quick-jump-empty">No matching items.</p>
+                <button
+                  type="button"
+                  class="quick-jump-item-button"
+                  :class="{ 'is-active': index === activeIndex }"
+                  @focus="setActiveIndex(index)"
+                  @mouseenter="setActiveIndex(index)"
+                  @click="activateItem(item)"
+                >
+                  <span class="quick-jump-item-meta">{{ typeLabel(item) }}</span>
+                  <span class="quick-jump-item-title">{{ item.title }}</span>
+                  <span v-if="item.subtitle" class="quick-jump-item-subtitle">
+                    {{ item.subtitle }}
+                  </span>
+                </button>
+              </li>
+            </ul>
+            <div v-else-if="!searchPending" class="quick-jump-empty">
+              <p class="quick-jump-empty-title" role="status">{{ emptySearchState.title }}</p>
+              <p>{{ emptySearchState.hint }}</p>
+              <div class="quick-jump-empty-actions">
+                <button v-if="emptySearchState.showAll" type="button" @click="setSearchCategory('all')">Search all categories</button>
+                <button v-if="emptySearchState.clearScope" type="button" @click="clearSnapshotScope">Use live map</button>
+                <button v-if="emptySearchState.clearQuery" type="button" @click="clearSearchQuery">Clear search</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </transition>
@@ -100,7 +122,7 @@
 
 <script>
 import { normalizeText, compareSearchResults } from "./search/sceneSearch.mjs";
-import { createSceneSearchClient } from "./search/sceneSearchClient.mjs";
+import { SEARCH_CATEGORIES, filterPaletteResults, usesSceneSearch, paletteFilterComputed, paletteFilterMethods } from "./search/paletteFilters.mjs";
 import publicConfig from "../../../../shared/publicConfig.json";
 import { editionNavItems } from "../../../data/editions";
 import { mapConfig } from "../../../data/communityTileMap";
@@ -212,6 +234,8 @@ export default {
     return {
       isOpen: false,
       query: "",
+      activeCategory: "all",
+      searchCategories: SEARCH_CATEGORIES,
       activeIndex: 0,
       allItems: [],
       defaultItems: [],
@@ -235,16 +259,18 @@ export default {
   },
 
   computed: {
+    ...paletteFilterComputed,
     results() {
       const normalizedQuery = normalizeText(this.query);
       if (!normalizedQuery) {
-        const defaults = this.defaultItems.slice(0, DEFAULT_RESULTS);
+        const defaults = this.activeCategory === "all" ? this.defaultItems : this.activeSearchItems()
+          .slice().sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0) || a.title.localeCompare(b.title, "en"));
         if (
           this.snapshotScope.mode === "snapshot" &&
           this.snapshotScope.id &&
           this.snapshotScope.label
         ) {
-          return [
+          return filterPaletteResults([
             {
               id: `snapshot-active:${this.snapshotScope.id}`,
               type: "mapSnapshot",
@@ -255,9 +281,9 @@ export default {
               score: 9999,
             },
             ...defaults,
-          ].slice(0, DEFAULT_RESULTS);
+          ], this.activeCategory, DEFAULT_RESULTS);
         }
-        return defaults;
+        return filterPaletteResults(defaults, this.activeCategory, DEFAULT_RESULTS);
       }
       const terms = normalizedQuery.split(" ").filter(Boolean);
       const matches = [];
@@ -382,9 +408,7 @@ export default {
         matches.push({ ...item, score });
       });
       if (this.sceneResultsQuery === normalizedQuery) matches.push(...this.sceneResults);
-      return matches
-        .sort(compareSearchResults)
-        .slice(0, MAX_RESULTS);
+      return filterPaletteResults(matches.sort(compareSearchResults), this.activeCategory, MAX_RESULTS);
     },
     shortcutLabel() {
       if (typeof navigator === "undefined") {
@@ -396,6 +420,10 @@ export default {
   },
 
   watch: {
+    activeCategory() {
+      this.activeIndex = 0;
+      this.searchScenes();
+    },
     query() {
       this.activeIndex = 0;
       this.searchScenes();
@@ -442,6 +470,7 @@ export default {
   },
 
   methods: {
+    ...paletteFilterMethods,
     buildIndex() {
       const pages = (this.$site && this.$site.pages) || [];
       const items = [];
@@ -578,32 +607,6 @@ export default {
       ].filter(Boolean);
     },
 
-    searchScenes() {
-      this.sceneResults = [];
-      this.sceneResultsQuery = "";
-      const query = normalizeText(this.query);
-      if (!this.isOpen || !query) {
-        this._sceneSearchClient?.cancel();
-        return;
-      }
-      if (!this._sceneSearchClient) {
-        this._sceneSearchClient = createSceneSearchClient({
-          createWorker: () => new Worker(new URL("./search/sceneSearch.worker.js", import.meta.url), { type: "module" }),
-          onResults: (results, resultQuery) => {
-            if (!this.isOpen || normalizeText(this.query) !== resultQuery) return;
-            this.sceneResults = results;
-            this.sceneResultsQuery = resultQuery;
-          },
-          onState: ({ loading, error }) => {
-            this.sceneSearchLoading = loading;
-            this.sceneSearchError = error;
-          },
-        });
-      }
-      const path = this.$withBase("/data/albums/search-manifest.json");
-      this._sceneSearchClient.search(query, new URL(path, window.location.href).href);
-    },
-
     isMapScopedItem(item) {
       if (!item || !item.type) {
         return false;
@@ -631,6 +634,7 @@ export default {
           ? parseSnapshotId(route.query.snapshot)
           : "";
       if (!snapshotId) {
+        this._snapshotScopeRequestId = (this._snapshotScopeRequestId || 0) + 1;
         this.snapshotScope = {
           mode: "live",
           id: "",
@@ -649,11 +653,14 @@ export default {
     },
 
     async ensureSnapshotScope(snapshotId) {
+      const requestId = (this._snapshotScopeRequestId || 0) + 1;
+      this._snapshotScopeRequestId = requestId;
       const nextId = String(snapshotId || "").trim();
       if (!nextId) {
         return;
       }
       await this.loadSnapshotList();
+      if (requestId !== this._snapshotScopeRequestId) return;
       const snapshot = this.snapshotList.find((entry) => entry.id === nextId);
       const staticMatch = nextId.match(
         /^s5-episode-([0-9]+(?:-[0-9]+)?)$/i
@@ -685,6 +692,8 @@ export default {
     },
 
     clearSnapshotScope() {
+      this._snapshotScopeRequestId = (this._snapshotScopeRequestId || 0) + 1;
+      this.activeIndex = 0;
       this.snapshotScope = {
         mode: "live",
         id: "",
@@ -1093,6 +1102,7 @@ export default {
       this.sceneResultsQuery = "";
       this.isOpen = false;
       this.query = "";
+      this.activeCategory = "all";
       this.activeIndex = 0;
     },
 
@@ -1129,23 +1139,7 @@ export default {
         this.closePalette();
         return;
       }
-      if (event.key === "ArrowDown") {
-        event.preventDefault();
-        this.moveActiveIndex(1);
-        return;
-      }
-      if (event.key === "ArrowUp") {
-        event.preventDefault();
-        this.moveActiveIndex(-1);
-        return;
-      }
-      if (event.key === "Enter") {
-        event.preventDefault();
-        const item = this.results[this.activeIndex];
-        if (item) {
-          this.activateItem(item);
-        }
-      }
+      this.handleSearchKey(event);
     },
 
     moveActiveIndex(delta) {
@@ -1378,6 +1372,48 @@ export default {
   }
 }
 
+.quick-jump-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block: 0.65rem 0.25rem;
+}
+.quick-jump-filter {
+  min-block-size: 2.5rem;
+  border: 1px solid var(--surface-border-color);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: var(--surface-muted-color);
+  color: var(--back-color);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.quick-jump-filter[aria-pressed="true"] {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.quick-jump-filter:hover { border-color: var(--back-color); }
+.quick-jump-dialog :is(button, input):focus-visible {
+  outline: 2px solid var(--back-color);
+  outline-offset: 2px;
+}
+.quick-jump-empty p { margin-block: 0.5rem; }
+.quick-jump-empty-title { font-weight: 800; overflow-wrap: anywhere; }
+.quick-jump-empty-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.quick-jump-empty-actions button {
+  min-block-size: 2.5rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-muted-color);
+  border: 1px solid var(--surface-border-color);
+  border-radius: 8px;
+  color: var(--back-color);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.quick-jump-empty-actions button:hover { border-color: var(--back-color); }
 .quick-jump-hint {
   color: color-mix(in srgb, var(--back-color), white 28%);
   font-size: 0.76rem;

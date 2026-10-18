@@ -48,12 +48,11 @@
         @toggle="onToggleBookmark"
       />
     </h3>
-    <div class="narrations" v-html="scene.narration" tabindex="0"></div>
+    <div class="narrations" v-html="scene.narration"></div>
     <div
       class="narrations"
       v-if="scene.reporter"
       v-html="scene.reporter"
-      tabindex="0"
       v-bind:class="{ reporter: scene.reporter }"
     ></div>
     <ReactionPanel

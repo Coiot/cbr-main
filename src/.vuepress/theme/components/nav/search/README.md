@@ -28,3 +28,22 @@ fetch the scene index. No word index or search service is required.
 Run `npm run test:site` for ranking, debounce, cancellation, error recovery and
 concurrent index-loading regressions. The production VuePress build also checks
 that Vite emits the worker as a separate asset.
+
+The palette offers All, Episodes, Scenes, Competitors, and Map filters. Categories
+filter the full ranked local result set before the 40-item cap; Map includes
+cities, owners, tiles, pins, snapshots, and the overview. Empty-query category
+suggestions also filter before limiting, so competitors and map items remain
+available even when recent episodes occupy the default list.
+
+`paletteFilters.mjs` owns category membership, empty-state recovery, and scene
+request gating. Only All and Scenes start scene work; changing to another
+category cancels pending responses. Switching categories keeps the query and
+resets the active result. Closing search resets the category to All.
+
+Map snapshot scope affects only map destinations. The scope chip and live-map
+recovery appear only in All and Map. Clearing scope invalidates pending scope
+selection so a late request cannot restore it. Pending scene or snapshot-index
+loads suppress premature empty results. Empty states provide shorter-query
+suggestions and actions to search all categories, clear the query, or use the
+live map when applicable. Keyboard navigation handles search-input arrows and
+Enter; filter, retry, recovery, and result buttons retain native activation.

@@ -19,3 +19,6 @@ nova/
 .venv-release/
 __pycache__/
 .tools/
+
+# Private Ko-fi webhook verification token
+.env.kofi

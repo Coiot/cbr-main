@@ -151,12 +151,12 @@ export default {
       next();
     });
 
-    this.removeAfterEach = this.$router.afterEach(() => {
+    this.removeAfterEach = this.$router.afterEach((to, from) => {
       nprogress.done();
       this.isSidebarOpen = false;
       this.$nextTick(() => {
         const main = this.$el && this.$el.querySelector("#main-content");
-        if (main && typeof main.focus === "function") {
+        if (to.path !== from.path && main && typeof main.focus === "function") {
           main.focus();
         }
       });

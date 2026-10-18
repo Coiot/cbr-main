@@ -1,6 +1,20 @@
 <template>
-  <nav v-if="prev || next" class="page-nav" aria-label="Episode navigation">
+  <nav v-if="prev || next || (compact && archive)" class="page-nav" :class="{ 'page-nav--compact': compact }" aria-label="Episode navigation">
+    <template v-if="compact">
+      <router-link v-if="archive" class="archive-link" :to="archive.to">
+        <span aria-hidden="true">←</span> {{ archive.label }}
+      </router-link>
+      <div v-if="prev || next" class="compact-neighbors">
+        <router-link v-if="prev" :to="prev.path" :aria-label="`Previous: ${prev.title || prev.path}`" :title="prev.title || prev.path">
+          <span aria-hidden="true">←</span> Previous
+        </router-link>
+        <router-link v-if="next" :to="next.path" :aria-label="`Next: ${next.title || next.path}`" :title="next.title || next.path">
+          Next <span aria-hidden="true">→</span>
+        </router-link>
+      </div>
+    </template>
     <div
+      v-else
       class="nextprev"
       :class="{
         'nextprev--single': (!!prev && !next) || (!!next && !prev),
@@ -26,6 +40,14 @@
 export default {
   name: "AlbumsNav",
   props: {
+    compact: {
+      type: Boolean,
+      default: false,
+    },
+    archive: {
+      type: Object,
+      default: null,
+    },
     prev: {
       type: Object,
       default: null,
@@ -42,6 +64,64 @@ export default {
 .page-nav {
   padding-block-start: 1.5rem;
   margin-block: 0.5rem 0.25rem;
+}
+.page-nav--compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  padding: 0;
+  margin-block: 0 1.75rem;
+  font-size: 0.9rem;
+}
+.page-nav--compact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  box-sizing: border-box;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--panel-border-color);
+  border-block-start: 3px solid var(--accent-color);
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(145deg, var(--panel-bg-color), var(--panel-bg-soft-color));
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+  color: var(--panel-text-color);
+  font-weight: 800;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.page-nav--compact a > span[aria-hidden] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.4rem;
+  block-size: 1.4rem;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #151515;
+  text-shadow: none;
+}
+.page-nav--compact a:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+.compact-neighbors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-inline-start: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-nav--compact a { transition: none; }
+}
+.page-nav a:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 .nextprev {
   display: grid;

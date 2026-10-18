@@ -1,4 +1,5 @@
 import { SUPABASE_ALBUM_PROGRESS_TABLE } from "../../../supabaseClient";
+import { readingLibrary, LIBRARY_FIELDS } from "../library/readingLibrary.js";
 import { RESUME_SYNC_DEBOUNCE } from "./albumSettings.js";
 
 // album Progress. Methods run on the owning Vue component instance.
@@ -80,19 +81,22 @@ export const albumProgressMethods = {
     if (!this.useCloud) {
       return;
     }
-    if (this._cloudLoadPromise) {
-      return this._cloudLoadPromise;
-    }
-    this._cloudLoadPromise = (async () => {
+    const path = this.$page.path, userId = this.authUser.id;
+    const identity = `${userId}:${path}`;
+    if (this._cloudLoadPromise && this._cloudLoadIdentity === identity) return this._cloudLoadPromise;
+    this._cloudLoadIdentity = identity;
+    const isCurrent = () => this.authUser?.id === userId && this.$page.path === path;
+    const pending = (async () => {
       try {
         const localBookmark = this.getLocalSceneNumber(this.bookmarkKey);
         const localResume = this.getLocalSceneNumber(this.resumeKey);
         const { data, error } = await this.supabase
           .from(SUPABASE_ALBUM_PROGRESS_TABLE)
           .select("bookmark_scene, resume_scene")
-          .eq("user_id", this.authUser.id)
-          .eq("page_path", this.$page.path)
+          .eq("user_id", userId)
+          .eq("page_path", path)
           .maybeSingle();
+        if (!isCurrent()) return;
         if (error) {
           console.warn("Unable to load cloud album state.", error);
           this.loadBookmarkLocal();
@@ -123,6 +127,7 @@ export const albumProgressMethods = {
             resume_scene: Number.isFinite(mergedResume) ? mergedResume : null,
           });
         }
+        if (!isCurrent()) return;
         this.bookmarkedScene = Number.isFinite(mergedBookmark)
           ? mergedBookmark
           : null;
@@ -142,28 +147,31 @@ export const albumProgressMethods = {
         if (this.bookmarkedScene && !this.getHashSceneNumber()) {
           this.jumpToScene = this.bookmarkedScene;
           this.$nextTick(() => {
-            this.goToScene();
+            if (isCurrent()) this.goToScene();
           });
         }
       } catch (error) {
+        if (!isCurrent()) return;
         console.warn("Unable to load cloud album state.", error);
         this.loadBookmarkLocal();
         this.loadResumeLocal();
       }
     })();
+    this._cloudLoadPromise = pending;
     try {
-      await this._cloudLoadPromise;
+      await pending;
     } finally {
-      this._cloudLoadPromise = null;
+      if (this._cloudLoadPromise === pending) this._cloudLoadPromise = null;
     }
   },
-  async upsertCloudState(payload) {
+  async upsertCloudState(payload, target = {}) {
     if (!this.useCloud) {
       return;
     }
+    if (target.userId && target.userId !== this.authUser.id) return false;
     const row = {
       user_id: this.authUser.id,
-      page_path: this.$page.path,
+      page_path: target.path || this.$page.path,
     };
     if (Object.prototype.hasOwnProperty.call(payload, "bookmark_scene")) {
       row.bookmark_scene = payload.bookmark_scene;
@@ -177,27 +185,58 @@ export const albumProgressMethods = {
         .update(row)
         .eq("user_id", row.user_id)
         .eq("page_path", row.page_path)
-        .select("user_id")
+        .select(LIBRARY_FIELDS)
         .limit(1);
       if (updateError) {
         console.warn("Unable to update cloud album state.", updateError);
-        return;
+        return false;
       }
       if (Array.isArray(updatedRows) && updatedRows.length) {
-        return;
+        readingLibrary.publish(updatedRows[0], row.user_id);
+        return true;
       }
-      const { error: insertError } = await this.supabase
+      const { data: inserted, error: insertError } = await this.supabase
         .from(SUPABASE_ALBUM_PROGRESS_TABLE)
-        .insert(row);
+        .insert(row).select(LIBRARY_FIELDS).single();
       if (insertError) {
+        // Another tab or the library may have created this episode meanwhile.
+        if (insertError.code === '23505') {
+          const { data, error } = await this.supabase.from(SUPABASE_ALBUM_PROGRESS_TABLE)
+            .update(row).eq('user_id', row.user_id).eq('page_path', row.page_path)
+            .select(LIBRARY_FIELDS).single();
+          if (!error && data) { readingLibrary.publish(data, row.user_id); return true; }
+        }
         console.warn("Unable to insert cloud album state.", insertError);
+        return false;
       }
+      readingLibrary.publish(inserted, row.user_id);
+      return true;
     } catch (error) {
       console.warn("Unable to save cloud album state.", error);
+      return false;
     }
   },
   resumePendingKey() {
     return `${this.resumeKey}:pending`;
+  },
+  clearPendingResume() {
+    if (this._resumeSyncTimer) window.clearTimeout(this._resumeSyncTimer);
+    this._resumeSyncTimer = null;
+    this.setSessionSceneNumber(this._pendingResumeTarget?.key || this.resumePendingKey(), null);
+    this._pendingResumeScene = null;
+    this._pendingResumeTarget = null;
+  },
+  async prepareReadingStatusChange(status) {
+    const path = this.$page.path, userId = this.authUser?.id;
+    if (this._resumeSyncTimer) window.clearTimeout(this._resumeSyncTimer);
+    this._resumeSyncTimer = null;
+    // Finish older progress requests before an explicit reset or completion.
+    await Promise.allSettled([...(this._resumeSaves || [])]);
+    if (this.$page.path !== path || this.authUser?.id !== userId) return;
+    await this.flushPendingResume(true);
+    if (this.$page.path !== path || this.authUser?.id !== userId) return;
+    this.clearPendingResume();
+    if (status === 'not_started') this.setLocalSceneNumber(this.resumeKey, null);
   },
   queueCloudResumeUpdate(sceneNumber) {
     if (!this.useCloud) {
@@ -205,6 +244,7 @@ export const albumProgressMethods = {
     }
     this.setSessionSceneNumber(this.resumePendingKey(), sceneNumber);
     this._pendingResumeScene = sceneNumber;
+    this._pendingResumeTarget = { path: this.$page.path, userId: this.authUser.id, key: this.resumePendingKey() };
     if (this._resumeSyncTimer) {
       window.clearTimeout(this._resumeSyncTimer);
     }
@@ -213,19 +253,28 @@ export const albumProgressMethods = {
       this.flushPendingResume();
     }, RESUME_SYNC_DEBOUNCE);
   },
-  flushPendingResume(force) {
+  async flushPendingResume(force) {
     if (!this.useCloud) {
       return;
     }
-    const pending = this.getSessionSceneNumber(this.resumePendingKey());
+    const target = this._pendingResumeTarget || { path: this.$page.path, userId: this.authUser.id, key: this.resumePendingKey() };
+    if (target.userId !== this.authUser.id) return;
+    const pending = this.getSessionSceneNumber(target.key);
     if (!Number.isFinite(pending)) {
       return;
     }
     if (!force && this._lastCloudResumeScene === pending) {
       return;
     }
-    this._lastCloudResumeScene = pending;
-    this.upsertCloudState({ resume_scene: pending });
+    const save = this.upsertCloudState({ resume_scene: pending }, target);
+    this._resumeSaves ||= new Set();
+    this._resumeSaves.add(save);
+    let saved;
+    try { saved = await save; } finally { this._resumeSaves.delete(save); }
+    if (saved && this.authUser?.id === target.userId) {
+      if (this.$page.path === target.path) this._lastCloudResumeScene = pending;
+      if (this.getSessionSceneNumber(target.key) === pending) this.setSessionSceneNumber(target.key, null);
+    }
   },
   async bookmarkScene(index) {
     if (typeof window === "undefined") {
@@ -243,12 +292,6 @@ export const albumProgressMethods = {
       return;
     }
     this.bookmarkedScene = sceneNumber;
-    if (this._resumeSyncTimer) {
-      window.clearTimeout(this._resumeSyncTimer);
-      this._resumeSyncTimer = null;
-    }
-    this._pendingResumeScene = null;
-    this.setSessionSceneNumber(this.resumePendingKey(), null);
     if (this.useCloud) {
       await this.upsertCloudState({ bookmark_scene: sceneNumber });
     }
@@ -275,9 +318,6 @@ export const albumProgressMethods = {
       return;
     }
     if (!this.sceneCount) {
-      return;
-    }
-    if (this.bookmarkedScene) {
       return;
     }
     if (!Number.isFinite(sceneNumber)) {

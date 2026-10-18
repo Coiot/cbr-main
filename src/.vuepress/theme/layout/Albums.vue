@@ -1,18 +1,20 @@
 <template>
   <transition name="fade">
     <div class="blog">
-      <AlbumsNav :prev="prev" :next="next" />
+      <AlbumsNav :prev="prev" :next="next" :archive="albumArchive" compact />
 
-      <h1 class>
-        {{ $page.frontmatter.title }}
-        <span v-if="albumEditionLabel">– {{ albumEditionLabel }}</span>
-      </h1>
+      <header class="episode-heading">
+        <h1 class="episode-title">
+          {{ $page.frontmatter.title }}
+          <span v-if="albumEditionLabel">– {{ albumEditionLabel }}</span>
+        </h1>
 
-      <div v-if="resumeScene" class="resume-banner">
-        <button type="button" class="resume-chip" @click="resumeToScene">
-          Resume at Scene {{ resumeScene }}
-        </button>
-      </div>
+        <div v-if="resumeScene" class="resume-banner">
+          <button type="button" class="resume-chip" @click="resumeToScene">
+            Resume at Scene {{ resumeScene }}
+          </button>
+        </div>
+      </header>
 
       <section
         class="episode-details"
@@ -39,21 +41,21 @@
         </button>
 
         <div id="episode-details-content" class="albumInfo">
-        <div class="column" tabindex="0">
+        <div class="column">
           <span class="label">Release Date:</span>
           <p>
             <span class="value">{{ $page.frontmatter.release_date }}</span>
           </p>
         </div>
 
-        <div class="column" tabindex="0">
+        <div class="column">
           <span class="label">Narrated by:</span>
           <p>
             <span class="value">{{ $page.frontmatter.narrated_by }}</span>
           </p>
         </div>
 
-        <div v-if="$page.frontmatter.starting_turn" class="column" tabindex="0">
+        <div v-if="$page.frontmatter.starting_turn" class="column">
           <span class="label">Starting Turn:</span>
           <p>
             <span class="value">{{ $page.frontmatter.starting_turn }}</span>
@@ -63,7 +65,6 @@
         <div
           v-if="$page.frontmatter.audio_narration"
           class="column"
-          tabindex="0"
         >
           <span class="label">Video:</span>
           <p>
@@ -91,7 +92,7 @@
       </section>
 
       <h2 class="scenenumber" v-if="$page.frontmatter.description">Abstract</h2>
-      <p class="abstract" tabindex="0" v-if="$page.frontmatter.description">
+      <p class="abstract" v-if="$page.frontmatter.description">
         {{ $page.frontmatter.description }}
       </p>
 
@@ -349,6 +350,8 @@
         </section>
       </div>
 
+      <EpisodeReadingCompletion v-if="hasScenes" :path="$page.path" :next="next" :prepare-save="prepareReadingStatusChange" />
+
       <Content class="custom" />
 
       <div
@@ -399,7 +402,11 @@
 </template>
 
 <script>
+import { readingLibrary } from "../components/albums/library/readingLibrary.js";
+import { archiveReturnFor, carryArchiveReturn } from "../components/albums/library/archiveState.mjs";
+import EpisodeReadingCompletion from "../components/albums/library/EpisodeReadingCompletion.vue";
 import { defineAsyncComponent } from "vue";
+import { getEdition } from "../../data/editions";
 import AlbumsNav from "../components/albums/AlbumsNav.vue";
 import SceneCard from "../components/albums/SceneCard.vue";
 import SceneCarousel from "../components/albums/SceneCarousel.vue";
@@ -467,6 +474,7 @@ export default {
     };
   },
   components: {
+    EpisodeReadingCompletion,
     AlbumsNav,
     SceneCard,
     SceneCarousel,
@@ -490,6 +498,16 @@ export default {
       const frontmatter = (this.$page && this.$page.frontmatter) || {};
       const pagePath = (this.$page && this.$page.path) || "";
       return Boolean(frontmatter.pr) || /^\/albums\/pr\//i.test(pagePath);
+    },
+    albumArchive() {
+      const id = String(this.$page?.path || "").split("/").filter(Boolean)[1];
+      const edition = getEdition(id);
+      if (!edition) return { to: "/albums/", label: "Back to Albums" };
+      const season = id.match(/^s(\d+)$/);
+      const label = season ? `Season ${season[1]}` : edition.title;
+      const back = archiveReturnFor(this.$page.path);
+      if (back) return { to: back.to, label: `Back to ${label}` };
+      return { to: { path: "/albums/", query: { edition: id } }, label: `Back to ${label}` };
     },
     albumEditionLabel() {
       const frontmatter = (this.$page && this.$page.frontmatter) || {};
@@ -531,7 +549,9 @@ export default {
     },
   },
   watch: {
-    "$page.path"() {
+    "$page.path"(path, previousPath) {
+      carryArchiveReturn(previousPath, path);
+      this.flushPendingResume(true);
       this.albumScenes = [];
       this.scenesLoading = false;
       this.scenesLoadError = "";
@@ -584,6 +604,7 @@ export default {
     },
   },
   mounted() {
+    readingLibrary.initialize();
     if (typeof window === "undefined") {
       return;
     }
@@ -630,8 +651,8 @@ export default {
     this.teardownSnapshotObserver();
     this.teardownSceneJumpObserver();
     this.teardownReactions();
-    this.teardownSupabase();
     this.flushPendingResume(true);
+    this.teardownSupabase();
     if (this._copyTimeout) {
       window.clearTimeout(this._copyTimeout);
     }
@@ -765,21 +786,29 @@ export default {
   }
 }
 .blog {
-  margin-block: 2rem;
+  margin-block: 1rem 2rem;
   text-shadow: var(--heading-shadow-sm);
 }
+.episode-heading {
+  display: grid;
+  gap: 1.25rem;
+  margin-block-end: 0.9rem;
+}
 .blog h1 {
-  padding-block-start: 2rem;
-  font-size: 3rem;
+  padding-block-start: 0;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 900;
   line-height: 1;
 }
 .blog h1 span {
   margin-inline-start: 0.2rem;
   font-size: 60%;
+  white-space: nowrap;
 }
 .resume-banner {
-  margin-block: 0.6rem 1.4rem;
+  justify-self: start;
+  margin: 0;
 }
 .resume-chip {
   padding-block: 0.35rem;
@@ -807,22 +836,24 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   inline-size: 100%;
-  padding-block-start: 2rem;
-  padding-inline: 0;
-  margin-block: 0 2rem;
+  gap: 0.75rem 1.5rem;
+  padding: 0;
+  margin-block: 0 1rem;
   margin-inline: auto;
 }
 .column {
-  flex: 1 0 25%;
+  flex: 1 1 0;
+  min-inline-size: 0;
 }
+.column p { margin-block: 0.25rem 0; }
 .label {
   color: var(--page-text-color);
-  font-size: 1.6rem;
+  font-size: 0.85rem;
   font-weight: 800;
 }
 .value {
   color: var(--meta-value-color);
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
 }
@@ -831,9 +862,11 @@ export default {
   font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
+.blog h2.scenenumber { font-size: 1.15rem; margin-block: 1rem 0.35rem; }
 .abstract {
-  font-size: 1.8rem;
-  line-height: 1.4;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-block: 0 1rem;
 }
 .album-scenes-status {
   display: flex;
@@ -862,7 +895,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem 2.5rem;
-  margin-block: 1.2em 2em;
+  margin-block: 0.9rem 1.2rem;
 }
 .floating-scene-jump {
   position: fixed;
@@ -1089,7 +1122,7 @@ h2 {
     align-items: flex-start;
   }
   .episode-details {
-    margin-block: 1rem 1.6rem;
+    margin-block: 0.75rem 1rem;
   }
   .episode-details-toggle {
     inline-size: 100%;
@@ -1230,13 +1263,23 @@ h2 {
     margin-block: 0;
     margin-inline: 1rem;
   }
-  .blog h1 {
-    margin-block-start: 0.5rem;
-  }
+
 }
 @media (max-width: 450px) {
   .blog__title {
     font-size: 2.5rem;
   }
+}
+</style>
+
+<style>
+/* Keep focus visible across album controls, including content rendered in child components. */
+.blog :is(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+.blog .timeline-dot:focus-visible,
+.blog .mobile-album-action:focus-visible {
+  outline-offset: -2px;
 }
 </style>

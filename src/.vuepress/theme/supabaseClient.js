@@ -9,7 +9,6 @@ const SUPABASE_ALBUM_REACTIONS_TABLE = "album_reactions";
 const SUPABASE_ALBUM_COMMENTS_TABLE = "album_comments";
 const SUPABASE_USER_SETTINGS_TABLE = "user_settings";
 const SUPABASE_SUPPORTER_CHECK_FUNCTION = "check-kofi-subscriber";
-const SUPABASE_SUPPORTER_MAP_ID = publicConfig.MAP_ID;
 
 let supabaseClient = null;
 
@@ -47,58 +46,33 @@ export async function ensureProfileRow(supabase, authUser) {
 
 export async function checkSupporterAccess(
   supabase,
-  authUser,
-  accessToken = ""
+  authUser
 ) {
   if (!supabase || !authUser) {
     return { allowed: false, error: null };
   }
   try {
-    let token = typeof accessToken === "string" ? accessToken.trim() : "";
-    if (!token) {
-      const { data: sessionData } = await supabase.auth.getSession();
-      token =
-        sessionData && sessionData.session
-          ? String(sessionData.session.access_token || "").trim()
-          : "";
-    }
     const { data, error } = await supabase.functions.invoke(
       SUPABASE_SUPPORTER_CHECK_FUNCTION,
       {
-        body: {
-          map_id: SUPABASE_SUPPORTER_MAP_ID,
-          email: authUser.email || "",
-        },
-        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        body: {},
+        timeout: 25000,
       }
     );
-    const parseAllowed = (value) => {
-      if (typeof value === "boolean") {
-        return value;
-      }
-      if (typeof value === "string") {
-        const normalized = value.trim().toLowerCase();
-        if (normalized === "true") {
-          return true;
-        }
-        if (normalized === "false") {
-          return false;
-        }
-      }
-      return Boolean(value);
-    };
-    const allowed = data
-      ? parseAllowed(
-          Object.prototype.hasOwnProperty.call(data, "allowed")
-            ? data.allowed
-            : data.can_edit
-        )
-      : false;
-    return {
-      allowed,
-      error: error || null,
-      data: data || null,
-    };
+    if (error) {
+      let message = "Donation access could not be verified. Please try again.";
+      try {
+        const body = await error.context?.json();
+        if (typeof body?.error === "string") message = body.error;
+      } catch { /* Keep the retry message for network and gateway errors. */ }
+      return { allowed: false, error: new Error(message), data: null };
+    }
+    const value = data?.allowed ?? data?.can_edit;
+    if (![true, false, "true", "false"].includes(value)) {
+      return { allowed: false, error: new Error("Donation verification returned an invalid response. Please retry."), data: null };
+    }
+    return { allowed: value === true || value === "true", error: null, data };
+
   } catch (error) {
     return {
       allowed: false,

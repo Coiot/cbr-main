@@ -1,4 +1,5 @@
-import { getSupabaseClient, ensureProfileRow, checkSupporterAccess } from "../../../supabaseClient";
+import { getSupabaseClient } from "../../../supabaseClient";
+import { getAccountSync, subscribeAccountAuth } from "../../../account/accountSync.js";
 
 // album Account. Methods run on the owning Vue component instance.
 
@@ -11,32 +12,28 @@ export const albumAccountMethods = {
     if (!this.supabase) {
       return;
     }
-    const { data } = this.supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        this.handleAuthSession(session);
-      }
-    );
-    this._authSubscription = data ? data.subscription : null;
-    this.supabase.auth.getSession().then(({ data: sessionData }) => {
-      this.handleAuthSession(sessionData ? sessionData.session : null);
-    });
+    window.addEventListener("account-profile-updated", this.handleAccountProfile);
+    this._authSubscription = subscribeAccountAuth(this.supabase, this.handleAuthSession);
+
   },
   teardownSupabase() {
+    window.removeEventListener("account-profile-updated", this.handleAccountProfile);
     if (this._authSubscription) {
       this._authSubscription.unsubscribe();
       this._authSubscription = null;
     }
-    if (this._resumeSyncTimer) {
-      window.clearTimeout(this._resumeSyncTimer);
-      this._resumeSyncTimer = null;
-    }
-    this._pendingResumeScene = null;
-    this.setSessionSceneNumber(this.resumePendingKey(), null);
+    this.clearPendingResume();
   },
   handleAuthSession(session) {
+    if (this.authUser?.id !== session?.user?.id) {
+      this.clearPendingResume();
+      this._lastCloudResumeScene = null;
+      this.bookmarkedScene = null;
+      this.lastSeenScene = null;
+      this.authProfile = null;
+    }
     this.authUser = session ? session.user : null;
     this.authSession = session || null;
-    this.authProfile = null;
     this.loadReactionCounts();
     if (this.authUser) {
       this.fetchProfile();
@@ -63,44 +60,16 @@ export const albumAccountMethods = {
         : null;
     this.handleAuthSession(session || null);
   },
+  handleAccountProfile(event) {
+    const { userId, profile } = event.detail || {};
+    if (userId === this.authUser?.id && profile) this.authProfile = { ...this.authProfile, ...profile };
+  },
   async fetchProfile() {
-    if (!this.useCloud) {
-      return;
-    }
-    const { error: ensureError } = await ensureProfileRow(
-      this.supabase,
-      this.authUser
-    );
-    if (ensureError) {
-      console.warn("Unable to ensure profile row.", ensureError);
-    }
-    const { data, error } = await this.supabase
-      .from("profiles")
-      .select("username, can_edit")
-      .eq("id", this.authUser.id)
-      .maybeSingle();
-    let profile = data || null;
-    if (error) {
-      console.warn(
-        "Unable to load profile; attempting supporter verification fallback.",
-        error
-      );
-    }
-    const shouldCheckSupporter =
-      Boolean(error) || !profile || !profile.can_edit;
-    if (shouldCheckSupporter) {
-      const { allowed, error: supporterError } = await checkSupporterAccess(
-        this.supabase,
-        this.authUser,
-        this.authSession ? this.authSession.access_token : ""
-      );
-      if (supporterError) {
-        console.warn("Unable to verify supporter status.", supporterError);
-      } else {
-        profile = { ...(profile || {}), can_edit: allowed };
-      }
-    }
-    this.authProfile = profile;
+    if (!this.useCloud) return;
+    const user = this.authUser, service = getAccountSync(this.supabase);
+    await service.refreshSupporter(user);
+    const { data } = await service.loadProfile(user);
+    if (this.authUser?.id === user.id && data) this.authProfile = data;
   },
   loadLocalUserSettings() {
     if (typeof window === "undefined") {
@@ -112,7 +81,7 @@ export const albumAccountMethods = {
     this.customFlair = storedFlair || "";
   },
   handleSettingsSync(event) {
-    if (!event || !event.detail) {
+    if (!event || !event.detail || (event.detail.userId && event.detail.userId !== this.authUser?.id)) {
       return;
     }
     if (

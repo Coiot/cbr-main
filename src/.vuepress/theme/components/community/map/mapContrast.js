@@ -1,5 +1,5 @@
 import { MAP_CONTRAST_SETTINGS_KEY, SUPABASE_MAP_ID, MAP_CONTRAST_CLOUD_KEYS } from "./mapSettings.js";
-import { SUPABASE_USER_SETTINGS_TABLE } from "../../../supabaseClient";
+import { getAccountSync } from "../../../account/accountSync.js";
 
 // map Contrast. Methods run on the owning Vue component instance.
 
@@ -123,62 +123,31 @@ export const mapContrastMethods = {
       this.applyContrastSettings(localFallback);
     }
   },
-  restoreContrastSettingsForAuthUser() {
-    if (!this.supabase || !this.authUser || !this.authUser.id) {
-      return;
+  handleAccountSettings(event) {
+    if (event.detail?.userId !== this.authUser?.id || this.contrastSettingsSaveTimer) return;
+    const mapped = this.fromCloudContrastSettings(event.detail);
+    if (mapped.hasAny) {
+      this.applyContrastSettings(mapped.values);
+      this.writeLocalContrastSettingsForCurrentUser(mapped.values);
     }
-    if (this.contrastSettingsSyncing) {
-      return;
-    }
+  },
+  async restoreContrastSettingsForAuthUser() {
+    if (!this.supabase || !this.authUser?.id) return;
+    const user = this.authUser;
+    if (this.contrastSettingsSyncing && this._contrastSyncUser === user.id) return;
+    this._contrastSyncUser = user.id;
     this.contrastSettingsSyncing = true;
-    (async () => {
-      let didApplyCloud = false;
-      try {
-        const { data, error } = await this.supabase
-          .from(SUPABASE_USER_SETTINGS_TABLE)
-          .select("settings")
-          .eq("user_id", this.authUser.id)
-          .maybeSingle();
-        if (!error) {
-          const cloudSettings =
-            data && data.settings && typeof data.settings === "object"
-              ? data.settings
-              : {};
-          const mapped = this.fromCloudContrastSettings(cloudSettings);
-          if (mapped.hasAny && mapped.values) {
-            this.applyContrastSettings(mapped.values);
-            this.writeLocalContrastSettingsForCurrentUser(mapped.values);
-            didApplyCloud = true;
-          } else {
-            const localFallback =
-              this.readLocalContrastSettingsForCurrentUser();
-            if (localFallback) {
-              this.applyContrastSettings(localFallback);
-              const merged = {
-                ...cloudSettings,
-                ...this.toCloudContrastSettings(localFallback),
-              };
-              await this.supabase
-                .from(SUPABASE_USER_SETTINGS_TABLE)
-                .upsert(
-                  { user_id: this.authUser.id, settings: merged },
-                  { onConflict: "user_id" }
-                );
-            }
-          }
-        }
-      } catch (error) {
-        // Fall back to local settings only when cloud read fails.
-      }
-      if (!didApplyCloud) {
-        const localFallback = this.readLocalContrastSettingsForCurrentUser();
-        if (localFallback) {
-          this.applyContrastSettings(localFallback);
-        }
-      }
-    })().finally(() => {
-      this.contrastSettingsSyncing = false;
-    });
+    const version = this._contrastEditVersion || 0;
+    const local = this.readLocalContrastSettingsForCurrentUser();
+    try {
+      const { data, error } = await getAccountSync(this.supabase).loadSettings(user, local ? this.toCloudContrastSettings(local) : {});
+      if (this.authUser?.id !== user.id || version !== (this._contrastEditVersion || 0)) return;
+      const mapped = this.fromCloudContrastSettings(data || {});
+      const values = !error && mapped.hasAny ? mapped.values : local;
+      if (values) { this.applyContrastSettings(values); this.writeLocalContrastSettingsForCurrentUser(values); }
+    } finally {
+      if (this._contrastSyncUser === user.id) this.contrastSettingsSyncing = false;
+    }
   },
   queueContrastSettingsCloudSave() {
     if (
@@ -192,50 +161,23 @@ export const mapContrastMethods = {
     if (this.contrastSettingsSaveTimer) {
       window.clearTimeout(this.contrastSettingsSaveTimer);
     }
+    const user = this.authUser;
+    const patch = this.toCloudContrastSettings(this.currentContrastSettings());
     this.contrastSettingsSaveTimer = window.setTimeout(() => {
       this.contrastSettingsSaveTimer = null;
-      this.persistContrastSettingsToCloud();
+      this.persistContrastSettingsToCloud(user, patch);
     }, 250);
   },
-  async persistContrastSettingsToCloud() {
-    if (!this.supabase || !this.authUser || !this.authUser.id) {
-      return false;
-    }
-    try {
-      const { data, error } = await this.supabase
-        .from(SUPABASE_USER_SETTINGS_TABLE)
-        .select("settings")
-        .eq("user_id", this.authUser.id)
-        .maybeSingle();
-      if (error) {
-        return false;
-      }
-      const existing =
-        data && data.settings && typeof data.settings === "object"
-          ? data.settings
-          : {};
-      const merged = {
-        ...existing,
-        ...this.toCloudContrastSettings(this.currentContrastSettings()),
-      };
-      const { error: upsertError } = await this.supabase
-        .from(SUPABASE_USER_SETTINGS_TABLE)
-        .upsert(
-          {
-            user_id: this.authUser.id,
-            settings: merged,
-          },
-          { onConflict: "user_id" }
-        );
-      return !upsertError;
-    } catch (error) {
-      return false;
-    }
+  async persistContrastSettingsToCloud(user = this.authUser, patch = this.toCloudContrastSettings(this.currentContrastSettings())) {
+    if (!this.supabase || !user?.id || this.authUser?.id !== user.id) return false;
+    const { error } = await getAccountSync(this.supabase).saveSettings(user, patch);
+    return !error;
   },
   persistContrastSettingsForCurrentUser() {
     if (this.contrastSettingsLoading) {
       return false;
     }
+    this._contrastEditVersion = (this._contrastEditVersion || 0) + 1;
     const savedLocal = this.writeLocalContrastSettingsForCurrentUser(
       this.currentContrastSettings()
     );

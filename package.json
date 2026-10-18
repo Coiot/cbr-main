@@ -35,7 +35,8 @@
     "cdn:uninstall": "python3 scripts/cdn/setup.py uninstall",
     "cdn:dry-run": "python3 scripts/cdn/uploader.py dry-run",
     "cdn:smoke": "python3 scripts/cdn/smoke.py",
-    "cdn:test": "python3 -m unittest discover -s scripts/cdn -p 'test_*.py'"
+    "cdn:test": "python3 -m unittest discover -s scripts/cdn -p 'test_*.py'",
+    "supporters:access": "node scripts/supporters/manage.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.8",

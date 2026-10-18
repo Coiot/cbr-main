@@ -1,0 +1,2 @@
+# Ko-fi authenticates using its private verification token in the POST payload.
+verify_jwt = false

@@ -1,8 +1,9 @@
-import { getSupabaseClient, checkSupporterAccess } from "../../../supabaseClient";
+import { EXPIRED_SUPPORTER_MESSAGE } from "../../../account/supporterMessage.mjs";
+import { getSupabaseClient } from "../../../supabaseClient";
+import { getAccountSync, subscribeAccountAuth } from "../../../account/accountSync.js";
 import {
   SUPABASE_ADMIN_TABLE,
   SUPABASE_MAP_ID,
-  serializeSupabaseError,
   REQUIRE_AUTH_FOR_LOCAL,
 } from "./mapSettings.js";
 
@@ -38,17 +39,14 @@ export const mapAccessMethods = {
     if (!this.supabase) {
       return;
     }
-    const { data } = this.supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        this.handleAuthSession(session);
-      }
-    );
-    this.authSubscription = data ? data.subscription : null;
-    this.supabase.auth.getSession().then(({ data: sessionData }) => {
-      this.handleAuthSession(sessionData ? sessionData.session : null);
-    });
+    window.addEventListener("account-profile-updated", this.handleAccountProfile);
+    window.addEventListener("user-settings-synced", this.handleAccountSettings);
+    this.authSubscription = subscribeAccountAuth(this.supabase, this.handleAuthSession);
+
   },
   teardownSupabase() {
+    window.removeEventListener("account-profile-updated", this.handleAccountProfile);
+    window.removeEventListener("user-settings-synced", this.handleAccountSettings);
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
       this.authSubscription = null;
@@ -67,7 +65,11 @@ export const mapAccessMethods = {
     }
   },
   handleAuthSession(session) {
+    const previousId = this.authUser?.id;
     this.authUser = session ? session.user : null;
+    if (previousId !== this.authUser?.id) { this.canEdit = false; this.isAdmin = false; this.authChecking = false; }
+    if (this._accountAuthInitialized && previousId === this.authUser?.id) return;
+    this._accountAuthInitialized = true;
     if (this.authUser && this.authUser.id) {
       this.restoreContrastSettingsForAuthUser();
     } else {
@@ -182,12 +184,14 @@ export const mapAccessMethods = {
       this.isAdmin = false;
       return;
     }
+    const userId = this.authUser.id;
     const { data, error } = await this.supabase
       .from(SUPABASE_ADMIN_TABLE)
       .select("user_id")
       .eq("map_id", SUPABASE_MAP_ID)
-      .eq("user_id", this.authUser.id)
+      .eq("user_id", userId)
       .maybeSingle();
+    if (this.authUser?.id !== userId) return;
     if (error) {
       this.isAdmin = false;
       return;
@@ -195,85 +199,34 @@ export const mapAccessMethods = {
     this.isAdmin = !!data;
     this.loadSnapshotsIfActive();
   },
+  handleAccountProfile(event) {
+    const { userId, profile } = event.detail || {};
+    if (userId !== this.authUser?.id || typeof profile?.can_edit !== 'boolean') return;
+    this.canEdit = profile.can_edit;
+    if (this.canEdit) this.authMessage = "Editing enabled for this account.";
+    if (!this.canEdit) {
+      if (profile.supporter_status === 'expired') this.authMessage = EXPIRED_SUPPORTER_MESSAGE;
+      this.ownerBrushEnabled = false; this.isPaintingOwner = false; this.ownerBrushId = null;
+    }
+  },
   async refreshEditPermission() {
-    if (!this.supabase || !this.authUser) {
-      this.canEdit = false;
-      return;
-    }
+    if (!this.supabase || !this.authUser) { this.canEdit = false; return; }
+    const user = this.authUser;
     this.authChecking = true;
-    this.authMessage = "";
-    const debugMeta = {
-      mapId: SUPABASE_MAP_ID,
-      userId: this.authUser.id || null,
-      email: this.authUser.email || "",
-    };
+    this.authMessage = "Checking donation access…";
     try {
-      const { data: profile, error: profileError } = await this.supabase
-        .from("profiles")
-        .select("can_edit")
-        .eq("id", this.authUser.id)
-        .maybeSingle();
-      if (profileError) {
-        console.warn(
-          "[CommunityTileMapGrid] profiles.can_edit lookup failed; trying supporter function.",
-          {
-            ...debugMeta,
-            error: serializeSupabaseError(profileError),
-          }
-        );
-      }
-
-      let allowed = Boolean(profile && profile.can_edit);
-      let supporterError = null;
-
-      if (!allowed || profileError) {
-        const { allowed: supporterAllowed, error } =
-          await checkSupporterAccess(this.supabase, this.authUser);
-        supporterError = error || null;
-        if (supporterError) {
-          console.warn(
-            "[CommunityTileMapGrid] supporter permission check failed.",
-            {
-              ...debugMeta,
-              profileCanEdit: Boolean(profile && profile.can_edit),
-              error: serializeSupabaseError(supporterError),
-            }
-          );
-        }
-        if (!supporterError) {
-          allowed = Boolean(supporterAllowed);
-        }
-      }
-
-      this.canEdit = allowed;
+      const { allowed, error, data } = await getAccountSync(this.supabase).refreshSupporter(user);
+      if (this.authUser?.id !== user.id) return;
+      if (!error) this.canEdit = allowed;
       if (!this.canEdit) {
-        this.ownerBrushEnabled = false;
-        this.isPaintingOwner = false;
-        this.ownerBrushId = null;
-        this.authMessage =
-          supporterError && profileError
-            ? supporterError.message || "Unable to verify edit permissions."
-            : "Viewer mode: this email is not on the edit list.";
-        if (supporterError || profileError) {
-          console.warn(
-            "[CommunityTileMapGrid] edit permission unresolved; keeping viewer mode.",
-            {
-              ...debugMeta,
-              profileCanEdit: Boolean(profile && profile.can_edit),
-              profileError: serializeSupabaseError(profileError),
-              supporterError: serializeSupabaseError(supporterError),
-            }
-          );
-        }
-        return;
+        this.ownerBrushEnabled = false; this.isPaintingOwner = false; this.ownerBrushId = null;
       }
-
-      this.authMessage = supporterError
-        ? "Editing enabled for this account (using cached supporter access)."
-        : "Editing enabled for this account.";
-    } finally {
-      this.authChecking = false;
-    }
+      this.authMessage = error
+        ? "Donation access could not be verified. Retry from the account menu."
+        : this.canEdit ? "Editing enabled for this account."
+        : data?.status === 'expired' ? EXPIRED_SUPPORTER_MESSAGE
+        : "Viewer mode. Use your Ko-fi donation email and check donation access in the account menu.";
+    } finally { if (this.authUser?.id === user.id) this.authChecking = false; }
   },
   ensureEditAccess() {
     if (this.isLoading || this.isLiveSyncing || this.liveSyncError) {
