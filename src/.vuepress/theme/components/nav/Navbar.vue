@@ -1,6 +1,6 @@
 <template>
-  <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
+  <header class="navbar" @keydown.esc="closeActiveMenu" @focusout="handleMenuFocusout">
+    <SidebarButton :open="sidebarOpen" @toggle-sidebar="toggleNavigation" />
 
     <router-link :to="$localePath" class="home-link">
       <img
@@ -79,8 +79,10 @@
       </router-link>
       <div class="bookmark-wrapper" ref="bookmarkWrapper">
         <button
+          ref="bookmarkTrigger"
           type="button"
           class="bookmark-trigger"
+          aria-controls="album-bookmarks"
           :aria-label="'Album bookmarks'"
           aria-haspopup="true"
           :aria-expanded="bookmarkOpen ? 'true' : 'false'"
@@ -100,7 +102,7 @@
             {{ bookmarks.length }}
           </span>
         </button>
-        <div v-if="bookmarkOpen" class="bookmark-dropdown">
+        <div v-if="bookmarkOpen" id="album-bookmarks" class="bookmark-dropdown">
           <div class="bookmark-header">
             <span>Bookmarks</span>
             <!-- <span v-if="bookmarks.length" class="bookmark-count">
@@ -149,6 +151,8 @@
         <button
           type="button"
           class="user-trigger"
+          ref="userTrigger"
+          aria-controls="account-settings"
           aria-label="User menu"
           aria-haspopup="true"
           :aria-expanded="userOpen ? 'true' : 'false'"
@@ -179,7 +183,7 @@
             {{ userStatusBadge === "supporter" ? "$" : "!" }}
           </span>
         </button>
-        <div v-if="userOpen" class="user-dropdown">
+        <div v-if="userOpen" id="account-settings" class="user-dropdown">
           <!-- <div class="user-header">Account</div> -->
           <div v-if="!authUser" class="user-section">
             <p class="user-copy">
@@ -360,6 +364,8 @@
         <button
           type="button"
           class="help-trigger"
+          ref="helpTrigger"
+          aria-controls="site-help"
           aria-label="Help and keyboard shortcuts"
           aria-haspopup="true"
           :aria-expanded="helpOpen ? 'true' : 'false'"
@@ -376,7 +382,7 @@
             />
           </svg>
         </button>
-        <div v-if="helpOpen" class="help-dropdown">
+        <div v-if="helpOpen" id="site-help" class="help-dropdown">
           <div class="help-header">Quick Help</div>
           <div class="help-section">
             <h4>Keyboard</h4>
@@ -426,6 +432,8 @@ const THEME_STORAGE_KEY = "themeMode";
 const DEFAULT_THEME_MODE = "dark";
 
 export default {
+  props: { sidebarOpen: Boolean },
+  emits: ['toggle-sidebar'],
   components: {
     SidebarButton,
     NavLinks,
@@ -478,6 +486,7 @@ export default {
       }
     };
     handleLinksWrapWidth();
+    this._linksResizeHandler = handleLinksWrapWidth;
     window.addEventListener("resize", handleLinksWrapWidth, false);
 
     window.addEventListener("open-account-menu", this.openAccountMenu);
@@ -509,6 +518,7 @@ export default {
   beforeUnmount() {
     if (typeof window !== "undefined") {
       window.removeEventListener("open-account-menu", this.openAccountMenu);
+      window.removeEventListener("resize", this._linksResizeHandler);
       window.removeEventListener("account-profile-updated", this.handleAccountProfile);
       document.removeEventListener("visibilitychange", this.refreshVisibleSupporter);
       window.removeEventListener("focus", this.refreshVisibleSupporter);
@@ -587,6 +597,27 @@ export default {
   },
 
   methods: {
+    toggleNavigation() {
+      this.closeMenus();
+      this.$emit('toggle-sidebar');
+    },
+    closeMenus() {
+      this.bookmarkOpen = this.userOpen = this.helpOpen = false;
+    },
+    closeActiveMenu(event) {
+      const active = ['bookmark', 'user', 'help'].find(name => this[`${name}Open`]);
+      if (!active) return;
+      event.preventDefault();
+      event.stopPropagation();
+      this.closeMenus();
+      this.$refs[`${active}Trigger`]?.focus();
+    },
+    handleMenuFocusout(event) {
+      for (const name of ['bookmark', 'user', 'help']) {
+        const wrapper = this.$refs[`${name}Wrapper`];
+        if (wrapper?.contains(event.target) && !wrapper.contains(event.relatedTarget)) this[`${name}Open`] = false;
+      }
+    },
     broadcastAuthSession(session) {
       if (typeof window === "undefined") {
         return;
@@ -1132,24 +1163,34 @@ export default {
       );
     },
     toggleBookmarkMenu() {
-      this.bookmarkOpen = !this.bookmarkOpen;
+      const open = !this.bookmarkOpen;
+      this.closeMenus();
+      this.bookmarkOpen = open;
+      this.$emit('toggle-sidebar', false);
     },
     closeBookmarkMenu() {
       this.bookmarkOpen = false;
     },
     openAccountMenu() {
       this.userOpen = true; this.bookmarkOpen = false; this.helpOpen = false;
+      this.$emit('toggle-sidebar', false);
       this.$nextTick(() => this.$refs.accountEmailInput?.focus());
     },
     toggleUserMenu() {
-      this.userOpen = !this.userOpen;
+      const open = !this.userOpen;
+      this.closeMenus();
+      this.userOpen = open;
+      this.$emit('toggle-sidebar', false);
       if (this.userOpen && this.authUser) this.fetchProfile(true);
     },
     closeUserMenu() {
       this.userOpen = false;
     },
     toggleHelpMenu() {
-      this.helpOpen = !this.helpOpen;
+      const open = !this.helpOpen;
+      this.closeMenus();
+      this.helpOpen = open;
+      this.$emit('toggle-sidebar', false);
     },
     async signInWithEmail() {
       if (!this.supabase) {
@@ -1930,48 +1971,53 @@ function css(el, property) {
 }
 @media (max-width: 799px) {
   .navbar {
-    gap: 0.6rem;
-    padding-inline: 3.1rem 0.75rem;
+    gap: 0.25rem;
+    padding-inline: 3.4rem 0.4rem;
   }
-  .navbar .can-hide {
+  .navbar .can-hide,
+  .navbar .links .can-hide {
     display: none;
   }
   .navbar .links {
     gap: 0;
     min-block-size: 0;
     padding-block: 0.2rem;
-    padding-inline-start: 1rem;
+    padding-inline: 0;
   }
   .navbar .logo {
     block-size: 3.2rem;
     min-inline-size: 3rem;
+    margin-inline-end: 0;
   }
-  .navbar .bookmark-dropdown {
+  .navbar .links .bookmark-trigger,
+  .navbar .links .community-trigger,
+  .navbar .links .user-trigger,
+  .navbar .links .help-trigger {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    box-sizing: border-box;
+  }
+  .navbar .links .bookmark-dropdown,
+  .navbar .links .user-dropdown,
+  .navbar .links .help-dropdown {
     position: fixed;
     inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-    inset-inline-start: 20%;
-    inset-inline-end: auto;
-    inline-size: 20rem;
-    max-inline-size: 95vw;
+    inset-inline: 0.75rem;
+    inline-size: auto;
+    max-inline-size: 24rem;
     min-inline-size: 0;
+    margin-inline-start: auto;
     box-sizing: border-box;
-    transform: translateX(-75%);
+    max-block-size: calc(100dvh - var(--navbar-height) - 1.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    white-space: normal;
   }
-  .navbar .user-dropdown,
-  .navbar .help-dropdown {
-    position: fixed;
-    inset-block-start: calc(var(--navbar-height, 3.6rem) + 0.4rem);
-    inset-inline-end: 1rem;
-    inline-size: 20rem;
-    max-inline-size: 95vw;
-    box-sizing: border-box;
-  }
-  .navbar .help-dropdown {
-    inline-size: 19rem !important;
-    max-inline-size: 95vw;
-  }
-  .navbar .social-trigger {
+  .navbar .links .social-trigger {
     display: none;
   }
+}
+@media (max-width: 359px) {
+  .navbar .links .community-trigger { display: none; }
 }
 </style>

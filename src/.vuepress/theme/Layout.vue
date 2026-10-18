@@ -1,12 +1,18 @@
 <template>
   <div class="theme-container" :class="pageClasses">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+    <Navbar ref="navbar" v-if="shouldShowNavbar" :sidebar-open="isSidebarOpen" @toggle-sidebar="toggleSidebar" />
+
+    <div v-if="isMobileNavigation && isSidebarOpen" class="sidebar-mask" aria-hidden="true" @click="closeSidebar(true)" />
 
     <Sidebar
       v-if="shouldRenderSidebar"
+      ref="sidebar"
+      id="site-navigation"
+      :inert="isMobileNavigation && !isSidebarOpen"
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
+      @transitionend.self="focusSidebar"
     >
       <template #top>
         <slot name="sidebar-top" />
@@ -17,6 +23,7 @@
     </Sidebar>
 
     <main id="main-content" tabindex="-1">
+      <slot>
       <Albums v-if="$page.frontmatter.edition || $page.frontmatter.pr" />
 
       <div v-else-if="$page.frontmatter.layout">
@@ -26,6 +33,7 @@
       <Home v-else-if="$page.frontmatter.home" />
 
       <Page v-else> </Page>
+      </slot>
     </main>
 
     <SiteFooter :footer="$page.frontmatter.footer" />
@@ -78,6 +86,7 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
+      isMobileNavigation: false,
     };
   },
 
@@ -141,6 +150,15 @@ export default {
   },
 
   mounted() {
+    this._navigationMedia = window.matchMedia("(max-width: 799px)");
+    this._navigationChange = () => {
+      this.isMobileNavigation = this._navigationMedia.matches;
+      if (!this.isMobileNavigation) this.isSidebarOpen = false;
+    };
+    this._navigationChange();
+    this._navigationMedia.addEventListener("change", this._navigationChange);
+    document.addEventListener("keydown", this.handleNavigationKeydown);
+    document.addEventListener("focusin", this.handleNavigationFocus);
     // configure progress bar
     nprogress.configure({
       showSpinner: false,
@@ -166,6 +184,10 @@ export default {
   },
 
   beforeUnmount() {
+    window.cancelAnimationFrame(this._navigationFocusFrame);
+    this._navigationMedia?.removeEventListener("change", this._navigationChange);
+    document.removeEventListener("keydown", this.handleNavigationKeydown);
+    document.removeEventListener("focusin", this.handleNavigationFocus);
     if (typeof this.removeBeforeEach === "function") {
       this.removeBeforeEach();
       this.removeBeforeEach = null;
@@ -179,6 +201,33 @@ export default {
   methods: {
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+      if (this.isSidebarOpen && this.isMobileNavigation) {
+        this.$nextTick(() => {
+          this._navigationFocusFrame = window.requestAnimationFrame(() => {
+            if (this.isSidebarOpen) this.$refs.sidebar?.$el.querySelector("a[href]")?.focus({ preventScroll: true });
+          });
+        });
+      }
+    },
+    closeSidebar(restoreFocus = false) {
+      this.isSidebarOpen = false;
+      if (restoreFocus) this.$refs.navbar?.$el.querySelector(".sidebar-button")?.focus();
+    },
+    focusSidebar() {
+      if (this.isMobileNavigation && this.isSidebarOpen && document.activeElement?.closest(".sidebar-button")) {
+        this.$refs.sidebar?.$el.querySelector("a[href]")?.focus({ preventScroll: true });
+      }
+    },
+    handleNavigationKeydown(event) {
+      if (event.key === "Escape" && this.isSidebarOpen) {
+        event.preventDefault();
+        this.closeSidebar(true);
+      }
+    },
+    handleNavigationFocus(event) {
+      if (!this.isMobileNavigation || !this.isSidebarOpen) return;
+      if (this.$refs.sidebar?.$el.contains(event.target) || event.target.closest?.(".sidebar-button")) return;
+      this.closeSidebar();
     },
   },
 };

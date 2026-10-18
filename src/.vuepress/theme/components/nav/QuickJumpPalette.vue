@@ -450,6 +450,7 @@ export default {
     this.syncScopeFromRoute();
     if (typeof window !== "undefined") {
       window.addEventListener("keydown", this.handleWindowKeydown, true);
+      window.addEventListener("open-site-search", this.openRequestedSearch);
       window.addEventListener(
         "community-map-pins-updated",
         this.handleMapPinsUpdated
@@ -462,6 +463,7 @@ export default {
     this._sceneSearchClient = null;
     if (typeof window !== "undefined") {
       window.removeEventListener("keydown", this.handleWindowKeydown, true);
+      window.removeEventListener("open-site-search", this.openRequestedSearch);
       window.removeEventListener(
         "community-map-pins-updated",
         this.handleMapPinsUpdated
@@ -1081,6 +1083,13 @@ export default {
       return items;
     },
 
+    openRequestedSearch(event) {
+      this.activeCategory = 'all';
+      this.query = typeof event.detail?.query === 'string' ? event.detail.query : '';
+      this.openPalette();
+      this.handleInput();
+    },
+
     openPalette() {
       this.isOpen = true;
       this.activeIndex = 0;
@@ -1525,7 +1534,9 @@ export default {
 
 @media (max-width: 799px) {
   .quick-jump-trigger {
-    inline-size: 2.2rem;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    box-sizing: border-box;
     justify-content: center;
     padding: 0.25rem;
     border-color: transparent;

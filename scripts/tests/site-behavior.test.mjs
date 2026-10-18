@@ -1,6 +1,7 @@
 import './supporter-payments.test.mjs';
 import './search.test.mjs';
 import './reading-library.test.mjs';
+import './reading-return.test.mjs';
 import './account-sync.test.mjs';
 import './search-filters.test.mjs';
 import './map-performance.test.mjs';

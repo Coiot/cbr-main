@@ -30,6 +30,12 @@
               </span>
             </router-link>
 
+            <p v-if="library.userId && library.loading && !library.loaded" class="reading-message" role="status">Loading your reading progress…</p>
+            <p v-if="library.userId && library.error" class="reading-message" role="status">
+              Your reading progress couldn’t refresh.
+              <button type="button" @click="retryReading">Retry</button>
+            </p>
+
             <a href="https://civbattleroyale.tv/albums/pr/" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -98,37 +104,8 @@ import HomeLatestEpisode from "../components/home/HomeLatestEpisode.vue";
 import HomeRecentEpisodes from "../components/home/HomeRecentEpisodes.vue";
 import HomePowerRankings from "../components/home/HomePowerRankings.vue";
 import HomeCommunityMap from "../components/home/HomeCommunityMap.vue";
-
-const READING_KEYS = [
-  {
-    prefix: "albumsResume:",
-    updatedPrefix: "albumsResumeUpdated:",
-    label: "Continue Reading",
-  },
-  {
-    prefix: "albumsBookmark:",
-    updatedPrefix: "albumsBookmarkUpdated:",
-    label: "Return to Bookmark",
-  },
-];
-
-function isAlbumPage(page) {
-  return Boolean(
-    page &&
-      page.path &&
-      page.path.startsWith("/albums/") &&
-      page.frontmatter &&
-      (Number(page.frontmatter.scene_count) > 0 ||
-        (Array.isArray(page.frontmatter.scenes) &&
-          page.frontmatter.scenes.length > 0))
-  );
-}
-
-function pageTimestamp(page) {
-  const frontmatter = (page && page.frontmatter) || {};
-  const date = Date.parse(frontmatter.date || frontmatter.release_date || "");
-  return Number.isFinite(date) ? date : 0;
-}
+import { readingLibrary } from "../components/albums/library/readingLibrary.js";
+import { cloudReadingReturn, localReadingReturn } from "../components/albums/library/readingReturn.js";
 
 export default {
   components: {
@@ -142,11 +119,18 @@ export default {
     return {
       readingStateReady: false,
       readingStateVersion: 0,
+      library: readingLibrary.state,
     };
   },
 
   mounted() {
     this.readingStateReady = true;
+    this._readingRefreshAt = Date.now();
+    const alreadyLoaded = this.library.loaded;
+    readingLibrary.initialize();
+    if (alreadyLoaded) readingLibrary.refresh();
+    window.addEventListener("focus", this.refreshCloudReading);
+    document.addEventListener("visibilitychange", this.refreshCloudReading);
     window.addEventListener("storage", this.refreshReadingState);
     window.addEventListener(
       "albums-bookmark-updated",
@@ -163,6 +147,8 @@ export default {
   },
 
   beforeUnmount() {
+    window.removeEventListener("focus", this.refreshCloudReading);
+    document.removeEventListener("visibilitychange", this.refreshCloudReading);
     window.removeEventListener("storage", this.refreshReadingState);
     window.removeEventListener(
       "albums-bookmark-updated",
@@ -190,40 +176,22 @@ export default {
     },
     readingReturn() {
       this.readingStateVersion;
-      if (!this.readingStateReady || typeof window === "undefined") {
+      if (!this.readingStateReady || !this.library.authReady || typeof window === "undefined") {
         return null;
       }
       const pages = (this.$site && this.$site.pages) || [];
-      const candidates = [];
-      READING_KEYS.forEach((type) => {
-        Object.keys(window.localStorage || {}).forEach((key) => {
-          if (!key.startsWith(type.prefix)) {
-            return;
-          }
-          const path = key.slice(type.prefix.length);
-          const scene = parseInt(window.localStorage.getItem(key), 10);
-          const page = pages.find((item) => item.path === path);
-          if (!Number.isFinite(scene) || !isAlbumPage(page)) {
-            return;
-          }
-          const updated = parseInt(
-            window.localStorage.getItem(`${type.updatedPrefix}${path}`),
-            10
-          );
-          candidates.push({
-            label: type.label,
-            meta: `${page.frontmatter.title || page.title} · Scene ${scene}`,
-            score: Number.isFinite(updated) ? updated : pageTimestamp(page),
-            to: { path, hash: `#scene-${scene}` },
-          });
-        });
-      });
-      candidates.sort((a, b) => b.score - a.score);
-      return candidates[0] || null;
+      if (this.library.userId) return cloudReadingReturn(pages, this.library.records);
+      try { return localReadingReturn(pages, window.localStorage); } catch { return null; }
     },
   },
 
   methods: {
+    retryReading() { return readingLibrary.refresh(); },
+    refreshCloudReading() {
+      if (document.hidden || !this.library.userId || Date.now() - (this._readingRefreshAt || 0) < 60000) return;
+      this._readingRefreshAt = Date.now();
+      readingLibrary.refresh();
+    },
     refreshReadingState() {
       this.readingStateVersion += 1;
     },
@@ -354,6 +322,21 @@ export default {
 }
 .home .reading-return {
   background: linear-gradient(135deg, #fff9e9, #fff, #fff3cf);
+}
+.home .reading-message {
+  color: #626262;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+.home .reading-message button {
+  font: inherit;
+  font-weight: 800;
+  color: #1a1a1a;
+  background: #fff3cf;
+  border: 1px solid #d9a62b;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
 }
 @media (max-width: 799px) {
   .home .home-content {

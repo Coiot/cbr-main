@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar">
+  <nav class="sidebar" aria-label="Site navigation">
     <NavLinks />
     <slot name="top" />
     <ul class="sidebar-links" v-if="items.length">
@@ -67,7 +67,7 @@
       </a>
     </div>
     <slot name="bottom" />
-  </div>
+  </nav>
 </template>
 
 <script>

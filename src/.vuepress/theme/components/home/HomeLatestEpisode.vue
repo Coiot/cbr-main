@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { latestEpisode } from './latestEpisode.js';
 export default {
   name: "HomeLatestEpisode",
   data() {
@@ -50,21 +51,7 @@ export default {
       if (this.memoKey === key && this.memoEpisode) {
         return this.memoEpisode;
       }
-      let latest = null;
-      let latestTime = 0;
-      pages.forEach((page) => {
-        if (!page.path.startsWith("/albums/s") || page.frontmatter.exclude) {
-          return;
-        }
-        const time = Date.parse(page.frontmatter.date || "");
-        if (!Number.isFinite(time)) {
-          return;
-        }
-        if (!latest || time > latestTime) {
-          latest = page;
-          latestTime = time;
-        }
-      });
+      const latest = latestEpisode(pages);
       this.memoEpisode = latest;
       this.memoKey = key;
       return latest;
