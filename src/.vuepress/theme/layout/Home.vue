@@ -40,10 +40,7 @@
               </span>
               <span class="list-text">Past Power Rankings</span>
             </a>
-            <a
-              href="https://www.reddit.com/r/civbattleroyale/comments/1jalax7/cbrx_season_5_megathread/"
-              class="list"
-            >
+            <router-link to="/start-here/" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -55,8 +52,8 @@
                   />
                 </svg>
               </span>
-              <span class="list-text">New? Join the Show</span>
-            </a>
+              <span class="list-text">New? Start here</span>
+            </router-link>
             <a href="https://ko-fi.com/coiot" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">

@@ -51,6 +51,7 @@ import { resolveSidebarItems } from "./util";
 
 const Albums = defineAsyncComponent(() => import("./layout/Albums.vue"));
 const Home = defineAsyncComponent(() => import("./layout/Home.vue"));
+const StartHere = defineAsyncComponent(() => import("./layout/StartHere.vue"));
 const Page = defineAsyncComponent(() => import("./layout/Page.vue"));
 const Other = defineAsyncComponent(() => import("./layout/Other.vue"));
 const CommunityTileMap = defineAsyncComponent(() =>
@@ -64,6 +65,7 @@ export default {
   components: {
     Albums,
     Home,
+    StartHere,
     Page,
     Other,
     CommunityTileMap,

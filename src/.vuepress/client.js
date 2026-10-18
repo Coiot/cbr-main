@@ -132,6 +132,7 @@ export default defineClientConfig({
     Other: Layout,
     CommunitySpotlight: Layout,
     CommunityTileMap: Layout,
+    StartHere: Layout,
   },
 
   enhance({ app, router, siteData }) {
