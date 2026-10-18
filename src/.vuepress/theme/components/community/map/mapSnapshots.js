@@ -332,6 +332,19 @@ export const mapSnapshotsMethods = {
       this.snapshotCompareId = "";
     }
   },
+  cacheSnapshotPayload(id, payload) {
+    if (this._mapDisposed) return payload;
+    const cache = Object.assign(Object.create(null), this.snapshotPayloadCache || {});
+    delete cache[id];
+    cache[id] = payload;
+    const pinned = new Set([this.snapshotViewId, this.snapshotCompareId, this.liveBaseSnapshotId]);
+    for (const key of Object.keys(cache)) {
+      if (Object.keys(cache).length <= SNAPSHOT_PAYLOAD_CACHE_MAX_ITEMS) break;
+      if (!pinned.has(key)) delete cache[key];
+    }
+    this.snapshotPayloadCache = cache;
+    return payload;
+  },
   clearSnapshotPayloadCache(validIds) {
     const source = this.snapshotPayloadCache || Object.create(null);
     if (!source || !Object.keys(source).length) {
@@ -364,7 +377,7 @@ export const mapSnapshotsMethods = {
     }
     const cache = this.snapshotPayloadCache || Object.create(null);
     if (Array.isArray(cache[id])) {
-      return cache[id];
+      return this.cacheSnapshotPayload(id, cache[id]);
     }
     const currentRequests =
       this.snapshotPayloadRequests || Object.create(null);
@@ -375,19 +388,13 @@ export const mapSnapshotsMethods = {
       ? this.snapshots.find((entry) => entry && entry.id === id)
       : null;
     if (snapshot && Array.isArray(snapshot.payload)) {
-      this.snapshotPayloadCache = {
-        ...cache,
-        [id]: snapshot.payload,
-      };
+      this.cacheSnapshotPayload(id, snapshot.payload);
       this.writeSnapshotPayloadToStorage(id, snapshot.payload);
       return snapshot.payload;
     }
     const localPayload = this.readSnapshotPayloadFromStorage(id);
     if (Array.isArray(localPayload)) {
-      this.snapshotPayloadCache = {
-        ...cache,
-        [id]: localPayload,
-      };
+      this.cacheSnapshotPayload(id, localPayload);
       return localPayload;
     }
     const staticPath = this.staticSnapshotPathFromId(id);
@@ -405,10 +412,7 @@ export const mapSnapshotsMethods = {
           if (!Array.isArray(payload) || !payload.length) {
             return null;
           }
-          this.snapshotPayloadCache = {
-            ...(this.snapshotPayloadCache || Object.create(null)),
-            [id]: payload,
-          };
+          this.cacheSnapshotPayload(id, payload);
           this.writeSnapshotPayloadToStorage(id, payload);
           return payload;
         } catch (error) {
@@ -441,10 +445,7 @@ export const mapSnapshotsMethods = {
         return null;
       }
       const payload = Array.isArray(data.payload) ? data.payload : [];
-      this.snapshotPayloadCache = {
-        ...(this.snapshotPayloadCache || Object.create(null)),
-        [id]: payload,
-      };
+      this.cacheSnapshotPayload(id, payload);
       this.writeSnapshotPayloadToStorage(id, payload);
       return payload;
     })();
@@ -510,6 +511,8 @@ export const mapSnapshotsMethods = {
       .order("episode_at", { ascending: false })
       .order("created_at", { ascending: false })
       .limit(1);
+    if (this._mapDisposed) return;
+    if (error && options.throwOnError) throw error;
     if (error || !Array.isArray(data) || !data.length) {
       this.liveBaseSnapshotId = null;
       this.liveBaseSnapshotPayload = null;
@@ -524,6 +527,7 @@ export const mapSnapshotsMethods = {
         : null;
   },
   async ensureLiveBaseSnapshotApplied() {
+    if (this._mapDisposed || this.snapshotViewId) return;
     if (!this.liveBaseSnapshotId) {
       return;
     }
@@ -541,6 +545,7 @@ export const mapSnapshotsMethods = {
     if (!Array.isArray(this.liveBaseSnapshotPayload)) {
       return;
     }
+    if (this._mapDisposed || this.snapshotViewId) return;
     this.applyLiveBaseSnapshot();
     this.liveBaseSnapshotAppliedId = this.liveBaseSnapshotId;
   },
@@ -629,6 +634,7 @@ export const mapSnapshotsMethods = {
     };
   },
   async applySnapshotView() {
+    this.clearRecentEdits();
     const requestId = this.snapshotApplyRequestId + 1;
     this.snapshotApplyRequestId = requestId;
     if (!this.snapshotViewId) {
@@ -683,12 +689,10 @@ export const mapSnapshotsMethods = {
         this.liveOverrideLookup
       );
     }
-    const viewPayload = await this.getSnapshotPayloadById(
-      this.snapshotViewId
-    );
-    const comparePayload = await this.getSnapshotPayloadById(
-      this.snapshotCompareId
-    );
+    const [viewPayload, comparePayload] = await Promise.all([
+      this.getSnapshotPayloadById(this.snapshotViewId),
+      this.getSnapshotPayloadById(this.snapshotCompareId),
+    ]);
     if (this.snapshotDiffRequestId !== requestId) {
       return;
     }

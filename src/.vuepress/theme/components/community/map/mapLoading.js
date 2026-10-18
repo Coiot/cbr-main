@@ -11,6 +11,7 @@ import {
   buildSecondaryColorMap,
   applyOwnerColorOverrides,
   buildOwnerLegend,
+  buildOwnerBorders,
 } from "./mapModel.js";
 import { RESOURCE_COLOR_OPTIONS, IMPROVEMENT_COLOR_OPTIONS, s5OwnerList } from "../communityTileMapConstants";
 
@@ -85,37 +86,86 @@ export const mapLoadingMethods = {
       return parseCiv5Map(buffer);
     }
   },
+  usesLiveMap() {
+    return !this.snapshotPayload && !this.useBaseSnapshot && this.resolvedEmbeddedMode !== "snapshot";
+  },
+  scheduleLiveMapRefresh() {
+    if (!this.usesLiveMap() || this._mapDisposed) return;
+    this.isLiveSyncing = true;
+    if (this._liveSyncFrame) window.cancelAnimationFrame(this._liveSyncFrame);
+    // Give Vue and the browser a frame to display the cached terrain first.
+    this.$nextTick(() => {
+      if (this._mapDisposed) return;
+      this._liveSyncFrame = window.requestAnimationFrame(() => {
+        this._liveSyncFrame = window.requestAnimationFrame(() => {
+          this._liveSyncFrame = null;
+          this.refreshLiveMap();
+        });
+      });
+    });
+  },
+  async refreshLiveMap() {
+    if (!this.usesLiveMap() || this._mapDisposed || !this.tiles.length) return;
+    if (this._liveRefreshPromise) return this._liveRefreshPromise;
+    this.isLiveSyncing = true;
+    this.liveSyncError = "";
+    this.hasLoadedOverrides = false;
+    this._liveRefreshPromise = Promise.resolve().then(async () => {
+      try {
+        if (!this.supabase) this.initSupabase();
+        if (!this.supabase) throw new Error("Live map unavailable");
+        await this.loadLiveBaseSnapshot({ includePayload: !this.isMobileBrowser, throwOnError: true });
+        if (this._mapDisposed) return;
+        await this.ensureLiveBaseSnapshotApplied();
+        if (this._mapDisposed) return;
+        if (this.liveBaseSnapshotId && !this.snapshotViewId &&
+            this.liveBaseSnapshotAppliedId !== this.liveBaseSnapshotId) throw new Error("Snapshot unavailable");
+        // Buffer incoming changes while the initial override request is pending.
+        this.subscribeToTileOverrides();
+        const loaded = await this.loadTileOverrides();
+        if (loaded === false) throw new Error("Live changes unavailable");
+      } catch (error) {
+        if (!this._mapDisposed) this.liveSyncError = "Showing cached map. Live updates unavailable.";
+      } finally {
+        this._liveRefreshPromise = null;
+        if (!this._mapDisposed) {
+          this.isLiveSyncing = false;
+          this.scheduleLiveOverridesFlush();
+        }
+      }
+    });
+    return this._liveRefreshPromise;
+  },
   scheduleDeferredStateHydration(mapData) {
-    if (!this.isMobileSafari || !mapData) {
-      return;
-    }
-    if (this.deferredStateLoadTimer) {
-      window.clearTimeout(this.deferredStateLoadTimer);
-      this.deferredStateLoadTimer = null;
-    }
+    if (!this.isMobileSafari || !mapData) return;
+    if (this.deferredStateLoadTimer) window.clearTimeout(this.deferredStateLoadTimer);
     this.deferredStateLoadTimer = window.setTimeout(async () => {
       this.deferredStateLoadTimer = null;
       try {
         const stateData = await this.loadJson(this.mapConfig.stateCacheUrl);
-        if (!stateData) {
-          return;
+        if (this._mapDisposed) return;
+        if (stateData) {
+          await this.applyMapData(mapData, stateData, { deferLiveSync: true });
+          this.applyConfiguredSnapshotPayload();
         }
-        await this.applyMapData(mapData, stateData);
-        this.applyConfiguredSnapshotPayload();
       } catch (error) {
         // Keep the base map usable if deferred hydration fails.
       } finally {
-        this.$nextTick(() => {
-          this.updateViewportSize();
-          this.scheduleInitialFitToView();
-          this.applyRequestedTileFromRoute();
-        });
+        if (!this._mapDisposed) {
+          this.$nextTick(() => {
+            this.updateViewportSize();
+            this.scheduleInitialFitToView();
+            this.applyRequestedTileFromRoute();
+          });
+          this.scheduleLiveMapRefresh();
+        }
       }
     }, 280);
   },
   async loadMap(options = {}) {
     const deferStateData = !!(options && options.deferStateData && this.isMobileSafari);
     this.isLoading = true;
+    this.isLiveSyncing = this.usesLiveMap();
     this.loadError = "";
     try {
       const [baseData, stateData] = await Promise.all([
@@ -124,33 +174,28 @@ export const mapLoadingMethods = {
       ]);
       let mapData = baseData;
       if (!mapData) {
-        const url = this.$withBase
-          ? this.$withBase(this.mapConfig.sourceUrl)
-          : this.mapConfig.sourceUrl;
+        const url = this.$withBase ? this.$withBase(this.mapConfig.sourceUrl) : this.mapConfig.sourceUrl;
         const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Unable to load map data.");
-        }
-        const buffer = await response.arrayBuffer();
-        mapData = await this.parseMapBuffer(buffer);
+        if (!response.ok) throw new Error("Unable to load map data.");
+        mapData = await this.parseMapBuffer(await response.arrayBuffer());
       }
-      if (deferStateData) {
-        await this.applyMapData(mapData, null, { deferLiveSync: true });
-        this.applyConfiguredSnapshotPayload();
-        this.scheduleDeferredStateHydration(mapData);
-      } else {
-        await this.applyMapData(mapData, stateData);
-        this.applyConfiguredSnapshotPayload();
-      }
+      if (this._mapDisposed) return;
+      await this.applyMapData(mapData, stateData, { deferLiveSync: true });
+      this.applyConfiguredSnapshotPayload();
+      if (deferStateData) this.scheduleDeferredStateHydration(mapData);
     } catch (error) {
       this.loadError = error.message || "Unable to load map data.";
+      this.isLiveSyncing = false;
     } finally {
-      this.isLoading = false;
-      this.$nextTick(() => {
-        this.updateViewportSize();
-        this.scheduleInitialFitToView();
-        this.applyRequestedTileFromRoute();
-      });
+      if (!this._mapDisposed) {
+        this.isLoading = false;
+        this.$nextTick(() => {
+          this.updateViewportSize();
+          this.scheduleInitialFitToView();
+          this.applyRequestedTileFromRoute();
+        });
+        if (!deferStateData && !this.loadError) this.scheduleLiveMapRefresh();
+      }
     }
   },
   async loadJson(url) {
@@ -218,9 +263,12 @@ export const mapLoadingMethods = {
       resourceColors,
       improvementColors
     );
-    this.tiles = tiles;
+    this.clearRecentEdits();
+    this.terrainRevision += 1;
+    this.resetMiniMapCache();
     this.nextUnitId = nextUnitIdFromTiles(tiles);
-    this.tileLookup = buildTileLookup(tiles);
+    const tileLookup = buildTileLookup(tiles);
+    this.tileLookup = tileLookup;
     this.ownerColors = ownerColors;
     this.ownerSecondaryColors = buildSecondaryColorMap(ownerColors);
     applyOwnerColorOverrides(this.ownerColors, this.ownerSecondaryColors);
@@ -230,6 +278,10 @@ export const mapLoadingMethods = {
       this.ownerPalette,
       this.ownerSecondaryColors
     );
+    // Build initial geometry on plain objects, before Vue wraps all 16,920 tiles.
+    buildOwnerBorders(tiles, mergedMapData.width, mergedMapData.height,
+      this.ownerSecondaryColors, this.hexSize, null, tileLookup);
+    this.tiles = tiles;
     if (!deferLiveSync) {
       await this.loadLiveBaseSnapshot({
         includePayload: !this.isMobileBrowser,
@@ -237,7 +289,7 @@ export const mapLoadingMethods = {
       await this.ensureLiveBaseSnapshotApplied();
     }
     this.deferOwnerBorders = this.isSnapshotEmbed && this.isMobileBrowser;
-    this.scheduleOwnerBordersRebuild();
+    if (!deferLiveSync) this.scheduleOwnerBordersRebuild();
     if (!deferLiveSync) {
       this.hasLoadedOverrides = false;
       this.loadTileOverrides();

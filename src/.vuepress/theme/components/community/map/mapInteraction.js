@@ -282,7 +282,6 @@ export const mapInteractionMethods = {
       const tile = this.getTileAtPointer(event);
       if (tile !== this.hoveredTile) {
         this.hoveredTile = tile;
-        this.drawTerrainCanvas();
       }
     }
     if (!this.useTerrainCanvas && !this.isDragging && !this.isPinching) {
@@ -344,9 +343,6 @@ export const mapInteractionMethods = {
     }
     if (event.type === "pointerleave" && this.hoveredTile) {
       this.hoveredTile = null;
-      if (this.useTerrainCanvas) {
-        this.drawTerrainCanvas();
-      }
     }
     if (this.isPaintingOwner) {
       this.isPaintingOwner = false;
@@ -374,9 +370,6 @@ export const mapInteractionMethods = {
         if (this.lastPointerType === "touch") {
           this.showSelectedTooltip(tile);
         }
-        if (this.useTerrainCanvas) {
-          this.drawTerrainCanvas();
-        }
         return;
       }
       if (this.lastPointerType === "touch") {
@@ -385,6 +378,18 @@ export const mapInteractionMethods = {
     }
   },
   onKeydown(event) {
+    if (event.target && event.target !== this.$refs.viewport) return;
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.key === 'Enter' || (event.shiftKey && event.key.startsWith('Arrow'))) {
+      event.preventDefault();
+      this.selectKeyboardTile(event.key);
+      return;
+    }
+    if (event.key === '?') {
+      event.preventDefault();
+      this.showMapShortcuts = !this.showMapShortcuts;
+      return;
+    }
     const panStep = 40;
     const key = event.key;
     if (key === "+" || key === "=") {
@@ -528,52 +533,35 @@ export const mapInteractionMethods = {
     }
     return !!this.snapshotDiffLookup[tile.key];
   },
-  isRecentlyEdited(tile) {
-    if (!tile || !tile.recentlyEditedUntil) {
-      return false;
-    }
-    return tile.recentlyEditedUntil > this.recentEditTick;
+  clearRecentEdits() {
+    if (this.recentEditTimer) window.clearTimeout(this.recentEditTimer);
+    this.recentEditTimer = null;
+    this._recentEditTiles = new Map();
+    this.recentEditTiles = [];
   },
-  recentEditPulse(tile) {
-    if (!this.isRecentlyEdited(tile)) {
-      return 0;
+  expireRecentEdits() {
+    const now = performance.now();
+    const active = this._recentEditTiles || new Map();
+    for (const [key, entry] of active) {
+      if (entry.expiresAt <= now) active.delete(key);
     }
-    const elapsed = this.recentEditTick - (tile.recentlyEditedAt || 0);
-    const remaining = tile.recentlyEditedUntil - this.recentEditTick;
-    const phase = (elapsed / 1200) * Math.PI * 2;
-    const pulse = 0.4 + 0.4 * Math.sin(phase);
-    const fade = Math.min(1, Math.max(0, remaining / 1000));
-    return Math.max(0.12, pulse) * fade;
-  },
-  hasActiveRecentEdits() {
-    return this.tiles.some(
-      (tile) => tile.recentlyEditedUntil > this.recentEditTick
-    );
-  },
-  startRecentEditAnimation() {
-    if (this.recentEditFrameId) {
-      return;
+    this.recentEditTiles = Array.from(active.values());
+    if (this.recentEditTimer) window.clearTimeout(this.recentEditTimer);
+    this.recentEditTimer = null;
+    if (active.size) {
+      const expiresAt = Math.min(...this.recentEditTiles.map(entry => entry.expiresAt));
+      this.recentEditTimer = window.setTimeout(() => this.expireRecentEdits(), Math.max(1, expiresAt - now));
     }
-    const tick = (now) => {
-      this.recentEditTick = now;
-      if (!this.hasActiveRecentEdits()) {
-        this.recentEditFrameId = null;
-        return;
-      }
-      if (this.useTerrainCanvas) {
-        this.drawTerrainCanvas();
-      }
-      this.recentEditFrameId = window.requestAnimationFrame(tick);
-    };
-    this.recentEditFrameId = window.requestAnimationFrame(tick);
   },
   markTileRecentlyEdited(tile, durationMs = 4000) {
-    if (!tile) {
-      return;
-    }
+    if (!tile || this._mapDisposed) return;
+    if (!this._recentEditTiles) this._recentEditTiles = new Map();
     const now = performance.now();
-    tile.recentlyEditedAt = now;
-    tile.recentlyEditedUntil = now + durationMs;
-    this.startRecentEditAnimation();
+    this._recentEditTiles.set(tile.key, {
+      key: tile.key, x: tile.x, y: tile.y, durationMs,
+      animationKey: `${tile.key}:${++this.recentEditSequence}`,
+      expiresAt: now + durationMs,
+    });
+    this.expireRecentEdits();
   },
 };

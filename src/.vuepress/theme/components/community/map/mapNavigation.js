@@ -9,6 +9,7 @@ export const mapNavigationMethods = {
       return false;
     }
     return !!(
+      this.resolveRouteMapView() ||
       this.resolveRouteTileKey() ||
       this.resolveRouteCityName() ||
       this.resolveRouteOwnerName()
@@ -509,6 +510,8 @@ export const mapNavigationMethods = {
     }
   },
   async applyRequestedTileFromRoute() {
+    const requestId = (this._routeViewRequestId || 0) + 1;
+    this._routeViewRequestId = requestId;
     const route = this.$route || {};
     const path = String(route.path || "");
     if (!path.includes("/community-tile-map")) {
@@ -531,6 +534,8 @@ export const mapNavigationMethods = {
     ) {
       await this.ensureSnapshotSelection("");
     }
+    if (this._mapDisposed || requestId !== this._routeViewRequestId) return;
+    if (this.applySharedMapView()) return;
     const query = route.query || {};
     const hasSearchQuery =
       Object.prototype.hasOwnProperty.call(query, "owner") ||

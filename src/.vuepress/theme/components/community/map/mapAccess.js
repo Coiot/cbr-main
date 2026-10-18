@@ -10,7 +10,7 @@ import {
 
 export const mapAccessComputed = {
   editAccessAllowed() {
-    if (this.snapshotViewId) {
+    if (this.isLoading || this.isLiveSyncing || this.liveSyncError || this.snapshotViewId) {
       return false;
     }
     if (this.localEditsEnabled) {
@@ -80,7 +80,7 @@ export const mapAccessMethods = {
       this.refreshEditPermission();
       this.updateAdminStatus();
       this.updateConnectionStatus();
-      this.loadTileOverrides();
+      if (this.tiles.length && !this.isLoading && !this.isLiveSyncing) this.refreshLiveMap();
       this.subscribeToTileOverrides();
     } else {
       this.canEdit = false;
@@ -162,9 +162,8 @@ export const mapAccessMethods = {
       this.supabase.removeChannel(this.tileOverrideSubscription);
       this.tileOverrideSubscription = null;
     }
-    this.loadTileOverrides();
+    this.refreshLiveMap();
     this.loadSnapshotsIfActive();
-    this.subscribeToTileOverrides();
     if (this.tileSaveQueue.size) {
       this.scheduleTileSaveRetry();
     }
@@ -277,6 +276,10 @@ export const mapAccessMethods = {
     }
   },
   ensureEditAccess() {
+    if (this.isLoading || this.isLiveSyncing || this.liveSyncError) {
+      this.authMessage = "Wait for the live map to finish updating before editing.";
+      return false;
+    }
     if (this.snapshotViewId) {
       this.authMessage = "Snapshots are view-only.";
       return false;

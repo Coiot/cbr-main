@@ -18,9 +18,7 @@ import {
 
 export const mapPersistenceMethods = {
   async loadTileOverrides() {
-    if (!this.supabase) {
-      return;
-    }
+    if (!this.supabase || this._mapDisposed) return false;
     if (!this.liveBaseSnapshotId && !this.liveBaseSnapshotPayload) {
       await this.loadLiveBaseSnapshot({
         includePayload: !this.isMobileBrowser,
@@ -47,9 +45,7 @@ export const mapPersistenceMethods = {
           }
         }
         const { data, error } = await query.range(from, to);
-        if (error || !Array.isArray(data)) {
-          return;
-        }
+        if (error || !Array.isArray(data) || this._mapDisposed) return false;
         if (!data.length) {
           break;
         }
@@ -68,14 +64,19 @@ export const mapPersistenceMethods = {
         }
         page += 1;
       }
+      if (this._mapDisposed) return false;
+      await this.ensureLiveBaseSnapshotApplied();
+      if (this._mapDisposed) return false;
       const filtered = Array.from(mergedRowsByKey.values());
       this.liveOverrideLookup = buildSnapshotLookup(filtered);
       this.liveSnapshotPayload = [];
       if (!this.snapshotViewId) {
         this.applyTileOverrides(filtered, { markRecent: false });
       }
-    } finally {
       this.hasLoadedOverrides = true;
+      return true;
+    } catch (error) {
+      return false;
     }
   },
   applyTileOverrides(rows, options = {}) {
@@ -83,7 +84,7 @@ export const mapPersistenceMethods = {
       return;
     }
     const { markRecent = false, applyLocal = true } = options;
-    let needsBorderRebuild = false;
+    const changedOwnerKeys = new Set();
     rows.forEach((row) => {
       const tileKey = row.tile_key || row.tileKey;
       if (!tileKey) {
@@ -95,7 +96,7 @@ export const mapPersistenceMethods = {
       }
       const ownerChanged = this.applyTileOverride(tile, row.payload);
       if (ownerChanged) {
-        needsBorderRebuild = true;
+        changedOwnerKeys.add(tileKey);
       }
       if (markRecent) {
         this.markTileRecentlyEdited(tile);
@@ -109,13 +110,13 @@ export const mapPersistenceMethods = {
         if (localPayload) {
           const localChanged = this.applyTileOverride(tile, localPayload);
           if (localChanged) {
-            needsBorderRebuild = true;
+            changedOwnerKeys.add(tileKey);
           }
         }
       }
     });
-    if (needsBorderRebuild) {
-      this.scheduleOwnerBordersRebuild();
+    if (changedOwnerKeys.size) {
+      this.scheduleOwnerBordersRebuild(changedOwnerKeys);
     }
     this.nextUnitId = nextUnitIdFromTiles(this.tiles);
     if (this.useTerrainCanvas) {
@@ -506,6 +507,37 @@ export const mapPersistenceMethods = {
     const message = String(error.message || "").toLowerCase();
     return message.includes("tile_overrides_pkey");
   },
+  queueLiveTileOverride(record) {
+    if (this._mapDisposed || !record) return;
+    const key = record.tile_key || record.tileKey;
+    if (!key) return;
+    if (!this._pendingLiveOverrides) this._pendingLiveOverrides = new Map();
+    this._pendingLiveOverrides.set(key, record);
+    this.scheduleLiveOverridesFlush();
+  },
+  scheduleLiveOverridesFlush() {
+    if (this._mapDisposed || this.isLiveSyncing || !this.hasLoadedOverrides || this._liveOverridesFrame) return;
+    if (!this._pendingLiveOverrides?.size) return;
+    this._liveOverridesFrame = window.requestAnimationFrame(() => {
+      this._liveOverridesFrame = null;
+      this.flushLiveTileOverrides();
+    });
+  },
+  flushLiveTileOverrides() {
+    if (this._mapDisposed || this.isLiveSyncing || !this.hasLoadedOverrides) return;
+    const rows = Array.from(this._pendingLiveOverrides?.values() || []).filter(record =>
+      this.forceLegacyOverrideConflict || (record.snapshot_id || null) === (this.liveBaseSnapshotId || null));
+    this._pendingLiveOverrides?.clear();
+    if (!rows.length) return;
+    this.liveOverrideLookup = { ...this.liveOverrideLookup, ...buildSnapshotLookup(rows) };
+    this.liveSnapshotPayload = [];
+    if (!this.snapshotViewId) this.applyTileOverrides(rows, { markRecent: true });
+  },
+  clearLiveTileOverrides() {
+    if (this._liveOverridesFrame) window.cancelAnimationFrame(this._liveOverridesFrame);
+    this._liveOverridesFrame = null;
+    this._pendingLiveOverrides?.clear();
+  },
   subscribeToTileOverrides() {
     if (!this.supabase || this.tileOverrideSubscription) {
       return;
@@ -521,10 +553,9 @@ export const mapPersistenceMethods = {
           filter: `map_id=eq.${SUPABASE_MAP_ID}`,
         },
         (payload) => {
-          if (this.snapshotViewId) {
-            return;
-          }
-          const record = payload.new || payload.old;
+          const record = payload.eventType === "DELETE"
+            ? { ...payload.old, payload: { __clear: true } }
+            : payload.new || payload.old;
           if (!record || !this.tileLookup) {
             return;
           }
@@ -541,9 +572,7 @@ export const mapPersistenceMethods = {
           ) {
             return;
           }
-          this.applyTileOverrides([record], {
-            markRecent: this.hasLoadedOverrides,
-          });
+          this.queueLiveTileOverride(record);
         }
       )
       .subscribe();

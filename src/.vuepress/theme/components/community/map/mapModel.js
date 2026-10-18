@@ -967,8 +967,6 @@ export function buildTiles(
         combatUnit,
         civilianUnit,
         city: cityData ? { ...cityData } : null,
-        recentlyEditedAt: 0,
-        recentlyEditedUntil: 0,
       });
       if (tiles[tiles.length - 1].city && Number.isFinite(owner)) {
         tiles[tiles.length - 1].originalOwner = owner;
@@ -1352,6 +1350,34 @@ export function buildTileLookup(tiles) {
   return map;
 }
 
+// Grid coordinates match buildTiles: row 0 is the upper display row, while
+// the source tiles array is ordered from the bottom row upward.
+export function tilesInViewport(lookup, columns, rows, hexSize, translate, scale, viewport) {
+  if (!lookup || !columns || !rows || scale <= 0) return [];
+  const width = hexSize * SQRT3;
+  const stepY = hexSize * 1.5;
+  const halfWidth = width / 2 + hexSize * 3;
+  const halfHeight = hexSize * 4;
+  // Preserve the existing generous edge padding so decorations don't pop in.
+  const left = -translate.x / scale - halfWidth * 2;
+  const right = (-translate.x + viewport.width) / scale + halfWidth * 2;
+  const top = -translate.y / scale - halfHeight * 2;
+  const bottom = (-translate.y + viewport.height) / scale + halfHeight * 2;
+  const firstRow = Math.max(0, Math.ceil((top - hexSize) / stepY));
+  const lastRow = Math.min(rows - 1, Math.floor((bottom - hexSize) / stepY));
+  const visible = [];
+  for (let row = lastRow; row >= firstRow; row--) {
+    const offsetX = width / 2 + (row % 2 ? 0 : width / 2);
+    const firstCol = Math.max(0, Math.ceil((left - offsetX) / width));
+    const lastCol = Math.min(columns - 1, Math.floor((right - offsetX) / width));
+    for (let col = firstCol; col <= lastCol; col++) {
+      const tile = lookup.get(`${col},${row}`);
+      if (tile) visible.push(tile);
+    }
+  }
+  return visible;
+}
+
 export function pointInPolygon(x, y, vertices) {
   let inside = false;
   for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
@@ -1374,16 +1400,14 @@ export function buildOwnerBorders(
   columns,
   rows,
   ownerSecondaryColors,
-  hexSize
+  hexSize,
+  changedKeys = null,
+  lookup = null
 ) {
   if (!Array.isArray(tiles) || !tiles.length) {
     return tiles;
   }
-  const tileMap = new Map();
-  tiles.forEach((tile) => {
-    tile.ownerBorderSegments = [];
-    tileMap.set(`${tile.col},${tile.row}`, tile);
-  });
+  const tileMap = lookup || buildTileLookup(tiles);
   if (!columns || !rows) {
     return tiles;
   }
@@ -1447,7 +1471,22 @@ export function buildOwnerBorders(
     },
   ];
 
-  tiles.forEach((tile) => {
+  let affected = tiles;
+  if (changedKeys) {
+    const changed = Array.from(changedKeys);
+    const keys = new Set(changed);
+    for (const key of changed) {
+      const tile = tileMap.get(key);
+      if (!tile) continue;
+      for (const edge of edges) {
+        const [dx, dy] = edge.offsets[tile.row % 2 === 0 ? "even" : "odd"];
+        keys.add(`${tile.col + dx},${tile.row + dy}`);
+      }
+    }
+    affected = Array.from(keys, key => tileMap.get(key)).filter(Boolean);
+  }
+  affected.forEach((tile) => {
+    tile.ownerBorderSegments = [];
     if (!Number.isFinite(tile.owner)) {
       return;
     }

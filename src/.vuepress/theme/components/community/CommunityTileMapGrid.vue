@@ -1,5 +1,5 @@
 <template>
-  <section class="tile-map">
+  <section ref="mapRoot" class="tile-map" :class="{ 'is-fullscreen': isMapFullscreen }" @keydown="onMapViewKeydown">
     <div v-if="!embedded" class="tile-map-header">
       <div class="tile-map-meta">
         <!-- <h2 class="tile-map-title">{{ mapName || "Map Viewer" }}</h2>
@@ -81,6 +81,12 @@
                 >
                   Mini Map
                 </button>
+                <button type="button" class="tile-map-control tile-map-control-ghost" :disabled="isLoading || !tiles.length"
+                  @click="copyMapViewLink">Copy view link</button>
+                <button type="button" class="tile-map-control tile-map-control-ghost" :aria-pressed="isMapFullscreen"
+                  @click="toggleMapFullscreen">{{ isMapFullscreen ? 'Exit fullscreen' : 'Fullscreen' }}</button>
+                <!-- <button type="button" class="tile-map-control tile-map-control-ghost" :aria-expanded="showMapShortcuts"
+                  @click="showMapShortcuts = !showMapShortcuts">Shortcuts</button> -->
                 <span
                   v-if="!isMobileView"
                   class="tile-map-toolbar-divider"
@@ -126,6 +132,13 @@
         </div>
       </div>
     </div>
+    <div v-if="!embedded && (mapViewStatus || showMapShortcuts)" class="tile-map-view-help">
+      <p v-if="mapViewStatus" role="status">{{ mapViewStatus }}</p>
+      <input v-if="showMapViewLink" ref="mapViewLink" class="tile-edit-input" :value="mapViewLink" readonly aria-label="Link to this map view" @focus="$event.target.select()" />
+      <p v-if="showMapShortcuts">Focus the map with Tab. Arrow keys pan; Shift + arrow keys select neighboring tiles;
+        Enter opens tile details. + / − zoom, F fits the map, ? toggles this guide, and Escape closes details or fullscreen.</p>
+    </div>
+    <span class="tile-map-screen-reader" role="status" aria-live="polite" aria-atomic="true">{{ selectedTileAnnouncement }}</span>
     <div
       class="tile-map-body"
       :class="{
@@ -147,6 +160,13 @@
         @wheel.prevent="onWheel"
         @keydown="onKeydown"
       >
+        <div v-if="!isLoading && (isLiveSyncing || liveSyncError)" class="tile-map-sync-status" role="status">
+          <template v-if="isLiveSyncing">Updating to the latest map…</template>
+          <template v-else>
+            {{ liveSyncError }}
+            <button type="button" @pointerdown.stop @pointerup.stop @click.stop="refreshLiveMap">Retry</button>
+          </template>
+        </div>
         <div v-if="isLoading" class="tile-map-loading">Loading map data...</div>
         <div v-else-if="loadError" class="tile-map-error">
           {{ loadError }}
@@ -171,6 +191,18 @@
               :height="canvasHeight"
               aria-hidden="true"
             ></canvas>
+            <svg
+              class="tile-map-interaction-layer"
+              :width="gridWidth"
+              :height="gridHeight"
+              :viewBox="`0 0 ${gridWidth} ${gridHeight}`"
+              aria-hidden="true"
+            >
+              <polygon v-if="hoveredTile" class="tile-hover-outline" :points="hexPoints"
+                :transform="`translate(${hoveredTile.x}, ${hoveredTile.y})`" />
+              <polygon v-if="selectedTile" class="tile-selection-outline" :points="hexPoints"
+                :transform="`translate(${selectedTile.x}, ${selectedTile.y})`" />
+            </svg>
           </template>
           <svg
             v-else
@@ -219,7 +251,6 @@
                   terrainClass(tile),
                   {
                     'is-pillaged': tile.pillaged,
-                    'is-recent': isRecentlyEdited(tile),
                     'is-snapshot-diff': isSnapshotDiff(tile),
                   },
                 ]"
@@ -511,6 +542,12 @@
                 </g>
               </g>
             </g>
+          </svg>
+          <svg v-if="recentEditTiles.length && !snapshotViewId" class="tile-map-interaction-layer"
+            :width="gridWidth" :height="gridHeight" :viewBox="`0 0 ${gridWidth} ${gridHeight}`" aria-hidden="true">
+            <polygon v-for="entry in recentEditTiles" :key="entry.animationKey" class="tile-recent-outline"
+              :points="hexPoints" :transform="`translate(${entry.x}, ${entry.y})`"
+              :style="{ animationDuration: `${entry.durationMs}ms` }" />
           </svg>
         </div>
         <div
@@ -2365,6 +2402,7 @@
 </template>
 
 <script>
+import { mapViewMethods, mapViewComputed } from "./map/mapView.js";
 import { mapConfig, ownerPalette } from "../../../data/communityTileMap";
 import { mapSnapshotsComputed, mapSnapshotsMethods } from "./map/mapSnapshots.js";
 import { mapAccessComputed, mapAccessMethods } from "./map/mapAccess.js";
@@ -2410,6 +2448,14 @@ export default {
       mapName: "",
       mapDescription: "",
       isLoading: false,
+      isMapFullscreen: false,
+      fullscreenFallback: false,
+      showMapShortcuts: false,
+      mapViewLink: '',
+      mapViewStatus: '',
+      showMapViewLink: false,
+      isLiveSyncing: false,
+      liveSyncError: "",
       loadError: "",
       // Supabase/auth
       supabase: null,
@@ -2526,11 +2572,15 @@ export default {
       mobileSupabaseInitTimer: null,
       deferredStateLoadTimer: null,
       // Render timers
-      recentEditTick: 0,
-      recentEditFrameId: null,
+      recentEditTiles: [],
+      recentEditTimer: null,
+      recentEditSequence: 0,
       canvasDrawFrameId: null,
       terrainBaseCanvas: null,
       terrainBaseCacheKey: "",
+      miniMapBaseCanvas: null,
+      miniMapBaseCacheKey: "",
+      terrainRevision: 0,
       ownerBordersRebuildId: null,
       miniMapFrameId: null,
       unitEditTimers: {
@@ -2626,6 +2676,7 @@ export default {
   },
 
   computed: {
+    ...mapViewComputed,
     ...mapSnapshotsComputed,
     ...mapAccessComputed,
     ...mapPinsComputed,
@@ -2732,6 +2783,9 @@ export default {
   },
 
   mounted() {
+    this._mapDisposed = false;
+    document.addEventListener('fullscreenchange', this.handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', this.handleFullscreenChange);
     this.scheduleInitialFitToView();
     this.isMobileView = window.innerWidth <= 900;
     if (typeof navigator !== "undefined") {
@@ -2778,6 +2832,11 @@ export default {
   },
 
   beforeUnmount() {
+    this._mapDisposed = true;
+    this.teardownMapView();
+    if (this._liveSyncFrame) window.cancelAnimationFrame(this._liveSyncFrame);
+    this.clearLiveTileOverrides();
+    this.clearRecentEdits();
     window.removeEventListener("resize", this.handleResize);
     window.removeEventListener("online", this.handleOnline);
     window.removeEventListener("quick-jump-map-tile", this.handleQuickJumpTile);
@@ -2842,9 +2901,12 @@ export default {
       this.initialFitTimer = null;
     }
     this.resetTerrainBaseCache();
+    this.resetMiniMapCache();
+    if (this.miniMapFrameId) window.cancelAnimationFrame(this.miniMapFrameId);
   },
 
   methods: {
+    ...mapViewMethods,
     ...mapSnapshotsMethods,
     ...mapAccessMethods,
     ...mapPersistenceMethods,
@@ -3260,11 +3322,6 @@ export default {
   transition: stroke 0.2s ease;
   paint-order: stroke;
 }
-.tile-map .tile-map-viewport .tile-hex.is-recent {
-  stroke: rgba(255, 255, 255, 0.85);
-  stroke-width: 2;
-  animation: recent-pulse 1.5s ease-in-out infinite;
-}
 .tile-map .tile-map-viewport .tile-hex.is-snapshot-diff {
   stroke: rgba(255, 210, 90, 0.95);
   stroke-width: 2.5;
@@ -3451,50 +3508,6 @@ export default {
   font-size: 6.6px;
   font-weight: 800;
   letter-spacing: 0.01em;
-}
-@-moz-keyframes recent-pulse {
-  0% {
-    stroke-opacity: 0.35;
-  }
-  50% {
-    stroke-opacity: 0.9;
-  }
-  100% {
-    stroke-opacity: 0.35;
-  }
-}
-@-webkit-keyframes recent-pulse {
-  0% {
-    stroke-opacity: 0.35;
-  }
-  50% {
-    stroke-opacity: 0.9;
-  }
-  100% {
-    stroke-opacity: 0.35;
-  }
-}
-@-o-keyframes recent-pulse {
-  0% {
-    stroke-opacity: 0.35;
-  }
-  50% {
-    stroke-opacity: 0.9;
-  }
-  100% {
-    stroke-opacity: 0.35;
-  }
-}
-@keyframes recent-pulse {
-  0% {
-    stroke-opacity: 0.35;
-  }
-  50% {
-    stroke-opacity: 0.9;
-  }
-  100% {
-    stroke-opacity: 0.35;
-  }
 }
 .tile-map .tile-map-info {
   position: relative;
@@ -4693,4 +4706,80 @@ export default {
     transform: scale(0.7);
   }
 }
+
+
+.tile-map-interaction-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.tile-map .tile-map-viewport .tile-map-interaction-layer .tile-hover-outline {
+  vector-effect: none;
+  stroke-width: 1.5;
+}
+.tile-map .tile-map-viewport .tile-map-interaction-layer .tile-selection-outline {
+  vector-effect: none;
+}
+
+
+.tile-map-sync-status {
+  position: absolute;
+  z-index: 3;
+  inset-block-start: 0.5rem;
+  inset-inline-start: 0.5rem;
+  max-inline-size: calc(100% - 1rem);
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 0.8rem;
+}
+
+
+.tile-map .tile-recent-outline {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  pointer-events: none;
+  animation: map-edit-flash 4s ease-in-out both;
+}
+@keyframes map-edit-flash {
+  0%, 30%, 60% { opacity: 0.9; }
+  15%, 45%, 75% { opacity: 0.2; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile-map .tile-recent-outline { animation: none; opacity: 0.75; }
+}
+
+
+.tile-map .tile-map-view-help { font-size: 0.85rem; }
+.tile-map .tile-map-view-help p { margin: 0.25rem 0; }
+.tile-map .tile-map-screen-reader {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.tile-map.is-fullscreen {
+  position: fixed; inset: 0; z-index: 10000;
+  width: 100%; height: 100dvh; box-sizing: border-box;
+  padding: 0.75rem; overflow: auto;
+  background: var(--back-color, #171717); color: var(--page-text-color, white);
+  display: flex; flex-direction: column;
+}
+.tile-map.is-fullscreen .tile-map-header { flex-shrink: 0; }
+.tile-map.is-fullscreen .tile-map-body { flex: 1; min-height: 0; }
+.tile-map.is-fullscreen .tile-map-viewport {
+  max-width: none !important; max-height: none !important;
+  height: 100%; min-height: 250px; aspect-ratio: auto !important;
+}
+.tile-map.is-fullscreen .tile-map-legend { display: none; }
+@media (max-width: 900px) {
+  .tile-map.is-fullscreen .tile-map-body { flex: none; }
+  .tile-map.is-fullscreen .tile-map-viewport { height: 65dvh; }
+}
+
+
+.tile-map .tile-map-controls .tile-map-control-actions { flex-wrap: wrap; }
+.tile-map.is-fullscreen .tile-map-info { max-height: 100%; overflow: auto; }
+.tile-map.is-fullscreen .tile-map-body { align-items: stretch; }
 </style>

@@ -1,5 +1,6 @@
 import {
   buildHexVertices,
+  tilesInViewport,
   terrainColor,
   buildStarVertices,
   desaturateColor,
@@ -203,21 +204,8 @@ export const mapRenderingComputed = {
     if (!this.tiles.length || !this.viewportSize.width) {
       return this.tiles;
     }
-    const padding = this.hexSize * 3;
-    const halfWidth = this.hexWidth / 2 + padding;
-    const halfHeight = this.hexHeight / 2 + padding;
-    const minX = -this.translate.x / this.scale - halfWidth;
-    const minY = -this.translate.y / this.scale - halfHeight;
-    const maxX = minX + this.viewportSize.width / this.scale + halfWidth * 2;
-    const maxY =
-      minY + this.viewportSize.height / this.scale + halfHeight * 2;
-    return this.tiles.filter(
-      (tile) =>
-        tile.x + halfWidth >= minX &&
-        tile.x - halfWidth <= maxX &&
-        tile.y + halfHeight >= minY &&
-        tile.y - halfHeight <= maxY
-    );
+    return tilesInViewport(this.tileLookup, this.mapConfig.columns, this.mapConfig.rows,
+      this.hexSize, this.translate, this.scale, this.viewportSize);
   },
   visibleRiverOverlay() {
     if (!this.showDecorations || !this.visibleTiles.length) {
@@ -236,6 +224,14 @@ export const mapRenderingComputed = {
 };
 
 export const mapRenderingMethods = {
+  resetMiniMapCache() {
+    if (this.miniMapBaseCanvas) {
+      this.miniMapBaseCanvas.width = 0;
+      this.miniMapBaseCanvas.height = 0;
+    }
+    this.miniMapBaseCanvas = null;
+    this.miniMapBaseCacheKey = "";
+  },
   resetTerrainBaseCache() {
     if (this.terrainBaseCanvas) {
       this.terrainBaseCanvas.width = 0;
@@ -309,27 +305,32 @@ export const mapRenderingMethods = {
     if (!scale) {
       return;
     }
-    const vertices = buildHexVertices(this.hexSize);
-    const terrainCache = new Map();
-    const getColor = (terrainId) => {
-      if (!terrainCache.has(terrainId)) {
-        terrainCache.set(terrainId, terrainColor(terrainId));
-      }
-      return terrainCache.get(terrainId);
-    };
-    context.setTransform(scale, 0, 0, scale, 0, 0);
-    this.tiles.forEach((tile) => {
-      const fill = getColor(tile.terrainId);
-      context.beginPath();
-      context.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
-      for (let i = 1; i < vertices.length; i += 1) {
-        context.lineTo(tile.x + vertices[i].x, tile.y + vertices[i].y);
-      }
-      context.closePath();
-      context.fillStyle = fill;
-      context.fill();
-    });
+    const cacheKey = `${width}:${height}:${this.hexSize}:${this.terrainRevision}`;
+    if (!this.miniMapBaseCanvas || this.miniMapBaseCacheKey !== cacheKey) {
+      const base = this.miniMapBaseCanvas || document.createElement("canvas");
+      base.width = width;
+      base.height = height;
+      const baseContext = base.getContext("2d");
+      if (!baseContext) return;
+      const vertices = buildHexVertices(this.hexSize);
+      const terrainCache = new Map();
+      baseContext.setTransform(scale, 0, 0, scale, 0, 0);
+      this.tiles.forEach((tile) => {
+        if (!terrainCache.has(tile.terrainId)) terrainCache.set(tile.terrainId, terrainColor(tile.terrainId));
+        baseContext.beginPath();
+        baseContext.moveTo(tile.x + vertices[0].x, tile.y + vertices[0].y);
+        for (let i = 1; i < vertices.length; i += 1) {
+          baseContext.lineTo(tile.x + vertices[i].x, tile.y + vertices[i].y);
+        }
+        baseContext.closePath();
+        baseContext.fillStyle = terrainCache.get(tile.terrainId);
+        baseContext.fill();
+      });
+      this.miniMapBaseCanvas = base;
+      this.miniMapBaseCacheKey = cacheKey;
+    }
     context.setTransform(1, 0, 0, 1, 0, 0);
+    context.drawImage(this.miniMapBaseCanvas, 0, 0);
     const viewport = this.miniMapViewport;
     context.fillStyle = "rgba(255, 255, 255, 0.05)";
     context.strokeStyle = "rgba(255, 255, 255, 0.75)";
@@ -574,20 +575,6 @@ export const mapRenderingMethods = {
 
     context.lineJoin = "round";
     context.lineCap = "round";
-    tiles.forEach((tile) => {
-      if (!this.isRecentlyEdited(tile)) {
-        return;
-      }
-      const pulse = this.recentEditPulse(tile);
-      if (!pulse) {
-        return;
-      }
-      drawHexPath(tile);
-      context.strokeStyle = `rgba(255, 255, 255, ${pulse})`;
-      context.lineWidth = 1.25 + pulse * 1.75;
-      context.stroke();
-    });
-
     const diffKeys = this.snapshotDiffLookup || null;
     let hasDiffKeys = false;
     if (diffKeys) {
@@ -614,18 +601,6 @@ export const mapRenderingMethods = {
 
     // Unit markers render in SVG at higher zoom levels.
 
-    if (this.hoveredTile) {
-      drawHexPath(this.hoveredTile);
-      context.strokeStyle = "rgba(255, 255, 255, 0.65)";
-      context.lineWidth = 1.5;
-      context.stroke();
-    }
-    if (this.selectedTile) {
-      drawHexPath(this.selectedTile);
-      context.strokeStyle = "#ffffff";
-      context.lineWidth = 2.5;
-      context.stroke();
-    }
   },
   handleOverlayVisualizationChange() {
     if (this.useTerrainCanvas) {
@@ -1407,7 +1382,7 @@ export const mapRenderingMethods = {
       this.ownerSecondaryColors
     );
   },
-  rebuildOwnerBorders() {
+  rebuildOwnerBorders(changedKeys = null) {
     if (!this.renderOwnerBorders) {
       if (Array.isArray(this.tiles)) {
         this.tiles.forEach((tile) => {
@@ -1427,12 +1402,14 @@ export const mapRenderingMethods = {
       this.mapConfig.columns,
       this.mapConfig.rows,
       this.ownerSecondaryColors,
-      this.hexSize
+      this.hexSize,
+      changedKeys,
+      this.tileLookup
     );
   },
-  scheduleOwnerBordersRebuild() {
+  scheduleOwnerBordersRebuild(changedKeys = null) {
     if (!this.deferOwnerBorders) {
-      this.rebuildOwnerBorders();
+      this.rebuildOwnerBorders(changedKeys);
       return;
     }
     if (this.ownerBordersRebuildId) {

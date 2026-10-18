@@ -1,4 +1,6 @@
 import './search.test.mjs';
+import './map-performance.test.mjs';
+import './map-view.test.mjs';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { normalizeEpisodeNumber } from '../../src/shared/episode.mjs';
@@ -245,7 +247,7 @@ test('map base and state start together and are both available before rendering'
   assert.equal(applied.length, 0);
   resolve.base({ width: 10 });
   await pending;
-  assert.deepEqual(applied, [[{ width: 10 }, { owner: 2 }]]);
+  assert.deepEqual(applied, [[{ width: 10 }, { owner: 2 }, { deferLiveSync: true }]]);
   assert.equal(context.isLoading, false);
 });
 
@@ -269,7 +271,7 @@ test('missing cached map uses the binary fallback and tolerates absent state', a
   let applied;
   context.applyMapData = async (...args) => { applied = args; };
   await context.loadMap();
-  assert.deepEqual(applied, [{ width: 12 }, null]);
+  assert.deepEqual(applied, [{ width: 12 }, null, { deferLiveSync: true }]);
   assert.equal(context.loadError, '');
 });
 
