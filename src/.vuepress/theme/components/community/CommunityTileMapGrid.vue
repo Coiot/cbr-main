@@ -8,8 +8,7 @@
         </p> -->
         <h1 class="title-map-title">Community Tile Map</h1>
         <p class="tile-map-subtitle tile-map-subtitle-hint">
-          Drag to pan. Click a tile to view details. Sign in from the user menu
-          to edit.
+          Drag to pan. Click a tile to view details. Supporters can edit the live map.
         </p>
       </div>
       <div class="tile-map-controls">
@@ -33,14 +32,9 @@
                 Local
               </button>
             </div>
-            <div class="tile-map-toolbar-group tile-map-auth-group">
-              <span v-if="!authUser" class="tile-edit-hint">
-                Sign in via the user menu to unlock edits.
-              </span>
-            </div>
             <!-- <span class="tile-map-toolbar-spacer" aria-hidden="true"></span> -->
-            <div v-if="authMessage" class="tile-edit-hint">
-              {{ authMessage }}
+            <div v-if="editAccessMessage" class="tile-edit-hint">
+              {{ editAccessMessage }}
             </div>
             <div
               class="tile-map-toolbar-group tile-map-control-group tile-map-control-group-compact"
@@ -749,6 +743,22 @@
             <button
               type="button"
               class="tile-edit-button"
+              :class="{ 'is-active': editPanelTab === 'overlays' }"
+              @click="editPanelTab = 'overlays'"
+            >
+              Overlays
+            </button>
+            <button
+              type="button"
+              class="tile-edit-button"
+              :class="{ 'is-active': editPanelTab === 'snapshots' }"
+              @click="editPanelTab = 'snapshots'"
+            >
+              Snapshots
+            </button>
+            <button
+              type="button"
+              class="tile-edit-button"
               :class="{ 'is-active': editPanelTab === 'edit' }"
               @click="editPanelTab = 'edit'"
             >
@@ -762,22 +772,6 @@
               @click="editPanelTab = 'notes'"
             >
               Notes
-            </button>
-            <button
-              type="button"
-              class="tile-edit-button"
-              :class="{ 'is-active': editPanelTab === 'snapshots' }"
-              @click="editPanelTab = 'snapshots'"
-            >
-              Snapshots
-            </button>
-            <button
-              type="button"
-              class="tile-edit-button"
-              :class="{ 'is-active': editPanelTab === 'overlays' }"
-              @click="editPanelTab = 'overlays'"
-            >
-              Overlays
             </button>
           </div>
         </div>
@@ -806,7 +800,7 @@
                   type="button"
                   class="tile-edit-button"
                   title="Undoes last 60 seconds of edits"
-                  :disabled="!canEdit || undoLoading"
+                  :disabled="!editAccessAllowed || undoLoading"
                   @click="undoRecentEdits"
                 >
                   Undo
@@ -814,15 +808,12 @@
               </span>
             </div>
 
+            <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
             <div
               v-if="selectedTile"
               class="tile-edit-form"
               :class="{ 'tile-edit-form-locked': !editAccessAllowed }"
-              :title="
-                !editAccessAllowed
-                  ? 'Editing is disabled. Sign in to enable edits.'
-                  : null
-              "
+              :title="editAccessNotice?.message || null"
             >
               <fieldset
                 class="tile-edit-fieldset"
@@ -1587,6 +1578,7 @@
               </div>
             </div>
             <div v-if="selectedTile" class="tile-notes-body">
+              <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
               <div v-if="!editAccessAllowed" class="tile-notes-text">
                 {{ selectedTile.notes }}
               </div>
@@ -2402,6 +2394,7 @@
 </template>
 
 <script>
+import FeatureNotice from '../FeatureNotice.vue';
 import { mapViewMethods, mapViewComputed } from "./map/mapView.js";
 import { mapConfig, ownerPalette } from "../../../data/communityTileMap";
 import { mapSnapshotsComputed, mapSnapshotsMethods } from "./map/mapSnapshots.js";
@@ -2418,6 +2411,7 @@ import { mapInteractionComputed, mapInteractionMethods } from "./map/mapInteract
 import { mapEditingComputed, mapEditingMethods } from "./map/mapEditing.js";
 
 export default {
+  components: { FeatureNotice },
   props: {
     embedded: {
       type: Boolean,
@@ -2463,6 +2457,8 @@ export default {
       authUser: null,
       authMessage: "",
       authChecking: false,
+      supporterStatus: '',
+      supporterCheckFailed: false,
       authLoading: false,
       canEdit: false,
       isAdmin: false,

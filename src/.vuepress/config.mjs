@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import { localTheme } from "./theme/index.mjs";
+import { validatePicks } from "./theme/components/spotlight/spotlightModel.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -806,6 +807,22 @@ const sitemapEnhancer = () => ({
   },
 });
 
+const spotlightPickValidation = () => {
+  const albums = new Map();
+  return {
+    name: "spotlight-pick-validation",
+    extendsPage(page) {
+      const scenes = page.frontmatter?.scenes;
+      if (!Array.isArray(scenes) || page.frontmatter.pr || page.frontmatter.exclude) return;
+      albums.set(page.path, { path: page.path, scenes: scenes.map((scene, index) => ({ number: Number.parseInt(scene.scene_number, 10) || index + 1 })) });
+    },
+    onPrepared() {
+      const picks = JSON.parse(fs.readFileSync(path.join(__dirname, "data/spotlightPicks.json"), "utf8"));
+      validatePicks(picks, [...albums.values()]);
+    },
+  };
+};
+
 const albumSceneDataExtractor = () => ({
   name: "album-scene-data-extractor",
   extendsPage($page) {
@@ -945,6 +962,7 @@ export default defineUserConfig({
   plugins: [
     cleanUrls(),
     socialMetaEnhancer(),
+    spotlightPickValidation(),
     albumSceneDataExtractor(),
     legacyPageIndex(),
     sitemapEnhancer(),

@@ -5,9 +5,9 @@ import {
   COMMENT_MAX_LENGTH,
   SEASON_FIVE_PR_COMMENT_CUTOFF,
   COMMENT_WINDOW_DAYS,
-  SEASON_FIVE_PR_COMMENT_LABEL,
 } from "./albumSettings.js";
 import { normalizeOwnerKey, OWNER_COLOR_MAP } from "../../../../data/civColors.mjs";
+import { commentRestriction } from '../../../account/featureAvailability.mjs';
 
 // album Comments. Methods run on the owning Vue component instance.
 
@@ -65,14 +65,11 @@ export const albumCommentsComputed = {
     if (!this.commentWindowEndsAt) {
       return this.isPowerRanking;
     }
-    return Date.now() <= this.commentWindowEndsAt.getTime();
+    return (this.commentNow || Date.now()) <= this.commentWindowEndsAt.getTime();
   },
   commentWindowLabel() {
     if (!this.showComments) {
       return "";
-    }
-    if (this.isPowerRanking && this.isSeasonFive) {
-      return SEASON_FIVE_PR_COMMENT_LABEL.toLocaleDateString();
     }
     if (!this.commentWindowEndsAt) {
       return "";
@@ -81,6 +78,11 @@ export const albumCommentsComputed = {
   },
   canSupporterComment() {
     return Boolean(this.authProfile && this.authProfile.can_edit);
+  },
+  commentAccessNotice() {
+    return commentRestriction({ windowOpen: this.commentWindowOpen, closesLabel: this.commentWindowLabel,
+      powerRanking: this.isPowerRanking, signedIn: !!this.authUser, allowed: this.canSupporterComment,
+      checking: this.supporterChecking, failed: this.supporterCheckFailed, status: this.authProfile?.supporter_status });
   },
   userComment() {
     if (!this.authUser) {
@@ -104,6 +106,15 @@ export const albumCommentsComputed = {
 };
 
 export const albumCommentsMethods = {
+  refreshCommentWindow() {
+    this.commentNow = Date.now();
+    if (typeof window === 'undefined') return;
+    window.clearTimeout(this._commentWindowTimer);
+    const remaining = this.commentWindowEndsAt?.getTime() - this.commentNow;
+    if (remaining >= 0) {
+      this._commentWindowTimer = window.setTimeout(() => this.refreshCommentWindow(), Math.min(remaining + 1, 2147483647));
+    }
+  },
   setCommentMessage(message, type = "info") {
     this.commentMessage = message;
     this.commentMessageType = type;
@@ -152,10 +163,12 @@ export const albumCommentsMethods = {
     };
   },
   startEditComment() {
+    this.refreshCommentWindow();
     if (!this.userComment) {
       return;
     }
-    if (!this.commentWindowOpen) {
+    if (this.commentAccessNotice) {
+      this.setCommentMessage(this.commentAccessNotice.message, 'error');
       return;
     }
     this.commentDraft = this.userComment.message || "";
@@ -170,16 +183,9 @@ export const albumCommentsMethods = {
     this.clearCommentMessage();
   },
   previewComment() {
-    if (!this.authUser) {
-      this.setCommentMessage("Sign in to leave a comment.", "error");
-      return;
-    }
-    if (!this.canSupporterComment) {
-      this.setCommentMessage("Supporters only can comment.", "error");
-      return;
-    }
-    if (!this.commentWindowOpen) {
-      this.setCommentMessage("Comment window has closed.", "error");
+    this.refreshCommentWindow();
+    if (this.commentAccessNotice) {
+      this.setCommentMessage(this.commentAccessNotice.message, "error");
       return;
     }
     const message = String(this.commentDraft || "").trim();
@@ -214,16 +220,9 @@ export const albumCommentsMethods = {
     this.clearCommentMessage();
   },
   async submitComment() {
-    if (!this.authUser) {
-      this.setCommentMessage("Sign in to leave a comment.", "error");
-      return;
-    }
-    if (!this.canSupporterComment) {
-      this.setCommentMessage("Supporters only can comment.", "error");
-      return;
-    }
-    if (!this.commentWindowOpen) {
-      this.setCommentMessage("Comment window has closed.", "error");
+    this.refreshCommentWindow();
+    if (this.commentAccessNotice) {
+      this.setCommentMessage(this.commentAccessNotice.message, "error");
       return;
     }
     const message = String(this.commentDraft || "").trim();
@@ -306,11 +305,12 @@ export const albumCommentsMethods = {
     }
   },
   async deleteComment() {
+    this.refreshCommentWindow();
     if (!this.userComment || !this.authUser) {
       return;
     }
-    if (!this.commentWindowOpen) {
-      this.setCommentMessage("Comment window has closed.", "error");
+    if (this.commentAccessNotice) {
+      this.setCommentMessage(this.commentAccessNotice.message, "error");
       return;
     }
     if (typeof window !== "undefined") {

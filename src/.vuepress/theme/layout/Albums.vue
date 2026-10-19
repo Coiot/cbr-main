@@ -365,6 +365,7 @@
         v-if="shouldShowComments"
         :auth-user="authUser"
         :can-supporter-comment="canSupporterComment"
+        :access-notice="commentAccessNotice"
         :comment-window-open="commentWindowOpen"
         :comment-window-label="commentWindowLabel"
         :user-comment="userComment"
@@ -385,6 +386,7 @@
         @preview-comment="previewComment"
         @submit-comment="submitComment"
         @cancel-edit="cancelEditComment"
+        @retry-access="fetchProfile(true)"
       />
 
       <EpisodeMapSnapshot
@@ -447,6 +449,8 @@ export default {
       authUser: null,
       authSession: null,
       authProfile: null,
+      supporterChecking: false,
+      supporterCheckFailed: false,
       reactionCounts: {},
       userReactions: {},
       reactionLoading: false,
@@ -460,6 +464,7 @@ export default {
       commentMessageType: "info",
       commentSaving: false,
       commentEditing: false,
+      commentNow: Date.now(),
       favoriteCiv: "",
       customFlair: "",
       siblingPagesCache: [],
@@ -549,6 +554,7 @@ export default {
     },
   },
   watch: {
+    commentWindowEndsAt() { this.refreshCommentWindow(); },
     "$page.path"(path, previousPath) {
       carryArchiveReturn(previousPath, path);
       this.flushPendingResume(true);
@@ -609,6 +615,7 @@ export default {
       return;
     }
     this.initSupabase();
+    this.refreshCommentWindow();
     this.initReactions();
     this.loadLocalUserSettings();
     this.loadCinematicSettings();
@@ -635,6 +642,7 @@ export default {
     if (typeof window === "undefined") {
       return;
     }
+    window.clearTimeout(this._commentWindowTimer);
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("keydown", this.handleKeydown, true);
     window.removeEventListener("visibilitychange", this.handleVisibilityChange);

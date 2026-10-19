@@ -1,7 +1,7 @@
 ---
 title: "What is the Civ Battle Royale?"
 narrated_by: "Coiot"
-description: "The Civ Battle Royale (CBR) is a weekly online show of a massive 61 AI-only epic running Civilization V. No human intervention in the show as a months-long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable path to victory."
+description: "The Civ Battle Royale (CBR) is a weekly online show of a massive 61 CPU-only epic running Civilization V. No human intervention in the show as a months-long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable path to victory."
 footer: "© 2026 Blue Cassette"
 date: 2021-06-28T00:00:00.000Z
 layout: Page
@@ -11,7 +11,7 @@ heroImage: https://cdn.civbattleroyale.tv/cbrx-season2-episode1-scene01.jpg
 
 # What is the Civ Battle Royale?
 
-Hello everyone, welcome to the Civ Battle Royale (**CBR**). The Civ Battle Royale is a weekly online show of a massive 61 AI-only epic running Civilization V. No human intervention in the show as a months-long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable path to victory.
+Hello everyone, welcome to the Civ Battle Royale (**CBR**). The Civ Battle Royale is a weekly online show of a massive 61 CPU-only epic running Civilization V. No human intervention in the show as a months-long game is recorded and then curated into episodes across the action. Episodes are narrated by members of our 10k+ sized community cheering on the AIs on their unpredictable path to victory.
 
 The Civ Battle Royale is its own niche in the Civilization community; it attracts people from different cultural and technical backgrounds to add their own interpretations and input to jointly create an emergent narrative for the actions of the show’s AI competitors.
 

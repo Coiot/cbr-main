@@ -148,7 +148,7 @@ export default defineClientConfig({
 
     const defaultScrollBehavior = router.options.scrollBehavior;
     router.options.scrollBehavior = (to, from, savedPosition) => {
-      if (!savedPosition && to.path === from.path && /^\/albums\/(?:(?:s\d+|mk2|pr|others)\/)?$/.test(to.path)) return false;
+      if (!savedPosition && to.path === from.path && (to.path === '/spotlight/' || /^\/albums\/(?:(?:s\d+|mk2|pr|others)\/)?$/.test(to.path))) return false;
       return defaultScrollBehavior?.(to, from, savedPosition);
     };
 

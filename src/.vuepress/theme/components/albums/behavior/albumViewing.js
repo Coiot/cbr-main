@@ -460,6 +460,8 @@ export const albumViewingMethods = {
     }
     if (document.visibilityState === "hidden") {
       this.flushPendingResume(true);
+    } else {
+      this.refreshCommentWindow();
     }
   },
   handleBeforeUnload() {

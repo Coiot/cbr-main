@@ -1,4 +1,5 @@
 import { EXPIRED_SUPPORTER_MESSAGE } from "../../../account/supporterMessage.mjs";
+import { mapEditRestriction } from '../../../account/featureAvailability.mjs';
 import { getSupabaseClient } from "../../../supabaseClient";
 import { getAccountSync, subscribeAccountAuth } from "../../../account/accountSync.js";
 import {
@@ -11,13 +12,18 @@ import {
 
 export const mapAccessComputed = {
   editAccessAllowed() {
-    if (this.isLoading || this.isLiveSyncing || this.liveSyncError || this.snapshotViewId) {
-      return false;
-    }
-    if (this.localEditsEnabled) {
-      return REQUIRE_AUTH_FOR_LOCAL ? !!this.authUser : true;
-    }
-    return this.canEdit;
+    if (this.isLoading || this.loadError || this.isLiveSyncing || this.liveSyncError || this.snapshotViewId || this.isEmbeddedSnapshot) return false;
+    if (this.localEditsEnabled) return REQUIRE_AUTH_FOR_LOCAL ? !!this.authUser : true;
+    return !!this.canEdit;
+  },
+  editAccessNotice() {
+    return mapEditRestriction({ snapshot: !!this.snapshotViewId || this.isEmbeddedSnapshot, loading: this.isLoading, loadFailed: !!this.loadError,
+      syncing: this.isLiveSyncing, syncFailed: !!this.liveSyncError, local: this.localEditsEnabled,
+      localRequiresAuth: REQUIRE_AUTH_FOR_LOCAL, signedIn: !!this.authUser, allowed: this.canEdit,
+      checking: this.authChecking, failed: this.supporterCheckFailed, status: this.supporterStatus });
+  },
+  editAccessMessage() {
+    return this.editAccessNotice?.message || (this.localEditsEnabled ? 'Local edits stay on this device.' : this.authMessage);
   },
   authStatusLabel() {
     if (this.authChecking) {
@@ -67,7 +73,10 @@ export const mapAccessMethods = {
   handleAuthSession(session) {
     const previousId = this.authUser?.id;
     this.authUser = session ? session.user : null;
-    if (previousId !== this.authUser?.id) { this.canEdit = false; this.isAdmin = false; this.authChecking = false; }
+    if (previousId !== this.authUser?.id) {
+      this.canEdit = false; this.isAdmin = false; this.authChecking = false;
+      this.supporterStatus = ''; this.supporterCheckFailed = false;
+    }
     if (this._accountAuthInitialized && previousId === this.authUser?.id) return;
     this._accountAuthInitialized = true;
     if (this.authUser && this.authUser.id) {
@@ -203,21 +212,28 @@ export const mapAccessMethods = {
     const { userId, profile } = event.detail || {};
     if (userId !== this.authUser?.id || typeof profile?.can_edit !== 'boolean') return;
     this.canEdit = profile.can_edit;
+    if (profile.supporter_status) {
+      this.supporterStatus = profile.supporter_status;
+      this.supporterCheckFailed = false;
+    }
     if (this.canEdit) this.authMessage = "Editing enabled for this account.";
     if (!this.canEdit) {
       if (profile.supporter_status === 'expired') this.authMessage = EXPIRED_SUPPORTER_MESSAGE;
       this.ownerBrushEnabled = false; this.isPaintingOwner = false; this.ownerBrushId = null;
     }
   },
-  async refreshEditPermission() {
+  async refreshEditPermission(force = false) {
     if (!this.supabase || !this.authUser) { this.canEdit = false; return; }
     const user = this.authUser;
     this.authChecking = true;
+    this.supporterCheckFailed = false;
     this.authMessage = "Checking donation access…";
     try {
-      const { allowed, error, data } = await getAccountSync(this.supabase).refreshSupporter(user);
+      const { allowed, error, data } = await getAccountSync(this.supabase).refreshSupporter(user, { force });
       if (this.authUser?.id !== user.id) return;
       if (!error) this.canEdit = allowed;
+      this.supporterCheckFailed = !!error;
+      if (!error) this.supporterStatus = data?.status || (allowed ? 'active' : 'none');
       if (!this.canEdit) {
         this.ownerBrushEnabled = false; this.isPaintingOwner = false; this.ownerBrushId = null;
       }
@@ -229,30 +245,18 @@ export const mapAccessMethods = {
     } finally { if (this.authUser?.id === user.id) this.authChecking = false; }
   },
   ensureEditAccess() {
-    if (this.isLoading || this.isLiveSyncing || this.liveSyncError) {
-      this.authMessage = "Wait for the live map to finish updating before editing.";
-      return false;
+    return this.editAccessAllowed;
+  },
+  handleEditAccessAction(action) {
+    if (action === 'account') window.dispatchEvent(new CustomEvent('open-account-menu'));
+    else if (action === 'retry-access') this.refreshEditPermission(true);
+    else if (action === 'retry-map') this.refreshLiveMap();
+    else if (action === 'reload-map') this.loadMap();
+    else if (action === 'live-map') {
+      this.snapshotCompareId = '';
+      this.setLocalEdits(false);
+      this.snapshotViewId = '';
     }
-    if (this.snapshotViewId) {
-      this.authMessage = "Snapshots are view-only.";
-      return false;
-    }
-    if (this.localEditsEnabled) {
-      if (REQUIRE_AUTH_FOR_LOCAL && !this.authUser) {
-        this.authMessage = "Sign in to enable local edits.";
-        return false;
-      }
-      return true;
-    }
-    if (this.canEdit) {
-      return true;
-    }
-    if (!this.authUser) {
-      this.authMessage = "Sign in with your subscriber email to edit.";
-    } else if (!this.authChecking) {
-      this.authMessage = "This account does not have edit access.";
-    }
-    return false;
   },
   setLocalEdits(enabled) {
     const nextValue = !!enabled;

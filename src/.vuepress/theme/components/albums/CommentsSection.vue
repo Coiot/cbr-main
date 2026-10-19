@@ -10,13 +10,7 @@
       </p>
     </div>
     <div class="comment-form">
-      <p v-if="!authUser" class="comment-note">Sign in to leave a comment.</p>
-      <p v-else-if="!canSupporterComment" class="comment-note">
-        Supporters only can comment.
-      </p>
-      <p v-else-if="!commentWindowOpen" class="comment-note">
-        Comment window has closed for this episode.
-      </p>
+      <FeatureNotice v-if="accessNotice" :notice="accessNotice" @action="handleAccessAction" />
       <div v-else>
         <div
           v-if="userComment && !commentEditing"
@@ -155,9 +149,12 @@
 </template>
 
 <script>
+import FeatureNotice from '../FeatureNotice.vue';
 export default {
   name: "CommentsSection",
+  components: { FeatureNotice },
   props: {
+    accessNotice: { type: Object, default: null },
     authUser: {
       type: Object,
       default: null,
@@ -258,6 +255,10 @@ export default {
     },
   },
   methods: {
+    handleAccessAction(action) {
+      if (action === 'retry-access') this.$emit('retry-access');
+      else if (action === 'account') window.dispatchEvent(new CustomEvent('open-account-menu'));
+    },
     emitPreviewComment() {
       if (!this.canSupporterComment) {
         return;

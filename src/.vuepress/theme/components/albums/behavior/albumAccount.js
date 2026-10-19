@@ -31,6 +31,8 @@ export const albumAccountMethods = {
       this.bookmarkedScene = null;
       this.lastSeenScene = null;
       this.authProfile = null;
+      this.supporterChecking = false;
+      this.supporterCheckFailed = false;
     }
     this.authUser = session ? session.user : null;
     this.authSession = session || null;
@@ -62,14 +64,25 @@ export const albumAccountMethods = {
   },
   handleAccountProfile(event) {
     const { userId, profile } = event.detail || {};
-    if (userId === this.authUser?.id && profile) this.authProfile = { ...this.authProfile, ...profile };
+    if (userId === this.authUser?.id && profile) {
+      this.authProfile = { ...this.authProfile, ...profile };
+      if (profile.supporter_status) this.supporterCheckFailed = false;
+    }
   },
-  async fetchProfile() {
+  async fetchProfile(force = false) {
     if (!this.useCloud) return;
     const user = this.authUser, service = getAccountSync(this.supabase);
-    await service.refreshSupporter(user);
-    const { data } = await service.loadProfile(user);
-    if (this.authUser?.id === user.id && data) this.authProfile = data;
+    this.supporterChecking = true;
+    this.supporterCheckFailed = false;
+    try {
+      const result = await service.refreshSupporter(user, { force });
+      const { data } = await service.loadProfile(user);
+      if (this.authUser?.id !== user.id) return;
+      if (data) this.authProfile = data;
+      this.supporterCheckFailed = !!result.error;
+    } finally {
+      if (this.authUser?.id === user.id) this.supporterChecking = false;
+    }
   },
   loadLocalUserSettings() {
     if (typeof window === "undefined") {
