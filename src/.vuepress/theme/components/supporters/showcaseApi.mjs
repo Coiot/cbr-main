@@ -10,14 +10,37 @@ export async function listDirectory(client, { search = '', civ = '', offset = 0 
   if (!client) throw new Error(SHOWCASE_UNAVAILABLE);
   return checked(await client.rpc('list_supporter_directory', { p_search: search.trim().slice(0, 80), p_civ: civ, p_offset: offset }), true);
 }
+export async function listFullDirectory(client, { search = '', civ = '' } = {}) {
+  const entries = [];
+  let result;
+  do {
+    result = await listDirectory(client, { search, civ, offset: entries.length });
+    if (!result.entries.length && entries.length < result.total) throw new Error(SHOWCASE_UNAVAILABLE);
+    entries.push(...result.entries);
+  } while (entries.length < result.total);
+  return { ...result, entries };
+}
 export async function getShowcase(client, id) {
   if (!validPublicId(id)) return null;
   if (!client) throw new Error(SHOWCASE_UNAVAILABLE);
   return checked(await client.rpc('get_supporter_showcase', { p_id: id }), true);
 }
+export async function listShowrunners(client) {
+  if (!client) throw new Error(SHOWCASE_UNAVAILABLE);
+  return checked(await client.rpc('list_showrunner_showcases'), true);
+}
+export async function loadShowcaseAccess(client) {
+  if (!client) throw new Error(SHOWCASE_UNAVAILABLE);
+  return checked(await client.rpc('get_my_showcase_access'), true);
+}
+export async function getShowcaseContent(client, id) {
+  if (!validPublicId(id)) return null;
+  if (!client) throw new Error(SHOWCASE_UNAVAILABLE);
+  return checked(await client.rpc('get_showcase_public_content', { p_id: id }), true);
+}
 export async function loadOwnShowcase(client, userId) {
   const [showcase, preference] = await Promise.all([
-    client.from('supporter_showcases').select('id,introduction,competitors,scenes,map_views,published').eq('user_id', userId).maybeSingle(),
+    client.from('supporter_showcases').select('id,introduction,competitors,scenes,map_views,map_pins,published').eq('user_id', userId).maybeSingle(),
     client.from('supporter_directory_preferences').select('hidden').eq('user_id', userId).maybeSingle(),
   ]);
   return { showcase: checked(showcase, true), hidden: checked(preference, true)?.hidden === true };
@@ -26,7 +49,7 @@ export async function saveShowcase(client, userId, draft, existing) {
   const payload = normalizeShowcaseDraft(draft);
   const query = existing ? client.from('supporter_showcases').update(payload).eq('id', existing.id).eq('user_id', userId)
     : client.from('supporter_showcases').insert({ ...payload, user_id: userId });
-  const saved = checked(await query.select('id,introduction,competitors,scenes,map_views,published').single());
+  const saved = checked(await query.select('id,introduction,competitors,scenes,map_views,map_pins,published').single());
   clearShowcaseNames(client); return saved;
 }
 export async function unpublishShowcase(client, userId, id) {

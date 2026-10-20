@@ -347,8 +347,6 @@
         </section>
       </div>
 
-      <EpisodeReadingCompletion v-if="hasScenes" :path="$page.path" :next="next" :prepare-save="prepareReadingStatusChange" />
-
       <Content class="custom" />
 
       <div
@@ -399,6 +397,8 @@
         :snapshot-date="commentPostedAt"
         :use-base-snapshot="episodeSnapshotIsBase"
       />
+
+      <EpisodeReadingCompletion v-if="hasScenes" :path="$page.path" :next="next" :prepare-save="prepareReadingStatusChange" />
 
       <AlbumsNav :prev="prev" :next="next" />
     </div>

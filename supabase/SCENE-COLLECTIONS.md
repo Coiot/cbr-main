@@ -12,7 +12,7 @@ Apply `sql/scene-collections.sql` after `supporter-access.sql` and `supporter-sh
 - Titles: 80 characters; descriptions: 600; optional scene notes: 400.
 - Private by default; explicit publication. Public titles/descriptions may contain spoilers. Reader season/episode limits remove later scenes and their notes together.
 - Scene ordering supports drag handles and keyboard/touch Move up/Move down buttons. Favourites can be selected in the editor or added in bulk from Spotlight.
-- Up to three published collections can be featured on an already published supporter showcase. Making a collection private or hiding/removing it immediately removes it from public APIs and showcase listings.
+- All owned public collections appear automatically on a published supporter showcase. Up to three can be highlighted to appear first. Making a collection private or hiding/removing it immediately removes it from public APIs and showcase listings. Apply `showcase-public-content.sql` for the complete public showcase listing.
 - Supporter access is required for creation, additions, edits, publication, and featuring. Existing collections remain readable after expiry; owners can always make them private or delete them.
 - Collections support episode albums and power-ranking albums, including rankings 0. PR previews and read-through identify the original power rankings; the episode spoiler limit applies to the corresponding PR number too. Spotlight discovery remains episode-only.
 - Only scene references and notes are stored. Original images/narration come from existing release data and CDN assets. Episode payloads are fetched on demand during read-through and cached for that reader component.

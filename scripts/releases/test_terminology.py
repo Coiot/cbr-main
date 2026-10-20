@@ -128,6 +128,39 @@ class TerminologyTests(unittest.TestCase):
         self.review(source, client)
         self.assertEqual(len(client.calls), 7)
 
+    def test_payload_marks_each_occurrence_in_its_own_sentence(self):
+        source = album('Thanks in part to food, they could rise next part. Part of that is luck and part is debt.')
+        fields, context = t.fields_from_markdown(source)
+        candidates = t.candidates_for(fields)
+        payload = t.payload_for(fields, candidates, context)
+        self.assertEqual([c['target_sentence'] for c in payload['occurrences']], [
+            'Thanks in <target>part</target> to food, they could rise next part.',
+            'Thanks in part to food, they could rise next <target>part</target>.',
+            '<target>Part</target> of that is luck and part is debt.',
+            'Part of that is luck and <target>part</target> is debt.',
+        ])
+        client = FakeClient(lambda c: 'replace' if 'next <target>part</target>' in c['target_sentence'] else 'keep')
+        updated, result = self.review(source, client)
+        self.assertEqual(updated, source.replace('next part.', 'next episode.'))
+        self.assertEqual(result['corrections'], 1)
+
+    def test_evaluation_rejects_deferring_clear_corrections(self):
+        client = FakeClient()
+        original = client.classify
+        def defer(payload):
+            response = original(payload)
+            for row in response['decisions']:
+                if row['decision'] == 'replace':
+                    row['decision'] = 'review'
+                    break
+            return response
+        client.classify = defer
+        with self.assertRaises(t.ReviewUnavailable):
+            t.evaluate(client, self.cache)
+        evaluation = json.loads(next(self.cache.glob('evaluation-*.json')).read_text())
+        self.assertFalse(evaluation['passed'])
+        self.assertTrue(evaluation['incorrect_decisions'])
+
     def test_evaluation_blocks_incorrect_changes_and_caches_failure(self):
         client = FakeClient()
         client.classify = Mock(side_effect=lambda payload: {'decisions': [

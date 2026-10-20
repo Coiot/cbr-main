@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <section class="not-found" aria-labelledby="not-found-title">
+      <AlbumsNav compact label="Page recovery navigation" :archive="{ to: '/', label: 'Back to the homepage' }" />
       <p class="not-found-code">404 · Page not found</p>
       <h1 id="not-found-title">Lost in the fog of war?</h1>
       <p class="not-found-intro">We couldn’t find this page. Search for an episode, scene, or civilization, or find your way back to the show.</p>
@@ -25,17 +26,17 @@
           <span>Meet Civ Battle Royale and start watching.</span>
         </router-link>
       </div>
-      <router-link to="/" class="recovery-home">← Back to the homepage</router-link>
     </section>
   </Layout>
 </template>
 
 <script>
 import Layout from './Layout.vue';
+import AlbumsNav from './components/albums/AlbumsNav.vue';
 import { latestEpisode } from './components/home/latestEpisode.js';
 
 export default {
-  components: { Layout },
+  components: { Layout, AlbumsNav },
   data: () => ({ query: '' }),
   computed: {
     latest() { return latestEpisode(this.$site?.pages || []); },
@@ -102,7 +103,6 @@ export default {
 .recovery-card strong { color: var(--field-label-color); font-size: 1.1rem; }
 .recovery-card > span { color: var(--color-text-muted); line-height: 1.5; }
 .recovery-card:hover { border-color: var(--accent-color); }
-.recovery-home { color: var(--field-label-color); font-weight: 800; }
 .not-found :is(a, button, input):focus-visible { outline: 3px solid var(--accent-color); outline-offset: 4px; }
 @media (max-width: 650px) { .not-found-links { grid-template-columns: 1fr; } }
 @media (max-width: 400px) { .not-found-search-row { flex-direction: column; } }

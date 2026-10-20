@@ -137,6 +137,13 @@ names, ordinary meanings, and uncertain cases are retained. Links and HTML
 attributes are excluded; words spanning markup/entities are flagged for manual
 editing. The model cannot rewrite sentences or other fields.
 
+Casual installment references follow the same rule as formal episode titles:
+“next part”, “this part”, “15 parts”, and “in a few parts” become episode/episodes
+when discussing the show, including in power rankings. Ordinary uses such as
+“thanks in part”, “part of the world”, and “mark the death” stay unchanged.
+Every candidate includes its own marked target sentence so decisions and reasons
+refer to that occurrence, even when a scene contains several uses of the word.
+
 To enable AI review, set `OPENAI_API_KEY` in the gitignored `.env.releases` file
 in the repository root (setup creates an empty template). You can also copy
 `.env.releases.example` there if needed. Enter the key locally, not in chat or
@@ -156,8 +163,9 @@ and one retry for transient errors. Oversized reviews (over 150 occurrences or
 Before automatic changes are permitted, the selected model must pass the labeled
 cases in `terminology_examples.json`. This evaluation runs automatically on the
 first review with a key, and again after the model, prompt, or policy changes.
-It must produce no incorrect automatic replacements, recognize at least one
-clear correction, and may flag uncertain examples. This is a regression check,
+It must match every labeled decision, including all clear corrections and the
+explicitly uncertain examples. The examples include the missed Season 5 PR34
+references and similar ordinary usages. This is a regression check,
 not a guarantee that the model will never misclassify a new sentence. Review the
 correction report before publishing. A failed evaluation is remembered until you
 explicitly re-run it:
@@ -190,6 +198,7 @@ even if some passages still need your judgment. It accepts `--config` for an
 alternate Narration directory just like the other intake commands.
 
 Successful decisions are cached in `Automation/terminology-cache` using content,
-release context, model, and policy. Corrected imports retain the original duplicate
+release context, model, prompt, and policy. Policy v2 bypasses old cached decisions
+and requires a fresh evaluation. Corrected imports retain the original duplicate
 protection. Adding a key or upgrading the checker does not retroactively reprocess
 archived documents; use the explicit recheck command for those releases.

@@ -21,5 +21,16 @@
   {"text":"The factory produces Mark V tanks.","expected":"keep","source":"synthetic equipment designation"},
   {"text":"I remember Mk. II and its Buccaneers fondly.","expected":"keep","source":"synthetic historical reference"},
   {"text":"CBR's historical Marks I and II came before CBRX seasons.","expected":"keep","source":"synthetic plural historical reference"},
-  {"text":"This part is different.","expected":"review","source":"synthetic insufficient context"}
+  {"text":"This part is different.","expected":"review","source":"synthetic insufficient context"},
+  {"text":"Nevertheless, thanks in part to the Temple of Artemis, they still had pretty strong stats, including high food and production, and we were sure they would get going if they just pumped out a few more settlers.","expected":"keep","source":"s5pr34.md, scene 5"},
+  {"text":"Don’t be too surprised if Jacob Morenga ends up 6 feet under next part.","expected":"replace","source":"s5pr34.md, scene 11"},
+  {"text":"humdrum to put it politely (did you know they lost a city this part?), it has managed to survive this long to see Green Ukraine eliminated.","expected":"replace","source":"s5pr34.md, scene 21"},
+  {"text":"No matter what, short of their immediate elimination next part followed by a revival that manages to do insanely well, Joao has managed to last longer than Maria.","expected":"replace","source":"s5pr34.md, scene 21"},
+  {"text":"Their decent stats will at the very least make it somewhat painful for any of their top-tier neighbors to conquer them, but it's unfortunately time to mark the death of Cebu’s chances of contention.","expected":"keep","source":"s5pr34.md, scene 23"},
+  {"text":"For the first time in like 15 parts, France FINALLY does something of value and wipes out the Hansa, taking over the bulk of their German buffer state and cleaning the bordergore in Central Asia.","expected":"replace","source":"s5pr34.md, scene 25"},
+  {"text":"Part of that is due to lethargy and part of that is due to crippling crippling debt.","expected":"keep","source":"s5pr34.md, scene 34 (both occurrences)"},
+  {"text":"Maybe in a few parts they’ll even be above Tlingit.","expected":"replace","source":"s5pr34.md, scene 36"},
+  {"text":"In the next part of this article, we explain the combat mechanics.","expected":"keep","source":"synthetic article subdivision"},
+  {"text":"They shipped the spare parts to the factory.","expected":"keep","source":"synthetic ordinary plural"},
+  {"text":"They held this part of the coast for 15 turns.","expected":"keep","source":"synthetic geographic subdivision"}
 ]

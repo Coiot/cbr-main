@@ -16,7 +16,7 @@
         <form class="showcase-editor" @submit.prevent="save">
           <fieldset :disabled="busy || !state.allowed"><legend>Collection details</legend><label>Title<input v-model="draft.title" maxlength="80" required /></label><label>Description<textarea v-model="draft.description" maxlength="600" rows="3" /></label>
             <label class="collection-check"><input type="checkbox" v-model="draft.published" /> Publish so anyone can read</label>
-            <label v-if="draft.published" class="collection-check"><input type="checkbox" v-model="draft.featured" /> Feature on my supporter showcase (up to three)</label>
+            <label v-if="draft.published" class="collection-check"><input type="checkbox" v-model="draft.featured" /> Show first on my supporter showcase (up to three)</label>
             <p v-if="draft.published" class="supporter-muted">Your collection, notes, and account display name will be visible to anyone. Avoid spoilers in the title and description.</p>
           </fieldset>
           <fieldset :disabled="busy || !state.allowed"><legend>Scenes · {{ draft.scenes.length }}/100</legend><p>Drag scenes to reorder, or use Move up and Move down. Add scenes using the collection icon while reading, or select favourites below.</p>
