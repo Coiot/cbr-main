@@ -134,7 +134,7 @@
           <div class="comment-body">
             <div class="comment-header">
               <span class="comment-name">
-                {{ comment.username || "Supporter" }}
+                <SupporterName :user-id="comment.user_id" :name="comment.username || 'Supporter'" />
               </span>
               <span v-if="comment.flair" class="comment-flair">
                 {{ comment.flair }}
@@ -149,10 +149,11 @@
 </template>
 
 <script>
+import SupporterName from '../supporters/SupporterName.vue';
 import FeatureNotice from '../FeatureNotice.vue';
 export default {
   name: "CommentsSection",
-  components: { FeatureNotice },
+  components: { FeatureNotice, SupporterName },
   props: {
     accessNotice: { type: Object, default: null },
     authUser: {

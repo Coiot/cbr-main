@@ -42,3 +42,29 @@ export function parseAccessImport(csv, { emailColumn = 'email', expiresColumn = 
   }
   return [...members.values()];
 }
+
+export function parseCreditImport(csv, env = {}) {
+  const [header, ...rows] = parseCsv(csv);
+  if (!header || !rows.length) throw new Error('Credit import needs a CSV header and at least one row.');
+  const columns = header.map(v => v.replace(/^\uFEFF/, '').trim().toLowerCase());
+  const findColumn = (names, fallback) => {
+    const found = columns.findIndex(value => names.includes(value));
+    return found < 0 ? Number(fallback) : found;
+  };
+  const emailIndex = findColumn(['email', 'email address'], env.SUPPORTERS_EMAIL_COLUMN || 1);
+  const nameIndex = findColumn(['name', 'username', 'display name'], env.SUPPORTERS_NAME_COLUMN || 2);
+  const civIndex = findColumn(['civ', 'favorite civ', 'favourite civ', 'favoriteciv'], env.SUPPORTERS_CIV_COLUMN || 3);
+  const nativeKofi = columns.includes('isactive');
+  const result = new Map(); let skipped = 0;
+  const clean = v => String(v || '').replace(/[\u0000-\u001f\u007f]/g, '').replace(/\s+/g, ' ').trim().slice(0, 128);
+  for (const row of rows) {
+    const email = normalizeEmail(row[emailIndex]), name = clean(row[nameIndex]);
+    if (!email || !name) { skipped++; continue; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) throw new Error('Invalid email in credit import. No credit data was written.');
+    // Ko-fi exports have no civ field; never mistake pledge/date columns for one.
+    const civ = nativeKofi && !columns.some(v => ['civ', 'favorite civ', 'favourite civ', 'favoriteciv'].includes(v)) ? '' : clean(row[civIndex]);
+    result.set(email, { email, legacy_name: name, legacy_civ: civ });
+  }
+  if (!result.size) throw new Error('No credit names with usable emails were found.');
+  return { rows: [...result.values()], skipped };
+}

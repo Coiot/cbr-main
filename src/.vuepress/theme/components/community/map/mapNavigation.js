@@ -9,6 +9,7 @@ export const mapNavigationMethods = {
       return false;
     }
     return !!(
+      this.$route?.query?.saved_view ||
       this.resolveRouteMapView() ||
       this.resolveRouteTileKey() ||
       this.resolveRouteCityName() ||
@@ -521,6 +522,12 @@ export const mapNavigationMethods = {
       this.quickJumpRequestedSnapshotId = "";
       return;
     }
+    if (Object.prototype.hasOwnProperty.call(route.query || {}, 'saved_view')) {
+      await this.applySavedMapViewFromRoute(requestId);
+      return;
+    }
+    this.activeSavedView = null;
+    this.savedViewError = '';
     const snapshotId = this.resolveRouteSnapshotId();
     if (snapshotId) {
       const snapshotApplied = await this.ensureSnapshotSelection(snapshotId);

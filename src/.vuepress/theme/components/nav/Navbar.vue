@@ -187,24 +187,28 @@
           <!-- <div class="user-header">Account</div> -->
           <div v-if="!authUser" class="user-section">
             <p class="user-copy">
-              Sign in to sync your reading progress and settings, react, and comment.
+              Sign in or create an account to react and save your progress.
             </p>
 
             <input
               ref="accountEmailInput"
+              id="account-email-input"
               class="user-input"
+              aria-label="Your email address"
+              aria-describedby="account-email-hint"
               type="email"
-              placeholder="Email linked with Ko-Fi"
+              placeholder="Your email address"
               v-model="authEmail"
               autocomplete="email"
             />
+            <p id="account-email-hint" class="user-hint">Supporters: use your Ko-fi payment email.</p>
             <button
               type="button"
               class="user-button"
               :disabled="authLoading"
               @click="signInWithEmail"
             >
-              {{ authLoading ? "Sending..." : "Send Link" }}
+              {{ authLoading ? "Sending..." : "Send sign-in link" }}
             </button>
             <div class="user-field">
               <label class="user-label">Theme</label>
@@ -229,10 +233,8 @@
             </div>
             <p v-if="authMessage" class="user-message">{{ authMessage }}</p>
             <p class="user-cta">
-              Support the show and get exclusive features.
-              <br />
-              <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
-                >Donate on Ko-Fi</a
+              <router-link to="/support/" @click="closeUserMenu"
+                >Support CBR</router-link
               >
             </p>
           </div>
@@ -346,15 +348,18 @@
             <button v-if="!canEditSupporterFields" type="button" class="user-button" :disabled="supporterChecking" @click="fetchProfile(true)">
               {{ supporterChecking ? 'Checking donation access…' : 'Check donation access' }}
             </button>
+            <router-link class="user-button" to="/collections/?view=mine" @click="closeUserMenu">My collections</router-link>
+            <router-link class="user-button" to="/supporters/profile/" @click="closeUserMenu">My showcase</router-link>
             <button type="button" class="user-button" @click="signOut">
               Sign out
             </button>
             <p class="user-cta" v-if="canEditSupporterFields">n.n <3</p>
             <p class="user-cta" v-else-if="!supporterChecking && !supporterCheckFailed">
               {{ authProfile?.supporter_status === 'expired' ? 'You’re always welcome back.' : 'Enjoying CBR? Help keep the show going.' }}
+              <span> Your account includes reactions, favourites, and synced reading progress. Supporters can also comment on new episodes and edit the live community map.</span>
               <br />
-              <a href="https://ko-fi.com/coiot" target="_blank" rel="noreferrer"
-                >{{ authProfile?.supporter_status === 'expired' ? 'Support CBR again on Ko-fi' : 'Become a supporter on Ko-fi' }}</a
+              <router-link to="/support/" @click="closeUserMenu"
+                >{{ authProfile?.supporter_status === 'expired' ? 'Support CBR again' : 'Become a supporter' }}</router-link
               >
             </p>
           </div>
@@ -413,6 +418,7 @@
 
 <script>
 import { supporterMessage, EXPIRED_SUPPORTER_MESSAGE } from "../../account/supporterMessage.mjs";
+import { sendSignInLink } from "../../account/signIn.mjs";
 import SidebarButton from "../sidebar/SidebarButton.vue";
 import NavLinks from "./NavLinks.vue";
 import QuickJumpPalette from "./QuickJumpPalette.vue";
@@ -1193,32 +1199,14 @@ export default {
       this.$emit('toggle-sidebar', false);
     },
     async signInWithEmail() {
-      if (!this.supabase) {
-        return;
-      }
-      const email = String(this.authEmail || "").trim();
-      if (!email) {
-        this.authMessage = "Enter your email to receive a login link.";
-        return;
-      }
+      if (this.authLoading) return;
       this.authLoading = true;
       this.authMessage = "";
-      const redirectBase =
-        window.location.origin +
-        window.location.pathname +
-        window.location.search;
-      const { error } = await this.supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: redirectBase,
-        },
+      const result = await sendSignInLink(this.supabase, this.authEmail, {
+        location: window.location, history: window.history,
       });
       this.authLoading = false;
-      if (error) {
-        this.authMessage = error.message || "Unable to send login link.";
-        return;
-      }
-      this.authMessage = "Check your email for the login link.";
+      this.authMessage = result.message;
     },
     async signOut() {
       if (!this.supabase) {
@@ -1688,6 +1676,9 @@ function css(el, property) {
   max-inline-size: 90vw;
   max-block-size: calc(100dvh - var(--navbar-height) - 1rem);
   overflow-y: auto;
+  overflow-x: hidden;
+  white-space: normal;
+  overflow-wrap: anywhere;
   overscroll-behavior: contain;
   box-sizing: border-box;
   color: var(--back-color);
@@ -1719,8 +1710,11 @@ function css(el, property) {
 }
 .navbar .links .user-section {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.6rem;
+  min-inline-size: 0;
 }
+.navbar .links .user-section > *, .navbar .links .user-field > * { min-inline-size: 0; max-inline-size: 100%; box-sizing: border-box; }
 .navbar .links .user-copy {
   color: color-mix(in srgb, var(--back-color), white 10%);
   font-size: 0.85rem;
@@ -1730,6 +1724,7 @@ function css(el, property) {
   margin: 0;
 }
 .navbar .links .user-input {
+  inline-size: 100%;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--back-color);
@@ -1753,6 +1748,7 @@ function css(el, property) {
 }
 .navbar .links .user-field {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.5rem;
 }
 .navbar .links .user-row {
@@ -1776,6 +1772,7 @@ function css(el, property) {
   border-radius: 6px;
   padding: 0.45rem 0.8rem;
   cursor: pointer;
+  white-space: normal;
   transition: all 0.2s ease-in-out;
 }
 .navbar .links .user-button--ghost {

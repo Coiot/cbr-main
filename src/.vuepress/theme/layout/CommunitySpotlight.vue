@@ -1,7 +1,6 @@
 <template>
   <div class="community-spotlight">
     <header class="spotlight-hero">
-      <p class="spotlight-eyebrow">Chosen by the community</p>
       <h1>Spotlight</h1>
       <p>The surprises, facepalms, and favourite moments worth another look.</p>
     </header>
@@ -32,6 +31,7 @@
       <nav class="spotlight-views" aria-label="Spotlight views">
         <button :aria-pressed="filters.tab === 'discover'" @click="changeFilters({ view: 'discover' })">Discover moments</button>
         <button :aria-pressed="filters.tab === 'favourites'" @click="changeFilters({ view: 'favourites' })">Your favourites</button>
+      <router-link class="spotlight-collections-link" to="/collections/">Scene collections →</router-link>
       </nav>
       <template v-if="filters.tab === 'discover'">
         <label class="spotlight-mood-select">Moment type
@@ -74,9 +74,10 @@
         </div>
         <p v-else-if="userLoading" role="status">Loading your favourites…</p>
         <div v-else-if="userError" class="spotlight-notice" role="alert">We couldn’t load your favourites. <button @click="loadFavourites(true)">Try again</button></div>
-        <div v-else-if="visibleScenes.length" class="spotlight-gallery" aria-label="Your favourite scenes">
-          <SpotlightScene v-for="scene in visibleScenes" :key="scene.id" :scene="scene" :reactions="reactions" />
-        </div>
+        <template v-else-if="visibleScenes.length">
+          <div class="spotlight-collection-selection"><p>Select favourites to add them to a collection.</p><CollectionButton v-if="selectedScenes.length" :scenes="selectedCollectionScenes" text="Add selected to collection" /></div>
+          <div class="spotlight-gallery" aria-label="Your favourite scenes"><div v-for="scene in visibleScenes" :key="scene.id"><label class="spotlight-select-scene"><input type="checkbox" v-model="selectedScenes" :value="scene.id" /> Select Scene {{ scene.sceneNumber }}</label><SpotlightScene :scene="scene" :reactions="reactions" /></div></div>
+        </template>
         <div v-else class="spotlight-empty">
           <h2>No favourites in this selection yet</h2>
           <p>Star or heart a scene while reading, or adjust the season and episode limit to find earlier favourites.</p>
@@ -95,16 +96,18 @@
 import { getSupabaseClient } from '../supabaseClient';
 import { subscribeAccountAuth } from '../account/accountSync.js';
 import picks from '../../data/spotlightPicks.json';
+import CollectionButton from '../components/collections/CollectionButton.vue';
 import SpotlightScene from '../components/spotlight/SpotlightScene.vue';
 import { MOODS, buildEpisodes, readFilters, episodeOptions, eligibleEpisodes, buildDiscovery, buildFavourites } from '../components/spotlight/spotlightModel.mjs';
 import { CACHE_TTL, readCache, writeCache, fetchReactionRows } from '../components/spotlight/spotlightData.mjs';
 
 export default {
   name: 'CommunitySpotlight',
-  components: { SpotlightScene },
+  components: { SpotlightScene, CollectionButton },
   data: () => ({ episodes: [], moods: MOODS, rows: [], userRows: [], authUser: null, loading: false, userLoading: false,
-    loadError: false, userError: false, metadataError: false, metadataReady: false, updatedAt: 0, visibleCount: 12, userLoadedKey: '', supabase: null }),
+    selectedScenes: [], loadError: false, userError: false, metadataError: false, metadataReady: false, updatedAt: 0, visibleCount: 12, userLoadedKey: '', supabase: null }),
   computed: {
+    selectedCollectionScenes() { return this.gallery.filter(s => this.selectedScenes.includes(s.id)).map(s => ({ path:s.path, number:s.sceneNumber })); },
     filters() { return readFilters(this.$route.query, this.episodes); },
     seasons() { return [...new Set(this.episodes.map(e => e.season))].sort((a, b) => Number(b.slice(1)) - Number(a.slice(1))); },
     seasonEpisodes() { return episodeOptions(this.episodes, this.filters.season); },
@@ -123,7 +126,7 @@ export default {
       }
     },
     'filters.tab'() { this.loadFavourites(); },
-    '$route.query'() { this.visibleCount = 12; },
+    '$route.query'() { this.visibleCount = 12; this.selectedScenes = []; },
   },
   mounted() {
     this._disposed = false;
@@ -131,7 +134,7 @@ export default {
     if (this.supabase) this._authSubscription = subscribeAccountAuth(this.supabase, session => {
       const user = session?.user || null;
       if (user?.id === this.authUser?.id) return;
-      this.authUser = user; this.userRows = []; this.userLoadedKey = ''; this.userError = false;
+      this.authUser = user; this.selectedScenes = []; this.userRows = []; this.userLoadedKey = ''; this.userError = false;
       this.loadFavourites();
     });
     this.loadMetadata();
@@ -270,4 +273,11 @@ html[data-theme="light"] .community-spotlight .spotlight-eyebrow { color: #80550
   .community-spotlight .spotlight-status { justify-content: flex-start; }
   .community-spotlight .is-featured .spotlight-scene-body { padding: 1.2rem; }
 }
+</style>
+
+<style scoped>
+.spotlight-collections-link { display:inline-flex; align-items:center; padding:.6rem 1rem; border:1px solid var(--accent-color); border-radius:999px; font-weight:700; }
+.spotlight-select-scene { display:flex; gap:.5rem; align-items:center; margin-block:.6rem; }
+.spotlight-select-scene input { accent-color:var(--accent-color); }
+.spotlight-collection-selection { margin-block:1rem; }
 </style>

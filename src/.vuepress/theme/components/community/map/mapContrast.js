@@ -67,6 +67,7 @@ export const mapContrastMethods = {
       settings && typeof settings === "object"
         ? settings
         : Object.create(null);
+    this._contrastEditVersion = (this._contrastEditVersion || 0) + 1;
     this.contrastSettingsLoading = true;
     this.contrastHideDecorations = !!source.contrastHideDecorations;
     this.contrastFlattenLandWater = !!source.contrastFlattenLandWater;

@@ -1,4 +1,5 @@
 import { CINEMATIC_NARRATION_LAYOUT_KEY } from "./albumSettings.js";
+import { signInReturnScene } from '../../../account/signIn.mjs';
 
 // album Viewing. Methods run on the owning Vue component instance.
 
@@ -574,15 +575,7 @@ export const albumViewingMethods = {
     if (typeof window === "undefined") {
       return null;
     }
-    const match = window.location.hash.match(/^#scene-(\d+)$/);
-    if (!match) {
-      return null;
-    }
-    const sceneNumber = parseInt(match[1], 10);
-    if (!Number.isFinite(sceneNumber)) {
-      return null;
-    }
-    return sceneNumber;
+    return signInReturnScene(window.location);
   },
   applyHashScene() {
     const sceneNumber = this.getHashSceneNumber();

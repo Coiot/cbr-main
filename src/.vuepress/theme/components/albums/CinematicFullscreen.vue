@@ -11,8 +11,11 @@
     <div
       ref="cinematicStage"
       class="cinematic-stage"
+      role="region"
+      :aria-label="label"
       :class="{
         'cinematic-stage--bottom': narrationLayout === 'bottom',
+        'has-custom-narration': !!$slots.narration,
       }"
     >
       <div class="cinematic-slides">
@@ -25,7 +28,7 @@
           :touchable="false"
           fill-height
           show-fraction
-          label="Fullscreen episode scenes"
+          :label="label"
           @change="handlePrimarySlide"
         >
           <template #media="{ scene, index }">
@@ -106,25 +109,25 @@
           </button>
         </div>
         <div ref="narrationContent" class="cinematic-narration-content">
-          <SceneSlideContent
-            :key="`cinematic-scene-${activeSceneNumber}-${
-              activeUserReaction || 'none'
-            }-${reactionVersion}`"
-            :scene="activeScene"
-            :scene-number="activeSceneNumber"
-            :show-scene-number="showSceneNumber"
-            :bookmarked="activeBookmarked"
-            :bookmark-aria="activeBookmarkAria"
-            :reaction-display="activeReactionDisplay"
-            :scene-counts="activeSceneCounts"
-            :user-reaction="activeUserReaction"
-            :auth-user="authUser"
-            :is-menu-open="activeMenuOpen"
-            :reaction-version="reactionVersion"
-            @toggle-bookmark="$emit('toggle-bookmark')"
-            @toggle-reaction="onToggleReaction"
-            @toggle-menu="onToggleMenu"
-          />
+          <slot name="narration" :scene="activeScene" :index="activeSceneIndex">
+            <SceneSlideContent
+              :key="`cinematic-scene-${activeSceneNumber}`"
+              :scene="activeScene"
+              :scene-number="activeSceneNumber"
+              :show-scene-number="showSceneNumber"
+              :bookmarked="activeBookmarked"
+              :bookmark-aria="activeBookmarkAria"
+              :reaction-display="activeReactionDisplay"
+              :scene-counts="activeSceneCounts"
+              :user-reaction="activeUserReaction"
+              :auth-user="authUser"
+              :is-menu-open="activeMenuOpen"
+              :reaction-version="reactionVersion"
+              @toggle-bookmark="$emit('toggle-bookmark')"
+              @toggle-reaction="onToggleReaction"
+              @toggle-menu="onToggleMenu"
+            />
+          </slot>
         </div>
       </aside>
     </div>
@@ -153,6 +156,7 @@ export default {
     };
   },
   props: {
+    label: { type: String, default: "Fullscreen episode scenes" },
     scenes: {
       type: Array,
       default: () => [],
@@ -774,6 +778,12 @@ export default {
 .cinematic-stage--bottom:-webkit-full-screen {
   grid-template-rows: minmax(0, 1fr) minmax(120px, 12vh);
 }
+/* Reserve readable narration space for the richer collection content in either fullscreen API. */
+.cinematic-mode.is-active .cinematic-stage--bottom.has-custom-narration {
+  grid-template-rows: minmax(0, 1fr) minmax(min(200px, 32dvh), 28dvh);
+}
+.cinematic-mode.is-active .cinematic-stage--bottom.has-custom-narration .cinematic-narration { max-block-size:none; }
+.cinematic-stage.has-custom-narration .cinematic-slides { min-block-size:0; }
 .cinematic-slides {
   position: relative;
   min-inline-size: 0;

@@ -1,0 +1,9 @@
+/* Shared connected controls for the collection library and its reading modes. */
+.collections-page .collection-segments { display:inline-flex; gap:0; align-items:stretch; padding:.35rem; border:1px solid var(--panel-border-color); border-radius:1rem; background:var(--panel-bg-soft-color); max-inline-size:100%; }
+.collections-page .collection-segments > :is(button,a) { display:inline-flex; justify-content:center; align-items:center; margin:0; padding:.55rem .85rem; min-block-size:44px; border:1px solid var(--accent-color); border-radius:0; background:var(--panel-bg-color); color:var(--panel-text-color); font:inherit; font-size:.9rem; line-height:1.2; font-weight:800; white-space:nowrap; text-decoration:none; cursor:pointer; }
+.collections-page .collection-segments > :is(button,a) + :is(button,a) { border-inline-start:0; }
+.collections-page .collection-segments > :first-child { border-start-start-radius:.65rem; border-end-start-radius:.65rem; }
+.collections-page .collection-segments > :last-child { border-start-end-radius:.65rem; border-end-end-radius:.65rem; }
+.collections-page .collection-segments > [aria-pressed=true], .collections-page .collection-segments > [aria-current=page] { background:var(--accent-color); color:#171717; }
+.collections-page .collection-segments > :is(button,a):focus-visible { position:relative; z-index:1; outline:3px solid var(--field-label-color); outline-offset:2px; }
+@media(max-width:399px) { .collections-page .collection-segments { padding:.25rem; } .collections-page .collection-segments > :is(button,a) { padding-inline:.65rem; font-size:.85rem; } }

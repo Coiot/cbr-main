@@ -1,8 +1,12 @@
+import './supporter-showcases.test.mjs';
+import './map-saved-views.test.mjs';
+import './supporter-credits.test.mjs';
 import './spotlight.test.mjs';
 import './supporter-payments.test.mjs';
 import './search.test.mjs';
 import './reading-library.test.mjs';
 import './reading-return.test.mjs';
+import './reaction-signin.test.mjs';
 import './feature-availability.test.mjs';
 import './account-sync.test.mjs';
 import './search-filters.test.mjs';
@@ -296,3 +300,5 @@ test('a saved reaction refreshes counts and the reader selection immediately', a
   assert.equal(context.userReactions[1], 'clap');
   assert.equal(refreshes, 1);
 });
+import './scene-collections.test.mjs';
+import './map-toolbar.test.mjs';

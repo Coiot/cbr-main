@@ -1,3 +1,4 @@
+-- After this base migration, apply supporter-credits.sql to install database SVG credits.
 begin;
 
 -- Private payment ledger. Never expose payment emails or verification tokens to browsers.

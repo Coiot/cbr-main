@@ -6,125 +6,17 @@
         <p class="tile-map-subtitle" v-if="mapDescription">
           {{ mapDescription }}
         </p> -->
-        <h1 class="title-map-title">Community Tile Map</h1>
+        <div class="tile-map-heading"><h1 class="title-map-title">Community Tile Map</h1><span v-if="localEditsEnabled" class="tile-map-local-badge" role="status">Local only</span></div>
         <p class="tile-map-subtitle tile-map-subtitle-hint">
           Drag to pan. Click a tile to view details. Supporters can edit the live map.
         </p>
       </div>
-      <div class="tile-map-controls">
-        <div class="tile-map-auth-toolbar">
-          <div class="tile-map-toolbar-row">
-            <div class="tile-map-toolbar-group tile-map-mode-toggle">
-              <button
-                type="button"
-                class="tile-edit-button"
-                :class="{ 'is-active': !localEditsEnabled }"
-                @click="setLocalEdits(false)"
-              >
-                Live
-              </button>
-              <button
-                type="button"
-                class="tile-edit-button"
-                :class="{ 'is-active': localEditsEnabled }"
-                @click="setLocalEdits(true)"
-              >
-                Local
-              </button>
-            </div>
-            <!-- <span class="tile-map-toolbar-spacer" aria-hidden="true"></span> -->
-            <div v-if="editAccessMessage" class="tile-edit-hint">
-              {{ editAccessMessage }}
-            </div>
-            <div
-              class="tile-map-toolbar-group tile-map-control-group tile-map-control-group-compact"
-            >
-              <span class="tile-map-control-label">Zoom</span>
-              <div class="tile-map-control-pill">
-                <button
-                  type="button"
-                  class="tile-map-control tile-map-control-icon"
-                  @click="zoomOut"
-                  aria-label="Zoom out"
-                >
-                  &minus;
-                </button>
-                <span class="tile-map-scale">{{ scaleLabel }}</span>
-                <button
-                  type="button"
-                  class="tile-map-control tile-map-control-icon"
-                  @click="zoomIn"
-                  aria-label="Zoom in"
-                >
-                  +
-                </button>
-              </div>
-              <div class="tile-map-control-group tile-map-control-actions">
-                <button
-                  type="button"
-                  class="tile-map-control tile-map-control-ghost"
-                  @click="fitToView"
-                >
-                  Fit
-                </button>
-                <button
-                  type="button"
-                  class="tile-map-control tile-map-control-ghost"
-                  :aria-pressed="miniMapEnabled"
-                  @click="toggleMiniMap"
-                >
-                  Mini Map
-                </button>
-                <button type="button" class="tile-map-control tile-map-control-ghost" :disabled="isLoading || !tiles.length"
-                  @click="copyMapViewLink">Copy view link</button>
-                <button type="button" class="tile-map-control tile-map-control-ghost" :aria-pressed="isMapFullscreen"
-                  @click="toggleMapFullscreen">{{ isMapFullscreen ? 'Exit fullscreen' : 'Fullscreen' }}</button>
-                <!-- <button type="button" class="tile-map-control tile-map-control-ghost" :aria-expanded="showMapShortcuts"
-                  @click="showMapShortcuts = !showMapShortcuts">Shortcuts</button> -->
-                <span
-                  v-if="!isMobileView"
-                  class="tile-map-toolbar-divider"
-                  aria-hidden="true"
-                ></span>
-                <button
-                  v-if="!isMobileView"
-                  type="button"
-                  class="tile-map-info-toggle tile-map-toolbar-toggle"
-                  @click="toggleEditPanel"
-                  :aria-label="
-                    editPanelCollapsed
-                      ? 'Expand edit panel'
-                      : 'Collapse edit panel'
-                  "
-                >
-                  <svg
-                    v-if="editPanelCollapsed"
-                    class="tile-map-info-toggle-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 640"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M544 512C526.3 512 512 497.7 512 480L512 160C512 142.3 526.3 128 544 128C561.7 128 576 142.3 576 160L576 480C576 497.7 561.7 512 544 512zM71 337C61.6 327.6 61.6 312.4 71 303.1L215 159C221.9 152.1 232.2 150.1 241.2 153.8C250.2 157.5 256 166.3 256 176L256 256L400 256C426.5 256 448 277.5 448 304L448 336C448 362.5 426.5 384 400 384L256 384L256 464C256 473.7 250.2 482.5 241.2 486.2C232.2 489.9 221.9 487.9 215 481L71 337z"
-                    />
-                  </svg>
-                  <svg
-                    v-else
-                    class="tile-map-info-toggle-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 640"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M96 128C113.7 128 128 142.3 128 160L128 480C128 497.7 113.7 512 96 512C78.3 512 64 497.7 64 480L64 160C64 142.3 78.3 128 96 128zM569 303C578.4 312.4 578.4 327.6 569 336.9L425 481C418.1 487.9 407.8 489.9 398.8 486.2C389.8 482.5 384 473.7 384 464L384 384L240 384C213.5 384 192 362.5 192 336L192 304C192 277.5 213.5 256 240 256L384 256L384 176C384 166.3 389.8 157.5 398.8 153.8C407.8 150.1 418.1 152.2 425 159L569 303z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MapToolbar :scale-label="scaleLabel" :mini-map-enabled="miniMapEnabled" :show-shortcuts="showMapShortcuts"
+        :fullscreen="isMapFullscreen" :panel-collapsed="editPanelCollapsed" :view-unavailable="isLoading || !tiles.length"
+        @zoom-out="zoomOut" @zoom-in="zoomIn" @fit="fitToView"
+        @browse-views="$refs.savedViews.open($event)" @save-view="$refs.savedViews.create()" @copy-view="copyMapViewLink"
+        @toggle-mini-map="toggleMiniMap" @toggle-shortcuts="showMapShortcuts = !showMapShortcuts"
+        @toggle-fullscreen="toggleMapFullscreen" @toggle-panel="toggleEditPanel" />
     </div>
     <div v-if="!embedded && (mapViewStatus || showMapShortcuts)" class="tile-map-view-help">
       <p v-if="mapViewStatus" role="status">{{ mapViewStatus }}</p>
@@ -132,6 +24,11 @@
       <p v-if="showMapShortcuts">Focus the map with Tab. Arrow keys pan; Shift + arrow keys select neighboring tiles;
         Enter opens tile details. + / − zoom, F fits the map, ? toggles this guide, and Escape closes details or fullscreen.</p>
     </div>
+    <SavedMapViews v-if="!embedded" ref="savedViews" :client="supabase" :user="authUser" :allowed="canEdit" :checking="authChecking"
+      :access-failed="supporterCheckFailed" :supporter-status="supporterStatus" :local="localEditsEnabled" :admin="isAdmin"
+      :map-ready="!!tiles.length && !isLoading && !loadError && !isLiveSyncing && !liveSyncError" :map-id="savedViewsMapId" :snapshots="snapshots"
+      :get-settings="captureMapViewSettings" :active-view="activeSavedView" :loading-view="savedViewLoading" :view-error="savedViewError"
+      @open-view="openSavedMapView" @reset="retrySavedMapView" @close-view="closeSavedMapView" @changed="handleSavedViewChanged" />
     <span class="tile-map-screen-reader" role="status" aria-live="polite" aria-atomic="true">{{ selectedTileAnnouncement }}</span>
     <div
       class="tile-map-body"
@@ -808,6 +705,13 @@
               </span>
             </div>
 
+            <div class="tile-edit-mode-controls">
+              <span class="tile-edit-label">Editing mode</span>
+              <div class="tile-edit-mode-toggle" role="group" aria-label="Editing mode">
+                <button type="button" class="tile-edit-button" :class="{ 'is-active': !localEditsEnabled }" :aria-pressed="!localEditsEnabled" @click="setLocalEdits(false)">Live</button>
+                <button type="button" class="tile-edit-button" :class="{ 'is-active': localEditsEnabled }" :aria-pressed="localEditsEnabled" @click="setLocalEdits(true)">Local</button>
+              </div>
+            </div>
             <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
             <div
               v-if="selectedTile"
@@ -1821,7 +1725,13 @@
             v-show="editPanelTab === 'overlays'"
             class="tile-info-card tile-overlay-card"
           >
-            <div class="tile-info-title">Overlays</div>
+            <div class="tile-overlay-header">
+              <div class="tile-info-title">Overlays</div>
+              <label class="tile-map-overlay-toggle">
+                <input type="checkbox" v-model="overlayEnabled" />
+                <span>Show on map</span>
+              </label>
+            </div>
             <div class="tile-overlay-body">
               <div class="tile-map-toolbar-group tile-map-mode-toggle">
                 <button
@@ -2394,6 +2304,10 @@
 </template>
 
 <script>
+import SavedMapViews from './SavedMapViews.vue';
+import MapToolbar from './MapToolbar.vue';
+import { mapSavedViewsMethods } from './map/mapSavedViews.js';
+import { SUPABASE_MAP_ID } from './map/mapSettings.js';
 import FeatureNotice from '../FeatureNotice.vue';
 import { mapViewMethods, mapViewComputed } from "./map/mapView.js";
 import { mapConfig, ownerPalette } from "../../../data/communityTileMap";
@@ -2411,7 +2325,7 @@ import { mapInteractionComputed, mapInteractionMethods } from "./map/mapInteract
 import { mapEditingComputed, mapEditingMethods } from "./map/mapEditing.js";
 
 export default {
-  components: { FeatureNotice },
+  components: { FeatureNotice, SavedMapViews, MapToolbar },
   props: {
     embedded: {
       type: Boolean,
@@ -2448,6 +2362,11 @@ export default {
       mapViewLink: '',
       mapViewStatus: '',
       showMapViewLink: false,
+      activeSavedView: null,
+      savedViewLoading: false,
+      savedViewError: '',
+      savedViewsMapId: SUPABASE_MAP_ID,
+      overlayEnabled: false,
       isLiveSyncing: false,
       liveSyncError: "",
       loadError: "",
@@ -2550,7 +2469,7 @@ export default {
       tileNotesStatusTimer: null,
       // Panel UI state
       editPanelCollapsed: true,
-      editPanelTab: "edit",
+      editPanelTab: "overlays",
       overlayView: "civilization",
       overlayOwnerName: "",
       contrastHideDecorations: false,
@@ -2704,12 +2623,19 @@ export default {
       }
       this.scheduleMiniMapDrawIfVisible();
     },
+    'authUser.id'() {
+      this._savedViewFetchKey = null;
+      this.activeSavedView = null;
+      if (this.$route?.query?.saved_view) this.applyRequestedTileFromRoute();
+    },
     editPanelTab(nextValue) {
+      if (nextValue === "overlays") this.overlayEnabled = true;
       if (nextValue === "snapshots") {
         this.loadSnapshotsIfActive();
       }
       this.handleOverlayVisualizationChange();
     },
+    overlayEnabled() { this.handleOverlayVisualizationChange(); },
     overlayView() {
       this.handleOverlayVisualizationChange();
     },
@@ -2903,6 +2829,7 @@ export default {
 
   methods: {
     ...mapViewMethods,
+    ...mapSavedViewsMethods,
     ...mapSnapshotsMethods,
     ...mapAccessMethods,
     ...mapPersistenceMethods,
@@ -2955,160 +2882,14 @@ export default {
   color: color-mix(in srgb, var(--page-text-color), white 40%);
   font-size: 0.85rem;
 }
-.tile-map .tile-map-controls {
-  inline-size: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.tile-map .tile-map-controls .tile-map-control-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar {
-  inline-size: 100%;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--panel-bg-soft-color);
-  border: 1px solid var(--panel-border-color);
-  border-radius: 1rem;
-  padding-block: 0.35rem;
-  padding-inline: 0.6rem;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar > .tile-map-toolbar-row {
-  inline-size: 100%;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-toolbar-row {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-toolbar-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-toolbar-spacer {
-  min-inline-size: 0.5rem;
-  flex: 1 1 auto;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-mode-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-}
-.tile-map
-  .tile-map-controls
-  .tile-map-auth-toolbar
-  .tile-map-mode-toggle
-  .tile-edit-button {
-  min-block-size: 1.75rem;
-  min-inline-size: 4rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  border-radius: 999px;
-}
-.tile-map
-  .tile-map-controls
-  .tile-map-auth-toolbar
-  .tile-map-mode-toggle
-  .tile-edit-button:first-child {
-  border-start-end-radius: 0;
-  border-end-end-radius: 0;
-}
-.tile-map
-  .tile-map-controls
-  .tile-map-auth-toolbar
-  .tile-map-mode-toggle
-  .tile-edit-button:last-child {
-  border-start-start-radius: 0;
-  border-end-start-radius: 0;
-}
-.tile-map
-  .tile-map-controls
-  .tile-map-auth-toolbar
-  .tile-map-control-group-compact {
-  gap: 0.35rem;
-  margin-inline-start: auto;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-edit-auth-actions {
-  margin: 0;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-edit-auth-status {
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-edit-auth-user {
-  font-size: 0.75rem;
-}
-.tile-map .tile-map-controls .tile-map-auth-toolbar .tile-edit-hint {
-  font-size: 0.7rem;
-  margin: 0;
-}
-.tile-map .tile-map-controls .tile-map-control-label {
-  color: var(--panel-muted-color);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.tile-map .tile-map-controls .tile-map-control-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: var(--panel-bg-elevated-color);
-  border: 1px solid var(--panel-border-color);
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  padding-block: 0.25rem;
-  padding-inline: 0.35rem;
-}
-.tile-map .tile-map-controls .tile-map-control {
-  block-size: 2.4rem;
-  min-inline-size: 2.4rem;
-  color: var(--panel-text-color);
-  font-size: 0.85rem;
-  font-weight: 700;
-  background: var(--panel-bg-soft-color);
-  border: 1px solid var(--panel-border-color);
-  border-radius: 999px;
-  padding-inline: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.tile-map .tile-map-controls .tile-map-control:hover {
-  color: var(--back-color);
-  background: var(--accent-color);
-}
-.tile-map .tile-map-controls .tile-map-control-icon {
-  block-size: 2.1rem;
-  min-inline-size: 2.1rem;
-  font-size: 1.1rem;
-  border-radius: 50%;
-  border-color: var(--panel-border-color);
-  padding: 0;
-}
-.tile-map .tile-map-controls .tile-map-control-ghost {
-  white-space: nowrap;
-  background: var(--panel-bg-elevated-color);
-  border-color: var(--panel-border-color);
-}
-.tile-map .tile-map-controls .tile-map-control-ghost:hover {
-  color: #111;
-  background: rgba(255, 255, 255, 0.92);
-}
-.tile-map .tile-map-controls .tile-map-scale {
-  min-inline-size: 3.2rem;
-  color: var(--panel-muted-color);
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
+.tile-map .tile-map-heading { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-block-end: 1rem; }
+.tile-map .tile-map-heading .title-map-title { margin-block-end: 0; }
+.tile-map .tile-map-local-badge { border: 1px solid var(--accent-color); border-radius: 999px; padding: .25rem .65rem; color: var(--field-label-color); font-size: .8rem; font-weight: 700; }
+.tile-map .tile-edit-mode-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-block-end: .85rem; }
+.tile-map .tile-edit-mode-toggle { display: inline-flex; }
+.tile-map .tile-edit-mode-toggle .tile-edit-button { min-inline-size: 4rem; }
+.tile-map .tile-edit-mode-toggle .tile-edit-button:first-child { border-start-end-radius: 0; border-end-end-radius: 0; }
+.tile-map .tile-edit-mode-toggle .tile-edit-button:last-child { border-start-start-radius: 0; border-end-start-radius: 0; }
 .tile-map .tile-map-body {
   display: grid;
   align-items: start;
@@ -3522,35 +3303,6 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-}
-.tile-map .tile-map-info-toggle {
-  block-size: 2.5rem;
-  inline-size: 3rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--panel-text-color);
-  background: var(--panel-bg-soft-color);
-  border: 1px solid var(--panel-border-color);
-  border-radius: 999px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.tile-map .tile-map-info-toggle:hover {
-  color: var(--back-color);
-  background: var(--accent-color);
-}
-.tile-map .tile-map-info-toggle-icon {
-  block-size: 1.4rem;
-  inline-size: 1.4rem;
-  fill: currentColor;
-}
-.tile-map .tile-map-toolbar-divider {
-  block-size: 1.8rem;
-  inline-size: 1px;
-  background: var(--panel-border-color);
-  margin-inline: 0.5rem;
 }
 .tile-map .tile-map-info-tabs {
   display: inline-flex;
@@ -4051,6 +3803,37 @@ export default {
 .tile-map .tile-overlay-card {
   margin-block-end: 0.75rem;
 }
+.tile-map .tile-overlay-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-block-end: 0.8rem;
+}
+.tile-map .tile-overlay-header .tile-info-title {
+  margin-block-end: 0;
+}
+.tile-map .tile-map-overlay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-block-size: 32px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tile-map .tile-map-overlay-toggle input {
+  flex: 0 0 auto;
+  inline-size: 1rem;
+  block-size: 1rem;
+  margin: 0;
+  accent-color: var(--accent-color);
+}
+.tile-map .tile-map-overlay-toggle input:focus-visible {
+  outline: 3px solid var(--field-label-color);
+  outline-offset: 3px;
+}
 .tile-map .tile-overlay-body {
   display: grid;
   gap: 0.75rem;
@@ -4500,37 +4283,6 @@ export default {
   .tile-map .tile-map-legend {
     order: 3;
   }
-  .tile-map .tile-map-controls {
-    inline-size: 100%;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    overflow-x: hidden;
-  }
-  .tile-map .tile-map-controls .tile-map-control-group {
-    flex-wrap: wrap;
-    min-inline-size: 0;
-    max-inline-size: 100%;
-  }
-  .tile-map .tile-map-controls .tile-map-auth-toolbar {
-    flex-wrap: wrap;
-    min-inline-size: 0;
-  }
-  .tile-map .tile-map-controls .tile-map-auth-toolbar .tile-map-toolbar-row {
-    flex-wrap: wrap;
-    min-inline-size: 0;
-  }
-  .tile-map .tile-map-control {
-    block-size: 2.8rem;
-    min-inline-size: 2.8rem;
-    max-inline-size: 100%;
-    font-size: 0.95rem;
-    padding-inline: 0.9rem;
-  }
-  .tile-map .tile-map-control-pill {
-    inline-size: fit-content;
-    max-inline-size: 100%;
-    justify-content: space-between;
-  }
   .tile-map .tile-map-viewport {
     min-block-size: 15rem;
   }
@@ -4652,17 +4404,6 @@ export default {
   .tile-map .tile-map-viewport {
     min-block-size: 14rem;
   }
-  .tile-map .tile-map-toolbar-spacer {
-    display: none;
-  }
-  .tile-map .tile-map-control-group-compact {
-    gap: 0.5rem !important;
-    margin-inline-start: 0 !important;
-  }
-  .tile-map .tile-map-toolbar-toggle,
-  .tile-map .tile-map-toolbar-divider {
-    display: none;
-  }
   .tile-map .tile-map-info {
     gap: 0.75rem;
   }
@@ -4775,7 +4516,6 @@ export default {
 }
 
 
-.tile-map .tile-map-controls .tile-map-control-actions { flex-wrap: wrap; }
 .tile-map.is-fullscreen .tile-map-info { max-height: 100%; overflow: auto; }
 .tile-map.is-fullscreen .tile-map-body { align-items: stretch; }
 </style>

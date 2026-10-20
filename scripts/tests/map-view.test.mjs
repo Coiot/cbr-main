@@ -181,3 +181,12 @@ test('shared snapshots preserve an explicitly empty comparison', t => {
   target.$route.query = Object.fromEntries(url.searchParams);
   target.applySharedMapView(); assert.equal(target.snapshotCompareId, '');
 });
+
+test('older shared links keep existing contrast and default comparison when those parameters are omitted', () => {
+  const target = viewContext();
+  target.$route.query = { view: '500,300,1.4', snapshot: target.snapshotViewId };
+  target.applySharedMapView();
+  assert.equal(target.contrastHideDecorations, true);
+  assert.equal(target.snapshotCompareId, 's5-episode-33');
+  assert.equal(target.scale, 1.4);
+});

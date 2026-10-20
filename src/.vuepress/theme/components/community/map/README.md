@@ -28,6 +28,14 @@ unique across the exported objects. Browser-facing Supabase settings come from
 Run `npm run test:site` for offline behavior regressions. VuePress's production
 build also checks the component imports and server rendering.
 
+`MapToolbar.vue` groups navigation into a single row. Views opens the existing
+community-view lists, saving, and sharing; More contains the minimap and shortcut
+guide, plus Fit and fullscreen below 900px. Native disclosures share focus and
+dismissal behavior in `toolbarDisclosure.mjs`. `SavedMapViews.open(section)`
+accepts `explore`, `following`, or `mine`; omitting the argument keeps the current
+list. Live/Local selection and access notices belong to the Edit panel, with a
+Local-only badge beside the page title when local editing is active.
+
 Initial map loading requests base and state JSON concurrently. Mobile Safari's
 explicit deferred-state mode still renders the base map before requesting state.
 Missing base JSON retains the binary map fallback; missing state remains optional.

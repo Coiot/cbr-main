@@ -3,7 +3,6 @@ import { test } from 'node:test';
 import { createAccountSync, subscribeAccountAuth } from '../../src/.vuepress/theme/account/accountSync.js';
 import { albumAccountMethods } from '../../src/.vuepress/theme/components/albums/behavior/albumAccount.js';
 import { mapAccessMethods } from '../../src/.vuepress/theme/components/community/map/mapAccess.js';
-import { supporterEmails, fetchSupporterEmails } from '../../supabase/functions/check-kofi-subscriber/supporterList.mjs';
 import { createSupporterHandler } from '../../supabase/functions/check-kofi-subscriber/handler.mjs';
 
 const user = { id: 'reader-a', email: 'reader@example.com' };
@@ -134,51 +133,38 @@ test('auth notifications defer work, coalesce duplicate initial events, and stop
   await new Promise(resolve => setTimeout(resolve, 5)); assert.equal(events.length, 1); assert.equal(unsubscribed, true);
 });
 
-test('supporter CSV supports headers, no headers, quotes, case, and blank rows', () => {
-  assert.deepEqual([...supporterEmails('First, FIRST@example.com ,Name\r\nSecond,second@example.com,"A, B"')], ['first@example.com', 'second@example.com']);
-  assert.deepEqual([...supporterEmails('\uFEFFName,Email,Label\nFirst,first@example.com,First\n\n')], ['first@example.com']);
-  assert.throws(() => supporterEmails('<html>Sign in</html>'));
-  assert.throws(() => supporterEmails('Name,Email\nNobody,not-an-email'));
-});
-
-test('supporter fetch prefers the direct sheet and falls back after network errors with the same tab', async () => {
-  const values = { GOOGLE_SHEET_ID: 'sheet', GOOGLE_SHEET_GID: '123', GOOGLE_SHEET_PUB_ID: 'published' }, urls = [];
-  const emails = await fetchSupporterEmails(key => values[key], async url => {
-    urls.push(url); if (urls.length === 1) throw new Error('Network');
-    return new Response('Name,first@example.com');
-  });
-  assert.ok(urls[0].includes('/d/sheet/export')); assert.equal(new URL(urls[1]).searchParams.get('gid'), '123');
-  assert.ok(emails.has('first@example.com'));
-});
-
-function verifierHarness({ email = user.email, existing = false, failList = false } = {}) {
-  const writes = [];
+function verifierHarness({ email = user.email, allowed = false, enabled = true, fail = false } = {}) {
+  const writes = [], checks = [];
+  const identity = { ...user, id: email === user.email ? user.id : 'different-account', email };
   const handler = createSupporterHandler({
-    env: key => ({ SUPABASE_URL: 'https://example.test', SUPABASE_ANON_KEY: 'anon', SUPABASE_SERVICE_ROLE_KEY: 'service', GOOGLE_SHEET_ID: 'sheet' })[key],
-    fetcher: async () => failList ? new Response('<html>Error</html>') : new Response(`Donor,${user.email}`),
+    env: key => ({ SUPABASE_URL: 'https://example.test', SUPABASE_ANON_KEY: 'anon', SUPABASE_SERVICE_ROLE_KEY: 'service' })[key],
     createClient: (_url, key) => key === 'anon'
-      ? { auth: { getUser: async token => token === 'valid' ? { data: { user: { ...user, email } } } : { data: {}, error: new Error('Invalid') } } }
-      : { rpc: async () => ({ data: { enabled: false } }), from: () => ({ upsert: row => { writes.push(row); return { select: () => ({ single: async () => ({ data: { can_edit: row.can_edit ?? existing } }) }) }; } }) },
+      ? { auth: { getUser: async token => token === 'valid' ? { data: { user: identity } } : { data: {}, error: new Error('Invalid') } } }
+      : { rpc: async (name, params) => { checks.push(params); return fail ? { error: new Error('Unavailable') } : { data: { enabled, allowed, status: allowed ? 'active' : 'none' } }; }, from: () => ({ upsert: async row => { writes.push(row); return {}; } }) },
   });
   const call = (token = 'valid', body = {}) => handler(new Request('https://example.test/check', { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }));
-  return { call, writes };
+  return { call, writes, checks };
 }
 
-test('verifier grants the first donor using verified identity and ignores a submitted email', async () => {
-  const donor = verifierHarness(); assert.equal((await (await donor.call()).json()).allowed, true);
+test('verifier checks only verified account ID and ignores a submitted donor email', async () => {
+  const donor = verifierHarness({ allowed: true }); assert.equal((await (await donor.call()).json()).allowed, true);
   const stranger = verifierHarness({ email: 'stranger@example.com' });
   assert.equal((await (await stranger.call('valid', { email: user.email })).json()).allowed, false);
+  assert.deepEqual(stranger.checks, [{ target_user: 'different-account' }]);
   assert.equal((await stranger.call('invalid')).status, 401);
   assert.equal(stranger.writes.length, 1);
 });
 
-test('verifier preserves manual access and never writes a denial during a sheet outage', async () => {
-  const manual = verifierHarness({ email: 'manual@example.com', existing: true });
-  assert.equal((await (await manual.call()).json()).allowed, true); assert.ok(!Object.hasOwn(manual.writes[0], 'can_edit'));
-  const outage = verifierHarness({ failList: true });
-  assert.equal((await outage.call()).status, 503); assert.equal(outage.writes.length, 0);
+test('verifier fails safely without writing cached flags when payment access is disabled or unavailable', async () => {
+  for (const options of [{ enabled: false }, { fail: true }]) {
+    const unavailable = verifierHarness(options);
+    assert.equal((await unavailable.call()).status, 503);
+    assert.equal(unavailable.writes.length, 0);
+  }
+  const manual = verifierHarness({ allowed: true });
+  assert.equal((await (await manual.call()).json()).allowed, true);
+  assert.equal(manual.writes[0].can_edit, true);
 });
-
 
 test('a formerly granted account loses access after verification and stale profile reads cannot restore it', async () => {
   const h = accountHarness();

@@ -60,7 +60,7 @@
               </span>
               <span class="list-text">New? Start here</span>
             </router-link>
-            <a href="https://ko-fi.com/coiot" class="list">
+            <router-link to="/support/" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -68,8 +68,8 @@
                   />
                 </svg>
               </span>
-              <span class="list-text">Ko-Fi Donations</span>
-            </a>
+              <span class="list-text">Support CBR</span>
+            </router-link>
             <a href="https://www.youtube.com/@docido3976" class="list">
               <span class="list-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" aria-hidden="true">

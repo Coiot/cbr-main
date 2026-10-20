@@ -38,14 +38,9 @@
 
     <SiteFooter :footer="$page.frontmatter.footer" />
 
-    <a
-      class="site-support-link"
-      href="https://ko-fi.com/coiot"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <router-link v-if="$route.path !== '/support/'" class="site-support-link" to="/support/">
       Keep the Show Going!
-    </a>
+    </router-link>
   </div>
 </template>
 
@@ -60,6 +55,10 @@ import { resolveSidebarItems } from "./util";
 const Albums = defineAsyncComponent(() => import("./layout/Albums.vue"));
 const Home = defineAsyncComponent(() => import("./layout/Home.vue"));
 const StartHere = defineAsyncComponent(() => import("./layout/StartHere.vue"));
+const SceneCollections = defineAsyncComponent(() => import("./layout/SceneCollections.vue"));
+const Supporters = defineAsyncComponent(() => import("./layout/Supporters.vue"));
+const SupporterProfile = defineAsyncComponent(() => import("./layout/SupporterProfile.vue"));
+const Support = defineAsyncComponent(() => import("./layout/Support.vue"));
 const Page = defineAsyncComponent(() => import("./layout/Page.vue"));
 const Other = defineAsyncComponent(() => import("./layout/Other.vue"));
 const CommunityTileMap = defineAsyncComponent(() =>
@@ -74,6 +73,10 @@ export default {
     Albums,
     Home,
     StartHere,
+    Support,
+    Supporters,
+    SupporterProfile,
+    SceneCollections,
     Page,
     Other,
     CommunityTileMap,

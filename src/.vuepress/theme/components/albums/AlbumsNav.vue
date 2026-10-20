@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="prev || next || (compact && archive)" class="page-nav" :class="{ 'page-nav--compact': compact }" aria-label="Episode navigation">
+  <nav v-if="prev || next || (compact && archive)" class="page-nav" :class="{ 'page-nav--compact': compact }" :aria-label="label">
     <template v-if="compact">
       <router-link v-if="archive" class="archive-link" :to="archive.to">
         <span aria-hidden="true">←</span> {{ archive.label }}
@@ -40,6 +40,7 @@
 export default {
   name: "AlbumsNav",
   props: {
+    label: { type: String, default: "Episode navigation" },
     compact: {
       type: Boolean,
       default: false,

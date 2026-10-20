@@ -22,3 +22,6 @@ __pycache__/
 
 # Private Ko-fi webhook verification token
 .env.kofi
+
+# Supabase CLI connection and version cache
+supabase/.temp/

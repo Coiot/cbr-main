@@ -11,18 +11,11 @@ if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
 }
 
-const SHEET_ID = process.env.GOOGLE_SHEET_ID;
-const SHEET_GID = process.env.GOOGLE_SHEET_GID || "0";
-const PUBLISHED_ID = process.env.GOOGLE_SHEET_PUB_ID;
-const PUBLISHED_URL = process.env.GOOGLE_SHEET_PUB_URL || "";
+// Explicit CSV input remains available for offline fixtures. Production uses only Supabase.
 const SUPPORTERS_CSV_FILE = process.env.SUPPORTERS_CSV_FILE || "";
 const ALLOW_STALE_ON_FETCH_ERROR =
-  (process.env.SUPPORTERS_ALLOW_STALE_ON_FETCH_ERROR || "true") === "true";
+  (process.env.SUPPORTERS_ALLOW_STALE_ON_FETCH_ERROR || "false") === "true";
 
-const EMAIL_COLUMN = Number.parseInt(
-  process.env.SUPPORTERS_EMAIL_COLUMN || "1",
-  10
-);
 const NAME_COLUMN = Number.parseInt(
   process.env.SUPPORTERS_NAME_COLUMN || "2",
   10
@@ -37,10 +30,6 @@ const SUPABASE_SERVICE_KEY =
   process.env.SUPABASE_SERVICE_KEY ||
   process.env.SUPABASE_SERVICE_ROLE_KEY ||
   "";
-const SUPABASE_PROFILES_TABLE =
-  process.env.SUPPORTERS_PROFILES_TABLE || "profiles";
-const SUPABASE_SETTINGS_TABLE =
-  process.env.SUPPORTERS_USER_SETTINGS_TABLE || "user_settings";
 
 const OUTPUT_PATH =
   process.env.SUPPORTERS_OUTPUT ||
@@ -285,80 +274,10 @@ function parseCsv(csv) {
   return rows;
 }
 
-async function fetchSheetCsv() {
-  if (SUPPORTERS_CSV_FILE) {
-    const csvPath = path.isAbsolute(SUPPORTERS_CSV_FILE)
-      ? SUPPORTERS_CSV_FILE
-      : path.join(process.cwd(), SUPPORTERS_CSV_FILE);
-    if (!fs.existsSync(csvPath)) {
-      throw new Error(`SUPPORTERS_CSV_FILE not found: ${csvPath}`);
-    }
-    return {
-      csv: fs.readFileSync(csvPath, "utf8"),
-      source: `local CSV (${csvPath})`,
-    };
-  }
-  if (!SHEET_ID) {
-    throw new Error(
-      "Missing GOOGLE_SHEET_ID. Set GOOGLE_SHEET_ID or SUPPORTERS_CSV_FILE."
-    );
-  }
-  const primaryUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
-  const publishedCsvUrl = PUBLISHED_URL
-    ? PUBLISHED_URL.replace(/\/pubhtml(?:\?.*)?$/i, "/pub?output=csv")
-    : PUBLISHED_ID
-    ? `https://docs.google.com/spreadsheets/d/e/${PUBLISHED_ID}/pub?output=csv`
-    : "";
-  let response;
-  let sourceUrl = primaryUrl;
-  try {
-    response = await fetch(primaryUrl);
-  } catch (error) {
-    if (publishedCsvUrl) {
-      try {
-        response = await fetch(publishedCsvUrl);
-        sourceUrl = publishedCsvUrl;
-      } catch (publishedError) {
-        const detail =
-          publishedError && publishedError.message
-            ? publishedError.message
-            : String(publishedError);
-        throw new Error(
-          `Unable to fetch Google Sheet (${primaryUrl}) and published backup (${publishedCsvUrl}). ${detail}. ` +
-            "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
-        );
-      }
-    } else {
-      const detail = error && error.message ? error.message : String(error);
-      throw new Error(
-        `Unable to fetch Google Sheet (${primaryUrl}). ${detail}. ` +
-          "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
-      );
-    }
-  }
-  if (!response.ok && publishedCsvUrl && sourceUrl !== publishedCsvUrl) {
-    try {
-      response = await fetch(publishedCsvUrl);
-      sourceUrl = publishedCsvUrl;
-    } catch (error) {
-      const detail = error && error.message ? error.message : String(error);
-      throw new Error(
-        `Unable to fetch published Google Sheet (${publishedCsvUrl}). ${detail}. ` +
-          "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
-      );
-    }
-  }
-  const csv = await response.text();
-  if (!response.ok) {
-    throw new Error(
-      `Unable to read Google Sheet (status ${response.status}). ` +
-        "If you are offline, set SUPPORTERS_CSV_FILE to a local CSV."
-    );
-  }
-  return {
-    csv,
-    source: `Google Sheet (${sourceUrl})`,
-  };
+function readOfflineCsv() {
+  const csvPath = path.resolve(SUPPORTERS_CSV_FILE);
+  if (!fs.existsSync(csvPath)) throw new Error(`SUPPORTERS_CSV_FILE not found: ${csvPath}`);
+  return fs.readFileSync(csvPath, "utf8");
 }
 
 async function loadCivColors() {
@@ -385,105 +304,11 @@ async function loadCivColors() {
   }
 }
 
-async function fetchSupabaseCivOverrides() {
-  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
-    return new Map();
-  }
-  let createClient;
-  try {
-    ({ createClient } = require("@supabase/supabase-js"));
-  } catch (error) {
-    console.warn("Supabase client unavailable. Skipping civ overrides.");
-    return new Map();
-  }
-  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-  const { data: profiles, error: profilesError } = await supabase
-    .from(SUPABASE_PROFILES_TABLE)
-    .select("id,email");
-  if (profilesError) {
-    console.warn("Unable to load profile emails.", profilesError);
-    return new Map();
-  }
-  const { data: settingsRows, error: settingsError } = await supabase
-    .from(SUPABASE_SETTINGS_TABLE)
-    .select("user_id, settings");
-  if (settingsError) {
-    console.warn("Unable to load user settings.", settingsError);
-    return new Map();
-  }
-  const emailById = new Map();
-  (profiles || []).forEach((profile) => {
-    const email = profile && profile.email ? String(profile.email) : "";
-    if (!profile || !profile.id || !email) {
-      return;
-    }
-    emailById.set(profile.id, email.trim().toLowerCase());
-  });
-  const overrides = new Map();
-  (settingsRows || []).forEach((row) => {
-    if (!row || !row.user_id) {
-      return;
-    }
-    const email = emailById.get(row.user_id);
-    if (!email) {
-      return;
-    }
-    const settings =
-      row.settings && typeof row.settings === "object" ? row.settings : {};
-    const favorite =
-      typeof settings.favoriteCiv === "string"
-        ? settings.favoriteCiv.trim()
-        : "";
-    if (favorite) {
-      overrides.set(email, favorite);
-    }
-  });
-  return overrides;
-}
-
-function pickEntries(rows, civOverrides = new Map()) {
-  if (!rows.length) {
-    return [];
-  }
-  const body = rows.slice(1);
-  const byName = new Map();
-
-  body.forEach((row) => {
-    const rawEmail = String(row[EMAIL_COLUMN] || "")
-      .trim()
-      .toLowerCase();
-    const rawName = String(row[NAME_COLUMN] || "").trim();
-    if (!rawName) {
-      return;
-    }
-    if (rawName.trim().toLowerCase() === "coiot") {
-      return;
-    }
-    const nameKey = rawName.trim().toLowerCase();
-    const overrideCiv = rawEmail ? civOverrides.get(rawEmail) : "";
-    const hasOverride = Boolean(overrideCiv && String(overrideCiv).trim());
-    const rawCiv = overrideCiv
-      ? String(overrideCiv).trim()
-      : String(row[CIV_COLUMN] || "").trim();
-    const name = UPPERCASE ? rawName.toUpperCase() : rawName;
-    const civLabel = rawCiv ? (UPPERCASE ? rawCiv.toUpperCase() : rawCiv) : "";
-    const existing = byName.get(nameKey);
-    if (!existing) {
-      byName.set(nameKey, { name, civ: rawCiv, civLabel, hasOverride });
-      return;
-    }
-    if (hasOverride && !existing.hasOverride) {
-      byName.set(nameKey, { name, civ: rawCiv, civLabel, hasOverride });
-    }
-  });
-
-  return Array.from(byName.values())
-    .map(({ hasOverride: _hasOverride, ...entry }) => entry)
-    .sort((a, b) =>
-      a.name.localeCompare(b.name, "en", { sensitivity: "base" })
-    );
+function pickEntries(rows) {
+  const entries = rows.slice(1).map(row => ({ display_name: row[NAME_COLUMN], favorite_civ: row[CIV_COLUMN] }));
+  // Same formatting and email protection as the database path.
+  const { formatCreditEntries } = require("./supporters/credits.mjs");
+  return formatCreditEntries(entries, UPPERCASE);
 }
 
 function hydrateEntries(entries, civColors, normalizeOwnerKey) {
@@ -606,7 +431,7 @@ function buildSvg(entries, civSummary) {
   const startX = (WIDTH - contentWidth) / 2;
   const startY = PADDING + titleOffset;
   const height =
-    PADDING * 2 + titleOffset + namesHeight + countsGap + countsHeight;
+    PADDING * 2 + titleOffset + namesHeight + countsGap + countsHeight + 90;
 
   const titleText = UPPERCASE ? TITLE.toUpperCase() : TITLE;
   const fontFace =
@@ -770,6 +595,12 @@ function buildSvg(entries, civSummary) {
       fill: ${COUNTS_LABEL_COLOR};
       letter-spacing: ${NAME_LETTER_SPACING};
     }
+    .directory-link {
+      font-family: ${FONT_FAMILY};
+      font-size: 28px;
+      fill: ${BAR_COLOR};
+    }
+    a:focus .directory-link, a:hover .directory-link { text-decoration: underline; }
     .side-bar {
       fill: ${BAR_COLOR};
     }
@@ -798,6 +629,9 @@ ${countsNodes}
   </g>`
       : ""
   }
+  <a href="https://civbattleroyale.tv/supporters/" target="_blank" rel="noopener noreferrer" aria-label="Meet the CBR supporters">
+    <text class="directory-link" x="${WIDTH / 2}" y="${height - PADDING * 0.65}" text-anchor="middle">Meet the supporters → civbattleroyale.tv/supporters/</text>
+  </a>
 </svg>
 `;
 }
@@ -805,34 +639,28 @@ ${countsNodes}
 async function run() {
   // Validate explicit identity before fetching data or writing output.
   supportersEpisode();
-  let csv;
-  let source;
+  let entries;
   try {
-    const fetchResult = await fetchSheetCsv();
-    csv = fetchResult.csv;
-    source = fetchResult.source;
+    if (SUPPORTERS_CSV_FILE) {
+      entries = pickEntries(parseCsv(readOfflineCsv()));
+      console.log("Using supporters source: explicit offline CSV");
+    } else {
+      const { fetchDatabaseCredits, formatCreditEntries } = await import("./supporters/credits.mjs");
+      const rows = await fetchDatabaseCredits(SUPABASE_URL, SUPABASE_SERVICE_KEY);
+      entries = formatCreditEntries(rows, UPPERCASE);
+      console.log(`Using supporters source: Supabase active supporter records (${rows.length} supporters)`);
+    }
+    if (!entries.length) throw new Error("No supporter credits were available. Existing artwork was not replaced.");
   } catch (error) {
     if (ALLOW_STALE_ON_FETCH_ERROR && fs.existsSync(OUTPUT_PATH)) {
-      const detail = error && error.message ? error.message : String(error);
-      console.warn(
-        `Skipping supporters rebuild and keeping existing output at ${OUTPUT_PATH}.`
-      );
-      console.warn("Using supporters source: existing output (stale fallback)");
-      console.warn(detail);
+      console.warn("Using existing supporters artwork (explicit stale fallback); current access was not checked.");
       copySupportersToDownloads();
       return;
     }
     throw error;
   }
-  console.log(`Using supporters source: ${source}`);
-  const rows = parseCsv(csv);
   const { OWNER_COLOR_MAP, normalizeOwnerKey } = await loadCivColors();
-  const civOverrides = await fetchSupabaseCivOverrides();
-  const entries = hydrateEntries(
-    pickEntries(rows, civOverrides),
-    OWNER_COLOR_MAP,
-    normalizeOwnerKey
-  );
+  entries = hydrateEntries(entries, OWNER_COLOR_MAP, normalizeOwnerKey);
   const civSummary = buildCivSummary(entries);
   const svg = buildSvg(entries, civSummary);
   fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });

@@ -5,7 +5,7 @@ import { RELIGION_OVERLAY_DEFINITIONS, RELIGION_OVERLAY_FALLBACK_COLORS } from "
 
 export const mapOverlaysComputed = {
   isOverlayTabActive() {
-    return this.editPanelTab === "overlays";
+    return this.overlayEnabled;
   },
   isCivilizationOverlayActive() {
     return this.isOverlayTabActive && this.overlayView === "civilization";

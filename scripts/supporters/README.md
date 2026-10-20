@@ -2,8 +2,9 @@
 
 New payments go directly from Ko-fi to the Supabase `kofi-payment` function.
 The receiver authenticates the private verification token, accepts donation and
-subscription payments, and stores only email, IDs, date, amount, currency and
-payment kind. Shop orders, commissions and dashboard samples do not grant access.
+subscription payments, and stores email, IDs, date, amount, currency and payment
+kind. A separate private credit table retains public Ko-fi display names and
+their visibility choice. Shop orders, commissions and dashboard samples do not grant access.
 Payment IDs and transaction IDs are unique: retries cannot extend access twice.
 
 * One-time donation: **32 days from payment**, not delivery time.
@@ -53,10 +54,10 @@ If no dated export exists, the transition gives recurring payments a cycle to
 arrive without keeping old grants forever. Historical supporters without an
 account need a dated import or a new payment; the old sheet contains no dates.
 
-Until step 7 the checker retains its current sheet fallback. This allows the
-backend and site to be deployed safely without starting an expiry clock before
-Ko-fi is connected. Do not reapply older access policy/migration files afterward;
-apply this migration last if rebuilding the database.
+The current checker requires payment mode after step 7; it no longer falls back
+to the old sheet. Do not reapply older access policy/migration files afterward.
+Apply `supporter-credits.sql` after this access migration when rebuilding the
+database.
 
 ## Native Ko-fi member CSV bootstrap
 
@@ -143,3 +144,50 @@ retry responses, parsing, account refresh and messages. The database preflight
 runs inside a rollback transaction and checks 32-day access, month ends, replay
 protection, out-of-order payments, expiry despite stale flags, RLS rejection,
 verified email ownership, future signups and manual exceptions.
+
+## Supporters SVG credits (database only)
+
+Apply `supabase/sql/supporter-credits.sql` **after** `supporter-access.sql`, then
+deploy the current `kofi-payment` and `check-kofi-subscriber` functions. The checker
+now requires payment mode and never consults a spreadsheet. Reapply the credits
+migration if rebuilding from the older access migration.
+
+The SVG builder calls the service-only `get_supporter_credits` RPC. Inclusion uses
+unexpired, unrevoked payment periods and explicit grants, including the original
+one-time migration window. There is no dependency on `profiles.can_edit`, a
+Google Sheet, a site login, or a scheduled expiry job.
+
+Credit identity matches verified `auth.users.email`. The display name prefers the
+website username, then an imported credit name, then a public Ko-fi display name.
+An account's saved favourite civ overrides the imported civ, including an
+explicitly cleared choice. Payment emails never appear in artwork. Private or
+unnamed donations receive a combined anonymous acknowledgement. A newer private
+Ko-fi payment hides earlier public/legacy names; out-of-order payments and
+webhook retries cannot change a newer credit choice. Existing episode SVGs remain
+historical snapshots; membership changes affect newly generated artwork.
+
+One-time name migration (these commands do **not** grant/extend access):
+
+```sh
+npm run supporters:credits -- --legacy-sheet
+npm run supporters:credits -- --legacy-sheet --apply
+# Optional: fill missing historical names from a saved Ko-fi member CSV.
+npm run supporters:credits -- --file /path/to/Subscriber.csv --apply
+```
+
+The first command previews aggregate counts only. `--legacy-sheet` reads the old
+sheet solely for this explicit import; ordinary SVG generation cannot read it.
+Repeated imports fill missing names/civs and preserve existing imported choices.
+Native Ko-fi CSV signup dates and pledge columns never become payment dates or
+civ choices. After the import, remove `GOOGLE_SHEET_*`, `SUPPORTERS_EMAIL_COLUMN`,
+`SUPPORTERS_PROFILES_TABLE`, and `SUPPORTERS_USER_SETTINGS_TABLE` from
+`.env.supporters`. Keep the Supabase credentials and artwork formatting options.
+
+`npm run build:supporters` retains the same SVG rendering and filename behaviour.
+The release automation still stages artwork in its release folder and uploads it
+to Bunny. Database errors or an empty active roster stop generation, preserving
+existing artwork. An explicit `SUPPORTERS_ALLOW_STALE_ON_FETCH_ERROR=true` is
+available for manual recovery; automatic release preparation always disables it.
+`SUPPORTERS_CSV_FILE` remains an explicit offline fixture override, with no
+automatic CSV or spreadsheet fallback. Public clients cannot read the payment
+ledger, credit identities, or the private credit RPC.

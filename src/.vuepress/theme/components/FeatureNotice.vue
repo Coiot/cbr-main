@@ -1,7 +1,7 @@
 <template>
   <div v-if="notice" class="feature-notice">
     <p role="status">{{ notice.message }}</p>
-    <a v-if="notice.action === 'donate'" href="https://ko-fi.com/coiot" target="_blank" rel="noopener noreferrer">{{ notice.actionLabel }}</a>
+    <router-link v-if="notice.action === 'donate'" to="/support/">{{ notice.actionLabel }}</router-link>
     <button v-else-if="notice.action" type="button" @click="$emit('action', notice.action)">{{ notice.actionLabel }}</button>
   </div>
 </template>

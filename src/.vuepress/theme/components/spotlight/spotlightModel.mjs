@@ -8,6 +8,7 @@ export const MOODS = [
 ];
 export const normalizePath = value => String(value || '').trim().replace(/\.html?$/i, '/').replace(/\/*$/, '/');
 export const normalizeReaction = value => String(value || '').toLowerCase().replace(/[\s_-]+/g, '').replace(/^mindblow$/, 'mindblown');
+export const sceneAlbumLabel = scene => `${/^\/albums\/pr\/s\d+pr\d+\/$/.test(scene.path || '') ? 'Power Rankings' : 'Episode'} ${scene.episodeNumber}`;
 export const episodeNumber = album => Number(album.episode_number) || Number(String(album.path).match(/(?:episode|part)(\d+(?:\.\d+)?)/i)?.[1]) || 0;
 export function buildEpisodes(catalog, index, now = Date.now()) {
   const scenes = new Map(index.map(album => [normalizePath(album.path), album.scenes]));

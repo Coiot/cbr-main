@@ -1,6 +1,5 @@
 // Sharing, fullscreen, and keyboard selection for the public map viewer.
-const CONTRAST_FIELDS = ['contrastHideDecorations', 'contrastFlattenLandWater', 'contrastGrayscaleTerrain', 'contrastBoostOwnerOpacity', 'contrastLargeCityBanners'];
-const OVERLAYS = new Set(['civilization', 'population', 'religion', 'contrast']);
+import { CONTRAST_FIELDS, mapViewSettingsFromQuery, mapViewSettingsQuery } from './savedViewSettings.mjs';
 
 export function parseMapView(value) {
   if (typeof value !== 'string') return null;
@@ -23,53 +22,62 @@ export const mapViewMethods = {
     if (this.embedded || !String(this.$route?.path || '').includes('/community-tile-map')) return null;
     return parseMapView(this.$route?.query?.view);
   },
-  applySharedMapView() {
-    const view = this.resolveRouteMapView();
-    if (!view) return false;
-    // The route can arrive before the cached map has loaded.
-    if (!this.tiles.length || !this.gridWidth || !this.gridHeight) return true;
-    const query = this.$route?.query || {};
-    if (OVERLAYS.has(query.overlay)) {
-      this.overlayView = query.overlay;
-      this.overlayOwnerName = typeof query.owner === 'string' ? query.owner : '';
-      this.editPanelTab = 'overlays';
-    }
-    if (typeof query.contrast === 'string' && /^[01]{5}$/.test(query.contrast)) {
-      CONTRAST_FIELDS.forEach((key, index) => { this[key] = query.contrast[index] === '1'; });
-    }
-    if (this.snapshotViewId && typeof query.compare === 'string') this.snapshotCompareId = query.compare;
-    const tileKey = this.resolveRouteTileKey();
-    this.selectedTile = this.tileLookup?.get(tileKey) || null;
+  captureMapViewSettings() {
+    const round = value => Number(value.toFixed(4));
+    return {
+      version: 1,
+      x: round((this.viewportSize.width / 2 - this.translate.x) / this.scale),
+      y: round((this.viewportSize.height / 2 - this.translate.y) / this.scale),
+      zoom: round(this.scale),
+      overlay: this.isOverlayTabActive ? this.overlayView : 'none',
+      owner: this.isOverlayTabActive && this.overlayView === 'civilization' ? this.overlayOwnerName || '' : '',
+      contrast: CONTRAST_FIELDS.map(key => this[key] ? '1' : '0').join(''),
+      tile: this.selectedTile?.key || '', snapshot: this.snapshotViewId || '',
+      compare: this.snapshotViewId ? this.snapshotCompareId || '' : '',
+    };
+  },
+  applyMapViewSettings(settings, isCurrent = () => !this._mapDisposed) {
+    if (!this.tiles.length || !this.gridWidth || !this.gridHeight) return;
+    this.overlayView = settings.overlay === 'none' ? 'civilization' : settings.overlay;
+    this.overlayEnabled = settings.overlay !== 'none';
+    this.overlayOwnerName = settings.owner;
+    if (this.overlayEnabled) this.editPanelTab = 'overlays';
+    const contrast = Object.fromEntries(CONTRAST_FIELDS.map((key, index) => [key, settings.contrast[index] === '1']));
+    // Shared display settings belong to this session, not the reader's preferences.
+    if (this.applyContrastSettings) this.applyContrastSettings(contrast);
+    else Object.assign(this, contrast);
+    if (this.snapshotViewId) this.snapshotCompareId = settings.compare;
+    this.selectedTile = this.tileLookup?.get(settings.tile) || null;
     this.hasUserViewportInteraction = true;
     this.$nextTick(() => {
-      const current = this.resolveRouteMapView();
-      if (this._mapDisposed || !current || current.x !== view.x || current.y !== view.y || current.zoom !== view.zoom) return;
+      if (!isCurrent()) return;
       this.updateViewportSize();
-      this.scale = Math.min(this.maxScale, Math.max(this.minScale, view.zoom));
+      this.scale = Math.min(this.maxScale, Math.max(this.minScale, settings.zoom));
       this.translate = this.clampTranslate({
-        x: this.viewportSize.width / 2 - Math.max(0, Math.min(this.gridWidth, view.x)) * this.scale,
-        y: this.viewportSize.height / 2 - Math.max(0, Math.min(this.gridHeight, view.y)) * this.scale,
+        x: this.viewportSize.width / 2 - Math.max(0, Math.min(this.gridWidth, settings.x)) * this.scale,
+        y: this.viewportSize.height / 2 - Math.max(0, Math.min(this.gridHeight, settings.y)) * this.scale,
       }, this.scale);
+    });
+  },
+  applySharedMapView() {
+    const settings = mapViewSettingsFromQuery(this.$route?.query || {});
+    const requested = this.resolveRouteMapView();
+    if (!requested || !settings) return false;
+    const query = this.$route?.query || {};
+    if (!settings.tile) settings.tile = this.resolveRouteTileKey() || '';
+    if (typeof query.contrast !== 'string' || !/^[01]{5}$/.test(query.contrast)) settings.contrast = CONTRAST_FIELDS.map(key => this[key] ? '1' : '0').join('');
+    if (typeof query.compare !== 'string') settings.compare = this.snapshotCompareId || '';
+    // The route can arrive before the cached map has loaded.
+    this.applyMapViewSettings(settings, () => {
+      const current = this.resolveRouteMapView();
+      return !this._mapDisposed && current?.x === requested.x && current?.y === requested.y && current?.zoom === requested.zoom;
     });
     return true;
   },
   buildMapViewUrl() {
     const path = this.$withBase ? this.$withBase('/community-tile-map/') : '/community-tile-map/';
     const url = new URL(path, window.location.origin);
-    const round = value => Number(value.toFixed(4));
-    const x = (this.viewportSize.width / 2 - this.translate.x) / this.scale;
-    const y = (this.viewportSize.height / 2 - this.translate.y) / this.scale;
-    url.searchParams.set('view', [round(x), round(y), round(this.scale)].join(','));
-    if (this.snapshotViewId) {
-      url.searchParams.set('snapshot', this.snapshotViewId);
-      url.searchParams.set('compare', this.snapshotCompareId || '');
-    }
-    if (this.selectedTile) url.searchParams.set('tile', this.selectedTile.key);
-    if (this.isOverlayTabActive && OVERLAYS.has(this.overlayView)) {
-      url.searchParams.set('overlay', this.overlayView);
-      if (this.overlayView === 'civilization' && this.overlayOwnerName) url.searchParams.set('owner', this.overlayOwnerName);
-    }
-    url.searchParams.set('contrast', CONTRAST_FIELDS.map(key => this[key] ? '1' : '0').join(''));
+    Object.entries(mapViewSettingsQuery(this.captureMapViewSettings())).forEach(([key, value]) => url.searchParams.set(key, value));
     return url.href;
   },
   async copyMapViewLink() {
@@ -144,13 +152,14 @@ export const mapViewMethods = {
     this.handleFullscreenChange();
   },
   onMapViewKeydown(event) {
+    if (event.defaultPrevented || event.target?.closest?.('dialog[open]')) return;
     if (event.key === 'Escape') {
       this.showMapShortcuts = false;
       this.hideHoverTooltip();
       if (this.isMapFullscreen) { event.preventDefault(); this.toggleMapFullscreen(); }
     }
     if (event.key === 'Tab' && this.isMapFullscreen) {
-      const nodes = Array.from(this.$refs.mapRoot.querySelectorAll('button, input, select, textarea, a[href], [tabindex="0"]'))
+      const nodes = Array.from(this.$refs.mapRoot.querySelectorAll('button, summary, input, select, textarea, a[href], [tabindex="0"]'))
         .filter(node => !node.disabled && node.getClientRects().length);
       const first = nodes[0], last = nodes[nodes.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }

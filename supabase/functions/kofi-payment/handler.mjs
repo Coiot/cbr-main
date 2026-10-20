@@ -21,7 +21,10 @@ export function normalizePayment(data, now = Date.now()) {
   if (!Number.isFinite(paid) || paid > now + 300000) throw new Error('Invalid timestamp.');
   return { message_id: data.message_id, transaction_id: data.kofi_transaction_id, email,
     kind: data.is_subscription_payment ? 'recurring' : 'one_time', paid_at: new Date(paid).toISOString(),
-    amount: String(data.amount), currency: data.currency };
+    amount: String(data.amount), currency: data.currency,
+    credit_public: data.is_public === true,
+    credit_name: data.is_public === true && typeof data.from_name === 'string'
+      ? data.from_name.replace(/[\u0000-\u001f\u007f]/g, '').replace(/\s+/g, ' ').trim().slice(0, 128) || null : null };
 }
 async function sameSecret(a, b) {
   if (typeof a !== 'string' || a.length > 1024) return false;

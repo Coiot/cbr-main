@@ -4,25 +4,15 @@
       v-if="scene.scene_number == scene.scene_title && showSceneNumber"
       class="scene-heading"
     >
-      <span class="scene-title">{{ displaySceneNumber }}</span>
-      <BookmarkButton
-        :active="bookmarked"
-        :aria-label="bookmarkAria"
-        :title="bookmarkAria"
-        @toggle="onToggleBookmark"
-      />
+      <span v-if="showSceneNumber" class="scene-title">{{ displaySceneNumber }}</span>
+      <SceneActions :bookmarked="bookmarked" :bookmark-aria="bookmarkAria" :scene-number="sceneNumber" @toggle-bookmark="onToggleBookmark" />
     </h3>
     <h3 v-else-if="scene.scene_title_html" class="scene-heading">
       <span class="scene-title">
         <template v-if="showSceneNumber">{{ displaySceneNumber }}: </template>
         <span v-html="scene.scene_title_html"></span>
       </span>
-      <BookmarkButton
-        :active="bookmarked"
-        :aria-label="bookmarkAria"
-        :title="bookmarkAria"
-        @toggle="onToggleBookmark"
-      />
+      <SceneActions :bookmarked="bookmarked" :bookmark-aria="bookmarkAria" :scene-number="sceneNumber" @toggle-bookmark="onToggleBookmark" />
     </h3>
     <h3
       v-else-if="scene.scene_title && scene.scene_number != scene.scene_title"
@@ -32,21 +22,11 @@
         <template v-if="showSceneNumber">{{ displaySceneNumber }}: </template>
         {{ scene.scene_title }}
       </span>
-      <BookmarkButton
-        :active="bookmarked"
-        :aria-label="bookmarkAria"
-        :title="bookmarkAria"
-        @toggle="onToggleBookmark"
-      />
+      <SceneActions :bookmarked="bookmarked" :bookmark-aria="bookmarkAria" :scene-number="sceneNumber" @toggle-bookmark="onToggleBookmark" />
     </h3>
-    <h3 v-else-if="showSceneNumber" class="scene-heading">
-      <span class="scene-title">{{ displaySceneNumber }}</span>
-      <BookmarkButton
-        :active="bookmarked"
-        :aria-label="bookmarkAria"
-        :title="bookmarkAria"
-        @toggle="onToggleBookmark"
-      />
+    <h3 v-else class="scene-heading">
+      <span v-if="showSceneNumber" class="scene-title">{{ displaySceneNumber }}</span>
+      <SceneActions :bookmarked="bookmarked" :bookmark-aria="bookmarkAria" :scene-number="sceneNumber" @toggle-bookmark="onToggleBookmark" />
     </h3>
     <div class="narrations" v-html="scene.narration"></div>
     <div
@@ -55,8 +35,9 @@
       v-html="scene.reporter"
       v-bind:class="{ reporter: scene.reporter }"
     ></div>
+    <SupportersCreditLink :scene="scene" />
     <ReactionPanel
-      :key="`reaction-panel-${sceneNumber}-${authStateKey}-${reactionVersion}`"
+      :key="`reaction-panel-${sceneNumber}`"
       :scene-number="sceneNumber"
       :reaction-display="reactionDisplay"
       :scene-counts="sceneCounts"
@@ -70,14 +51,16 @@
 </template>
 
 <script>
-import BookmarkButton from "../../layout/BookmarkButton.vue";
+import SceneActions from "./SceneActions.vue";
+import SupportersCreditLink from "../supporters/SupportersCreditLink.vue";
 import ReactionPanel from "./ReactionPanel.vue";
 
 export default {
   name: "SceneSlideContent",
   components: {
-    BookmarkButton,
+    SceneActions,
     ReactionPanel,
+    SupportersCreditLink,
   },
   props: {
     scene: {

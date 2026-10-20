@@ -133,6 +133,10 @@ export default defineClientConfig({
     CommunitySpotlight: Layout,
     CommunityTileMap: Layout,
     StartHere: Layout,
+    Support: Layout,
+    Supporters: Layout,
+    SupporterProfile: Layout,
+    SceneCollections: Layout,
   },
 
   enhance({ app, router, siteData }) {
@@ -148,7 +152,8 @@ export default defineClientConfig({
 
     const defaultScrollBehavior = router.options.scrollBehavior;
     router.options.scrollBehavior = (to, from, savedPosition) => {
-      if (!savedPosition && to.path === from.path && (to.path === '/spotlight/' || /^\/albums\/(?:(?:s\d+|mk2|pr|others)\/)?$/.test(to.path))) return false;
+      if (!savedPosition && to.path === from.path && to.path === '/collections/' && to.query.id === from.query.id) return false;
+      if (!savedPosition && to.path === from.path && (to.path === '/community-tile-map/' || to.path === '/spotlight/' || to.path === '/supporters/' || /^\/albums\/(?:(?:s\d+|mk2|pr|others)\/)?$/.test(to.path))) return false;
       return defaultScrollBehavior?.(to, from, savedPosition);
     };
 

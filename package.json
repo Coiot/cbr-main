@@ -36,7 +36,8 @@
     "cdn:dry-run": "python3 scripts/cdn/uploader.py dry-run",
     "cdn:smoke": "python3 scripts/cdn/smoke.py",
     "cdn:test": "python3 -m unittest discover -s scripts/cdn -p 'test_*.py'",
-    "supporters:access": "node scripts/supporters/manage.mjs"
+    "supporters:access": "node scripts/supporters/manage.mjs",
+    "supporters:credits": "node scripts/supporters/migrate-credits.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.8",

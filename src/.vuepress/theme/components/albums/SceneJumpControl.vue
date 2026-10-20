@@ -1,6 +1,6 @@
 <template>
   <div class="scene-jump" :class="{ compact }">
-    <label class="jump-label" :for="selectId">Jump to scene</label>
+    <label class="jump-label" :for="selectId">{{ label }}</label>
     <div class="jump-controls">
       <select
         :id="selectId"
@@ -20,6 +20,9 @@ export default {
   name: "SceneJumpControl",
   emits: ["update:modelValue", "go"],
   props: {
+    label: { type: String, default: "Jump to scene" },
+    itemLabel: { type: String, default: "Scene" },
+    optionLabels: { type: Array, default: () => [] },
     modelValue: {
       type: Number,
       default: 1,
@@ -47,7 +50,8 @@ export default {
   },
   methods: {
     optionLabel(index) {
-      const base = `Scene ${index}`;
+      if (this.optionLabels[index - 1]) return this.optionLabels[index - 1];
+      const base = `${this.itemLabel} ${index}`;
       if (!this.showSceneTitles) {
         return base;
       }

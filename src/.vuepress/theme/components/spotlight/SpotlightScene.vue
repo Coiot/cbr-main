@@ -1,11 +1,11 @@
 <template>
   <article class="spotlight-scene" :class="{ 'is-featured': featured }">
-    <router-link :to="scene.to" class="spotlight-scene-image" :aria-label="`Read ${scene.title}, Episode ${scene.episodeNumber}, Scene ${scene.sceneNumber}`">
+    <router-link :to="scene.to" class="spotlight-scene-image" :aria-label="`Read ${scene.title}, ${albumLabel}, Scene ${scene.sceneNumber}`">
       <img v-if="scene.previewUrl && !imageFailed" :src="scene.previewUrl" alt="" :loading="featured ? 'eager' : 'lazy'" decoding="async" @error="imageFailed = true" />
       <span v-else class="spotlight-image-missing">Scene preview unavailable</span>
     </router-link>
     <div class="spotlight-scene-body">
-      <p class="spotlight-eyebrow">{{ featured ? (scene.editorial ? 'Editor’s pick · ' : 'Featured moment · ') : '' }}Episode {{ scene.episodeNumber }} · Scene {{ scene.sceneNumber }}</p>
+      <p class="spotlight-eyebrow">{{ featured ? (scene.editorial ? 'Editor’s pick · ' : 'Featured moment · ') : '' }}{{ albumLabel }} · Scene {{ scene.sceneNumber }}</p>
       <h2><router-link :to="scene.to">{{ scene.title }}</router-link></h2>
       <p class="spotlight-scene-episode">{{ scene.episodeTitle }}</p>
       <ul v-if="badges.length" class="spotlight-badges" :aria-label="scene.personal ? 'Your reactions' : 'Community reactions'">
@@ -16,10 +16,12 @@
   </article>
 </template>
 <script>
+import { sceneAlbumLabel } from './spotlightModel.mjs';
 export default {
   props: { scene: { type: Object, required: true }, featured: Boolean, reactions: { type: Array, default: () => [] } },
   data: () => ({ imageFailed: false }),
   computed: {
+    albumLabel() { return sceneAlbumLabel(this.scene); },
     badges() { return Object.entries(this.scene.reactions).map(([key, count]) => ({ key, count, ...(this.reactions.find(r => r.key.toLowerCase().replace(/[\s_-]+/g, '') === key) || { label: key, emoji: '✦' }) })).sort((a, b) => b.count - a.count || a.key.localeCompare(b.key)).slice(0, 3); },
   },
   watch: { 'scene.previewUrl'() { this.imageFailed = false; } },

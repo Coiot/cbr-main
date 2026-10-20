@@ -105,7 +105,10 @@ Configuration, state, and logs are in `~/CBRX/Narration/Automation/`. Set
 `notifications` to `false` in `config.json` to silence notifications. Detailed
 history is in `state.json`; startup errors appear in `intake-error.log`.
 No credentials are copied into these files. Supporters generation uses the
-website's existing `.env.supporters`. If it fails, fix connectivity/configuration
+website's existing `.env.supporters` Supabase credentials and active Ko-fi
+payment/grant records. Google Sheets is no longer used. Credit names and civ
+fallbacks are managed by the private credit database (see
+`scripts/supporters/README.md`). If it fails, fix connectivity/configuration
 and use the retry command. Errors do not trigger automatic repeated requests.
 
 For alternate folders, setup accepts `--narration-dir` and `--downloads-dir`.

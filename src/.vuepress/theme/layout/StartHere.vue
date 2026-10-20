@@ -2,15 +2,15 @@
   <div class="start-here">
     <header class="start-intro">
       <p class="start-eyebrow">New to Civ Battle Royale?</p>
-      <h1>A whole world.<br />One survivor.</h1>
+      <h1>There Can Be Only One</h1>
       <div class="start-description">
         <p>
           Historical civilizations compete in a CPU-only game of Civilization V.
-          Empires rise, alliances crumble, and the world gradually turns a few colors.
+          Empires fumble, alliances misfire, and the world gradually turns a few colors.
         </p>
         <p>
           Follow the action through screenshots and playful narration. Pick a
-          favorite civilization and enjoy the chaos.
+          few favorites and enjoy the chaos.
         </p>
       </div>
     </header>
@@ -67,7 +67,7 @@
 
     <section class="start-community" aria-labelledby="start-community-title">
       <h2 id="start-community-title">Join the community</h2>
-      <p>Cheer on your favorites and compare head canons with other viewers.</p>
+      <p>Share your predictions and compare head canons with other viewers.</p>
       <div class="start-community-links">
         <a
           href="https://old.reddit.com/r/civbattleroyale/"
@@ -144,7 +144,7 @@ h1 {
   letter-spacing: -0.025em;
 }
 .start-description {
-  max-inline-size: 70ch;
+  max-inline-size: 75ch;
   font-size: 1.1rem;
   line-height: 1.65;
 }

@@ -25,6 +25,7 @@ export default {
 
 <style>
 .community-tile-map {
+  box-sizing: border-box;
   max-width: 1200px;
   width: 100%;
   padding: 1rem 1rem 0;
@@ -32,10 +33,5 @@ export default {
 }
 .community-tile-map .map-intro {
   max-width: 70ch;
-}
-@media (max-width: 900px) {
-  .community-tile-map {
-    width: 95vw;
-  }
 }
 </style>

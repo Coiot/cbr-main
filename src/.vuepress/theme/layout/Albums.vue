@@ -274,10 +274,7 @@
         >
           <template #content="{ scene, index }">
             <SceneSlideContent
-              :key="`slide-content-${sceneKey(
-                scene,
-                index
-              )}-${reactionSceneVersion(sceneNumber(index))}`"
+              :key="`slide-content-${sceneKey(scene, index)}`"
               :scene="scene"
               :scene-number="sceneNumber(index)"
               :show-scene-number="!isPowerRanking"
@@ -361,6 +358,11 @@
         aria-hidden="true"
       ></div>
 
+      <AlbumSupporterThanks
+        v-if="hasScenes && (!isHorizontalView || isFinalScene)"
+        :show-invite="!canSupporterComment && !supporterChecking && !supporterCheckFailed"
+      />
+
       <CommentsSection
         v-if="shouldShowComments"
         :auth-user="authUser"
@@ -406,6 +408,7 @@
 <script>
 import { readingLibrary } from "../components/albums/library/readingLibrary.js";
 import { archiveReturnFor, carryArchiveReturn } from "../components/albums/library/archiveState.mjs";
+import AlbumSupporterThanks from "../components/albums/AlbumSupporterThanks.vue";
 import EpisodeReadingCompletion from "../components/albums/library/EpisodeReadingCompletion.vue";
 import { defineAsyncComponent } from "vue";
 import { getEdition } from "../../data/editions";
@@ -479,6 +482,7 @@ export default {
     };
   },
   components: {
+    AlbumSupporterThanks,
     EpisodeReadingCompletion,
     AlbumsNav,
     SceneCard,

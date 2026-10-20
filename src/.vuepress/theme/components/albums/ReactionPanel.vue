@@ -10,7 +10,10 @@
         :aria-pressed="isActiveReaction(reaction.key)"
         :aria-label="reaction.label"
         :title="reaction.label"
-        @click.stop="onToggleReaction(reaction.key)"
+        :aria-haspopup="!authUser ? 'dialog' : null"
+        :aria-expanded="!authUser ? accountOpen && accountAnchorKey === reaction.key : null"
+        :aria-controls="accountOpen && accountAnchorKey === reaction.key ? accountPopoverId : null"
+        @click.stop="onToggleReaction(reaction.key, $event)"
       >
         <span class="reaction-emoji">{{ reaction.emoji }}</span>
         <span class="reaction-count">{{ countFor(reaction) }}</span>
@@ -35,21 +38,41 @@
         :aria-pressed="isActiveReaction(reaction.key)"
         :aria-label="reaction.label"
         :title="reaction.label"
-        @click.stop="onToggleReaction(reaction.key)"
+        :aria-haspopup="!authUser ? 'dialog' : null"
+        :aria-expanded="!authUser ? accountOpen && accountAnchorKey === reaction.key : null"
+        :aria-controls="accountOpen && accountAnchorKey === reaction.key ? accountPopoverId : null"
+        @click.stop="onToggleReaction(reaction.key, $event)"
       >
         <span class="reaction-emoji">{{ reaction.emoji }}</span>
         <span class="reaction-count">{{ countFor(reaction) }}</span>
       </button>
     </div>
+    <div v-if="showSignupPrompt" class="reaction-signup">
+      <p class="reaction-signup-title">Have a favourite moment?</p>
+      <p>Create an account to react to scenes, revisit your favourites in Spotlight, and sync your reading progress.</p>
+      <button type="button" class="reaction-signup-button" aria-haspopup="dialog"
+        :aria-expanded="accountOpen && accountAnchorKey === 'signup'" :aria-controls="accountOpen ? accountPopoverId : null"
+        @click.stop="openAccount($event, 'signup')">Create an account or sign in</button>
+    </div>
+    <ReactionSignInPopover v-if="accountOpen && !authUser" :anchor="accountAnchor" :scene-number="sceneNumber"
+      :popover-id="accountPopoverId" @close="accountOpen = false" />
   </div>
 </template>
 
 <script>
+import { markRaw, useId } from 'vue';
+import ReactionSignInPopover from './ReactionSignInPopover.vue';
+
 export default {
   name: "ReactionPanel",
+  components: { ReactionSignInPopover },
+  setup() { return { accountPopoverId: `reaction-signin-${useId()}` }; },
   data() {
     return {
       menuOpenInternal: false,
+      accountOpen: false,
+      accountAnchor: null,
+      accountAnchorKey: null,
       countsInternal: {},
       userReactionInternal: undefined,
     };
@@ -81,6 +104,9 @@ export default {
     },
   },
   computed: {
+    showSignupPrompt() {
+      return !this.authUser && this.sceneNumber === 1;
+    },
     menuOpen() {
       return this.menuOpenInternal || this.isMenuOpen;
     },
@@ -136,6 +162,7 @@ export default {
     },
   },
   watch: {
+    authUser(next) { if (next) this.accountOpen = false; },
     isMenuOpen(next) {
       if (next) {
         this.menuOpenInternal = true;
@@ -223,7 +250,18 @@ export default {
         );
       }
     },
-    onToggleReaction(reactionKey) {
+    openAccount(event, key) {
+      const anchor = event?.currentTarget;
+      if (!anchor) return;
+      this.accountAnchor = markRaw(anchor);
+      this.accountAnchorKey = key;
+      this.accountOpen = true;
+    },
+    onToggleReaction(reactionKey, event) {
+      if (!this.authUser) {
+        this.openAccount(event, reactionKey);
+        return;
+      }
       this.$emit("toggle-reaction", this.sceneNumber, reactionKey);
     },
     onToggleMenu() {
@@ -311,8 +349,31 @@ export default {
   font-weight: 700;
   color: var(--panel-muted-color);
 }
-.reaction-hint {
-  font-size: 0.75rem;
-  color: var(--panel-muted-color);
+.reaction-signup {
+  flex-basis: 100%;
+  padding: 0.9rem 1rem;
+  background: var(--panel-bg-soft-color);
+  color: var(--panel-text-color);
+  border: 1px solid var(--panel-border-color);
+  border-inline-start: 3px solid var(--accent-color);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
+.reaction-signup p { margin: 0; line-height: 1.5; }
+.reaction-signup .reaction-signup-title { margin-block-end: 0.3rem; font-weight: 800; }
+.reaction-signup-button {
+  margin-block-start: 0.7rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 999px;
+  background: var(--accent-color);
+  color: #1a1a1a;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.reaction-signup-button:hover { filter: brightness(1.05); }
+.reaction-signup-button:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 3px; }
 </style>

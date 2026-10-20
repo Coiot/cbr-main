@@ -7,6 +7,9 @@ import { localTheme } from "./theme/index.mjs";
 import { validatePicks } from "./theme/components/spotlight/spotlightModel.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// The VuePress CLI sets NODE_ENV before loading this config. Builds must not
+// overwrite the page modules or Vite cache used by a running dev server.
+const workspaceMode = process.env.NODE_ENV === "production" ? "build" : "dev";
 
 const ASSET_VERSION =
   process.env.ASSET_VERSION ||
@@ -33,7 +36,7 @@ const SOCIAL_LINKS = [
 const viteManualChunks = (id) => {
   const normalized = id.replaceAll("\\", "/");
 
-  if (normalized.endsWith("/.vuepress-temp/legacyPages.js")) {
+  if (/\/\.vuepress-temp\/(?:dev\/|build\/)?legacyPages\.js$/.test(normalized)) {
     return "site-index";
   }
   if (
@@ -900,10 +903,9 @@ const legacyPageIndex = () => ({
 export default defineUserConfig({
   title: "Civ Battle Royale",
   description: siteDescription,
-  // Keep VuePress temp artifacts in a stable project folder.
-  // This avoids intermittent ENOENT errors for palette/style files under
-  // node_modules/@vuepress/core/.temp during dev recompiles.
-  temp: path.resolve(__dirname, "../../.vuepress-temp"),
+  // Keep stable, separate workspaces for development and production builds.
+  temp: path.resolve(__dirname, "../../.vuepress-temp", workspaceMode),
+  cache: path.resolve(__dirname, ".cache", workspaceMode),
   dest: path.resolve(__dirname, "../../public"),
   shouldPrefetch: false,
   markdown: {
