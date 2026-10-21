@@ -657,7 +657,7 @@
           <div v-if="extraPanelLabel" v-show="editPanelTab === 'extra'"><slot name="extra-panel" /></div>
           <div
             v-show="editPanelTab === 'edit'"
-            class="tile-info-card tile-info-accordion"
+            class="tile-info-card tile-info-accordion tile-edit-card"
           >
             <div class="tile-info-title">
               Edit Tile
@@ -1051,7 +1051,7 @@
                   <div class="tile-edit-units-grid">
                     <div class="tile-edit-unit-group">
                       <div class="tile-edit-unit-header">
-                        <div class="tile-edit-unit-label">Combat Unit</div>
+                        <label class="tile-edit-unit-label" for="tile-combat-unit-input">Combat</label>
                         <button
                           type="button"
                           class="tile-edit-button"
@@ -1065,7 +1065,7 @@
                           id="tile-combat-unit-input"
                           class="tile-edit-input"
                           type="text"
-                          placeholder="Search combat unit..."
+                          placeholder="Unit type…"
                           v-model="editCombatUnitType"
                           @focus="
                             openCombo('combatUnit', combatUnitOptionMatches)
@@ -1125,7 +1125,7 @@
                           id="tile-combat-unit-owner-input"
                           class="tile-edit-input"
                           type="text"
-                          placeholder="Combat owner..."
+                          placeholder="Civilization…" aria-label="Combat unit civilization"
                           v-model="editCombatUnitOwnerName"
                           @focus="
                             openCombo('combatOwner', combatOwnerOptionMatches)
@@ -1195,7 +1195,7 @@
                     </div>
                     <div class="tile-edit-unit-group">
                       <div class="tile-edit-unit-header">
-                        <div class="tile-edit-unit-label">Civilian Unit</div>
+                        <label class="tile-edit-unit-label" for="tile-civilian-unit-input">Civilian</label>
                         <button
                           type="button"
                           class="tile-edit-button"
@@ -1209,7 +1209,7 @@
                           id="tile-civilian-unit-input"
                           class="tile-edit-input"
                           type="text"
-                          placeholder="Search civilian unit..."
+                          placeholder="Unit type…"
                           v-model="editCivilianUnitType"
                           @focus="
                             openCombo('civilianUnit', civilianUnitOptionMatches)
@@ -1278,7 +1278,7 @@
                           id="tile-civilian-unit-owner-input"
                           class="tile-edit-input"
                           type="text"
-                          placeholder="Civilian owner..."
+                          placeholder="Civilization…" aria-label="Civilian unit civilization"
                           v-model="editCivilianUnitOwnerName"
                           @focus="
                             openCombo(
@@ -1355,18 +1355,6 @@
                     </div>
                   </div>
                 </div>
-                <template v-if="officialSource">
-                  <div v-if="!selectedTile.city" class="tile-edit-group">
-                    <label class="tile-edit-label" for="tile-improvement-input">Improvement</label>
-                    <input id="tile-improvement-input" class="tile-edit-input" v-model="editImprovement" maxlength="160" @change="applySupplementalDetailEdit('improvement')" @keydown.enter.prevent="applySupplementalDetailEdit('improvement')" />
-                    <label class="tile-edit-label" for="tile-route-input">Route</label>
-                    <select id="tile-route-input" class="tile-edit-input" v-model="editRoute" @change="applySupplementalDetailEdit('route')"><option value="">None</option><option value="road">Road</option><option value="railroad">Railroad</option></select>
-                  </div>
-                  <div v-if="Number.isFinite(selectedTile.owner)" class="tile-edit-group">
-                    <label class="tile-edit-label" for="tile-ideology-input">Civilization ideology</label>
-                    <input id="tile-ideology-input" class="tile-edit-input" v-model="editIdeology" maxlength="160" @change="applySupplementalDetailEdit('ideology')" @keydown.enter.prevent="applySupplementalDetailEdit('ideology')" />
-                  </div>
-                </template>
                 <div v-if="!selectedTile.city" class="tile-edit-group">
                   <div class="tile-edit-label tile-edit-label-inline">
                     <label class="tile-edit-checkbox-inline">
@@ -1401,16 +1389,13 @@
                 <div class="tile-map-pins">
                   <div class="tile-map-pins-head">
                     <span class="tile-map-pins-label">Map Pins</span>
-                    <span class="tile-map-pins-hint">
-                      Save named jump points for tiles/cities.
-                    </span>
                   </div>
                   <div class="tile-map-pins-save">
                     <input
                       class="tile-edit-input tile-map-pin-input"
                       type="text"
                       maxlength="40"
-                      placeholder="homefront"
+                      placeholder="Pin name…" aria-label="Map pin name"
                       v-model.trim="mapPinInput"
                       @keydown.enter.prevent="saveCurrentMapPin"
                     />
@@ -1452,7 +1437,6 @@
                       </button>
                     </div>
                   </div>
-                  <div v-else class="tile-edit-hint">No pins saved yet.</div>
                 </div>
               </fieldset>
               <p v-if="!officialSource" class="tile-edit-hint">
@@ -1470,7 +1454,8 @@
             class="tile-info-card tile-notes-card"
           >
             <div class="tile-info-title">
-              Tile Notes
+              Notes
+              <span v-if="selectedTile" class="tile-info-title-meta">{{ tileTitle(selectedTile) }}</span>
               <div v-if="tileNotesStatus" class="tile-edit-hint">
                 {{ tileNotesStatus }}
               </div>
@@ -3368,12 +3353,9 @@ export default {
 }
 .tile-map .tile-map-pins {
   display: grid;
-  gap: 0.5rem;
-  border: 1px solid var(--panel-border-color);
-  border-radius: 12px;
-  background: var(--panel-bg-elevated-color);
-  padding: 0.7rem;
-  margin-block-end: 0.9rem;
+  gap: 0.4rem;
+  border-block-start: 1px solid var(--panel-border-color);
+  padding-block-start: 0.65rem;
 }
 .tile-map .tile-map-pins-head {
   display: flex;
@@ -3387,10 +3369,6 @@ export default {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-.tile-map .tile-map-pins-hint {
-  color: var(--panel-muted-color);
-  font-size: 0.74rem;
 }
 .tile-map .tile-map-pins-save {
   display: flex;
@@ -3508,6 +3486,15 @@ export default {
 .tile-map .tile-edit-form {
   display: grid;
   gap: 1rem;
+}
+.tile-map .tile-edit-card .tile-edit-fieldset {
+  gap: 0.65rem;
+}
+.tile-map .tile-edit-card .tile-edit-unit-group {
+  gap: 0.35rem;
+}
+.tile-map .tile-edit-card .tile-info-title {
+  margin-block-end: 0.5rem;
 }
 .tile-map .tile-edit-form-locked {
   cursor: help;

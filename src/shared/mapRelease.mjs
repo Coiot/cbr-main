@@ -33,10 +33,12 @@ export function validateRelease(input) {
   let references = 0;
   const foundingIds = new Set();
   for (const e of input.events) {
-    if (!exact(e, ['turn','kind','owner','tiles','city','name']) || !integer(e.turn,input.firstTurn,input.lastTurn) || e.turn < previous ||
-        !['claim','found','capture','raze','wonder','holyCity'].includes(e.kind) || !owners.has(e.owner) ||
-        !Array.isArray(e.tiles) || !e.tiles.length || e.tiles.some(i=>!integer(i,0,map.width*map.height-1)) ||
+    if (!exact(e, ['turn','kind','owner','tiles','city','name','text']) || !integer(e.turn,input.firstTurn,input.lastTurn) || e.turn < previous ||
+        !['claim','found','capture','raze','wonder','holyCity','message'].includes(e.kind) || !owners.has(e.owner) ||
+        !Array.isArray(e.tiles) || (!e.tiles.length && e.kind!=='message') || e.tiles.some(i=>!integer(i,0,map.width*map.height-1)) ||
         new Set(e.tiles).size !== e.tiles.length) fail('Invalid or unreleased event.');
+    if ((e.kind==='message' || 'text' in e) &&
+        (!['message','wonder','holyCity'].includes(e.kind) || !text(e.text,65536))) fail('Invalid event message.');
     previous = e.turn; references += e.tiles.length;
     if (references > 1000000) fail('Too many event coordinates.');
     if (['found','wonder','holyCity'].includes(e.kind)) {

@@ -5,7 +5,7 @@ export async function mapReleaseRequest(input, client, signal) {
   const response=await fetch(`${publicConfig.SUPABASE_URL}/functions/v1/map-release`,{
     method:'POST',signal,cache:'no-store',
     headers:{'Content-Type':'application/json',apikey:publicConfig.SUPABASE_ANON_KEY,...(token?{Authorization:`Bearer ${token}`}:{})},
-    body:JSON.stringify(input)
+    body:JSON.stringify({...input,...(['release','timeline-admin'].includes(input.action)?{includeMessages:true}:{})})
   });
   const result=await response.json();
   if(!response.ok||result.error)throw new Error(result.error||'The map service is unavailable. Please retry.');

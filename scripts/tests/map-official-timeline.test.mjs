@@ -16,7 +16,7 @@ import {timelineLastTurn,timelineBookmarks,isLoopbackTimeline,defaultEpisodeMark
 
 import {upsertEpisodeMarker,validateEpisodeMarkers,releaseThroughEpisodes} from '../../src/shared/mapEpisodeMarkers.mjs';
 import {createMarkerScrubber} from '../../src/.vuepress/theme/components/community/official/markerScrub.mjs';
-import {timelineSummary,timelineEvents} from '../../src/.vuepress/theme/components/community/official/timelineSummary.mjs';
+import {timelineSummary,timelineEvents,timelineEventHistory,filterTimelineEvents,cleanEventText,eventCategories} from '../../src/.vuepress/theme/components/community/official/timelineSummary.mjs';
 
 const history='00000000-0000-4000-8000-000000000001';
 function fixture(){
@@ -150,6 +150,92 @@ test('contributions cannot modify borders, known wonder locations or missing cit
   assert.equal(mergeContributions(frame,rows).cities[0].size,14,'verified values win');
   assert.equal(mergeContributions(frame,rows).cities[0].attribution.population,undefined);
 });
+test('message events preserve map states, are strictly validated, and are clipped at the episode boundary',()=>{
+  const release=fixture(),before=createTimeline(release);
+  release.events.splice(4,0,{turn:1,kind:'message',owner:-1,tiles:[],text:'Session 2 starts'});
+  release.events.push({turn:4,kind:'message',owner:1,tiles:[20],text:'A later announcement'});
+  assert.equal(validateRelease(release),release);
+  const after=createTimeline(release);
+  for(const turn of [4,0,2,1])assert.deepEqual(after.frame(turn),before.frame(turn));
+  const bounded=releaseThroughEpisodes(release,[{episode:'1',turn:1}]);
+  assert.match(JSON.stringify(bounded),/Session 2 starts/);
+  assert.doesNotMatch(JSON.stringify(bounded),/later announcement/);
+  for(const change of [{text:''},{text:42},{text:'x'.repeat(65537)},{turn:751},{tiles:[-1]},{owner:63},{name:'Unexpected'}]){
+    const bad=structuredClone(release);Object.assign(bad.events[4],change);assert.throws(()=>validateRelease(bad));
+  }
+  const bad=fixture();bad.events[0].text='Unexpected';assert.throws(()=>validateRelease(bad));
+});
+test('all recorded message types survive export, including locationless notices and plural religion announcements',()=>{
+  const sha='a'.repeat(64),base={width:180,height:94,mapTiles:[]};
+  const events=[
+    {type:1,tiles:[[1,1]],text:'Kyoto is founded.'},
+    {type:0,tiles:[[-1,-1]],text:'Session 1 starts'},
+    {type:6,tiles:[],text:'Japan has started worshipping a pantheon of gods.'},
+    {type:5,tiles:[[1,1]],text:'The Japanese have founded the new religion Shinto in the holy city of Kyoto.'},
+    {type:0,tiles:[[1,1]],text:'Leader completes An Unclassified Completion!'},
+    {type:0,tiles:[],text:'An unfamiliar announcement'},
+  ].map((e,order)=>({...e,turn:order,civ:0,order}));
+  const extraction={format:'cbr-save-replay-extraction',version:1,source:{sha256:sha,turn:5},civilizations:{entries:[{name:'Japan'}]},
+    extraction:{eventMessageVersion:2,eventCount:events.length,firstRecordedTurn:0,lastRecordedTurn:5},events};
+  const {release,report}=prepareRelease(extraction,base,[{name:'Japan'}],{history,sourceSha256:sha,endTurn:5,bookmarks:[{episode:'1',turn:5}]});
+  assert.equal(release.events.length,events.length);
+  assert.deepEqual(release.events.slice(1).map(e=>e.text),events.slice(1).map(e=>e.text));
+  assert.deepEqual(release.events[1].tiles,[]);
+  assert.equal(release.events[3].kind,'holyCity');
+  assert.deepEqual(release.catalog.religions,['Shinto']);
+  assert.deepEqual(release.catalog.wonders,[]);
+  assert.ok(report.issues.some(issue=>issue.includes('An Unclassified Completion')));
+});
+test('event browsing classifies messages, cleans game markup, and reaches every older match without future text',()=>{
+  const release=fixture();
+  const messages=[
+    ['Leader declares war on Another Leader!','diplomacy'],
+    ['Leader has made peace with Another Leader!','diplomacy'],
+    ['Japan and Hyksos have signed a Research Agreement!','diplomacy'],
+    ['A pantheon belief was chosen','religion'],
+    ['Leader completes Sargon’s Palace!','completions'],
+    ['The civilization has been destroyed!','other'],
+    ['Kyoto was captured by Hyksos!!!','cities'],
+    ['Session 2 starts','sessions'],
+    ['Unfamiliar text must remain visible','other'],
+  ];
+  release.events.push(...messages.map(([text])=>({turn:4,kind:'message',owner:-1,tiles:[],text})),
+    ...Array.from({length:110},(_,i)=>({turn:4,kind:'message',owner:-1,tiles:[],text:`Notice ${i}`})));
+  const entries=timelineEventHistory(release);
+  assert.ok(entries.some(e=>e.category==='claims'),'Claims remain in the recorded history');
+  assert.ok(!eventCategories.some(([key])=>key==='claims'),'The claims filter is hidden');
+  assert.ok(filterTimelineEvents(entries,4).every(e=>e.category!=='claims'),'All events excludes hidden claims');
+  assert.equal(filterTimelineEvents(entries,4,'all','tile claim').length,0,'Search also hides claims');
+  assert.ok(!eventCategories.some(([key])=>key==='sessions'),'The game sessions filter is hidden');
+  assert.ok(filterTimelineEvents(entries,4).every(e=>e.category!=='sessions'),'All events excludes game sessions');
+  assert.equal(filterTimelineEvents(entries,4,'all','Session 2').length,0,'Search also hides game sessions');
+  for(const [text,category] of messages)assert.equal(entries.find(e=>e.text===text).category,category);
+  assert.equal(filterTimelineEvents(entries,4,'diplomacy','leader peace').length,1);
+  assert.equal(filterTimelineEvents(entries,4,'all','notice').length,110,'Older matching entries remain reachable');
+  assert.equal(filterTimelineEvents(entries,4,'all','notice').slice(100).length,10);
+  assert.equal(filterTimelineEvents(entries,3,'all','notice').length,0);
+  assert.equal(filterTimelineEvents(entries,4,'all','Turn 4 unfamiliar')[0].text,'Unfamiliar text must remain visible');
+  assert.equal(cleanEventText('[COLOR_POSITIVE_TEXT]+1 [ICON_PEACE] Faith[ENDCOLOR][NEWLINE]+2 [ICON_PRODUCTION] from Mines'),'+1 Faith\n+2 Production from Mines');
+  assert.equal(cleanEventText('A [ICON_GOLDEN_AGE] Golden Age has begun!'),'A Golden Age has begun!');
+  assert.equal(cleanEventText('Controls the most original [ICON_CAPITAL] Capitals.'),'Controls the most original Capitals.');
+});
+test('Golden Age messages name their recorded civilization and hide notices with no known owner',()=>{
+  const release=fixture(),text='A [ICON_GOLDEN_AGE] Golden Age has begun for our Civilization!';
+  release.civilizations.reverse(); // Owner IDs, not roster positions, identify the civilization.
+  release.events.push(
+    {turn:4,kind:'message',owner:0,tiles:[],text},
+    {turn:4,kind:'message',owner:1,tiles:[],text},
+    {turn:4,kind:'message',owner:-1,tiles:[],text}
+  );
+  const original=JSON.stringify(release),entries=timelineEventHistory(release);
+  assert.deepEqual(filterTimelineEvents(entries,4,'milestones').map(e=>e.text),[
+    'Hyksos has started a Golden Age.','Japan has started a Golden Age.'
+  ]);
+  assert.ok(filterTimelineEvents(entries,4,'all').every(e=>!e.text.includes('our Civilization')));
+  assert.equal(filterTimelineEvents(entries,3,'milestones').length,0);
+  assert.equal(filterTimelineEvents(entries,4,'milestones','Japan Golden Age').length,1);
+  assert.equal(JSON.stringify(release),original,'Attribution is a display change only');
+});
 test('exporter clips before parsing detail names and never copies future metadata',()=>{
   const base={width:180,height:94,mapTiles:[]},sha='a'.repeat(64);
   const extraction={format:'cbr-save-replay-extraction',version:1,source:{sha256:sha,turn:751,filename:'future-private'},
@@ -161,7 +247,9 @@ test('exporter clips before parsing detail names and never copies future metadat
     completions:{'Manhattan Project':'project'},branchVerified:true,checkpoints:[{turn:4,evidence:'checked',cityCounts:{0:1}}]};
   const {release,report}=prepareRelease(extraction,base,[{name:'Japan'}],config);
   assert.equal(report.ok,true);assert.equal(release.map.fingerprint,baseIdentity(base).fingerprint);
-  assert.doesNotMatch(JSON.stringify(release),/Secret|751|private|Manhattan/);
+  assert.doesNotMatch(JSON.stringify(release),/Secret|751|private/);
+  assert.equal(release.events[1].text,'Leader completes Manhattan Project!');
+  assert.equal(release.events[1].kind,'message','A project announcement must not become a verified world wonder');
   assert.equal(release.details,undefined);assert.equal(release.version,1);
   assert.throws(()=>prepareRelease(extraction,base,[{name:'Japan'}],{...config,details:emptyDetails(history)}),/shared live layer/);
   config.branchVerified=false;assert.equal(prepareRelease(extraction,base,[{name:'Japan'}],config).report.ok,false);
@@ -177,8 +265,8 @@ test('official mode refuses legacy live loading and writes even when signed in a
 });
 
 // HTTP tests exercise authorization and release selection rather than mocking the handler.
-async function server(){
-  const release=fixture(),id=await digest(release),draft=fixture();draft.lastTurn=5;draft.bookmarks=[{episode:'2',turn:5}];
+async function server(release=fixture()){
+  const id=await digest(release),draft=fixture();draft.lastTurn=5;draft.bookmarks=[{episode:'2',turn:5}];
   draft.events.push({turn:5,kind:'wonder',owner:1,tiles:[20],city:7,name:'Secret Future Wonder'});draft.catalog.wonders.push('Secret Future Wonder');
   const draftId=await digest(draft);
   const state={active:id,source:draftId,editorAllowed:false,detailRows:[],rows:[
@@ -223,6 +311,20 @@ test('anonymous readers cannot retrieve drafts, forge Coiot, or publish by claim
   }
   assert.equal(state.writes.length,0);
   assert.equal((await call({action:'draft',id:draftId},'coiot')).status,200);
+});
+test('event-aware clients receive messages while existing clients retain their compatible bounded schema',async()=>{
+  const release=fixture();release.events[2].text='Leader completes Great Library!';
+  release.events.push({turn:4,kind:'message',owner:-1,tiles:[],text:'Session 2 starts'});
+  const {call,draftId}=await server(release);
+  for(const [action,token] of [['release',''],['timeline-admin','coiot']]){
+    const legacy=await call({action},token),rich=await call({action,includeMessages:true},token);
+    assert.equal(legacy.status,200);assert.equal(rich.status,200);
+    assert.ok(legacy.body.release.events.every(e=>e.kind!=='message'&&!('text' in e)));
+    assert.deepEqual(rich.body.release,release);
+    assert.equal(validateRelease(legacy.body.release).lastTurn,4);
+    assert.doesNotMatch(JSON.stringify(rich.body.release),/Secret Future Wonder/);
+  }
+  assert.equal((await call({action:'release',id:draftId,includeMessages:true})).status,404);
 });
 test('Coiot receives only published history and publishing a past marker does not reveal later events',async()=>{
   const {call,state,id,draftId}=await server();

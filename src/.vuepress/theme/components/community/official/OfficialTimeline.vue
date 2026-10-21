@@ -13,11 +13,11 @@
         :bookmarks="bookmarks" :can-manage="canManageEpisodes" :remote="!!(releaseId&&canManageEpisodes)" :saving="episodeSaving" :message="episodeMessage" :public-turn="publicReleaseId?publicEndTurn:null"
         @turn="choose" @play="togglePlay" @speed="speed=$event" @episode="saveEpisode" /></template>
       <template v-if="layersEnabled" #edit-layer-tools="{tile}">
-        <p class="official-muted" role="status">{{layerNotice||'Your edits apply only at this turn. Save a view to share them.'}}</p>
+        <p class="official-muted layer-edit-hint" role="status">{{layerNotice||`Edits at T${turn} · Save a view to share.`}}</p>
         <div class="layer-edit-actions">
-          <button type="button" :disabled="!tile" @click="resetLayerTile(tileIndex(tile))">Reset tile edits for this turn</button>
-          <button v-if="!preview" type="button" @click="$refs.grid.savePersonalMapView()">{{layerViewId&&$refs.grid?.activeSavedView?.user_id===user?.id?'Save changes':'Save as new view'}}</button>
-          <button v-if="layerDirty" type="button" @click="resetLayerDraft">Reset view draft</button>
+          <button v-if="!preview" type="button" @click="$refs.grid.savePersonalMapView()">{{layerViewId&&$refs.grid?.activeSavedView?.user_id===user?.id?'Save changes':'Save view'}}</button>
+          <button type="button" :disabled="!tile" title="Reset this tile’s edits at the current turn" @click="resetLayerTile(tileIndex(tile))">Reset tile</button>
+          <button v-if="layerDirty" type="button" @click="resetLayerDraft">Reset draft</button>
         </div>
       </template>
       <template v-if="layersEnabled" #tile-notes="{tile}">
@@ -136,7 +136,7 @@ export default {
 </script>
 <style>
 .official-map{min-width:0}.official-card{padding:1rem;margin:1rem 0;border:1px solid var(--panel-border-color);border-top:3px solid var(--accent-color);border-radius:0 0 12px 12px;background:var(--panel-bg-color);color:var(--panel-text-color);overflow-wrap:anywhere}
-.layer-edit-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}.layer-edit-actions button{font-size:.8rem}
+.layer-edit-hint{font-size:.8rem;line-height:1.4;margin:0 0 .55rem}.layer-edit-actions{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.7rem}
 .official-replay-credit{margin-top:2rem;color:var(--color-text-muted);font-size:.8rem}
 .official-card h2{font-size:1.25rem;margin:.3rem 0 .6rem}.official-muted{color:var(--color-text-muted);font-size:.9rem}.official-eyebrow{color:var(--field-label-color);font-size:.8rem;text-transform:uppercase;font-weight:800;letter-spacing:.08em}
 .official-controls{display:flex;gap:1rem;flex-wrap:wrap;align-items:end}.official-range{flex:1 1 200px}.official-controls input[type=number]{max-width:7rem}
@@ -145,5 +145,9 @@ export default {
 .official-card dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:.6rem}.official-card dt{font-weight:bold}.official-card dd{margin:0}.official-card small{display:block;color:var(--field-label-color)}
 .official-map button,.official-card button{border:1px solid var(--accent-color);border-radius:999px;background:var(--panel-bg-color);color:var(--panel-text-color);font:inherit;font-weight:700;padding:.5rem .9rem;cursor:pointer}
 .official-map button:disabled,.official-card button:disabled{opacity:.45;cursor:default}.official-card :is(a,button,input,select,summary):focus-visible{outline:3px solid var(--accent-color);outline-offset:3px}
+.official-map .layer-edit-actions{gap:.2rem .5rem}
+.official-map .layer-edit-actions button{min-height:28px;border:1px solid transparent;border-radius:4px;background:transparent;color:var(--panel-muted-color);font-size:.75rem;font-weight:600;line-height:1.3;padding:.2rem .3rem}
+.official-map .layer-edit-actions button:hover:not(:disabled){color:var(--panel-text-color);background:var(--panel-bg-elevated-color);border-color:var(--panel-border-color)}
+.official-map .layer-edit-actions button:focus-visible{outline:2px solid var(--accent-color);outline-offset:2px}
 .official-card summary{cursor:pointer;font-weight:700}.official-card form{display:grid;gap:.5rem}.official-card p{line-height:1.5}
 </style>

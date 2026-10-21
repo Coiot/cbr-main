@@ -10,6 +10,10 @@ const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'
   'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 const response=(data,status=200)=>new Response(JSON.stringify(data),{status,headers});
 const check=result=>{if(result.error)throw new Error(result.error.message);return result.data;};
+// Older deployed clients validate the original event schema. Opt in to messages
+// until every client has adopted them; both representations remain turn-bounded.
+const clientRelease=(release,input)=>input.includeMessages===true?release:{...release,
+  events:release.events.filter(e=>e.kind!=='message').map(({text,...event})=>event)};
 export async function digest(value) {
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(value))))].map(n=>n.toString(16).padStart(2,'0')).join('');
 }
@@ -80,7 +84,7 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
         if(!sourceId)throw new Error('Stage a checked game history before adding episode endpoints.');
         if(action==='timeline-admin') {
           if(!current)return response({error:'No episode has been published.'},404);
-          return response({active:current,sourceId,release:(await read(current.id)).release});
+          return response({active:current,sourceId,release:clientRelease((await read(current.id)).release,input)});
         }
         const {release:source}=await read(sourceId);
         if(input.sourceId!==sourceId||(input.expected||null)!==(current?.id||null))throw new Error('The timeline changed. Reload before publishing an endpoint.');
@@ -115,7 +119,7 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
       const row=check(await db.from('map_releases').select('*').eq('id',id).maybeSingle());
       if(!row?.published_at || row.history!==current.history || row.last_turn>current.last_turn)return response({error:'This release is not available.'},404);
       const {release,timeline}=await read(id);
-      if(action==='release')return response({id,release});
+      if(action==='release')return response({id,release:clientRelease(release,input)});
       if(action==='search'&&input.turn===undefined)input.turn=current.last_turn;
       if(!Number.isInteger(input.turn)||input.turn<release.firstTurn||input.turn>Math.min(current.last_turn,release.lastTurn))throw new Error('This turn is not published.');
       if(action==='search') {

@@ -32,17 +32,17 @@ export function prepareRelease(extraction, base, owners, config) {
       }
     } else {
       const completion=/ completes (.+)!$/.exec(e.text);
-      const religion=/ has founded the new religion (.+) in the holy city of .+\.$/.exec(e.text);
+      const religion=/ (?:has|have) founded the new religion (.+) in the holy city of .+\.$/.exec(e.text);
       const category=completion&&config.completions?.[completion[1]];
       if(completion&&!['wonder','project','other'].includes(category))unclassified.push(completion[1]);
       if((category==='wonder'||religion)&&tiles.length===1) {
         const city=living.get(tiles[0]);
         if(!city)throw new Error(`Unmatched construction/religion at turn ${e.turn}.`);
         const name=religion?religion[1]:completion[1], kind=religion?'holyCity':'wonder';
-        release.events.push({turn:e.turn,kind,owner,tiles,city,name});
+        release.events.push({turn:e.turn,kind,owner,tiles,city,name,text:e.text});
         const list=religion?release.catalog.religions:release.catalog.wonders;
         if(!list.includes(name))list.push(name);
-      }
+      } else if(e.text.trim())release.events.push({turn:e.turn,kind:'message',owner,tiles,text:e.text});
     }
   }
   const report=auditRelease(release), timeline=createTimeline(release);
