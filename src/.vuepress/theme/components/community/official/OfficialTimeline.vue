@@ -7,12 +7,22 @@
       <label>Compare end of turn<input v-model.number="compareTurn" type="number" :min="release.firstTurn" :max="lastTurn" placeholder="None" @change="compare" /></label>
       <p v-if="comparison">Compared with T{{comparison.turn}}: {{frame?.cities.length-comparison.cities.length}} net city change, {{changedTiles}} territory changes. <button @click="comparison=null;compareTurn=''">Clear comparison</button></p>
     </div>
-    <!-- <p v-if="error" role="alert">{{error}}</p>
-    <p v-if="busy" role="status">Loading turn…</p> -->
-    <CommunityTileMapGrid v-if="source" :official-source="source" extra-panel-label="Replay" :detail-editing="!!(localEditing||(canEditDetails&&turn<=publicEndTurn))" :detail-edit-status="detailResult?.message||''" @official-detail-edit="saveDetails">
+    <p v-if="error" role="alert">{{error}}</p>
+    <CommunityTileMapGrid v-if="source" ref="grid" :official-source="source" :view-layer-tools="layerTools" extra-panel-label="Replay" :detail-editing="!!(layersEnabled||localEditing||(canEditDetails&&turn<=publicEndTurn))" :detail-edit-status="detailResult?.message||''" @official-detail-edit="saveDetails" @official-select="selected=$event">
       <template #map-timeline><MapTimelineToolbar :turn="turn" :first-turn="release.firstTurn" :last-turn="lastTurn" :playing="playing" :speed="speed" :disabled="!frame"
         :bookmarks="bookmarks" :can-manage="canManageEpisodes" :remote="!!(releaseId&&canManageEpisodes)" :saving="episodeSaving" :message="episodeMessage" :public-turn="publicReleaseId?publicEndTurn:null"
         @turn="choose" @play="togglePlay" @speed="speed=$event" @episode="saveEpisode" /></template>
+      <template v-if="layersEnabled" #edit-layer-tools="{tile}">
+        <p class="official-muted" role="status">{{layerNotice||'Your edits apply only at this turn. Save a view to share them.'}}</p>
+        <div class="layer-edit-actions">
+          <button type="button" :disabled="!tile" @click="resetLayerTile(tileIndex(tile))">Reset tile edits for this turn</button>
+          <button v-if="!preview" type="button" @click="$refs.grid.savePersonalMapView()">{{layerViewId&&$refs.grid?.activeSavedView?.user_id===user?.id?'Save changes':'Save as new view'}}</button>
+          <button v-if="layerDirty" type="button" @click="resetLayerDraft">Reset view draft</button>
+        </div>
+      </template>
+      <template v-if="layersEnabled" #tile-notes="{tile}">
+        <MapTileNotes :tile="tile?tileIndex(tile):null" :client="client" :user="user" :allowed="canEditDetails" :moderator="notesModerator" :version="notesVersion" :personal-note="tile?viewLayer.notes.find(n=>n.tile===tileIndex(tile))?.text||'':''" @personal="setPersonalNote($event.tile,$event.text)" @changed="refreshNotes" />
+      </template>
       <template #extra-panel><TimelineReplayPanel :release="release" :frame="frame" /></template>
     </CommunityTileMapGrid>
     <details v-if="comparison" class="official-card"><summary>View comparison map at the end of turn {{comparison.turn}}</summary>
@@ -34,12 +44,16 @@ import {mapReleaseRequest,timelineSource} from './mapReleaseApi.mjs';
 import {getSupabaseClient} from '../../../supabaseClient';
 import config from '../../../../../shared/officialMapConfig.json';
 import {subscribeAccountAuth} from '../../../account/accountSync.js';
+import MapTileNotes from './MapTileNotes.vue';
+import {viewLayerMethods} from './viewLayerSession.mjs';
+import {emptyViewLayer} from '../../../../../shared/mapViewLayers.mjs';
 export default {
-  components:{CommunityTileMapGrid,MapTimelineToolbar,TimelineReplayPanel},
+  components:{CommunityTileMapGrid,MapTimelineToolbar,TimelineReplayPanel,MapTileNotes},
   props:['release','releaseId','base','initialTurn','initialCompare','preview','localEditing','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
   emits:['turn','episode'],
-  data:()=>({showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),compareTurn:'',comparison:null,client:null,user:null}),
+  data:()=>({layersEnabled:config.viewLayersEnabled===true,viewLayer:null,savedLayer:null,layerViewId:'',layerRevision:0,layerDirty:false,layerNotice:'',noteCounts:[],notesVersion:0,notesModerator:false,showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),compareTurn:'',comparison:null,client:null,user:null}),
   computed:{
+    layerTools(){return this.layersEnabled&&!this.preview?{capture:()=>JSON.parse(JSON.stringify(this.viewLayer)),read:row=>this.layerForForm(row),save:(draft,row)=>this.saveViewLayer(draft,row),open:(row,reset)=>this.loadViewLayer(row,reset),close:()=>this.closeViewLayer(),allowed:this.canEditDetails}:null;},
     lastTurn(){return timelineLastTurn(this.release.lastTurn,this.confirmedMarkers);},
     confirmedMarkers(){return this.episodeMarkers||this.localMarkers;},
     publicEndTurn(){return Math.min(this.release.lastTurn,this.confirmedMarkers.at(-1)?.turn??0);},
@@ -57,18 +71,20 @@ export default {
   },
   mounted(){
     this._alive=true;this.localMarkers=this.episodeMarkers||defaultEpisodeMarkers;if(!this.localMarkers.length)this.localMarkers=[{episode:'0',turn:this.release.firstTurn}];this._requests=new Map();this._sequence=0;
-    this.detailLayer=markRaw(emptyDetails(this.release.history));
+    this.detailLayer=markRaw(emptyDetails(this.release.history));this.viewLayer=markRaw(emptyViewLayer(this.release.history));this.savedLayer=emptyViewLayer(this.release.history);
     this._worker=new Worker(new URL('./timelineWorker.mjs',import.meta.url),{type:'module'});
     this._worker.onmessage=({data})=>{const pending=this._requests.get(data.request);if(!pending)return;this._requests.delete(data.request);data.error?pending.reject(new Error(data.error)):pending.resolve(data.frame);};
     this._worker.onerror=()=>{for(const p of this._requests.values())p.reject(new Error('Timeline worker failed. Reload to retry.'));this._requests.clear();};
-    if(!this.preview&&this.editorDetailsEnabled){this.client=getSupabaseClient();this._auth=subscribeAccountAuth(this.client,session=>{this.user=session?.user||null;this.canEditDetails=false;if(this.user)this.checkEditAccess(this.user.id);});
-      this._refresh=setInterval(()=>{if(!document.hidden&&!this.playing&&!this.busy)this.loadDetails();},60000);
+    if(!this.preview&&(this.editorDetailsEnabled||this.layersEnabled)){this.client=getSupabaseClient();this._auth=subscribeAccountAuth(this.client,session=>{const user=session?.user||null;const changed=this.user?.id!==user?.id;this.user=user;this.canEditDetails=false;if(this.layersEnabled){if(changed||!this._layerAuthReady){this._layerAuthReady=true;this._loadedLayer='';this.layerViewId='';this.restoreLayerDraft();}this.checkLayerAccess();}else if(this.user)this.checkEditAccess(this.user.id);});
+      this._refresh=setInterval(()=>{if(!document.hidden&&!this.playing&&!this.busy){this.loadDetails();this.refreshNotes();}},60000);
     }
     this._visibility=()=>{if(document.hidden)this.pause();};document.addEventListener('visibilitychange',this._visibility);
-    this.choose(this.initialTurn??this.publicEndTurn,true).then(async()=>{await this.loadDetails();if(this.initialCompare!=null){this.compareTurn=this.initialCompare;this.compare();}});
+    this.choose(this.initialTurn??this.publicEndTurn,true).then(async()=>{await this.loadDetails();await this.refreshNotes();if(this.initialCompare!=null){this.compareTurn=this.initialCompare;this.compare();}});
   },
   beforeUnmount(){this._alive=false;this._choose++;this.pause();clearInterval(this._refresh);this._worker?.terminate();this._auth?.unsubscribe();document.removeEventListener('visibilitychange',this._visibility);},
   methods:{
+    ...viewLayerMethods,
+    tileIndex(tile){const [x,y]=tile.key.split(',').map(Number);return (93-y)*180+x;},
     sourceId(turn){return timelineSource(this.release.history,turn);},
     requestFrame(turn,initialize=false){if(!Number.isInteger(turn)||turn<this.release.firstTurn||turn>this.lastTurn)return Promise.reject(new Error('That turn is outside the available timeline.'));return new Promise((resolve,reject)=>{const request=++this._sequence;this._requests.set(request,{resolve,reject});this._worker.postMessage({request,turn,...(initialize?{release:JSON.parse(JSON.stringify(this.release))}:{})});});},
     async choose(turn,initialize=false,playback=false){
@@ -80,11 +96,12 @@ export default {
       }catch(error){if(this._alive&&request===this._choose)this.error=error.message;}
       finally{if(this._alive&&request===this._choose)this.busy=false;}
     },
-    updateSource(){this.source=markRaw({base:this.base,frame:mergeDetails(this.frame,[...this.detailRows.map(r=>r.record),...this.detailLayer.records]),source:this.sourceId(this.turn),compareSource:this.comparison?this.sourceId(this.comparison.turn):'',preview:!!this.preview||this.turn>this.publicEndTurn});},
+    updateSource(){this.source=markRaw({base:this.base,frame:this.layersEnabled?this.mergePersonalFrame(this.frame):mergeDetails(this.frame,[...this.detailRows.map(r=>r.record),...this.detailLayer.records]),source:this.sourceId(this.turn),compareSource:this.comparison?this.sourceId(this.comparison.turn):'',preview:!!this.preview||this.turn>this.publicEndTurn});},
     setDetails(layer){this.pause(false);this.detailLayer=markRaw(layer);this.updateSource();if(this.comparison)this.compare();},
     async checkEditAccess(userId){try{const result=await mapReleaseRequest({action:'detail-access'},this.client);if(this._alive&&this.user?.id===userId)this.canEditDetails=result.allowed===true;}catch{this.canEditDetails=false;}},
     saveEpisode(marker){if(this.canManageEpisodes)this.$emit('episode',marker);},
     async saveDetails(records){
+      if(this.layersEnabled){try{this.changeLayer(records);}catch(error){this.error=error.message;}return;}
       if(this.localEditing){let layer=this.detailLayer;for(const record of records)layer=putDetail(layer,record);this.setDetails(layer);return;}
       if(!this.canEditDetails||this.turn>this.publicEndTurn)return;this.pause(false);this._detailQueue??=new Map();this._detailRevisions??=new Map();
       for(const record of records){const key=detailKey(record),previous=this.detailRows.find(r=>detailKey(r.record)===key);this._detailQueue.set(key,{record,turn:this.turn,revision:previous?.revision||0});}
@@ -107,7 +124,7 @@ export default {
       }catch(error){if(this._alive&&request===this._detailRead)this.error=`Editor updates could not be loaded. ${error.message}`;}
     },
     async compare(){if(this.compareTurn===''){this.comparison=null;return;}const turn=this.compareTurn;try{const frame=await this.requestFrame(turn);
-      if(this._alive&&turn===this.compareTurn)this.comparison=markRaw(mergeDetails(frame,[...this.detailRows.map(r=>r.record),...this.detailLayer.records]));}catch(error){this.error=error.message;this.comparison=null;}},
+      if(this._alive&&turn===this.compareTurn)this.comparison=markRaw(this.layersEnabled?this.mergePersonalFrame(frame):mergeDetails(frame,[...this.detailRows.map(r=>r.record),...this.detailLayer.records]));}catch(error){this.error=error.message;this.comparison=null;}},
     pause(refresh=true){clearTimeout(this._timer);const wasPlaying=this.playing;this.playing=false;if(wasPlaying&&refresh&&this._alive)this.loadDetails();},
     togglePlay(){if(this.playing){this.pause();return;}this.playing=true;const tick=async()=>{if(!this.playing||document.hidden)return;
       await this.choose(this.turn+1,false,true);if(!this.playing)return;if(this.turn>=this.lastTurn||this.error)this.pause();else this._timer=setTimeout(tick,1000/this.speed);};this._timer=setTimeout(tick,1000/this.speed);},
@@ -119,6 +136,7 @@ export default {
 </script>
 <style>
 .official-map{min-width:0}.official-card{padding:1rem;margin:1rem 0;border:1px solid var(--panel-border-color);border-top:3px solid var(--accent-color);border-radius:0 0 12px 12px;background:var(--panel-bg-color);color:var(--panel-text-color);overflow-wrap:anywhere}
+.layer-edit-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}.layer-edit-actions button{font-size:.8rem}
 .official-replay-credit{margin-top:2rem;color:var(--color-text-muted);font-size:.8rem}
 .official-card h2{font-size:1.25rem;margin:.3rem 0 .6rem}.official-muted{color:var(--color-text-muted);font-size:.9rem}.official-eyebrow{color:var(--field-label-color);font-size:.8rem;text-transform:uppercase;font-weight:800;letter-spacing:.08em}
 .official-controls{display:flex;gap:1rem;flex-wrap:wrap;align-items:end}.official-range{flex:1 1 200px}.official-controls input[type=number]{max-width:7rem}

@@ -1,0 +1,67 @@
+-- Run only in a disposable database; fixtures are rolled back.
+begin;
+create function pg_temp.assert_true(value boolean,message text) returns void language plpgsql as $$ begin if value is distinct from true then raise exception '%',message;end if;end $$;
+create function pg_temp.denied(statement text) returns void language plpgsql as $$ begin begin execute statement;exception when others then return;end;raise exception 'Unexpectedly allowed: %',statement;end $$;
+insert into auth.users(id) values('88c12d80-cdc8-44cf-a174-a75c63bb5936'),('00000000-0000-4000-8000-000000000080'),('00000000-0000-4000-8000-000000000081');
+create table public.map_layer_test_access(user_id uuid primary key,allowed boolean);
+insert into public.map_layer_test_access values('00000000-0000-4000-8000-000000000080',true);
+create or replace function public.supporter_status_for(p_actor uuid) returns jsonb language sql as $$ select jsonb_build_object('allowed',coalesce((select allowed from public.map_layer_test_access where user_id=p_actor),false)) $$;
+insert into public.profiles(id,username) values('88c12d80-cdc8-44cf-a174-a75c63bb5936','Coiot'),('00000000-0000-4000-8000-000000000080','Supporter'),('00000000-0000-4000-8000-000000000081','Reader');
+insert into public.map_releases(id,history,first_turn,last_turn,bookmarks,published_at) values(repeat('f',64),'00000000-0000-4000-8000-000000000090',0,645,'[{"episode":"35","turn":645}]',now());
+update public.map_release_control set active_release=repeat('f',64),enabled=true where map_id='s5';
+set local role anon;
+select pg_temp.denied('select * from public.map_view_layers');
+select pg_temp.denied('select * from public.map_tile_notes');
+select pg_temp.denied($q$select * from public.map_note_counts('00000000-0000-4000-8000-000000000090')$q$);
+reset role;
+set local role authenticated;
+select pg_temp.denied($q$select public.write_map_tile_note('88c12d80-cdc8-44cf-a174-a75c63bb5936','00000000-0000-4000-8000-000000000090',10,'Forged author',0,645)$q$);
+reset role;
+set local role service_role;
+select pg_temp.denied($q$select public.write_map_tile_note('00000000-0000-4000-8000-000000000081','00000000-0000-4000-8000-000000000090',10,'Not a supporter',0,645)$q$);
+select pg_temp.denied($q$select public.write_map_tile_note('00000000-0000-4000-8000-000000000081','00000000-0000-4000-8000-000000000090',10,'',0,645)$q$);
+select public.write_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'Supporter note',0,645);
+select public.write_map_tile_note('88c12d80-cdc8-44cf-a174-a75c63bb5936','00000000-0000-4000-8000-000000000090',10,'Showrunner note',0,645);
+select pg_temp.assert_true((select count=2 from public.map_note_counts('00000000-0000-4000-8000-000000000090') where tile=10),'Notes by separate authors were combined');
+select public.write_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'Updated note',1,645);
+select pg_temp.denied($q$select public.write_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'Stale edit',1,645)$q$);
+select pg_temp.denied($q$select public.moderate_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'88c12d80-cdc8-44cf-a174-a75c63bb5936',true,1)$q$);
+select public.moderate_map_tile_note('88c12d80-cdc8-44cf-a174-a75c63bb5936','00000000-0000-4000-8000-000000000090',10,'00000000-0000-4000-8000-000000000080',true,2);
+select pg_temp.assert_true((select count=1 from public.map_note_counts('00000000-0000-4000-8000-000000000090') where tile=10),'Hidden note remained in the public count');
+select pg_temp.assert_true((select count(*)=1 from public.read_map_tile_notes('00000000-0000-4000-8000-000000000090',10,null,0)),'Guest received hidden notes');
+select pg_temp.assert_true((select count(*)=2 from public.read_map_tile_notes('00000000-0000-4000-8000-000000000090',10,'00000000-0000-4000-8000-000000000080',0)),'Author lost access to their hidden note');
+do $$
+declare settings jsonb:='{"version":1,"x":0,"y":0,"zoom":1,"overlay":"none","owner":"","contrast":"00000","tile":"","snapshot":"timeline:00000000-0000-4000-8000-000000000090:600","compare":""}';
+layer jsonb:='{"format":"cbr-map-view-layer","version":1,"history":"00000000-0000-4000-8000-000000000090","edits":[],"notes":[{"tile":10,"text":"Personal"}]}'; v public.map_saved_views;
+begin
+ select * into v from public.save_map_view_layer('00000000-0000-4000-8000-000000000080',null,0,'Draft','','private',settings,layer,'00000000-0000-4000-8000-000000000090',645);
+ perform pg_temp.assert_true((select revision=1 from public.map_view_layers where view_id=v.id),'View and layer were not saved together');
+ perform pg_temp.denied(format('select public.save_map_view_layer(%L,%L,0,%L,%L,%L,%L,%L,%L,645)','00000000-0000-4000-8000-000000000080',v.id,'Stale','','public',settings,layer,'00000000-0000-4000-8000-000000000090'));
+ perform pg_temp.denied(format('select public.save_map_view_layer(%L,%L,1,%L,%L,%L,%L,%L,%L,645)','88c12d80-cdc8-44cf-a174-a75c63bb5936',v.id,'Wrong owner','','public',settings,layer,'00000000-0000-4000-8000-000000000090'));
+ perform pg_temp.denied(format('select public.save_map_view_layer(%L,null,0,%L,%L,%L,%L,%L,%L,645)','00000000-0000-4000-8000-000000000080','Future','','public',jsonb_set(settings,'{snapshot}','"timeline:00000000-0000-4000-8000-000000000090:751"'),layer,'00000000-0000-4000-8000-000000000090'));
+ perform public.save_map_view_layer('00000000-0000-4000-8000-000000000080',v.id,1,'Published','','public',settings,layer,'00000000-0000-4000-8000-000000000090',645);
+ perform pg_temp.assert_true((select revision=2 from public.map_view_layers where view_id=v.id),'Explicit update did not advance the revision');
+end $$;
+reset role;
+update public.map_layer_test_access set allowed=false;
+set local role service_role;
+select public.write_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'',3,645);
+select pg_temp.denied($q$select public.write_map_tile_note('00000000-0000-4000-8000-000000000080','00000000-0000-4000-8000-000000000090',10,'Expired update',4,645)$q$);
+update public.map_releases set last_turn=595 where id=repeat('f',64);
+select pg_temp.assert_true((select count(*)=0 from public.map_note_counts('00000000-0000-4000-8000-000000000090')),'Rollback exposed later notes');
+select pg_temp.assert_true((select count(*)=0 from public.read_map_tile_notes('00000000-0000-4000-8000-000000000090',10,'88c12d80-cdc8-44cf-a174-a75c63bb5936',0)),'Rollback exposed later notes to the showrunner');
+select pg_temp.assert_true((select count(*)=1 from public.map_view_layers where public_end_turn=645),'Rollback changed the stored personal layer');
+reset role;
+update public.map_layer_test_access set allowed=true;
+set local role service_role;
+do $$
+declare v public.map_saved_views; l public.map_view_layers; settings jsonb;
+begin
+ select * into v from public.map_saved_views where title='Published';
+ select * into l from public.map_view_layers where view_id=v.id;
+ settings:=jsonb_set(v.settings,'{snapshot}','"timeline:00000000-0000-4000-8000-000000000090:0"');
+ perform pg_temp.denied(format('select public.save_map_view_layer(%L,%L,2,%L,%L,%L,%L,%L,%L,595)',v.user_id,v.id,'Accidentally erased','','public',settings,l.layer,l.history));
+ perform pg_temp.assert_true((select title='Published' from public.map_saved_views where id=v.id),'A withheld layer was overwritten');
+end $$;
+reset role;
+rollback;

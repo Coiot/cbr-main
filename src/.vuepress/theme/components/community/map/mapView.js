@@ -38,8 +38,9 @@ export const mapViewMethods = {
   },
   applyMapViewSettings(settings, isCurrent = () => !this._mapDisposed) {
     if (!this.tiles.length || !this.gridWidth || !this.gridHeight) return;
-    this.overlayView = settings.overlay === 'none' ? 'civilization' : settings.overlay;
-    this.overlayEnabled = settings.overlay !== 'none';
+    const supported=!(this.officialSource&&['population','religion'].includes(settings.overlay));
+    this.overlayView = !supported||settings.overlay === 'none' ? 'civilization' : settings.overlay;
+    this.overlayEnabled = supported&&settings.overlay !== 'none';
     this.overlayOwnerName = settings.owner;
     if (this.overlayEnabled) this.editPanelTab = 'overlays';
     const contrast = Object.fromEntries(CONTRAST_FIELDS.map((key, index) => [key, settings.contrast[index] === '1']));

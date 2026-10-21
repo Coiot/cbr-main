@@ -359,17 +359,12 @@ test('religion overlays use recorded capital majorities, never holy-city status 
   const result=mapOverlaysComputed.religionOverlayByOwner.call(context);assert.equal(result[0],undefined);assert.equal(result[1].religion,'Shinto');
 });
 function nativeTile(frame){const city=JSON.parse(JSON.stringify(frame.cities[0]));return {key:'20,93',owner:city.owner,originalOwner:city.originalOwner,city,improvement:null,route:null,pillaged:false,ruins:false,notes:null,combatUnit:null,civilianUnit:null};}
-test('native Edit controls emit live details without deleting unknown fields or the city',()=>{
+test('historical editors cannot change population or religion even through old controls',()=>{
   const frame=createTimeline(fixture()).frame(1),tile=nativeTile(frame),emitted=[];
-  const context={officialSource:{frame},detailEditing:true,selectedTile:tile,editCityValue:14,ensureEditAccess:()=>true,useTerrainCanvas:false,
+  const context={officialSource:{frame},detailEditing:true,selectedTile:tile,editCityValue:14,editCityReligion:'Other',ensureEditAccess:()=>true,useTerrainCanvas:false,
     queueTileSave:t=>mapPersistenceMethods.queueTileSave.call(context,t),$emit:(event,records)=>emitted.push({event,records}),invalidateTooltipCache:()=>{}};
-  mapEditingMethods.applyCityEdit.call(context);
-  assert.equal(frame.cities[0].size,undefined);assert.equal(tile.city.size,14);assert.equal(tile.city.religion,undefined);
-  assert.equal(emitted[0].event,'official-detail-edit');assert.deepEqual(emitted[0].records.map(r=>r.field),['population']);
-  assert.equal(emitted[0].records[0].fromTurn,undefined);assert.equal(emitted[0].records[0].toTurn,undefined);
-  assert.equal(mergeDetails(createTimeline(fixture()).frame(0),emitted[0].records).cities[0].size,14);
-  context.editCityValue=0;mapEditingMethods.applyCityEdit.call(context);assert.equal(tile.city.size,14);
-  mapEditingMethods.clearCityEdit.call(context);assert.equal(tile.city.id,1);
+  mapEditingMethods.applyCityEdit.call(context);mapEditingMethods.applyCityReligionEdit.call(context);
+  assert.equal(tile.city.size,undefined);assert.equal(tile.city.religion,undefined);assert.deepEqual(emitted,[]);
 });
 test('native historical editing refuses owner, founder, city placement and rename changes',()=>{
   const frame=createTimeline(fixture()).frame(1),tile=nativeTile(frame),before=JSON.stringify(tile);

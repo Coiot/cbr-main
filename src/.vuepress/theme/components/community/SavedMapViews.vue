@@ -37,7 +37,7 @@
           <label for="saved-view-title">Title</label><input id="saved-view-title" ref="titleField" v-model="draft.title" maxlength="80" required :disabled="!canChange || saving" />
           <label for="saved-view-description">Description <span>(optional)</span></label><textarea id="saved-view-description" v-model="draft.description" maxlength="300" rows="3" :disabled="!canChange || saving"></textarea>
           <label for="saved-view-visibility">Visibility</label><select id="saved-view-visibility" v-model="draft.visibility" :disabled="!canChange || saving"><option value="private">Private — only you</option><option value="public">Public — anyone can open and follow</option></select>
-          <div class="saved-view-summary"><strong>{{ sourceLabel({ settings: draft.settings }) }}</strong><span>{{ overlayLabel(draft.settings) }}</span><p>{{ draft.settings?.snapshot ? 'This view stays on this episode snapshot.' : 'This framing opens the current community map as it changes.' }}</p><p>Includes the map center, zoom, selected tile, and contrast options. It does not change map tiles.</p></div>
+          <div class="saved-view-summary"><strong>{{ sourceLabel({ settings: draft.settings }) }}</strong><span>{{ overlayLabel(draft.settings) }}</span><p>{{ layerTools ? 'Opens at the selected turn. You can still explore the timeline.' : draft.settings?.snapshot ? 'This view stays on this episode snapshot.' : 'This framing opens the current community map as it changes.' }}</p><p>Includes the map center, zoom, selected tile, and contrast options. {{layerTools?'Includes your turn-specific tile edits and personal notes. Community notes are separate.':'It does not change map tiles.'}}</p></div>
           <button v-if="editing && canChange" type="button" :disabled="saving || !mapReady || local" @click="replaceFraming">Update from current map</button>
           <p v-if="draft.visibility === 'public'">Your title, description, and website username will be public.</p>
           <button v-if="canChange" type="submit" class="saved-view-primary" :disabled="saving">{{ saving ? 'Saving…' : editing ? 'Save changes' : 'Save view' }}</button>
@@ -53,7 +53,7 @@
       </template>
 
       <template v-else>
-        <p>Find a new angle on the cylinder. Anyone can explore; supporters can create views for everyone to follow.</p>
+        <p>Find a new angle on the cylinder. Anyone can explore. Supporters can create views for everyone to follow.</p>
         <div class="saved-view-tabs" role="group" aria-label="View lists"><button v-for="tab in tabs" :key="tab.id" type="button" :aria-pressed="section === tab.id" @click="changeSection(tab.id)">{{ tab.label }}</button></div>
         <form v-if="section === 'explore' || user" class="saved-view-search" @submit.prevent="load(true)"><label for="map-view-search">Search titles or creators</label><div><input id="map-view-search" v-model="search" maxlength="80" type="search" /><button type="submit">Search</button></div></form>
         <p v-if="!user && section !== 'explore'">Sign in with an account to {{ section === 'following' ? 'follow community views across devices.' : 'find your saved views.' }}</p>
@@ -85,7 +85,7 @@ export default {
   name: 'SavedMapViews',
   components: { SupporterName },
   props: {
-    client: Object, user: Object, allowed: Boolean, checking: Boolean, accessFailed: Boolean, supporterStatus: String,
+    layerTools: Object, client: Object, user: Object, allowed: Boolean, checking: Boolean, accessFailed: Boolean, supporterStatus: String,
     local: Boolean, mapReady: Boolean, admin: Boolean, mapId: String, snapshots: Array,
     getSettings: { type: Function, required: true }, activeView: Object, loadingView: Boolean, viewError: String,
   },
@@ -147,25 +147,26 @@ export default {
     capture() {
       const settings = normalizeMapViewSettings(this.getSettings());
       if (!settings) throw new Error('The map settings are unavailable. Please try again when the map has loaded.');
-      if (settings.snapshot && !this.snapshots?.some(row => row.id === settings.snapshot && row.is_published !== false)) throw new Error('Choose a published episode snapshot before saving this view.');
+      if (settings.snapshot && !this.layerTools && !this.snapshots?.some(row => row.id === settings.snapshot && row.is_published !== false)) throw new Error('Choose a published episode snapshot before saving this view.');
       return settings;
     },
-    create() {
+    async create() {
       this.form = false; this.signInView = null; this.showAccessHelp = false; this.present();
       if (!this.canChange) { this.showAccessHelp = true; this.load(true); return; }
-      try { this.draft = { title: '', description: '', visibility: 'private', settings: this.capture() }; this.editing = null; this.confirmDelete = false; this.form = true;
+      const version=this.dialogVersion,userId=this.user?.id;
+      try { const data=this.layerTools?await this.layerTools.read(null):null;if(version!==this.dialogVersion||userId!==this.user?.id)return;this.draft = { title: '', description: '', visibility: 'private', settings: this.capture(),...(data?{layer:data.layer,layerRevision:0}:{}) }; this.editing = null; this.confirmDelete = false; this.form = true;
         this.$nextTick(() => this.$refs.titleField?.focus({ preventScroll: true }));
       } catch (error) { this.message = error.message; }
     },
-    manage(row) { this.message = ''; this.editing = row; this.draft = { title: row.title, description: row.description, visibility: row.visibility, settings: { ...row.settings } }; this.form = true; this.confirmDelete = false; this.$nextTick(() => { this.$refs.drawer.scrollTop = 0; (this.canChange ? this.$refs.titleField : this.$refs.heading)?.focus({ preventScroll: true }); }); },
-    replaceFraming() { try { this.draft.settings = this.capture(); this.message = 'Current framing selected. Save changes to update this view for its followers.'; } catch (error) { this.message = error.message; } },
+    async manage(row) { if(!row)return;this.message='';const version=this.dialogVersion,userId=this.user?.id;try{const data=this.layerTools?await this.layerTools.read(row):null;if(version!==this.dialogVersion||userId!==this.user?.id)return;this.editing=row;this.draft={title:row.title,description:row.description,visibility:row.visibility,settings:{...row.settings},...(data?{layer:data.layer,layerRevision:data.revision}:{})};this.form=true;this.confirmDelete=false;this.$nextTick(()=>{this.$refs.drawer.scrollTop=0;(this.canChange?this.$refs.titleField:this.$refs.heading)?.focus({preventScroll:true});});}catch(error){this.message=error.message;} },
+    replaceFraming() { try { this.draft.settings = this.capture();if(this.layerTools)this.draft.layer=this.layerTools.capture(); this.message = 'Current framing selected. Save changes to update this view for its followers.'; } catch (error) { this.message = error.message; } },
     backToList() { this.form = false; this.editing = null; this.message = ''; this.load(true); },
     async save() {
       if (this.saving || !this.canChange) return;
       const userId = this.user?.id, version = this.dialogVersion;
       this.saving = true; this.message = '';
       try {
-        const row = await saveMapView(this.client, userId, this.mapId, this.draft, this.editing);
+        const row = this.layerTools?await this.layerTools.save(this.draft,this.editing):await saveMapView(this.client, userId, this.mapId, this.draft, this.editing);
         if (this.user?.id !== userId || this.dialogVersion !== version) return;
         this.$emit('changed', row); this.form = false; this.section = 'mine'; this.search = ''; await this.load(true); this.message = 'View saved.';
       } catch (error) { if (this.user?.id === userId && this.dialogVersion === version) this.message = error.message; }

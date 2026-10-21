@@ -851,6 +851,7 @@ export const mapEditingMethods = {
     return formatOwnerOptionLabel(owner, index);
   },
   applyCityEdit() {
+    if(this.officialSource)return;
     if(this.officialSource&&!this.selectedTile?.city)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
@@ -927,6 +928,7 @@ export const mapEditingMethods = {
     }
   },
   applyCityReligionEdit() {
+    if(this.officialSource)return;
     if (
       !this.ensureEditAccess() ||
       !this.selectedTile ||

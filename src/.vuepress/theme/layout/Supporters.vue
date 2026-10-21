@@ -22,7 +22,7 @@
         </div>
       </section>
     </template>
-    <p class="supporter-muted">This list reflects current supporter access. Episode credits preserve the supporters acknowledged when each release was prepared. Publishing a personal showcase is optional.</p>
+    <!-- <p class="supporter-muted">This list reflects current supporter access. Episode credits preserve the supporters acknowledged when each release was prepared. Publishing a personal showcase is optional.</p> -->
   </div>
 </template>
 <script>

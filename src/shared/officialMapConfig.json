@@ -1,6 +1,7 @@
 {
   "enabled": true,
   "editorDetailsEnabled": false,
+  "viewLayersEnabled": true,
   "showTimelineExtras": false,
   "latestEpisode": {
     "episode": "35",

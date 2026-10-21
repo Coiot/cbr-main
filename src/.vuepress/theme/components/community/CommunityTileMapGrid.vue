@@ -26,7 +26,7 @@
       <p v-if="showMapShortcuts">Focus the map with Tab. Arrow keys pan; Shift + arrow keys select neighboring tiles;
         Enter opens tile details. + / − zoom, F fits the map, ? toggles this guide, and Escape closes details or fullscreen.</p>
     </div>
-    <SavedMapViews v-if="!embedded && !officialSource?.preview" ref="savedViews" :client="supabase" :user="authUser" :allowed="canEdit" :checking="authChecking"
+    <SavedMapViews v-if="!embedded && !officialSource?.preview" ref="savedViews" :client="supabase" :user="authUser" :allowed="viewLayerTools?viewLayerTools.allowed:canEdit" :layer-tools="viewLayerTools" :checking="authChecking"
       :access-failed="supporterCheckFailed" :supporter-status="supporterStatus" :local="localEditsEnabled" :admin="isAdmin"
       :map-ready="!!tiles.length && !isLoading && !loadError && !isLiveSyncing && !liveSyncError" :map-id="savedViewsMapId" :snapshots="snapshots"
       :get-settings="captureMapViewSettings" :active-view="activeSavedView" :loading-view="savedViewLoading" :view-error="savedViewError"
@@ -677,6 +677,7 @@
               </div>
             </div>
             <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
+            <slot name="edit-layer-tools" :tile="selectedTile" />
             <p v-if="detailEditError || detailEditStatus" class="tile-edit-hint" role="status">{{detailEditError || detailEditStatus}}</p>
             <div
               v-if="selectedTile"
@@ -943,7 +944,7 @@
                 </div>
 
                 <div
-                  v-if="selectedTile && selectedTile.city"
+                  v-if="selectedTile && selectedTile.city && !officialSource"
                   class="tile-edit-group"
                 >
                   <div class="tile-edit-row tile-edit-row-split">
@@ -1459,6 +1460,7 @@
                 {{ tileNotesStatus }}
               </div>
             </div>
+            <slot name="tile-notes" :tile="selectedTile">
             <div v-if="selectedTile" class="tile-notes-body">
               <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
               <div v-if="!editAccessAllowed" class="tile-notes-text">
@@ -1477,6 +1479,7 @@
             <div v-else class="tile-info-empty">
               Select a tile to view notes.
             </div>
+            </slot>
           </div>
           <div
             v-show="editPanelTab === 'snapshots'"
@@ -1720,7 +1723,7 @@
                 >
                   Civilization
                 </button>
-                <button
+                <button v-if="!officialSource"
                   type="button"
                   class="tile-edit-button"
                   :class="{ 'is-active': overlayView === 'population' }"
@@ -1728,7 +1731,7 @@
                 >
                   Population
                 </button>
-                <button
+                <button v-if="!officialSource"
                   type="button"
                   class="tile-edit-button"
                   :class="{ 'is-active': overlayView === 'religion' }"
@@ -2308,6 +2311,7 @@ import { mapEditingComputed, mapEditingMethods } from "./map/mapEditing.js";
 export default {
   components: { FeatureNotice, SavedMapViews, MapToolbar, MapCityBanner },
   props: {
+    viewLayerTools: { type: Object, default: null },
     detailEditing: { type: Boolean, default: false },
     detailEditStatus: { type: String, default: '' },
     showMapHeading: { type: Boolean, default: true },

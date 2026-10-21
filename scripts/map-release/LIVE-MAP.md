@@ -1,77 +1,87 @@
-# Game history and one live editor layer
+# Personal map edits and tile notes
 
-The game history controls geography, city locations, city names, foundings,
-captures, destruction, and territory. Editors maintain one mutable detail layer
-on top of that history through the community map's existing **Edit / Notes** tabs.
-There are no snapshot imports, dated observations, or per-turn editor layers.
-Changing a detail replaces its current value across the timeline.
+The public timeline currently ends at T645 for everyone. Recorded geography,
+borders, city locations, and names remain controlled by game history.
 
-The layer supports citadels and other improvements, visible ruins, notes, routes,
-pillaging, units, population, religion, wonders, capital and city status, and
-civilization ideology. City details only appear for a matching city lifetime and
-owner; a manual ruin never covers a recorded city. A civilization has one current
-capital selection and one ideology value. Recorded facts retain precedence.
-These are current editor annotations, not a reconstruction of those details at
-each historical turn. Turn-specific cities and borders still come from history.
+## Personal views
 
-## Local testing
+The community map’s Edit tab changes your personal draft. Changes to units,
+improvements, routes, citadels, ruins, wonders, city status, and ideology apply
+only at the exact turn where you made them. Population and religion controls
+and overlays are hidden on the timeline map.
 
-1. Open `/map-replay/` and load the recovered history JSON.
-2. Hover or click a tile for the standard tooltip. Use **Edit / Notes** to edit.
-3. Seek to another turn. The same live layer remains applied where relevant.
-4. **Save edits**, beside the file controls, saves the local layer as JSON. To
-   restore it, load the matching history and then choose that edits file using
-   the same file picker. Loading another history starts an empty layer.
+Anyone can experiment locally. Drafts are stored on the current device, separated
+by account, game history, and view. Current supporters and existing map
+administrators can save private views or publish them for others to open and
+follow. New views default to private. Updating a published view requires an
+explicit save; a viewer’s experiments never change someone else’s saved view.
 
-The lab keeps edits in memory; save them before closing it. A downloaded frozen
-map snapshot is a separate inspection artifact, not a backup of editor changes.
-Old hybrid layers and legacy community exports cannot be loaded as live edits.
-The Replay panel contains civilization/event summaries only. Technical file
-checks remain in extraction and preparation, outside the public reading UI.
+A view includes its framing, turn-specific tile edits, and personal tile notes.
+Personal notes stay on their tile across every timeline turn. Resetting a tile’s
+edits affects the selected turn and retains its note. Resetting the view draft
+returns to the last saved layer, or to an empty draft for a new view.
 
-The private `/map-releases/` loopback preview also supports native editing in
-memory. Nothing is sent to production from either local preview.
+## Community notes
 
-## Pending online migration
+The Notes tab shows community notes separately from the personal view note.
+Each author can keep one public note per tile. Notes follow coordinates rather
+than cities or ownership, and remain visible across the timeline. Supporters and
+map administrators can create and update their own notes. Authors with expired
+access can still delete their notes; administrators can hide or restore notes.
 
-`supabase/sql/map-tile-details.sql` and the updated `map-release` function remain
-local. The shared timeline is published through T645, with its full T751 source kept
-private. The separate editor layer remains disabled. Automatic approval review
-rejected deploying this layer as outside the shared-history upload request.
-Obtain separate authorization before applying its migration and enabling it. The retired draft hybrid migration was not deployed.
+Community notes appear on the default map and alongside saved views. Hover
+content and note-pin graphics indicate notes on a tile. Note text is plain text.
 
-`map_tile_details` holds one current value per tile/field, or per civilization
-for ideology/capital. Every write rechecks editor permission and the published
-turn bound, and uses optimistic revisions. Private recovery records allow
-investigating an overwrite; they are not public map snapshots or timeline layers.
+## Storage and deployment
 
-The server records the edit's source turn internally to enforce rollback safety.
-An edit made beyond a rolled-back release cap is withheld entirely. Within the
-approved public range, every selected turn uses the same live layer. The date
-range fields from the former hybrid approach are rejected. Public reads expose
-only validated records, public author names, and revisions.
+`map-view-layers.sql` creates private layer payload storage linked to existing
+saved views, public notes by author, and private note revision history. The
+`map-release` API validates data and permissions before calling service-only
+save functions. Framing and personal layers save in one transaction. Revision
+checks prevent stale tabs from silently overwriting newer saves.
 
-The published viewer loads this layer separately from game history, refreshes it
-while visible and paused, and reloads it after edits. Seeking does not fetch a
-different layer. Episode bookmarks only select turns in the history. New release
-packages contain game history only, never editor data or snapshot imports.
+Layers are limited to 5,000 records and 1 MiB, with 2,000 characters per note.
+The API checks each edit against its recorded turn, city lifetime, owner, and
+published endpoint. It never accepts geography, border, or city-placement edits.
+Private views stay private; hidden views cannot expose layer payloads. Following
+and showcase links continue using the existing saved-view identifiers.
 
-## Legacy data retirement after launch
+Saves record the public cutoff. A rollback withholds community notes and saved
+layers created against a later cutoff; local drafts also respect that cutoff.
+The full T751 history remains private and is not supplied to map viewers.
 
-The existing community map, cloud snapshots and overrides remain untouched while
-the new map is being tested. After a verified public cutover:
+The migration and updated API are installed. `viewLayersEnabled` enables the
+new controls in the site code. The old `editorDetailsEnabled` flag stays false:
+there is no shared global tile-editing layer. The older `map-tile-details.sql`
+was not installed. The replay lab’s local file experiments remain separate.
 
-1. Export all legacy map tables, snapshots and relevant storage objects to a
-   private local archive. Include schema, identifiers, row counts and file hashes.
-   `export-community` alone only combines the latest published snapshot and its
-   overrides; it is not a full archival database backup.
-2. Verify that the archive can be read/restored, and confirm saved-view links
-   have a suitable destination or retirement notice.
-3. Remove obsolete snapshot/live-data reads, static cache generation and legacy
-   subscriptions from the public path. Keep the base geography and new history.
-4. Only then perform the separately reviewed cloud cleanup. Keep the local
-   archive for records; do not import it into the new live layer.
+Legacy note migration uses only the latest published snapshot plus its live
+overrides. Explicit note clears are respected; older snapshot variants remain
+in the private backup. Authors are taken from edits that changed the note text,
+not unrelated later edits to the same tile. Notes keep their original text,
+author, timestamp and tile coordinates, and remain visible across turns.
 
-No cloud deletion or backup is performed by this change. The existing
-`officialMapConfig.enabled` flag is true for the shared timeline;
-`editorDetailsEnabled` stays false until the separate editor migration is authorized.
+`migrate-notes.mjs` prepares private SQL and a provenance report from a private
+`cbr-legacy-notes-backup` archive containing snapshots, overrides, edit history,
+author profiles, existing new notes, and the active release identity. It refuses
+unverified authors. The generated transaction checks the source notes and public
+release are unchanged and inserts notes without overwriting existing entries,
+including deleted or hidden notes. Repeating the import does not duplicate notes.
+Keep the backup, report and SQL outside the repository; these contain note text
+and author identifiers.
+
+No legacy geography, city records or other tile edits are imported. Legacy data
+is retained in the cloud; archive retirement remains a separate task.
+
+On 2026-10-21, eight current notes were imported from the Episode 31 published
+base: seven by LacsiraxAriscal and one by NopeCopter. Public API reads verified
+their text, authors, timestamps and coordinates. The public endpoint stayed at
+T645. The private backup, source provenance, insert-only SQL and verification
+report are in `~/Downloads/cbr-legacy-notes-migration-2026-10-21/`.
+
+## Verification
+
+Run `npm run test:site` and `supabase/tests/map-view-layers.sql` in a disposable
+database. Verify turn-specific edits, persistent notes, account isolation,
+private/public views, owner-only saves, multiple authors, moderation, expiry,
+revision conflicts, rollback, and rejection of T646/T751.

@@ -66,7 +66,11 @@ cache remains bounded separately.
 an optional tile, snapshot, comparison, overlay owner, and contrast settings.
 Links preserve the center across different screen sizes and validate/clamp
 numeric input. Clipboard failures reveal a selectable URL. These links share
-public map views; local edits are stored only in the reader's browser.
+camera/display settings, not unsaved tile edits. On the official timeline,
+supporters can explicitly save personal edit layers through the saved-view form.
+Those layers contain turn-specific edits and tile-bound personal notes; public
+community notes are separate and belong to their individual authors. See
+`scripts/map-release/LIVE-MAP.md` for the layer workflow and deployed API.
 
 Fullscreen uses the browser API with an expanded-page fallback, Escape/exit
 controls, focus restoration, and cleanup on navigation. Focus the map and use

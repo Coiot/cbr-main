@@ -2,6 +2,7 @@ import { MAP_PUBLISHER_ID, MAX_RELEASE_BYTES, isReleaseId, validateRelease, audi
   createTimeline } from '../../../src/shared/mapRelease.mjs';
 import {validateDetail,CITY_FIELDS} from '../../../src/shared/mapDetails.mjs';
 import {upsertEpisodeMarker,validateEpisodeMarkers,releaseThroughEpisodes} from '../../../src/shared/mapEpisodeMarkers.mjs';
+import {createLayerHandler,isLayerAction,layerWriteAction} from './layers.mjs';
 const BUCKET='map-release-drafts';
 const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'*',
   'Access-Control-Allow-Methods':'POST, OPTIONS',
@@ -41,6 +42,7 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
       check(await db.from('map_releases').insert({id,history:release.history,first_turn:release.firstTurn,last_turn:release.lastTurn,bookmarks:release.bookmarks,event_gaps_accepted:acceptHistoricalGaps}));}
     return id;
   }
+  const layers=createLayerHandler({db,active,read,check,response});
   return async request=>{
     if(request.method==='OPTIONS')return new Response('',{headers});
     if(request.method!=='POST')return response({error:'Use POST.'},405);
@@ -54,13 +56,17 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
       const input=JSON.parse(new TextDecoder().decode(bytes)), action=input.action;
       const editorAction=['edit-detail','detail-access'].includes(action);
       if(!detailsEnabled&&['edit-detail','detail-access','details'].includes(action))return response({error:'The editor detail layer is not enabled.'},410);
-      const protectedAction=editorAction||['stage','draft','publish','admin','timeline-admin','set-episode','history','hide','restore','contribute'].includes(action);
+      const protectedAction=editorAction||layerWriteAction(action)||['stage','draft','publish','admin','timeline-admin','set-episode','history','hide','restore','contribute'].includes(action);
       let user=null;
       if(protectedAction) {
         const token=(request.headers.get('Authorization')||'').replace(/^Bearer /,'');
         const result=await db.auth.getUser(token);user=result.data?.user;
         if(result.error||!user)return response({error:'Sign in to continue.'},401);
-        if(action!=='contribute'&&!editorAction&&user.id!==MAP_PUBLISHER_ID)return response({error:'Only Coiot can manage releases.'},403);
+        if(action!=='contribute'&&!editorAction&&!isLayerAction(action)&&user.id!==MAP_PUBLISHER_ID)return response({error:'Only Coiot can manage releases.'},403);
+      }
+      if(isLayerAction(action)){
+        if(!protectedAction&&request.headers.get('Authorization')){const result=await db.auth.getUser(request.headers.get('Authorization').replace(/^Bearer /,''));user=result.data?.user||null;}
+        return await layers(input,user);
       }
       if(editorAction){const allowed=check(await db.rpc('can_edit_map_details',{p_actor:user.id}))===true;
         if(action==='detail-access')return response({allowed});

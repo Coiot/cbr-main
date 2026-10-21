@@ -4,6 +4,7 @@ import { getSupabaseClient } from '../../../supabaseClient';
 import { SUPABASE_MAP_ID } from './mapSettings.js';
 
 export const mapSavedViewsMethods = {
+  savePersonalMapView(){const panel=this.$refs.savedViews;if(!panel)return;const row=this.activeSavedView;if(row&&row.user_id===this.authUser?.id){panel.present();panel.manage(row);}else panel.create();},
   async applySavedMapViewFromRoute(requestId) {
     const id = this.$route?.query?.saved_view;
     const userId = this.authUser?.id;
@@ -30,7 +31,8 @@ export const mapSavedViewsMethods = {
       // Loading map data will call the route handler again once tiles are ready.
       if (!this.tiles.length || !this.gridWidth || !this.gridHeight) return;
       if(this.officialSource) {
-        if(settings.snapshot && settings.snapshot!==this.officialSource.source)throw new Error('This view belongs to a different map turn.');
+        if(settings.snapshot&&settings.snapshot.split(':')[1]!==this.officialSource.source?.split(':')[1])throw new Error('This view belongs to a different game history.');
+        if(this.viewLayerTools){await this.viewLayerTools.open(row,!!this._resetLayerOnOpen);this._resetLayerOnOpen=false;if(!isCurrent())return;}
         this.activeSavedView=row;this.applyMapViewSettings(settings,isCurrent);return;
       }
       if (settings.snapshot || settings.compare) {
@@ -68,10 +70,12 @@ export const mapSavedViewsMethods = {
     else this.$router.push({ path: this.$route.path, query: { saved_view: row.id } });
   },
   retrySavedMapView() {
+    this._resetLayerOnOpen=true;
     this._savedViewFetchKey = null;
     this.applyRequestedTileFromRoute();
   },
   closeSavedMapView() {
+    this.viewLayerTools?.close();
     this._routeViewRequestId = (this._routeViewRequestId || 0) + 1;
     this.savedViewLoading = false;
     this.activeSavedView = null;

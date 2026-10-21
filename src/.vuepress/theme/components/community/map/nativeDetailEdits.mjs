@@ -14,8 +14,6 @@ export function nativeDetailEdits(tile,frame) {
     validateDetail(record);records.push(record);
   };
   if(city){
-    add('population',tile.city.size,city.size,true);
-    add('religion',tile.city.religion,city.religion,true);
     add('wonders',tile.city.worldWonders||[],city.worldWonders||[],true);
     for(const [field,key] of [['capital','isCapital'],['puppeted','isPuppeted'],['occupied','isOccupied'],['resistance','isResistance']])add(field,!!tile.city[key],!!city[key],true);
   }
