@@ -118,6 +118,7 @@ export default {
   beforeUnmount() { this.requestVersion++; this.dialogVersion++; this.$refs.drawer?.close(); },
   methods: {
     sourceLabel(row) {
+      if(row.settings?.snapshot?.startsWith('timeline:'))return savedViewLabel(row.settings);
       return !row.settings?.snapshot ? 'Live map' : this.snapshots?.find(snapshot => snapshot.id === row.settings.snapshot)?.episode_label || row.source_label || savedViewLabel(row.settings);
     },
     overlayLabel(settings) { return !settings || settings.overlay === 'none' ? 'Standard map' : settings.overlay === 'civilization' && settings.owner ? `${settings.owner} overlay` : `${settings.overlay[0].toUpperCase()}${settings.overlay.slice(1)} overlay`; },

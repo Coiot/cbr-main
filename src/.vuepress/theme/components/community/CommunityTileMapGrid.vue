@@ -1,30 +1,32 @@
 <template>
   <section ref="mapRoot" class="tile-map" :class="{ 'is-fullscreen': isMapFullscreen }" @keydown="onMapViewKeydown">
     <div v-if="!embedded" class="tile-map-header">
-      <div class="tile-map-meta">
+      <div v-if="showMapHeading" class="tile-map-meta">
         <!-- <h2 class="tile-map-title">{{ mapName || "Map Viewer" }}</h2>
         <p class="tile-map-subtitle" v-if="mapDescription">
           {{ mapDescription }}
         </p> -->
-        <div class="tile-map-heading"><h1 class="title-map-title">Community Tile Map</h1><span v-if="localEditsEnabled" class="tile-map-local-badge" role="status">Local only</span></div>
-        <p class="tile-map-subtitle tile-map-subtitle-hint">
-          Drag to pan. Click a tile to view details. Supporters can edit the live map.
-        </p>
+        <div class="tile-map-heading"><h1 class="title-map-title">{{archiveMode?'Community archive':'Community Tile Map'}}</h1><span v-if="localEditsEnabled" class="tile-map-local-badge" role="status">Local only</span></div>
+        <!-- <p class="tile-map-subtitle tile-map-subtitle-hint">
+          {{ officialSource ? 'Drag to pan. Select a tile to view details.' : archiveMode ? 'Preserved community snapshots. Select an episode to explore its original map.' : 'Drag to pan. Click a tile to view details. Supporters can edit the live map.' }}
+        </p> -->
       </div>
       <MapToolbar :scale-label="scaleLabel" :mini-map-enabled="miniMapEnabled" :show-shortcuts="showMapShortcuts"
+        :private-preview="!!officialSource?.preview"
         :fullscreen="isMapFullscreen" :panel-collapsed="editPanelCollapsed" :view-unavailable="isLoading || !tiles.length"
         @zoom-out="zoomOut" @zoom-in="zoomIn" @fit="fitToView"
         @browse-views="$refs.savedViews.open($event)" @save-view="$refs.savedViews.create()" @copy-view="copyMapViewLink"
         @toggle-mini-map="toggleMiniMap" @toggle-shortcuts="showMapShortcuts = !showMapShortcuts"
         @toggle-fullscreen="toggleMapFullscreen" @toggle-panel="toggleEditPanel" />
     </div>
+    <slot v-if="!embedded" name="map-timeline" />
     <div v-if="!embedded && (mapViewStatus || showMapShortcuts)" class="tile-map-view-help">
       <p v-if="mapViewStatus" role="status">{{ mapViewStatus }}</p>
       <input v-if="showMapViewLink" ref="mapViewLink" class="tile-edit-input" :value="mapViewLink" readonly aria-label="Link to this map view" @focus="$event.target.select()" />
       <p v-if="showMapShortcuts">Focus the map with Tab. Arrow keys pan; Shift + arrow keys select neighboring tiles;
         Enter opens tile details. + / − zoom, F fits the map, ? toggles this guide, and Escape closes details or fullscreen.</p>
     </div>
-    <SavedMapViews v-if="!embedded" ref="savedViews" :client="supabase" :user="authUser" :allowed="canEdit" :checking="authChecking"
+    <SavedMapViews v-if="!embedded && !officialSource?.preview" ref="savedViews" :client="supabase" :user="authUser" :allowed="canEdit" :checking="authChecking"
       :access-failed="supporterCheckFailed" :supporter-status="supporterStatus" :local="localEditsEnabled" :admin="isAdmin"
       :map-ready="!!tiles.length && !isLoading && !loadError && !isLiveSyncing && !liveSyncError" :map-id="savedViewsMapId" :snapshots="snapshots"
       :get-settings="captureMapViewSettings" :active-view="activeSavedView" :loading-view="savedViewLoading" :view-error="savedViewError"
@@ -328,64 +330,15 @@
               <polygon class="tile-selection-outline" :points="hexPoints" />
             </g>
             <g v-if="visibleCityLabels.length" class="tile-city-labels">
-              <g
+              <MapCityBanner
                 v-for="tile in visibleCityLabels"
                 :key="`city-name-${tile.key}`"
-                class="tile-city-label"
-                :transform="cityLabelTransform(tile)"
-              >
-                <rect
-                  class="city-label-pill"
-                  :x="-cityLabelWidth(tile) / 2"
-                  :y="-cityLabelHeight() / 2"
-                  :width="cityLabelWidth(tile)"
-                  :height="cityLabelHeight()"
-                  :rx="cityLabelHeight() / 2"
-                  :ry="cityLabelHeight() / 2"
-                  :style="cityLabelPillStyle(tile)"
-                />
-                <circle
-                  class="city-label-badge"
-                  :cx="-cityLabelWidth(tile) / 2 + cityLabelBadgeRadius()"
-                  :cy="cityLabelTextY()"
-                  :r="cityLabelBadgeRadius()"
-                  :style="cityLabelBadgeStyle(tile)"
-                />
-                <text
-                  class="city-label-text city-label-pop"
-                  :x="-cityLabelWidth(tile) / 2 + cityLabelBadgeRadius()"
-                  :y="cityLabelPopTextY()"
-                  dominant-baseline="middle"
-                  text-anchor="middle"
-                  :style="cityLabelPopTextStyle(tile)"
-                >
-                  {{ tile.city.size }}
-                </text>
-                <text
-                  class="city-label-text city-label-name"
-                  :x="
-                    -cityLabelWidth(tile) / 2 +
-                    cityLabelBadgeRadius() * 2 +
-                    cityLabelTextGap()
-                  "
-                  :y="cityLabelTextY()"
-                  dominant-baseline="middle"
-                  text-anchor="start"
-                  :style="cityLabelTextStyle(tile)"
-                >
-                  {{ tile.city.name }}
-                </text>
-                <circle
-                  v-if="cityHasOriginalOwnerBadge(tile)"
-                  class="city-label-original-badge"
-                  :cx="
-                    cityLabelWidth(tile) / 2.5 - cityLabelOriginalBadgeRadius()
-                  "
-                  :cy="cityLabelTextY()"
-                  :r="cityLabelOriginalBadgeRadius()"
-                  :style="cityLabelOriginalOwnerStyle(tile)"
-                />
-              </g>
+                :tile="tile"
+                :hex-size="hexSize"
+                :owner-colors="ownerColors"
+                :owner-secondary-colors="ownerSecondaryColors"
+                :large="contrastLargeCityBanners"
+              />
             </g>
             <g
               v-if="visibleMapPinTiles.length"
@@ -537,6 +490,9 @@
                 {{ routeLabel(hoverTooltipTile.route) }}
               </div>
             </div>
+            <div v-if="hoverTooltipTile.improvement" class="tile-info-row"><div class="tile-info-label">Improvement</div><div class="tile-info-value">{{formatLabel(hoverTooltipTile.improvement)}}</div></div>
+            <div v-if="hoverTooltipTile.ruins" class="tile-info-row"><div class="tile-info-label">Ruins</div><div class="tile-info-value">Former city site</div></div>
+            <div v-if="hoverTooltipTile.ideology" class="tile-info-row"><div class="tile-info-label">Ideology</div><div class="tile-info-value">{{hoverTooltipTile.ideology}}</div></div>
             <div
               v-if="Number.isFinite(hoverTooltipTile.owner)"
               class="tile-info-row"
@@ -558,13 +514,14 @@
                 {{ ownerLabel(hoverTooltipTile.originalOwner) }}
               </div>
             </div>
-            <div v-if="hoverTooltipTile.combatUnit" class="tile-info-row">
+            <div v-for="(unit,index) in officialSource ? (hoverTooltipTile.units||[]) : []" :key="`detail-unit-${index}`" class="tile-info-row"><div class="tile-info-label">{{unit.role==='civilian'?'Civilian Unit':'Combat Unit'}}</div><div class="tile-info-value">{{describeUnit(unit)}}</div></div>
+            <div v-if="!officialSource && hoverTooltipTile.combatUnit" class="tile-info-row">
               <div class="tile-info-label">Combat Unit</div>
               <div class="tile-info-value">
                 {{ describeUnit(hoverTooltipTile.combatUnit) }}
               </div>
             </div>
-            <div v-if="hoverTooltipTile.civilianUnit" class="tile-info-row">
+            <div v-if="!officialSource && hoverTooltipTile.civilianUnit" class="tile-info-row">
               <div class="tile-info-label">Civilian Unit</div>
               <div class="tile-info-value">
                 {{ describeUnit(hoverTooltipTile.civilianUnit) }}
@@ -637,6 +594,12 @@
             v-if="!editPanelCollapsed || isMobileView"
             class="tile-map-info-tabs"
           >
+            <button v-if="extraPanelLabel"
+              type="button" class="tile-edit-button"
+              :class="{ 'is-active': editPanelTab === 'extra' }"
+              :aria-pressed="editPanelTab === 'extra'"
+              @click="editPanelTab = 'extra'"
+            >{{extraPanelLabel}}</button>
             <button
               type="button"
               class="tile-edit-button"
@@ -645,7 +608,7 @@
             >
               Overlays
             </button>
-            <button
+            <button v-if="!officialSource"
               type="button"
               class="tile-edit-button"
               :class="{ 'is-active': editPanelTab === 'snapshots' }"
@@ -653,7 +616,7 @@
             >
               Snapshots
             </button>
-            <button
+            <button v-if="!officialSource || detailEditing"
               type="button"
               class="tile-edit-button"
               :class="{ 'is-active': editPanelTab === 'edit' }"
@@ -661,7 +624,7 @@
             >
               Edit
             </button>
-            <button
+            <button v-if="!officialSource || detailEditing"
               type="button"
               class="tile-edit-button"
               :class="{ 'is-active': editPanelTab === 'notes' }"
@@ -676,6 +639,7 @@
           v-show="!editPanelCollapsed || isMobileView"
           class="tile-map-info-panel"
         >
+          <div v-if="extraPanelLabel" v-show="editPanelTab === 'extra'"><slot name="extra-panel" /></div>
           <div
             v-show="editPanelTab === 'edit'"
             class="tile-info-card tile-info-accordion"
@@ -686,14 +650,14 @@
                 {{ tileTitle(selectedTile) }}
               </span>
               <span
-                v-if="localEditsEnabled"
+                v-if="localEditsEnabled || officialSource?.preview"
                 class="tile-info-title-meta tile-info-title-meta-local"
               >
                 Local Only
               </span>
               <span class="tile-info-title-actions">
                 <button
-                  v-if="!localEditsEnabled"
+                  v-if="!localEditsEnabled && !officialSource"
                   type="button"
                   class="tile-edit-button"
                   title="Undoes last 60 seconds of edits"
@@ -705,7 +669,7 @@
               </span>
             </div>
 
-            <div class="tile-edit-mode-controls">
+            <div v-if="!officialSource" class="tile-edit-mode-controls">
               <span class="tile-edit-label">Editing mode</span>
               <div class="tile-edit-mode-toggle" role="group" aria-label="Editing mode">
                 <button type="button" class="tile-edit-button" :class="{ 'is-active': !localEditsEnabled }" :aria-pressed="!localEditsEnabled" @click="setLocalEdits(false)">Live</button>
@@ -713,6 +677,7 @@
               </div>
             </div>
             <FeatureNotice :notice="editAccessNotice" @action="handleEditAccessAction" />
+            <p v-if="detailEditError || detailEditStatus" class="tile-edit-hint" role="status">{{detailEditError || detailEditStatus}}</p>
             <div
               v-if="selectedTile"
               class="tile-edit-form"
@@ -723,7 +688,7 @@
                 class="tile-edit-fieldset"
                 :disabled="!editAccessAllowed"
               >
-                <div class="tile-edit-group">
+                <div v-if="!officialSource" class="tile-edit-group">
                   <label class="tile-edit-label" for="tile-owner-input">
                     Owner
                   </label>
@@ -815,7 +780,7 @@
                 </div>
 
                 <div
-                  v-if="selectedTile && selectedTile.city"
+                  v-if="selectedTile && selectedTile.city && !officialSource"
                   class="tile-edit-group"
                 >
                   <label
@@ -909,7 +874,7 @@
                     </button>
                   </div>
                 </div>
-                <div class="tile-edit-group">
+                <div v-if="!officialSource" class="tile-edit-group">
                   <label class="tile-edit-label tile-edit-label-inline">
                     City Name
                   </label>
@@ -992,7 +957,7 @@
                           class="tile-edit-input tile-edit-input-compact"
                           type="number"
                           min="1"
-                          max="99"
+                          :max="officialSource?10000:99"
                           v-model.number="editCityValue"
                           @keydown.enter.prevent="applyCityEdit"
                           @blur="applyCityEdit"
@@ -1000,6 +965,7 @@
                           @input="scheduleFieldEdit('cityValue')"
                         />
                         <button
+                          v-if="!officialSource"
                           type="button"
                           class="tile-edit-button"
                           @click="clearCityEdit"
@@ -1065,7 +1031,7 @@
                     </button>
                   </div>
                 </div>
-                <!-- <div class="tile-edit-group tile-edit-units">
+                <div v-if="officialSource" class="tile-edit-group tile-edit-units">
                   <div class="tile-edit-units-grid">
                     <div class="tile-edit-unit-group">
                       <div class="tile-edit-unit-header">
@@ -1372,7 +1338,19 @@
                       </div>
                     </div>
                   </div>
-                </div> -->
+                </div>
+                <template v-if="officialSource">
+                  <div v-if="!selectedTile.city" class="tile-edit-group">
+                    <label class="tile-edit-label" for="tile-improvement-input">Improvement</label>
+                    <input id="tile-improvement-input" class="tile-edit-input" v-model="editImprovement" maxlength="160" @change="applySupplementalDetailEdit('improvement')" @keydown.enter.prevent="applySupplementalDetailEdit('improvement')" />
+                    <label class="tile-edit-label" for="tile-route-input">Route</label>
+                    <select id="tile-route-input" class="tile-edit-input" v-model="editRoute" @change="applySupplementalDetailEdit('route')"><option value="">None</option><option value="road">Road</option><option value="railroad">Railroad</option></select>
+                  </div>
+                  <div v-if="Number.isFinite(selectedTile.owner)" class="tile-edit-group">
+                    <label class="tile-edit-label" for="tile-ideology-input">Civilization ideology</label>
+                    <input id="tile-ideology-input" class="tile-edit-input" v-model="editIdeology" maxlength="160" @change="applySupplementalDetailEdit('ideology')" @keydown.enter.prevent="applySupplementalDetailEdit('ideology')" />
+                  </div>
+                </template>
                 <div v-if="!selectedTile.city" class="tile-edit-group">
                   <div class="tile-edit-label tile-edit-label-inline">
                     <label class="tile-edit-checkbox-inline">
@@ -1461,7 +1439,7 @@
                   <div v-else class="tile-edit-hint">No pins saved yet.</div>
                 </div>
               </fieldset>
-              <p class="tile-edit-hint">
+              <p v-if="!officialSource" class="tile-edit-hint">
                 Editing applies to the selected tile. Brush applies for
                 multiple.
               </p>
@@ -1519,7 +1497,7 @@
                     class="tile-edit-input"
                     v-model="snapshotViewId"
                   >
-                    <option value="">Live map</option>
+                    <option v-if="!archiveMode" value="">Live map</option>
                     <option
                       v-for="snapshot in snapshots"
                       :key="snapshot.id"
@@ -1542,7 +1520,7 @@
                     :disabled="!snapshotViewId"
                   >
                     <option value="">None</option>
-                    <option v-if="snapshotViewId" value="__live__">
+                    <option v-if="snapshotViewId && !archiveMode" value="__live__">
                       Live Map
                     </option>
                     <option
@@ -1904,9 +1882,10 @@
                 v-else-if="overlayView === 'population'"
                 class="tile-overlay-section"
               >
+                <p v-if="officialSource" class="tile-edit-hint">Population recorded for {{recordedPopulationCoverage.known}} of {{recordedPopulationCoverage.total}} cities at this turn. A civilization is coloured only when all its city populations are recorded.</p>
                 <div class="tile-info-list tile-overlay-metrics">
                   <div class="tile-info-row">
-                    <div class="tile-info-label">Total Population</div>
+                    <div class="tile-info-label">{{officialSource?'Recorded Population':'Total Population'}}</div>
                     <div class="tile-info-value">
                       {{ populationOverlayMetrics.totalPopulation }}
                     </div>
@@ -2037,6 +2016,7 @@
                 v-else-if="overlayView === 'religion'"
                 class="tile-overlay-section"
               >
+                <p v-if="officialSource" class="tile-edit-hint">Uses the recorded majority religion of each current capital. Civilizations without a recorded capital religion remain uncoloured.</p>
                 <div class="tile-info-list tile-overlay-metrics">
                   <!-- <div class="tile-info-row">
                     <div class="tile-info-label">Founded Religions</div>
@@ -2306,6 +2286,7 @@
 <script>
 import SavedMapViews from './SavedMapViews.vue';
 import MapToolbar from './MapToolbar.vue';
+import MapCityBanner from './map/MapCityBanner.vue';
 import { mapSavedViewsMethods } from './map/mapSavedViews.js';
 import { SUPABASE_MAP_ID } from './map/mapSettings.js';
 import FeatureNotice from '../FeatureNotice.vue';
@@ -2325,8 +2306,14 @@ import { mapInteractionComputed, mapInteractionMethods } from "./map/mapInteract
 import { mapEditingComputed, mapEditingMethods } from "./map/mapEditing.js";
 
 export default {
-  components: { FeatureNotice, SavedMapViews, MapToolbar },
+  components: { FeatureNotice, SavedMapViews, MapToolbar, MapCityBanner },
   props: {
+    detailEditing: { type: Boolean, default: false },
+    detailEditStatus: { type: String, default: '' },
+    showMapHeading: { type: Boolean, default: true },
+    extraPanelLabel: { type: String, default: '' },
+    archiveMode: { type: Boolean, default: false },
+    officialSource: { type: Object, default: null },
     embedded: {
       type: Boolean,
       default: false,
@@ -2465,11 +2452,12 @@ export default {
       editPillaged: false,
       editRuins: false,
       editTileNotes: "",
+      editImprovement:'',editRoute:'',editIdeology:'',detailEditError:'',
       tileNotesStatus: "",
       tileNotesStatusTimer: null,
       // Panel UI state
-      editPanelCollapsed: true,
-      editPanelTab: "overlays",
+      editPanelCollapsed: !this.extraPanelLabel,
+      editPanelTab: this.extraPanelLabel ? 'extra' : "overlays",
       overlayView: "civilization",
       overlayOwnerName: "",
       contrastHideDecorations: false,
@@ -2610,6 +2598,7 @@ export default {
   },
 
   watch: {
+    officialSource() { this.applyOfficialFrame(); },
     $route() {
       this.applyRequestedTileFromRoute();
     },
@@ -2695,6 +2684,7 @@ export default {
       this.computeSnapshotDiffs();
     },
     selectedTile(nextTile) {
+      if(this.officialSource)this.$emit('official-select',nextTile);
       this.ensureEditPanelTab();
       this.syncEditFieldsFromTile(nextTile);
       if (!nextTile) {
@@ -2725,7 +2715,7 @@ export default {
       this.editPanelCollapsed = false;
     }
     const useLiveMap =
-      !this.snapshotPayload && this.resolvedEmbeddedMode !== "snapshot";
+      this.archiveMode || (!this.officialSource?.preview && !this.snapshotPayload && this.resolvedEmbeddedMode !== "snapshot");
     this.loadMapPins();
     this.restoreContrastSettingsForAnonymous();
     if (this.isMobileSafari) {
@@ -3229,34 +3219,6 @@ export default {
 .tile-map .tile-map-viewport .tile-city-labels,
 .tile-map .tile-map-viewport .tile-city-label {
   pointer-events: none;
-}
-.tile-map .tile-map-viewport .city-label-pill {
-  fill: rgba(86, 42, 36, 0.88);
-  stroke: rgba(0, 0, 0, 0.7);
-  stroke-width: 0.6;
-}
-.tile-map .tile-map-viewport .city-label-badge {
-  fill: rgba(38, 16, 14, 0.9);
-  stroke: rgba(0, 0, 0, 0.75);
-  stroke-width: 0.6;
-}
-.tile-map .tile-map-viewport .city-label-original-badge {
-  stroke-width: 0.6;
-}
-.tile-map .tile-map-viewport .city-label-text {
-  font-size: 6px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  stroke: rgba(0, 0, 0, 0.7);
-  stroke-width: 1.2;
-  paint-order: stroke;
-}
-.tile-map .tile-map-viewport .city-label-pop {
-  fill: #f5f1e6;
-}
-.tile-map .tile-map-viewport .city-label-name {
-  font-weight: 800;
-  fill: #e6c07a;
 }
 .tile-map .tile-map-viewport .tile-map-pin-overlays,
 .tile-map .tile-map-viewport .tile-map-pin-overlay {

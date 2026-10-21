@@ -47,9 +47,9 @@
         </article>
         <article class="support-perk">
           <svg class="support-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6ZM9 3v15M15 6v15" /></svg>
-          <h3>Build the community map</h3>
-          <p>Update borders, cities, and units on the live map. Add location notes to explain events worth sharing.</p>
-          <p class="support-perk-detail">Anyone can explore overlays and compare view only snapshots. Supporters can edit and add notes on the live map.</p>
+          <h3>{{officialMapEnabled?'Explore the cylinder together':'Build the community map'}}</h3>
+          <p>{{officialMapEnabled?'Help fill in city details, improvements, units, and location notes as the story develops. Save a map view to revisit after the next release.':'Update borders, cities, and units on the live map. Add location notes to explain events worth sharing.'}}</p>
+          <p class="support-perk-detail">{{officialMapEnabled?'Supporters can maintain dated map details and share views. Cities, borders, and geography follow the game history.':'Anyone can explore overlays and compare view only snapshots. Supporters can edit and add notes on the live map.'}}</p>
           <router-link class="support-see-perks" to="/community-tile-map/">Explore the community map →</router-link>
         </article>
         <article class="support-perk">
@@ -106,7 +106,7 @@
       </details>
       <details>
         <summary>Why can’t I comment on an older episode or edit a snapshot?</summary>
-        <p>Episode comments close a week after release for everyone. Map snapshots preserve an earlier state and are view only. Current supporter access lets you comment during an episode’s open window and edit the live community map.</p>
+        <p>Episode comments close a week after release for everyone. Map snapshots preserve an earlier state and are view only. {{officialMapEnabled?'Supporters can maintain dated details on the official timeline and create shared views. City placement, borders, and geography follow the recorded game.':'Current supporter access lets you comment during an episode’s open window and edit the live community map.'}}</p>
       </details>
       <details>
         <summary>Will my name appear in every episode?</summary>
@@ -118,9 +118,10 @@
 </template>
 
 <script>
+import officialMapConfig from '../../../shared/officialMapConfig.json';
 export default {
   name: 'Support',
-  data: () => ({ frequency: 'monthly' }),
+  data: () => ({ frequency: 'monthly', officialMapEnabled: officialMapConfig.enabled }),
   computed: { monthly() { return this.frequency === 'monthly'; } },
   methods: { openAccount() { window.dispatchEvent(new CustomEvent('open-account-menu')); } },
 };

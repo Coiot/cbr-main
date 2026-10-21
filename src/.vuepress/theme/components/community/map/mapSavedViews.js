@@ -29,6 +29,10 @@ export const mapSavedViewsMethods = {
       if (!row || row.map_id !== SUPABASE_MAP_ID || row.is_hidden || !settings) throw new Error('This view is unavailable. It may be private or have been removed.');
       // Loading map data will call the route handler again once tiles are ready.
       if (!this.tiles.length || !this.gridWidth || !this.gridHeight) return;
+      if(this.officialSource) {
+        if(settings.snapshot && settings.snapshot!==this.officialSource.source)throw new Error('This view belongs to a different map turn.');
+        this.activeSavedView=row;this.applyMapViewSettings(settings,isCurrent);return;
+      }
       if (settings.snapshot || settings.compare) {
         await this.loadSnapshots();
         if (!isCurrent()) return;

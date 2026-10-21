@@ -5,6 +5,7 @@ import {
   SUPABASE_EDIT_LOG_TABLE,
 } from "./mapSettings.js";
 import { buildSnapshotLookup, snapshotValueEqual } from "../communityTileMapSnapshotUtils";
+import {nativeDetailEdits} from './nativeDetailEdits.mjs';
 import {
   nextUnitIdFromTiles,
   cloneUnit,
@@ -18,6 +19,7 @@ import {
 
 export const mapPersistenceMethods = {
   async loadTileOverrides() {
+    if (this.officialSource || this.archiveMode) return false;
     if (!this.supabase || this._mapDisposed) return false;
     if (!this.liveBaseSnapshotId && !this.liveBaseSnapshotPayload) {
       await this.loadLiveBaseSnapshot({
@@ -378,6 +380,12 @@ export const mapPersistenceMethods = {
     return filtered;
   },
   queueTileSave(tile) {
+    if(this.officialSource){
+      if(this.detailEditing&&tile){try{this.detailEditError='';const records=nativeDetailEdits(tile,this.officialSource.frame);if(records.length)this.$emit('official-detail-edit',records);this.invalidateTooltipCache(tile.key);}
+        catch(error){this.detailEditError=error.message;this.applyOfficialFrame();}}
+      return;
+    }
+    if (this.archiveMode) return;
     if (this.snapshotViewId) {
       return;
     }
@@ -420,6 +428,7 @@ export const mapPersistenceMethods = {
     }, 500);
   },
   async flushTileSaves() {
+    if (this.officialSource || this.archiveMode) { this.tileSaveQueue.clear(); return; }
     if (!this.supabase || !this.tileSaveQueue.size) {
       this.tileSaveTimer = null;
       return;
@@ -539,6 +548,7 @@ export const mapPersistenceMethods = {
     this._pendingLiveOverrides?.clear();
   },
   subscribeToTileOverrides() {
+    if (this.officialSource || this.archiveMode) return;
     if (!this.supabase || this.tileOverrideSubscription) {
       return;
     }

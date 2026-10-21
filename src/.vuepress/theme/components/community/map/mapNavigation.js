@@ -133,6 +133,7 @@ export const mapNavigationMethods = {
     return "";
   },
   async ensureSnapshotSelection(snapshotId) {
+    if (this.officialSource) return !snapshotId || snapshotId===this.officialSource.source;
     const nextSnapshotId = this.parseSnapshotIdFromInput(snapshotId);
     if (!nextSnapshotId) {
       if (this.snapshotViewId) {
@@ -172,7 +173,7 @@ export const mapNavigationMethods = {
     if (this.snapshotViewId !== nextSnapshotId) {
       this.snapshotViewId = nextSnapshotId;
     }
-    if (!this.snapshotCompareId) {
+    if (!this.snapshotCompareId && !this.archiveMode) {
       this.snapshotCompareId = "__live__";
     }
     return true;

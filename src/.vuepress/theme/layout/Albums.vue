@@ -389,14 +389,14 @@
         @retry-access="fetchProfile(true)"
       />
 
-      <EpisodeMapSnapshot
+      <!-- <EpisodeMapSnapshot
         v-if="shouldRenderSnapshot"
         :snapshot-path="episodeSnapshotPath"
         :previous-snapshot-path="previousEpisodeSnapshotPath"
         :snapshot-title="episodeSnapshotTitle"
         :snapshot-date="commentPostedAt"
         :use-base-snapshot="episodeSnapshotIsBase"
-      />
+      /> -->
 
       <EpisodeReadingCompletion v-if="hasScenes" :path="$page.path" :next="next" :prepare-save="prepareReadingStatusChange" />
 

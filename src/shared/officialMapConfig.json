@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "editorDetailsEnabled": false,
+  "showTimelineExtras": false,
+  "latestEpisode": {
+    "episode": "35",
+    "endTurn": 645
+  },
+  "episodeMarkers": [
+    { "episode": "34", "turn": 595 },
+    { "episode": "35", "turn": 645 }
+  ]
+}

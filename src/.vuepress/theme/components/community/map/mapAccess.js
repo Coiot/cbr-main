@@ -12,11 +12,14 @@ import {
 
 export const mapAccessComputed = {
   editAccessAllowed() {
+    if (this.archiveMode) return false;
+    if(this.officialSource)return !!this.detailEditing&&!this.isLoading&&!this.loadError;
     if (this.isLoading || this.loadError || this.isLiveSyncing || this.liveSyncError || this.snapshotViewId || this.isEmbeddedSnapshot) return false;
     if (this.localEditsEnabled) return REQUIRE_AUTH_FOR_LOCAL ? !!this.authUser : true;
     return !!this.canEdit;
   },
   editAccessNotice() {
+    if(this.officialSource)return null;
     return mapEditRestriction({ snapshot: !!this.snapshotViewId || this.isEmbeddedSnapshot, loading: this.isLoading, loadFailed: !!this.loadError,
       syncing: this.isLiveSyncing, syncFailed: !!this.liveSyncError, local: this.localEditsEnabled,
       localRequiresAuth: REQUIRE_AUTH_FOR_LOCAL, signedIn: !!this.authUser, allowed: this.canEdit,
@@ -259,6 +262,7 @@ export const mapAccessMethods = {
     }
   },
   setLocalEdits(enabled) {
+    if (this.officialSource || this.archiveMode) return;
     const nextValue = !!enabled;
     if (this.localEditsEnabled === nextValue) {
       return;

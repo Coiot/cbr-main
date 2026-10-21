@@ -132,11 +132,14 @@ export default defineClientConfig({
     Other: Layout,
     CommunitySpotlight: Layout,
     CommunityTileMap: Layout,
+    MapReleaseAdmin: Layout,
     StartHere: Layout,
     Support: Layout,
     Supporters: Layout,
     SupporterProfile: Layout,
     SceneCollections: Layout,
+    // Standalone local tool: do not mount the account-enabled site navigation.
+    ReplayLab: defineAsyncComponent(() => import('./theme/layout/ReplayLab.vue')),
   },
 
   enhance({ app, router, siteData }) {

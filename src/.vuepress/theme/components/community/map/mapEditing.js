@@ -72,6 +72,7 @@ export const mapEditingComputed = {
 
 export const mapEditingMethods = {
   async undoRecentEdits() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.supabase) {
       return;
     }
@@ -168,6 +169,7 @@ export const mapEditingMethods = {
       this.editPillaged = !!tile.pillaged;
       this.editRuins = !!tile.ruins;
       this.editTileNotes = tile.notes || "";
+      this.editImprovement=tile.improvement||'';this.editRoute=tile.route||'';this.editIdeology=tile.ideology||'';
     } else {
       this.editOwnerName = "";
       this.editOriginalOwnerName = "";
@@ -187,9 +189,11 @@ export const mapEditingMethods = {
       this.editPillaged = false;
       this.editRuins = false;
       this.editTileNotes = "";
+      this.editImprovement='';this.editRoute='';this.editIdeology='';
     }
   },
   applyOwnerEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -267,6 +271,12 @@ export const mapEditingMethods = {
     if (this.useTerrainCanvas) {
       this.drawTerrainCanvas();
     }
+  },
+  applySupplementalDetailEdit(field) {
+    if(!this.officialSource||!this.ensureEditAccess()||!this.selectedTile)return;
+    const key={improvement:'editImprovement',route:'editRoute',ideology:'editIdeology'}[field];if(!key)return;
+    this.selectedTile[field]=this[key]||null;this.queueTileSave(this.selectedTile);
+    if(this.useTerrainCanvas)this.drawTerrainCanvas();
   },
   applyCitadelEdit() {
     if (!this.ensureEditAccess() || !this.selectedTile) {
@@ -616,6 +626,7 @@ export const mapEditingMethods = {
     this.queueTileSave(this.selectedTile);
   },
   applyOriginalOwnerEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -633,6 +644,7 @@ export const mapEditingMethods = {
     }
   },
   clearOwnerEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess()) {
       return;
     }
@@ -655,6 +667,7 @@ export const mapEditingMethods = {
     }
   },
   clearOriginalOwnerEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -667,6 +680,7 @@ export const mapEditingMethods = {
     }
   },
   toggleOwnerBrush() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess()) {
       return;
     }
@@ -803,6 +817,7 @@ export const mapEditingMethods = {
     context.globalAlpha = previousAlpha;
   },
   applyOwnerToTile(tile, ownerId, options = {}) {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !tile) {
       return;
     }
@@ -836,8 +851,14 @@ export const mapEditingMethods = {
     return formatOwnerOptionLabel(owner, index);
   },
   applyCityEdit() {
+    if(this.officialSource&&!this.selectedTile?.city)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
+    }
+    if(this.officialSource){
+      const population=Number(this.editCityValue);if(!Number.isInteger(population)||population<1||population>10000)return;
+      this.selectedTile.city={...this.selectedTile.city,size:population};this.queueTileSave(this.selectedTile);
+      if(this.useTerrainCanvas)this.drawTerrainCanvas();return;
     }
     const population = Number(this.editCityValue);
     if (!Number.isFinite(population) || population < 1) {
@@ -870,6 +891,7 @@ export const mapEditingMethods = {
     }
   },
   applyCityNameEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -931,6 +953,7 @@ export const mapEditingMethods = {
     }
   },
   applyCityCapitalEdit() {
+    if(this.officialSource&&!this.selectedTile?.city)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -1028,6 +1051,7 @@ export const mapEditingMethods = {
     }
   },
   clearCityNameEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }
@@ -1047,6 +1071,7 @@ export const mapEditingMethods = {
     }
   },
   clearCityEdit() {
+    if(this.officialSource)return;
     if (!this.ensureEditAccess() || !this.selectedTile) {
       return;
     }

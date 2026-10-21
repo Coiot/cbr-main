@@ -124,6 +124,8 @@
 import { normalizeText, compareSearchResults } from "./search/sceneSearch.mjs";
 import { SEARCH_CATEGORIES, filterPaletteResults, usesSceneSearch, paletteFilterComputed, paletteFilterMethods } from "./search/paletteFilters.mjs";
 import publicConfig from "../../../../shared/publicConfig.json";
+import officialMapConfig from "../../../../shared/officialMapConfig.json";
+import {mapReleaseRequest,parseTimelineSource} from "../community/official/mapReleaseApi.mjs";
 import { editionNavItems } from "../../../data/editions";
 import { mapConfig } from "../../../data/communityTileMap";
 import { s5OwnerList } from "../community/communityTileMapConstants";
@@ -661,6 +663,11 @@ export default {
       if (!nextId) {
         return;
       }
+      if(officialMapConfig.enabled&&nextId.startsWith('timeline:')) {
+        const source=parseTimelineSource(nextId);
+        this.snapshotScope={mode:'snapshot',id:nextId,label:source?`Turn ${source.turn}`:'Unavailable turn'};
+        await this.loadSnapshotIndex(nextId);return;
+      }
       await this.loadSnapshotList();
       if (requestId !== this._snapshotScopeRequestId) return;
       const snapshot = this.snapshotList.find((entry) => entry.id === nextId);
@@ -767,6 +774,13 @@ export default {
       }
       this.snapshotIndexLoading = true;
       try {
+        if(officialMapConfig.enabled&&id.startsWith('timeline:')) {
+          const source=parseTimelineSource(id);
+          if(!source)return;
+          const result=await mapReleaseRequest({action:'search',history:source.history,turn:source.turn});
+          this.snapshotIndexesById={...this.snapshotIndexesById,[id]:this.buildSnapshotScopedItems(result)};
+          return;
+        }
         const staticMatch = id.match(
           /^s5-episode-([0-9]+(?:-[0-9]+)?)$/i
         );
@@ -923,6 +937,14 @@ export default {
       }
       this.mapCitiesLoaded = true;
       try {
+        if(officialMapConfig.enabled) {
+          const {active}=await mapReleaseRequest({action:'manifest'});
+          if(active) {
+            const result=await mapReleaseRequest({action:'search',id:active.id,turn:active.last_turn});
+            const cityItems=this.buildSnapshotScopedItems(result).filter(item=>item.type==='mapCity');
+            this.allItems=[...this.allItems,...cityItems];return;
+          }
+        }
         const sourceUrl =
           this.$withBase && mapConfig && mapConfig.stateCacheUrl
             ? this.$withBase(mapConfig.stateCacheUrl)

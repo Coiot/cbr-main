@@ -295,6 +295,23 @@ const buildLiveSnapshotPayload = async (supabase) => {
 };
 
 const buildSnapshots = async () => {
+  if (require("../src/shared/officialMapConfig.json").enabled) {
+    // Fail closed if publication state cannot be checked. Never create a new
+    // community snapshot from stale overrides after the official cutover.
+    automaticSnapshotRequired = true;
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/map-release`, {
+      method: "POST", headers: { "Content-Type": "application/json", apikey: SUPABASE_ANON_KEY },
+      body: JSON.stringify({ action: "manifest" }),
+    });
+    if (!response.ok) throw new Error("Cannot verify official map publication state.");
+    const result = await response.json();
+    if (result.error) throw new Error("Cannot verify official map publication state.");
+    if (result.active) {
+      console.log("Official timeline active; preserving community archives without generating live-edit snapshots.");
+      return;
+    }
+    automaticSnapshotRequired = false;
+  }
   const episodes = getSeasonFiveEpisodes();
   const newPowerRankings = getNewSeasonFivePowerRankingEpisodes();
   automaticSnapshotRequired = newPowerRankings.some(

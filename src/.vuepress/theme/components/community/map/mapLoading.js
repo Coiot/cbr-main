@@ -12,6 +12,7 @@ import {
   applyOwnerColorOverrides,
   buildOwnerLegend,
   buildOwnerBorders,
+  setCitadelImprovement,
 } from "./mapModel.js";
 import { RESOURCE_COLOR_OPTIONS, IMPROVEMENT_COLOR_OPTIONS, s5OwnerList } from "../communityTileMapConstants";
 
@@ -87,7 +88,7 @@ export const mapLoadingMethods = {
     }
   },
   usesLiveMap() {
-    return !this.snapshotPayload && !this.useBaseSnapshot && this.resolvedEmbeddedMode !== "snapshot";
+    return !this.officialSource && !this.snapshotPayload && !this.useBaseSnapshot && this.resolvedEmbeddedMode !== "snapshot";
   },
   scheduleLiveMapRefresh() {
     if (!this.usesLiveMap() || this._mapDisposed) return;
@@ -163,6 +164,19 @@ export const mapLoadingMethods = {
     }, 280);
   },
   async loadMap(options = {}) {
+    if (this.officialSource) {
+      this.isLoading = true;
+      try {
+        // Geography only: never hydrate the legacy live cache or overrides.
+        await this.applyMapData({...this.officialSource.base,cities:[],units:[]}, null, {deferLiveSync:true});
+        this.applyOfficialFrame();
+      } catch (error) { this.loadError = error.message; }
+      finally {
+        this.isLoading=false;
+        this.$nextTick(()=>{this.updateViewportSize();this.scheduleInitialFitToView();this.applyRequestedTileFromRoute();});
+      }
+      return;
+    }
     const deferStateData = !!(options && options.deferStateData && this.isMobileSafari);
     this.isLoading = true;
     this.isLiveSyncing = this.usesLiveMap();
@@ -197,6 +211,39 @@ export const mapLoadingMethods = {
         if (!deferStateData && !this.loadError) this.scheduleLiveMapRefresh();
       }
     }
+  },
+  applyOfficialFrame() {
+    if (!this.officialSource || !this.tiles.length) return;
+    const {frame}=this.officialSource, cities=new Map(frame.cities.map(c=>[c.index,c]));
+    const changedTurn=this._officialTurn!==frame.turn;this._officialTurn=frame.turn;
+    const editingField=typeof document!=='undefined'&&document.activeElement?.closest('.tile-edit-form,.tile-notes-editor');
+    const details=new Map((frame.details||[]).map(d=>[d.index,d])),ruins=new Map((frame.ruins||[]).map(r=>[r.index,r]));
+    const ideologies=new Map(frame.cities.filter(c=>c.ideology!==undefined).map(c=>[c.owner,c.ideology]));
+    if(changedTurn)for(const timers of [this.editDebounceTimers,this.unitEditTimers])for(const key of Object.keys(timers||{})){if(timers[key])window.clearTimeout(timers[key]);timers[key]=null;}
+    const selected=this.selectedTile?.key;
+    this.tiles.forEach((tile,index)=>{
+      tile.owner=frame.owners[index]<0?null:frame.owners[index];
+      const city=cities.get(index);tile.city=city?JSON.parse(JSON.stringify(city)):null;
+      const d=details.get(index)||{};
+      tile.originalOwner=tile.city?.originalOwner??ruins.get(index)?.originalOwner??null;
+      tile.units=JSON.parse(JSON.stringify(d.units||[]));tile.combatUnit=tile.units.find(u=>u.role==='combat')||null;tile.civilianUnit=tile.units.find(u=>u.role==='civilian')||null;tile.notes=d.notes||null;tile.ideology=ideologies.get(tile.owner)||null;
+      tile.improvement=d.improvement||null;tile.improvementId='';tile.improvementColor=null;
+      if(/^(IMPROVEMENT_)?CITADEL$/i.test(tile.improvement||''))setCitadelImprovement(tile);
+      tile.route=d.route||null;tile.ruins=!tile.city&&(d.ruins??(ruins.has(index)&&!tile.improvement));tile.pillaged=!!d.pillaged;
+      tile.detailAttribution=d.attribution||{};
+    });
+    for(const owner of new Set(frame.owners))if(owner>=0)this.ensureOwnerColors(owner);
+    applyOwnerColorOverrides(this.ownerColors,this.ownerSecondaryColors);
+    buildOwnerBorders(this.tiles,this.mapConfig.columns,this.mapConfig.rows,this.ownerSecondaryColors,this.hexSize,null,this.tileLookup);
+    this.ownerLegend=buildOwnerLegend(this.ownerColors,s5OwnerList,this.ownerPalette,this.ownerSecondaryColors);
+    this.terrainRevision++;this.resetTerrainBaseCache();this.resetMiniMapCache();
+    this.selectedTile=selected?this.tileLookup.get(selected):null;
+    if(changedTurn||!editingField)this.syncEditFieldsFromTile(this.selectedTile);
+    this.hoverTooltipSizeCache?.clear();
+    if(this.hoverTooltipVisible)this.scheduleHoverTooltipSizeUpdate();
+    this.$emit('official-select',this.selectedTile);
+    // Keep overlay settings across turns. Missing observations stay uncoloured.
+    this.$nextTick(()=>{if(this.useTerrainCanvas)this.drawTerrainCanvas();this.scheduleMiniMapDrawIfVisible();});
   },
   async loadJson(url) {
     if (!url) {

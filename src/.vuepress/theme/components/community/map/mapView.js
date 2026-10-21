@@ -32,8 +32,8 @@ export const mapViewMethods = {
       overlay: this.isOverlayTabActive ? this.overlayView : 'none',
       owner: this.isOverlayTabActive && this.overlayView === 'civilization' ? this.overlayOwnerName || '' : '',
       contrast: CONTRAST_FIELDS.map(key => this[key] ? '1' : '0').join(''),
-      tile: this.selectedTile?.key || '', snapshot: this.snapshotViewId || '',
-      compare: this.snapshotViewId ? this.snapshotCompareId || '' : '',
+      tile: this.selectedTile?.key || '', snapshot: this.officialSource?.source || this.snapshotViewId || '',
+      compare: this.officialSource?.compareSource || (this.snapshotViewId ? this.snapshotCompareId || '' : ''),
     };
   },
   applyMapViewSettings(settings, isCurrent = () => !this._mapDisposed) {

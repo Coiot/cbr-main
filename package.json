@@ -18,6 +18,7 @@
     "build:episode-snapshots": "node scripts/build-episode-snapshots.js",
     "build": "npm run build:album-data && npm run build:social-card && npm run build:episode-snapshots && vuepress build src",
     "build:map-cache": "node scripts/build-community-map-cache.js",
+    "map:release": "node scripts/map-release/manage.mjs",
     "build:supporters": "node scripts/build-supporters-image.js",
     "test:site": "node scripts/test-site-behavior.mjs",
     "releases:setup": "python3 scripts/releases/setup.py install",

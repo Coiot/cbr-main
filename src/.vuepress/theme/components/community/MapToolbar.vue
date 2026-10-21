@@ -6,7 +6,7 @@
       <button type="button" class="map-toolbar-control map-toolbar-icon" aria-label="Zoom in" @click="$emit('zoom-in')">+</button>
     </div>
     <button type="button" class="map-toolbar-control map-toolbar-desktop" @click="$emit('fit')">Fit</button>
-    <details ref="views" class="map-toolbar-disclosure map-toolbar-views" @toggle="onDisclosureToggle('views', $event)"
+    <details v-if="!privatePreview" ref="views" class="map-toolbar-disclosure map-toolbar-views" @toggle="onDisclosureToggle('views', $event)"
       @keydown.esc="onDisclosureEscape($event)" @focusout="onDisclosureFocusout('views', $event)">
       <summary class="map-toolbar-control" aria-label="Map views">
         Views <svg class="map-toolbar-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
@@ -49,7 +49,7 @@
 <script>
 import { toolbarDisclosureMethods } from './map/toolbarDisclosure.mjs';
 export default {
-  props: { scaleLabel: String, miniMapEnabled: Boolean, showShortcuts: Boolean, fullscreen: Boolean, panelCollapsed: Boolean, viewUnavailable: Boolean },
+  props: { privatePreview: Boolean, scaleLabel: String, miniMapEnabled: Boolean, showShortcuts: Boolean, fullscreen: Boolean, panelCollapsed: Boolean, viewUnavailable: Boolean },
   emits: ['zoom-out', 'zoom-in', 'fit', 'browse-views', 'save-view', 'copy-view', 'toggle-mini-map', 'toggle-shortcuts', 'toggle-fullscreen', 'toggle-panel'],
   data: () => ({ openMenu: '' }),
   mounted() { document.addEventListener('pointerdown', this.onOutsidePointer, true); },
@@ -71,9 +71,12 @@ export default {
 .map-toolbar .map-toolbar-fullscreen-icon.is-entry { inline-size: 1.1rem; block-size: 1.1rem; stroke-width: 3.05; }
 .map-toolbar .map-toolbar-chevron { inline-size: 12px; block-size: 12px; }
 .map-toolbar-more svg { fill: currentColor; }
-.map-toolbar-zoom { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .15rem; padding: .2rem; border: 1px solid var(--panel-border-color); border-radius: 999px; background: var(--panel-bg-elevated-color); }
-.map-toolbar-zoom .map-toolbar-control { inline-size: 32px; min-block-size: 32px; font-size: 1.1rem; padding: 0; }
-.map-toolbar-scale { min-inline-size: 4ch; text-align: center; font-size: .85rem; font-weight: 800; color: var(--panel-muted-color); }
+.map-toolbar-zoom { display: grid; grid-template-columns: 32px 3.4rem 32px; flex: 0 0 auto; align-items: stretch; overflow: hidden; border: 1px solid var(--panel-border-color); border-radius: 999px; background: var(--panel-bg-elevated-color); }
+.map-toolbar-zoom .map-toolbar-control { inline-size: 100%; min-block-size: 32px; padding: 0; border: 0; border-radius: 0; background: transparent; font-size: 1.1rem; }
+.map-toolbar-zoom .map-toolbar-control:last-child { border-inline-start: 1px solid var(--panel-border-color); }
+.map-toolbar-zoom .map-toolbar-control:hover { background: var(--accent-color); }
+.map-toolbar-zoom .map-toolbar-control:focus-visible { outline-offset: -3px; }
+.map-toolbar-scale { display: flex; align-items: center; justify-content: center; border-inline-start: 1px solid var(--panel-border-color); font-size: .85rem; font-weight: 700; color: var(--panel-text-color); font-variant-numeric: tabular-nums; }
 .map-toolbar-views { margin-inline-start: auto; }
 .map-toolbar-disclosure { flex: 0 0 auto; }
 .map-toolbar-menu { position: absolute; inset-block-start: calc(100% + .45rem); inset-inline-end: 0; z-index: 10; inline-size: min(20rem, 100%); max-block-size: min(60dvh, 26rem); overflow-y: auto; overscroll-behavior: contain; padding: .4rem; border: 1px solid var(--panel-border-color); border-block-start: 3px solid var(--accent-color); border-radius: 0 0 12px 12px; background: var(--panel-bg-color); box-shadow: 0 8px 24px rgb(0 0 0 / .3); white-space: normal; }
@@ -89,7 +92,8 @@ export default {
   .map-toolbar .map-toolbar-desktop { display: none; }
   .map-toolbar .map-toolbar-mobile { display: flex; }
   .map-toolbar-control { min-block-size: 44px; padding-inline: .65rem; }
-  .map-toolbar-zoom .map-toolbar-control { inline-size: 44px; min-block-size: 44px; }
+  .map-toolbar-zoom { grid-template-columns: 40px 3.4rem 40px; }
+  .map-toolbar-zoom .map-toolbar-control { min-block-size: 40px; }
   .map-toolbar-more { inline-size: 44px; padding: 0; }
   .map-toolbar-more-label { display: none; }
 }

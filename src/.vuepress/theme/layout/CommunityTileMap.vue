@@ -4,7 +4,7 @@
       <div class="map-intro">
         <Content custom />
       </div>
-      <CommunityTileMapGrid />
+      <MapExperience />
     </div>
   </transition>
 </template>
@@ -12,13 +12,13 @@
 <script>
 import { defineAsyncComponent } from "vue";
 
-const CommunityTileMapGrid = defineAsyncComponent(() =>
-  import("../components/community/CommunityTileMapGrid.vue")
+const MapExperience = defineAsyncComponent(() =>
+  import("../components/community/official/MapExperience.vue")
 );
 
 export default {
   components: {
-    CommunityTileMapGrid,
+    MapExperience,
   },
 };
 </script>

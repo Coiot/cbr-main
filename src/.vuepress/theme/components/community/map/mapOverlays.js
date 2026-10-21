@@ -16,6 +16,10 @@ export const mapOverlaysComputed = {
   isReligionOverlayActive() {
     return this.isOverlayTabActive && this.overlayView === "religion";
   },
+  recordedPopulationCoverage() {
+    const cities=(this.tiles||[]).filter(t=>t.city&&this.ownerIdForCity(t)!==this.babylonOwnerId);
+    return {known:cities.filter(t=>Number.isFinite(t.city.size)).length,total:cities.length};
+  },
   isContrastOverlayActive() {
     return this.isOverlayTabActive && this.overlayView === "contrast";
   },
@@ -163,10 +167,10 @@ export const mapOverlaysComputed = {
       ownerLabel: this.ownerLabel(ownerId),
       tilesOwned,
       cities,
-      population,
-      combatUnits,
-      civilianUnits,
-      avgCitySize: cities ? (population / cities).toFixed(1) : "0.0",
+      population: this.officialSource && this.tiles.some(t=>t.city&&this.ownerIdForCity(t)===ownerId&&!Number.isFinite(t.city.size)) ? 'Unknown' : population,
+      combatUnits: this.officialSource ? 'Unknown' : combatUnits,
+      civilianUnits: this.officialSource ? 'Unknown' : civilianUnits,
+      avgCitySize: this.officialSource && this.tiles.some(t=>t.city&&this.ownerIdForCity(t)===ownerId&&!Number.isFinite(t.city.size)) ? 'Unknown' : cities ? (population / cities).toFixed(1) : "0.0",
     };
   },
   populationOverlayMetrics() {
@@ -185,6 +189,7 @@ export const mapOverlaysComputed = {
     let totalPopulation = 0;
     let totalCities = 0;
     let totalOwnedTiles = 0;
+    let unknownCities = 0;
     const ignoredOwner = this.babylonOwnerId;
     (this.tiles || []).forEach((tile) => {
       if (Number.isFinite(tile.owner)) {
@@ -203,6 +208,7 @@ export const mapOverlaysComputed = {
             cities: 0,
             population: 0,
             density: 0,
+            unknownCities: 0,
           };
         }
         ownerLookup[tile.owner].tiles += 1;
@@ -229,15 +235,17 @@ export const mapOverlaysComputed = {
           cities: 0,
           population: 0,
           density: 0,
+          unknownCities: 0,
         };
       }
       const size = Number.isFinite(tile.city.size) ? tile.city.size : 0;
+      if(this.officialSource&&!Number.isFinite(tile.city.size)){ownerLookup[cityOwner].unknownCities++;unknownCities++;}
       ownerLookup[cityOwner].cities += 1;
       ownerLookup[cityOwner].population += Math.max(0, size);
       totalPopulation += Math.max(0, size);
       totalCities += 1;
     });
-    const owners = Object.values(ownerLookup).map((entry) => ({
+    const owners = Object.values(ownerLookup).filter(entry=>!this.officialSource||!entry.unknownCities).map((entry) => ({
       ...entry,
       density: entry.densityTiles ? entry.population / entry.densityTiles : 0,
     }));
@@ -249,7 +257,7 @@ export const mapOverlaysComputed = {
       totalPopulation,
       totalCities,
       totalOwnedTiles,
-      averageDensity: totalOwnedTiles ? totalPopulation / totalOwnedTiles : 0,
+      averageDensity: unknownCities ? null : totalOwnedTiles ? totalPopulation / totalOwnedTiles : 0,
       maxDensity: owners.length
         ? owners.reduce(
             (maxDensity, entry) => Math.max(maxDensity, entry.density),

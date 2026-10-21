@@ -3,7 +3,7 @@
     <svg class="supporter-thanks-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" /></svg>
     <div class="supporter-thanks-copy">
       <h2>Made possible by our supporters</h2>
-      <p>Thank you to everyone helping keep the show going.</p>
+      <p>Thank you to everyone helping keep the show going</p>
     </div>
     <div class="supporter-thanks-links">
       <router-link class="supporter-thanks-directory" to="/supporters/">Meet the supporters <span aria-hidden="true">→</span></router-link>

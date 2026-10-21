@@ -44,6 +44,8 @@ export function mapViewSettingsQuery(settings) {
 }
 
 export function savedViewLabel(settings) {
+  const timeline=/^timeline:[0-9a-f-]{36}:(\d+)$/.exec(settings?.snapshot||'');
+  if(timeline)return `Turn ${timeline[1]}`;
   return settings?.snapshot ? `Episode ${/^s5-episode-(.+)$/.exec(settings.snapshot)?.[1]?.replace(/-/g, '.') || 'snapshot'}` : 'Live map';
 }
 

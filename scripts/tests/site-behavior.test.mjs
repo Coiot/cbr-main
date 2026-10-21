@@ -1,4 +1,5 @@
 import './supporter-showcases.test.mjs';
+import './map-official-timeline.test.mjs';
 import './map-saved-views.test.mjs';
 import './supporter-credits.test.mjs';
 import './spotlight.test.mjs';
@@ -302,3 +303,4 @@ test('a saved reaction refreshes counts and the reader selection immediately', a
 });
 import './scene-collections.test.mjs';
 import './map-toolbar.test.mjs';
+import './replay-lab.test.mjs';

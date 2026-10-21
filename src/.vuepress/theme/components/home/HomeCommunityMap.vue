@@ -4,7 +4,7 @@
       <div class="home-map-copy">
         <h2 id="home-map-title">Community Tile Map</h2>
         <p>
-          Explore the live, community-maintained map. Pan, zoom, and see who
+          Explore the map of the cylinder. Pan, zoom, and see who
           controls each tile.
         </p>
       </div>
@@ -18,7 +18,7 @@
       <div v-if="!shouldRenderMap" class="home-map-placeholder">
         <div class="home-map-placeholder-card">
           <p>
-            Tap to load the live map. It can use more memory on mobile devices.
+            Tap to load the map. It can use more memory on mobile devices.
           </p>
           <button type="button" class="home-map-load" @click="requestMap">
             Load Map
@@ -61,7 +61,7 @@
 import { defineAsyncComponent } from "vue";
 
 const CommunityTileMapGrid = defineAsyncComponent(() =>
-  import("../community/CommunityTileMapGrid.vue")
+  import("../community/official/PublishedMapEmbed.vue")
 );
 
 export default {

@@ -64,6 +64,7 @@ const Other = defineAsyncComponent(() => import("./layout/Other.vue"));
 const CommunityTileMap = defineAsyncComponent(() =>
   import("./layout/CommunityTileMap.vue")
 );
+const MapReleaseAdmin = defineAsyncComponent(() => import("./layout/MapReleaseAdmin.vue"));
 const CommunitySpotlight = defineAsyncComponent(() =>
   import("./layout/CommunitySpotlight.vue")
 );
@@ -80,6 +81,7 @@ export default {
     Page,
     Other,
     CommunityTileMap,
+    MapReleaseAdmin,
     CommunitySpotlight,
     Sidebar,
     Navbar,

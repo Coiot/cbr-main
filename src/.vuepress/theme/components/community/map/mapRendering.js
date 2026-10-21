@@ -766,6 +766,7 @@ export const mapRenderingMethods = {
     ) {
       return { fill: "transparent", fillOpacity: 0 };
     }
+    if(this.officialSource&&!Object.prototype.hasOwnProperty.call(this.populationDensityByOwner,tile.owner))return {fill:'transparent',fillOpacity:0};
     const density = this.populationDensityByOwner[tile.owner] || 0;
     const maxDensity = this.populationOverlayMetrics.maxDensity || 0;
     const ratio = maxDensity > 0 ? clampValue(density / maxDensity, 0, 1) : 0;
@@ -800,7 +801,7 @@ export const mapRenderingMethods = {
   },
   formatOverlayDensity(value) {
     if (!Number.isFinite(value)) {
-      return "0.00";
+      return this.officialSource ? 'Unknown' : "0.00";
     }
     return Number(value).toFixed(2);
   },
@@ -1082,11 +1083,10 @@ export const mapRenderingMethods = {
     const size = this.cityLabelHeight() * 0.52;
     return Math.max(6, Math.round(size * 10) / 10);
   },
-  cityLabelWidth(tile) {
+  cityLabelNameWidth(tile) {
     const name =
       tile && tile.city && tile.city.name ? String(tile.city.name) : "";
     const height = this.cityLabelHeight();
-    const badgeDiameter = this.cityLabelBadgeRadius() * 2;
     const unitWidth = height * 0.45;
     const nameUnits = Array.from(name).reduce((total, char) => {
       if (char === " ") {
@@ -1103,7 +1103,12 @@ export const mapRenderingMethods = {
       }
       return total + 0.95;
     }, 0);
-    const nameWidth = nameUnits * unitWidth;
+    return nameUnits * unitWidth;
+  },
+  cityLabelWidth(tile) {
+    const height = this.cityLabelHeight();
+    const badgeDiameter = this.cityLabelBadgeRadius() * 2;
+    const nameWidth = this.cityLabelNameWidth(tile);
     const rightPad = height * 0.38;
     const originalBadgeWidth = this.cityHasOriginalOwnerBadge(tile)
       ? this.cityLabelOriginalBadgeRadius() * 1.25 + height * 0.2
@@ -1299,7 +1304,7 @@ export const mapRenderingMethods = {
     }
     const name = city.name || "City";
     const capital = city.isCapital ? " • Capital" : "";
-    return `${name} (Pop ${city.size || 1})${capital}`;
+    return `${name}${capital}`;
   },
   isWorldWonderCity(city) {
     return isWorldWonderCity(city);
