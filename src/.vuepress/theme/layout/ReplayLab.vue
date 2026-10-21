@@ -2,8 +2,8 @@
   <main id="main-content" class="replay-lab" @dragover.prevent @drop.prevent="dropFile">
     <AlbumsNav compact label="Replay lab navigation" :archive="{to:'/community-tile-map/',label:'Back to the community map'}" />
     <header><p class="replay-eyebrow">Local testing tool</p><h1>Replay map lab</h1><p>Explore a Season 5 replay on the cylinder. Files stay on this device. Local files do not change the public map.</p></header>
-    <p v-if="!fullRange">The public map uses the showrunner’s shared game history. <router-link to="/community-tile-map/">Open the community map →</router-link></p>
-    <section v-if="fullRange" class="replay-load" aria-label="Load a local file">
+    <p v-if="!canLoadFile">The public map uses the showrunner’s shared game history. <router-link to="/community-tile-map/">Open the community map →</router-link></p>
+    <section v-if="canLoadFile" class="replay-load" aria-label="Load a local file">
       <!-- Native pickers can reject the game's unregistered extension; validate after selection. -->
       <label class="replay-file-button">Choose replay, history or snapshot<input type="file" :disabled="!base" @change="pickFile" /></label>
       <span class="replay-muted">{{ loading ? 'Reading replay…' : filename || 'Drop a .Civ5Replay or recovered history JSON here · up to 50 MB' }}</span>
@@ -18,8 +18,8 @@
       <ReplayMapViewer :key="session.sourceFingerprint + ':' + session.kind" :base="base" :frame="frame" @edit-details="saveDetails">
         <template #timeline>
           <MapTimelineToolbar :turn="turn" :first-turn="firstTurn" :last-turn="lastTurn" :playing="playing" :speed="speed" :disabled="!isReplay || loading"
-            :bookmarks="bookmarks" :can-manage="fullRange" :message="markerMessage" :public-turn="publicEndTurn"
-            @turn="setTurn" @play="togglePlay" @speed="speed=$event" @episode="saveEpisode" />
+            :bookmarks="bookmarks" :public-turn="publicEndTurn"
+            @turn="setTurn" @play="togglePlay" @speed="speed=$event" />
         </template>
         <template #replay>
           <section class="tile-info-card replay-panel">
@@ -41,8 +41,6 @@
 import { markRaw } from 'vue';
 import {timelineLastTurn,defaultEpisodeMarkers,isLoopbackTimeline} from '../../../shared/mapTimelineDisplay.mjs';
 import MapTimelineToolbar from '../components/community/official/MapTimelineToolbar.vue';
-import {loadLocalEpisodeMarkers,saveLocalEpisodeMarkers} from '../components/community/official/localEpisodeMarkers.mjs';
-import {upsertEpisodeMarker} from '../../../shared/mapEpisodeMarkers.mjs';
 import {MAP_PUBLISHER_ID} from '../../../shared/mapRelease.mjs';
 import {getSupabaseClient} from '../supabaseClient';
 import {subscribeAccountAuth} from '../account/accountSync.js';
@@ -60,8 +58,8 @@ export default {
   components:{AlbumsNav,ReplayMapViewer,MapTimelineToolbar},
   data:()=>({base:null,map:null,session:null,frame:null,rawFrame:null,detailLayer:null,turn:0,filename:'',error:'',loading:false,playing:false,speed:2,tab:'civilizations',eventType:'all',local:false,user:null,bookmarks:defaultEpisodeMarkers.map(m=>({...m})),markerMessage:''}),
   computed:{
-    isReplay(){return this.session?.kind==='replay';},firstTurn(){return this.session?.meta.startTurn??0;},lastTurn(){return timelineLastTurn(this.session?.meta.endTurn??0,this.bookmarks,this.fullRange);},
-    fullRange(){return this.local||this.user?.id===MAP_PUBLISHER_ID;},
+    isReplay(){return this.session?.kind==='replay';},firstTurn(){return this.session?.meta.startTurn??0;},lastTurn(){return timelineLastTurn(this.session?.meta.endTurn??0,this.bookmarks);},
+    canLoadFile(){return this.local||this.user?.id===MAP_PUBLISHER_ID;},
     publicEndTurn(){return this.bookmarks.at(-1)?.turn??0;},
     availableEventCount(){return this.isReplay?this.session.replay.events.filter(e=>e.turn<=this.lastTurn).length:0;},
     snapshotIssue(){return replaySnapshotIssue(this.frame);},
@@ -70,18 +68,18 @@ export default {
     visibleEvents(){if(!this.isReplay)return [];return this.session.replay.events.filter(e=>e.turn<=this.turn&&(this.eventType==='all'||this.eventType==='cities'&&[1,3,4].includes(e.type)||this.eventType==='claims'&&e.type===2||this.eventType==='messages'&&![1,2,3,4].includes(e.type))).slice(-100).reverse();},
   },
   watch:{speed(){if(this.playing){this.pause();this.togglePlay();}},lastTurn(value){if(this.session&&this.turn>value){if(this.isReplay)this.setTurn(value);else{this.session=null;this.frame=null;this.rawFrame=null;this.detailLayer=null;this.error='This frozen snapshot is later than the public endpoint. Load the game history to view earlier turns.';}}}},
-  mounted(){this._alive=true;this.local=isLoopbackTimeline(location.hostname);if(this.local)this.bookmarks=loadLocalEpisodeMarkers();else{const client=getSupabaseClient();if(client)this._auth=subscribeAccountAuth(client,session=>{this.user=session?.user||null;});if(config.enabled)mapReleaseRequest({action:'manifest'}).then(({active})=>{if(this._alive&&active?.bookmarks?.length)this.bookmarks=active.bookmarks;}).catch(()=>{});}this._visibility=()=>{if(document.hidden)this.pause();};document.addEventListener('visibilitychange',this._visibility);window.addEventListener('keydown',this.shortcuts);this.loadBase();},
+  mounted(){this._alive=true;this.local=isLoopbackTimeline(location.hostname);{const client=getSupabaseClient();if(client)this._auth=subscribeAccountAuth(client,session=>{this.user=session?.user||null;});if(config.enabled)mapReleaseRequest({action:'manifest'}).then(({active})=>{if(this._alive&&active?.bookmarks?.length)this.bookmarks=active.bookmarks;}).catch(()=>{});}this._visibility=()=>{if(document.hidden)this.pause();};document.addEventListener('visibilitychange',this._visibility);window.addEventListener('keydown',this.shortcuts);this.loadBase();},
   beforeUnmount(){this._alive=false;this._auth?.unsubscribe();this._request++;this.pause();this.cancelRead();this._baseAbort?.abort();document.removeEventListener('visibilitychange',this._visibility);window.removeEventListener('keydown',this.shortcuts);},
   methods:{
     civStyle,
     async loadBase(){this.error='';this._baseAbort?.abort();const controller=this._baseAbort=new AbortController();try{const response=await fetch(this.$withBase('/community/CBRXMapOct62025_V2.base.json'),{signal:controller.signal});if(!response.ok)throw new Error('Base map unavailable.');const base=await response.json();if(this._alive){this.base=markRaw(base);this.map=markRaw(baseIdentity(base));}}catch(error){if(this._alive&&error.name!=='AbortError')this.error='The Season 5 base map could not be loaded. Please retry.';}},
     pickFile(event){const file=event.target.files?.[0];if(file)this.loadFile(file);event.target.value='';},
-    dropFile(event){const file=event.dataTransfer?.files?.[0];if(file&&this.base&&this.fullRange)this.loadFile(file);},
+    dropFile(event){const file=event.dataTransfer?.files?.[0];if(file&&this.base&&this.canLoadFile)this.loadFile(file);},
     cancelRead(){this._worker?.terminate();this._worker=null;this._rejectRead?.(new Error('Read cancelled.'));this._rejectRead=null;},
     cancelLoad(){this._request++;this.cancelRead();this.loading=false;},
     parse(buffer){return new Promise((resolve,reject)=>{let worker;try{worker=new Worker(new URL('../components/community/replay/replayWorker.mjs',import.meta.url),{type:'module'});}catch{reject(new Error('This browser cannot start the replay reader. Try a current browser.'));return;}this._worker=worker;this._rejectRead=reject;const finish=()=>{worker.terminate();if(this._worker===worker){this._worker=null;this._rejectRead=null;}};worker.onmessage=event=>{finish();event.data.ok?resolve(event.data.replay):reject(new Error(event.data.error));};worker.onerror=()=>{finish();reject(new Error('The replay reader failed. Please try loading the file again.'));};worker.postMessage(buffer,[buffer]);});},
     async loadFile(file){
-      if(!this.fullRange)return;
+      if(!this.canLoadFile)return;
       const request=this._request=(this._request||0)+1;this.pause();this.cancelRead();this.error='';this.loading=true;
       const current=()=>this._alive&&request===this._request;
       try{
@@ -97,14 +95,13 @@ export default {
         }
         else if(/\.civ5replay$/i.test(file.name)){const buffer=await file.arrayBuffer();if(!current())return;const replay=await this.parse(buffer);if(!current())return;session={kind:'replay',replay,meta:replay.meta,mapping:mapCivilizations(replay.civs,s5OwnerList),sourceFingerprint:replay.sourceFingerprint,warnings:validateReplayMap(replay,this.base)};}
         else throw new Error('Choose a .Civ5Replay file, recovered save history JSON or downloaded snapshot JSON.');
-        if(session.meta.startTurn>timelineLastTurn(session.meta.endTurn,this.bookmarks,this.fullRange)||session.frame?.turn>timelineLastTurn(session.meta.endTurn,this.bookmarks,this.fullRange))throw new Error(`This file starts after the public endpoint. Load the game history to view the end of turn ${this.publicEndTurn}.`);
+        if(session.meta.startTurn>timelineLastTurn(session.meta.endTurn,this.bookmarks)||session.frame?.turn>timelineLastTurn(session.meta.endTurn,this.bookmarks))throw new Error(`This file starts after the public endpoint. Load the game history to view the end of turn ${this.publicEndTurn}.`);
         if(!current())return;this.session=markRaw(session);this.detailLayer=markRaw(emptyDetails(session.sourceFingerprint));this.filename=file.name;this.setTurn(session.frame?.turn??Math.min(this.lastTurn,this.publicEndTurn));
       }catch(error){if(current())this.error=error instanceof SyntaxError?'This JSON file could not be read. Choose a recovered history, snapshot or saved edits JSON.':error.message;}
       finally{if(current())this.loading=false;}
     },
     setTurn(value,stop=true){if(stop)this.pause();if(!this.session)return;const turn=Math.max(this.firstTurn,Math.min(this.lastTurn,Math.round(Number(value)||0)));this.turn=turn;this.rawFrame=markRaw(this.isReplay?reconstructFrame(this.session.replay,this.session.mapping,turn):this.session.frame);this.frame=markRaw(mergeDetails(this.rawFrame,this.detailLayer.records));},
     setDetails(layer){this.pause();this.detailLayer=markRaw(layer);this.frame=markRaw(mergeDetails(this.rawFrame,layer.records));},
-    saveEpisode(marker){if(!this.fullRange)return;try{this.bookmarks=upsertEpisodeMarker(this.bookmarks,marker,{firstTurn:this.firstTurn,lastTurn:this.session.meta.endTurn});saveLocalEpisodeMarkers(this.bookmarks);this.markerMessage='Marker saved on this device. The public map is unchanged.';}catch(error){this.markerMessage=error.message;}},
     saveDetails(records){try{let layer=this.detailLayer;for(const record of records)layer=putDetail(layer,record);this.setDetails(layer);}catch(error){this.error=error.message;}},
     pause(){clearTimeout(this._timer);this._timer=null;this.playing=false;},
     togglePlay(){if(this.playing){this.pause();return;}if(!this.isReplay||this.loading||this.turn>=this.lastTurn||document.hidden)return;this.playing=true;const tick=()=>{if(!this.playing)return;this.setTurn(this.turn+1,false);if(this.turn>=this.lastTurn)this.pause();else this._timer=setTimeout(tick,1000/this.speed);};this._timer=setTimeout(tick,1000/this.speed);},

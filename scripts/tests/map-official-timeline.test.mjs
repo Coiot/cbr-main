@@ -50,10 +50,10 @@ test('current public defaults preserve Episode 34 and end Episode 35 at 645',()=
   assert.equal(timelineLastTurn(751),645);
   assert.equal(timelineLastTurn(600),600);
 });
-test('confirmed episode endpoints do not advance with a newer source and privileged viewers can inspect its full range',()=>{
+test('confirmed episode endpoints bound every viewer, including former privileged callers',()=>{
   const markers=[{episode:'34',turn:595}];
   assert.equal(timelineLastTurn(751,markers),595);assert.equal(timelineLastTurn(999,markers),595);
-  assert.equal(timelineLastTurn(751,markers,true),751);
+  assert.equal(timelineLastTurn(751,markers,true),595,'A legacy privilege flag must not bypass the public endpoint');
   const next=upsertEpisodeMarker(markers,{episode:'35',turn:620});assert.equal(timelineLastTurn(751,next),620);
   assert.throws(()=>upsertEpisodeMarker(next,{episode:'33',turn:621}),/episode order/);
   assert.throws(()=>upsertEpisodeMarker(markers,{episode:'35',turn:752},{lastTurn:751}),/available history/);
@@ -224,9 +224,9 @@ test('anonymous readers cannot retrieve drafts, forge Coiot, or publish by claim
   assert.equal(state.writes.length,0);
   assert.equal((await call({action:'draft',id:draftId},'coiot')).status,200);
 });
-test('only Coiot can see the full private timeline and publishing a past marker does not reveal later events',async()=>{
+test('Coiot receives only published history and publishing a past marker does not reveal later events',async()=>{
   const {call,state,id,draftId}=await server();
-  const admin=await call({action:'timeline-admin'},'coiot');assert.equal(admin.status,200);assert.equal(admin.body.release.lastTurn,5);
+  const admin=await call({action:'timeline-admin'},'coiot');assert.equal(admin.status,200);assert.equal(admin.body.release.lastTurn,4);assert.equal(admin.body.sourceId,draftId);assert.doesNotMatch(JSON.stringify(admin.body.release),/Secret Future Wonder/);assert.ok(!state.reads.includes(`${draftId}.json`));
   const before=await call({action:'release',id});assert.doesNotMatch(JSON.stringify(before.body),/Secret Future Wonder/);
   const update=await call({action:'set-episode',sourceId:draftId,expected:id,marker:{episode:'0',turn:0}},'coiot');
   assert.equal(update.status,200);assert.equal(update.body.active.last_turn,4);

@@ -33,7 +33,7 @@
         </template>
       </section>
       <p v-if="message" role="status">{{message}}</p>
-      <OfficialTimeline v-if="candidate&&base" :key="previewKey" :release="candidate" :release-id="selectedId" :base="base" :preview="true" :local-editing="local" :full-range="local||publisher" :can-manage-episodes="publisher&&config.enabled" :episode-markers="active?.bookmarks" :episode-saving="busy" :episode-message="message" :public-release-id="active?.id" @episode="saveEpisode" />
+      <OfficialTimeline v-if="candidate&&base" :key="previewKey" :release="candidate" :release-id="selectedId" :base="base" :preview="true" :local-editing="local" :can-manage-episodes="publisher&&config.enabled" :episode-markers="active?.bookmarks" :episode-saving="busy" :episode-message="message" :public-release-id="active?.id" @episode="saveEpisode" />
     </template>
   </main>
 </template>
