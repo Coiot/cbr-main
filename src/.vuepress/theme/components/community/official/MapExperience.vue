@@ -9,7 +9,7 @@
         <button :aria-pressed="archive" @click="showArchive">Community archive</button>
       </div><p v-if="archive">Earlier maps assembled by community editors. These are preserved as originally published.</p></div>
       <CommunityTileMapGrid v-if="archive" :key="`archive:${archiveId}`" archive-mode :snapshot-payload="[]" />
-      <OfficialTimeline v-else :key="releaseId" :release="release" :release-id="releaseId" :base="base" :initial-turn="turn" :initial-compare="compareTurn" :episode-markers="markers" :full-range="publisher||local" :can-manage-episodes="publisher" :episode-saving="savingEpisode" :episode-message="episodeMessage" :public-release-id="publicReleaseId" :preview="publisher&&!publicReleaseId" @turn="turn=$event" @episode="saveEpisode" />
+      <OfficialTimeline v-else :key="releaseId" :release="release" :release-id="releaseId" :base="base" :initial-turn="turn" :initial-compare="compareTurn" :episode-markers="markers" :can-manage-episodes="publisher" :episode-saving="savingEpisode" :episode-message="episodeMessage" :public-release-id="publicReleaseId" @turn="turn=$event" @episode="saveEpisode" />
     </template>
     <CommunityTileMapGrid v-else />
     <p v-if="episodeMessage" role="status">{{episodeMessage}}</p>
@@ -20,7 +20,7 @@ import {markRaw} from 'vue';
 import CommunityTileMapGrid from '../CommunityTileMapGrid.vue';
 import OfficialTimeline from './OfficialTimeline.vue';
 import config from '../../../../../shared/officialMapConfig.json';
-import {timelineLastTurn,defaultEpisodeMarkers,isLoopbackTimeline} from '../../../../../shared/mapTimelineDisplay.mjs';
+import {timelineLastTurn,defaultEpisodeMarkers} from '../../../../../shared/mapTimelineDisplay.mjs';
 import {validateRelease,MAP_PUBLISHER_ID} from '../../../../../shared/mapRelease.mjs';
 import {baseIdentity} from '../replay/replayModel.mjs';
 import {mapReleaseRequest,parseTimelineSource} from './mapReleaseApi.mjs';
@@ -29,10 +29,10 @@ import {getSupabaseClient} from '../../../supabaseClient';
 import {subscribeAccountAuth} from '../../../account/accountSync.js';
 export default {
   components:{CommunityTileMapGrid,OfficialTimeline},
-  data:()=>({enabled:config.enabled,showTimelineExtras:config.showTimelineExtras,loading:true,error:'',release:null,releaseId:'',base:null,turn:null,compareTurn:null,archive:false,archiveId:'',client:null,user:null,local:false,markers:defaultEpisodeMarkers.map(m=>({...m})),publicReleaseId:'',savingEpisode:false,episodeMessage:''}),
-  computed:{publisher(){return this.user?.id===MAP_PUBLISHER_ID;},lastTurn(){return this.release?timelineLastTurn(this.release.lastTurn,this.markers,this.publisher||this.local):0;}},
+  data:()=>({enabled:config.enabled,showTimelineExtras:config.showTimelineExtras,loading:true,error:'',release:null,releaseId:'',sourceId:'',base:null,turn:null,compareTurn:null,archive:false,archiveId:'',client:null,user:null,markers:defaultEpisodeMarkers.map(m=>({...m})),publicReleaseId:'',savingEpisode:false,episodeMessage:''}),
+  computed:{publisher(){return this.user?.id===MAP_PUBLISHER_ID;},lastTurn(){return this.release?timelineLastTurn(this.release.lastTurn,this.markers):0;}},
   watch:{'$route.query'(){if(this.enabled)this.resolveSource().catch(e=>this.error=e.message);}},
-  mounted(){this._alive=true;this.local=isLoopbackTimeline(location.hostname);if(!this.enabled)return;
+  mounted(){this._alive=true;if(!this.enabled)return;
     this.client=getSupabaseClient();if(this.client)this._auth=subscribeAccountAuth(this.client,session=>{const user=session?.user||null;if(!this._authReady||user?.id!==this.user?.id){this._authReady=true;this.user=user;this.release=null;this.load();}});else this.load();
     this._poll=setInterval(async()=>{if(document.hidden||this.loading||this.savingEpisode)return;try{const {active}=await mapReleaseRequest({action:'manifest'});if(this._alive&&(active?.id||'')!==this.publicReleaseId)this.load(this.turn);}catch{}},60000);
   },
@@ -46,7 +46,7 @@ export default {
         let result;
         const manifest=await mapReleaseRequest({action:'manifest'},null,this._abort.signal);let active=manifest.active;
         if(active){
-          if(publisher){const admin=await mapReleaseRequest({action:'timeline-admin'},this.client,this._abort.signal);active=admin.active;result={id:admin.sourceId,release:admin.release};}
+          if(publisher){const admin=await mapReleaseRequest({action:'timeline-admin'},this.client,this._abort.signal);active=admin.active;this.sourceId=admin.sourceId;result={id:active.id,release:admin.release};}
           else result=await mapReleaseRequest({action:'release',id:active.id},null,this._abort.signal);
         }
         if(!this._alive||request!==this._loadRequest)return;
@@ -65,7 +65,7 @@ export default {
     },
     async saveEpisode(marker){
       if(!this.publisher||!config.enabled)return;this.savingEpisode=true;this.episodeMessage='';
-      try{await mapReleaseRequest({action:'set-episode',sourceId:this.releaseId,expected:this.publicReleaseId||null,marker},this.client);await this.load(this.turn);this.episodeMessage=`Episode ${marker.episode} endpoint published at the end of turn ${marker.turn}.`;}
+      try{await mapReleaseRequest({action:'set-episode',sourceId:this.sourceId,expected:this.publicReleaseId||null,marker},this.client);await this.load(this.turn);this.episodeMessage=`Episode ${marker.episode} endpoint published at the end of turn ${marker.turn}.`;}
       catch(error){this.episodeMessage=error.message;}finally{this.savingEpisode=false;}
     },
     async resolveSource(preserveTurn=null){

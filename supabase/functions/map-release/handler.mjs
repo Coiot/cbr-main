@@ -72,8 +72,11 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
         const control=check(await db.from('map_release_control').select('source_release,active_release,enabled').eq('map_id','s5').single());
         const current=await active(),sourceId=control.source_release||current?.id;
         if(!sourceId)throw new Error('Stage a checked game history before adding episode endpoints.');
+        if(action==='timeline-admin') {
+          if(!current)return response({error:'No episode has been published.'},404);
+          return response({active:current,sourceId,release:(await read(current.id)).release});
+        }
         const {release:source}=await read(sourceId);
-        if(action==='timeline-admin')return response({active:current,sourceId,release:source});
         if(input.sourceId!==sourceId||(input.expected||null)!==(current?.id||null))throw new Error('The timeline changed. Reload before publishing an endpoint.');
         const markers=upsertEpisodeMarker(current?.bookmarks||[],input.marker,{firstTurn:source.firstTurn,lastTurn:source.lastTurn});
         const acceptHistoricalGaps=await gapAcceptance(sourceId);

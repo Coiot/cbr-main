@@ -11,7 +11,7 @@
     <p v-if="busy" role="status">Loading turn…</p> -->
     <CommunityTileMapGrid v-if="source" :official-source="source" extra-panel-label="Replay" :detail-editing="!!(localEditing||(canEditDetails&&turn<=publicEndTurn))" :detail-edit-status="detailResult?.message||''" @official-detail-edit="saveDetails">
       <template #map-timeline><MapTimelineToolbar :turn="turn" :first-turn="release.firstTurn" :last-turn="lastTurn" :playing="playing" :speed="speed" :disabled="!frame"
-        :bookmarks="bookmarks" :can-manage="canManageEpisodes||(localEditing&&!releaseId)" :remote="!!(releaseId&&canManageEpisodes)" :saving="episodeSaving" :message="episodeMessage||localMarkerMessage" :public-turn="publicReleaseId?publicEndTurn:null"
+        :bookmarks="bookmarks" :can-manage="canManageEpisodes" :remote="!!(releaseId&&canManageEpisodes)" :saving="episodeSaving" :message="episodeMessage" :public-turn="publicReleaseId?publicEndTurn:null"
         @turn="choose" @play="togglePlay" @speed="speed=$event" @episode="saveEpisode" /></template>
       <template #extra-panel><TimelineReplayPanel :release="release" :frame="frame" /></template>
     </CommunityTileMapGrid>
@@ -28,8 +28,6 @@ import {markRaw} from 'vue';
 import {timelineLastTurn,timelineBookmarks,defaultEpisodeMarkers} from '../../../../../shared/mapTimelineDisplay.mjs';
 import MapTimelineToolbar from './MapTimelineToolbar.vue';
 import TimelineReplayPanel from './TimelineReplayPanel.vue';
-import {loadLocalEpisodeMarkers,saveLocalEpisodeMarkers} from './localEpisodeMarkers.mjs';
-import {upsertEpisodeMarker} from '../../../../../shared/mapEpisodeMarkers.mjs';
 import CommunityTileMapGrid from '../CommunityTileMapGrid.vue';
 import {emptyDetails,mergeDetails,putDetail,detailKey} from '../../../../../shared/mapDetails.mjs';
 import {mapReleaseRequest,timelineSource} from './mapReleaseApi.mjs';
@@ -38,11 +36,11 @@ import config from '../../../../../shared/officialMapConfig.json';
 import {subscribeAccountAuth} from '../../../account/accountSync.js';
 export default {
   components:{CommunityTileMapGrid,MapTimelineToolbar,TimelineReplayPanel},
-  props:['release','releaseId','base','initialTurn','initialCompare','preview','localEditing','fullRange','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
+  props:['release','releaseId','base','initialTurn','initialCompare','preview','localEditing','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
   emits:['turn','episode'],
   data:()=>({showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),localMarkerMessage:'',compareTurn:'',comparison:null,client:null,user:null}),
   computed:{
-    lastTurn(){return timelineLastTurn(this.release.lastTurn,this.confirmedMarkers,!!(this.fullRange||this.localEditing));},
+    lastTurn(){return timelineLastTurn(this.release.lastTurn,this.confirmedMarkers);},
     confirmedMarkers(){return this.episodeMarkers||this.localMarkers;},
     publicEndTurn(){return Math.min(this.release.lastTurn,this.confirmedMarkers.at(-1)?.turn??0);},
     bookmarks(){return timelineBookmarks(this.confirmedMarkers,this.lastTurn);},
@@ -58,7 +56,7 @@ export default {
     comparison(){if(this.frame)this.updateSource();}
   },
   mounted(){
-    this._alive=true;if(this.localEditing&&!this.releaseId)this.localMarkers=loadLocalEpisodeMarkers();else{this.localMarkers=this.episodeMarkers||defaultEpisodeMarkers.filter(m=>m.turn<=this.release.lastTurn);if(!this.localMarkers.length)this.localMarkers=[{episode:'0',turn:this.release.firstTurn}];}this._requests=new Map();this._sequence=0;
+    this._alive=true;this.localMarkers=this.episodeMarkers||defaultEpisodeMarkers;if(!this.localMarkers.length)this.localMarkers=[{episode:'0',turn:this.release.firstTurn}];this._requests=new Map();this._sequence=0;
     this.detailLayer=markRaw(emptyDetails(this.release.history));
     this._worker=new Worker(new URL('./timelineWorker.mjs',import.meta.url),{type:'module'});
     this._worker.onmessage=({data})=>{const pending=this._requests.get(data.request);if(!pending)return;this._requests.delete(data.request);data.error?pending.reject(new Error(data.error)):pending.resolve(data.frame);};
@@ -85,7 +83,7 @@ export default {
     updateSource(){this.source=markRaw({base:this.base,frame:mergeDetails(this.frame,[...this.detailRows.map(r=>r.record),...this.detailLayer.records]),source:this.sourceId(this.turn),compareSource:this.comparison?this.sourceId(this.comparison.turn):'',preview:!!this.preview||this.turn>this.publicEndTurn});},
     setDetails(layer){this.pause(false);this.detailLayer=markRaw(layer);this.updateSource();if(this.comparison)this.compare();},
     async checkEditAccess(userId){try{const result=await mapReleaseRequest({action:'detail-access'},this.client);if(this._alive&&this.user?.id===userId)this.canEditDetails=result.allowed===true;}catch{this.canEditDetails=false;}},
-    saveEpisode(marker){if(this.localEditing&&!this.releaseId){try{this.localMarkers=upsertEpisodeMarker(this.confirmedMarkers,marker,{firstTurn:this.release.firstTurn,lastTurn:this.release.lastTurn});saveLocalEpisodeMarkers(this.localMarkers);this.localMarkerMessage='Marker saved on this device. The public map is unchanged.';}catch(error){this.localMarkerMessage=error.message;}}else if(this.canManageEpisodes)this.$emit('episode',marker);},
+    saveEpisode(marker){if(this.canManageEpisodes)this.$emit('episode',marker);},
     async saveDetails(records){
       if(this.localEditing){let layer=this.detailLayer;for(const record of records)layer=putDetail(layer,record);this.setDetails(layer);return;}
       if(!this.canEditDetails||this.turn>this.publicEndTurn)return;this.pause(false);this._detailQueue??=new Map();this._detailRevisions??=new Map();
