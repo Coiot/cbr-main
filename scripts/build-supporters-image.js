@@ -431,7 +431,7 @@ function buildSvg(entries, civSummary) {
   const startX = (WIDTH - contentWidth) / 2;
   const startY = PADDING + titleOffset;
   const height =
-    PADDING * 2 + titleOffset + namesHeight + countsGap + countsHeight + 90;
+    PADDING * 2 + titleOffset + namesHeight + countsGap + countsHeight;
 
   const titleText = UPPERCASE ? TITLE.toUpperCase() : TITLE;
   const fontFace =
@@ -595,12 +595,6 @@ function buildSvg(entries, civSummary) {
       fill: ${COUNTS_LABEL_COLOR};
       letter-spacing: ${NAME_LETTER_SPACING};
     }
-    .directory-link {
-      font-family: ${FONT_FAMILY};
-      font-size: 28px;
-      fill: ${BAR_COLOR};
-    }
-    a:focus .directory-link, a:hover .directory-link { text-decoration: underline; }
     .side-bar {
       fill: ${BAR_COLOR};
     }
@@ -629,9 +623,6 @@ ${countsNodes}
   </g>`
       : ""
   }
-  <a href="https://civbattleroyale.tv/supporters/" target="_blank" rel="noopener noreferrer" aria-label="Meet the CBR supporters">
-    <text class="directory-link" x="${WIDTH / 2}" y="${height - PADDING * 0.65}" text-anchor="middle">Meet the supporters → civbattleroyale.tv/supporters/</text>
-  </a>
 </svg>
 `;
 }

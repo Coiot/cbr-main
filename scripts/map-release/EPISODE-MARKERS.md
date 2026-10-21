@@ -1,4 +1,4 @@
-# Episode endpoints and private full-range viewing
+# Episode endpoints and shared viewing limits
 
 Episode 35's confirmed end turn is **645**, now published as the public ceiling.
 Episode 34's marker remains at **595**. Until another endpoint is explicitly
@@ -21,21 +21,20 @@ numbers update their marker; end turns must follow episode order. Earlier marker
 can be added without advancing the public ceiling. Duplicate endpoints are
 permitted when two episodes end on the same game turn.
 
-Localhost has the full range of locally loaded files and the same form, labeled
-**Local preview only**. **Save marker** stores only the episode/turn pairs on that
-device, not map data, and does not contact the publishing API. Non-loopback lab
-visitors are bounded by the public markers; signed-in Coiot can inspect the full
-local file. These local files never supply the public timeline.
+Every map viewer, including Coiot and localhost, stops at the published endpoint.
+Loading a longer file in an authorized testing tool does not extend the controls.
+Local marker settings cannot advance the cap. Only an explicit online publication
+changes the shared limit.
 
 ## Publishing and access
 
 A checked full history is staged privately through `/map-releases/`. Staging
 selects it as the private timeline source; it does not change the active public
-release. Coiot's authenticated community map requests this full source through
-the protected `timeline-admin` action. Other readers only receive the bounded
-active release. Client usernames, URL flags and claimed localhost status cannot
+release. Coiot's authenticated community map uses `timeline-admin` to receive the same
+bounded active release as other readers, plus the private source identifier needed
+for endpoint management. The full source stays on the server for publication. Client usernames, URL flags and claimed localhost status cannot
 grant server access to private data. A localhost page cannot bypass remote auth;
-load its private history in the lab or private local preview to inspect it.
+local previews also obey the published endpoint.
 
 The `set-episode` action validates the new markers, creates an immutable release
 containing events only through the latest entered endpoint, rebuilds its wonder
@@ -51,7 +50,7 @@ published turn checks. Private future turns cannot create public saved views.
 
 ## Deployment state
 
-The shared T751 source and bounded Episode 34 release (T0–595) are installed in
+The shared T751 source and bounded Episode 35 release (T0–645) are installed in
 Supabase. The baseline, episode-marker and recovered-history migrations and
 updated `map-release` API are deployed. The frontend integration is enabled in
 the working tree; deploy the site normally to update the hosted page.

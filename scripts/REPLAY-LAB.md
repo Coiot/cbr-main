@@ -27,13 +27,12 @@ map database initialization and disables legacy writes and saved-view tools.
 Off localhost, the page reads the account session only to identify Coiot and,
 once enabled, the public manifest for confirmed episode endpoints.
 The viewer opens at the latest available end-of-turn state, capped at Episode
-34’s endpoint, **595**, by `officialMapConfig.latestEpisode`. Shorter sources stop
-at their own last turn. Other readers obey that limit; Coiot and localhost can
-inspect the full available range. An episode dropdown and marker ticks use the
+35’s endpoint, **645**, by `officialMapConfig.latestEpisode`. Shorter sources stop
+at their own last turn. Every viewer obeys that limit, including Coiot and localhost. An episode dropdown and marker ticks use the
 endpoints supplied so far. Pointer dragging briefly holds at markers; keyboard,
-numeric and episode-selection inputs stay exact. The local **+** form remembers
-only marker settings on this device. For non-privileged viewers, a frozen snapshot
-beyond the public endpoint is rejected. Source events are not
+numeric and episode-selection inputs stay exact. Local markers cannot extend
+the published cap. A frozen snapshot beyond the public endpoint is rejected
+for every viewer. Source events are not
 rewritten or renumbered. Turn N includes all events recorded on turn N, in their
 original order, and excludes turn N+1. Reverse seeks reconstruct state afresh. The lab renders through `CommunityTileMapGrid.vue`, using the same SVG/canvas zoom renderers, capital stars, city banners, citadels, ruins, unit markers and Overlays/Contrast controls as the public community map. Banners omit population badges only where population is unknown. One shared live editor layer supplies missing details; see `map-release/LIVE-MAP.md`.
 Playback pauses on visibility changes. Geographic coordinates use the same

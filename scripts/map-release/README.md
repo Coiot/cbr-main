@@ -12,7 +12,7 @@ marker remains at T595. The display
 controls default to and stop at the end of that turn (or the end of a shorter
 source). `officialMapConfig.latestEpisode` holds this display setting. This does
 not trim source data, enable publishing, or replace the server publication bound.
-Coiot and localhost can inspect the full available range. Online endpoints and
+All viewers, including Coiot and localhost, stop at the published endpoint. Online endpoints and
 markers are managed explicitly through the timeline toolbar; see
 [Episode markers](EPISODE-MARKERS.md) for the pending service migration.
 Do not choose a later endpoint from a save filename. Raw saves and extracted histories never belong

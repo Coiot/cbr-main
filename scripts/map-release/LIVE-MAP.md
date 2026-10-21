@@ -35,7 +35,7 @@ memory. Nothing is sent to production from either local preview.
 ## Pending online migration
 
 `supabase/sql/map-tile-details.sql` and the updated `map-release` function remain
-local. The shared timeline is published through T595, with its full T751 source kept
+local. The shared timeline is published through T645, with its full T751 source kept
 private. The separate editor layer remains disabled. Automatic approval review
 rejected deploying this layer as outside the shared-history upload request.
 Obtain separate authorization before applying its migration and enabling it. The retired draft hybrid migration was not deployed.

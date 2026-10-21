@@ -20,7 +20,7 @@
     </details>
     <p v-if="showTimelineExtras" class="official-muted">Cities and borders follow game history.<template v-if="editorDetailsEnabled"> Editor updates use one shared live layer across the timeline.</template></p>
     <button v-if="showTimelineExtras&&!preview" @click="download">{{turn>publicEndTurn?'Download private preview':'Download this released turn'}}</button>
-    <footer class="official-replay-credit">Replay format research: <a href="https://github.com/aiwebb/civ5replay" target="_blank" rel="noopener noreferrer">Andrew Webb’s civ5replay</a>.</footer>
+    <footer class="official-replay-credit">Replay format credits: <a href="https://github.com/aiwebb/civ5replay" target="_blank" rel="noopener noreferrer">Andrew Webb’s civ5replay</a>.</footer>
   </section>
 </template>
 <script>
