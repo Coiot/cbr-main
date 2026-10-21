@@ -234,7 +234,7 @@ export const mapLoadingMethods = {
     });
     for(const owner of new Set(frame.owners))if(owner>=0)this.ensureOwnerColors(owner);
     applyOwnerColorOverrides(this.ownerColors,this.ownerSecondaryColors);
-    buildOwnerBorders(this.tiles,this.mapConfig.columns,this.mapConfig.rows,this.ownerSecondaryColors,this.hexSize,null,this.tileLookup);
+    buildOwnerBorders(this.tiles,this.mapConfig.columns,this.mapConfig.rows,this.ownerSecondaryColors,this.hexSize,null,this.tileLookup,this.wrappingEnabled);
     this.ownerLegend=buildOwnerLegend(this.ownerColors,s5OwnerList,this.ownerPalette,this.ownerSecondaryColors);
     this.terrainRevision++;this.resetTerrainBaseCache();this.resetMiniMapCache();
     this.selectedTile=selected?this.tileLookup.get(selected):null;
@@ -327,7 +327,7 @@ export const mapLoadingMethods = {
     );
     // Build initial geometry on plain objects, before Vue wraps all 16,920 tiles.
     buildOwnerBorders(tiles, mergedMapData.width, mergedMapData.height,
-      this.ownerSecondaryColors, this.hexSize, null, tileLookup);
+      this.ownerSecondaryColors, this.hexSize, null, tileLookup, this.wrappingEnabled);
     this.tiles = tiles;
     if (!deferLiveSync) {
       await this.loadLiveBaseSnapshot({

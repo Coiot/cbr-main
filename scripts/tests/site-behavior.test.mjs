@@ -14,6 +14,7 @@ import './account-sync.test.mjs';
 import './search-filters.test.mjs';
 import './map-performance.test.mjs';
 import './map-view.test.mjs';
+import './map-wrapping.test.mjs';
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { normalizeEpisodeNumber } from '../../src/shared/episode.mjs';

@@ -8,7 +8,7 @@
       <p v-if="comparison">Compared with T{{comparison.turn}}: {{frame?.cities.length-comparison.cities.length}} net city change, {{changedTiles}} territory changes. <button @click="comparison=null;compareTurn=''">Clear comparison</button></p>
     </div>
     <p v-if="error" role="alert">{{error}}</p>
-    <CommunityTileMapGrid v-if="source" ref="grid" :official-source="source" :view-layer-tools="layerTools" extra-panel-label="Replay" :detail-editing="!!(layersEnabled||localEditing||(canEditDetails&&turn<=publicEndTurn))" :detail-edit-status="detailResult?.message||''" @official-detail-edit="saveDetails" @official-select="selected=$event">
+    <CommunityTileMapGrid v-if="source" ref="grid" :horizontal-wrap="horizontalWrap" :official-source="source" :view-layer-tools="layerTools" extra-panel-label="Replay" :detail-editing="!!(layersEnabled||localEditing||(canEditDetails&&turn<=publicEndTurn))" :detail-edit-status="detailResult?.message||''" @official-detail-edit="saveDetails" @official-select="selected=$event">
       <template #map-timeline><MapTimelineToolbar :turn="turn" :first-turn="release.firstTurn" :last-turn="lastTurn" :playing="playing" :speed="speed" :disabled="!frame"
         :bookmarks="bookmarks" :can-manage="canManageEpisodes" :remote="!!(releaseId&&canManageEpisodes)" :saving="episodeSaving" :message="episodeMessage" :public-turn="publicReleaseId?publicEndTurn:null"
         @turn="choose" @play="togglePlay" @speed="speed=$event" @episode="saveEpisode" /></template>
@@ -49,7 +49,7 @@ import {viewLayerMethods} from './viewLayerSession.mjs';
 import {emptyViewLayer} from '../../../../../shared/mapViewLayers.mjs';
 export default {
   components:{CommunityTileMapGrid,MapTimelineToolbar,TimelineReplayPanel,MapTileNotes},
-  props:['release','releaseId','base','initialTurn','initialCompare','preview','localEditing','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
+  props:['horizontalWrap','release','releaseId','base','initialTurn','initialCompare','preview','localEditing','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
   emits:['turn','episode'],
   data:()=>({layersEnabled:config.viewLayersEnabled===true,viewLayer:null,savedLayer:null,layerViewId:'',layerRevision:0,layerDirty:false,layerNotice:'',noteCounts:[],notesVersion:0,notesModerator:false,showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),compareTurn:'',comparison:null,client:null,user:null}),
   computed:{

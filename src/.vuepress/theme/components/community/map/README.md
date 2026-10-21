@@ -13,6 +13,7 @@ as `this`; they are not independent state stores or Vue mixins.
 - `mapNavigation`: route requests, city/tile search, and focus.
 - `mapView`: shareable views, fullscreen, and keyboard tile selection.
 - `mapViewport`: zoom, pan, pinch, and viewport sizing.
+- `mapWrapping`: horizontal camera normalization, visible world copies, and minimap seams.
 - `mapInteraction`: pointer events, tooltips, and edit feedback.
 - `mapRendering`: canvas/SVG drawing, geometry computed values, and labels.
 - `mapOverlays`: civilization, population, and religion metrics.
@@ -83,3 +84,12 @@ through Vue proxies using the checked-in 16,920-tile map. The local ten-sample
 median was about 3 ms versus 15 ms for this stage; JSON parsing was about 4 ms
 and tile construction about 7 ms. These are CPU microbenchmarks, not browser
 load or frame-rate measurements.
+
+The full community map opts into horizontal wrapping through `horizontalWrap`;
+embedded maps stay bounded. Copies repeat every `columns * hexWidth`, excluding
+the extra half-hex drawing margin. They share canonical tile objects, coordinates,
+notes, and edits. SVG culls each visible copy; canvas copies reuse the cached
+bitmap. Border neighbors wrap columns, while rows remain bounded. Saved views
+normalize their horizontal center without changing the settings format. Fit sets
+`wrapFitted` to show one centered original map with empty margins; horizontal
+panning, zooming, or opening a saved view enables the repeated worlds again.

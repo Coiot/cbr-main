@@ -1,5 +1,6 @@
 // Sharing, fullscreen, and keyboard selection for the public map viewer.
 import { CONTRAST_FIELDS, mapViewSettingsFromQuery, mapViewSettingsQuery } from './savedViewSettings.mjs';
+import { wrapValue } from './mapWrapping.mjs';
 
 export function parseMapView(value) {
   if (typeof value !== 'string') return null;
@@ -24,9 +25,10 @@ export const mapViewMethods = {
   },
   captureMapViewSettings() {
     const round = value => Number(value.toFixed(4));
+    const centerX = (this.viewportSize.width / 2 - this.translate.x) / this.scale;
     return {
       version: 1,
-      x: round((this.viewportSize.width / 2 - this.translate.x) / this.scale),
+      x: round(this.wrappingEnabled ? wrapValue(centerX, this.worldPeriod) : centerX),
       y: round((this.viewportSize.height / 2 - this.translate.y) / this.scale),
       zoom: round(this.scale),
       overlay: this.isOverlayTabActive ? this.overlayView : 'none',
@@ -54,8 +56,9 @@ export const mapViewMethods = {
       if (!isCurrent()) return;
       this.updateViewportSize();
       this.scale = Math.min(this.maxScale, Math.max(this.minScale, settings.zoom));
+      this.activateHorizontalWrap?.();
       this.translate = this.clampTranslate({
-        x: this.viewportSize.width / 2 - Math.max(0, Math.min(this.gridWidth, settings.x)) * this.scale,
+        x: this.viewportSize.width / 2 - (this.wrappingEnabled ? wrapValue(settings.x, this.worldPeriod) : Math.max(0, Math.min(this.gridWidth, settings.x))) * this.scale,
         y: this.viewportSize.height / 2 - Math.max(0, Math.min(this.gridHeight, settings.y)) * this.scale,
       }, this.scale);
     });
@@ -94,16 +97,18 @@ export const mapViewMethods = {
     }
   },
   selectKeyboardTile(key) {
+    if (key.startsWith('Arrow')) this.activateHorizontalWrap?.();
     let tile = this.selectedTile;
     if (!tile) {
       const row = Math.max(0, Math.min(this.mapConfig.rows - 1,
         Math.round(((this.viewportSize.height / 2 - this.translate.y) / this.scale - this.hexSize) / (this.hexSize * 1.5))));
       const offset = this.hexWidth / 2 + (row % 2 ? 0 : this.hexWidth / 2);
-      const col = Math.max(0, Math.min(this.mapConfig.columns - 1,
-        Math.round(((this.viewportSize.width / 2 - this.translate.x) / this.scale - offset) / this.hexWidth)));
+      const rawCol = Math.round(((this.viewportSize.width / 2 - this.translate.x) / this.scale - offset) / this.hexWidth);
+      const col = this.wrapActive ? wrapValue(rawCol, this.mapConfig.columns) : Math.max(0, Math.min(this.mapConfig.columns - 1, rawCol));
       tile = this.tileLookup?.get(`${col},${row}`);
     } else if (key.startsWith('Arrow')) {
-      const col = tile.col + (key === 'ArrowLeft' ? -1 : key === 'ArrowRight' ? 1 : 0);
+      const rawCol = tile.col + (key === 'ArrowLeft' ? -1 : key === 'ArrowRight' ? 1 : 0);
+      const col = this.wrapActive ? wrapValue(rawCol, this.mapConfig.columns) : rawCol;
       const row = tile.row + (key === 'ArrowUp' ? -1 : key === 'ArrowDown' ? 1 : 0);
       tile = this.tileLookup?.get(`${col},${row}`) || tile;
     }

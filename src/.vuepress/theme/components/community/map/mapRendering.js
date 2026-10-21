@@ -197,15 +197,21 @@ export const mapRenderingComputed = {
       height: Math.min(height, this.gridHeight),
     };
   },
+  visibleTileWorlds() {
+    if (this.useTerrainCanvas) return [];
+    return (this.visibleWorldCopies || [0]).map(copy => {
+      const tiles = !this.viewportSize.width ? this.tiles : tilesInViewport(this.tileLookup,
+        this.mapConfig.columns, this.mapConfig.rows, this.hexSize,
+        {...this.translate, x: this.translate.x + copy * (this.worldPeriod || 0) * this.scale}, this.scale, this.viewportSize);
+      const keys = new Set(tiles.map(tile => tile.key));
+      return {copy, tiles,
+        rivers: this.showDecorations ? buildRiverOverlayFromTiles(tiles) : {paths: [], endpoints: []},
+        cityLabels: this.showLabels ? tiles.filter(tile => tile.city?.name && this.shouldShowCity(tile)) : [],
+        pins: (this.mapPinTiles || []).filter(pin => keys.has(pin.tile.key))};
+    });
+  },
   visibleTiles() {
-    if (this.useTerrainCanvas) {
-      return [];
-    }
-    if (!this.tiles.length || !this.viewportSize.width) {
-      return this.tiles;
-    }
-    return tilesInViewport(this.tileLookup, this.mapConfig.columns, this.mapConfig.rows,
-      this.hexSize, this.translate, this.scale, this.viewportSize);
+    return [...new Map(this.visibleTileWorlds.flatMap(world => world.tiles).map(tile => [tile.key, tile])).values()];
   },
   visibleRiverOverlay() {
     if (!this.showDecorations || !this.visibleTiles.length) {
@@ -331,22 +337,23 @@ export const mapRenderingMethods = {
     }
     context.setTransform(1, 0, 0, 1, 0, 0);
     context.drawImage(this.miniMapBaseCanvas, 0, 0);
-    const viewport = this.miniMapViewport;
     context.fillStyle = "rgba(255, 255, 255, 0.05)";
     context.strokeStyle = "rgba(255, 255, 255, 0.75)";
     context.lineWidth = 1.15;
-    context.fillRect(
-      viewport.x * scale,
-      viewport.y * scale,
-      viewport.width * scale,
-      viewport.height * scale
-    );
-    context.strokeRect(
-      viewport.x * scale,
-      viewport.y * scale,
-      viewport.width * scale,
-      viewport.height * scale
-    );
+    for (const viewport of this.miniMapViewportRects || [this.miniMapViewport]) {
+      context.fillRect(
+        viewport.x * scale,
+        viewport.y * scale,
+        viewport.width * scale,
+        viewport.height * scale
+      );
+      context.strokeRect(
+        viewport.x * scale,
+        viewport.y * scale,
+        viewport.width * scale,
+        viewport.height * scale
+      );
+    }
   },
   requestTerrainCanvasDraw() {
     if (!this.useTerrainCanvas) {
@@ -600,7 +607,7 @@ export const mapRenderingMethods = {
     }
 
     // Unit markers render in SVG at higher zoom levels.
-
+    this.syncWrappedCanvases?.('terrain');
   },
   handleOverlayVisualizationChange() {
     if (this.useTerrainCanvas) {
@@ -1409,7 +1416,8 @@ export const mapRenderingMethods = {
       this.ownerSecondaryColors,
       this.hexSize,
       changedKeys,
-      this.tileLookup
+      this.tileLookup,
+      this.wrappingEnabled
     );
   },
   scheduleOwnerBordersRebuild(changedKeys = null) {

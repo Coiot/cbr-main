@@ -76,6 +76,9 @@
               :height="canvasHeight"
               aria-hidden="true"
             ></canvas>
+            <canvas v-for="copy in wrapCopies" :key="`terrain-${copy}`" ref="terrainWrapCanvases"
+              class="tile-map-canvas-layer" :width="canvasWidth" :height="canvasHeight"
+              :style="{ transform: `translateX(${copy * worldPeriod}px)` }" aria-hidden="true" />
             <canvas
               v-if="ownerBrushEnabled"
               ref="brushCanvas"
@@ -84,22 +87,29 @@
               :height="canvasHeight"
               aria-hidden="true"
             ></canvas>
+            <template v-if="ownerBrushEnabled"><canvas v-for="copy in wrapCopies" :key="`brush-${copy}`" ref="brushWrapCanvases"
+              class="tile-map-canvas-layer tile-map-brush-layer" :width="canvasWidth" :height="canvasHeight"
+              :style="{ transform: `translateX(${copy * worldPeriod}px)` }" aria-hidden="true" /></template>
             <svg
+              :style="{ overflow: wrapActive ? 'visible' : 'hidden' }"
               class="tile-map-interaction-layer"
               :width="gridWidth"
               :height="gridHeight"
               :viewBox="`0 0 ${gridWidth} ${gridHeight}`"
               aria-hidden="true"
             >
+              <g v-for="copy in visibleWorldCopies" :key="copy" :transform="`translate(${copy * worldPeriod}, 0)`">
               <polygon v-if="hoveredTile" class="tile-hover-outline" :points="hexPoints"
                 :transform="`translate(${hoveredTile.x}, ${hoveredTile.y})`" />
               <polygon v-if="selectedTile" class="tile-selection-outline" :points="hexPoints"
                 :transform="`translate(${selectedTile.x}, ${selectedTile.y})`" />
+              </g>
             </svg>
           </template>
           <svg
             v-else
             class="tile-map-svg"
+            :style="{ overflow: wrapActive ? 'visible' : 'hidden' }"
             :width="gridWidth"
             :height="gridHeight"
             :viewBox="`0 0 ${gridWidth} ${gridHeight}`"
@@ -132,8 +142,9 @@
                 <path :d="wonderPath" />
               </symbol>
             </defs>
+            <g v-for="world in visibleTileWorlds" :key="world.copy" :transform="`translate(${world.copy * worldPeriod}, 0)`">
             <g
-              v-for="tile in visibleTiles"
+              v-for="tile in world.tiles"
               :key="tile.key"
               class="tile-group"
               :transform="`translate(${tile.x}, ${tile.y})`"
@@ -290,25 +301,25 @@
               </g>
             </g>
             <g
-              v-if="showDecorations && visibleRiverOverlay.paths.length"
+              v-if="showDecorations && world.rivers.paths.length"
               class="tile-river-overlay"
             >
               <path
-                v-for="(path, index) in visibleRiverOverlay.paths"
+                v-for="(path, index) in world.rivers.paths"
                 :key="`river-back-${index}`"
                 class="tile-river tile-river-back"
                 :d="riverOverlayPathData(path)"
                 :style="riverOverlayLayerStyle('back')"
               />
               <path
-                v-for="(path, index) in visibleRiverOverlay.paths"
+                v-for="(path, index) in world.rivers.paths"
                 :key="`river-mid-${index}`"
                 class="tile-river tile-river-mid"
                 :d="riverOverlayPathData(path)"
                 :style="riverOverlayLayerStyle('mid')"
               />
               <path
-                v-for="(path, index) in visibleRiverOverlay.paths"
+                v-for="(path, index) in world.rivers.paths"
                 :key="`river-top-${index}`"
                 class="tile-river tile-river-top"
                 :d="riverOverlayPathData(path)"
@@ -329,9 +340,9 @@
             >
               <polygon class="tile-selection-outline" :points="hexPoints" />
             </g>
-            <g v-if="visibleCityLabels.length" class="tile-city-labels">
+            <g v-if="world.cityLabels.length" class="tile-city-labels">
               <MapCityBanner
-                v-for="tile in visibleCityLabels"
+                v-for="tile in world.cityLabels"
                 :key="`city-name-${tile.key}`"
                 :tile="tile"
                 :hex-size="hexSize"
@@ -341,12 +352,12 @@
               />
             </g>
             <g
-              v-if="visibleMapPinTiles.length"
+              v-if="world.pins.length"
               class="tile-map-pin-overlays"
               aria-hidden="true"
             >
               <g
-                v-for="pin in visibleMapPinTiles"
+                v-for="pin in world.pins"
                 :key="`map-pin-overlay-${pin.nameKey}`"
                 class="tile-map-pin-overlay"
                 :transform="`translate(${pin.tile.x}, ${pin.tile.y})`"
@@ -386,12 +397,16 @@
                 </g>
               </g>
             </g>
+            </g>
           </svg>
           <svg v-if="recentEditTiles.length && !snapshotViewId" class="tile-map-interaction-layer"
+            :style="{ overflow: wrapActive ? 'visible' : 'hidden' }"
             :width="gridWidth" :height="gridHeight" :viewBox="`0 0 ${gridWidth} ${gridHeight}`" aria-hidden="true">
+            <g v-for="copy in visibleWorldCopies" :key="copy" :transform="`translate(${copy * worldPeriod}, 0)`">
             <polygon v-for="entry in recentEditTiles" :key="entry.animationKey" class="tile-recent-outline"
               :points="hexPoints" :transform="`translate(${entry.x}, ${entry.y})`"
               :style="{ animationDuration: `${entry.durationMs}ms` }" />
+            </g>
           </svg>
         </div>
         <div
@@ -2287,6 +2302,7 @@
 </template>
 
 <script>
+import { mapWrappingComputed, mapWrappingMethods } from './map/mapWrapping.mjs';
 import SavedMapViews from './SavedMapViews.vue';
 import MapToolbar from './MapToolbar.vue';
 import MapCityBanner from './map/MapCityBanner.vue';
@@ -2311,6 +2327,7 @@ import { mapEditingComputed, mapEditingMethods } from "./map/mapEditing.js";
 export default {
   components: { FeatureNotice, SavedMapViews, MapToolbar, MapCityBanner },
   props: {
+    horizontalWrap: { type: Boolean, default: false },
     viewLayerTools: { type: Object, default: null },
     detailEditing: { type: Boolean, default: false },
     detailEditStatus: { type: String, default: '' },
@@ -2389,6 +2406,7 @@ export default {
       minScale: 0.4,
       maxScale: mapConfig.maxScale || 3,
       translate: { x: 0, y: 0 },
+      wrapFitted: true,
       viewportSize: { width: 0, height: 0 },
       isDragging: false,
       dragStart: { x: 0, y: 0 },
@@ -2583,6 +2601,7 @@ export default {
   },
 
   computed: {
+    ...mapWrappingComputed,
     ...mapViewComputed,
     ...mapSnapshotsComputed,
     ...mapAccessComputed,
@@ -2602,6 +2621,8 @@ export default {
   },
 
   watch: {
+    wrapCopyKey: "refreshWrappedCanvases",
+    ownerBrushEnabled: "refreshWrappedCanvases",
     officialSource() { this.applyOfficialFrame(); },
     $route() {
       this.applyRequestedTileFromRoute();
@@ -2822,6 +2843,7 @@ export default {
   },
 
   methods: {
+    ...mapWrappingMethods,
     ...mapViewMethods,
     ...mapSavedViewsMethods,
     ...mapSnapshotsMethods,
@@ -3000,6 +3022,9 @@ export default {
 .tile-map .tile-map-viewport .tile-map-canvas .tile-map-svg,
 .tile-map .tile-map-viewport .tile-map-canvas .tile-map-canvas-layer {
   display: block;
+}
+.tile-map .tile-map-viewport .tile-map-canvas-layer {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none;
 }
 .tile-map .tile-map-viewport .tile-map-hint {
   position: absolute;

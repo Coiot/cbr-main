@@ -345,7 +345,8 @@ export const mapPinsMethods = {
       if (!tile) {
         return;
       }
-      if (tile.x < minX || tile.x > maxX || tile.y < minY || tile.y > maxY) {
+      // A wrapping bitmap is reused at several offsets, independent of the camera.
+      if (!this.wrappingEnabled && (tile.x < minX || tile.x > maxX || tile.y < minY || tile.y > maxY)) {
         return;
       }
       if (!didDrawPin) {

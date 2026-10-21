@@ -1,4 +1,5 @@
 import { clampValue } from "./mapModel.js";
+import { wrapValue, nearestWorldX } from './mapWrapping.mjs';
 
 // map Viewport. Methods run on the owning Vue component instance.
 
@@ -9,7 +10,9 @@ export const mapViewportMethods = {
       this.editPanelCollapsed = false;
     }
     this.updateViewportSize();
-    if (this.hasUserViewportInteraction) {
+    if (this.wrappingEnabled && this.wrapFitted) {
+      this.fitToView();
+    } else if (this.hasUserViewportInteraction) {
       this.clampView();
     } else {
       this.fitToView();
@@ -36,6 +39,7 @@ export const mapViewportMethods = {
     this.minScale = Math.min(0.4, fitScale);
   },
   clampView() {
+    if (this.wrappingEnabled && this.wrapFitted) { this.fitToView(); return; }
     this.translate = this.clampTranslate(this.translate, this.scale);
   },
   fitToView() {
@@ -53,6 +57,8 @@ export const mapViewportMethods = {
       this.viewportSize.height / this.gridHeight
     );
     this.scale = Math.min(this.maxScale, Math.max(this.minScale, scale));
+    this.wrapFitted = true;
+    this.hideHoverTooltip?.();
     this.translate = this.centerTranslate(this.scale);
   },
   zoomIn() {
@@ -107,6 +113,7 @@ export const mapViewportMethods = {
     };
     const worldX = (focusPoint.x - this.translate.x) / this.scale;
     const worldY = (focusPoint.y - this.translate.y) / this.scale;
+    this.activateHorizontalWrap?.();
     const nextTranslate = {
       x: focusPoint.x - worldX * clamped,
       y: focusPoint.y - worldY * clamped,
@@ -150,6 +157,10 @@ export const mapViewportMethods = {
     if (scaledHeight <= viewport.height) {
       clamped.y = (viewport.height - scaledHeight) / 2;
     }
+    if (this.wrapActive && this.worldPeriod > 0) {
+      const center = (viewport.width / 2 - translate.x) / scale;
+      clamped.x = viewport.width / 2 - wrapValue(center, this.worldPeriod) * scale;
+    }
     return clamped;
   },
   onMiniMapPointerDown(event) {
@@ -166,7 +177,10 @@ export const mapViewportMethods = {
     }
     const ratioX = clampValue((event.clientX - rect.left) / rect.width, 0, 1);
     const ratioY = clampValue((event.clientY - rect.top) / rect.height, 0, 1);
-    const worldX = ratioX * this.gridWidth;
+    this.activateHorizontalWrap?.();
+    const targetX = ratioX * (this.wrapActive ? this.worldPeriod : this.gridWidth);
+    const worldX = this.wrapActive ? nearestWorldX(targetX,
+      (this.viewportSize.width / 2 - this.translate.x) / this.scale, this.worldPeriod) : targetX;
     const worldY = ratioY * this.gridHeight;
     const viewport = this.viewportSize;
     const nextTranslate = {

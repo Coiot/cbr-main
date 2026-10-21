@@ -1,6 +1,6 @@
 <template>
   <section>
-    <template v-if="!enabled"><CommunityTileMapGrid /></template>
+    <template v-if="!enabled"><CommunityTileMapGrid horizontal-wrap /></template>
     <template v-else-if="loading"><p role="status">Loading the released map…</p></template>
     <section v-else-if="error" class="official-card" role="alert"><p>{{error}}</p><button @click="load">Retry map</button></section>
     <template v-else-if="release">
@@ -8,10 +8,10 @@
         <button :aria-pressed="!archive" @click="showOfficial">Official timeline</button>
         <button :aria-pressed="archive" @click="showArchive">Community archive</button>
       </div><p v-if="archive">Earlier maps assembled by community editors. These are preserved as originally published.</p></div>
-      <CommunityTileMapGrid v-if="archive" :key="`archive:${archiveId}`" archive-mode :snapshot-payload="[]" />
-      <OfficialTimeline v-else :key="releaseId" :release="release" :release-id="releaseId" :base="base" :initial-turn="turn" :initial-compare="compareTurn" :episode-markers="markers" :can-manage-episodes="publisher" :episode-saving="savingEpisode" :episode-message="episodeMessage" :public-release-id="publicReleaseId" @turn="turn=$event" @episode="saveEpisode" />
+      <CommunityTileMapGrid horizontal-wrap v-if="archive" :key="`archive:${archiveId}`" archive-mode :snapshot-payload="[]" />
+      <OfficialTimeline horizontal-wrap v-else :key="releaseId" :release="release" :release-id="releaseId" :base="base" :initial-turn="turn" :initial-compare="compareTurn" :episode-markers="markers" :can-manage-episodes="publisher" :episode-saving="savingEpisode" :episode-message="episodeMessage" :public-release-id="publicReleaseId" @turn="turn=$event" @episode="saveEpisode" />
     </template>
-    <CommunityTileMapGrid v-else />
+    <CommunityTileMapGrid horizontal-wrap v-else />
     <p v-if="episodeMessage" role="status">{{episodeMessage}}</p>
   </section>
 </template>

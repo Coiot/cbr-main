@@ -249,8 +249,9 @@ export const mapNavigationMethods = {
     if (!this.viewportSize.width || !this.viewportSize.height) {
       return;
     }
+    this.activateHorizontalWrap?.();
     const nextTranslate = {
-      x: this.viewportSize.width / 2 - tile.x * this.scale,
+      x: this.viewportSize.width / 2 - (this.tileWorldX?.(tile) ?? tile.x) * this.scale,
       y: this.viewportSize.height / 2 - tile.y * this.scale,
     };
     this.translate = this.clampTranslate(nextTranslate, this.scale);
@@ -265,7 +266,7 @@ export const mapNavigationMethods = {
     if (!this.viewportSize.width || !this.viewportSize.height) {
       return;
     }
-    const tileScreenX = tile.x * this.scale + this.translate.x;
+    const tileScreenX = (this.tileWorldX?.(tile) ?? tile.x) * this.scale + this.translate.x;
     const tileScreenY = tile.y * this.scale + this.translate.y;
     const padX = Math.min(120, Math.max(36, this.viewportSize.width * 0.14));
     const padY = Math.min(96, Math.max(28, this.viewportSize.height * 0.14));

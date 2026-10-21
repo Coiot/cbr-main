@@ -774,6 +774,7 @@ export const mapEditingMethods = {
       return;
     }
     context.clearRect(0, 0, canvas.width, canvas.height);
+    this.syncWrappedCanvases?.('brush');
   },
   drawBrushOverlayTile(tile) {
     const canvas = this.$refs.brushCanvas;
@@ -815,6 +816,7 @@ export const mapEditingMethods = {
     context.strokeStyle = style.color;
     context.stroke();
     context.globalAlpha = previousAlpha;
+    this.syncWrappedCanvases?.('brush');
   },
   applyOwnerToTile(tile, ownerId, options = {}) {
     if(this.officialSource)return;

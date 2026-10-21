@@ -1,4 +1,5 @@
 import { resolveBrushOwnerId } from "../communityTileMapBrushUtils";
+import { wrapValue, nearestWorldX } from './mapWrapping.mjs';
 import { resolveOwnerInput, buildHexVertices, pointInPolygon } from "./mapModel.js";
 import { mapConfig } from "../../../../data/communityTileMap";
 import { computeTooltipCoords, computeTooltipBridgeRect } from "../communityTileMapTooltipUtils";
@@ -159,7 +160,7 @@ export const mapInteractionMethods = {
       });
     }, 120);
   },
-  showSelectedTooltip(tile) {
+  showSelectedTooltip(tile, pointerWorldX = null) {
     if (!tile) {
       return;
     }
@@ -180,7 +181,9 @@ export const mapInteractionMethods = {
     this.hoverTooltipVisible = true;
     this.hoverTooltipLocked = true;
     this.hoverTooltipPosition = {
-      x: tile.x * this.scale + this.translate.x,
+      x: (this.wrapActive && Number.isFinite(pointerWorldX)
+        ? nearestWorldX(tile.x, pointerWorldX, this.worldPeriod)
+        : this.tileWorldX?.(tile) ?? tile.x) * this.scale + this.translate.x,
       y: tile.y * this.scale + this.translate.y,
     };
     this.scheduleHoverTooltipSizeUpdate();
@@ -316,6 +319,7 @@ export const mapInteractionMethods = {
       x: this.dragTranslate.x + dx,
       y: this.dragTranslate.y + dy,
     };
+    if (Math.abs(dx) > 5) this.activateHorizontalWrap?.();
     this.translate = this.clampTranslate(nextTranslate, this.scale);
   },
   onPointerUp(event) {
@@ -368,7 +372,7 @@ export const mapInteractionMethods = {
       if (tile) {
         this.selectedTile = tile;
         if (this.lastPointerType === "touch") {
-          this.showSelectedTooltip(tile);
+          this.showSelectedTooltip(tile, this._pointerWorldX);
         }
         return;
       }
@@ -409,6 +413,8 @@ export const mapInteractionMethods = {
     }
     if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
       event.preventDefault();
+      this.hasUserViewportInteraction = true;
+      if (key === 'ArrowLeft' || key === 'ArrowRight') this.activateHorizontalWrap?.();
       const delta = {
         x:
           key === "ArrowLeft" ? panStep : key === "ArrowRight" ? -panStep : 0,
@@ -461,6 +467,7 @@ export const mapInteractionMethods = {
     const worldX =
       (event.clientX - rect.left - this.translate.x) / this.scale;
     const worldY = (event.clientY - rect.top - this.translate.y) / this.scale;
+    this._pointerWorldX = worldX;
     return this.getTileAtPoint(worldX, worldY);
   },
   getTileAtPoint(worldX, worldY) {
@@ -490,20 +497,21 @@ export const mapInteractionMethods = {
       const colFloat = (worldX - originX - offset) / hexWidth;
       const baseCol = Math.round(colFloat);
       [baseCol - 1, baseCol, baseCol + 1].forEach((col) => {
-        if (col < 0 || col >= this.mapConfig.columns) {
+        if (!this.wrapActive && (col < 0 || col >= this.mapConfig.columns)) {
           return;
         }
-        const tile = this.tileLookup.get(`${col},${row}`);
+        const canonicalCol = this.wrapActive ? wrapValue(col, this.mapConfig.columns) : col;
+        const tile = this.tileLookup.get(`${canonicalCol},${row}`);
         if (!tile) {
           return;
         }
-        candidates.push(tile);
+        candidates.push({tile, x: tile.x + (col - canonicalCol) * hexWidth});
       });
     });
 
     for (let i = 0; i < candidates.length; i += 1) {
-      const tile = candidates[i];
-      const localX = worldX - tile.x;
+      const {tile, x} = candidates[i];
+      const localX = worldX - x;
       const localY = worldY - tile.y;
       if (pointInPolygon(localX, localY, vertices)) {
         return tile;
@@ -512,8 +520,8 @@ export const mapInteractionMethods = {
 
     let bestTile = null;
     let bestDistance = Infinity;
-    candidates.forEach((tile) => {
-      const dx = worldX - tile.x;
+    candidates.forEach(({tile, x}) => {
+      const dx = worldX - x;
       const dy = worldY - tile.y;
       const distance = dx * dx + dy * dy;
       if (distance < bestDistance) {

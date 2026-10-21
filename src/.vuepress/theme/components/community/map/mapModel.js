@@ -11,6 +11,7 @@ import {
   ALL_UNITS,
 } from "../communityTileMapConstants";
 import { ownerPalette } from "../../../../data/communityTileMap";
+import { wrapValue } from './mapWrapping.mjs';
 
 export function buildHexPoints(size) {
   const points = [];
@@ -1402,7 +1403,8 @@ export function buildOwnerBorders(
   ownerSecondaryColors,
   hexSize,
   changedKeys = null,
-  lookup = null
+  lookup = null,
+  horizontalWrap = false
 ) {
   if (!Array.isArray(tiles) || !tiles.length) {
     return tiles;
@@ -1480,7 +1482,7 @@ export function buildOwnerBorders(
       if (!tile) continue;
       for (const edge of edges) {
         const [dx, dy] = edge.offsets[tile.row % 2 === 0 ? "even" : "odd"];
-        keys.add(`${tile.col + dx},${tile.row + dy}`);
+        keys.add(`${horizontalWrap ? wrapValue(tile.col + dx, columns) : tile.col + dx},${tile.row + dy}`);
       }
     }
     affected = Array.from(keys, key => tileMap.get(key)).filter(Boolean);
@@ -1495,7 +1497,7 @@ export function buildOwnerBorders(
     edges.forEach((edge) => {
       const offset = edge.offsets[parity];
       const neighbor = tileMap.get(
-        `${tile.col + offset[0]},${tile.row + offset[1]}`
+        `${horizontalWrap ? wrapValue(tile.col + offset[0], columns) : tile.col + offset[0]},${tile.row + offset[1]}`
       );
       const matchesOwner =
         neighbor &&
