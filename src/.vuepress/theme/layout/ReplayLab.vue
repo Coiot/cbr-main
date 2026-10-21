@@ -56,7 +56,7 @@ import { MAX_REPLAY_BYTES } from '../components/community/replay/replayParser.mj
 import { baseIdentity, mapCivilizations, validateReplayMap, reconstructFrame, frameSummary, cityEventLabels, exportReplaySnapshot, readReplaySnapshot, replaySnapshotIssue } from '../components/community/replay/replayModel.mjs';
 export default {
   components:{AlbumsNav,ReplayMapViewer,MapTimelineToolbar},
-  data:()=>({base:null,map:null,session:null,frame:null,rawFrame:null,detailLayer:null,turn:0,filename:'',error:'',loading:false,playing:false,speed:2,tab:'civilizations',eventType:'all',local:false,user:null,bookmarks:defaultEpisodeMarkers.map(m=>({...m})),markerMessage:''}),
+  data:()=>({base:null,map:null,session:null,frame:null,rawFrame:null,detailLayer:null,turn:0,filename:'',error:'',loading:false,playing:false,speed:2,tab:'civilizations',eventType:'all',local:false,user:null,bookmarks:defaultEpisodeMarkers.map(m=>({...m}))}),
   computed:{
     isReplay(){return this.session?.kind==='replay';},firstTurn(){return this.session?.meta.startTurn??0;},lastTurn(){return timelineLastTurn(this.session?.meta.endTurn??0,this.bookmarks);},
     canLoadFile(){return this.local||this.user?.id===MAP_PUBLISHER_ID;},

@@ -38,7 +38,7 @@ export default {
   components:{CommunityTileMapGrid,MapTimelineToolbar,TimelineReplayPanel},
   props:['release','releaseId','base','initialTurn','initialCompare','preview','localEditing','episodeMarkers','canManageEpisodes','episodeSaving','episodeMessage','publicReleaseId'],
   emits:['turn','episode'],
-  data:()=>({showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),localMarkerMessage:'',compareTurn:'',comparison:null,client:null,user:null}),
+  data:()=>({showTimelineExtras:config.showTimelineExtras,editorDetailsEnabled:config.editorDetailsEnabled,turn:0,frame:null,detailRows:[],detailLayer:null,canEditDetails:false,savingDetail:false,detailResult:null,source:null,selected:null,error:'',busy:false,playing:false,speed:2,localMarkers:defaultEpisodeMarkers.map(m=>({...m})),compareTurn:'',comparison:null,client:null,user:null}),
   computed:{
     lastTurn(){return timelineLastTurn(this.release.lastTurn,this.confirmedMarkers);},
     confirmedMarkers(){return this.episodeMarkers||this.localMarkers;},
