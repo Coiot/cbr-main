@@ -6,15 +6,15 @@ import dotenv from 'dotenv';
 import {createClient} from '@supabase/supabase-js';
 import {getEdition} from '../../src/.vuepress/data/editions.js';
 import {prepareRelease} from './prepare.mjs';
-import {MAP_PUBLISHER_ID} from '../../src/shared/mapRelease.mjs';
+import {MAP_PUBLISHER_ID,MAX_RELEASE_BYTES,validateRelease} from '../../src/shared/mapRelease.mjs';
 import {releaseThroughEpisodes} from '../../src/shared/mapEpisodeMarkers.mjs';
 import {digest} from '../../supabase/functions/map-release/handler.mjs';
 import config from '../../src/shared/publicConfig.json' with {type:'json'};
 
 try {
-  const {values}=parseArgs({options:{file:{type:'string'},episode:{type:'string'},'end-turn':{type:'string'},'accept-event-gaps':{type:'boolean'},apply:{type:'boolean'}}});
+  const {values}=parseArgs({options:{file:{type:'string'},statistics:{type:'string'},episode:{type:'string'},'end-turn':{type:'string'},'accept-event-gaps':{type:'boolean'},apply:{type:'boolean'}}});
   const endTurn=Number(values['end-turn']);
-  if(!values.file||!values.episode||!values['end-turn']||!Number.isInteger(endTurn)||endTurn<0)throw new Error('Use --file recovered-history.json --episode NUMBER --end-turn NUMBER [--accept-event-gaps] [--apply].');
+  if(!values.file||!values.episode||!values['end-turn']||!Number.isInteger(endTurn)||endTurn<0)throw new Error('Use --file recovered-history.json [--statistics statistics.json] --episode NUMBER --end-turn NUMBER [--accept-event-gaps] [--apply].');
   const env={...dotenv.parse(readFileSync(new URL('../../.env.supporters',import.meta.url))),...process.env};
   if(env.SUPABASE_URL!==config.SUPABASE_URL||!env.SUPABASE_SERVICE_ROLE_KEY)throw new Error('Configure the matching private Supabase service credentials in .env.supporters.');
   const db=createClient(env.SUPABASE_URL,env.SUPABASE_SERVICE_ROLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
@@ -22,17 +22,22 @@ try {
   const control=check(await db.from('map_release_control').select('active_release,source_release').eq('map_id','s5').single());
   const existingId=control.active_release||control.source_release;
   const previous=existingId?check(await db.from('map_releases').select('history,bookmarks').eq('id',existingId).single()):null;
+  if(existingId&&!values.statistics){
+    const blob=check(await db.storage.from('map-release-drafts').download(`${existingId}.json`));
+    if(JSON.parse(await blob.text()).statistics)throw new Error('This map already includes statistics. Supply --statistics from the same save to retain its history.');
+  }
   const input=JSON.parse(readFileSync(values.file,'utf8'));
   const base=JSON.parse(readFileSync(new URL('../../src/.vuepress/public/community/CBRXMapOct62025_V2.base.json',import.meta.url)));
   const markers=[...(previous?.bookmarks||[]).filter(m=>m.episode!==values.episode),{episode:values.episode,turn:endTurn}];
   const {release:source,report}=prepareRelease(input,base,[...getEdition('s5').competitors,{name:'Babylon'}],{
     history:previous?.history||randomUUID(),sourceSha256:input.source.sha256,endTurn:input.source.turn,bookmarks:markers,branchVerified:false,completions:{},checkpoints:[]
-  });
+  },values.statistics?JSON.parse(readFileSync(values.statistics,'utf8')):null);
   const acceptHistoricalGaps=values['accept-event-gaps']===true;
   if(!report.ok&&!acceptHistoricalGaps)throw new Error('Recovered history has review gaps. Inspect it before explicitly using --accept-event-gaps.');
   const bounded=releaseThroughEpisodes(source,markers,{acceptHistoricalGaps});
+  for(const release of [source,bounded]){validateRelease(release);if(Buffer.byteLength(JSON.stringify(release))>MAX_RELEASE_BYTES)throw new Error('Release exceeds the upload limit.');}
   if(bounded.lastTurn!==endTurn)throw new Error('The supplied episode is not the latest endpoint. No publication was changed.');
-  console.log(JSON.stringify({apply:!!values.apply,sourceTurn:source.lastTurn,publicTurns:[bounded.firstTurn,bounded.lastTurn],reviewIssues:report.issues.length,eventGapsAccepted:acceptHistoricalGaps}));
+  console.log(JSON.stringify({apply:!!values.apply,sourceTurn:source.lastTurn,publicTurns:[bounded.firstTurn,bounded.lastTurn],statistics:!!bounded.statistics,sourceBytes:JSON.stringify(source).length,reviewIssues:report.issues.length,eventGapsAccepted:acceptHistoricalGaps}));
   if(values.apply){
     const store=async release=>{
       const id=await digest(release);

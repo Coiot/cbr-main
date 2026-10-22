@@ -11,7 +11,7 @@ import zlib
 from pathlib import Path
 
 
-def extract(path, reference):
+def decompress_save(path):
     raw = Path(path).read_bytes()
     if len(raw) > 100_000_000 or raw[:4] != b"CIV5":
         raise ValueError("Expected a Civ5 save smaller than 100 MB")
@@ -41,6 +41,11 @@ def extract(path, reference):
         break
     if payload is None:
         raise ValueError("Unsupported compression framing")
+    return raw, payload, chunks
+
+
+def extract(path, reference):
+    raw, payload, chunks = decompress_save(path)
     turn = struct.unpack_from("<i", payload, 12)[0]
     if not 0 <= turn <= 100000:
         raise ValueError("Unsupported game header")

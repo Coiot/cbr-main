@@ -46,14 +46,24 @@ try {
     const extraction=JSON.parse(result.stdout);
     writeFileSync(output,JSON.stringify(extraction),{mode:0o600,flag:'wx'});
     console.log(`Recovered ${extraction.events.length} events through T${extraction.source.turn}. Private file: ${output}`);
+  } else if(command==='extract-statistics') {
+    const [save,reference,out]=args;
+    if(!out)throw new Error('extract-statistics <save.Civ5Save> <extracted-events.json> <private-output.json>');
+    const output=privateOutput(out);
+    const result=spawnSync('python3',[resolve(root,'scripts/map-release/extract_statistics.py'),resolve(save)],
+      {input:readFileSync(reference,'utf8'),encoding:'utf8',maxBuffer:60*1024*1024});
+    if(result.status!==0)throw new Error(result.stderr||'Statistics extraction failed.');
+    const statistics=JSON.parse(result.stdout);
+    writeFileSync(output,JSON.stringify(statistics),{mode:0o600,flag:'wx'});
+    console.log(`Recovered statistics for ${statistics.players.length} civilizations through T${statistics.lastTurn}. Private file: ${output}`);
   } else if(command==='prepare') {
-    const [input,review,out]=args;
-    if(!out)throw new Error('prepare <extraction.json> <review.json> <private-output-directory>');
+    const [input,review,out,statisticsFile]=args;
+    if(!out)throw new Error('prepare <extraction.json> <review.json> <private-output-directory> [statistics.json]');
     const packagePath=privateOutput(resolve(out,'release.json')), reportPath=privateOutput(resolve(out,'validation.json'));
     const base=json(resolve(root,'src/.vuepress/public/community/CBRXMapOct62025_V2.base.json'));
     const owners=[...getEdition('s5').competitors,{name:'Babylon'}];
     const config=json(review);
-    const {release,report}=prepareRelease(json(input),base,owners,config);
+    const {release,report}=prepareRelease(json(input),base,owners,config,statisticsFile?json(statisticsFile):null);
     const serialized=JSON.stringify(release);
     report.releaseId=createHash('sha256').update(serialized).digest('hex');
     // Failed packages remain local preview artifacts, never uploadable envelopes.
@@ -61,5 +71,5 @@ try {
     writeFileSync(reportPath,JSON.stringify(report,null,2),{mode:0o600,flag:'wx'});
     console.log(`${report.ok?'Validated':'BLOCKED'}: ${report.checkedTurns} turn states checked; ${report.issues.length} issues. See ${reportPath}`);
     if(!report.ok)process.exitCode=2;
-  } else throw new Error('Use extract, prepare, or export-community. See scripts/map-release/README.md.');
+  } else throw new Error('Use extract, extract-statistics, prepare, or export-community. See scripts/map-release/README.md.');
 }catch(error){console.error(error.message);process.exitCode=1;}

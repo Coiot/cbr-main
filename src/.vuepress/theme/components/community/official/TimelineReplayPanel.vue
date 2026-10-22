@@ -3,6 +3,7 @@
     <div class="timeline-replay-toggle" role="group" aria-label="Replay information">
       <button :aria-pressed="tab==='civilizations'" @click="tab='civilizations'">Civilizations</button>
       <button :aria-pressed="tab==='events'" @click="tab='events'">Events</button>
+      <button :aria-pressed="tab==='statistics'" @click="tab='statistics'">Statistics</button>
     </div>
     <h2>End of turn {{frame.turn}}</h2>
     <template v-if="tab==='civilizations'">
@@ -10,7 +11,7 @@
         <tbody><tr v-for="row in summary" :key="row.ownerId"><th scope="row"><span class="timeline-civ-dot" :style="civStyle(row.name)" aria-hidden="true"></span>{{row.name}}</th><td>{{row.cities}}</td><td>{{row.tiles}}</td></tr></tbody>
       </table></div>
     </template>
-    <template v-else>
+    <template v-else-if="tab==='events'">
       <div class="timeline-event-filters">
         <label>Event type<select v-model="filter"><option v-for="[value,label] in categories" :key="value" :value="value">{{label}}</option></select></label>
         <label>Search events<input v-model="query" type="search" maxlength="100" placeholder="City, civilization, or event…" /></label>
@@ -20,13 +21,16 @@
       <p v-else>No matching events.</p>
       <button v-if="events.length<matchingEvents.length" class="timeline-earlier-events" @click="limit+=100">Show earlier events</button>
     </template>
+    <TimelineStatistics v-else :release="release" :release-id="releaseId" :turn="frame.turn" :client="client" :preview="preview" />
   </section>
 </template>
 <script>
 import {timelineSummary,timelineEventHistory,filterTimelineEvents,eventCategories} from './timelineSummary.mjs';
 import {civStyle} from '../../supporters/showcaseModel.mjs';
+import TimelineStatistics from './TimelineStatistics.vue';
 export default {
-  props:{release:Object,frame:Object},
+  components:{TimelineStatistics},
+  props:{release:Object,frame:Object,releaseId:String,client:Object,preview:Boolean},
   data:()=>({tab:'civilizations',filter:'all',query:'',limit:100,categories:eventCategories}),
   computed:{
     summary(){return timelineSummary(this.frame,this.release);},

@@ -17,6 +17,10 @@ import {timelineLastTurn,timelineBookmarks,isLoopbackTimeline,defaultEpisodeMark
 import {upsertEpisodeMarker,validateEpisodeMarkers,releaseThroughEpisodes} from '../../src/shared/mapEpisodeMarkers.mjs';
 import {createMarkerScrubber} from '../../src/.vuepress/theme/components/community/official/markerScrub.mjs';
 import {timelineSummary,timelineEvents,timelineEventHistory,filterTimelineEvents,cleanEventText,eventCategories} from '../../src/.vuepress/theme/components/community/official/timelineSummary.mjs';
+import {validateStatistics,statisticsAtTurn,statisticsRows,formatStatistic} from '../../src/shared/mapStatistics.mjs';
+import {prepareStatistics} from '../map-release/statistics.mjs';
+import {observedEvents,SEASON5_EVENT_SOURCE} from '../map-release/observedEvents.mjs';
+import {statisticsMethods} from '../../src/.vuepress/theme/components/community/official/statisticsSession.mjs';
 
 const history='00000000-0000-4000-8000-000000000001';
 function fixture(){
@@ -34,6 +38,100 @@ function fixture(){
       {turn:4,kind:'found',owner:1,tiles:[20],city:7,name:'New city'}
     ]};
 }
+function statisticsFixture(){return {version:1,firstTurn:0,lastTurn:4,players:[
+  {owner:0,values:{score:[1,2,null,4,999],research:[null,'TECH_POTTERY',null,'TECH_WRITING','TECH_FUTURE_RESEARCH']}},
+  {owner:1,values:{score:[2,1,null,null,null],research:[null,'TECH_MINING',null,null,null]}}
+]};}
+test('Season 5 observed events use only consecutive records, preserve attribution and filter by turn',()=>{
+  const release=fixture();release.civilizations=[{name:'Japan',ownerId:9},{name:'Hyksos',ownerId:2}];
+  const input={sourceSha256:SEASON5_EVENT_SOURCE,players:[{name:'Japan',alive:[1,1,1,0,0],values:{
+    goldenAgeTurns:[1,0,1,0,0],research:['TECH_MINING','TECH_WRITING',null,'TECH_POTTERY','TECH_FUTURE'],
+    cities:[9,10,null,20,30],population:[99,100,null,200,300],policies:[0,1,2,3,4],nukes:[0,1,2,3,4]
+  }}]};
+  release.lastTurn=3;
+  const events=observedEvents(input,release);
+  assert.equal(events.length,5);assert.ok(events.every(e=>e.owner===9&&e.turn<=3));
+  assert.equal(events.filter(e=>/Golden Age/.test(e.text)).length,1,'Elimination must not also appear as a Golden Age ending');
+  assert.equal(events.filter(e=>/researching/.test(e.text)).length,1,'No research change across a missing observation');
+  assert.doesNotMatch(JSON.stringify(events),/FUTURE|POTTERY|polic|nuclear|20 cities|200 total/i);
+  const entries=timelineEventHistory({...release,events});
+  assert.equal(filterTimelineEvents(entries,1,'milestones').length,1);
+  assert.equal(filterTimelineEvents(entries,1,'research').length,1);
+  assert.equal(filterTimelineEvents(entries,1,'civilization').length,2);
+  assert.equal(filterTimelineEvents(entries,3,'civilization','eliminated').length,1);
+  assert.equal(filterTimelineEvents(entries,2,'all','eliminated').length,0);
+  assert.deepEqual(observedEvents({...input,sourceSha256:'another-game'},release),[]);
+  assert.deepEqual(observedEvents(input,{...release,map:{...release.map,id:'s4'}}),[]);
+  // A future sample cannot alter any event already available at an earlier turn.
+  const changed=structuredClone(input);changed.players[0].values.research[4]='TECH_SECRET';
+  assert.deepEqual(observedEvents(changed,release),events);
+});
+test('growth milestones are first recorded crossings and do not repeat after losses or bridge gaps',()=>{
+  const release=fixture();release.lastTurn=8;
+  const events=observedEvents({sourceSha256:SEASON5_EVENT_SOURCE,players:[{name:'Japan',values:{
+    cities:[9,10,8,10,null,20,19,20,30],population:[99,100,80,100,null,200,190,200,300]
+  }}]},release);
+  assert.deepEqual(events.map(e=>e.turn),[1,1,8,8]);
+});
+test('statistics are exact-turn observations, preserve missing/dead values, and clip all future samples',()=>{
+  const release=fixture();release.statistics=statisticsFixture();const original=JSON.stringify(release);
+  validateRelease(release);
+  const snapshot={history:release.history,...statisticsAtTurn(release,1)};
+  assert.deepEqual(snapshot.rows.map(r=>r.values.score),[2,1]);
+  assert.doesNotMatch(JSON.stringify(snapshot),/999|FUTURE/);
+  assert.deepEqual(statisticsAtTurn(release,2).rows.map(r=>r.values.score),[null,null]);
+  assert.equal(statisticsAtTurn(release,3).rows[1].values.score,null,'A dead civilization must not inherit a later or previous value');
+  assert.equal(statisticsRows(snapshot,release,1,'score')[0].name,'Japan');
+  assert.deepEqual(statisticsRows(snapshot,release,0,'score'),[],'A stale future response is hidden while scrubbing backward');
+  assert.deepEqual(statisticsRows({...snapshot,history:'other'},release,1,'score'),[]);
+  assert.throws(()=>statisticsAtTurn(release,5),/not published/);
+  const clipped=releaseThroughEpisodes(release,[{episode:'1',turn:1}]);
+  assert.equal(clipped.statistics.lastTurn,1);assert.deepEqual(clipped.statistics.players[0].values.score,[1,2]);
+  assert.doesNotMatch(JSON.stringify(clipped),/FUTURE_RESEARCH|999/);
+  assert.equal(JSON.stringify(release),original);
+  assert.equal(formatStatistic(null,'score'),'—');assert.equal(formatStatistic(0,'research'),'—');
+  assert.equal(formatStatistic('TECH_EE_NATURAL_HISTORY','research'),'Natural History');
+});
+test('statistics reject future ranges, unknown metrics, invalid values and mismatched source rosters',()=>{
+  const release=fixture();
+  for(const mutate of [s=>s.lastTurn=751,s=>s.players[0].values.score.push(751),s=>s.players[0].values.secret=[0,0,0,0,0],
+    s=>s.players[0].owner=63,s=>s.players[1].owner=0,s=>s.players[0].values.score[0]='private',s=>s.players[0].values.score[0]=Infinity,
+    s=>s.players[0].values.research[0]='raw filename',s=>s.filename='private-save']){
+    const statistics=statisticsFixture();mutate(statistics);assert.throws(()=>validateStatistics(statistics,release));
+  }
+  const extraction={source:{sha256:'a'.repeat(64),turn:4}},input={format:'cbr-save-statistics',version:1,sourceSha256:extraction.source.sha256,firstTurn:0,lastTurn:4,
+    players:statisticsFixture().players.map(p=>({name:release.civilizations.find(c=>c.ownerId===p.owner).name,values:p.values}))};
+  assert.deepEqual(prepareStatistics(input,extraction,release),statisticsFixture());
+  assert.throws(()=>prepareStatistics({...input,sourceSha256:'b'.repeat(64)},extraction,release),/exact source/);
+  assert.throws(()=>prepareStatistics({...input,players:[input.players[0],input.players[0]]},extraction,release),/statistics player/);
+  const withAlive=structuredClone(input);withAlive.players[0].alive=[1,1,1,0,0];
+  assert.deepEqual(prepareStatistics(withAlive,extraction,release),statisticsFixture(),'Private survival samples do not enter public statistics');
+  withAlive.players[0].alive.push(1);
+  assert.throws(()=>prepareStatistics(withAlive,extraction,release),/survival history/);
+});
+test('statistics UI immediately clears old observations and discards responses superseded by another turn',async()=>{
+  const release=fixture();release.statistics=statisticsFixture();
+  const context={_alive:true,preview:true,release,releaseId:'',turn:4,snapshot:{old:true},loading:false,error:''};
+  await statisticsMethods.load.call(context);
+  assert.equal(context.snapshot.turn,4);
+  context.turn=1;await statisticsMethods.load.call(context);assert.equal(context.snapshot.turn,1);
+  assert.doesNotMatch(JSON.stringify(context.snapshot),/FUTURE|999/);
+  context._alive=false;context.turn=0;await statisticsMethods.load.call(context);assert.equal(context.snapshot.turn,1,'Unmounted components make no further requests');
+});
+test('a delayed future statistics response cannot overwrite a newer earlier-turn selection',async()=>{
+  const release=fixture();release.statistics=statisticsFixture();
+  const originalFetch=globalThis.fetch,pending=[];
+  globalThis.fetch=async(_,options)=>new Promise(resolve=>pending.push({turn:JSON.parse(options.body).turn,resolve}));
+  const context={_alive:true,preview:false,release,releaseId:'a'.repeat(64),client:null,turn:4,snapshot:null};
+  try{
+    const future=statisticsMethods.load.call(context);assert.equal(pending.length,1);
+    context.turn=1;const earlier=statisticsMethods.load.call(context);assert.equal(context.snapshot,null);assert.equal(pending.length,2);
+    const response=turn=>new Response(JSON.stringify({id:context.releaseId,history:release.history,...statisticsAtTurn(release,turn)}));
+    pending[1].resolve(response(1));await earlier;
+    pending[0].resolve(response(4));await future;
+    assert.equal(context.snapshot.turn,1);assert.doesNotMatch(JSON.stringify(context.snapshot),/FUTURE|999/);
+  }finally{globalThis.fetch=originalFetch;}
+});
 test('Episode 34 display ends at 595 without extending shorter releases or changing source data',()=>{
   const release=fixture();release.lastTurn=596;release.bookmarks=[{episode:'1',turn:4},{episode:'34',turn:594},{episode:'35',turn:596}];
   release.events.push({turn:595,kind:'claim',owner:1,tiles:[19]},{turn:596,kind:'claim',owner:0,tiles:[19]});
@@ -236,6 +334,28 @@ test('Golden Age messages name their recorded civilization and hide notices with
   assert.equal(filterTimelineEvents(entries,4,'milestones','Japan Golden Age').length,1);
   assert.equal(JSON.stringify(release),original,'Attribution is a display change only');
 });
+test('diplomacy and completions use civilization names without changing construction names or unknown participants',()=>{
+  const release=fixture();
+  release.civilizations.push({name:'The Onondaga',ownerId:17},{name:'The Susquehannock',ownerId:22},{name:'Bactria',ownerId:25},{name:'The Potiguara',ownerId:30});
+  const messages=[
+    [22,'Chieftain Old Sheehays declares war on Chieftain Tadodaho!','The Susquehannock declares war on The Onondaga!'],
+    [17,'Chieftain Tadodaho has made peace with Old Sheehays Warlord!','The Onondaga has made peace with The Susquehannock!'],
+    [17,'King Tadodaho has made peace with Sheik Demetrius!','The Onondaga has made peace with Bactria!'],
+    [22,'King Old Sheehays declares war on Filipe Camarão Warlord!','The Susquehannock declares war on The Potiguara!'],
+    [0,'A titled leader completes Temple of Toyotomi Hideyoshi!','Japan completes Temple of Toyotomi Hideyoshi!'],
+    [-1,'King Tadodaho completes Great Library!','The Onondaga completes Great Library!'],
+    [0,'Toyotomi Hideyoshi declares war on King Nobody!','Japan declares war on King Nobody!'],
+    [-1,'Leader declares war on Another Leader!','Leader declares war on Another Leader!'],
+    [-1,'Japan and Hyksos have signed a Research Agreement!','Japan and Hyksos have signed a Research Agreement!'],
+    [0,'Capital (Toyotomi Hideyoshi) was captured by Hyksos!!!','Capital (Toyotomi Hideyoshi) was captured by Hyksos!!!']
+  ];
+  release.events.push(...messages.map(([owner,text])=>({turn:4,kind:'message',owner,tiles:[],text})));
+  const original=JSON.stringify(release),entries=timelineEventHistory(release);
+  const actual=new Map(entries.map(e=>[e.order,e.text]));
+  messages.forEach(([,text,expected],i)=>assert.equal(actual.get(7+i),expected,text));
+  assert.equal(filterTimelineEvents(entries,4,'diplomacy','Bactria').length,1);
+  assert.equal(JSON.stringify(release),original);
+});
 test('exporter clips before parsing detail names and never copies future metadata',()=>{
   const base={width:180,height:94,mapTiles:[]},sha='a'.repeat(64);
   const extraction={format:'cbr-save-replay-extraction',version:1,source:{sha256:sha,turn:751,filename:'future-private'},
@@ -325,6 +445,25 @@ test('event-aware clients receive messages while existing clients retain their c
     assert.doesNotMatch(JSON.stringify(rich.body.release),/Secret Future Wonder/);
   }
   assert.equal((await call({action:'release',id:draftId,includeMessages:true})).status,404);
+});
+test('public statistics return only the requested published turn and never include the full history',async()=>{
+  const release=fixture();release.statistics=statisticsFixture();
+  const {call,state,id,draftId}=await server(release);
+  for(const includeMessages of [false,true]){
+    const publicRelease=await call({action:'release',includeMessages});assert.equal(publicRelease.status,200);
+    assert.equal(publicRelease.body.release.statistics,undefined);
+    assert.doesNotMatch(JSON.stringify(publicRelease.body),/FUTURE_RESEARCH|999/);
+  }
+  const admin=await call({action:'timeline-admin',includeMessages:true},'coiot');assert.equal(admin.body.release.statistics,undefined);
+  const early=await call({action:'statistics',id,turn:1});assert.equal(early.status,200);
+  assert.equal(early.body.turn,1);assert.equal(early.body.history,release.history);assert.equal(early.body.available,true);
+  assert.deepEqual(early.body.rows[0].values,{score:2,research:'TECH_POTTERY'});
+  assert.doesNotMatch(JSON.stringify(early.body),/FUTURE_RESEARCH|999/);
+  const missing=await call({action:'statistics',turn:2});assert.equal(missing.body.rows[0].values.score,null);
+  for(const turn of [5,751,-1,1.5,'1',null])assert.equal((await call({action:'statistics',turn,localhost:true},'coiot')).status,400);
+  assert.equal((await call({action:'statistics',id:draftId,turn:1})).status,404);
+  const row=state.rows.find(r=>r.id===id);row.last_turn=2;
+  assert.equal((await call({action:'statistics',id,turn:4})).status,400,'The live published ceiling also bounds previously cached data');
 });
 test('Coiot receives only published history and publishing a past marker does not reveal later events',async()=>{
   const {call,state,id,draftId}=await server();

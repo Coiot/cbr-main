@@ -1,4 +1,5 @@
 import {frameSummary} from '../replay/replayModel.mjs';
+import {civilizationEventText} from './eventCivilizations.mjs';
 
 export function timelineSummary(frame,release) {
   return frameSummary(frame,release.civilizations.map(c=>({...c,label:c.name})));
@@ -8,6 +9,7 @@ export const eventCategories=[
   ['all','All events'],['cities','Cities'],['diplomacy','Diplomacy'],
   ['religion','Religion and beliefs'],['completions','Completions'],
   ['milestones','Golden Ages'],
+  ['research','Research'],['civilization','Eliminations and growth'],
   ['other','Other messages']
 ];
 
@@ -25,6 +27,10 @@ export function cleanEventText(text) {
 }
 
 function eventCategory(event,text) {
+  if(text.startsWith('Observed: ')) {
+    if(/ is researching .+\.$/.test(text))return 'research';
+    if(/ is recorded as eliminated\.$| has reached [\d,]+ (?:cities|total city population)\.$/.test(text))return 'civilization';
+  }
   if(['found','capture','raze'].includes(event.kind))return 'cities';
   if(event.kind==='claim')return 'claims';
   if(event.kind==='wonder'||/\bcompletes\b/i.test(text))return 'completions';
@@ -41,6 +47,7 @@ export function timelineEventHistory(release) {
   const cities=new Map(),entries=[];
   const names=new Map(release.civilizations.map(c=>[c.ownerId,c.name]));
   const ownerName=id=>names.get(id)||'Unclaimed';
+  const civilizationText=civilizationEventText(release);
   for(const [order,event] of release.events.entries()) {
     const descriptions=[];
     for(const index of event.tiles) {
@@ -62,7 +69,9 @@ export function timelineEventHistory(release) {
       if(!civilization)continue;
       text=`${civilization} has started a Golden Age.`;
     }
-    entries.push({order,turn:event.turn,text,category:eventCategory(event,text),kind:event.kind});
+    const category=eventCategory(event,text);
+    text=civilizationText(event,text,category);
+    entries.push({order,turn:event.turn,text,category,kind:event.kind});
   }
   return entries.reverse();
 }

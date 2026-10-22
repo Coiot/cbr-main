@@ -1,5 +1,6 @@
 // Shared by the offline exporter, browser worker and release API.
 // This format contains only approved history, never raw save metadata.
+import {validateStatistics} from './mapStatistics.mjs';
 export const MAP_RELEASE_FORMAT = 'cbr-published-map';
 export const MAP_PUBLISHER_ID = '88c12d80-cdc8-44cf-a174-a75c63bb5936';
 export const MAX_RELEASE_BYTES = 12 * 1024 * 1024;
@@ -11,7 +12,7 @@ export const isHistoryId = value => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-
 export const isReleaseId = value => /^[0-9a-f]{64}$/.test(value || '');
 
 export function validateRelease(input) {
-  if (!exact(input, ['format','version','history','map','firstTurn','lastTurn','bookmarks','civilizations','events','catalog','availability']) ||
+  if (!exact(input, ['format','version','history','map','firstTurn','lastTurn','bookmarks','civilizations','events','catalog','availability','statistics']) ||
       input.format !== MAP_RELEASE_FORMAT || input.version !== 1 || !isHistoryId(input.history) ||
       !integer(input.firstTurn, 0, 100000) || !integer(input.lastTurn, input.firstTurn, 100000)) fail('Invalid map release.');
   const map = input.map;
@@ -21,6 +22,7 @@ export function validateRelease(input) {
       input.civilizations.some(c => !exact(c, ['name','ownerId']) || !text(c.name) || !integer(c.ownerId,0,63)) ||
       new Set(input.civilizations.map(c=>c.ownerId)).size !== input.civilizations.length) fail('Invalid civilization mapping.');
   const owners = new Set([-1,...input.civilizations.map(c=>c.ownerId)]);
+  if('statistics' in input)validateStatistics(input.statistics,input);
   if (!exact(input.catalog, ['wonders','religions']) || ['wonders','religions'].some(k =>
     !Array.isArray(input.catalog[k]) || input.catalog[k].length > 512 || input.catalog[k].some(n=>!text(n)) ||
     new Set(input.catalog[k]).size !== input.catalog[k].length)) fail('Invalid release catalog.');

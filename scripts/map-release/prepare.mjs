@@ -1,8 +1,10 @@
 import { readReplayExtraction } from '../../src/.vuepress/theme/components/community/replay/replayExtraction.mjs';
 import { baseIdentity, mapCivilizations } from '../../src/.vuepress/theme/components/community/replay/replayModel.mjs';
 import { MAP_RELEASE_FORMAT, auditRelease, createTimeline } from '../../src/shared/mapRelease.mjs';
+import {prepareStatistics} from './statistics.mjs';
+import {observedEvents} from './observedEvents.mjs';
 
-export function prepareRelease(extraction, base, owners, config) {
+export function prepareRelease(extraction, base, owners, config, statistics=null) {
   if(config.details||config.detailsFile||config.detailSource)throw new Error('Map releases contain game history only. Maintain editor details in the shared live layer.');
   const replay=readReplayExtraction(extraction,base,owners);
   if(!Number.isInteger(config.endTurn)||config.endTurn<0||config.endTurn>replay.meta.endTurn)throw new Error('Set an explicit safe endTurn within the save.');
@@ -44,6 +46,11 @@ export function prepareRelease(extraction, base, owners, config) {
         if(!list.includes(name))list.push(name);
       } else if(e.text.trim())release.events.push({turn:e.turn,kind:'message',owner,tiles,text:e.text});
     }
+  }
+  if(statistics){
+    release.statistics=prepareStatistics(statistics,extraction,release);
+    release.events.push(...observedEvents(statistics,release));
+    release.events.sort((a,b)=>a.turn-b.turn);
   }
   const report=auditRelease(release), timeline=createTimeline(release);
   const checkpoints=config.checkpoints||[];

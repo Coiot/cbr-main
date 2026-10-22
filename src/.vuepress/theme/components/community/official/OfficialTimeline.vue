@@ -23,7 +23,7 @@
       <template v-if="layersEnabled" #tile-notes="{tile}">
         <MapTileNotes :tile="tile?tileIndex(tile):null" :client="client" :user="user" :allowed="canEditDetails" :moderator="notesModerator" :version="notesVersion" :personal-note="tile?viewLayer.notes.find(n=>n.tile===tileIndex(tile))?.text||'':''" @personal="setPersonalNote($event.tile,$event.text)" @changed="refreshNotes" />
       </template>
-      <template #extra-panel><TimelineReplayPanel :release="release" :frame="frame" /></template>
+      <template #extra-panel><TimelineReplayPanel :release="release" :frame="frame" :release-id="dataReleaseId" :client="client" :preview="!!preview" /></template>
     </CommunityTileMapGrid>
     <details v-if="comparison" class="official-card"><summary>View comparison map at the end of turn {{comparison.turn}}</summary>
       <CommunityTileMapGrid :key="comparison.turn" :embedded="true" embedded-mode="snapshot" :official-source="{base,frame:comparison,source:sourceId(comparison.turn),preview:true}" />

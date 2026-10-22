@@ -69,6 +69,34 @@ do not merely replace conflicting city owners to make the audit green.
 
 ## Install without publishing
 
+Historical statistics can be recovered from the same S5/v94 save with
+`npm run map:release -- extract-statistics <save.Civ5Save> <extracted-events.json> <private-statistics.json>`.
+Keep that output outside the repository. Pass it as the optional fourth argument
+to `prepare`, or as `--statistics <private-statistics.json>` to `publish.mjs`.
+The source save hashes and civilization roster must match. The exporter keeps
+43 distinct metrics from InfoAddict and native replay statistics. Missing
+observations, including InfoAddict's missing T627, stay null; dead civilizations
+do not inherit stale values. Turn labels describe observations recorded during
+that turn, not a claim that all players were sampled at its exact end.
+
+Publication clips every statistics series at the last approved episode endpoint.
+The public `release` response omits the statistics arrays entirely; `statistics`
+returns only the explicitly requested turn after checking both the chosen
+release and the current public cap. Timeline changes discard stale responses.
+Adding an episode endpoint later clips the private source again, including its
+statistics. The full source and raw extracts remain in private storage.
+
+For the verified Season 5 source, preparation also adds observed Golden Age
+endings, eliminations, named research changes, and first recorded growth
+milestones (each 10 cities or 100 total city population points). These are
+labelled “Observed” and use consecutive observations only. Missing turns are
+never bridged, and later records cannot change earlier events. Survival history
+is kept in the private extraction only. A source-hash allowlist prevents these
+rules from silently applying to another game; review the branch before adding
+a new save. Policy counts, nuclear stockpile changes and guessed named technology
+completions do not generate events. Public clipping and selected-turn filters
+apply to these messages just as they do to recorded game events.
+
 1. Apply `supabase/sql/map-official-timeline.sql` after the existing saved-view
    migration. It creates a disabled control row, private release bucket, service
    endpoints' tables and legacy-write guards. It does not freeze current editing.

@@ -1,4 +1,5 @@
 import {validateRelease,auditRelease} from './mapRelease.mjs';
+import {statisticsThroughTurn} from './mapStatistics.mjs';
 const validEpisode=value=>typeof value==='string'&&/^(0|[1-9]\d{0,3})(\.\d{1,2})?$/.test(value)&&Number(value)<=1000;
 export function validateEpisodeMarkers(markers,{firstTurn=0,lastTurn=100000}={}) {
   if(!Array.isArray(markers)||!markers.length||markers.length>1000)throw new Error('Add at least one episode endpoint.');
@@ -24,6 +25,7 @@ export function releaseThroughEpisodes(source,markers,{acceptHistoricalGaps=fals
     wonders:[...new Set(events.filter(e=>e.kind==='wonder').map(e=>e.name))],
     religions:[...new Set(events.filter(e=>e.kind==='holyCity').map(e=>e.name))]
   }};
+  if(source.statistics)release.statistics=statisticsThroughTurn(source.statistics,source,lastTurn);
   validateRelease(release);
   const audit=auditRelease(release);if(!audit.ok&&!acceptHistoricalGaps)throw new Error(`Publication blocked: ${audit.issues[0]}`);
   return release;

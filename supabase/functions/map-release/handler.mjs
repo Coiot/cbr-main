@@ -3,6 +3,7 @@ import { MAP_PUBLISHER_ID, MAX_RELEASE_BYTES, isReleaseId, validateRelease, audi
 import {validateDetail,CITY_FIELDS} from '../../../src/shared/mapDetails.mjs';
 import {upsertEpisodeMarker,validateEpisodeMarkers,releaseThroughEpisodes} from '../../../src/shared/mapEpisodeMarkers.mjs';
 import {createLayerHandler,isLayerAction,layerWriteAction} from './layers.mjs';
+import {statisticsAtTurn} from '../../../src/shared/mapStatistics.mjs';
 const BUCKET='map-release-drafts';
 const headers={'Content-Type':'application/json','Access-Control-Allow-Origin':'*',
   'Access-Control-Allow-Methods':'POST, OPTIONS',
@@ -12,8 +13,11 @@ const response=(data,status=200)=>new Response(JSON.stringify(data),{status,head
 const check=result=>{if(result.error)throw new Error(result.error.message);return result.data;};
 // Older deployed clients validate the original event schema. Opt in to messages
 // until every client has adopted them; both representations remain turn-bounded.
-const clientRelease=(release,input)=>input.includeMessages===true?release:{...release,
-  events:release.events.filter(e=>e.kind!=='message').map(({text,...event})=>event)};
+const clientRelease=(release,input)=>{
+  const {statistics,...history}=release;
+  return input.includeMessages===true?history:{...history,
+    events:history.events.filter(e=>e.kind!=='message').map(({text,...event})=>event)};
+};
 export async function digest(value) {
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(value))))].map(n=>n.toString(16).padStart(2,'0')).join('');
 }
@@ -122,6 +126,7 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
       if(action==='release')return response({id,release:clientRelease(release,input)});
       if(action==='search'&&input.turn===undefined)input.turn=current.last_turn;
       if(!Number.isInteger(input.turn)||input.turn<release.firstTurn||input.turn>Math.min(current.last_turn,release.lastTurn))throw new Error('This turn is not published.');
+      if(action==='statistics')return response({id,history:release.history,...statisticsAtTurn(release,input.turn)});
       if(action==='search') {
         if(input.history&&input.history!==release.history)throw new Error('Different game history.');
         const frame=timeline.frame(input.turn);
