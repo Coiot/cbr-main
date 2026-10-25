@@ -12,14 +12,14 @@
     <p v-else-if="!hasObservations">No observations recorded for this statistic at T{{turn}}.</p>
     <div v-else class="timeline-statistics-scroll"><table>
       <thead><tr><th scope="col">Civilization</th><th scope="col">{{selected.label}}</th></tr></thead>
-      <tbody><tr v-for="row in rows" :key="row.ownerId"><th scope="row"><span class="timeline-statistics-dot" :style="civStyle(row.name)" aria-hidden="true"></span>{{row.name}}</th><td>{{formatStatistic(row.value,metric)}}</td></tr></tbody>
+      <tbody><tr v-for="row in rows" :key="row.ownerId"><th scope="row"><span class="timeline-statistics-dot" :style="civilizationStyle(row.ownerId)" aria-hidden="true"></span>{{civilizationName(row.name)}}</th><td>{{formatStatistic(row.value,metric)}}</td></tr></tbody>
     </table></div>
   </div>
 </template>
 <script>
 import {mapStatisticsMetrics,statisticsRows,formatStatistic} from '../../../../../shared/mapStatistics.mjs';
 import {statisticsMethods} from './statisticsSession.mjs';
-import {civStyle} from '../../supporters/showcaseModel.mjs';
+import {civilizationName,civilizationStyle} from './civilizationDisplay.mjs';
 export default {
   props:{release:Object,releaseId:String,turn:Number,client:Object,preview:Boolean},
   data:()=>({metric:'score',metrics:mapStatisticsMetrics,groups:[...new Set(mapStatisticsMetrics.map(m=>m.group))],snapshot:null,loading:false,error:''}),
@@ -31,7 +31,7 @@ export default {
   watch:{turn:'load',releaseId:'load',release:'load'},
   mounted(){this._alive=true;this.load();},
   beforeUnmount(){this._alive=false;this._request++;this._abort?.abort();},
-  methods:{...statisticsMethods,civStyle,formatStatistic}
+  methods:{...statisticsMethods,civilizationName,civilizationStyle,formatStatistic}
 };
 </script>
 <style scoped>

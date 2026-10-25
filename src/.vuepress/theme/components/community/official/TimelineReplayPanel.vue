@@ -8,7 +8,7 @@
     <h2>End of turn {{frame.turn}}</h2>
     <template v-if="tab==='civilizations'">
       <div class="timeline-replay-scroll"><table><thead><tr><th>Civilization</th><th>Cities</th><th>Tiles</th></tr></thead>
-        <tbody><tr v-for="row in summary" :key="row.ownerId"><th scope="row"><span class="timeline-civ-dot" :style="civStyle(row.name)" aria-hidden="true"></span>{{row.name}}</th><td>{{row.cities}}</td><td>{{row.tiles}}</td></tr></tbody>
+        <tbody><tr v-for="row in summary" :key="row.ownerId"><th scope="row"><span class="timeline-civ-dot" :style="civilizationStyle(row.ownerId)" aria-hidden="true"></span>{{civilizationName(row.name)}}</th><td>{{row.cities}}</td><td>{{row.tiles}}</td></tr></tbody>
       </table></div>
     </template>
     <template v-else-if="tab==='events'">
@@ -26,7 +26,7 @@
 </template>
 <script>
 import {timelineSummary,timelineEventHistory,filterTimelineEvents,eventCategories} from './timelineSummary.mjs';
-import {civStyle} from '../../supporters/showcaseModel.mjs';
+import {civilizationName,civilizationStyle} from './civilizationDisplay.mjs';
 import TimelineStatistics from './TimelineStatistics.vue';
 export default {
   components:{TimelineStatistics},
@@ -39,7 +39,7 @@ export default {
     events(){return this.matchingEvents.slice(0,this.limit);}
   },
   watch:{filter(){this.limit=100;},query(){this.limit=100;},'frame.turn'(){this.limit=100;},release(){this.limit=100;}},
-  methods:{civStyle,categoryLabel(value){return eventCategories.find(([key])=>key===value)?.[1]||'Other messages';}}
+  methods:{civilizationName,civilizationStyle,categoryLabel(value){return eventCategories.find(([key])=>key===value)?.[1]||'Other messages';}}
 };
 </script>
 <style scoped>
