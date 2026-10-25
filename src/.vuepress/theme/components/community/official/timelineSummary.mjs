@@ -59,7 +59,7 @@ export function timelineEventHistory(release) {
         descriptions.push(city&&city.owner!==event.owner?`${name}: ${ownerName(city.owner)} → ${ownerName(event.owner)}`:`${name}: ownership recorded for ${ownerName(event.owner)}`);
         if(city)city.owner=event.owner;
       }else if(event.kind==='raze') {
-        descriptions.push(`${name}: razed`);cities.delete(index);
+        descriptions.push(`${name}: destroyed`);cities.delete(index);
       }else if(event.kind==='wonder')descriptions.push(`${name}: ${event.name} completed`);
       else if(event.kind==='holyCity')descriptions.push(`${name}: holy city of ${event.name}`);
     }

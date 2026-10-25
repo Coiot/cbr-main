@@ -3,6 +3,7 @@ import { baseIdentity, mapCivilizations } from '../../src/.vuepress/theme/compon
 import { MAP_RELEASE_FORMAT, auditRelease, createTimeline } from '../../src/shared/mapRelease.mjs';
 import {prepareStatistics} from './statistics.mjs';
 import {observedEvents} from './observedEvents.mjs';
+import {withCityDestructions} from './cityDestructions.mjs';
 
 export function prepareRelease(extraction, base, owners, config, statistics=null) {
   if(config.details||config.detailsFile||config.detailSource)throw new Error('Map releases contain game history only. Maintain editor details in the shared live layer.');
@@ -52,6 +53,7 @@ export function prepareRelease(extraction, base, owners, config, statistics=null
     release.events.push(...observedEvents(statistics,release));
     release.events.sort((a,b)=>a.turn-b.turn);
   }
+  release.events=withCityDestructions(release.events);
   const report=auditRelease(release), timeline=createTimeline(release);
   const checkpoints=config.checkpoints||[];
   if(!config.branchVerified)report.issues.push('Confirm the game branch against episode evidence.');

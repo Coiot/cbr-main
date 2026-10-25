@@ -32,6 +32,12 @@ The bounded chunk reader currently supports this Season 5 modded save framing.
 It rejects unsupported framing rather than guessing offsets. It does not decode
 current saved cities, units, religion followers or population.
 
+Preparation adds a destruction event when a recorded city's centre explicitly
+becomes unclaimed and remains unclaimed at the end of that turn. This covers
+scripted removals missing a CITY_DESTROYED record. Same-turn reclaiming and
+captures retain the city. Ruins persist when the land changes owner and clear
+only on a new city founding. The original save extract remains unchanged.
+
 `review.json` is a private review record:
 
 ```json

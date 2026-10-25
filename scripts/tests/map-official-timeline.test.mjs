@@ -2,6 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {MAP_PUBLISHER_ID,validateRelease,createTimeline,auditRelease,mergeContributions,validateContribution} from '../../src/shared/mapRelease.mjs';
 import {prepareRelease} from '../map-release/prepare.mjs';
+import {withCityDestructions} from '../map-release/cityDestructions.mjs';
 import {createMapReleaseHandler,digest} from '../../supabase/functions/map-release/handler.mjs';
 import {baseIdentity} from '../../src/.vuepress/theme/components/community/replay/replayModel.mjs';
 import {mapLoadingMethods} from '../../src/.vuepress/theme/components/community/map/mapLoading.js';
@@ -203,6 +204,64 @@ test('official frames preserve city lifetimes, capture, razing and reverse seeki
   assert.throws(()=>timeline.frame(-1),/not been released/);
   assert.equal(auditRelease(fixture()).ok,true);
 });
+test('unclaimed city centres become ruins at the turn boundary and stay destroyed until refounded',()=>{
+  const release=fixture();release.catalog={wonders:[],religions:[]};
+  const events=[
+    {turn:0,kind:'found',owner:0,tiles:[20],city:1,name:'Old city'},
+    {turn:0,kind:'claim',owner:0,tiles:[21]},
+    {turn:1,kind:'capture',owner:1,tiles:[20]},
+    {turn:2,kind:'claim',owner:-1,tiles:[20,21]},
+    {turn:3,kind:'claim',owner:0,tiles:[20]},
+    {turn:4,kind:'found',owner:0,tiles:[20],city:2,name:'New city'}
+  ];
+  const original=JSON.stringify(events);release.events=withCityDestructions(events);
+  assert.equal(JSON.stringify(events),original,'Original records are preserved');
+  assert.deepEqual(release.events.filter(e=>e.kind==='raze'),[{turn:2,kind:'raze',owner:1,tiles:[20]}]);
+  assert.deepEqual(withCityDestructions(release.events),release.events,'Reconciliation is idempotent');
+  const timeline=createTimeline(release);
+  assert.equal(timeline.frame(1).cities[0].owner,1);
+  assert.deepEqual(timeline.frame(2).ruins,[{index:20,name:'Old city',originalOwner:0,turn:2}]);
+  assert.equal(timeline.frame(2).cities.length,0);
+  assert.equal(timeline.frame(3).cities.length,0,'Land ownership cannot resurrect the city');
+  assert.equal(timeline.frame(3).ruins.length,1);
+  assert.equal(timeline.frame(4).ruins.length,0);assert.equal(timeline.frame(4).cities[0].name,'New city');
+  assert.equal(timeline.frame(1).cities[0].name,'Old city','Backward seeking restores the earlier city');
+  assert.equal(timelineSummary(timeline.frame(2),release).reduce((sum,row)=>sum+row.cities,0),0);
+  assert.equal(timelineEvents(release,2,'cities')[0].text,'Old city: destroyed');
+  assert.ok(!timelineEvents(release,1).some(e=>e.text.includes('destroyed')));
+  assert.equal(auditRelease(release).ok,true);
+});
+test('same-turn reclaiming, captures and explicit destruction never produce extra ruins',()=>{
+  const found={turn:0,kind:'found',owner:0,tiles:[20],city:1,name:'City'};
+  const unclaim={turn:1,kind:'claim',owner:-1,tiles:[20]};
+  for(const last of [{turn:1,kind:'claim',owner:0,tiles:[20]},
+    {turn:1,kind:'capture',owner:1,tiles:[20]},
+    {turn:1,kind:'found',owner:1,tiles:[20],city:2,name:'Replacement'}]){
+    const events=[found,unclaim,last];assert.deepEqual(withCityDestructions(events),events);
+  }
+  const explicit=[found,unclaim,{turn:1,kind:'raze',owner:0,tiles:[20]}];
+  assert.deepEqual(withCityDestructions(explicit),explicit);
+  const unrelated=[found,{...unclaim,tiles:[21]},{turn:2,kind:'claim',owner:1,tiles:[20]}];
+  assert.deepEqual(withCityDestructions(unrelated),unrelated,'An owner disagreement alone does not establish destruction');
+});
+test('release preparation reconciles missing removals without consulting future turns',()=>{
+  const sha='a'.repeat(64),events=[
+    {turn:0,type:1,tiles:[[1,1]],text:'City is founded.'},
+    {turn:1,type:2,tiles:[[1,1]],text:'',civ:-1},
+    {turn:2,type:1,tiles:[[1,1]],text:'Future city is founded.'}
+  ].map((event,order)=>({civ:0,...event,order}));
+  const extraction={format:'cbr-save-replay-extraction',version:1,source:{sha256:sha,turn:2},civilizations:{entries:[{name:'Japan'}]},
+    extraction:{eventMessageVersion:2,eventCount:events.length,firstRecordedTurn:0,lastRecordedTurn:2},events};
+  const base={width:180,height:94,mapTiles:[]};
+  const config={history,sourceSha256:sha,endTurn:1,bookmarks:[{episode:'1',turn:1}]};
+  const {release}=prepareRelease(extraction,base,[{name:'Japan'}],config);
+  assert.deepEqual(release.events.at(-1),{turn:1,kind:'raze',owner:0,tiles:[181]});
+  assert.equal(createTimeline(release).frame(1).cities.length,0);
+  assert.doesNotMatch(JSON.stringify(release),/Future city/);
+  assert.ok(release.events.every(event=>event.turn<=1));
+  const opening=prepareRelease(extraction,base,[{name:'Japan'}],{...config,endTurn:0,bookmarks:[{episode:'1',turn:0}]}).release;
+  assert.equal(createTimeline(opening).frame(0).cities.length,1);
+});
 test('release validator rejects metadata, future events/catalogs, invalid city identities and coordinates',()=>{
   for(const mutate of [
     r=>r.version=2,r=>r.format='raw-save',r=>r.source={turn:751},r=>r.events.push({turn:751,kind:'claim',owner:0,tiles:[1]}),
@@ -222,7 +281,7 @@ test('community replay panel ranks cities first and resolves historical city nam
   const frame={cities:[{owner:0},{owner:0},{owner:1}],owners:new Int16Array([0,1,1,1,1])};
   assert.deepEqual(timelineSummary(frame,release).map(r=>[r.name,r.cities,r.tiles]),[['Japan',2,1],['Hyksos',1,4]]);
   assert.deepEqual(timelineEvents(release,2,'cities').map(e=>e.text),['Capital: Japan → Hyksos','Capital founded by Japan']);
-  assert.equal(timelineEvents(release,3,'cities')[0].text,'Capital: razed');
+  assert.equal(timelineEvents(release,3,'cities')[0].text,'Capital: destroyed');
   assert.equal(timelineEvents(release,4,'cities')[0].text,'New city founded by Hyksos');
   assert.ok(timelineEvents(release,0).every(e=>e.turn===0));
   assert.doesNotMatch(JSON.stringify(timelineEvents(release,0)),/Great Library|Pesedjet|New city/);
