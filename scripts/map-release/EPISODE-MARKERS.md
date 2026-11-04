@@ -1,8 +1,8 @@
 # Episode endpoints and shared viewing limits
 
-Episode 35's confirmed end turn is **645**, now published as the public ceiling.
-Episode 34's marker remains at **595**. Until another endpoint is explicitly
-published, readers stop at T645. All turns mean **end of turn**: events on N are
+Episode 36's confirmed end turn is **710**, now published as the public ceiling.
+Episode 34's marker remains at **595**, and Episode 35's at **645**. Until another endpoint is explicitly
+published, readers stop at T710. All turns mean **end of turn**: events on N are
 included, events on N+1 are excluded. Earlier episode endpoints have not been
 invented; add them as the showrunner supplies them.
 
@@ -50,7 +50,7 @@ published turn checks. Private future turns cannot create public saved views.
 
 ## Deployment state
 
-The shared T751 source and bounded Episode 35 release (T0–645) are installed in
+The shared T751 source and bounded Episode 36 release (T0–710) are installed in
 Supabase. The baseline, episode-marker and recovered-history migrations and
 updated `map-release` API are deployed. The frontend integration is enabled in
 the working tree; deploy the site normally to update the hosted page.

@@ -5,10 +5,10 @@ For the shared editor layer, local workflow and pending online migration, see
 
 The community-page integration is **enabled** in `src/shared/officialMapConfig.json`.
 The T751 shared history is stored privately; the active public release contains
-only T0–645. Readers cannot upload histories. The separate editor detail layer
+only T0–710. Readers cannot upload histories. The separate editor detail layer
 remains disabled and its migration is not installed.
-Episode 35 ends at **turn 645**, as confirmed by the showrunner. Episode 34's
-marker remains at T595. The display
+Episode 36 ends at **turn 710**, as confirmed by the showrunner. Episode 34's
+marker remains at T595 and Episode 35's at T645. The display
 controls default to and stop at the end of that turn (or the end of a shorter
 source). `officialMapConfig.latestEpisode` holds this display setting. This does
 not trim source data, enable publishing, or replace the server publication bound.
