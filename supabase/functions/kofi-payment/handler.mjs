@@ -23,7 +23,7 @@ export function normalizePayment(data, now = Date.now()) {
     kind: data.is_subscription_payment ? 'recurring' : 'one_time', paid_at: new Date(paid).toISOString(),
     amount: String(data.amount), currency: data.currency,
     credit_public: data.is_public === true,
-    credit_name: data.is_public === true && typeof data.from_name === 'string'
+    credit_name: typeof data.from_name === 'string'
       ? data.from_name.replace(/[\u0000-\u001f\u007f]/g, '').replace(/\s+/g, ' ').trim().slice(0, 128) || null : null };
 }
 async function sameSecret(a, b) {

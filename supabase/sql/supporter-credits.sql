@@ -38,7 +38,7 @@ begin
     if payment ? 'credit_public' then
       insert into public.supporter_credit_details(email,kofi_name,kofi_public,kofi_paid_at)
         values(lower(btrim(payment->>'email')),
-          case when (payment->>'credit_public')::boolean then nullif(left(btrim(payment->>'credit_name'),128),'') else null end,
+          nullif(left(btrim(payment->>'credit_name'),128),''),
           coalesce((payment->>'credit_public')::boolean,false),paid)
         on conflict(email) do update set kofi_name=excluded.kofi_name,
           kofi_public=excluded.kofi_public,kofi_paid_at=excluded.kofi_paid_at,updated_at=now()
@@ -82,12 +82,9 @@ begin
         where g.revoked_at is null and (g.expires_at is null or g.expires_at > now())
     )
     select
-      case
-        -- A new explicit private donation supersedes older public credit data.
-        when d.kofi_paid_at is not null and not d.kofi_public then null
-        else coalesce(nullif(btrim(a.username),''),nullif(btrim(d.legacy_name),''),
-          case when d.kofi_public then nullif(btrim(d.kofi_name),'') end)
-      end,
+      -- Ko-fi donation privacy does not control website credit visibility.
+      coalesce(nullif(btrim(a.username),''),nullif(btrim(d.legacy_name),''),
+        nullif(btrim(d.kofi_name),'')),
       case when coalesce(a.settings,'{}'::jsonb) ? 'favoriteCiv'
         then btrim(a.settings->>'favoriteCiv') else coalesce(d.legacy_civ,'') end
     from active x

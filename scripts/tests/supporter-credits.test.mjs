@@ -5,14 +5,14 @@ import { parseCreditImport } from '../../scripts/supporters/import.mjs';
 import { normalizePayment } from '../../supabase/functions/kofi-payment/handler.mjs';
 
 const fixture = { email: 'reader@cbr.test', message_id: 'credit-unit', kofi_transaction_id: 'credit-unit', type: 'Donation', amount: '1', currency: 'USD', timestamp: '2026-01-01T00:00:00Z', is_subscription_payment: false };
-test('webhook retains public display names only, without messages or private names', () => {
+test('webhook retains credit names regardless of donation privacy, without messages', () => {
   const publicPayment = normalizePayment({ ...fixture, from_name: '  Reader\n One  ', is_public: true, message: 'Never stored' });
   assert.equal(publicPayment.credit_name, 'Reader One'); assert.equal(publicPayment.credit_public, true);
   assert.equal(publicPayment.message, undefined);
   for (const is_public of [false, undefined, 'true']) {
     const payment = normalizePayment({ ...fixture, from_name: 'Private Name', is_public });
-    assert.equal(payment.credit_public, false); assert.equal(payment.credit_name, null);
-    assert.ok(!JSON.stringify(payment).includes('Private Name'));
+    assert.equal(payment.credit_public, false); assert.equal(payment.credit_name, 'Private Name');
+    assert.equal(payment.message, undefined);
   }
   assert.equal(normalizePayment({ ...fixture, from_name: 'x'.repeat(200), is_public: true }).credit_name.length, 128);
 });

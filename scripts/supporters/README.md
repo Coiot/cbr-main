@@ -4,7 +4,12 @@ New payments go directly from Ko-fi to the Supabase `kofi-payment` function.
 The receiver authenticates the private verification token, accepts donation and
 subscription payments, and stores email, IDs, date, amount, currency and payment
 kind. A separate private credit table retains public Ko-fi display names and
-their visibility choice. Shop orders, commissions and dashboard samples do not grant access.
+the Ko-fi privacy flag for reference. Website credits use the account username,
+legacy credit name or saved Ko-fi name regardless of that flag; missing names
+remain anonymous and email-like names are never published. Explicit directory
+opt-outs still apply. Apply `supabase/sql/supporter-credit-visibility.sql` to an
+existing deployment and deploy the updated `kofi-payment` receiver. Names
+discarded by the earlier receiver cannot be recovered automatically. Shop orders, commissions and dashboard samples do not grant access.
 Payment IDs and transaction IDs are unique: retries cannot extend access twice.
 
 * One-time donation: **32 days from payment**, not delivery time.

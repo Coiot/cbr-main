@@ -34,8 +34,8 @@ do $$ begin
   if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test imported' and favorite_civ='Rome') then raise exception 'Imported donor without an account missing'; end if;
   if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test new donor') then raise exception 'New public donor missing or old event overwrote name'; end if;
   if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test genuine donor' and favorite_civ='Luba') then raise exception 'Editable profile email hijacked another donor'; end if;
-  if exists(select 1 from public.get_supporter_credits() where display_name in ('Credits test expired','Credits test revoked','Credits test private donor')) then raise exception 'Expired/revoked/private name was published'; end if;
-  if (select kofi_name from public.supporter_credit_details where email='credits-private@cbr.test') is not null then raise exception 'Private donor name was retained'; end if;
+  if exists(select 1 from public.get_supporter_credits() where display_name in ('Credits test expired','Credits test revoked')) then raise exception 'Expired/revoked name was published'; end if;
+  if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test private donor') then raise exception 'Private Ko-fi flag suppressed a credit name'; end if;
   if (select count(*) from public.get_supporter_credits() where display_name='Credits test new donor') <> 1 then raise exception 'Payment duplicates duplicated credits'; end if;
   if has_function_privilege('authenticated','public.get_supporter_credits()','EXECUTE') or has_function_privilege('anon','public.get_supporter_credits()','EXECUTE') then raise exception 'Credit RPC is publicly callable'; end if;
   if has_table_privilege('authenticated','public.supporter_credit_details','SELECT') or has_table_privilege('anon','public.supporter_credit_details','SELECT') then raise exception 'Private credit identities were exposed'; end if;
@@ -45,9 +45,9 @@ update public.user_settings set settings='{"favoriteCiv":""}' where user_id='000
 do $$ begin
   if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test account' and favorite_civ='') then raise exception 'Cleared civ was overwritten by legacy fallback'; end if;
 end $$;
--- Latest private payment also hides an existing legacy/public credit name.
+-- Donation privacy does not hide an existing account credit name.
 select public.record_kofi_payment(jsonb_build_object('message_id','credits-test-hide','transaction_id','credits-test-hide','email','credits-profile@cbr.test','kind','one_time','paid_at',now()+interval '1 second','amount','1','currency','USD','credit_public',false));
 do $$ begin
-  if exists(select 1 from public.get_supporter_credits() where display_name='Credits test account') then raise exception 'Latest private choice did not hide account name'; end if;
+  if not exists(select 1 from public.get_supporter_credits() where display_name='Credits test account') then raise exception 'Private payment hid the account credit name'; end if;
 end $$;
 select 'Supporter credit database checks passed; test data will be rolled back' as result;

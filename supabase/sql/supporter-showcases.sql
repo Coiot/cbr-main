@@ -29,12 +29,9 @@ begin
         where g.revoked_at is null and (g.expires_at is null or g.expires_at > now())
     )
     select a.id,
-      case
-        -- A new explicit private donation supersedes older public credit data.
-        when d.kofi_paid_at is not null and not d.kofi_public then null
-        else coalesce(nullif(btrim(a.username),''),nullif(btrim(d.legacy_name),''),
-          case when d.kofi_public then nullif(btrim(d.kofi_name),'') end)
-      end,
+      -- Ko-fi donation privacy does not control website credit visibility.
+      coalesce(nullif(btrim(a.username),''),nullif(btrim(d.legacy_name),''),
+        nullif(btrim(d.kofi_name),'')),
       case when coalesce(a.settings,'{}'::jsonb) ? 'favoriteCiv'
         then btrim(a.settings->>'favoriteCiv') else coalesce(d.legacy_civ,'') end
     from active x

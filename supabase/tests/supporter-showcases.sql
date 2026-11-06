@@ -56,7 +56,7 @@ select pg_temp.showcase_denied($q$insert into public.supporter_directory_prefere
 set local role anon;
 select pg_temp.check_showcase((public.list_supporter_directory('Showcase test','Japan',0)->>'total')::integer=2,'Directory lost public credit names or civ filtering');
 select pg_temp.check_showcase(not (public.list_supporter_directory()::text like '%@%'),'Directory exposed an email-like name or payment email');
-select pg_temp.check_showcase(not (public.list_supporter_directory()::text like '%Showcase PRIVATE%'),'Private payment overrode directory privacy');
+select pg_temp.check_showcase((public.list_supporter_directory('Showcase test private')->>'total')::integer=1,'Private donation suppressed the account credit name');
 select pg_temp.check_showcase(public.get_supporter_showcase('00000000-0000-4000-8000-000000000051')->>'display_name'='Showcase test owner','Published profile unavailable');
 select pg_temp.check_showcase(not (public.get_supporter_showcase('00000000-0000-4000-8000-000000000051')::text like '%never expose%'),'Private settings leaked');
 select pg_temp.check_showcase((public.get_supporter_showcase('00000000-0000-4000-8000-000000000051')->>'active')::boolean,'Active badge incorrect');
