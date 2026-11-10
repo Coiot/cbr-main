@@ -1,5 +1,5 @@
 ---
-title: "One Tile from Retirement"
+title: "Episode 37: One Tile from Retirement"
 narrated_by: "Coiot + Lacs"
 description: "Fresh paint, fresher fallout, and far too many drones! Please keep your last remaining city inside the empire at all times."
 release_date: November 10, 2026
