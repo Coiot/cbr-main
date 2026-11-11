@@ -4,11 +4,11 @@ For the shared editor layer, local workflow and pending online migration, see
 [Game history and one live editor layer](LIVE-MAP.md).
 
 The community-page integration is **enabled** in `src/shared/officialMapConfig.json`.
-The T751 shared history is stored privately; the active public release contains
-only T0–710. Readers cannot upload histories. The separate editor detail layer
+The T943 shared history is stored privately; the active public release contains
+only T0–799. Readers cannot upload histories. The separate editor detail layer
 remains disabled and its migration is not installed.
-Episode 36 ends at **turn 710**, as confirmed by the showrunner. Episode 34's
-marker remains at T595 and Episode 35's at T645. The display
+Episode 37 ends at **turn 799**, as confirmed by the showrunner. Earlier markers
+remain at T595 (Episode 34), T645 (Episode 35) and T710 (Episode 36). The display
 controls default to and stop at the end of that turn (or the end of a shorter
 source). `officialMapConfig.latestEpisode` holds this display setting. This does
 not trim source data, enable publishing, or replace the server publication bound.
@@ -19,6 +19,21 @@ Do not choose a later endpoint from a save filename. Raw saves and extracted his
 in this repository, static assets, public storage or frontend environment variables.
 
 ## Extract locally
+
+The verified T943 continuation also supports C5EX envelope revision 2, observer
+schema 1 and native payload version 15, using the `zstd` executable. Checksummed
+64 KiB blocks, capacity fields and the native turn header are validated. Other
+native payload versions remain unsupported. Full packages are bounded to 16 MiB;
+deploy the updated release handler before uploading this larger private source.
+
+The T943 save preserves all T0–751 events and statistics. Its embedded InfoAddict
+history ends at T751; afterward 27 metrics have native observations. The other
+16 (including named research, nuclear stockpiles, wonders and religion/tourism
+metrics) remain missing. Earlier InfoAddict gaps remain missing as well. Native
+city-count samples establish that a player was alive at that observation; missing
+samples do not establish an elimination. One later unnamed founding uses the
+explicit label “Unnamed city”. Private preparation retains map-reconstruction
+warnings for review; a new source does not advance the published endpoint.
 
 ```
 npm run map:release -- extract "/path/latest.Civ5Save" "/path/reference.Civ5Replay" "/private/output/history.json"

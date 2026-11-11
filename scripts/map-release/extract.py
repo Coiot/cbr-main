@@ -8,20 +8,47 @@ import json
 import struct
 import sys
 import zlib
+import subprocess
+import tempfile
 from pathlib import Path
+
+
+def native_capacity(raw):
+    if raw[:4] != b'C5EX':
+        return None
+    if len(raw) < 52:
+        raise ValueError('Truncated C5EX envelope')
+    version, major, minor, players, teams, barb, barb_team, storage, team_storage, observer = struct.unpack_from('<10I', raw, 4)
+    if (version != 2 or observer != 1 or raw[44:48] != b'CIV5' or
+            struct.unpack_from('<I', raw, 48)[0] != 8 or not 0 < major < players <= storage <= 65535 or
+            major + minor + 1 != players or teams != players or barb != players - 1 or
+            barb_team != barb or not teams <= team_storage <= 65535):
+        raise ValueError('Unsupported C5EX capacity envelope')
+    return major, players
+
+
+def payload_turn(raw, payload):
+    capacity = native_capacity(raw)
+    if capacity and struct.unpack_from('<II', payload) != (capacity[1], capacity[1]):
+        raise ValueError('Native payload roster does not match its envelope')
+    return struct.unpack_from('<i', payload, 20 if capacity else 12)[0]
 
 
 def decompress_save(path):
     raw = Path(path).read_bytes()
-    if len(raw) > 100_000_000 or raw[:4] != b"CIV5":
+    if len(raw) > 100_000_000 or raw[:4] not in (b"CIV5", b"C5EX"):
         raise ValueError("Expected a Civ5 save smaller than 100 MB")
+    capacity = native_capacity(raw)
     payload = None
     chunks = 0
     # A chunk stream must consume the file exactly. Do not assume a mod header size.
     for start in range(8, min(len(raw) - 8, 2_000_000)):
-        if raw[start:start + 2] not in (b"\x78\x9c", b"\x78\xda", b"\x78\x01"):
+        if capacity:
+            if raw[start:start + 4] != b'\x28\xb5\x2f\xfd':
+                continue
+        elif raw[start:start + 2] not in (b"\x78\x9c", b"\x78\xda", b"\x78\x01"):
             continue
-        if struct.unpack_from("<II", raw, start - 8) != (2, 65536):
+        if struct.unpack_from("<II", raw, start - 8) != (15 if capacity else 2, 65536):
             continue
         at, pieces = start - 4, []
         while at + 4 <= len(raw):
@@ -33,9 +60,30 @@ def decompress_save(path):
             at += length
         if at != len(raw) or not pieces:
             continue
-        decoder = zlib.decompressobj()
-        candidate = decoder.decompress(b"".join(pieces), 300_000_001)
-        if len(candidate) > 300_000_000 or decoder.unconsumed_tail:
+        if capacity:
+            # The native writer emits one checksummed frame in 64 KiB blocks.
+            # Bound both its decoder window and the decompressed output.
+            with tempfile.TemporaryFile() as compressed:
+                compressed.write(b''.join(pieces)); compressed.seek(0)
+                try:
+                    process = subprocess.Popen(['zstd', '-d', '-c', '-M128MB'], stdin=compressed, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+                except FileNotFoundError as error:
+                    raise ValueError('Native saves require the zstd executable') from error
+                try:
+                    candidate = process.stdout.read(300_000_001)
+                    if len(candidate) > 300_000_000:
+                        process.kill()
+                        raise ValueError('Decompressed save exceeds the limit')
+                    if process.wait() != 0:
+                        raise ValueError('Native save failed Zstandard checksum/decompression')
+                finally:
+                    process.stdout.close()
+                    if process.poll() is None: process.kill()
+                    process.wait()
+        else:
+            decoder = zlib.decompressobj()
+            candidate = decoder.decompress(b"".join(pieces), 300_000_001)
+        if len(candidate) > 300_000_000 or (not capacity and decoder.unconsumed_tail):
             raise ValueError("Decompressed save exceeds the limit")
         payload, chunks = candidate, len(pieces)
         break
@@ -46,7 +94,7 @@ def decompress_save(path):
 
 def extract(path, reference):
     raw, payload, chunks = decompress_save(path)
-    turn = struct.unpack_from("<i", payload, 12)[0]
+    turn = payload_turn(raw, payload)
     if not 0 <= turn <= 100000:
         raise ValueError("Unsupported game header")
     def encoded(e):

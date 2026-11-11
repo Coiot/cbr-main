@@ -3,12 +3,14 @@ import {formatStatistic} from '../../src/shared/mapStatistics.mjs';
 // This is the verified Season 5 game branch. A new save requires an explicit
 // branch review before its statistics can generate events for this map.
 export const SEASON5_EVENT_SOURCE='1a4660efcf90eba12c9ef660ca62fa4f0d66ebc5b16969055a6655fec3099185';
+// T943 preserves every replay event and statistics sample through T751.
+const season5Sources=new Set([SEASON5_EVENT_SOURCE,'13961cad0687b5ac253aebffcb3a0290c06af4f78e629b1809bd21177cfe5163']);
 
 // Called only after prepareStatistics validates source, roster and series.
 // Plain message events keep older clients compatible and use the same release
 // clipping and selected-turn filtering as the original game messages.
 export function observedEvents(input,release) {
-  if(release.map.id!=='s5'||input.sourceSha256!==SEASON5_EVENT_SOURCE)return [];
+  if(release.map.id!=='s5'||!season5Sources.has(input.sourceSha256))return [];
   const events=[],owners=new Map(release.civilizations.map(c=>[c.name,c.ownerId]));
   for(const player of input.players) {
     const {name,values,alive}=player,owner=owners.get(name);

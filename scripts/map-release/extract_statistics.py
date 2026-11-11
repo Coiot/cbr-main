@@ -13,7 +13,7 @@ import struct
 import sys
 import tempfile
 from pathlib import Path
-from extract import decompress_save
+from extract import decompress_save, payload_turn, native_capacity
 
 INFO_METRICS = {
     's': 'score', 'nc': 'cities', 'tp': 'population', 'po': 'demographicPopulation',
@@ -33,6 +33,15 @@ NATIVE_METRICS = {
     'IMPROVEMENTMAINTENANCE': 'improvementMaintenance', 'NUMBEROFWORKERS': 'workers',
     'IMPROVEDTILES': 'improvedTiles', 'WORKEDTILES': 'workedTiles',
     'INFOADDICTDATASET_ALIVE': 'alive',
+}
+NATIVE_OVERLAP = {
+    'SCORE': 'score', 'PRODUCTIONPERTURN': 'production', 'TOTALGOLD': 'treasury',
+    'GOLDPERTURN': 'grossGold', 'CITYCOUNT': 'cities', 'TECHSKNOWN': 'technologies',
+    'SCIENCEPERTURN': 'science', 'CULTUREPERTURN': 'culture', 'EXCESSHAPINESS': 'excessHappiness',
+    'POPULATION': 'population', 'FOODPERTURN': 'food', 'TOTALLAND': 'land',
+    'NUMBEROFPOLICIES': 'policies', 'MILITARYMIGHT': 'military',
+    'INFOADDICTDATASET_WONDERS': 'wonders', 'INFOADDICTDATASET_NETGOLDPERTURN': 'netGold',
+    'INFOADDICTDATASET_REALPOPULATION': 'demographicPopulation',
 }
 
 
@@ -81,7 +90,7 @@ def player_sections(data, end_turn, count):
     return sections
 
 
-def native_statistics(data, section, limit, end_turn):
+def native_statistics(data, section, limit, end_turn, include_overlap=False):
     start = data.find(b'REPLAYDATASET_SCORE', section[2], limit)
     if start < 8:
         raise ValueError('Missing player statistics')
@@ -100,12 +109,14 @@ def native_statistics(data, section, limit, end_turn):
         points = [reader.ints(2) for _ in range(size)]
         if any(not 0 <= t <= end_turn for t, _ in points) or any(a[0] >= b[0] for a, b in zip(points, points[1:])):
             raise ValueError('Invalid history turns')
-        key = NATIVE_METRICS.get(name.removeprefix('REPLAYDATASET_'))
+        code = name.removeprefix('REPLAYDATASET_')
+        key = NATIVE_METRICS.get(code) or (NATIVE_OVERLAP.get(code) if include_overlap else None)
         if key:
             values[key] = [None] * (end_turn + 1)
             for turn, value in points:
                 values[key][turn] = value
-    if reader.at > limit or set(values) != set(NATIVE_METRICS.values()):
+    expected = set(NATIVE_METRICS.values()) | (set(NATIVE_OVERLAP.values()) if include_overlap else set())
+    if reader.at > limit or set(values) != expected:
         raise ValueError('Statistics exceed verified player section')
     return values
 
@@ -149,23 +160,43 @@ def infoaddict_statistics(data, players, end_turn):
                     players[player].setdefault(key, [None] * (end_turn + 1))[turn] = value
             if not seen:
                 raise ValueError('Missing InfoAddict history')
+            return max(turn for turn, _ in seen)
         finally:
             db.close()
 
 
 def extract_statistics(path, reference):
     raw, data, _ = decompress_save(path)
-    end_turn = struct.unpack_from('<i', data, 12)[0]
+    end_turn = payload_turn(raw, data)
     if hashlib.sha256(raw).hexdigest() != reference['source']['sha256'] or end_turn != reference['source']['turn'] or not 0 <= end_turn <= 10000:
         raise ValueError('Statistics and event history must come from the same save')
     civs = reference['civilizations']['entries']
-    sections = player_sections(data, end_turn, len(civs))
+    capacity = native_capacity(raw)
+    sections = player_sections(data, end_turn, capacity[0] if capacity else len(civs))
     players = [native_statistics(data, section, sections[i + 1][1] if i + 1 < len(sections) else len(data), end_turn)
-               for i, section in enumerate(sections)]
-    infoaddict_statistics(data, players, end_turn)
+               for i, section in enumerate(sections[:len(civs)])]
+    last_info = infoaddict_statistics(data, players, end_turn)
+    # The native port stops updating the old embedded InfoAddict table. Use
+    # actual native turn samples after that table ends, never fill older gaps.
+    if capacity and last_info < end_turn:
+        for i, values in enumerate(players):
+            native = native_statistics(data, sections[i], sections[i + 1][1], end_turn, include_overlap=True)
+            extend_native_history(values, native, last_info, end_turn)
     return {'format': 'cbr-save-statistics', 'version': 1, 'sourceSha256': reference['source']['sha256'],
             'firstTurn': 0, 'lastTurn': end_turn,
             'players': [{'name': civ['name'], 'alive': values.pop('alive'), 'values': values} for civ, values in zip(civs, players)]}
+
+
+def extend_native_history(values, native, last_info, end_turn):
+    for turn in range(last_info + 1, end_turn + 1):
+        # CITYCOUNT is emitted only for living players by the native recorder.
+        # The Lua ALIVE series itself stops at the port boundary. Absence is
+        # unknown, not an elimination event; never manufacture zero samples.
+        recorded = native['cities'][turn] is not None and values['alive'][turn] != 0
+        if recorded and values['alive'][turn] is None:
+            values['alive'][turn] = 1
+        for key in NATIVE_OVERLAP.values():
+            values[key][turn] = native[key][turn] if recorded else None
 
 
 if __name__ == '__main__':

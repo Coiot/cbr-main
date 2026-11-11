@@ -1,5 +1,12 @@
 import struct
 import unittest
+import os
+import shutil
+import subprocess
+import tempfile
+from pathlib import Path
+from extract import decompress_save, payload_turn
+from extract_statistics import extend_native_history, NATIVE_OVERLAP
 from extract_statistics import Reader, player_sections, native_statistics, NATIVE_METRICS
 
 
@@ -26,6 +33,30 @@ def statistics(points):
 
 
 class StatisticsReaderTests(unittest.TestCase):
+    def test_native_continuation_preserves_old_gaps_and_does_not_fill_dead_players(self):
+        values={key:[1,None,2,None,None] for key in NATIVE_OVERLAP.values()}
+        values['alive']=[1,1,1,1,0];values['research']=['TECH_MINING',None,'TECH_WRITING',None,None]
+        native={key:[9,9,9,8,7] for key in NATIVE_OVERLAP.values()}
+        extend_native_history(values,native,2,4)
+        self.assertEqual(values['score'],[1,None,2,8,None])
+        self.assertEqual(values['research'],['TECH_MINING',None,'TECH_WRITING',None,None])
+
+    @unittest.skipUnless(shutil.which('zstd'), 'Native save tests require zstd')
+    def test_native_wrapper_blocks_checksum_and_turn_header(self):
+        payload=integers(3,3,1,94,0,943)+os.urandom(70000)
+        compressed=subprocess.run(['zstd','-q','-c'],input=payload,stdout=subprocess.PIPE,check=True).stdout
+        header=b'C5EX'+integers(2,2,0,3,3,2,2,3,3,1)+b'CIV5'+integers(8)
+        blocks=b''.join(integers(len(compressed[i:i+65536]))+compressed[i:i+65536] for i in range(0,len(compressed),65536))
+        raw=header+integers(15)+blocks
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'native.Civ5Save';path.write_bytes(raw)
+            source,decoded,count=decompress_save(path)
+            self.assertEqual(decoded,payload);self.assertEqual(count,2)
+            self.assertEqual(payload_turn(source,decoded),943)
+            for broken in [raw[:-1],raw[:-1]+bytes([raw[-1]^1]),raw[:4]+integers(99)+raw[8:],header+integers(16)+blocks]:
+                path.write_bytes(broken)
+                with self.assertRaises(ValueError):decompress_save(path)
+
     def test_complete_player_boundaries_and_unicode(self):
         data = notifications(0) + statistics([(0, 3), (2, 9)]) + notifications(1)
         sections = player_sections(data, 4, 2)

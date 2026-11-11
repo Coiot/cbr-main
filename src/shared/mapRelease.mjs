@@ -3,7 +3,7 @@
 import {validateStatistics} from './mapStatistics.mjs';
 export const MAP_RELEASE_FORMAT = 'cbr-published-map';
 export const MAP_PUBLISHER_ID = '88c12d80-cdc8-44cf-a174-a75c63bb5936';
-export const MAX_RELEASE_BYTES = 12 * 1024 * 1024;
+export const MAX_RELEASE_BYTES = 16 * 1024 * 1024;
 const integer = (n, min, max) => Number.isInteger(n) && n >= min && n <= max;
 const fail = message => { throw new Error(message); };
 const text = (s, max = 160) => typeof s === 'string' && s.trim().length > 0 && s.length <= max;

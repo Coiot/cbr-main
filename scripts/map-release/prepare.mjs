@@ -28,7 +28,7 @@ export function prepareRelease(extraction, base, owners, config, statistics=null
         if(tiles.length!==1)throw new Error('Founding event has multiple locations.');
         const city=e.order+1;
         living.set(tiles[0],city);
-        release.events.push({turn:e.turn,kind,owner,tiles,city,name:e.text.replace(/ is founded\.$/,'').trim()});
+        release.events.push({turn:e.turn,kind,owner,tiles,city,name:e.text.replace(/ is founded\.$/,'').trim()||'Unnamed city'});
       } else {
         release.events.push({turn:e.turn,kind,owner,tiles});
         if(kind==='raze')tiles.forEach(i=>living.delete(i));

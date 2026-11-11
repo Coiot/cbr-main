@@ -49,8 +49,8 @@ grant all on public.map_releases,public.map_release_control,public.map_publicati
 grant usage,select on sequence public.map_publication_log_id_seq,public.map_contribution_history_id_seq to service_role;
 
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
-values('map-release-drafts','map-release-drafts',false,12582912,array['application/json'])
-on conflict(id) do update set public=false,file_size_limit=12582912,allowed_mime_types=array['application/json'];
+values('map-release-drafts','map-release-drafts',false,16777216,array['application/json'])
+on conflict(id) do update set public=false,file_size_limit=16777216,allowed_mime_types=array['application/json'];
 -- Intentionally no storage.objects policy for clients, including authenticated users.
 -- A restrictive policy also defeats any older bucket-wide permissive policy.
 drop policy if exists map_release_objects_private on storage.objects;
