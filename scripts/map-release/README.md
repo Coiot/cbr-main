@@ -5,9 +5,9 @@ For the shared editor layer, local workflow and pending online migration, see
 
 The community-page integration is **enabled** in `src/shared/officialMapConfig.json`.
 The T943 shared history is stored privately; the active public release contains
-only T0–810. Readers cannot upload histories. The separate editor detail layer
+only T0–809. Readers cannot upload histories. The separate editor detail layer
 remains disabled and its migration is not installed.
-Episode 38 ends at **turn 810**, as confirmed by the showrunner. Earlier markers
+Episode 38 ends at **turn 809**, as confirmed by the showrunner. Earlier markers
 remain at T595 (Episode 34), T645 (Episode 35), T710 (Episode 36) and T799 (Episode 37). The display
 controls default to and stop at the end of that turn (or the end of a shorter
 source). `officialMapConfig.latestEpisode` holds this display setting. This does
