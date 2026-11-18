@@ -4,13 +4,14 @@
   "viewLayersEnabled": true,
   "showTimelineExtras": false,
   "latestEpisode": {
-    "episode": "37",
-    "endTurn": 799
+    "episode": "38",
+    "endTurn": 810
   },
   "episodeMarkers": [
     { "episode": "34", "turn": 595 },
     { "episode": "35", "turn": 645 },
     { "episode": "36", "turn": 710 },
-    { "episode": "37", "turn": 799 }
+    { "episode": "37", "turn": 799 },
+    { "episode": "38", "turn": 810 }
   ]
 }
