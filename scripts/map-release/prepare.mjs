@@ -5,15 +5,15 @@ import {prepareStatistics} from './statistics.mjs';
 import {observedEvents} from './observedEvents.mjs';
 import {withCityDestructions} from './cityDestructions.mjs';
 
-import cityPlots809 from './s5-t809-city-plots.json' with {type:'json'};
+import plotCheckpoint809 from './s5-t809-plot-checkpoint.json' with {type:'json'};
 
 // This continuation has the same replay prefix as the reviewed T809 autosave.
 const checkpointSource = '13961cad0687b5ac253aebffcb3a0290c06af4f78e629b1809bd21177cfe5163';
 
-function reconcileCityPlots809(release) {
-  const cities = createTimeline(release).frame(809).cities;
-  const byTile = new Map(cities.map(city => [city.index, city]));
-  for (const [index, slot] of cityPlots809) {
+function reconcilePlots809(release) {
+  const frame = createTimeline(release).frame(809);
+  const byTile = new Map(frame.cities.map(city => [city.index, city]));
+  for (const [index, slot] of plotCheckpoint809.cities) {
     const city = byTile.get(index);
     if (!city || city.owner !== release.civilizations[slot].ownerId)
       throw new Error(`T809 saved city is missing or has a different owner at tile ${index}.`);
@@ -22,8 +22,20 @@ function reconcileCityPlots809(release) {
   const removals = Array.from(byTile.values(), city => ({
     turn:809, kind:'raze', owner:city.owner, tiles:[city.index]
   }));
+  if (plotCheckpoint809.owners.length !== frame.owners.length)
+    throw new Error('T809 saved tile count differs from the timeline map.');
+  const changedByOwner = new Map();
+  plotCheckpoint809.owners.forEach((slot, index) => {
+    const owner = slot === -1 ? -1 : release.civilizations[slot].ownerId;
+    if (owner === frame.owners[index]) return;
+    if (!changedByOwner.has(owner)) changedByOwner.set(owner, []);
+    changedByOwner.get(owner).push(index);
+  });
+  const ownershipChanges = Array.from(changedByOwner, ([owner, tiles]) => ({
+    turn:809, kind:'claim', owner, tiles
+  }));
   const nextTurn = release.events.findIndex(event => event.turn > 809);
-  release.events.splice(nextTurn < 0 ? release.events.length : nextTurn, 0, ...removals);
+  release.events.splice(nextTurn < 0 ? release.events.length : nextTurn, 0, ...removals, ...ownershipChanges);
 }
 
 export function prepareRelease(extraction, base, owners, config, statistics=null) {
@@ -75,7 +87,7 @@ export function prepareRelease(extraction, base, owners, config, statistics=null
     release.events.sort((a,b)=>a.turn-b.turn);
   }
   release.events=withCityDestructions(release.events);
-  if (config.sourceSha256 === checkpointSource && config.endTurn >= 809) reconcileCityPlots809(release);
+  if (config.sourceSha256 === checkpointSource && config.endTurn >= 809) reconcilePlots809(release);
   const report=auditRelease(release), timeline=createTimeline(release);
   const checkpoints=config.checkpoints||[];
   if(!config.branchVerified)report.issues.push('Confirm the game branch against episode evidence.');

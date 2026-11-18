@@ -1,4 +1,4 @@
-"""Extract the verified S5 T809 CvPlot city roster. Rows are [tile, replay civ slot]."""
+"""Extract T809 city references and tile owners from the reviewed S5 autosave."""
 import hashlib
 import json
 import re
@@ -27,7 +27,7 @@ def read_checkpoint(path):
     if len(records) != 180 * 94:
         raise ValueError("Incomplete plot grid")
 
-    cities, identities = [], set()
+    cities, plot_owners, identities = [], [], set()
     for index, pos in enumerate(records):
         if struct.unpack_from("<hh", data, pos) != (index % 180, index // 180):
             raise ValueError(f"Unexpected plot coordinates at {index}")
@@ -37,6 +37,9 @@ def read_checkpoint(path):
             raise ValueError("Unsupported plot trade-route encoding")
         fields = pos + 8 * cells
         plot_owner, = struct.unpack_from("<i", data, fields + 62)
+        if not -1 <= plot_owner < 62:
+            raise ValueError(f"Invalid owner at tile {index}")
+        plot_owners.append(plot_owner)
         owner, city_id = struct.unpack_from("<ii", data, fields + 108)
         if (owner, city_id) == (-1, -1):
             continue
@@ -44,7 +47,7 @@ def read_checkpoint(path):
             raise ValueError(f"Invalid city reference at tile {index}")
         identities.add((owner, city_id))
         cities.append([index, owner])
-    return cities
+    return {"cities": cities, "owners": plot_owners}
 
 
 if __name__ == "__main__":
