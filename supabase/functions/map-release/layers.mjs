@@ -1,5 +1,6 @@
 import {emptyViewLayer,validateViewLayer,validateLayerFrames} from '../../../src/shared/mapViewLayers.mjs';
 import {normalizeMapViewSettings} from '../../../src/.vuepress/theme/components/community/map/savedViewSettings.mjs';
+import {S5_MAP_TILE_COUNT} from '../../../src/shared/mapRelease.mjs';
 const actions=['layer-access','layer-read','layer-save','note-summary','tile-notes','note-write','note-hide'];
 export const isLayerAction=action=>actions.includes(action);
 export const layerWriteAction=action=>['layer-access','layer-save','note-write','note-hide'].includes(action);
@@ -7,7 +8,6 @@ const uuid=value=>typeof value==='string'&&/^[0-9a-f-]{36}$/i.test(value);
 export function createLayerHandler({db,active,read,check,response}){
   return async(input,user)=>{
     const current=await active();if(!current)return response({error:'The map is not published.'},404);
-    const {release,timeline}=await read(current.id);
     const access=async()=>check(await db.rpc('can_manage_map_layers',{p_actor:user?.id||null}))===true;
     if(input.action==='layer-access')return response({allowed:await access(),moderator:check(await db.rpc('is_map_layer_moderator',{p_actor:user.id}))===true});
     if(input.action==='layer-read'){
@@ -28,7 +28,11 @@ export function createLayerHandler({db,active,read,check,response}){
       if(!source||source[1]!==current.history||Number(source[2])>current.last_turn)throw new Error('Choose a published timeline turn.');
       if(settings.compare){const match=/^timeline:([0-9a-f-]{36}):(\d+)$/.exec(settings.compare);if(!match||match[1]!==current.history||Number(match[2])>current.last_turn)throw new Error('The comparison turn has not been published.');}
       if(input.viewId!==null&&!uuid(input.viewId)||!Number.isInteger(input.expectedRevision)||input.expectedRevision<0)throw new Error('Invalid view revision.');
-      validateViewLayer(input.layer,{history:current.history,lastTurn:current.last_turn});validateLayerFrames(input.layer,timeline);
+      validateViewLayer(input.layer,{history:current.history,lastTurn:current.last_turn});
+      if(input.layer.edits.length) {
+        const {timeline}=await read(current.id);
+        validateLayerFrames(input.layer,timeline);
+      }
       const profile=check(await db.from('profiles').select('username').eq('id',user.id).maybeSingle());
       const layer={...input.layer,edits:input.layer.edits.map(record=>({...record,author:profile?.username?.trim().slice(0,100)||'CBR reader'}))};
       const rows=check(await db.rpc('save_map_view_layer',{p_actor:user.id,p_id:input.viewId,p_expected:input.expectedRevision,p_title:title,p_description:description,p_visibility:visibility,p_settings:settings,p_layer:layer,p_history:current.history,p_cap:current.last_turn}));
@@ -37,7 +41,7 @@ export function createLayerHandler({db,active,read,check,response}){
     if(input.action==='note-summary'){
       const rows=check(await db.rpc('map_note_counts',{p_history:current.history}));return response({rows:rows||[]});
     }
-    if(!Number.isInteger(input.tile)||input.tile<0||input.tile>=release.map.width*release.map.height)throw new Error('Invalid tile coordinate.');
+    if(!Number.isInteger(input.tile)||input.tile<0||input.tile>=S5_MAP_TILE_COUNT)throw new Error('Invalid tile coordinate.');
     if(input.action==='tile-notes'){
       const offset=input.offset??0;if(!Number.isInteger(offset)||offset<0||offset>100000)throw new Error('Invalid note page.');
       const rows=check(await db.rpc('read_map_tile_notes',{p_history:current.history,p_tile:input.tile,p_actor:user?.id||null,p_offset:offset}));return response({rows:rows||[]});

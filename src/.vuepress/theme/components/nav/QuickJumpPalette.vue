@@ -440,14 +440,13 @@ export default {
       }
     },
     $route() {
-      this.syncScopeFromRoute();
       this.closePalette();
+      this.syncScopeFromRoute();
     },
   },
 
   mounted() {
     this.buildIndex();
-    this.loadMapCities();
     this.loadMapPins();
     this.syncScopeFromRoute();
     if (typeof window !== "undefined") {
@@ -653,7 +652,6 @@ export default {
         label:
           this.snapshotScope.id === snapshotId ? this.snapshotScope.label : "",
       };
-      this.ensureSnapshotScope(snapshotId);
     },
 
     async ensureSnapshotScope(snapshotId) {
@@ -963,7 +961,7 @@ export default {
         }
         this.allItems = [...this.allItems, ...cityItems];
       } catch (error) {
-        // No-op: quick jump still works without city index.
+        this.mapCitiesLoaded = false;
       }
     },
 
@@ -1115,6 +1113,7 @@ export default {
     openPalette() {
       this.isOpen = true;
       this.activeIndex = 0;
+      this.loadMapCities();
       this.loadSnapshotList();
       if (this.snapshotScope.mode === "snapshot" && this.snapshotScope.id) {
         this.ensureSnapshotScope(this.snapshotScope.id);

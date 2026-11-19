@@ -21,18 +21,40 @@ const clientRelease=(release,input)=>{
 export async function digest(value) {
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(value))))].map(n=>n.toString(16).padStart(2,'0')).join('');
 }
-export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
+export function createMapReleaseHandler(db,{detailsEnabled=true,delivery=null}={}) {
   const cache=new Map();
-  async function read(id) {
-    if(!isReleaseId(id))throw new Error('Invalid release identity.');
-    if(cache.has(id))return cache.get(id);
+  async function downloadRelease(id) {
     const blob=check(await db.storage.from(BUCKET).download(`${id}.json`));
     if(blob.size>MAX_RELEASE_BYTES)throw new Error('Release exceeds the size limit.');
     const release=validateRelease(JSON.parse(await blob.text()));
     if(await digest(release)!==id)throw new Error('Release integrity check failed.');
-    const item={release,timeline:createTimeline(release)};
-    cache.set(id,item);if(cache.size>3)cache.delete(cache.keys().next().value);
-    return item;
+    return {release,timeline:createTimeline(release)};
+  }
+  async function readDelivery(id, part) {
+    if(delivery&&part){
+      try {
+        const release=validateRelease(await delivery.read(id,part));
+        if(part==='full'&&await digest(release)!==id)throw new Error('Release integrity check failed.');
+        return {release,timeline:createTimeline(release)};
+      } catch {
+        // Continue serving the original private package during a CDN outage.
+      }
+    }
+    return downloadRelease(id);
+  }
+  async function read(id, part) {
+    if(!isReleaseId(id))throw new Error('Invalid release identity.');
+    const cacheKey=delivery&&part?`${id}:${part}`:id;
+    if(cache.has(cacheKey))return cache.get(cacheKey);
+    const pending=readDelivery(id,part);
+    cache.set(cacheKey,pending);
+    if(cache.size>3)cache.delete(cache.keys().next().value);
+    try {
+      return await pending;
+    } catch(error) {
+      if(cache.get(cacheKey)===pending)cache.delete(cacheKey);
+      throw error;
+    }
   }
   async function active() {
     const control=check(await db.from('map_release_control').select('active_release,enabled').eq('map_id','s5').single());
@@ -50,7 +72,12 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
       check(await db.from('map_releases').insert({id,history:release.history,first_turn:release.firstTurn,last_turn:release.lastTurn,bookmarks:release.bookmarks,event_gaps_accepted:acceptHistoricalGaps}));}
     return id;
   }
-  const layers=createLayerHandler({db,active,read,check,response});
+  async function mirror(id, release) {
+    if(!delivery)return;
+    try { await delivery.upload(id,release); }
+    catch(error) { console.warn('Map CDN mirror failed:',error.message); }
+  }
+  const layers=createLayerHandler({db,active,read:id=>read(id,'history'),check,response});
   return async request=>{
     if(request.method==='OPTIONS')return new Response('',{headers});
     if(request.method!=='POST')return response({error:'Use POST.'},405);
@@ -88,13 +115,14 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
         if(!sourceId)throw new Error('Stage a checked game history before adding episode endpoints.');
         if(action==='timeline-admin') {
           if(!current)return response({error:'No episode has been published.'},404);
-          return response({active:current,sourceId,release:clientRelease((await read(current.id)).release,input)});
+          return response({active:current,sourceId,release:clientRelease((await read(current.id,'history')).release,input)});
         }
         const {release:source}=await read(sourceId);
         if(input.sourceId!==sourceId||(input.expected||null)!==(current?.id||null))throw new Error('The timeline changed. Reload before publishing an endpoint.');
         const markers=upsertEpisodeMarker(current?.bookmarks||[],input.marker,{firstTurn:source.firstTurn,lastTurn:source.lastTurn});
         const acceptHistoricalGaps=await gapAcceptance(sourceId);
         const release=releaseThroughEpisodes(source,markers,{acceptHistoricalGaps}),id=await storeRelease(release,acceptHistoricalGaps);
+        await mirror(id,release);
         check(await db.rpc('publish_map_episode',{p_actor:user.id,p_source:sourceId,p_release:id,p_expected:current?.id||null}));
         return response({active:await active()});
       }
@@ -114,35 +142,43 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
         if(!auditRelease(release).ok&&!await gapAcceptance(input.id))throw new Error('Release failed validation.');
         if(validateEpisodeMarkers(release.bookmarks,{firstTurn:release.firstTurn,lastTurn:release.lastTurn}).at(-1).turn!==release.lastTurn)throw new Error('Publish an episode endpoint, not the full private source.');
         if(input.endTurn!==release.lastTurn || input.confirm!==true)throw new Error('Review and confirm the exact release end turn.');
+        await mirror(input.id,release);
         check(await db.rpc('publish_map_release',{p_actor:user.id,p_release:input.id,p_expected:input.expected||null}));
         return response({active:await active()});
       }
       const current=await active();
       if(!current)return response({error:'The official timeline is not published.'},404);
       const id=input.id||current.id;
-      const row=check(await db.from('map_releases').select('*').eq('id',id).maybeSingle());
+      const row=id===current.id?current:check(await db.from('map_releases').select('history,first_turn,last_turn,published_at').eq('id',id).maybeSingle());
       if(!row?.published_at || row.history!==current.history || row.last_turn>current.last_turn)return response({error:'This release is not available.'},404);
-      const {release,timeline}=await read(id);
-      if(action==='release')return response({id,release:clientRelease(release,input)});
+      if(action==='release') {
+        if(delivery&&input.preferCdn===true&&input.includeMessages===true)
+          return response({id,historyKey:await delivery.historyKey(id)});
+        return response({id,release:clientRelease((await read(id,'history')).release,input)});
+      }
       if(action==='search'&&input.turn===undefined)input.turn=current.last_turn;
-      if(!Number.isInteger(input.turn)||input.turn<release.firstTurn||input.turn>Math.min(current.last_turn,release.lastTurn))throw new Error('This turn is not published.');
-      if(action==='statistics')return response({id,history:release.history,...statisticsAtTurn(release,input.turn)});
+      if(!Number.isInteger(input.turn)||input.turn<row.first_turn||input.turn>row.last_turn)throw new Error('This turn is not published.');
+      if(action==='statistics') {
+        const {release}=await read(id,'full');
+        return response({id,history:release.history,...statisticsAtTurn(release,input.turn)});
+      }
       if(action==='search') {
-        if(input.history&&input.history!==release.history)throw new Error('Different game history.');
+        if(input.history&&input.history!==row.history)throw new Error('Different game history.');
+        const {release,timeline}=await read(id,'history');
         const frame=timeline.frame(input.turn);
         return response({id:`timeline:${release.history}:${input.turn}`,episode_label:`Turn ${input.turn}`,
           payload:frame.cities.map(c=>({tile_key:`${c.index%release.map.width},${release.map.height-1-Math.floor(c.index/release.map.width)}`,payload:{owner:c.owner,city:{id:c.id,name:c.name,owner:c.owner}}}))});
       }
       if(action==='details') {
         const rows=[];
-        for(let start=0;start<100000;start+=1000){const page=check(await db.from('map_tile_details').select('record,revision').eq('history',release.history)
+        for(let start=0;start<100000;start+=1000){const page=check(await db.from('map_tile_details').select('record,revision').eq('history',row.history)
           .lte('observed_turn',current.last_turn).order('detail_key').range(start,start+999));
           for(const row of page){validateDetail(row.record);rows.push(row);}if(page.length<1000)break;
         }
         return response({rows});
       }
       if(action==='edit-detail') {
-        const latest=await read(current.id),record=input.record;
+        const latest=await read(current.id,'history'),record=input.record;
         validateDetail(record);
         if(!Number.isInteger(input.expectedRevision)||input.expectedRevision<0)throw new Error('Invalid edit revision.');
         const frame=latest.timeline.frame(input.turn);
@@ -152,7 +188,7 @@ export function createMapReleaseHandler(db,{detailsEnabled=true}={}) {
         }
         if(record.field==='ideology'&&frame.owners[record.tile]!==record.owner)throw new Error('Select a tile belonging to this civilization.');
         if(record.field==='ruins'&&record.value&&frame.cities.some(c=>c.index===record.tile))throw new Error('A city currently occupies this tile.');
-        check(await db.rpc('write_map_tile_detail',{p_actor:user.id,p_history:release.history,p_turn:input.turn,p_record:record,p_expected:input.expectedRevision}));
+        check(await db.rpc('write_map_tile_detail',{p_actor:user.id,p_history:row.history,p_turn:input.turn,p_record:record,p_expected:input.expectedRevision}));
         return response({ok:true});
       }
       if(['contributions','contribute','history','hide','restore'].includes(action))return response({error:'Turn-specific contributions have been retired. Use the live map editor.'},410);

@@ -445,7 +445,7 @@ test('official mode refuses legacy live loading and writes even when signed in a
 });
 
 // HTTP tests exercise authorization and release selection rather than mocking the handler.
-async function server(release=fixture()){
+async function server(release=fixture(),options){
   const id=await digest(release),draft=fixture();draft.lastTurn=5;draft.bookmarks=[{episode:'2',turn:5}];
   draft.events.push({turn:5,kind:'wonder',owner:1,tiles:[20],city:7,name:'Secret Future Wonder'});draft.catalog.wonders.push('Secret Future Wonder');
   const draftId=await digest(draft);
@@ -455,7 +455,7 @@ async function server(release=fixture()){
   ],reads:[],writes:[],objects:new Map([[id,release],[draftId,draft]])};
   const db={
     auth:{getUser:async token=>({data:{user:token==='coiot'?{id:MAP_PUBLISHER_ID}:token==='reader'?{id:'reader',user_metadata:{username:'Coiot'}}:null},error:null})},
-    storage:{from:()=>({download:async path=>{state.reads.push(path);return {data:new Blob([JSON.stringify(state.objects.get(path.replace('.json','')))]),error:null};},upload:async(path,blob)=>{state.objects.set(path.replace('.json',''),JSON.parse(await blob.text()));return {data:null,error:null};}})},
+    storage:{from:()=>({download:async path=>{state.reads.push(path);await state.beforeDownload?.();return {data:new Blob([JSON.stringify(state.objects.get(path.replace('.json','')))]),error:null};},upload:async(path,blob)=>{state.objects.set(path.replace('.json',''),JSON.parse(await blob.text()));return {data:null,error:null};}})},
     from(table){
       const filters=[];let operation='read';let payload;
       const query={
@@ -474,13 +474,46 @@ async function server(release=fixture()){
     },
     rpc:async(name,args)=>{if(name==='can_edit_map_details')return {data:state.editorAllowed,error:null};state.writes.push({name,args});if(name==='set_map_timeline_source')state.source=args.p_source;if(name==='publish_map_episode'){if(state.active!==args.p_expected||state.source!==args.p_source)return {error:{message:'The timeline changed.'}};state.active=args.p_release;state.rows.find(r=>r.id===state.active).published_at='2026-10-20';}return {data:null,error:null};}
   };
-  const handler=createMapReleaseHandler(db);
+  const handler=createMapReleaseHandler(db,options);
   const call=async(body,token='')=>{
     const response=await handler(new Request('https://example.test',{method:'POST',headers:{Authorization:`Bearer ${token}`},body:JSON.stringify(body)}));
     return {status:response.status,body:await response.json()};
   };
   return {state,call,id,draftId};
 }
+test('CDN keys are issued only for public revisions within the active turn limit',async()=>{
+  const keys=[];
+  const delivery={historyKey:async id=>{keys.push(id);return 'test-key';}};
+  const {id,draftId,state,call}=await server(fixture(),{delivery});
+  const request={action:'release',preferCdn:true,includeMessages:true};
+  assert.deepEqual((await call(request)).body,{id,historyKey:'test-key'});
+  assert.equal((await call({...request,id:draftId})).status,404);
+  const earlier=fixture();earlier.lastTurn=1;
+  const earlierId=await digest(earlier);
+  state.rows.push({id:earlierId,history,first_turn:0,last_turn:1,published_at:'2026-01-01'});
+  state.active=earlierId;
+  assert.equal((await call({...request,id})).status,404);
+  assert.deepEqual(keys,[id]);
+  assert.deepEqual(state.reads,[]);
+});
+test('map notes, detail reads and rejected turn requests do not download a release',async()=>{
+  const {state,call}=await server();
+  assert.equal((await call({action:'note-summary'})).status,200);
+  assert.equal((await call({action:'tile-notes',tile:20})).status,200);
+  assert.equal((await call({action:'tile-notes',tile:16920})).status,400);
+  assert.equal((await call({action:'details',turn:1})).status,200);
+  assert.equal((await call({action:'statistics',turn:5})).status,400);
+  assert.deepEqual(state.reads,[]);
+});
+test('overlapping map requests share a storage download and failed downloads can retry',async()=>{
+  const {state,call,id}=await server();
+  state.beforeDownload=()=>{throw new Error('Storage unavailable');};
+  assert.equal((await call({action:'release'})).status,400);
+  state.beforeDownload=()=>new Promise(resolve=>setImmediate(resolve));
+  const results=await Promise.all([call({action:'release'}),call({action:'statistics',turn:1}),call({action:'search'})]);
+  assert.deepEqual(results.map(r=>r.status),[200,200,200]);
+  assert.deepEqual(state.reads,[`${id}.json`,`${id}.json`]);
+});
 test('anonymous readers cannot retrieve drafts, forge Coiot, or publish by claiming localhost',async()=>{
   const {call,state,draftId}=await server();
   assert.equal((await call({action:'release',id:draftId})).status,404);

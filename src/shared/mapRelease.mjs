@@ -4,6 +4,9 @@ import {validateStatistics} from './mapStatistics.mjs';
 export const MAP_RELEASE_FORMAT = 'cbr-published-map';
 export const MAP_PUBLISHER_ID = '88c12d80-cdc8-44cf-a174-a75c63bb5936';
 export const MAX_RELEASE_BYTES = 16 * 1024 * 1024;
+const S5_MAP_WIDTH = 180;
+const S5_MAP_HEIGHT = 94;
+export const S5_MAP_TILE_COUNT = S5_MAP_WIDTH * S5_MAP_HEIGHT;
 const integer = (n, min, max) => Number.isInteger(n) && n >= min && n <= max;
 const fail = message => { throw new Error(message); };
 const text = (s, max = 160) => typeof s === 'string' && s.trim().length > 0 && s.length <= max;
@@ -16,7 +19,7 @@ export function validateRelease(input) {
       input.format !== MAP_RELEASE_FORMAT || input.version !== 1 || !isHistoryId(input.history) ||
       !integer(input.firstTurn, 0, 100000) || !integer(input.lastTurn, input.firstTurn, 100000)) fail('Invalid map release.');
   const map = input.map;
-  if (!exact(map, ['id','width','height','fingerprint']) || map.id !== 's5' || map.width !== 180 || map.height !== 94 ||
+  if (!exact(map, ['id','width','height','fingerprint']) || map.id !== 's5' || map.width !== S5_MAP_WIDTH || map.height !== S5_MAP_HEIGHT ||
       !/^fnv1a32:[0-9a-f]{8}:\d+$/.test(map.fingerprint || '')) fail('Incompatible base geography.');
   if (!Array.isArray(input.civilizations) || !input.civilizations.length || input.civilizations.length > 64 ||
       input.civilizations.some(c => !exact(c, ['name','ownerId']) || !text(c.name) || !integer(c.ownerId,0,63)) ||

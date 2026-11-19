@@ -1,5 +1,5 @@
 // Showrunner-only CLI. Credentials and the unbounded history never reach the site.
-import {readFileSync} from 'node:fs';
+import {existsSync,readFileSync} from 'node:fs';
 import {parseArgs} from 'node:util';
 import {randomUUID} from 'node:crypto';
 import dotenv from 'dotenv';
@@ -9,6 +9,7 @@ import {prepareRelease} from './prepare.mjs';
 import {MAP_PUBLISHER_ID,MAX_RELEASE_BYTES,validateRelease} from '../../src/shared/mapRelease.mjs';
 import {releaseThroughEpisodes} from '../../src/shared/mapEpisodeMarkers.mjs';
 import {digest} from '../../supabase/functions/map-release/handler.mjs';
+import {createMapDelivery} from '../../supabase/functions/map-release/delivery.mjs';
 import config from '../../src/shared/publicConfig.json' with {type:'json'};
 
 try {
@@ -49,6 +50,15 @@ try {
       return id;
     };
     const sourceId=await store(source),id=await store(bounded);
+    const cdnConfig=new URL('../../.env.map-cdn',import.meta.url);
+    const cdnEnv={...(existsSync(cdnConfig)?dotenv.parse(readFileSync(cdnConfig)):{}),...process.env};
+    const delivery=createMapDelivery({
+      storageUrl:cdnEnv.CBR_MAP_CDN_STORAGE_URL,
+      storageKey:cdnEnv.CBR_MAP_CDN_STORAGE_KEY,
+      secret:cdnEnv.CBR_MAP_CDN_SECRET
+    });
+    if(delivery)await delivery.upload(id,bounded);
+    else console.warn('Bunny map delivery is not configured locally. The new release will use Supabase Storage.');
     check(await db.rpc('set_map_timeline_source',{p_actor:MAP_PUBLISHER_ID,p_source:sourceId}));
     check(await db.rpc('publish_map_episode',{p_actor:MAP_PUBLISHER_ID,p_source:sourceId,p_release:id,p_expected:control.active_release}));
     console.log(JSON.stringify({published:id,privateSource:sourceId,publicEndTurn:bounded.lastTurn}));

@@ -138,8 +138,20 @@ The publisher previews the exact prepared package, stages it privately, enters
 the maximum public turn and checks the explicit confirmation. Publication
 atomically changes the active package and freezes legacy tile writes. Ordinary
 users cannot access drafts, even with a guessed object key. The public reader
-uses a private-bucket gateway with no-store responses and an active-limit check;
-it does not hand out reusable signed URLs for drafts.
+checks the active limit through the gateway. The gateway then provides a key for
+the gzip-compressed history on Bunny. Drafts stay in the private bucket.
+
+The gateway uses the Bunny history for city search and the separate complete
+public package for per-turn statistics. Each package has its own derived key.
+The complete package key stays on the server. If Bunny is unavailable, readers
+fall back to the private Supabase copy via the same public checks.
+
+For CDN delivery, set `CBR_MAP_CDN_STORAGE_URL`, `CBR_MAP_CDN_STORAGE_KEY`, and
+`CBR_MAP_CDN_SECRET` in the Edge Function secrets. The secret is 32 random bytes
+encoded as hex. Use the same values in the gitignored `.env.map-cdn` for
+`publish.mjs` on the publisher's machine. Website and CLI publication both
+mirror the bounded release to Bunny. Only the gateway can authorize readers
+after the database publication succeeds.
 
 Published releases are immutable and identified by SHA-256 of their canonical
 JSON. A previous published revision can be selected to roll back; already
