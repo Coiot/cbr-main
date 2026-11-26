@@ -1,8 +1,9 @@
 # Episode endpoints and shared viewing limits
 
-Episode 38's confirmed end turn is **809**, now published as the public ceiling.
-Earlier markers remain at **595** (Episode 34), **645** (Episode 35), **710** (Episode 36) and **799** (Episode 37). Until another endpoint is explicitly
-published, readers stop at T809. All turns mean **end of turn**: events on N are
+Episode 39's confirmed end turn is **824**, now published as the public ceiling.
+Earlier markers are **595** (Episode 34), **645** (Episode 35), **710** (Episode 36),
+**799** (Episode 37) and **809** (Episode 38). Until another endpoint is explicitly
+published, readers stop at T824. All turns mean **end of turn**: events on N are
 included, events on N+1 are excluded. Earlier episode endpoints have not been
 invented; add them as the showrunner supplies them.
 
@@ -50,7 +51,7 @@ published turn checks. Private future turns cannot create public saved views.
 
 ## Deployment state
 
-The shared T943 source and bounded Episode 38 release (T0–809) are installed in
+The shared T943 source and bounded Episode 39 release (T0–824) are installed in
 Supabase. The baseline, episode-marker and recovered-history migrations and
 updated `map-release` API are deployed. The frontend integration is enabled in
 the working tree; deploy the site normally to update the hosted page.

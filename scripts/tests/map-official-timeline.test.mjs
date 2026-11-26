@@ -144,9 +144,9 @@ test('Episode 34 display ends at 595 without extending shorter releases or chang
   assert.equal(createTimeline(release).frame(596).owners[19],0);
   assert.equal(JSON.stringify(release),original);
 });
-test('current public defaults preserve earlier markers and end Episode 38 at 809',()=>{
-  assert.deepEqual(defaultEpisodeMarkers,[{episode:'34',turn:595},{episode:'35',turn:645},{episode:'36',turn:710},{episode:'37',turn:799},{episode:'38',turn:809}]);
-  assert.equal(timelineLastTurn(943),809);
+test('current public defaults preserve earlier markers and end Episode 39 at 824',()=>{
+  assert.deepEqual(defaultEpisodeMarkers,[{episode:'34',turn:595},{episode:'35',turn:645},{episode:'36',turn:710},{episode:'37',turn:799},{episode:'38',turn:809},{episode:'39',turn:824}]);
+  assert.equal(timelineLastTurn(943),824);
   assert.equal(timelineLastTurn(751),751);
   assert.equal(timelineLastTurn(600),600);
 });
